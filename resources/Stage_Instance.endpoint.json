@@ -1,0 +1,65 @@
+{
+  "Create Stage Instance": {
+    "Command": "POST",
+    "URL": "/stage-instances",
+    "json": [
+      {
+        "Field": "channel_id",
+        "Type": "snowflake",
+        "Description": "The id of the Stage channel",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "topic",
+        "Type": "string",
+        "Description": "The topic of the Stage instance (1-120 characters)",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "privacy_level",
+        "Type": "integer",
+        "Description": "The privacy level of the Stage instance (default GUILD_ONLY)",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "send_start_notification",
+        "Type": "boolean",
+        "Description": "Notify @everyone that a Stage instance has started",
+        "Note": "*",
+        "Optional": true,
+        "Nullable": false
+      }
+    ]
+  },
+  "Get Stage Instance": {
+    "Command": "GET",
+    "URL": "/stage-instances/{channel.id}"
+  },
+  "Modify Stage Instance": {
+    "Command": "PATCH",
+    "URL": "/stage-instances/{channel.id}",
+    "json": [
+      {
+        "Field": "topic",
+        "Type": "string",
+        "Description": "The topic of the Stage instance (1-120 characters)",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "privacy_level",
+        "Type": "integer",
+        "Description": "The privacy level of the Stage instance",
+        "Optional": true,
+        "Nullable": false
+      }
+    ]
+  },
+  "Delete Stage Instance": {
+    "Command": "DELETE",
+    "URL": "/stage-instances/{channel.id}"
+  }
+}

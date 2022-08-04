@@ -1,0 +1,60 @@
+{
+  "Emoji": [
+    {
+      "Field": "id",
+      "Type": "snowflake",
+      "Description": "emoji id",
+      "Optional": false,
+      "Nullable": true
+    },
+    {
+      "Field": "name",
+      "Type": "string (can be null only in reaction emoji objects)",
+      "Description": "emoji name",
+      "Optional": false,
+      "Nullable": true
+    },
+    {
+      "Field": "roles",
+      "Type": "array of role object ids",
+      "Description": "roles allowed to use this emoji",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "user",
+      "Type": "user object",
+      "Description": "user that created this emoji",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "require_colons",
+      "Type": "boolean",
+      "Description": "whether this emoji must be wrapped in colons",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "managed",
+      "Type": "boolean",
+      "Description": "whether this emoji is managed",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "animated",
+      "Type": "boolean",
+      "Description": "whether this emoji is animated",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "available",
+      "Type": "boolean",
+      "Description": "whether this emoji can be used, may be false due to loss of Server Boosts",
+      "Optional": true,
+      "Nullable": false
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "Get Entitlements": {
+    "Command": "GET",
+    "URL": "/applications/{application.id}/entitlements"
+  },
+  "Get Entitlement": {
+    "Command": "GET",
+    "URL": "/applications/{application.id}/entitlements/{entitlement.id}"
+  },
+  "Get SKUs": {
+    "Command": "GET",
+    "URL": "/applications/{application.id}/skus"
+  },
+  "Consume SKU": {
+    "Command": "POST",
+    "URL": "/applications/{application.id}/entitlements/{entitlement.id}/consume"
+  },
+  "Delete Test Entitlement": {
+    "Command": "DELETE",
+    "URL": "/applications/{application.id}/entitlements/{entitlement.id}"
+  },
+  "Create Purchase Discount": {
+    "Command": "PUT",
+    "URL": "/store/skus/{sku.id}/discounts/{user.id}"
+  },
+  "Delete Purchase Discount": {
+    "Command": "DELETE",
+    "URL": "/store/skus/{sku.id}/discounts/{user.id}"
+  }
+}

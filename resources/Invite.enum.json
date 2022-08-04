@@ -1,0 +1,12 @@
+{
+  "Invite Target Types": [
+    {
+      "Type": "STREAM",
+      "Value": "1"
+    },
+    {
+      "Type": "EMBEDDED_APPLICATION",
+      "Value": "2"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "Response Structure": [
+    {
+      "Field": "application",
+      "Type": "partial application object",
+      "Description": "the current application"
+    },
+    {
+      "Field": "scopes",
+      "Type": "array of strings",
+      "Description": "the scopes the user has authorized the application for"
+    },
+    {
+      "Field": "expires",
+      "Type": "ISO8601 timestamp",
+      "Description": "when the access token expires"
+    },
+    {
+      "Field": "user?",
+      "Type": "user object",
+      "Description": "the user who has authorized, if the user has authorized with the identify scope"
+    }
+  ]
+}

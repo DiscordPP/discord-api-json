@@ -1,0 +1,433 @@
+{
+  "Get Channel": {
+    "Command": "GET",
+    "URL": "/channels/{channel.id}"
+  },
+  "Modify Channel": {
+    "Command": "PATCH",
+    "URL": "/channels/{channel.id}"
+  },
+  "Delete/Close Channel": {
+    "Command": "DELETE",
+    "URL": "/channels/{channel.id}"
+  },
+  "Get Channel Messages": {
+    "Command": "GET",
+    "URL": "/channels/{channel.id}/messages",
+    "query": [
+      {
+        "Field": "around",
+        "Type": "snowflake",
+        "Description": "Get messages around this message ID",
+        "Default": "absent",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "before",
+        "Type": "snowflake",
+        "Description": "Get messages before this message ID",
+        "Default": "absent",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "after",
+        "Type": "snowflake",
+        "Description": "Get messages after this message ID",
+        "Default": "absent",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "limit",
+        "Type": "integer",
+        "Description": "Max number of messages to return (1-100)",
+        "Default": "50",
+        "Optional": true,
+        "Nullable": false
+      }
+    ]
+  },
+  "Get Channel Message": {
+    "Command": "GET",
+    "URL": "/channels/{channel.id}/messages/{message.id}"
+  },
+  "Create Message": {
+    "Command": "POST",
+    "URL": "/channels/{channel.id}/messages"
+  },
+  "Crosspost Message": {
+    "Command": "POST",
+    "URL": "/channels/{channel.id}/messages/{message.id}/crosspost"
+  },
+  "Create Reaction": {
+    "Command": "PUT",
+    "URL": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/@me"
+  },
+  "Delete Own Reaction": {
+    "Command": "DELETE",
+    "URL": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/@me"
+  },
+  "Delete User Reaction": {
+    "Command": "DELETE",
+    "URL": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/{user.id}"
+  },
+  "Get Reactions": {
+    "Command": "GET",
+    "URL": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}",
+    "query": [
+      {
+        "Field": "after",
+        "Type": "snowflake",
+        "Description": "Get users after this user ID",
+        "Default": "absent",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "limit",
+        "Type": "integer",
+        "Description": "Max number of users to return (1-100)",
+        "Default": "25",
+        "Optional": true,
+        "Nullable": false
+      }
+    ]
+  },
+  "Delete All Reactions": {
+    "Command": "DELETE",
+    "URL": "/channels/{channel.id}/messages/{message.id}/reactions"
+  },
+  "Delete All Reactions for Emoji": {
+    "Command": "DELETE",
+    "URL": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}"
+  },
+  "Edit Message": {
+    "Command": "PATCH",
+    "URL": "/channels/{channel.id}/messages/{message.id}"
+  },
+  "Delete Message": {
+    "Command": "DELETE",
+    "URL": "/channels/{channel.id}/messages/{message.id}"
+  },
+  "Bulk Delete Messages": {
+    "Command": "POST",
+    "URL": "/channels/{channel.id}/messages/bulk-delete",
+    "json": [
+      {
+        "Field": "messages",
+        "Type": "array of snowflakes",
+        "Description": "an array of message ids to delete (2-100)",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Edit Channel Permissions": {
+    "Command": "PUT",
+    "URL": "/channels/{channel.id}/permissions/{overwrite.id}",
+    "json": [
+      {
+        "Field": "allow",
+        "Type": "string?",
+        "Description": "the bitwise value of all allowed permissions (default \"0\")",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "deny",
+        "Type": "string?",
+        "Description": "the bitwise value of all disallowed permissions (default \"0\")",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "type",
+        "Type": "integer",
+        "Description": "0 for a role or 1 for a member",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Get Channel Invites": {
+    "Command": "GET",
+    "URL": "/channels/{channel.id}/invites"
+  },
+  "Create Channel Invite": {
+    "Command": "POST",
+    "URL": "/channels/{channel.id}/invites",
+    "json": [
+      {
+        "Field": "max_age",
+        "Type": "integer",
+        "Description": "duration of invite in seconds before expiry, or 0 for never. between 0 and 604800 (7 days)",
+        "Default": "86400 (24 hours)",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "max_uses",
+        "Type": "integer",
+        "Description": "max number of uses or 0 for unlimited. between 0 and 100",
+        "Default": "0",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "temporary",
+        "Type": "boolean",
+        "Description": "whether this invite only grants temporary membership",
+        "Default": "false",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "unique",
+        "Type": "boolean",
+        "Description": "if true, don't try to reuse a similar invite (useful for creating many unique one time use invites)",
+        "Default": "false",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "target_type",
+        "Type": "integer",
+        "Description": "the type of target for this voice channel invite",
+        "Default": "",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "target_user_id",
+        "Type": "snowflake",
+        "Description": "the id of the user whose stream to display for this invite, required if target_type is 1, the user must be streaming in the channel",
+        "Default": "",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "target_application_id",
+        "Type": "snowflake",
+        "Description": "the id of the embedded application to open for this invite, required if target_type is 2, the application must have the EMBEDDED flag",
+        "Default": "",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Delete Channel Permission": {
+    "Command": "DELETE",
+    "URL": "/channels/{channel.id}/permissions/{overwrite.id}"
+  },
+  "Follow News Channel": {
+    "Command": "POST",
+    "URL": "/channels/{channel.id}/followers",
+    "json": [
+      {
+        "Field": "webhook_channel_id",
+        "Type": "snowflake",
+        "Description": "id of target channel",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Trigger Typing Indicator": {
+    "Command": "POST",
+    "URL": "/channels/{channel.id}/typing"
+  },
+  "Get Pinned Messages": {
+    "Command": "GET",
+    "URL": "/channels/{channel.id}/pins"
+  },
+  "Pin Message": {
+    "Command": "PUT",
+    "URL": "/channels/{channel.id}/pins/{message.id}"
+  },
+  "Unpin Message": {
+    "Command": "DELETE",
+    "URL": "/channels/{channel.id}/pins/{message.id}"
+  },
+  "Group DM Add Recipient": {
+    "Command": "PUT",
+    "URL": "/channels/{channel.id}/recipients/{user.id}",
+    "json": [
+      {
+        "Field": "access_token",
+        "Type": "string",
+        "Description": "access token of a user that has granted your app the gdm.join scope",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "nick",
+        "Type": "string",
+        "Description": "nickname of the user being added",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Group DM Remove Recipient": {
+    "Command": "DELETE",
+    "URL": "/channels/{channel.id}/recipients/{user.id}"
+  },
+  "Start Thread from Message": {
+    "Command": "POST",
+    "URL": "/channels/{channel.id}/messages/{message.id}/threads",
+    "json": [
+      {
+        "Field": "name",
+        "Type": "string",
+        "Description": "1-100 character channel name",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "auto_archive_duration",
+        "Type": "integer",
+        "Description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "rate_limit_per_user",
+        "Type": "integer",
+        "Description": "amount of seconds a user has to wait before sending another message (0-21600)",
+        "Optional": true,
+        "Nullable": true
+      }
+    ]
+  },
+  "Start Thread without Message": {
+    "Command": "POST",
+    "URL": "/channels/{channel.id}/threads",
+    "json": [
+      {
+        "Field": "name",
+        "Type": "string",
+        "Description": "1-100 character channel name",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "auto_archive_duration",
+        "Type": "integer",
+        "Description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "type?*",
+        "Type": "integer",
+        "Description": "the type of thread to create",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "invitable",
+        "Type": "boolean",
+        "Description": "whether non-moderators can add other non-moderators to a thread; only available when creating a private thread",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "rate_limit_per_user",
+        "Type": "integer",
+        "Description": "amount of seconds a user has to wait before sending another message (0-21600)",
+        "Optional": true,
+        "Nullable": true
+      }
+    ]
+  },
+  "Start Thread in Forum Channel": {
+    "Command": "POST",
+    "URL": "/channels/{channel.id}/threads"
+  },
+  "Join Thread": {
+    "Command": "PUT",
+    "URL": "/channels/{channel.id}/thread-members/@me"
+  },
+  "Add Thread Member": {
+    "Command": "PUT",
+    "URL": "/channels/{channel.id}/thread-members/{user.id}"
+  },
+  "Leave Thread": {
+    "Command": "DELETE",
+    "URL": "/channels/{channel.id}/thread-members/@me"
+  },
+  "Remove Thread Member": {
+    "Command": "DELETE",
+    "URL": "/channels/{channel.id}/thread-members/{user.id}"
+  },
+  "Get Thread Member": {
+    "Command": "GET",
+    "URL": "/channels/{channel.id}/thread-members/{user.id}"
+  },
+  "List Thread Members": {
+    "Command": "GET",
+    "URL": "/channels/{channel.id}/thread-members"
+  },
+  "List Public Archived Threads": {
+    "Command": "GET",
+    "URL": "/channels/{channel.id}/threads/archived/public",
+    "query": [
+      {
+        "Field": "before",
+        "Type": "ISO8601 timestamp",
+        "Description": "returns threads before this timestamp",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "limit",
+        "Type": "integer",
+        "Description": "optional maximum number of threads to return",
+        "Optional": true,
+        "Nullable": false
+      }
+    ]
+  },
+  "List Private Archived Threads": {
+    "Command": "GET",
+    "URL": "/channels/{channel.id}/threads/archived/private",
+    "query": [
+      {
+        "Field": "before",
+        "Type": "ISO8601 timestamp",
+        "Description": "returns threads before this timestamp",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "limit",
+        "Type": "integer",
+        "Description": "optional maximum number of threads to return",
+        "Optional": true,
+        "Nullable": false
+      }
+    ]
+  },
+  "List Joined Private Archived Threads": {
+    "Command": "GET",
+    "URL": "/channels/{channel.id}/users/@me/threads/archived/private",
+    "query": [
+      {
+        "Field": "before",
+        "Type": "snowflake",
+        "Description": "returns threads before this id",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "limit",
+        "Type": "integer",
+        "Description": "optional maximum number of threads to return",
+        "Optional": true,
+        "Nullable": false
+      }
+    ]
+  }
+}

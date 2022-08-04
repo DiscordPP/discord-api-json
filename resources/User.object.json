@@ -1,0 +1,189 @@
+{
+  "User": [
+    {
+      "Field": "id",
+      "Type": "snowflake",
+      "Description": "the user's id",
+      "Required OAuth2 Scope": "identify",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "username",
+      "Type": "string",
+      "Description": "the user's username, not unique across the platform",
+      "Required OAuth2 Scope": "identify",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "discriminator",
+      "Type": "string",
+      "Description": "the user's 4-digit discord-tag",
+      "Required OAuth2 Scope": "identify",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "avatar",
+      "Type": "string",
+      "Description": "the user's avatar hash",
+      "Required OAuth2 Scope": "identify",
+      "Optional": false,
+      "Nullable": true
+    },
+    {
+      "Field": "bot",
+      "Type": "boolean",
+      "Description": "whether the user belongs to an OAuth2 application",
+      "Required OAuth2 Scope": "identify",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "system",
+      "Type": "boolean",
+      "Description": "whether the user is an Official Discord System user (part of the urgent message system)",
+      "Required OAuth2 Scope": "identify",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "mfa_enabled",
+      "Type": "boolean",
+      "Description": "whether the user has two factor enabled on their account",
+      "Required OAuth2 Scope": "identify",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "banner",
+      "Type": "string",
+      "Description": "the user's banner hash",
+      "Required OAuth2 Scope": "identify",
+      "Optional": true,
+      "Nullable": true
+    },
+    {
+      "Field": "accent_color",
+      "Type": "integer",
+      "Description": "the user's banner color encoded as an integer representation of hexadecimal color code",
+      "Required OAuth2 Scope": "identify",
+      "Optional": true,
+      "Nullable": true
+    },
+    {
+      "Field": "locale",
+      "Type": "string",
+      "Description": "the user's chosen language option",
+      "Required OAuth2 Scope": "identify",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "verified",
+      "Type": "boolean",
+      "Description": "whether the email on this account has been verified",
+      "Required OAuth2 Scope": "email",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "email",
+      "Type": "string",
+      "Description": "the user's email",
+      "Required OAuth2 Scope": "email",
+      "Optional": true,
+      "Nullable": true
+    },
+    {
+      "Field": "flags",
+      "Type": "integer",
+      "Description": "the flags on a user's account",
+      "Required OAuth2 Scope": "identify",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "premium_type",
+      "Type": "integer",
+      "Description": "the type of Nitro subscription on a user's account",
+      "Required OAuth2 Scope": "identify",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "public_flags",
+      "Type": "integer",
+      "Description": "the public flags on a user's account",
+      "Required OAuth2 Scope": "identify",
+      "Optional": true,
+      "Nullable": false
+    }
+  ],
+  "Connection": [
+    {
+      "Field": "id",
+      "Type": "string",
+      "Description": "id of the connection account",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "name",
+      "Type": "string",
+      "Description": "the username of the connection account",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "type",
+      "Type": "string",
+      "Description": "the service of this connection",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "revoked",
+      "Type": "boolean",
+      "Description": "whether the connection is revoked",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "integrations",
+      "Type": "array",
+      "Description": "an array of partial server integrations",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "verified",
+      "Type": "boolean",
+      "Description": "whether the connection is verified",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "friend_sync",
+      "Type": "boolean",
+      "Description": "whether friend sync is enabled for this connection",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "show_activity",
+      "Type": "boolean",
+      "Description": "whether activities related to this connection will be shown in presence updates",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "visibility",
+      "Type": "integer",
+      "Description": "visibility of this connection",
+      "Optional": false,
+      "Nullable": false
+    }
+  ]
+}

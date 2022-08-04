@@ -1,0 +1,104 @@
+{
+  "Role": [
+    {
+      "Field": "id",
+      "Type": "snowflake",
+      "Description": "role id",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "name",
+      "Type": "string",
+      "Description": "role name",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "color",
+      "Type": "integer",
+      "Description": "integer representation of hexadecimal color code",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "hoist",
+      "Type": "boolean",
+      "Description": "if this role is pinned in the user listing",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "icon",
+      "Type": "string",
+      "Description": "role icon hash",
+      "Optional": true,
+      "Nullable": true
+    },
+    {
+      "Field": "unicode_emoji",
+      "Type": "string",
+      "Description": "role unicode emoji",
+      "Optional": true,
+      "Nullable": true
+    },
+    {
+      "Field": "position",
+      "Type": "integer",
+      "Description": "position of this role",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "permissions",
+      "Type": "string",
+      "Description": "permission bit set",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "managed",
+      "Type": "boolean",
+      "Description": "whether this role is managed by an integration",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "mentionable",
+      "Type": "boolean",
+      "Description": "whether this role is mentionable",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "tags",
+      "Type": "role tags object",
+      "Description": "the tags this role has",
+      "Optional": true,
+      "Nullable": false
+    }
+  ],
+  "Role Tags": [
+    {
+      "Field": "bot_id",
+      "Type": "snowflake",
+      "Description": "the id of the bot this role belongs to",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "integration_id",
+      "Type": "snowflake",
+      "Description": "the id of the integration this role belongs to",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "premium_subscriber",
+      "Type": "null",
+      "Description": "whether this is the guild's premium subscriber role",
+      "Optional": true,
+      "Nullable": false
+    }
+  ]
+}

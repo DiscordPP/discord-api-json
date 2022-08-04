@@ -1,0 +1,223 @@
+{
+  "List Scheduled Events for Guild": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/scheduled-events",
+    "query": [
+      {
+        "Field": "with_user_count",
+        "Type": "boolean",
+        "Description": "include number of users subscribed to each event",
+        "Optional": true,
+        "Nullable": false
+      }
+    ]
+  },
+  "Create Guild Scheduled Event": {
+    "Command": "POST",
+    "URL": "/guilds/{guild.id}/scheduled-events",
+    "json": [
+      {
+        "Field": "channel_id",
+        "Type": "snowflake *",
+        "Description": "the channel id of the scheduled event.",
+        "Note": "*",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "entity_metadata",
+        "Type": "entity metadata",
+        "Description": "the entity metadata of the scheduled event",
+        "Note": "**",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "name",
+        "Type": "string",
+        "Description": "the name of the scheduled event",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "privacy_level",
+        "Type": "privacy level",
+        "Description": "the privacy level of the scheduled event",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "scheduled_start_time",
+        "Type": "ISO8601 timestamp",
+        "Description": "the time to schedule the scheduled event",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "scheduled_end_time",
+        "Type": "ISO8601 timestamp",
+        "Description": "the time when the scheduled event is scheduled to end",
+        "Note": "**",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "description",
+        "Type": "string",
+        "Description": "the description of the scheduled event",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "entity_type",
+        "Type": "entity type",
+        "Description": "the entity type of the scheduled event",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "image",
+        "Type": "image data",
+        "Description": "the cover image of the scheduled event",
+        "Optional": true,
+        "Nullable": false
+      }
+    ]
+  },
+  "Get Guild Scheduled Event": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}",
+    "query": [
+      {
+        "Field": "with_user_count",
+        "Type": "boolean",
+        "Description": "include number of users subscribed to this event",
+        "Optional": true,
+        "Nullable": false
+      }
+    ]
+  },
+  "Modify Guild Scheduled Event": {
+    "Command": "PATCH",
+    "URL": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}",
+    "json": [
+      {
+        "Field": "channel_id",
+        "Type": "snowflake",
+        "Description": "the channel id of the scheduled event, set to null if changing entity type to EXTERNAL",
+        "Note": "*",
+        "Optional": true,
+        "Nullable": true
+      },
+      {
+        "Field": "entity_metadata",
+        "Type": "entity metadata",
+        "Description": "the entity metadata of the scheduled event",
+        "Optional": true,
+        "Nullable": true
+      },
+      {
+        "Field": "name",
+        "Type": "string",
+        "Description": "the name of the scheduled event",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "privacy_level",
+        "Type": "privacy level",
+        "Description": "the privacy level of the scheduled event",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "scheduled_start_time",
+        "Type": "ISO8601 timestamp",
+        "Description": "the time to schedule the scheduled event",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "scheduled_end_time",
+        "Type": "ISO8601 timestamp",
+        "Description": "the time when the scheduled event is scheduled to end",
+        "Note": "*",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "description",
+        "Type": "string",
+        "Description": "the description of the scheduled event",
+        "Optional": true,
+        "Nullable": true
+      },
+      {
+        "Field": "entity_type",
+        "Type": "event entity type",
+        "Description": "the entity type of the scheduled event",
+        "Note": "*",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "status",
+        "Type": "event status",
+        "Description": "the status of the scheduled event",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "image",
+        "Type": "image data",
+        "Description": "the cover image of the scheduled event",
+        "Optional": true,
+        "Nullable": false
+      }
+    ]
+  },
+  "Delete Guild Scheduled Event": {
+    "Command": "DELETE",
+    "URL": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}"
+  },
+  "Get Guild Scheduled Event Users": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}/users",
+    "query": [
+      {
+        "Field": "limit",
+        "Type": "number",
+        "Description": "number of users to return (up to maximum 100)",
+        "Default": "100",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "with_member",
+        "Type": "boolean",
+        "Description": "include guild member data if it exists",
+        "Default": "false",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "before",
+        "Type": "snowflake",
+        "Description": "consider only users before given user id",
+        "Default": "null",
+        "Note": "*",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "after",
+        "Type": "snowflake",
+        "Description": "consider only users after given user id",
+        "Default": "null",
+        "Note": "*",
+        "Optional": true,
+        "Nullable": false
+      }
+    ]
+  }
+}

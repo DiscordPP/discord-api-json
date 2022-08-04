@@ -1,0 +1,19 @@
+{
+  "JSON Response": [
+    {
+      "Field": "url",
+      "Type": "string",
+      "Description": "The WSS URL that can be used for connecting to the gateway"
+    },
+    {
+      "Field": "shards",
+      "Type": "integer",
+      "Description": "The recommended number of shards to use when connecting"
+    },
+    {
+      "Field": "session_start_limit",
+      "Type": "session_start_limit object",
+      "Description": "Information on the current session start limit"
+    }
+  ]
+}

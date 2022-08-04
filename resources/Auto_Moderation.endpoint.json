@@ -1,0 +1,133 @@
+{
+  "List Auto Moderation Rules for Guild": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/auto-moderation/rules"
+  },
+  "Get Auto Moderation Rule": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/auto-moderation/rules/{auto_moderation_rule.id}"
+  },
+  "Create Auto Moderation Rule": {
+    "Command": "POST",
+    "URL": "/guilds/{guild.id}/auto-moderation/rules",
+    "json": [
+      {
+        "Field": "name",
+        "Type": "string",
+        "Description": "the rule name",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "event_type",
+        "Type": "integer",
+        "Description": "the event type",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "trigger_type",
+        "Type": "integer",
+        "Description": "the trigger type",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "trigger_metadata",
+        "Type": "object",
+        "Description": "the trigger metadata",
+        "Note": "*",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "actions",
+        "Type": "array of action objects",
+        "Description": "the actions which will execute when the rule is triggered",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "enabled",
+        "Type": "boolean",
+        "Description": "whether the rule is enabled (False by default)",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "exempt_roles",
+        "Type": "array of snowflakes",
+        "Description": "the role ids that should not be affected by the rule (Maximum of 20)",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "exempt_channels",
+        "Type": "array of snowflakes",
+        "Description": "the channel ids that should not be affected by the rule (Maximum of 50)",
+        "Optional": true,
+        "Nullable": false
+      }
+    ]
+  },
+  "Modify Auto Moderation Rule": {
+    "Command": "PATCH",
+    "URL": "/guilds/{guild.id}/auto-moderation/rules/{auto_moderation_rule.id}",
+    "json": [
+      {
+        "Field": "name",
+        "Type": "string",
+        "Description": "the rule name",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "event_type",
+        "Type": "integer",
+        "Description": "the event type",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "trigger_metadata",
+        "Type": "object",
+        "Description": "the trigger metadata",
+        "Note": "*",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "actions",
+        "Type": "array of action objects",
+        "Description": "the actions which will execute when the rule is triggered",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "enabled",
+        "Type": "boolean",
+        "Description": "whether the rule is enabled",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "exempt_roles",
+        "Type": "array of snowflakes",
+        "Description": "the role ids that should not be affected by the rule (Maximum of 20)",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "exempt_channels",
+        "Type": "array of snowflakes",
+        "Description": "the channel ids that should not be affected by the rule (Maximum of 50)",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Delete Auto Moderation Rule": {
+    "Command": "DELETE",
+    "URL": "/guilds/{guild.id}/auto-moderation/rules/{auto_moderation_rule.id}"
+  }
+}

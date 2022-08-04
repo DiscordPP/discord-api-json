@@ -1,0 +1,155 @@
+{
+  "Invite": [
+    {
+      "Field": "code",
+      "Type": "string",
+      "Description": "the invite code (unique ID)",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "guild",
+      "Type": "partial guild object",
+      "Description": "the guild this invite is for",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "channel",
+      "Type": "partial channel object",
+      "Description": "the channel this invite is for",
+      "Optional": false,
+      "Nullable": true
+    },
+    {
+      "Field": "inviter",
+      "Type": "user object",
+      "Description": "the user who created the invite",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "target_type",
+      "Type": "integer",
+      "Description": "the type of target for this voice channel invite",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "target_user",
+      "Type": "user object",
+      "Description": "the user whose stream to display for this voice channel stream invite",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "target_application",
+      "Type": "partial application object",
+      "Description": "the embedded application to open for this voice channel embedded application invite",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "approximate_presence_count",
+      "Type": "integer",
+      "Description": "approximate count of online members, returned from the GET /invites/<code> endpoint when with_counts is true",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "approximate_member_count",
+      "Type": "integer",
+      "Description": "approximate count of total members, returned from the GET /invites/<code> endpoint when with_counts is true",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "expires_at",
+      "Type": "ISO8601 timestamp",
+      "Description": "the expiration date of this invite, returned from the GET /invites/<code> endpoint when with_expiration is true",
+      "Optional": true,
+      "Nullable": true
+    },
+    {
+      "Field": "stage_instance",
+      "Type": "invite stage instance object",
+      "Description": "stage instance data if there is a public Stage instance in the Stage channel this invite is for (deprecated)",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "guild_scheduled_event",
+      "Type": "guild scheduled event object",
+      "Description": "guild scheduled event data, only included if guild_scheduled_event_id contains a valid guild scheduled event id",
+      "Optional": true,
+      "Nullable": false
+    }
+  ],
+  "Invite Metadata": [
+    {
+      "Field": "uses",
+      "Type": "integer",
+      "Description": "number of times this invite has been used",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "max_uses",
+      "Type": "integer",
+      "Description": "max number of times this invite can be used",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "max_age",
+      "Type": "integer",
+      "Description": "duration (in seconds) after which the invite expires",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "temporary",
+      "Type": "boolean",
+      "Description": "whether this invite only grants temporary membership",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "created_at",
+      "Type": "ISO8601 timestamp",
+      "Description": "when this invite was created",
+      "Optional": false,
+      "Nullable": false
+    }
+  ],
+  "Invite Stage Instance": [
+    {
+      "Field": "members",
+      "Type": "array of partial guild member objects",
+      "Description": "the members speaking in the Stage",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "participant_count",
+      "Type": "integer",
+      "Description": "the number of users in the Stage",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "speaker_count",
+      "Type": "integer",
+      "Description": "the number of users speaking in the Stage",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "topic",
+      "Type": "string",
+      "Description": "the topic of the Stage instance (1-120 characters)",
+      "Optional": false,
+      "Nullable": false
+    }
+  ]
+}

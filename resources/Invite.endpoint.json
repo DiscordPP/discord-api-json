@@ -1,0 +1,33 @@
+{
+  "Get Invite": {
+    "Command": "GET",
+    "URL": "/invites/{invite.code}",
+    "query": [
+      {
+        "Field": "with_counts",
+        "Type": "boolean",
+        "Description": "whether the invite should contain approximate member counts",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "with_expiration",
+        "Type": "boolean",
+        "Description": "whether the invite should contain the expiration date",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "guild_scheduled_event_id",
+        "Type": "snowflake",
+        "Description": "the guild scheduled event to include with the invite",
+        "Optional": true,
+        "Nullable": false
+      }
+    ]
+  },
+  "Delete Invite": {
+    "Command": "DELETE",
+    "URL": "/invites/{invite.code}"
+  }
+}

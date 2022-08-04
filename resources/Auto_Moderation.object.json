@@ -1,0 +1,98 @@
+{
+  "Auto Moderation Rule": [
+    {
+      "Field": "id",
+      "Type": "snowflake",
+      "Description": "the id of this rule",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "guild_id",
+      "Type": "snowflake",
+      "Description": "the id of the guild which this rule belongs to",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "name",
+      "Type": "string",
+      "Description": "the rule name",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "creator_id",
+      "Type": "snowflake",
+      "Description": "the user which first created this rule",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "event_type",
+      "Type": "integer",
+      "Description": "the rule event type",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "trigger_type",
+      "Type": "integer",
+      "Description": "the rule trigger type",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "trigger_metadata",
+      "Type": "object",
+      "Description": "the rule trigger metadata",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "actions",
+      "Type": "array of action objects",
+      "Description": "the actions which will execute when the rule is triggered",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "enabled",
+      "Type": "boolean",
+      "Description": "whether the rule is enabled",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "exempt_roles",
+      "Type": "array of snowflakes",
+      "Description": "the role ids that should not be affected by the rule (Maximum of 20)",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "exempt_channels",
+      "Type": "array of snowflakes",
+      "Description": "the channel ids that should not be affected by the rule (Maximum of 50)",
+      "Optional": false,
+      "Nullable": false
+    }
+  ],
+  "Auto Moderation Action": [
+    {
+      "Field": "type",
+      "Type": "action type",
+      "Description": "the type of action",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "metadata",
+      "Type": "action metadata",
+      "Description": "additional metadata needed during execution for this specific action type",
+      "Note": "*",
+      "Optional": true,
+      "Nullable": false
+    }
+  ]
+}

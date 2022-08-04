@@ -1,0 +1,99 @@
+{
+  "Parameters": [
+    {
+      "name": "lobbyId",
+      "type": "Int64",
+      "description": "the ID of the lobby you are in"
+    },
+    {
+      "name": "userId",
+      "type": "Int64",
+      "description": "the ID of the user who sent the message"
+    },
+    {
+      "name": "channelId",
+      "type": "byte",
+      "description": "the channel the message was sent on"
+    },
+    {
+      "name": "data",
+      "type": "byte[]",
+      "description": "the message"
+    }
+  ],
+  "SearchFilter Object": [
+    {
+      "name": "key",
+      "type": "string",
+      "description": "the metadata key to search"
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "the value of the metadata key to validate against"
+    },
+    {
+      "name": "cast",
+      "type": "SearchCast",
+      "description": "the type to cast value as"
+    },
+    {
+      "name": "comparison",
+      "type": "SearchComparison",
+      "description": "how to compare the metadata values"
+    }
+  ],
+  "SearchComparison Types": [
+    {
+      "name": "EQUAL_TO_OR_LESS_THAN",
+      "value": "-2"
+    },
+    {
+      "name": "LESS_THAN",
+      "value": "-1"
+    },
+    {
+      "name": "EQUAL",
+      "value": "0"
+    },
+    {
+      "name": "EQUAL_TO_OR_GREATER_THAN",
+      "value": "1"
+    },
+    {
+      "name": "GREATER_THAN",
+      "value": "2"
+    },
+    {
+      "name": "NOT_EQUAL",
+      "value": "3"
+    }
+  ],
+  "SearchSort Object": [
+    {
+      "name": "key",
+      "type": "string",
+      "description": "the metadata key on which to sort lobbies that meet the search criteria"
+    },
+    {
+      "name": "cast",
+      "type": "SearchCast",
+      "description": "the type to cast value as"
+    },
+    {
+      "name": "near_value",
+      "type": "string",
+      "description": "the value around which to sort the key"
+    }
+  ],
+  "SearchCast Types": [
+    {
+      "name": "STRING",
+      "value": "1"
+    },
+    {
+      "name": "NUMBER",
+      "value": "2"
+    }
+  ]
+}

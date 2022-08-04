@@ -1,0 +1,30 @@
+{
+  "Get Achievements": {
+    "Command": "GET",
+    "URL": "/applications/{application.id}/achievements"
+  },
+  "Get Achievement": {
+    "Command": "GET",
+    "URL": "/applications/{application.id}/achievements/{achievement.id}"
+  },
+  "Create Achievement": {
+    "Command": "POST",
+    "URL": "/applications/{application.id}/achievements"
+  },
+  "Update Achievement": {
+    "Command": "PATCH",
+    "URL": "/applications/{application.id}/achievements/{achievement.id}"
+  },
+  "Delete Achievement": {
+    "Command": "DELETE",
+    "URL": "/applications/{application.id}/achievements/{achievement.id}"
+  },
+  "Update User Achievement": {
+    "Command": "PUT",
+    "URL": "/applications/{application.id}/achievements/{achievement.id}"
+  },
+  "Get User Achievements": {
+    "Command": "GET",
+    "URL": "/users/@me/applications/{application.id}/achievements"
+  }
+}

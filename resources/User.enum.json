@@ -1,0 +1,162 @@
+{
+  "User Flags": [
+    {
+      "Value": "1 << 0",
+      "Name": "STAFF",
+      "Description": "Discord Employee"
+    },
+    {
+      "Value": "1 << 1",
+      "Name": "PARTNER",
+      "Description": "Partnered Server Owner"
+    },
+    {
+      "Value": "1 << 2",
+      "Name": "HYPESQUAD",
+      "Description": "HypeSquad Events Member"
+    },
+    {
+      "Value": "1 << 3",
+      "Name": "BUG_HUNTER_LEVEL_1",
+      "Description": "Bug Hunter Level 1"
+    },
+    {
+      "Value": "1 << 6",
+      "Name": "HYPESQUAD_ONLINE_HOUSE_1",
+      "Description": "House Bravery Member"
+    },
+    {
+      "Value": "1 << 7",
+      "Name": "HYPESQUAD_ONLINE_HOUSE_2",
+      "Description": "House Brilliance Member"
+    },
+    {
+      "Value": "1 << 8",
+      "Name": "HYPESQUAD_ONLINE_HOUSE_3",
+      "Description": "House Balance Member"
+    },
+    {
+      "Value": "1 << 9",
+      "Name": "PREMIUM_EARLY_SUPPORTER",
+      "Description": "Early Nitro Supporter"
+    },
+    {
+      "Value": "1 << 10",
+      "Name": "TEAM_PSEUDO_USER",
+      "Description": "User is a team"
+    },
+    {
+      "Value": "1 << 14",
+      "Name": "BUG_HUNTER_LEVEL_2",
+      "Description": "Bug Hunter Level 2"
+    },
+    {
+      "Value": "1 << 16",
+      "Name": "VERIFIED_BOT",
+      "Description": "Verified Bot"
+    },
+    {
+      "Value": "1 << 17",
+      "Name": "VERIFIED_DEVELOPER",
+      "Description": "Early Verified Bot Developer"
+    },
+    {
+      "Value": "1 << 18",
+      "Name": "CERTIFIED_MODERATOR",
+      "Description": "Discord Certified Moderator"
+    },
+    {
+      "Value": "1 << 19",
+      "Name": "BOT_HTTP_INTERACTIONS",
+      "Description": "Bot uses only HTTP interactions and is shown in the online member list"
+    }
+  ],
+  "Premium Types": [
+    {
+      "Value": "0",
+      "Name": "None"
+    },
+    {
+      "Value": "1",
+      "Name": "Nitro Classic"
+    },
+    {
+      "Value": "2",
+      "Name": "Nitro"
+    }
+  ],
+  "Services": [
+    {
+      "Value": "battlenet",
+      "Name": "Battle.net"
+    },
+    {
+      "Value": "epicgames",
+      "Name": "Epic Games"
+    },
+    {
+      "Value": "facebook",
+      "Name": "Facebook"
+    },
+    {
+      "Value": "github",
+      "Name": "GitHub"
+    },
+    {
+      "Value": "leagueoflegends *",
+      "Name": "League of Legends"
+    },
+    {
+      "Value": "playstation",
+      "Name": "PlayStation Network"
+    },
+    {
+      "Value": "reddit",
+      "Name": "Reddit"
+    },
+    {
+      "Value": "samsunggalaxy *",
+      "Name": "Samsung Galaxy"
+    },
+    {
+      "Value": "spotify",
+      "Name": "Spotify"
+    },
+    {
+      "Value": "skype *",
+      "Name": "Skype"
+    },
+    {
+      "Value": "steam",
+      "Name": "Steam"
+    },
+    {
+      "Value": "twitch",
+      "Name": "Twitch"
+    },
+    {
+      "Value": "twitter",
+      "Name": "Twitter"
+    },
+    {
+      "Value": "xbox",
+      "Name": "Xbox"
+    },
+    {
+      "Value": "youtube",
+      "Name": "YouTube"
+    }
+  ],
+  "Visibility Types": [
+    {
+      "Value": "0",
+      "Name": "None",
+      "Description": "invisible to everyone except the user themselves"
+    },
+    {
+      "Value": "1",
+      "Name": "Everyone",
+      "Description": "visible to everyone"
+    }
+  ]
+}

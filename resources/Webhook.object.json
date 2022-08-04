@@ -1,0 +1,88 @@
+{
+  "Webhook": [
+    {
+      "Field": "id",
+      "Type": "snowflake",
+      "Description": "the id of the webhook",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "type",
+      "Type": "integer",
+      "Description": "the type of the webhook",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "guild_id",
+      "Type": "snowflake",
+      "Description": "the guild id this webhook is for, if any",
+      "Optional": true,
+      "Nullable": true
+    },
+    {
+      "Field": "channel_id",
+      "Type": "snowflake",
+      "Description": "the channel id this webhook is for, if any",
+      "Optional": false,
+      "Nullable": true
+    },
+    {
+      "Field": "user",
+      "Type": "user object",
+      "Description": "the user this webhook was created by (not returned when getting a webhook with its token)",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "name",
+      "Type": "string",
+      "Description": "the default name of the webhook",
+      "Optional": false,
+      "Nullable": true
+    },
+    {
+      "Field": "avatar",
+      "Type": "string",
+      "Description": "the default user avatar hash of the webhook",
+      "Optional": false,
+      "Nullable": true
+    },
+    {
+      "Field": "token",
+      "Type": "string",
+      "Description": "the secure token of the webhook (returned for Incoming Webhooks)",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "application_id",
+      "Type": "snowflake",
+      "Description": "the bot/OAuth2 application that created this webhook",
+      "Optional": false,
+      "Nullable": true
+    },
+    {
+      "Field": "source_guild",
+      "Type": "partial guild object",
+      "Description": "the guild of the channel that this webhook is following (returned for Channel Follower Webhooks)",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "source_channel",
+      "Type": "partial channel object",
+      "Description": "the channel that this webhook is following (returned for Channel Follower Webhooks)",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "url",
+      "Type": "string",
+      "Description": "the url used for executing the webhook (returned by the webhooks OAuth2 flow)",
+      "Optional": true,
+      "Nullable": false
+    }
+  ]
+}

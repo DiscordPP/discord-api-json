@@ -1,0 +1,6 @@
+{
+  "List Voice Regions": {
+    "Command": "GET",
+    "URL": "/voice/regions"
+  }
+}

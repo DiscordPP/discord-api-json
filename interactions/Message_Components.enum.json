@@ -1,0 +1,115 @@
+{
+  "Component Types": [
+    {
+      "Type": "1",
+      "Name": "Action Row",
+      "Description": "A container for other components"
+    },
+    {
+      "Type": "2",
+      "Name": "Button",
+      "Description": "A button object"
+    },
+    {
+      "Type": "3",
+      "Name": "Select Menu",
+      "Description": "A select menu for picking from choices"
+    },
+    {
+      "Type": "4",
+      "Name": "Text Input",
+      "Description": "A text input object"
+    }
+  ],
+  "Button Styles": [
+    {
+      "Name": "Primary",
+      "Value": "1",
+      "Color": "blurple",
+      "Required Field": "custom_id"
+    },
+    {
+      "Name": "Secondary",
+      "Value": "2",
+      "Color": "grey",
+      "Required Field": "custom_id"
+    },
+    {
+      "Name": "Success",
+      "Value": "3",
+      "Color": "green",
+      "Required Field": "custom_id"
+    },
+    {
+      "Name": "Danger",
+      "Value": "4",
+      "Color": "red",
+      "Required Field": "custom_id"
+    },
+    {
+      "Name": "Link",
+      "Value": "5",
+      "Color": "grey, navigates to a URL",
+      "Required Field": "url"
+    }
+  ],
+  "Text Input Structure": [
+    {
+      "Field": "type",
+      "Type": "integer",
+      "Description": "4 for a text input"
+    },
+    {
+      "Field": "custom_id",
+      "Type": "string",
+      "Description": "a developer-defined identifier for the input, max 100 characters"
+    },
+    {
+      "Field": "style",
+      "Type": "integer",
+      "Description": "the Text Input Style"
+    },
+    {
+      "Field": "label",
+      "Type": "string",
+      "Description": "the label for this component, max 45 characters"
+    },
+    {
+      "Field": "min_length?",
+      "Type": "integer",
+      "Description": "the minimum input length for a text input, min 0, max 4000"
+    },
+    {
+      "Field": "max_length?",
+      "Type": "integer",
+      "Description": "the maximum input length for a text input, min 1, max 4000"
+    },
+    {
+      "Field": "required?",
+      "Type": "boolean",
+      "Description": "whether this component is required to be filled, default true"
+    },
+    {
+      "Field": "value?",
+      "Type": "string",
+      "Description": "a pre-filled value for this component, max 4000 characters"
+    },
+    {
+      "Field": "placeholder?",
+      "Type": "string",
+      "Description": "custom placeholder text if the input is empty, max 100 characters"
+    }
+  ],
+  "Text Input Styles": [
+    {
+      "Name": "Short",
+      "Value": "1",
+      "Description": "A single-line input"
+    },
+    {
+      "Name": "Paragraph",
+      "Value": "2",
+      "Description": "A multi-line input"
+    }
+  ]
+}

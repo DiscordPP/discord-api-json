@@ -1,0 +1,81 @@
+{
+  "Guild Template": [
+    {
+      "Field": "code",
+      "Type": "string",
+      "Description": "the template code (unique ID)",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "name",
+      "Type": "string",
+      "Description": "template name",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "description",
+      "Type": "string",
+      "Description": "the description for the template",
+      "Optional": false,
+      "Nullable": true
+    },
+    {
+      "Field": "usage_count",
+      "Type": "integer",
+      "Description": "number of times this template has been used",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "creator_id",
+      "Type": "snowflake",
+      "Description": "the ID of the user who created the template",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "creator",
+      "Type": "user object",
+      "Description": "the user who created the template",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "created_at",
+      "Type": "ISO8601 timestamp",
+      "Description": "when this template was created",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "updated_at",
+      "Type": "ISO8601 timestamp",
+      "Description": "when this template was last synced to the source guild",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "source_guild_id",
+      "Type": "snowflake",
+      "Description": "the ID of the guild this template is based on",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "serialized_source_guild",
+      "Type": "partial guild object",
+      "Description": "the guild snapshot this template contains",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "is_dirty",
+      "Type": "boolean",
+      "Description": "whether the template has unsynced changes",
+      "Optional": false,
+      "Nullable": true
+    }
+  ]
+}

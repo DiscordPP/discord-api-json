@@ -1,0 +1,992 @@
+{
+  "Create Guild": {
+    "Command": "POST",
+    "URL": "/guilds",
+    "json": [
+      {
+        "Field": "name",
+        "Type": "string",
+        "Description": "name of the guild (2-100 characters)",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "region",
+        "Type": "string",
+        "Description": "voice region id (deprecated)",
+        "Optional": true,
+        "Nullable": true
+      },
+      {
+        "Field": "icon",
+        "Type": "image data",
+        "Description": "base64 128x128 image for the guild icon",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "verification_level",
+        "Type": "integer",
+        "Description": "verification level",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "default_message_notifications",
+        "Type": "integer",
+        "Description": "default message notification level",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "explicit_content_filter",
+        "Type": "integer",
+        "Description": "explicit content filter level",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "roles",
+        "Type": "array of role objects",
+        "Description": "new guild roles",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "channels",
+        "Type": "array of partial channel objects",
+        "Description": "new guild's channels",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "afk_channel_id",
+        "Type": "snowflake",
+        "Description": "id for afk channel",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "afk_timeout",
+        "Type": "integer",
+        "Description": "afk timeout in seconds",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "system_channel_id",
+        "Type": "snowflake",
+        "Description": "the id of the channel where guild notices such as welcome messages and boost events are posted",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "system_channel_flags",
+        "Type": "integer",
+        "Description": "system channel flags",
+        "Optional": true,
+        "Nullable": false
+      }
+    ]
+  },
+  "Get Guild": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}",
+    "query": [
+      {
+        "Field": "with_counts",
+        "Type": "boolean",
+        "Description": "when true, will return approximate member and presence counts for the guild",
+        "Required": "false",
+        "Default": "false",
+        "Optional": true,
+        "Nullable": false
+      }
+    ]
+  },
+  "Get Guild Preview": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/preview"
+  },
+  "Modify Guild": {
+    "Command": "PATCH",
+    "URL": "/guilds/{guild.id}",
+    "json": [
+      {
+        "Field": "name",
+        "Type": "string",
+        "Description": "guild name",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "region",
+        "Type": "string",
+        "Description": "guild voice region id (deprecated)",
+        "Optional": false,
+        "Nullable": true
+      },
+      {
+        "Field": "verification_level",
+        "Type": "integer",
+        "Description": "verification level",
+        "Optional": false,
+        "Nullable": true
+      },
+      {
+        "Field": "default_message_notifications",
+        "Type": "integer",
+        "Description": "default message notification level",
+        "Optional": false,
+        "Nullable": true
+      },
+      {
+        "Field": "explicit_content_filter",
+        "Type": "integer",
+        "Description": "explicit content filter level",
+        "Optional": false,
+        "Nullable": true
+      },
+      {
+        "Field": "afk_channel_id",
+        "Type": "snowflake",
+        "Description": "id for afk channel",
+        "Optional": false,
+        "Nullable": true
+      },
+      {
+        "Field": "afk_timeout",
+        "Type": "integer",
+        "Description": "afk timeout in seconds",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "icon",
+        "Type": "image data",
+        "Description": "base64 1024x1024 png/jpeg/gif image for the guild icon (can be animated gif when the server has the ANIMATED_ICON feature)",
+        "Optional": false,
+        "Nullable": true
+      },
+      {
+        "Field": "owner_id",
+        "Type": "snowflake",
+        "Description": "user id to transfer guild ownership to (must be owner)",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "splash",
+        "Type": "image data",
+        "Description": "base64 16:9 png/jpeg image for the guild splash (when the server has the INVITE_SPLASH feature)",
+        "Optional": false,
+        "Nullable": true
+      },
+      {
+        "Field": "discovery_splash",
+        "Type": "image data",
+        "Description": "base64 16:9 png/jpeg image for the guild discovery splash (when the server has the DISCOVERABLE feature)",
+        "Optional": false,
+        "Nullable": true
+      },
+      {
+        "Field": "banner",
+        "Type": "image data",
+        "Description": "base64 16:9 png/jpeg image for the guild banner (when the server has the BANNER feature; can be animated gif when the server has the ANIMATED_BANNER feature)",
+        "Optional": false,
+        "Nullable": true
+      },
+      {
+        "Field": "system_channel_id",
+        "Type": "snowflake",
+        "Description": "the id of the channel where guild notices such as welcome messages and boost events are posted",
+        "Optional": false,
+        "Nullable": true
+      },
+      {
+        "Field": "system_channel_flags",
+        "Type": "integer",
+        "Description": "system channel flags",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "rules_channel_id",
+        "Type": "snowflake",
+        "Description": "the id of the channel where Community guilds display rules and/or guidelines",
+        "Optional": false,
+        "Nullable": true
+      },
+      {
+        "Field": "public_updates_channel_id",
+        "Type": "snowflake",
+        "Description": "the id of the channel where admins and moderators of Community guilds receive notices from Discord",
+        "Optional": false,
+        "Nullable": true
+      },
+      {
+        "Field": "preferred_locale",
+        "Type": "string",
+        "Description": "the preferred locale of a Community guild used in server discovery and notices from Discord; defaults to \"en-US\"",
+        "Optional": false,
+        "Nullable": true
+      },
+      {
+        "Field": "features",
+        "Type": "array of guild feature strings",
+        "Description": "enabled guild features",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "description",
+        "Type": "string",
+        "Description": "the description for the guild",
+        "Optional": false,
+        "Nullable": true
+      },
+      {
+        "Field": "premium_progress_bar_enabled",
+        "Type": "boolean",
+        "Description": "whether the guild's boost progress bar should be enabled",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Delete Guild": {
+    "Command": "DELETE",
+    "URL": "/guilds/{guild.id}"
+  },
+  "Get Guild Channels": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/channels"
+  },
+  "Create Guild Channel": {
+    "Command": "POST",
+    "URL": "/guilds/{guild.id}/channels",
+    "json": [
+      {
+        "Field": "name",
+        "Type": "string",
+        "Description": "channel name (1-100 characters)",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "type",
+        "Type": "integer",
+        "Description": "the type of channel",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "topic",
+        "Type": "string",
+        "Description": "channel topic (0-1024 characters)",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "bitrate*",
+        "Type": "integer",
+        "Description": "the bitrate (in bits) of the voice or stage channel; min 8000",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "user_limit",
+        "Type": "integer",
+        "Description": "the user limit of the voice channel",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "rate_limit_per_user",
+        "Type": "integer",
+        "Description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel, are unaffected",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "position",
+        "Type": "integer",
+        "Description": "sorting position of the channel",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "permission_overwrites**",
+        "Type": "array of partial overwrite objects",
+        "Description": "the channel's permission overwrites",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "parent_id",
+        "Type": "snowflake",
+        "Description": "id of the parent category for a channel",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "nsfw",
+        "Type": "boolean",
+        "Description": "whether the channel is nsfw",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "rtc_region",
+        "Type": "string",
+        "Description": "channel voice region id of the voice or stage channel, automatic when set to null",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "video_quality_mode",
+        "Type": "integer",
+        "Description": "the camera video quality mode of the voice channel",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "default_auto_archive_duration",
+        "Type": "integer",
+        "Description": "the default duration that the clients use (not the API) for newly created threads in the channel, in minutes, to automatically archive the thread after recent activity",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Modify Guild Channel Positions": {
+    "Command": "PATCH",
+    "URL": "/guilds/{guild.id}/channels",
+    "json": [
+      {
+        "Field": "id",
+        "Type": "snowflake",
+        "Description": "channel id",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "position",
+        "Type": "integer",
+        "Description": "sorting position of the channel",
+        "Optional": false,
+        "Nullable": true
+      },
+      {
+        "Field": "lock_permissions",
+        "Type": "boolean",
+        "Description": "syncs the permission overwrites with the new parent, if moving to a new category",
+        "Optional": false,
+        "Nullable": true
+      },
+      {
+        "Field": "parent_id",
+        "Type": "snowflake",
+        "Description": "the new parent ID for the channel that is moved",
+        "Optional": false,
+        "Nullable": true
+      }
+    ]
+  },
+  "List Active Guild Threads": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/threads/active"
+  },
+  "Get Guild Member": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/members/{user.id}"
+  },
+  "List Guild Members": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/members",
+    "query": [
+      {
+        "Field": "limit",
+        "Type": "integer",
+        "Description": "max number of members to return (1-1000)",
+        "Default": "1",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "after",
+        "Type": "snowflake",
+        "Description": "the highest user id in the previous page",
+        "Default": "0",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Search Guild Members": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/members/search",
+    "query": [
+      {
+        "Field": "query",
+        "Type": "string",
+        "Description": "Query string to match username(s) and nickname(s) against.",
+        "Default": "",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "limit",
+        "Type": "integer",
+        "Description": "max number of members to return (1-1000)",
+        "Default": "1",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Add Guild Member": {
+    "Command": "PUT",
+    "URL": "/guilds/{guild.id}/members/{user.id}",
+    "json": [
+      {
+        "Field": "access_token",
+        "Type": "string",
+        "Description": "an oauth2 access token granted with the guilds.join to the bot's application for the user you want to add to the guild",
+        "Permission": "",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "nick",
+        "Type": "string",
+        "Description": "value to set user's nickname to",
+        "Permission": "MANAGE_NICKNAMES",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "roles",
+        "Type": "array of snowflakes",
+        "Description": "array of role ids the member is assigned",
+        "Permission": "MANAGE_ROLES",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "mute",
+        "Type": "boolean",
+        "Description": "whether the user is muted in voice channels",
+        "Permission": "MUTE_MEMBERS",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "deaf",
+        "Type": "boolean",
+        "Description": "whether the user is deafened in voice channels",
+        "Permission": "DEAFEN_MEMBERS",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Modify Guild Member": {
+    "Command": "PATCH",
+    "URL": "/guilds/{guild.id}/members/{user.id}",
+    "json": [
+      {
+        "Field": "nick",
+        "Type": "string",
+        "Description": "value to set user's nickname to",
+        "Permission": "MANAGE_NICKNAMES",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "roles",
+        "Type": "array of snowflakes",
+        "Description": "array of role ids the member is assigned",
+        "Permission": "MANAGE_ROLES",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "mute",
+        "Type": "boolean",
+        "Description": "whether the user is muted in voice channels. Will throw a 400 error if the user is not in a voice channel",
+        "Permission": "MUTE_MEMBERS",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "deaf",
+        "Type": "boolean",
+        "Description": "whether the user is deafened in voice channels. Will throw a 400 error if the user is not in a voice channel",
+        "Permission": "DEAFEN_MEMBERS",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "channel_id",
+        "Type": "snowflake",
+        "Description": "id of channel to move user to (if they are connected to voice)",
+        "Permission": "MOVE_MEMBERS",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "communication_disabled_until",
+        "Type": "ISO8601 timestamp",
+        "Description": "when the user's timeout will expire and the user will be able to communicate in the guild again (up to 28 days in the future), set to null to remove timeout. Will throw a 403 error if the user has the ADMINISTRATOR permission or is the owner of the guild",
+        "Permission": "MODERATE_MEMBERS",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Modify Current Member": {
+    "Command": "PATCH",
+    "URL": "/guilds/{guild.id}/members/@me",
+    "json": [
+      {
+        "Field": "nick",
+        "Type": "string",
+        "Description": "value to set user's nickname to",
+        "Permission": "CHANGE_NICKNAME",
+        "Optional": true,
+        "Nullable": true
+      }
+    ]
+  },
+  "Modify Current User Nick": {
+    "Command": "PATCH",
+    "URL": "/guilds/{guild.id}/members/@me/nick",
+    "json": [
+      {
+        "Field": "nick",
+        "Type": "string",
+        "Description": "value to set user's nickname to",
+        "Permission": "CHANGE_NICKNAME",
+        "Optional": true,
+        "Nullable": true
+      }
+    ]
+  },
+  "Add Guild Member Role": {
+    "Command": "PUT",
+    "URL": "/guilds/{guild.id}/members/{user.id}/roles/{role.id}"
+  },
+  "Remove Guild Member Role": {
+    "Command": "DELETE",
+    "URL": "/guilds/{guild.id}/members/{user.id}/roles/{role.id}"
+  },
+  "Remove Guild Member": {
+    "Command": "DELETE",
+    "URL": "/guilds/{guild.id}/members/{user.id}"
+  },
+  "Get Guild Bans": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/bans",
+    "query": [
+      {
+        "Field": "limit",
+        "Type": "number",
+        "Description": "number of users to return (up to maximum 1000)",
+        "Default": "1000",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "before",
+        "Type": "snowflake",
+        "Description": "consider only users before given user id",
+        "Default": "null",
+        "Note": "*",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "after",
+        "Type": "snowflake",
+        "Description": "consider only users after given user id",
+        "Default": "null",
+        "Note": "*",
+        "Optional": true,
+        "Nullable": false
+      }
+    ]
+  },
+  "Get Guild Ban": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/bans/{user.id}"
+  },
+  "Create Guild Ban": {
+    "Command": "PUT",
+    "URL": "/guilds/{guild.id}/bans/{user.id}",
+    "json": [
+      {
+        "Field": "delete_message_days",
+        "Type": "integer",
+        "Description": "number of days to delete messages for (0-7)",
+        "Default": "0",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "reason",
+        "Type": "string",
+        "Description": "reason for the ban (deprecated)",
+        "Default": "",
+        "Optional": true,
+        "Nullable": false
+      }
+    ]
+  },
+  "Remove Guild Ban": {
+    "Command": "DELETE",
+    "URL": "/guilds/{guild.id}/bans/{user.id}"
+  },
+  "Get Guild Roles": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/roles"
+  },
+  "Create Guild Role": {
+    "Command": "POST",
+    "URL": "/guilds/{guild.id}/roles",
+    "json": [
+      {
+        "Field": "name",
+        "Type": "string",
+        "Description": "name of the role",
+        "Default": "\"new role\"",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "permissions",
+        "Type": "string",
+        "Description": "bitwise value of the enabled/disabled permissions",
+        "Default": "@everyone permissions in guild",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "color",
+        "Type": "integer",
+        "Description": "RGB color value",
+        "Default": "0",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "hoist",
+        "Type": "boolean",
+        "Description": "whether the role should be displayed separately in the sidebar",
+        "Default": "false",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "icon",
+        "Type": "image data",
+        "Description": "the role's icon image (if the guild has the ROLE_ICONS feature)",
+        "Default": "null",
+        "Optional": false,
+        "Nullable": true
+      },
+      {
+        "Field": "unicode_emoji",
+        "Type": "string",
+        "Description": "the role's unicode emoji as a standard emoji (if the guild has the ROLE_ICONS feature)",
+        "Default": "null",
+        "Optional": false,
+        "Nullable": true
+      },
+      {
+        "Field": "mentionable",
+        "Type": "boolean",
+        "Description": "whether the role should be mentionable",
+        "Default": "false",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Modify Guild Role Positions": {
+    "Command": "PATCH",
+    "URL": "/guilds/{guild.id}/roles",
+    "json": [
+      {
+        "Field": "id",
+        "Type": "snowflake",
+        "Description": "role",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "position",
+        "Type": "integer",
+        "Description": "sorting position of the role",
+        "Optional": true,
+        "Nullable": true
+      }
+    ]
+  },
+  "Modify Guild Role": {
+    "Command": "PATCH",
+    "URL": "/guilds/{guild.id}/roles/{role.id}",
+    "json": [
+      {
+        "Field": "name",
+        "Type": "string",
+        "Description": "name of the role",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "permissions",
+        "Type": "string",
+        "Description": "bitwise value of the enabled/disabled permissions",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "color",
+        "Type": "integer",
+        "Description": "RGB color value",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "hoist",
+        "Type": "boolean",
+        "Description": "whether the role should be displayed separately in the sidebar",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "icon",
+        "Type": "image data",
+        "Description": "the role's icon image (if the guild has the ROLE_ICONS feature)",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "unicode_emoji",
+        "Type": "string",
+        "Description": "the role's unicode emoji as a standard emoji (if the guild has the ROLE_ICONS feature)",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "mentionable",
+        "Type": "boolean",
+        "Description": "whether the role should be mentionable",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Modify Guild MFA Level": {
+    "Command": "POST",
+    "URL": "/guilds/{guild.id}/mfa",
+    "json": [
+      {
+        "Field": "level",
+        "Type": "integer",
+        "Description": "MFA level",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Delete Guild Role": {
+    "Command": "DELETE",
+    "URL": "/guilds/{guild.id}/roles/{role.id}"
+  },
+  "Get Guild Prune Count": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/prune",
+    "query": [
+      {
+        "Field": "days",
+        "Type": "integer",
+        "Description": "number of days to count prune for (1-30)",
+        "Default": "7",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "include_roles",
+        "Type": "string; comma-delimited array of snowflakes",
+        "Description": "role(s) to include",
+        "Default": "none",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Begin Guild Prune": {
+    "Command": "POST",
+    "URL": "/guilds/{guild.id}/prune",
+    "json": [
+      {
+        "Field": "days",
+        "Type": "integer",
+        "Description": "number of days to prune (1-30)",
+        "Default": "7",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "compute_prune_count",
+        "Type": "boolean",
+        "Description": "whether pruned is returned, discouraged for large guilds",
+        "Default": "true",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "include_roles",
+        "Type": "array of snowflakes",
+        "Description": "role(s) to include",
+        "Default": "none",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "reason",
+        "Type": "string",
+        "Description": "reason for the prune (deprecated)",
+        "Default": "",
+        "Optional": true,
+        "Nullable": false
+      }
+    ]
+  },
+  "Get Guild Voice Regions": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/regions"
+  },
+  "Get Guild Invites": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/invites"
+  },
+  "Get Guild Integrations": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/integrations"
+  },
+  "Delete Guild Integration": {
+    "Command": "DELETE",
+    "URL": "/guilds/{guild.id}/integrations/{integration.id}"
+  },
+  "Get Guild Widget Settings": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/widget"
+  },
+  "Modify Guild Widget": {
+    "Command": "PATCH",
+    "URL": "/guilds/{guild.id}/widget"
+  },
+  "Get Guild Widget": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/widget.json"
+  },
+  "Get Guild Vanity URL": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/vanity-url"
+  },
+  "Get Guild Widget Image": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/widget.png",
+    "query": [
+      {
+        "Field": "style",
+        "Type": "string",
+        "Description": "style of the widget image returned (see below)",
+        "Default": "shield",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Get Guild Welcome Screen": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/welcome-screen"
+  },
+  "Modify Guild Welcome Screen": {
+    "Command": "PATCH",
+    "URL": "/guilds/{guild.id}/welcome-screen",
+    "json": [
+      {
+        "Field": "enabled",
+        "Type": "boolean",
+        "Description": "whether the welcome screen is enabled",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "welcome_channels",
+        "Type": "array of welcome screen channel objects",
+        "Description": "channels linked in the welcome screen and their display options",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "description",
+        "Type": "string",
+        "Description": "the server description to show in the welcome screen",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Modify Current User Voice State": {
+    "Command": "PATCH",
+    "URL": "/guilds/{guild.id}/voice-states/@me",
+    "json": [
+      {
+        "Field": "channel_id",
+        "Type": "snowflake",
+        "Description": "the id of the channel the user is currently in",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "suppress",
+        "Type": "boolean",
+        "Description": "toggles the user's suppress state",
+        "Optional": true,
+        "Nullable": false
+      },
+      {
+        "Field": "request_to_speak_timestamp",
+        "Type": "ISO8601 timestamp",
+        "Description": "sets the user's request to speak",
+        "Optional": true,
+        "Nullable": true
+      }
+    ]
+  },
+  "Modify User Voice State": {
+    "Command": "PATCH",
+    "URL": "/guilds/{guild.id}/voice-states/{user.id}",
+    "json": [
+      {
+        "Field": "channel_id",
+        "Type": "snowflake",
+        "Description": "the id of the channel the user is currently in",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "suppress",
+        "Type": "boolean",
+        "Description": "toggles the user's suppress state",
+        "Optional": true,
+        "Nullable": false
+      }
+    ]
+  }
+}

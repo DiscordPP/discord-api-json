@@ -1,0 +1,141 @@
+{
+  "Button": [
+    {
+      "Field": "type",
+      "Type": "integer",
+      "Description": "2 for a button",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "style",
+      "Type": "integer",
+      "Description": "one of button styles",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "label",
+      "Type": "string",
+      "Description": "text that appears on the button, max 80 characters",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "emoji",
+      "Type": "partial emoji",
+      "Description": "name, id, and animated",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "custom_id",
+      "Type": "string",
+      "Description": "a developer-defined identifier for the button, max 100 characters",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "url",
+      "Type": "string",
+      "Description": "a url for link-style buttons",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "disabled",
+      "Type": "boolean",
+      "Description": "whether the button is disabled (default false)",
+      "Optional": true,
+      "Nullable": false
+    }
+  ],
+  "Select Menu": [
+    {
+      "Field": "type",
+      "Type": "integer",
+      "Description": "3 for a select menu",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "custom_id",
+      "Type": "string",
+      "Description": "a developer-defined identifier for the select menu, max 100 characters",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "options",
+      "Type": "array of select options",
+      "Description": "the choices in the select, max 25",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "placeholder",
+      "Type": "string",
+      "Description": "custom placeholder text if nothing is selected, max 150 characters",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "min_values",
+      "Type": "integer",
+      "Description": "the minimum number of items that must be chosen; default 1, min 0, max 25",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "max_values",
+      "Type": "integer",
+      "Description": "the maximum number of items that can be chosen; default 1, max 25",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "disabled",
+      "Type": "boolean",
+      "Description": "disable the select, default false",
+      "Optional": true,
+      "Nullable": false
+    }
+  ],
+  "Select Option": [
+    {
+      "Field": "label",
+      "Type": "string",
+      "Description": "the user-facing name of the option, max 100 characters",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "value",
+      "Type": "string",
+      "Description": "the dev-defined value of the option, max 100 characters",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "description",
+      "Type": "string",
+      "Description": "an additional description of the option, max 100 characters",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "emoji",
+      "Type": "partial emoji object",
+      "Description": "id, name, and animated",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "default",
+      "Type": "boolean",
+      "Description": "will render this option as selected by default",
+      "Optional": true,
+      "Nullable": false
+    }
+  ]
+}

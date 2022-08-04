@@ -1,0 +1,122 @@
+{
+  "Interaction Type": [
+    {
+      "Name": "PING",
+      "Value": "1"
+    },
+    {
+      "Name": "APPLICATION_COMMAND",
+      "Value": "2"
+    },
+    {
+      "Name": "MESSAGE_COMPONENT",
+      "Value": "3"
+    },
+    {
+      "Name": "APPLICATION_COMMAND_AUTOCOMPLETE",
+      "Value": "4"
+    },
+    {
+      "Name": "MODAL_SUBMIT",
+      "Value": "5"
+    }
+  ],
+  "Interaction Callback Type": [
+    {
+      "Name": "PONG",
+      "Value": "1",
+      "Description": "ACK a Ping"
+    },
+    {
+      "Name": "CHANNEL_MESSAGE_WITH_SOURCE",
+      "Value": "4",
+      "Description": "respond to an interaction with a message"
+    },
+    {
+      "Name": "DEFERRED_CHANNEL_MESSAGE_WITH_SOURCE",
+      "Value": "5",
+      "Description": "ACK an interaction and edit a response later, the user sees a loading state"
+    },
+    {
+      "Name": "DEFERRED_UPDATE_MESSAGE*",
+      "Value": "6",
+      "Description": "for components, ACK an interaction and edit the original message later; the user does not see a loading state"
+    },
+    {
+      "Name": "UPDATE_MESSAGE*",
+      "Value": "7",
+      "Description": "for components, edit the message the component was attached to"
+    },
+    {
+      "Name": "APPLICATION_COMMAND_AUTOCOMPLETE_RESULT",
+      "Value": "8",
+      "Description": "respond to an autocomplete interaction with suggested choices"
+    },
+    {
+      "Name": "MODAL**",
+      "Value": "9",
+      "Description": "respond to an interaction with a popup modal"
+    }
+  ],
+  "Messages": [
+    {
+      "Name": "tts?",
+      "Type": "boolean",
+      "Description": "is the response TTS"
+    },
+    {
+      "Name": "content?",
+      "Type": "string",
+      "Description": "message content"
+    },
+    {
+      "Name": "embeds?",
+      "Type": "array of embeds",
+      "Description": "supports up to 10 embeds"
+    },
+    {
+      "Name": "allowed_mentions?",
+      "Type": "allowed mentions",
+      "Description": "allowed mentions object"
+    },
+    {
+      "Name": "flags?",
+      "Type": "integer",
+      "Description": "message flags combined as a bitfield (only SUPPRESS_EMBEDS and EPHEMERAL can be set)"
+    },
+    {
+      "Name": "components?",
+      "Type": "array of components",
+      "Description": "message components"
+    },
+    {
+      "Name": "attachments? *",
+      "Type": "array of partial attachment objects",
+      "Description": "attachment objects with filename and description"
+    }
+  ],
+  "Autocomplete": [
+    {
+      "Name": "choices",
+      "Type": "array of choices",
+      "Description": "autocomplete choices (max of 25 choices)"
+    }
+  ],
+  "Modal": [
+    {
+      "Name": "custom_id",
+      "Type": "string",
+      "Description": "a developer-defined identifier for the component, max 100 characters"
+    },
+    {
+      "Name": "title",
+      "Type": "string",
+      "Description": "the title of the popup modal, max 45 characters"
+    },
+    {
+      "Name": "components",
+      "Type": "array of components",
+      "Description": "between 1 and 5 (inclusive) components that make up the modal"
+    }
+  ]
+}

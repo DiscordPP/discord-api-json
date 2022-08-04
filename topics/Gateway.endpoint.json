@@ -1,0 +1,10 @@
+{
+  "Get Gateway": {
+    "Command": "GET",
+    "URL": "/gateway"
+  },
+  "Get Gateway Bot": {
+    "Command": "GET",
+    "URL": "/gateway/bot"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "Get Sticker": {
+    "Command": "GET",
+    "URL": "/stickers/{sticker.id}"
+  },
+  "List Nitro Sticker Packs": {
+    "Command": "GET",
+    "URL": "/sticker-packs"
+  },
+  "List Guild Stickers": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/stickers"
+  },
+  "Get Guild Sticker": {
+    "Command": "GET",
+    "URL": "/guilds/{guild.id}/stickers/{sticker.id}"
+  },
+  "Create Guild Sticker": {
+    "Command": "POST",
+    "URL": "/guilds/{guild.id}/stickers"
+  },
+  "Modify Guild Sticker": {
+    "Command": "PATCH",
+    "URL": "/guilds/{guild.id}/stickers/{sticker.id}",
+    "json": [
+      {
+        "Field": "name",
+        "Type": "string",
+        "Description": "name of the sticker (2-30 characters)",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "description",
+        "Type": "string",
+        "Description": "description of the sticker (2-100 characters)",
+        "Optional": false,
+        "Nullable": true
+      },
+      {
+        "Field": "tags",
+        "Type": "string",
+        "Description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Delete Guild Sticker": {
+    "Command": "DELETE",
+    "URL": "/guilds/{guild.id}/stickers/{sticker.id}"
+  }
+}

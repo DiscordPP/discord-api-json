@@ -1,0 +1,108 @@
+{
+  "Get Current User": {
+    "Command": "GET",
+    "URL": "/users/@me"
+  },
+  "Get User": {
+    "Command": "GET",
+    "URL": "/users/{user.id}"
+  },
+  "Modify Current User": {
+    "Command": "PATCH",
+    "URL": "/users/@me",
+    "json": [
+      {
+        "Field": "username",
+        "Type": "string",
+        "Description": "user's username, if changed may cause the user's discriminator to be randomized.",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "avatar",
+        "Type": "image data",
+        "Description": "if passed, modifies the user's avatar",
+        "Optional": false,
+        "Nullable": true
+      }
+    ]
+  },
+  "Get Current User Guilds": {
+    "Command": "GET",
+    "URL": "/users/@me/guilds",
+    "query": [
+      {
+        "Field": "before",
+        "Type": "snowflake",
+        "Description": "get guilds before this guild ID",
+        "Required": "false",
+        "Default": "absent",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "after",
+        "Type": "snowflake",
+        "Description": "get guilds after this guild ID",
+        "Required": "false",
+        "Default": "absent",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "limit",
+        "Type": "integer",
+        "Description": "max number of guilds to return (1-200)",
+        "Required": "false",
+        "Default": "200",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Get Current User Guild Member": {
+    "Command": "GET",
+    "URL": "/users/@me/guilds/{guild.id}/member"
+  },
+  "Leave Guild": {
+    "Command": "DELETE",
+    "URL": "/users/@me/guilds/{guild.id}"
+  },
+  "Create DM": {
+    "Command": "POST",
+    "URL": "/users/@me/channels",
+    "json": [
+      {
+        "Field": "recipient_id",
+        "Type": "snowflake",
+        "Description": "the recipient to open a DM channel with",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Create Group DM": {
+    "Command": "POST",
+    "URL": "/users/@me/channels",
+    "json": [
+      {
+        "Field": "access_tokens",
+        "Type": "array of strings",
+        "Description": "access tokens of users that have granted your app the gdm.join scope",
+        "Optional": false,
+        "Nullable": false
+      },
+      {
+        "Field": "nicks",
+        "Type": "dict",
+        "Description": "a dictionary of user ids to their respective nicknames",
+        "Optional": false,
+        "Nullable": false
+      }
+    ]
+  },
+  "Get User Connections": {
+    "Command": "GET",
+    "URL": "/users/@me/connections"
+  }
+}

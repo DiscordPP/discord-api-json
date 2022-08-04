@@ -1,0 +1,9 @@
+{
+  "Parameters": [
+    {
+      "name": "percent_complete",
+      "type": "int",
+      "description": "the user's progress towards completing the achievement"
+    }
+  ]
+}

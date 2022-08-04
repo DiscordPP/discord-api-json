@@ -1,0 +1,289 @@
+{
+  "Interaction": [
+    {
+      "Field": "id",
+      "Type": "snowflake",
+      "Description": "ID of the interaction",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "application_id",
+      "Type": "snowflake",
+      "Description": "ID of the application this interaction is for",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "type",
+      "Type": "interaction type",
+      "Description": "Type of interaction",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "data?*",
+      "Type": "interaction data",
+      "Description": "Interaction data payload",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "guild_id",
+      "Type": "snowflake",
+      "Description": "Guild that the interaction was sent from",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "channel_id",
+      "Type": "snowflake",
+      "Description": "Channel that the interaction was sent from",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "member?**",
+      "Type": "guild member object",
+      "Description": "Guild member data for the invoking user, including permissions",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "user",
+      "Type": "user object",
+      "Description": "User object for the invoking user, if invoked in a DM",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "token",
+      "Type": "string",
+      "Description": "Continuation token for responding to the interaction",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "version",
+      "Type": "integer",
+      "Description": "Read-only property, always 1",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "message",
+      "Type": "message object",
+      "Description": "For components, the message they were attached to",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "app_permissions",
+      "Type": "string",
+      "Description": "Bitwise set of permissions the app or bot has within the channel the interaction was sent from",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "locale?***",
+      "Type": "string",
+      "Description": "Selected language of the invoking user",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "guild_locale",
+      "Type": "string",
+      "Description": "Guild's preferred locale, if invoked in a guild",
+      "Optional": true,
+      "Nullable": false
+    }
+  ],
+  "Application Command Data": [
+    {
+      "Field": "id",
+      "Type": "snowflake",
+      "Description": "the ID of the invoked command",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "name",
+      "Type": "string",
+      "Description": "the name of the invoked command",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "type",
+      "Type": "integer",
+      "Description": "the type of the invoked command",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "resolved",
+      "Type": "resolved data",
+      "Description": "converted users + roles + channels + attachments",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "options?*",
+      "Type": "array of application command interaction data option",
+      "Description": "the params + values from the user",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "guild_id",
+      "Type": "snowflake",
+      "Description": "the id of the guild the command is registered to",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "target_id",
+      "Type": "snowflake",
+      "Description": "id of the user or message targeted by a user or message command",
+      "Optional": true,
+      "Nullable": false
+    }
+  ],
+  "Message Component Data": [
+    {
+      "Field": "custom_id",
+      "Type": "string",
+      "Description": "the custom_id of the component",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "component_type",
+      "Type": "integer",
+      "Description": "the type of the component",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "values?*",
+      "Type": "array of select option values",
+      "Description": "values the user selected in a select menu component",
+      "Optional": false,
+      "Nullable": false
+    }
+  ],
+  "Modal Submit Data": [
+    {
+      "Field": "custom_id",
+      "Type": "string",
+      "Description": "the custom_id of the modal",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "components",
+      "Type": "array of message components",
+      "Description": "the values submitted by the user",
+      "Optional": false,
+      "Nullable": false
+    }
+  ],
+  "Resolved Data": [
+    {
+      "Field": "users",
+      "Type": "Map of Snowflakes to user objects",
+      "Description": "the ids and User objects",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "members?*",
+      "Type": "Map of Snowflakes to partial member objects",
+      "Description": "the ids and partial Member objects",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "roles",
+      "Type": "Map of Snowflakes to role objects",
+      "Description": "the ids and Role objects",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "channels?**",
+      "Type": "Map of Snowflakes to partial channel objects",
+      "Description": "the ids and partial Channel objects",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "messages",
+      "Type": "Map of Snowflakes to partial messages objects",
+      "Description": "the ids and partial Message objects",
+      "Optional": true,
+      "Nullable": false
+    },
+    {
+      "Field": "attachments",
+      "Type": "Map of Snowflakes to attachment objects",
+      "Description": "the ids and attachment objects",
+      "Optional": true,
+      "Nullable": false
+    }
+  ],
+  "Message Interaction": [
+    {
+      "Type": "snowflake",
+      "Description": "ID of the interaction",
+      "Field": "id",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Type": "interaction type",
+      "Description": "Type of interaction",
+      "Field": "type",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Type": "string",
+      "Description": "Name of the application command, including subcommands and subcommand groups",
+      "Field": "name",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Type": "user object",
+      "Description": "User who invoked the interaction",
+      "Field": "user",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Type": "partial member object",
+      "Description": "Member who invoked the interaction in the guild",
+      "Field": "member",
+      "Optional": true,
+      "Nullable": false
+    }
+  ],
+  "Interaction Response": [
+    {
+      "Field": "type",
+      "Type": "interaction callback type",
+      "Description": "the type of response",
+      "Optional": false,
+      "Nullable": false
+    },
+    {
+      "Field": "data",
+      "Type": "interaction callback data",
+      "Description": "an optional response message",
+      "Optional": true,
+      "Nullable": false
+    }
+  ]
+}
