@@ -1,184 +1,184 @@
 {
   "Create Webhook": {
-    "Command": "POST",
-    "URL": "/channels/{channel.id}/webhooks",
+    "command": "POST",
+    "url": "/channels/{channel.id}/webhooks",
     "json": [
       {
-        "Field": "name",
-        "Type": "string",
-        "Description": "name of the webhook (1-80 characters)",
-        "Optional": false,
-        "Nullable": false
+        "field": "name",
+        "type": "string",
+        "description": "name of the webhook (1-80 characters)",
+        "optional": false,
+        "nullable": false
       },
       {
-        "Field": "avatar",
-        "Type": "image data",
-        "Description": "image for the default webhook avatar",
-        "Optional": true,
-        "Nullable": true
+        "field": "avatar",
+        "type": "image data",
+        "description": "image for the default webhook avatar",
+        "optional": true,
+        "nullable": true
       }
     ]
   },
   "Get Channel Webhooks": {
-    "Command": "GET",
-    "URL": "/channels/{channel.id}/webhooks"
+    "command": "GET",
+    "url": "/channels/{channel.id}/webhooks"
   },
   "Get Guild Webhooks": {
-    "Command": "GET",
-    "URL": "/guilds/{guild.id}/webhooks"
+    "command": "GET",
+    "url": "/guilds/{guild.id}/webhooks"
   },
   "Get Webhook": {
-    "Command": "GET",
-    "URL": "/webhooks/{webhook.id}"
+    "command": "GET",
+    "url": "/webhooks/{webhook.id}"
   },
   "Get Webhook with Token": {
-    "Command": "GET",
-    "URL": "/webhooks/{webhook.id}/{webhook.token}"
+    "command": "GET",
+    "url": "/webhooks/{webhook.id}/{webhook.token}"
   },
   "Modify Webhook": {
-    "Command": "PATCH",
-    "URL": "/webhooks/{webhook.id}",
+    "command": "PATCH",
+    "url": "/webhooks/{webhook.id}",
     "json": [
       {
-        "Field": "name",
-        "Type": "string",
-        "Description": "the default name of the webhook",
-        "Optional": false,
-        "Nullable": false
+        "field": "name",
+        "type": "string",
+        "description": "the default name of the webhook",
+        "optional": false,
+        "nullable": false
       },
       {
-        "Field": "avatar",
-        "Type": "image data",
-        "Description": "image for the default webhook avatar",
-        "Optional": false,
-        "Nullable": true
+        "field": "avatar",
+        "type": "image data",
+        "description": "image for the default webhook avatar",
+        "optional": false,
+        "nullable": true
       },
       {
-        "Field": "channel_id",
-        "Type": "snowflake",
-        "Description": "the new channel id this webhook should be moved to",
-        "Optional": false,
-        "Nullable": false
+        "field": "channel_id",
+        "type": "snowflake",
+        "description": "the new channel id this webhook should be moved to",
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   "Modify Webhook with Token": {
-    "Command": "PATCH",
-    "URL": "/webhooks/{webhook.id}/{webhook.token}"
+    "command": "PATCH",
+    "url": "/webhooks/{webhook.id}/{webhook.token}"
   },
   "Delete Webhook": {
-    "Command": "DELETE",
-    "URL": "/webhooks/{webhook.id}"
+    "command": "DELETE",
+    "url": "/webhooks/{webhook.id}"
   },
   "Delete Webhook with Token": {
-    "Command": "DELETE",
-    "URL": "/webhooks/{webhook.id}/{webhook.token}"
+    "command": "DELETE",
+    "url": "/webhooks/{webhook.id}/{webhook.token}"
   },
   "Execute Webhook": {
-    "Command": "POST",
-    "URL": "/webhooks/{webhook.id}/{webhook.token}",
+    "command": "POST",
+    "url": "/webhooks/{webhook.id}/{webhook.token}",
     "query": [
       {
-        "Field": "wait",
-        "Type": "boolean",
-        "Description": "waits for server confirmation of message send before response, and returns the created message body (defaults to false; when false a message that is not saved does not return an error)",
-        "Required": "false",
-        "Optional": false,
-        "Nullable": false
+        "field": "wait",
+        "type": "boolean",
+        "description": "waits for server confirmation of message send before response, and returns the created message body (defaults to false; when false a message that is not saved does not return an error)",
+        "required": "false",
+        "optional": false,
+        "nullable": false
       },
       {
-        "Field": "thread_id",
-        "Type": "snowflake",
-        "Description": "Send a message to the specified thread within a webhook's channel. The thread will automatically be unarchived.",
-        "Required": "false",
-        "Optional": false,
-        "Nullable": false
+        "field": "thread_id",
+        "type": "snowflake",
+        "description": "Send a message to the specified thread within a webhook's channel. The thread will automatically be unarchived.",
+        "required": "false",
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   "Execute Slack-Compatible Webhook": {
-    "Command": "POST",
-    "URL": "/webhooks/{webhook.id}/{webhook.token}/slack",
+    "command": "POST",
+    "url": "/webhooks/{webhook.id}/{webhook.token}/slack",
     "query": [
       {
-        "Field": "thread_id",
-        "Type": "snowflake",
-        "Description": "id of the thread to send the message in",
-        "Required": "false",
-        "Optional": false,
-        "Nullable": false
+        "field": "thread_id",
+        "type": "snowflake",
+        "description": "id of the thread to send the message in",
+        "required": "false",
+        "optional": false,
+        "nullable": false
       },
       {
-        "Field": "wait",
-        "Type": "boolean",
-        "Description": "waits for server confirmation of message send before response (defaults to true; when false a message that is not saved does not return an error)",
-        "Required": "false",
-        "Optional": false,
-        "Nullable": false
+        "field": "wait",
+        "type": "boolean",
+        "description": "waits for server confirmation of message send before response (defaults to true; when false a message that is not saved does not return an error)",
+        "required": "false",
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   "Execute GitHub-Compatible Webhook": {
-    "Command": "POST",
-    "URL": "/webhooks/{webhook.id}/{webhook.token}/github",
+    "command": "POST",
+    "url": "/webhooks/{webhook.id}/{webhook.token}/github",
     "query": [
       {
-        "Field": "thread_id",
-        "Type": "snowflake",
-        "Description": "id of the thread to send the message in",
-        "Required": "false",
-        "Optional": false,
-        "Nullable": false
+        "field": "thread_id",
+        "type": "snowflake",
+        "description": "id of the thread to send the message in",
+        "required": "false",
+        "optional": false,
+        "nullable": false
       },
       {
-        "Field": "wait",
-        "Type": "boolean",
-        "Description": "waits for server confirmation of message send before response (defaults to true; when false a message that is not saved does not return an error)",
-        "Required": "false",
-        "Optional": false,
-        "Nullable": false
+        "field": "wait",
+        "type": "boolean",
+        "description": "waits for server confirmation of message send before response (defaults to true; when false a message that is not saved does not return an error)",
+        "required": "false",
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   "Get Webhook Message": {
-    "Command": "GET",
-    "URL": "/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}",
+    "command": "GET",
+    "url": "/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}",
     "query": [
       {
-        "Field": "thread_id",
-        "Type": "snowflake",
-        "Description": "id of the thread the message is in",
-        "Required": "false",
-        "Optional": false,
-        "Nullable": false
+        "field": "thread_id",
+        "type": "snowflake",
+        "description": "id of the thread the message is in",
+        "required": "false",
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   "Edit Webhook Message": {
-    "Command": "PATCH",
-    "URL": "/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}",
+    "command": "PATCH",
+    "url": "/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}",
     "query": [
       {
-        "Field": "thread_id",
-        "Type": "snowflake",
-        "Description": "id of the thread the message is in",
-        "Required": "false",
-        "Optional": false,
-        "Nullable": false
+        "field": "thread_id",
+        "type": "snowflake",
+        "description": "id of the thread the message is in",
+        "required": "false",
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   "Delete Webhook Message": {
-    "Command": "DELETE",
-    "URL": "/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}",
+    "command": "DELETE",
+    "url": "/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}",
     "query": [
       {
-        "Field": "thread_id",
-        "Type": "snowflake",
-        "Description": "id of the thread the message is in",
-        "Required": "false",
-        "Optional": false,
-        "Nullable": false
+        "field": "thread_id",
+        "type": "snowflake",
+        "description": "id of the thread the message is in",
+        "required": "false",
+        "optional": false,
+        "nullable": false
       }
     ]
   }

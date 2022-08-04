@@ -1,117 +1,117 @@
 {
   "Trigger Types": [
     {
-      "Type": "KEYWORD",
-      "Value": "1",
-      "Description": "check if content contains words from a user defined list of keywords",
-      "Max per Guild": "3"
+      "type": "KEYWORD",
+      "value": "1",
+      "description": "check if content contains words from a user defined list of keywords",
+      "max per guild": "3"
     },
     {
-      "Type": "HARMFUL_LINK",
-      "Value": "2",
-      "Description": "check if content contains any harmful links",
-      "Max per Guild": "1"
+      "type": "HARMFUL_LINK",
+      "value": "2",
+      "description": "check if content contains any harmful links",
+      "max per guild": "1"
     },
     {
-      "Type": "SPAM",
-      "Value": "3",
-      "Description": "check if content represents generic spam",
-      "Max per Guild": "1"
+      "type": "SPAM",
+      "value": "3",
+      "description": "check if content represents generic spam",
+      "max per guild": "1"
     },
     {
-      "Type": "KEYWORD_PRESET",
-      "Value": "4",
-      "Description": "check if content contains words from internal pre-defined wordsets",
-      "Max per Guild": "1"
+      "type": "KEYWORD_PRESET",
+      "value": "4",
+      "description": "check if content contains words from internal pre-defined wordsets",
+      "max per guild": "1"
     }
   ],
   "Trigger Metadata": [
     {
-      "Field": "keyword_filter",
-      "Type": "array of strings *",
-      "Associated Trigger Types": "KEYWORD",
-      "Description": "substrings which will be searched for in content"
+      "field": "keyword_filter",
+      "type": "array of strings *",
+      "associated trigger types": "KEYWORD",
+      "description": "substrings which will be searched for in content"
     },
     {
-      "Field": "presets",
-      "Type": "array of keyword preset types",
-      "Associated Trigger Types": "KEYWORD_PRESET",
-      "Description": "the internally pre-defined wordsets which will be searched for in content"
+      "field": "presets",
+      "type": "array of keyword preset types",
+      "associated trigger types": "KEYWORD_PRESET",
+      "description": "the internally pre-defined wordsets which will be searched for in content"
     },
     {
-      "Field": "allow_list",
-      "Type": "array of strings *",
-      "Associated Trigger Types": "KEYWORD_PRESET",
-      "Description": "substrings which will be exempt from triggering the preset trigger type"
+      "field": "allow_list",
+      "type": "array of strings *",
+      "associated trigger types": "KEYWORD_PRESET",
+      "description": "substrings which will be exempt from triggering the preset trigger type"
     }
   ],
   "Keyword Preset Types": [
     {
-      "Type": "PROFANITY",
-      "Value": "1",
-      "Description": "Words that may be considered forms of swearing or cursing"
+      "type": "PROFANITY",
+      "value": "1",
+      "description": "Words that may be considered forms of swearing or cursing"
     },
     {
-      "Type": "SEXUAL_CONTENT",
-      "Value": "2",
-      "Description": "Words that refer to sexually explicit behavior or activity"
+      "type": "SEXUAL_CONTENT",
+      "value": "2",
+      "description": "Words that refer to sexually explicit behavior or activity"
     },
     {
-      "Type": "SLURS",
-      "Value": "3",
-      "Description": "Personal insults or words that may be considered hate speech"
+      "type": "SLURS",
+      "value": "3",
+      "description": "Personal insults or words that may be considered hate speech"
     }
   ],
   "Event Types": [
     {
-      "Type": "MESSAGE_SEND",
-      "Value": "1",
-      "Description": "when a member sends or edits a message in the guild"
+      "type": "MESSAGE_SEND",
+      "value": "1",
+      "description": "when a member sends or edits a message in the guild"
     }
   ],
   "Keyword Matching Strategies": [
     {
-      "Keyword": "cat",
-      "Matches": "cat"
+      "keyword": "cat",
+      "matches": "cat"
     },
     {
-      "Keyword": "train",
-      "Matches": "train"
+      "keyword": "train",
+      "matches": "train"
     },
     {
-      "Keyword": "the mat",
-      "Matches": "the mat"
+      "keyword": "the mat",
+      "matches": "the mat"
     }
   ],
   "Action Types": [
     {
-      "Type": "BLOCK_MESSAGE",
-      "Value": "1",
-      "Description": "blocks the content of a message according to the rule"
+      "type": "BLOCK_MESSAGE",
+      "value": "1",
+      "description": "blocks the content of a message according to the rule"
     },
     {
-      "Type": "SEND_ALERT_MESSAGE",
-      "Value": "2",
-      "Description": "logs user content to a specified channel"
+      "type": "SEND_ALERT_MESSAGE",
+      "value": "2",
+      "description": "logs user content to a specified channel"
     },
     {
-      "Type": "TIMEOUT",
-      "Value": "3",
-      "Description": "timeout user for a specified duration *"
+      "type": "TIMEOUT",
+      "value": "3",
+      "description": "timeout user for a specified duration *"
     }
   ],
   "Action Metadata": [
     {
-      "Field": "channel_id",
-      "Type": "snowflake",
-      "Associated Action Types": "SEND_ALERT_MESSAGE",
-      "Description": "channel to which user content should be logged"
+      "field": "channel_id",
+      "type": "snowflake",
+      "associated action types": "SEND_ALERT_MESSAGE",
+      "description": "channel to which user content should be logged"
     },
     {
-      "Field": "duration_seconds",
-      "Type": "integer",
-      "Associated Action Types": "TIMEOUT",
-      "Description": "timeout duration in seconds *"
+      "field": "duration_seconds",
+      "type": "integer",
+      "associated action types": "TIMEOUT",
+      "description": "timeout duration in seconds *"
     }
   ]
 }

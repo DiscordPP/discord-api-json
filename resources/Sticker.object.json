@@ -1,162 +1,162 @@
 {
   "Sticker": [
     {
-      "Field": "id",
-      "Type": "snowflake",
-      "Description": "id of the sticker",
-      "Optional": false,
-      "Nullable": false
+      "field": "id",
+      "type": "snowflake",
+      "description": "id of the sticker",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "pack_id",
-      "Type": "snowflake",
-      "Description": "for standard stickers, id of the pack the sticker is from",
-      "Optional": true,
-      "Nullable": false
+      "field": "pack_id",
+      "type": "snowflake",
+      "description": "for standard stickers, id of the pack the sticker is from",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "name",
-      "Type": "string",
-      "Description": "name of the sticker",
-      "Optional": false,
-      "Nullable": false
+      "field": "name",
+      "type": "string",
+      "description": "name of the sticker",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "description",
-      "Type": "string",
-      "Description": "description of the sticker",
-      "Optional": false,
-      "Nullable": true
+      "field": "description",
+      "type": "string",
+      "description": "description of the sticker",
+      "optional": false,
+      "nullable": true
     },
     {
-      "Field": "tags*",
-      "Type": "string",
-      "Description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
-      "Optional": false,
-      "Nullable": false
+      "field": "tags*",
+      "type": "string",
+      "description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "asset",
-      "Type": "string",
-      "Description": "Deprecated previously the sticker asset hash, now an empty string",
-      "Optional": true,
-      "Nullable": false
+      "field": "asset",
+      "type": "string",
+      "description": "Deprecated previously the sticker asset hash, now an empty string",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "type",
-      "Type": "integer",
-      "Description": "type of sticker",
-      "Optional": false,
-      "Nullable": false
+      "field": "type",
+      "type": "integer",
+      "description": "type of sticker",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "format_type",
-      "Type": "integer",
-      "Description": "type of sticker format",
-      "Optional": false,
-      "Nullable": false
+      "field": "format_type",
+      "type": "integer",
+      "description": "type of sticker format",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "available",
-      "Type": "boolean",
-      "Description": "whether this guild sticker can be used, may be false due to loss of Server Boosts",
-      "Optional": true,
-      "Nullable": false
+      "field": "available",
+      "type": "boolean",
+      "description": "whether this guild sticker can be used, may be false due to loss of Server Boosts",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "guild_id",
-      "Type": "snowflake",
-      "Description": "id of the guild that owns this sticker",
-      "Optional": true,
-      "Nullable": false
+      "field": "guild_id",
+      "type": "snowflake",
+      "description": "id of the guild that owns this sticker",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "user",
-      "Type": "user object",
-      "Description": "the user that uploaded the guild sticker",
-      "Optional": true,
-      "Nullable": false
+      "field": "user",
+      "type": "user object",
+      "description": "the user that uploaded the guild sticker",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "sort_value",
-      "Type": "integer",
-      "Description": "the standard sticker's sort order within its pack",
-      "Optional": true,
-      "Nullable": false
+      "field": "sort_value",
+      "type": "integer",
+      "description": "the standard sticker's sort order within its pack",
+      "optional": true,
+      "nullable": false
     }
   ],
   "Sticker Item": [
     {
-      "Field": "id",
-      "Type": "snowflake",
-      "Description": "id of the sticker",
-      "Optional": false,
-      "Nullable": false
+      "field": "id",
+      "type": "snowflake",
+      "description": "id of the sticker",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "name",
-      "Type": "string",
-      "Description": "name of the sticker",
-      "Optional": false,
-      "Nullable": false
+      "field": "name",
+      "type": "string",
+      "description": "name of the sticker",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "format_type",
-      "Type": "integer",
-      "Description": "type of sticker format",
-      "Optional": false,
-      "Nullable": false
+      "field": "format_type",
+      "type": "integer",
+      "description": "type of sticker format",
+      "optional": false,
+      "nullable": false
     }
   ],
   "Sticker Pack": [
     {
-      "Field": "id",
-      "Type": "snowflake",
-      "Description": "id of the sticker pack",
-      "Optional": false,
-      "Nullable": false
+      "field": "id",
+      "type": "snowflake",
+      "description": "id of the sticker pack",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "stickers",
-      "Type": "array of sticker objects",
-      "Description": "the stickers in the pack",
-      "Optional": false,
-      "Nullable": false
+      "field": "stickers",
+      "type": "array of sticker objects",
+      "description": "the stickers in the pack",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "name",
-      "Type": "string",
-      "Description": "name of the sticker pack",
-      "Optional": false,
-      "Nullable": false
+      "field": "name",
+      "type": "string",
+      "description": "name of the sticker pack",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "sku_id",
-      "Type": "snowflake",
-      "Description": "id of the pack's SKU",
-      "Optional": false,
-      "Nullable": false
+      "field": "sku_id",
+      "type": "snowflake",
+      "description": "id of the pack's SKU",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "cover_sticker_id",
-      "Type": "snowflake",
-      "Description": "id of a sticker in the pack which is shown as the pack's icon",
-      "Optional": true,
-      "Nullable": false
+      "field": "cover_sticker_id",
+      "type": "snowflake",
+      "description": "id of a sticker in the pack which is shown as the pack's icon",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "description",
-      "Type": "string",
-      "Description": "description of the sticker pack",
-      "Optional": false,
-      "Nullable": false
+      "field": "description",
+      "type": "string",
+      "description": "description of the sticker pack",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "banner_asset_id",
-      "Type": "snowflake",
-      "Description": "id of the sticker pack's banner image",
-      "Optional": true,
-      "Nullable": false
+      "field": "banner_asset_id",
+      "type": "snowflake",
+      "description": "id of the sticker pack's banner image",
+      "optional": true,
+      "nullable": false
     }
   ]
 }

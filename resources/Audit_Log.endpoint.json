@@ -1,35 +1,35 @@
 {
   "Get Guild Audit Log": {
-    "Command": "GET",
-    "URL": "/guilds/{guild.id}/audit-logs",
+    "command": "GET",
+    "url": "/guilds/{guild.id}/audit-logs",
     "query": [
       {
-        "Field": "user_id",
-        "Type": "snowflake",
-        "Description": "Entries from a specific user ID",
-        "Optional": false,
-        "Nullable": false
+        "field": "user_id",
+        "type": "snowflake",
+        "description": "Entries from a specific user ID",
+        "optional": false,
+        "nullable": false
       },
       {
-        "Field": "action_type",
-        "Type": "integer",
-        "Description": "Entries for a specific audit log event",
-        "Optional": false,
-        "Nullable": false
+        "field": "action_type",
+        "type": "integer",
+        "description": "Entries for a specific audit log event",
+        "optional": false,
+        "nullable": false
       },
       {
-        "Field": "before",
-        "Type": "snowflake",
-        "Description": "Entries that preceded a specific audit log entry ID",
-        "Optional": false,
-        "Nullable": false
+        "field": "before",
+        "type": "snowflake",
+        "description": "Entries that preceded a specific audit log entry ID",
+        "optional": false,
+        "nullable": false
       },
       {
-        "Field": "limit",
-        "Type": "integer",
-        "Description": "Maximum number of entries (between 1-100) to return, defaults to 50",
-        "Optional": false,
-        "Nullable": false
+        "field": "limit",
+        "type": "integer",
+        "description": "Maximum number of entries (between 1-100) to return, defaults to 50",
+        "optional": false,
+        "nullable": false
       }
     ]
   }

@@ -1,81 +1,81 @@
 {
   "Guild Template": [
     {
-      "Field": "code",
-      "Type": "string",
-      "Description": "the template code (unique ID)",
-      "Optional": false,
-      "Nullable": false
+      "field": "code",
+      "type": "string",
+      "description": "the template code (unique ID)",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "name",
-      "Type": "string",
-      "Description": "template name",
-      "Optional": false,
-      "Nullable": false
+      "field": "name",
+      "type": "string",
+      "description": "template name",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "description",
-      "Type": "string",
-      "Description": "the description for the template",
-      "Optional": false,
-      "Nullable": true
+      "field": "description",
+      "type": "string",
+      "description": "the description for the template",
+      "optional": false,
+      "nullable": true
     },
     {
-      "Field": "usage_count",
-      "Type": "integer",
-      "Description": "number of times this template has been used",
-      "Optional": false,
-      "Nullable": false
+      "field": "usage_count",
+      "type": "integer",
+      "description": "number of times this template has been used",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "creator_id",
-      "Type": "snowflake",
-      "Description": "the ID of the user who created the template",
-      "Optional": false,
-      "Nullable": false
+      "field": "creator_id",
+      "type": "snowflake",
+      "description": "the ID of the user who created the template",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "creator",
-      "Type": "user object",
-      "Description": "the user who created the template",
-      "Optional": false,
-      "Nullable": false
+      "field": "creator",
+      "type": "user object",
+      "description": "the user who created the template",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "created_at",
-      "Type": "ISO8601 timestamp",
-      "Description": "when this template was created",
-      "Optional": false,
-      "Nullable": false
+      "field": "created_at",
+      "type": "ISO8601 timestamp",
+      "description": "when this template was created",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "updated_at",
-      "Type": "ISO8601 timestamp",
-      "Description": "when this template was last synced to the source guild",
-      "Optional": false,
-      "Nullable": false
+      "field": "updated_at",
+      "type": "ISO8601 timestamp",
+      "description": "when this template was last synced to the source guild",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "source_guild_id",
-      "Type": "snowflake",
-      "Description": "the ID of the guild this template is based on",
-      "Optional": false,
-      "Nullable": false
+      "field": "source_guild_id",
+      "type": "snowflake",
+      "description": "the ID of the guild this template is based on",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "serialized_source_guild",
-      "Type": "partial guild object",
-      "Description": "the guild snapshot this template contains",
-      "Optional": false,
-      "Nullable": false
+      "field": "serialized_source_guild",
+      "type": "partial guild object",
+      "description": "the guild snapshot this template contains",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "is_dirty",
-      "Type": "boolean",
-      "Description": "whether the template has unsynced changes",
-      "Optional": false,
-      "Nullable": true
+      "field": "is_dirty",
+      "type": "boolean",
+      "description": "whether the template has unsynced changes",
+      "optional": false,
+      "nullable": true
     }
   ]
 }

@@ -1,98 +1,98 @@
 {
   "Auto Moderation Rule": [
     {
-      "Field": "id",
-      "Type": "snowflake",
-      "Description": "the id of this rule",
-      "Optional": false,
-      "Nullable": false
+      "field": "id",
+      "type": "snowflake",
+      "description": "the id of this rule",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "guild_id",
-      "Type": "snowflake",
-      "Description": "the id of the guild which this rule belongs to",
-      "Optional": false,
-      "Nullable": false
+      "field": "guild_id",
+      "type": "snowflake",
+      "description": "the id of the guild which this rule belongs to",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "name",
-      "Type": "string",
-      "Description": "the rule name",
-      "Optional": false,
-      "Nullable": false
+      "field": "name",
+      "type": "string",
+      "description": "the rule name",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "creator_id",
-      "Type": "snowflake",
-      "Description": "the user which first created this rule",
-      "Optional": false,
-      "Nullable": false
+      "field": "creator_id",
+      "type": "snowflake",
+      "description": "the user which first created this rule",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "event_type",
-      "Type": "integer",
-      "Description": "the rule event type",
-      "Optional": false,
-      "Nullable": false
+      "field": "event_type",
+      "type": "integer",
+      "description": "the rule event type",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "trigger_type",
-      "Type": "integer",
-      "Description": "the rule trigger type",
-      "Optional": false,
-      "Nullable": false
+      "field": "trigger_type",
+      "type": "integer",
+      "description": "the rule trigger type",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "trigger_metadata",
-      "Type": "object",
-      "Description": "the rule trigger metadata",
-      "Optional": false,
-      "Nullable": false
+      "field": "trigger_metadata",
+      "type": "object",
+      "description": "the rule trigger metadata",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "actions",
-      "Type": "array of action objects",
-      "Description": "the actions which will execute when the rule is triggered",
-      "Optional": false,
-      "Nullable": false
+      "field": "actions",
+      "type": "array of action objects",
+      "description": "the actions which will execute when the rule is triggered",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "enabled",
-      "Type": "boolean",
-      "Description": "whether the rule is enabled",
-      "Optional": false,
-      "Nullable": false
+      "field": "enabled",
+      "type": "boolean",
+      "description": "whether the rule is enabled",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "exempt_roles",
-      "Type": "array of snowflakes",
-      "Description": "the role ids that should not be affected by the rule (Maximum of 20)",
-      "Optional": false,
-      "Nullable": false
+      "field": "exempt_roles",
+      "type": "array of snowflakes",
+      "description": "the role ids that should not be affected by the rule (Maximum of 20)",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "exempt_channels",
-      "Type": "array of snowflakes",
-      "Description": "the channel ids that should not be affected by the rule (Maximum of 50)",
-      "Optional": false,
-      "Nullable": false
+      "field": "exempt_channels",
+      "type": "array of snowflakes",
+      "description": "the channel ids that should not be affected by the rule (Maximum of 50)",
+      "optional": false,
+      "nullable": false
     }
   ],
   "Auto Moderation Action": [
     {
-      "Field": "type",
-      "Type": "action type",
-      "Description": "the type of action",
-      "Optional": false,
-      "Nullable": false
+      "field": "type",
+      "type": "action type",
+      "description": "the type of action",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "metadata",
-      "Type": "action metadata",
-      "Description": "additional metadata needed during execution for this specific action type",
-      "Note": "*",
-      "Optional": true,
-      "Nullable": false
+      "field": "metadata",
+      "type": "action metadata",
+      "description": "additional metadata needed during execution for this specific action type",
+      "note": "*",
+      "optional": true,
+      "nullable": false
     }
   ]
 }

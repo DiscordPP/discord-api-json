@@ -1,104 +1,104 @@
 {
   "Application Command Types": [
     {
-      "Name": "CHAT_INPUT",
-      "Type": "1",
-      "Description": "Slash commands; a text-based command that shows up when a user types /"
+      "name": "CHAT_INPUT",
+      "type": "1",
+      "description": "Slash commands; a text-based command that shows up when a user types /"
     },
     {
-      "Name": "USER",
-      "Type": "2",
-      "Description": "A UI-based command that shows up when you right click or tap on a user"
+      "name": "USER",
+      "type": "2",
+      "description": "A UI-based command that shows up when you right click or tap on a user"
     },
     {
-      "Name": "MESSAGE",
-      "Type": "3",
-      "Description": "A UI-based command that shows up when you right click or tap on a message"
+      "name": "MESSAGE",
+      "type": "3",
+      "description": "A UI-based command that shows up when you right click or tap on a message"
     }
   ],
   "Application Command Option Type": [
     {
-      "Name": "SUB_COMMAND",
-      "Value": "1",
-      "Note": ""
+      "name": "SUB_COMMAND",
+      "value": "1",
+      "note": ""
     },
     {
-      "Name": "SUB_COMMAND_GROUP",
-      "Value": "2",
-      "Note": ""
+      "name": "SUB_COMMAND_GROUP",
+      "value": "2",
+      "note": ""
     },
     {
-      "Name": "STRING",
-      "Value": "3",
-      "Note": ""
+      "name": "STRING",
+      "value": "3",
+      "note": ""
     },
     {
-      "Name": "INTEGER",
-      "Value": "4",
-      "Note": "Any integer between -2^53 and 2^53"
+      "name": "INTEGER",
+      "value": "4",
+      "note": "Any integer between -2^53 and 2^53"
     },
     {
-      "Name": "BOOLEAN",
-      "Value": "5",
-      "Note": ""
+      "name": "BOOLEAN",
+      "value": "5",
+      "note": ""
     },
     {
-      "Name": "USER",
-      "Value": "6",
-      "Note": ""
+      "name": "USER",
+      "value": "6",
+      "note": ""
     },
     {
-      "Name": "CHANNEL",
-      "Value": "7",
-      "Note": "Includes all channel types + categories"
+      "name": "CHANNEL",
+      "value": "7",
+      "note": "Includes all channel types + categories"
     },
     {
-      "Name": "ROLE",
-      "Value": "8",
-      "Note": ""
+      "name": "ROLE",
+      "value": "8",
+      "note": ""
     },
     {
-      "Name": "MENTIONABLE",
-      "Value": "9",
-      "Note": "Includes users and roles"
+      "name": "MENTIONABLE",
+      "value": "9",
+      "note": "Includes users and roles"
     },
     {
-      "Name": "NUMBER",
-      "Value": "10",
-      "Note": "Any double between -2^53 and 2^53"
+      "name": "NUMBER",
+      "value": "10",
+      "note": "Any double between -2^53 and 2^53"
     },
     {
-      "Name": "ATTACHMENT",
-      "Value": "11",
-      "Note": "attachment object"
+      "name": "ATTACHMENT",
+      "value": "11",
+      "note": "attachment object"
     }
   ],
   "Application Command Permissions Constants": [
     {
-      "Permission": "@everyone",
-      "Value": "guild_id",
-      "Type": "snowflake",
-      "Description": "All members in a guild"
+      "permission": "@everyone",
+      "value": "guild_id",
+      "type": "snowflake",
+      "description": "All members in a guild"
     },
     {
-      "Permission": "All Channels",
-      "Value": "guild_id - 1",
-      "Type": "snowflake",
-      "Description": "All channels in a guild"
+      "permission": "All Channels",
+      "value": "guild_id - 1",
+      "type": "snowflake",
+      "description": "All channels in a guild"
     }
   ],
   "Application Command Permission Type": [
     {
-      "Name": "ROLE",
-      "Value": "1"
+      "name": "ROLE",
+      "value": "1"
     },
     {
-      "Name": "USER",
-      "Value": "2"
+      "name": "USER",
+      "value": "2"
     },
     {
-      "Name": "CHANNEL",
-      "Value": "3"
+      "name": "CHANNEL",
+      "value": "3"
     }
   ]
 }

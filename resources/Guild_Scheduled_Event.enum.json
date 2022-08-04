@@ -1,40 +1,40 @@
 {
   "Guild Scheduled Event Privacy Level": [
     {
-      "Level": "GUILD_ONLY",
-      "Value": "2",
-      "Description": "the scheduled event is only accessible to guild members"
+      "level": "GUILD_ONLY",
+      "value": "2",
+      "description": "the scheduled event is only accessible to guild members"
     }
   ],
   "Guild Scheduled Event Entity Types": [
     {
-      "Type": "STAGE_INSTANCE",
-      "Value": "1"
+      "type": "STAGE_INSTANCE",
+      "value": "1"
     },
     {
-      "Type": "VOICE",
-      "Value": "2"
+      "type": "VOICE",
+      "value": "2"
     },
     {
-      "Type": "EXTERNAL",
-      "Value": "3"
+      "type": "EXTERNAL",
+      "value": "3"
     }
   ],
   "Field Requirements By Entity Type": [
     {
-      "Entity Type": "STAGE_INSTANCE",
+      "entity type": "STAGE_INSTANCE",
       "channel_id": "value",
       "entity_metadata": "null",
       "scheduled_end_time": "-"
     },
     {
-      "Entity Type": "VOICE",
+      "entity type": "VOICE",
       "channel_id": "value",
       "entity_metadata": "null",
       "scheduled_end_time": "-"
     },
     {
-      "Entity Type": "EXTERNAL",
+      "entity type": "EXTERNAL",
       "channel_id": "null",
       "entity_metadata": "value *",
       "scheduled_end_time": "value"
@@ -42,27 +42,27 @@
   ],
   "Guild Scheduled Event Status": [
     {
-      "Type": "SCHEDULED",
-      "Value": "1"
+      "type": "SCHEDULED",
+      "value": "1"
     },
     {
-      "Type": "ACTIVE",
-      "Value": "2"
+      "type": "ACTIVE",
+      "value": "2"
     },
     {
-      "Type": "COMPLETED *",
-      "Value": "3"
+      "type": "COMPLETED *",
+      "value": "3"
     },
     {
-      "Type": "CANCELED  *",
-      "Value": "4"
+      "type": "CANCELED  *",
+      "value": "4"
     }
   ],
   "Guild Scheduled Event Entity Metadata": [
     {
-      "Field": "location? *",
-      "Type": "string",
-      "Description": "location of the event (1-100 characters)"
+      "field": "location? *",
+      "type": "string",
+      "description": "location of the event (1-100 characters)"
     }
   ]
 }

@@ -1,34 +1,34 @@
 {
   "Create Interaction Response": {
-    "Command": "POST",
-    "URL": "/interactions/{interaction.id}/{interaction.token}/callback"
+    "command": "POST",
+    "url": "/interactions/{interaction.id}/{interaction.token}/callback"
   },
   "Get Original Interaction Response": {
-    "Command": "GET",
-    "URL": "/webhooks/{application.id}/{interaction.token}/messages/@original"
+    "command": "GET",
+    "url": "/webhooks/{application.id}/{interaction.token}/messages/@original"
   },
   "Edit Original Interaction Response": {
-    "Command": "PATCH",
-    "URL": "/webhooks/{application.id}/{interaction.token}/messages/@original"
+    "command": "PATCH",
+    "url": "/webhooks/{application.id}/{interaction.token}/messages/@original"
   },
   "Delete Original Interaction Response": {
-    "Command": "DELETE",
-    "URL": "/webhooks/{application.id}/{interaction.token}/messages/@original"
+    "command": "DELETE",
+    "url": "/webhooks/{application.id}/{interaction.token}/messages/@original"
   },
   "Create Followup Message": {
-    "Command": "POST",
-    "URL": "/webhooks/{application.id}/{interaction.token}"
+    "command": "POST",
+    "url": "/webhooks/{application.id}/{interaction.token}"
   },
   "Get Followup Message": {
-    "Command": "GET",
-    "URL": "/webhooks/{application.id}/{interaction.token}/messages/{message.id}"
+    "command": "GET",
+    "url": "/webhooks/{application.id}/{interaction.token}/messages/{message.id}"
   },
   "Edit Followup Message": {
-    "Command": "PATCH",
-    "URL": "/webhooks/{application.id}/{interaction.token}/messages/{message.id}"
+    "command": "PATCH",
+    "url": "/webhooks/{application.id}/{interaction.token}/messages/{message.id}"
   },
   "Delete Followup Message": {
-    "Command": "DELETE",
-    "URL": "/webhooks/{application.id}/{interaction.token}/messages/{message.id}"
+    "command": "DELETE",
+    "url": "/webhooks/{application.id}/{interaction.token}/messages/{message.id}"
   }
 }

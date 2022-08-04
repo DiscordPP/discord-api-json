@@ -1,60 +1,60 @@
 {
   "Emoji": [
     {
-      "Field": "id",
-      "Type": "snowflake",
-      "Description": "emoji id",
-      "Optional": false,
-      "Nullable": true
+      "field": "id",
+      "type": "snowflake",
+      "description": "emoji id",
+      "optional": false,
+      "nullable": true
     },
     {
-      "Field": "name",
-      "Type": "string (can be null only in reaction emoji objects)",
-      "Description": "emoji name",
-      "Optional": false,
-      "Nullable": true
+      "field": "name",
+      "type": "string (can be null only in reaction emoji objects)",
+      "description": "emoji name",
+      "optional": false,
+      "nullable": true
     },
     {
-      "Field": "roles",
-      "Type": "array of role object ids",
-      "Description": "roles allowed to use this emoji",
-      "Optional": true,
-      "Nullable": false
+      "field": "roles",
+      "type": "array of role object ids",
+      "description": "roles allowed to use this emoji",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "user",
-      "Type": "user object",
-      "Description": "user that created this emoji",
-      "Optional": true,
-      "Nullable": false
+      "field": "user",
+      "type": "user object",
+      "description": "user that created this emoji",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "require_colons",
-      "Type": "boolean",
-      "Description": "whether this emoji must be wrapped in colons",
-      "Optional": true,
-      "Nullable": false
+      "field": "require_colons",
+      "type": "boolean",
+      "description": "whether this emoji must be wrapped in colons",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "managed",
-      "Type": "boolean",
-      "Description": "whether this emoji is managed",
-      "Optional": true,
-      "Nullable": false
+      "field": "managed",
+      "type": "boolean",
+      "description": "whether this emoji is managed",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "animated",
-      "Type": "boolean",
-      "Description": "whether this emoji is animated",
-      "Optional": true,
-      "Nullable": false
+      "field": "animated",
+      "type": "boolean",
+      "description": "whether this emoji is animated",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "available",
-      "Type": "boolean",
-      "Description": "whether this emoji can be used, may be false due to loss of Server Boosts",
-      "Optional": true,
-      "Nullable": false
+      "field": "available",
+      "type": "boolean",
+      "description": "whether this emoji can be used, may be false due to loss of Server Boosts",
+      "optional": true,
+      "nullable": false
     }
   ]
 }

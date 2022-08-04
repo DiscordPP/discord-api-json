@@ -1,132 +1,132 @@
 {
   "Voice State": [
     {
-      "Field": "guild_id",
-      "Type": "snowflake",
-      "Description": "the guild id this voice state is for",
-      "Optional": true,
-      "Nullable": false
+      "field": "guild_id",
+      "type": "snowflake",
+      "description": "the guild id this voice state is for",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "channel_id",
-      "Type": "snowflake",
-      "Description": "the channel id this user is connected to",
-      "Optional": false,
-      "Nullable": true
+      "field": "channel_id",
+      "type": "snowflake",
+      "description": "the channel id this user is connected to",
+      "optional": false,
+      "nullable": true
     },
     {
-      "Field": "user_id",
-      "Type": "snowflake",
-      "Description": "the user id this voice state is for",
-      "Optional": false,
-      "Nullable": false
+      "field": "user_id",
+      "type": "snowflake",
+      "description": "the user id this voice state is for",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "member",
-      "Type": "guild member object",
-      "Description": "the guild member this voice state is for",
-      "Optional": true,
-      "Nullable": false
+      "field": "member",
+      "type": "guild member object",
+      "description": "the guild member this voice state is for",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "session_id",
-      "Type": "string",
-      "Description": "the session id for this voice state",
-      "Optional": false,
-      "Nullable": false
+      "field": "session_id",
+      "type": "string",
+      "description": "the session id for this voice state",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "deaf",
-      "Type": "boolean",
-      "Description": "whether this user is deafened by the server",
-      "Optional": false,
-      "Nullable": false
+      "field": "deaf",
+      "type": "boolean",
+      "description": "whether this user is deafened by the server",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "mute",
-      "Type": "boolean",
-      "Description": "whether this user is muted by the server",
-      "Optional": false,
-      "Nullable": false
+      "field": "mute",
+      "type": "boolean",
+      "description": "whether this user is muted by the server",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "self_deaf",
-      "Type": "boolean",
-      "Description": "whether this user is locally deafened",
-      "Optional": false,
-      "Nullable": false
+      "field": "self_deaf",
+      "type": "boolean",
+      "description": "whether this user is locally deafened",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "self_mute",
-      "Type": "boolean",
-      "Description": "whether this user is locally muted",
-      "Optional": false,
-      "Nullable": false
+      "field": "self_mute",
+      "type": "boolean",
+      "description": "whether this user is locally muted",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "self_stream",
-      "Type": "boolean",
-      "Description": "whether this user is streaming using \"Go Live\"",
-      "Optional": true,
-      "Nullable": false
+      "field": "self_stream",
+      "type": "boolean",
+      "description": "whether this user is streaming using \"Go Live\"",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "self_video",
-      "Type": "boolean",
-      "Description": "whether this user's camera is enabled",
-      "Optional": false,
-      "Nullable": false
+      "field": "self_video",
+      "type": "boolean",
+      "description": "whether this user's camera is enabled",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "suppress",
-      "Type": "boolean",
-      "Description": "whether this user is muted by the current user",
-      "Optional": false,
-      "Nullable": false
+      "field": "suppress",
+      "type": "boolean",
+      "description": "whether this user is muted by the current user",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "request_to_speak_timestamp",
-      "Type": "ISO8601 timestamp",
-      "Description": "the time at which the user requested to speak",
-      "Optional": false,
-      "Nullable": true
+      "field": "request_to_speak_timestamp",
+      "type": "ISO8601 timestamp",
+      "description": "the time at which the user requested to speak",
+      "optional": false,
+      "nullable": true
     }
   ],
   "Voice Region": [
     {
-      "Field": "id",
-      "Type": "string",
-      "Description": "unique ID for the region",
-      "Optional": false,
-      "Nullable": false
+      "field": "id",
+      "type": "string",
+      "description": "unique ID for the region",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "name",
-      "Type": "string",
-      "Description": "name of the region",
-      "Optional": false,
-      "Nullable": false
+      "field": "name",
+      "type": "string",
+      "description": "name of the region",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "optimal",
-      "Type": "boolean",
-      "Description": "true for a single server that is closest to the current user's client",
-      "Optional": false,
-      "Nullable": false
+      "field": "optimal",
+      "type": "boolean",
+      "description": "true for a single server that is closest to the current user's client",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "deprecated",
-      "Type": "boolean",
-      "Description": "whether this is a deprecated voice region (avoid switching to these)",
-      "Optional": false,
-      "Nullable": false
+      "field": "deprecated",
+      "type": "boolean",
+      "description": "whether this is a deprecated voice region (avoid switching to these)",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "custom",
-      "Type": "boolean",
-      "Description": "whether this is a custom voice region (used for events/etc)",
-      "Optional": false,
-      "Nullable": false
+      "field": "custom",
+      "type": "boolean",
+      "description": "whether this is a custom voice region (used for events/etc)",
+      "optional": false,
+      "nullable": false
     }
   ]
 }

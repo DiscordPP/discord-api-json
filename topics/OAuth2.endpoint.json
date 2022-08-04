@@ -1,10 +1,10 @@
 {
   "Get Current Bot Application Information": {
-    "Command": "GET",
-    "URL": "/oauth2/applications/@me"
+    "command": "GET",
+    "url": "/oauth2/applications/@me"
   },
   "Get Current Authorization Information": {
-    "Command": "GET",
-    "URL": "/oauth2/@me"
+    "command": "GET",
+    "url": "/oauth2/@me"
   }
 }

@@ -1,53 +1,53 @@
 {
   "Get Sticker": {
-    "Command": "GET",
-    "URL": "/stickers/{sticker.id}"
+    "command": "GET",
+    "url": "/stickers/{sticker.id}"
   },
   "List Nitro Sticker Packs": {
-    "Command": "GET",
-    "URL": "/sticker-packs"
+    "command": "GET",
+    "url": "/sticker-packs"
   },
   "List Guild Stickers": {
-    "Command": "GET",
-    "URL": "/guilds/{guild.id}/stickers"
+    "command": "GET",
+    "url": "/guilds/{guild.id}/stickers"
   },
   "Get Guild Sticker": {
-    "Command": "GET",
-    "URL": "/guilds/{guild.id}/stickers/{sticker.id}"
+    "command": "GET",
+    "url": "/guilds/{guild.id}/stickers/{sticker.id}"
   },
   "Create Guild Sticker": {
-    "Command": "POST",
-    "URL": "/guilds/{guild.id}/stickers"
+    "command": "POST",
+    "url": "/guilds/{guild.id}/stickers"
   },
   "Modify Guild Sticker": {
-    "Command": "PATCH",
-    "URL": "/guilds/{guild.id}/stickers/{sticker.id}",
+    "command": "PATCH",
+    "url": "/guilds/{guild.id}/stickers/{sticker.id}",
     "json": [
       {
-        "Field": "name",
-        "Type": "string",
-        "Description": "name of the sticker (2-30 characters)",
-        "Optional": false,
-        "Nullable": false
+        "field": "name",
+        "type": "string",
+        "description": "name of the sticker (2-30 characters)",
+        "optional": false,
+        "nullable": false
       },
       {
-        "Field": "description",
-        "Type": "string",
-        "Description": "description of the sticker (2-100 characters)",
-        "Optional": false,
-        "Nullable": true
+        "field": "description",
+        "type": "string",
+        "description": "description of the sticker (2-100 characters)",
+        "optional": false,
+        "nullable": true
       },
       {
-        "Field": "tags",
-        "Type": "string",
-        "Description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
-        "Optional": false,
-        "Nullable": false
+        "field": "tags",
+        "type": "string",
+        "description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   "Delete Guild Sticker": {
-    "Command": "DELETE",
-    "URL": "/guilds/{guild.id}/stickers/{sticker.id}"
+    "command": "DELETE",
+    "url": "/guilds/{guild.id}/stickers/{sticker.id}"
   }
 }

@@ -1,61 +1,61 @@
 {
   "List Guild Emojis": {
-    "Command": "GET",
-    "URL": "/guilds/{guild.id}/emojis"
+    "command": "GET",
+    "url": "/guilds/{guild.id}/emojis"
   },
   "Get Guild Emoji": {
-    "Command": "GET",
-    "URL": "/guilds/{guild.id}/emojis/{emoji.id}"
+    "command": "GET",
+    "url": "/guilds/{guild.id}/emojis/{emoji.id}"
   },
   "Create Guild Emoji": {
-    "Command": "POST",
-    "URL": "/guilds/{guild.id}/emojis",
+    "command": "POST",
+    "url": "/guilds/{guild.id}/emojis",
     "json": [
       {
-        "Field": "name",
-        "Type": "string",
-        "Description": "name of the emoji",
-        "Optional": false,
-        "Nullable": false
+        "field": "name",
+        "type": "string",
+        "description": "name of the emoji",
+        "optional": false,
+        "nullable": false
       },
       {
-        "Field": "image",
-        "Type": "image data",
-        "Description": "the 128x128 emoji image",
-        "Optional": false,
-        "Nullable": false
+        "field": "image",
+        "type": "image data",
+        "description": "the 128x128 emoji image",
+        "optional": false,
+        "nullable": false
       },
       {
-        "Field": "roles",
-        "Type": "array of snowflakes",
-        "Description": "roles allowed to use this emoji",
-        "Optional": false,
-        "Nullable": false
+        "field": "roles",
+        "type": "array of snowflakes",
+        "description": "roles allowed to use this emoji",
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   "Modify Guild Emoji": {
-    "Command": "PATCH",
-    "URL": "/guilds/{guild.id}/emojis/{emoji.id}",
+    "command": "PATCH",
+    "url": "/guilds/{guild.id}/emojis/{emoji.id}",
     "json": [
       {
-        "Field": "name",
-        "Type": "string",
-        "Description": "name of the emoji",
-        "Optional": false,
-        "Nullable": false
+        "field": "name",
+        "type": "string",
+        "description": "name of the emoji",
+        "optional": false,
+        "nullable": false
       },
       {
-        "Field": "roles",
-        "Type": "array of snowflakes",
-        "Description": "roles allowed to use this emoji",
-        "Optional": false,
-        "Nullable": true
+        "field": "roles",
+        "type": "array of snowflakes",
+        "description": "roles allowed to use this emoji",
+        "optional": false,
+        "nullable": true
       }
     ]
   },
   "Delete Guild Emoji": {
-    "Command": "DELETE",
-    "URL": "/guilds/{guild.id}/emojis/{emoji.id}"
+    "command": "DELETE",
+    "url": "/guilds/{guild.id}/emojis/{emoji.id}"
   }
 }

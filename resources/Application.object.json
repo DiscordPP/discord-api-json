@@ -1,168 +1,168 @@
 {
   "Application": [
     {
-      "Field": "id",
-      "Type": "snowflake",
-      "Description": "the id of the app",
-      "Optional": false,
-      "Nullable": false
+      "field": "id",
+      "type": "snowflake",
+      "description": "the id of the app",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "name",
-      "Type": "string",
-      "Description": "the name of the app",
-      "Optional": false,
-      "Nullable": false
+      "field": "name",
+      "type": "string",
+      "description": "the name of the app",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "icon",
-      "Type": "string",
-      "Description": "the icon hash of the app",
-      "Optional": false,
-      "Nullable": true
+      "field": "icon",
+      "type": "string",
+      "description": "the icon hash of the app",
+      "optional": false,
+      "nullable": true
     },
     {
-      "Field": "description",
-      "Type": "string",
-      "Description": "the description of the app",
-      "Optional": false,
-      "Nullable": false
+      "field": "description",
+      "type": "string",
+      "description": "the description of the app",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "rpc_origins",
-      "Type": "array of strings",
-      "Description": "an array of rpc origin urls, if rpc is enabled",
-      "Optional": true,
-      "Nullable": false
+      "field": "rpc_origins",
+      "type": "array of strings",
+      "description": "an array of rpc origin urls, if rpc is enabled",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "bot_public",
-      "Type": "boolean",
-      "Description": "when false only app owner can join the app's bot to guilds",
-      "Optional": false,
-      "Nullable": false
+      "field": "bot_public",
+      "type": "boolean",
+      "description": "when false only app owner can join the app's bot to guilds",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "bot_require_code_grant",
-      "Type": "boolean",
-      "Description": "when true the app's bot will only join upon completion of the full oauth2 code grant flow",
-      "Optional": false,
-      "Nullable": false
+      "field": "bot_require_code_grant",
+      "type": "boolean",
+      "description": "when true the app's bot will only join upon completion of the full oauth2 code grant flow",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "terms_of_service_url",
-      "Type": "string",
-      "Description": "the url of the app's terms of service",
-      "Optional": true,
-      "Nullable": false
+      "field": "terms_of_service_url",
+      "type": "string",
+      "description": "the url of the app's terms of service",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "privacy_policy_url",
-      "Type": "string",
-      "Description": "the url of the app's privacy policy",
-      "Optional": true,
-      "Nullable": false
+      "field": "privacy_policy_url",
+      "type": "string",
+      "description": "the url of the app's privacy policy",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "owner",
-      "Type": "partial user object",
-      "Description": "partial user object containing info on the owner of the application",
-      "Optional": true,
-      "Nullable": false
+      "field": "owner",
+      "type": "partial user object",
+      "description": "partial user object containing info on the owner of the application",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "summary",
-      "Type": "string",
-      "Description": "deprecated and will be removed in v11. An empty string.",
-      "Note": "(deprecated)",
-      "Optional": false,
-      "Nullable": false
+      "field": "summary",
+      "type": "string",
+      "description": "deprecated and will be removed in v11. An empty string.",
+      "note": "(deprecated)",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "verify_key",
-      "Type": "string",
-      "Description": "the hex encoded key for verification in interactions and the GameSDK's GetTicket",
-      "Optional": false,
-      "Nullable": false
+      "field": "verify_key",
+      "type": "string",
+      "description": "the hex encoded key for verification in interactions and the GameSDK's GetTicket",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "team",
-      "Type": "team object",
-      "Description": "if the application belongs to a team, this will be a list of the members of that team",
-      "Optional": false,
-      "Nullable": true
+      "field": "team",
+      "type": "team object",
+      "description": "if the application belongs to a team, this will be a list of the members of that team",
+      "optional": false,
+      "nullable": true
     },
     {
-      "Field": "guild_id",
-      "Type": "snowflake",
-      "Description": "if this application is a game sold on Discord, this field will be the guild to which it has been linked",
-      "Optional": true,
-      "Nullable": false
+      "field": "guild_id",
+      "type": "snowflake",
+      "description": "if this application is a game sold on Discord, this field will be the guild to which it has been linked",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "primary_sku_id",
-      "Type": "snowflake",
-      "Description": "if this application is a game sold on Discord, this field will be the id of the \"Game SKU\" that is created, if exists",
-      "Optional": true,
-      "Nullable": false
+      "field": "primary_sku_id",
+      "type": "snowflake",
+      "description": "if this application is a game sold on Discord, this field will be the id of the \"Game SKU\" that is created, if exists",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "slug",
-      "Type": "string",
-      "Description": "if this application is a game sold on Discord, this field will be the URL slug that links to the store page",
-      "Optional": true,
-      "Nullable": false
+      "field": "slug",
+      "type": "string",
+      "description": "if this application is a game sold on Discord, this field will be the URL slug that links to the store page",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "cover_image",
-      "Type": "string",
-      "Description": "the application's default rich presence invite cover image hash",
-      "Optional": true,
-      "Nullable": false
+      "field": "cover_image",
+      "type": "string",
+      "description": "the application's default rich presence invite cover image hash",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "flags",
-      "Type": "integer",
-      "Description": "the application's public flags",
-      "Optional": true,
-      "Nullable": false
+      "field": "flags",
+      "type": "integer",
+      "description": "the application's public flags",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "tags",
-      "Type": "array of strings",
-      "Description": "up to 5 tags describing the content and functionality of the application",
-      "Optional": true,
-      "Nullable": false
+      "field": "tags",
+      "type": "array of strings",
+      "description": "up to 5 tags describing the content and functionality of the application",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "install_params",
-      "Type": "install params object",
-      "Description": "settings for the application's default in-app authorization link, if enabled",
-      "Optional": true,
-      "Nullable": false
+      "field": "install_params",
+      "type": "install params object",
+      "description": "settings for the application's default in-app authorization link, if enabled",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "custom_install_url",
-      "Type": "string",
-      "Description": "the application's default custom authorization link, if enabled",
-      "Optional": true,
-      "Nullable": false
+      "field": "custom_install_url",
+      "type": "string",
+      "description": "the application's default custom authorization link, if enabled",
+      "optional": true,
+      "nullable": false
     }
   ],
   "Install Params": [
     {
-      "Field": "scopes",
-      "Type": "array of strings",
-      "Description": "the scopes to add the application to the server with",
-      "Optional": false,
-      "Nullable": false
+      "field": "scopes",
+      "type": "array of strings",
+      "description": "the scopes to add the application to the server with",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "permissions",
-      "Type": "string",
-      "Description": "the permissions to request for the bot role",
-      "Optional": false,
-      "Nullable": false
+      "field": "permissions",
+      "type": "string",
+      "description": "the permissions to request for the bot role",
+      "optional": false,
+      "nullable": false
     }
   ]
 }

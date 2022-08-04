@@ -1,322 +1,322 @@
 {
   "Application Command": [
     {
-      "Field": "id",
-      "Type": "snowflake",
-      "Description": "Unique ID of command",
-      "Valid Types": "all",
-      "Optional": false,
-      "Nullable": false
+      "field": "id",
+      "type": "snowflake",
+      "description": "Unique ID of command",
+      "valid types": "all",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "type",
-      "Type": "one of application command type",
-      "Description": "Type of command, defaults to 1",
-      "Valid Types": "all",
-      "Optional": true,
-      "Nullable": false
+      "field": "type",
+      "type": "one of application command type",
+      "description": "Type of command, defaults to 1",
+      "valid types": "all",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "application_id",
-      "Type": "snowflake",
-      "Description": "ID of the parent application",
-      "Valid Types": "all",
-      "Optional": false,
-      "Nullable": false
+      "field": "application_id",
+      "type": "snowflake",
+      "description": "ID of the parent application",
+      "valid types": "all",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "guild_id",
-      "Type": "snowflake",
-      "Description": "guild id of the command, if not global",
-      "Valid Types": "all",
-      "Optional": true,
-      "Nullable": false
+      "field": "guild_id",
+      "type": "snowflake",
+      "description": "guild id of the command, if not global",
+      "valid types": "all",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "name",
-      "Type": "string",
-      "Description": "Name of command, 1-32 characters",
-      "Valid Types": "all",
-      "Optional": false,
-      "Nullable": false
+      "field": "name",
+      "type": "string",
+      "description": "Name of command, 1-32 characters",
+      "valid types": "all",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "name_localizations",
-      "Type": "dictionary with keys in available locales",
-      "Description": "Localization dictionary for name field. Values follow the same restrictions as name",
-      "Valid Types": "all",
-      "Optional": true,
-      "Nullable": true
+      "field": "name_localizations",
+      "type": "dictionary with keys in available locales",
+      "description": "Localization dictionary for name field. Values follow the same restrictions as name",
+      "valid types": "all",
+      "optional": true,
+      "nullable": true
     },
     {
-      "Field": "description",
-      "Type": "string",
-      "Description": "Description for CHAT_INPUT commands, 1-100 characters. Empty string for USER and MESSAGE commands",
-      "Valid Types": "all",
-      "Optional": false,
-      "Nullable": false
+      "field": "description",
+      "type": "string",
+      "description": "Description for CHAT_INPUT commands, 1-100 characters. Empty string for USER and MESSAGE commands",
+      "valid types": "all",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "description_localizations",
-      "Type": "dictionary with keys in available locales",
-      "Description": "Localization dictionary for description field. Values follow the same restrictions as description",
-      "Valid Types": "all",
-      "Optional": true,
-      "Nullable": true
+      "field": "description_localizations",
+      "type": "dictionary with keys in available locales",
+      "description": "Localization dictionary for description field. Values follow the same restrictions as description",
+      "valid types": "all",
+      "optional": true,
+      "nullable": true
     },
     {
-      "Field": "options",
-      "Type": "array of application command option",
-      "Description": "Parameters for the command, max of 25",
-      "Valid Types": "CHAT_INPUT",
-      "Optional": true,
-      "Nullable": false
+      "field": "options",
+      "type": "array of application command option",
+      "description": "Parameters for the command, max of 25",
+      "valid types": "CHAT_INPUT",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "default_member_permissions",
-      "Type": "string",
-      "Description": "Set of permissions represented as a bit set",
-      "Valid Types": "all",
-      "Optional": false,
-      "Nullable": true
+      "field": "default_member_permissions",
+      "type": "string",
+      "description": "Set of permissions represented as a bit set",
+      "valid types": "all",
+      "optional": false,
+      "nullable": true
     },
     {
-      "Field": "dm_permission",
-      "Type": "boolean",
-      "Description": "Indicates whether the command is available in DMs with the app, only for globally-scoped commands. By default, commands are visible.",
-      "Valid Types": "all",
-      "Optional": true,
-      "Nullable": false
+      "field": "dm_permission",
+      "type": "boolean",
+      "description": "Indicates whether the command is available in DMs with the app, only for globally-scoped commands. By default, commands are visible.",
+      "valid types": "all",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "default_permission",
-      "Type": "boolean",
-      "Description": "Not recommended for use as field will soon be deprecated. Indicates whether the command is enabled by default when the app is added to a guild, defaults to true",
-      "Valid Types": "all",
-      "Optional": true,
-      "Nullable": true
+      "field": "default_permission",
+      "type": "boolean",
+      "description": "Not recommended for use as field will soon be deprecated. Indicates whether the command is enabled by default when the app is added to a guild, defaults to true",
+      "valid types": "all",
+      "optional": true,
+      "nullable": true
     },
     {
-      "Field": "version",
-      "Type": "snowflake",
-      "Description": "Autoincrementing version identifier updated during substantial record changes",
-      "Valid Types": "all",
-      "Optional": false,
-      "Nullable": false
+      "field": "version",
+      "type": "snowflake",
+      "description": "Autoincrementing version identifier updated during substantial record changes",
+      "valid types": "all",
+      "optional": false,
+      "nullable": false
     }
   ],
   "Application Command Option": [
     {
-      "Field": "type",
-      "Type": "one of application command option type",
-      "Description": "Type of option",
-      "Optional": false,
-      "Nullable": false
+      "field": "type",
+      "type": "one of application command option type",
+      "description": "Type of option",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "name",
-      "Type": "string",
-      "Description": "1-32 character name",
-      "Optional": false,
-      "Nullable": false
+      "field": "name",
+      "type": "string",
+      "description": "1-32 character name",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "name_localizations",
-      "Type": "dictionary with keys in available locales",
-      "Description": "Localization dictionary for the name field. Values follow the same restrictions as name",
-      "Optional": true,
-      "Nullable": true
+      "field": "name_localizations",
+      "type": "dictionary with keys in available locales",
+      "description": "Localization dictionary for the name field. Values follow the same restrictions as name",
+      "optional": true,
+      "nullable": true
     },
     {
-      "Field": "description",
-      "Type": "string",
-      "Description": "1-100 character description",
-      "Optional": false,
-      "Nullable": false
+      "field": "description",
+      "type": "string",
+      "description": "1-100 character description",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "description_localizations",
-      "Type": "dictionary with keys in available locales",
-      "Description": "Localization dictionary for the description field. Values follow the same restrictions as description",
-      "Optional": true,
-      "Nullable": true
+      "field": "description_localizations",
+      "type": "dictionary with keys in available locales",
+      "description": "Localization dictionary for the description field. Values follow the same restrictions as description",
+      "optional": true,
+      "nullable": true
     },
     {
-      "Field": "required",
-      "Type": "boolean",
-      "Description": "If the parameter is required or optional--default false",
-      "Optional": true,
-      "Nullable": false
+      "field": "required",
+      "type": "boolean",
+      "description": "If the parameter is required or optional--default false",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "choices",
-      "Type": "array of application command option choice",
-      "Description": "Choices for STRING, INTEGER, and NUMBER types for the user to pick from, max 25",
-      "Optional": true,
-      "Nullable": false
+      "field": "choices",
+      "type": "array of application command option choice",
+      "description": "Choices for STRING, INTEGER, and NUMBER types for the user to pick from, max 25",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "options",
-      "Type": "array of application command option",
-      "Description": "If the option is a subcommand or subcommand group type, these nested options will be the parameters",
-      "Optional": true,
-      "Nullable": false
+      "field": "options",
+      "type": "array of application command option",
+      "description": "If the option is a subcommand or subcommand group type, these nested options will be the parameters",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "channel_types",
-      "Type": "array of channel types",
-      "Description": "If the option is a channel type, the channels shown will be restricted to these types",
-      "Optional": true,
-      "Nullable": false
+      "field": "channel_types",
+      "type": "array of channel types",
+      "description": "If the option is a channel type, the channels shown will be restricted to these types",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "min_value",
-      "Type": "integer for INTEGER options, double for NUMBER options",
-      "Description": "If the option is an INTEGER or NUMBER type, the minimum value permitted",
-      "Optional": true,
-      "Nullable": false
+      "field": "min_value",
+      "type": "integer for INTEGER options, double for NUMBER options",
+      "description": "If the option is an INTEGER or NUMBER type, the minimum value permitted",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "max_value",
-      "Type": "integer for INTEGER options, double for NUMBER options",
-      "Description": "If the option is an INTEGER or NUMBER type, the maximum value permitted",
-      "Optional": true,
-      "Nullable": false
+      "field": "max_value",
+      "type": "integer for INTEGER options, double for NUMBER options",
+      "description": "If the option is an INTEGER or NUMBER type, the maximum value permitted",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "min_length",
-      "Type": "integer",
-      "Description": "For option type STRING, the minimum allowed length (minimum of 0, maximum of 6000)",
-      "Optional": true,
-      "Nullable": false
+      "field": "min_length",
+      "type": "integer",
+      "description": "For option type STRING, the minimum allowed length (minimum of 0, maximum of 6000)",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "max_length",
-      "Type": "integer",
-      "Description": "For option type STRING, the maximum allowed length (minimum of 1, maximum of 6000)",
-      "Optional": true,
-      "Nullable": false
+      "field": "max_length",
+      "type": "integer",
+      "description": "For option type STRING, the maximum allowed length (minimum of 1, maximum of 6000)",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "autocomplete",
-      "Type": "boolean",
-      "Description": "If autocomplete interactions are enabled for this STRING, INTEGER, or NUMBER type option",
-      "Note": "*",
-      "Optional": true,
-      "Nullable": false
+      "field": "autocomplete",
+      "type": "boolean",
+      "description": "If autocomplete interactions are enabled for this STRING, INTEGER, or NUMBER type option",
+      "note": "*",
+      "optional": true,
+      "nullable": false
     }
   ],
   "Application Command Option Choice": [
     {
-      "Field": "name",
-      "Type": "string",
-      "Description": "1-100 character choice name",
-      "Optional": false,
-      "Nullable": false
+      "field": "name",
+      "type": "string",
+      "description": "1-100 character choice name",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "name_localizations",
-      "Type": "dictionary with keys in available locales",
-      "Description": "Localization dictionary for the name field. Values follow the same restrictions as name",
-      "Optional": true,
-      "Nullable": true
+      "field": "name_localizations",
+      "type": "dictionary with keys in available locales",
+      "description": "Localization dictionary for the name field. Values follow the same restrictions as name",
+      "optional": true,
+      "nullable": true
     },
     {
-      "Field": "value",
-      "Type": "string, integer, or double *",
-      "Description": "Value for the choice, up to 100 characters if string",
-      "Optional": false,
-      "Nullable": false
+      "field": "value",
+      "type": "string, integer, or double *",
+      "description": "Value for the choice, up to 100 characters if string",
+      "optional": false,
+      "nullable": false
     }
   ],
   "Application Command Interaction Data Option": [
     {
-      "Field": "name",
-      "Type": "string",
-      "Description": "Name of the parameter",
-      "Optional": false,
-      "Nullable": false
+      "field": "name",
+      "type": "string",
+      "description": "Name of the parameter",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "type",
-      "Type": "integer",
-      "Description": "Value of application command option type",
-      "Optional": false,
-      "Nullable": false
+      "field": "type",
+      "type": "integer",
+      "description": "Value of application command option type",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "value",
-      "Type": "string, integer, or double",
-      "Description": "Value of the option resulting from user input",
-      "Optional": true,
-      "Nullable": false
+      "field": "value",
+      "type": "string, integer, or double",
+      "description": "Value of the option resulting from user input",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "options",
-      "Type": "array of application command interaction data option",
-      "Description": "Present if this option is a group or subcommand",
-      "Optional": true,
-      "Nullable": false
+      "field": "options",
+      "type": "array of application command interaction data option",
+      "description": "Present if this option is a group or subcommand",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "focused",
-      "Type": "boolean",
-      "Description": "true if this option is the currently focused option for autocomplete",
-      "Optional": true,
-      "Nullable": false
+      "field": "focused",
+      "type": "boolean",
+      "description": "true if this option is the currently focused option for autocomplete",
+      "optional": true,
+      "nullable": false
     }
   ],
   "Guild Application Command Permissions": [
     {
-      "Field": "id",
-      "Type": "snowflake",
-      "Description": "ID of the command or the application ID",
-      "Optional": false,
-      "Nullable": false
+      "field": "id",
+      "type": "snowflake",
+      "description": "ID of the command or the application ID",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "application_id",
-      "Type": "snowflake",
-      "Description": "ID of the application the command belongs to",
-      "Optional": false,
-      "Nullable": false
+      "field": "application_id",
+      "type": "snowflake",
+      "description": "ID of the application the command belongs to",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "guild_id",
-      "Type": "snowflake",
-      "Description": "ID of the guild",
-      "Optional": false,
-      "Nullable": false
+      "field": "guild_id",
+      "type": "snowflake",
+      "description": "ID of the guild",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "permissions",
-      "Type": "array of application command permissions",
-      "Description": "Permissions for the command in the guild, max of 100",
-      "Optional": false,
-      "Nullable": false
+      "field": "permissions",
+      "type": "array of application command permissions",
+      "description": "Permissions for the command in the guild, max of 100",
+      "optional": false,
+      "nullable": false
     }
   ],
   "Application Command Permissions": [
     {
-      "Field": "id",
-      "Type": "snowflake",
-      "Description": "ID of the role, user, or channel. It can also be a permission constant",
-      "Optional": false,
-      "Nullable": false
+      "field": "id",
+      "type": "snowflake",
+      "description": "ID of the role, user, or channel. It can also be a permission constant",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "type",
-      "Type": "application command permission type",
-      "Description": "role (1), user (2), or channel (3)",
-      "Optional": false,
-      "Nullable": false
+      "field": "type",
+      "type": "application command permission type",
+      "description": "role (1), user (2), or channel (3)",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "permission",
-      "Type": "boolean",
-      "Description": "true to allow, false, to disallow",
-      "Optional": false,
-      "Nullable": false
+      "field": "permission",
+      "type": "boolean",
+      "description": "true to allow, false, to disallow",
+      "optional": false,
+      "nullable": false
     }
   ]
 }

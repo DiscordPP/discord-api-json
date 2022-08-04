@@ -1,32 +1,32 @@
 {
   "Session Start Limit": [
     {
-      "Field": "total",
-      "Type": "integer",
-      "Description": "The total number of session starts the current user is allowed",
-      "Optional": false,
-      "Nullable": false
+      "field": "total",
+      "type": "integer",
+      "description": "The total number of session starts the current user is allowed",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "remaining",
-      "Type": "integer",
-      "Description": "The remaining number of session starts the current user is allowed",
-      "Optional": false,
-      "Nullable": false
+      "field": "remaining",
+      "type": "integer",
+      "description": "The remaining number of session starts the current user is allowed",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "reset_after",
-      "Type": "integer",
-      "Description": "The number of milliseconds after which the limit resets",
-      "Optional": false,
-      "Nullable": false
+      "field": "reset_after",
+      "type": "integer",
+      "description": "The number of milliseconds after which the limit resets",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "max_concurrency",
-      "Type": "integer",
-      "Description": "The number of identify requests allowed per 5 seconds",
-      "Optional": false,
-      "Nullable": false
+      "field": "max_concurrency",
+      "type": "integer",
+      "description": "The number of identify requests allowed per 5 seconds",
+      "optional": false,
+      "nullable": false
     }
   ]
 }

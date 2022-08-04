@@ -1,394 +1,394 @@
 {
   "Audit Log Events": [
     {
-      "Event": "GUILD_UPDATE",
-      "Value": "1",
-      "Description": "Server settings were updated",
-      "Object Changed": "Guild"
+      "event": "GUILD_UPDATE",
+      "value": "1",
+      "description": "Server settings were updated",
+      "object changed": "Guild"
     },
     {
-      "Event": "CHANNEL_CREATE",
-      "Value": "10",
-      "Description": "Channel was created",
-      "Object Changed": "Channel"
+      "event": "CHANNEL_CREATE",
+      "value": "10",
+      "description": "Channel was created",
+      "object changed": "Channel"
     },
     {
-      "Event": "CHANNEL_UPDATE",
-      "Value": "11",
-      "Description": "Channel settings were updated",
-      "Object Changed": "Channel"
+      "event": "CHANNEL_UPDATE",
+      "value": "11",
+      "description": "Channel settings were updated",
+      "object changed": "Channel"
     },
     {
-      "Event": "CHANNEL_DELETE",
-      "Value": "12",
-      "Description": "Channel was deleted",
-      "Object Changed": "Channel"
+      "event": "CHANNEL_DELETE",
+      "value": "12",
+      "description": "Channel was deleted",
+      "object changed": "Channel"
     },
     {
-      "Event": "CHANNEL_OVERWRITE_CREATE",
-      "Value": "13",
-      "Description": "Permission overwrite was added to a channel",
-      "Object Changed": "Channel Overwrite"
+      "event": "CHANNEL_OVERWRITE_CREATE",
+      "value": "13",
+      "description": "Permission overwrite was added to a channel",
+      "object changed": "Channel Overwrite"
     },
     {
-      "Event": "CHANNEL_OVERWRITE_UPDATE",
-      "Value": "14",
-      "Description": "Permission overwrite was updated for a channel",
-      "Object Changed": "Channel Overwrite"
+      "event": "CHANNEL_OVERWRITE_UPDATE",
+      "value": "14",
+      "description": "Permission overwrite was updated for a channel",
+      "object changed": "Channel Overwrite"
     },
     {
-      "Event": "CHANNEL_OVERWRITE_DELETE",
-      "Value": "15",
-      "Description": "Permission overwrite was deleted from a channel",
-      "Object Changed": "Channel Overwrite"
+      "event": "CHANNEL_OVERWRITE_DELETE",
+      "value": "15",
+      "description": "Permission overwrite was deleted from a channel",
+      "object changed": "Channel Overwrite"
     },
     {
-      "Event": "MEMBER_KICK",
-      "Value": "20",
-      "Description": "Member was removed from server",
-      "Object Changed": ""
+      "event": "MEMBER_KICK",
+      "value": "20",
+      "description": "Member was removed from server",
+      "object changed": ""
     },
     {
-      "Event": "MEMBER_PRUNE",
-      "Value": "21",
-      "Description": "Members were pruned from server",
-      "Object Changed": ""
+      "event": "MEMBER_PRUNE",
+      "value": "21",
+      "description": "Members were pruned from server",
+      "object changed": ""
     },
     {
-      "Event": "MEMBER_BAN_ADD",
-      "Value": "22",
-      "Description": "Member was banned from server",
-      "Object Changed": ""
+      "event": "MEMBER_BAN_ADD",
+      "value": "22",
+      "description": "Member was banned from server",
+      "object changed": ""
     },
     {
-      "Event": "MEMBER_BAN_REMOVE",
-      "Value": "23",
-      "Description": "Server ban was lifted for a member",
-      "Object Changed": ""
+      "event": "MEMBER_BAN_REMOVE",
+      "value": "23",
+      "description": "Server ban was lifted for a member",
+      "object changed": ""
     },
     {
-      "Event": "MEMBER_UPDATE",
-      "Value": "24",
-      "Description": "Member was updated in server",
-      "Object Changed": "Member"
+      "event": "MEMBER_UPDATE",
+      "value": "24",
+      "description": "Member was updated in server",
+      "object changed": "Member"
     },
     {
-      "Event": "MEMBER_ROLE_UPDATE",
-      "Value": "25",
-      "Description": "Member was added or removed from a role",
-      "Object Changed": "Partial Role*"
+      "event": "MEMBER_ROLE_UPDATE",
+      "value": "25",
+      "description": "Member was added or removed from a role",
+      "object changed": "Partial Role*"
     },
     {
-      "Event": "MEMBER_MOVE",
-      "Value": "26",
-      "Description": "Member was moved to a different voice channel",
-      "Object Changed": ""
+      "event": "MEMBER_MOVE",
+      "value": "26",
+      "description": "Member was moved to a different voice channel",
+      "object changed": ""
     },
     {
-      "Event": "MEMBER_DISCONNECT",
-      "Value": "27",
-      "Description": "Member was disconnected from a voice channel",
-      "Object Changed": ""
+      "event": "MEMBER_DISCONNECT",
+      "value": "27",
+      "description": "Member was disconnected from a voice channel",
+      "object changed": ""
     },
     {
-      "Event": "BOT_ADD",
-      "Value": "28",
-      "Description": "Bot user was added to server",
-      "Object Changed": ""
+      "event": "BOT_ADD",
+      "value": "28",
+      "description": "Bot user was added to server",
+      "object changed": ""
     },
     {
-      "Event": "ROLE_CREATE",
-      "Value": "30",
-      "Description": "Role was created",
-      "Object Changed": "Role"
+      "event": "ROLE_CREATE",
+      "value": "30",
+      "description": "Role was created",
+      "object changed": "Role"
     },
     {
-      "Event": "ROLE_UPDATE",
-      "Value": "31",
-      "Description": "Role was edited",
-      "Object Changed": "Role"
+      "event": "ROLE_UPDATE",
+      "value": "31",
+      "description": "Role was edited",
+      "object changed": "Role"
     },
     {
-      "Event": "ROLE_DELETE",
-      "Value": "32",
-      "Description": "Role was deleted",
-      "Object Changed": "Role"
+      "event": "ROLE_DELETE",
+      "value": "32",
+      "description": "Role was deleted",
+      "object changed": "Role"
     },
     {
-      "Event": "INVITE_CREATE",
-      "Value": "40",
-      "Description": "Server invite was created",
-      "Object Changed": "Invite and Invite Metadata*"
+      "event": "INVITE_CREATE",
+      "value": "40",
+      "description": "Server invite was created",
+      "object changed": "Invite and Invite Metadata*"
     },
     {
-      "Event": "INVITE_UPDATE",
-      "Value": "41",
-      "Description": "Server invite was updated",
-      "Object Changed": "Invite and Invite Metadata*"
+      "event": "INVITE_UPDATE",
+      "value": "41",
+      "description": "Server invite was updated",
+      "object changed": "Invite and Invite Metadata*"
     },
     {
-      "Event": "INVITE_DELETE",
-      "Value": "42",
-      "Description": "Server invite was deleted",
-      "Object Changed": "Invite and Invite Metadata*"
+      "event": "INVITE_DELETE",
+      "value": "42",
+      "description": "Server invite was deleted",
+      "object changed": "Invite and Invite Metadata*"
     },
     {
-      "Event": "WEBHOOK_CREATE",
-      "Value": "50",
-      "Description": "Webhook was created",
-      "Object Changed": "Webhook*"
+      "event": "WEBHOOK_CREATE",
+      "value": "50",
+      "description": "Webhook was created",
+      "object changed": "Webhook*"
     },
     {
-      "Event": "WEBHOOK_UPDATE",
-      "Value": "51",
-      "Description": "Webhook properties or channel were updated",
-      "Object Changed": "Webhook*"
+      "event": "WEBHOOK_UPDATE",
+      "value": "51",
+      "description": "Webhook properties or channel were updated",
+      "object changed": "Webhook*"
     },
     {
-      "Event": "WEBHOOK_DELETE",
-      "Value": "52",
-      "Description": "Webhook was deleted",
-      "Object Changed": "Webhook*"
+      "event": "WEBHOOK_DELETE",
+      "value": "52",
+      "description": "Webhook was deleted",
+      "object changed": "Webhook*"
     },
     {
-      "Event": "EMOJI_CREATE",
-      "Value": "60",
-      "Description": "Emoji was created",
-      "Object Changed": "Emoji"
+      "event": "EMOJI_CREATE",
+      "value": "60",
+      "description": "Emoji was created",
+      "object changed": "Emoji"
     },
     {
-      "Event": "EMOJI_UPDATE",
-      "Value": "61",
-      "Description": "Emoji name was updated",
-      "Object Changed": "Emoji"
+      "event": "EMOJI_UPDATE",
+      "value": "61",
+      "description": "Emoji name was updated",
+      "object changed": "Emoji"
     },
     {
-      "Event": "EMOJI_DELETE",
-      "Value": "62",
-      "Description": "Emoji was deleted",
-      "Object Changed": "Emoji"
+      "event": "EMOJI_DELETE",
+      "value": "62",
+      "description": "Emoji was deleted",
+      "object changed": "Emoji"
     },
     {
-      "Event": "MESSAGE_DELETE",
-      "Value": "72",
-      "Description": "Single message was deleted",
-      "Object Changed": ""
+      "event": "MESSAGE_DELETE",
+      "value": "72",
+      "description": "Single message was deleted",
+      "object changed": ""
     },
     {
-      "Event": "MESSAGE_BULK_DELETE",
-      "Value": "73",
-      "Description": "Multiple messages were deleted",
-      "Object Changed": ""
+      "event": "MESSAGE_BULK_DELETE",
+      "value": "73",
+      "description": "Multiple messages were deleted",
+      "object changed": ""
     },
     {
-      "Event": "MESSAGE_PIN",
-      "Value": "74",
-      "Description": "Message was pinned to a channel",
-      "Object Changed": ""
+      "event": "MESSAGE_PIN",
+      "value": "74",
+      "description": "Message was pinned to a channel",
+      "object changed": ""
     },
     {
-      "Event": "MESSAGE_UNPIN",
-      "Value": "75",
-      "Description": "Message was unpinned from a channel",
-      "Object Changed": ""
+      "event": "MESSAGE_UNPIN",
+      "value": "75",
+      "description": "Message was unpinned from a channel",
+      "object changed": ""
     },
     {
-      "Event": "INTEGRATION_CREATE",
-      "Value": "80",
-      "Description": "App was added to server",
-      "Object Changed": "Integration"
+      "event": "INTEGRATION_CREATE",
+      "value": "80",
+      "description": "App was added to server",
+      "object changed": "Integration"
     },
     {
-      "Event": "INTEGRATION_UPDATE",
-      "Value": "81",
-      "Description": "App was updated (as an example, its scopes were updated)",
-      "Object Changed": "Integration"
+      "event": "INTEGRATION_UPDATE",
+      "value": "81",
+      "description": "App was updated (as an example, its scopes were updated)",
+      "object changed": "Integration"
     },
     {
-      "Event": "INTEGRATION_DELETE",
-      "Value": "82",
-      "Description": "App was removed from server",
-      "Object Changed": "Integration"
+      "event": "INTEGRATION_DELETE",
+      "value": "82",
+      "description": "App was removed from server",
+      "object changed": "Integration"
     },
     {
-      "Event": "STAGE_INSTANCE_CREATE",
-      "Value": "83",
-      "Description": "Stage instance was created (stage channel becomes live)",
-      "Object Changed": "Stage Instance"
+      "event": "STAGE_INSTANCE_CREATE",
+      "value": "83",
+      "description": "Stage instance was created (stage channel becomes live)",
+      "object changed": "Stage Instance"
     },
     {
-      "Event": "STAGE_INSTANCE_UPDATE",
-      "Value": "84",
-      "Description": "Stage instance details were updated",
-      "Object Changed": "Stage Instance"
+      "event": "STAGE_INSTANCE_UPDATE",
+      "value": "84",
+      "description": "Stage instance details were updated",
+      "object changed": "Stage Instance"
     },
     {
-      "Event": "STAGE_INSTANCE_DELETE",
-      "Value": "85",
-      "Description": "Stage instance was deleted (stage channel no longer live)",
-      "Object Changed": "Stage Instance"
+      "event": "STAGE_INSTANCE_DELETE",
+      "value": "85",
+      "description": "Stage instance was deleted (stage channel no longer live)",
+      "object changed": "Stage Instance"
     },
     {
-      "Event": "STICKER_CREATE",
-      "Value": "90",
-      "Description": "Sticker was created",
-      "Object Changed": "Sticker"
+      "event": "STICKER_CREATE",
+      "value": "90",
+      "description": "Sticker was created",
+      "object changed": "Sticker"
     },
     {
-      "Event": "STICKER_UPDATE",
-      "Value": "91",
-      "Description": "Sticker details were updated",
-      "Object Changed": "Sticker"
+      "event": "STICKER_UPDATE",
+      "value": "91",
+      "description": "Sticker details were updated",
+      "object changed": "Sticker"
     },
     {
-      "Event": "STICKER_DELETE",
-      "Value": "92",
-      "Description": "Sticker was deleted",
-      "Object Changed": "Sticker"
+      "event": "STICKER_DELETE",
+      "value": "92",
+      "description": "Sticker was deleted",
+      "object changed": "Sticker"
     },
     {
-      "Event": "GUILD_SCHEDULED_EVENT_CREATE",
-      "Value": "100",
-      "Description": "Event was created",
-      "Object Changed": "Guild Scheduled Event"
+      "event": "GUILD_SCHEDULED_EVENT_CREATE",
+      "value": "100",
+      "description": "Event was created",
+      "object changed": "Guild Scheduled Event"
     },
     {
-      "Event": "GUILD_SCHEDULED_EVENT_UPDATE",
-      "Value": "101",
-      "Description": "Event was updated",
-      "Object Changed": "Guild Scheduled Event"
+      "event": "GUILD_SCHEDULED_EVENT_UPDATE",
+      "value": "101",
+      "description": "Event was updated",
+      "object changed": "Guild Scheduled Event"
     },
     {
-      "Event": "GUILD_SCHEDULED_EVENT_DELETE",
-      "Value": "102",
-      "Description": "Event was cancelled",
-      "Object Changed": "Guild Scheduled Event"
+      "event": "GUILD_SCHEDULED_EVENT_DELETE",
+      "value": "102",
+      "description": "Event was cancelled",
+      "object changed": "Guild Scheduled Event"
     },
     {
-      "Event": "THREAD_CREATE",
-      "Value": "110",
-      "Description": "Thread was created in a channel",
-      "Object Changed": "Thread"
+      "event": "THREAD_CREATE",
+      "value": "110",
+      "description": "Thread was created in a channel",
+      "object changed": "Thread"
     },
     {
-      "Event": "THREAD_UPDATE",
-      "Value": "111",
-      "Description": "Thread was updated",
-      "Object Changed": "Thread"
+      "event": "THREAD_UPDATE",
+      "value": "111",
+      "description": "Thread was updated",
+      "object changed": "Thread"
     },
     {
-      "Event": "THREAD_DELETE",
-      "Value": "112",
-      "Description": "Thread was deleted",
-      "Object Changed": "Thread"
+      "event": "THREAD_DELETE",
+      "value": "112",
+      "description": "Thread was deleted",
+      "object changed": "Thread"
     },
     {
-      "Event": "APPLICATION_COMMAND_PERMISSION_UPDATE",
-      "Value": "121",
-      "Description": "Permissions were updated for a command",
-      "Object Changed": "Command Permission*"
+      "event": "APPLICATION_COMMAND_PERMISSION_UPDATE",
+      "value": "121",
+      "description": "Permissions were updated for a command",
+      "object changed": "Command Permission*"
     },
     {
-      "Event": "AUTO_MODERATION_RULE_CREATE",
-      "Value": "140",
-      "Description": "Auto Moderation rule was created",
-      "Object Changed": "Auto Moderation Rule"
+      "event": "AUTO_MODERATION_RULE_CREATE",
+      "value": "140",
+      "description": "Auto Moderation rule was created",
+      "object changed": "Auto Moderation Rule"
     },
     {
-      "Event": "AUTO_MODERATION_RULE_UPDATE",
-      "Value": "141",
-      "Description": "Auto Moderation rule was updated",
-      "Object Changed": "Auto Moderation Rule"
+      "event": "AUTO_MODERATION_RULE_UPDATE",
+      "value": "141",
+      "description": "Auto Moderation rule was updated",
+      "object changed": "Auto Moderation Rule"
     },
     {
-      "Event": "AUTO_MODERATION_RULE_DELETE",
-      "Value": "142",
-      "Description": "Auto Moderation rule was deleted",
-      "Object Changed": "Auto Moderation Rule"
+      "event": "AUTO_MODERATION_RULE_DELETE",
+      "value": "142",
+      "description": "Auto Moderation rule was deleted",
+      "object changed": "Auto Moderation Rule"
     },
     {
-      "Event": "AUTO_MODERATION_BLOCK_MESSAGE",
-      "Value": "143",
-      "Description": "Message was blocked by AutoMod (according to a rule)",
-      "Object Changed": ""
+      "event": "AUTO_MODERATION_BLOCK_MESSAGE",
+      "value": "143",
+      "description": "Message was blocked by AutoMod (according to a rule)",
+      "object changed": ""
     }
   ],
   "Optional Audit Entry Info": [
     {
-      "Field": "application_id",
-      "Type": "snowflake",
-      "Description": "ID of the app whose permissions were targeted",
-      "Event Types": "APPLICATION_COMMAND_PERMISSION_UPDATE"
+      "field": "application_id",
+      "type": "snowflake",
+      "description": "ID of the app whose permissions were targeted",
+      "event types": "APPLICATION_COMMAND_PERMISSION_UPDATE"
     },
     {
-      "Field": "channel_id",
-      "Type": "snowflake",
-      "Description": "Channel in which the entities were targeted",
-      "Event Types": "MEMBER_MOVE & MESSAGE_PIN & MESSAGE_UNPIN & MESSAGE_DELETE & STAGE_INSTANCE_CREATE & STAGE_INSTANCE_UPDATE & STAGE_INSTANCE_DELETE"
+      "field": "channel_id",
+      "type": "snowflake",
+      "description": "Channel in which the entities were targeted",
+      "event types": "MEMBER_MOVE & MESSAGE_PIN & MESSAGE_UNPIN & MESSAGE_DELETE & STAGE_INSTANCE_CREATE & STAGE_INSTANCE_UPDATE & STAGE_INSTANCE_DELETE"
     },
     {
-      "Field": "count",
-      "Type": "string",
-      "Description": "Number of entities that were targeted",
-      "Event Types": "MESSAGE_DELETE & MESSAGE_BULK_DELETE & MEMBER_DISCONNECT & MEMBER_MOVE"
+      "field": "count",
+      "type": "string",
+      "description": "Number of entities that were targeted",
+      "event types": "MESSAGE_DELETE & MESSAGE_BULK_DELETE & MEMBER_DISCONNECT & MEMBER_MOVE"
     },
     {
-      "Field": "delete_member_days",
-      "Type": "string",
-      "Description": "Number of days after which inactive members were kicked",
-      "Event Types": "MEMBER_PRUNE"
+      "field": "delete_member_days",
+      "type": "string",
+      "description": "Number of days after which inactive members were kicked",
+      "event types": "MEMBER_PRUNE"
     },
     {
-      "Field": "id",
-      "Type": "snowflake",
-      "Description": "ID of the overwritten entity",
-      "Event Types": "CHANNEL_OVERWRITE_CREATE & CHANNEL_OVERWRITE_UPDATE & CHANNEL_OVERWRITE_DELETE"
+      "field": "id",
+      "type": "snowflake",
+      "description": "ID of the overwritten entity",
+      "event types": "CHANNEL_OVERWRITE_CREATE & CHANNEL_OVERWRITE_UPDATE & CHANNEL_OVERWRITE_DELETE"
     },
     {
-      "Field": "members_removed",
-      "Type": "string",
-      "Description": "Number of members removed by the prune",
-      "Event Types": "MEMBER_PRUNE"
+      "field": "members_removed",
+      "type": "string",
+      "description": "Number of members removed by the prune",
+      "event types": "MEMBER_PRUNE"
     },
     {
-      "Field": "message_id",
-      "Type": "snowflake",
-      "Description": "ID of the message that was targeted",
-      "Event Types": "MESSAGE_PIN & MESSAGE_UNPIN"
+      "field": "message_id",
+      "type": "snowflake",
+      "description": "ID of the message that was targeted",
+      "event types": "MESSAGE_PIN & MESSAGE_UNPIN"
     },
     {
-      "Field": "role_name",
-      "Type": "string",
-      "Description": "Name of the role if type is \"0\" (not present if type is \"1\")",
-      "Event Types": "CHANNEL_OVERWRITE_CREATE & CHANNEL_OVERWRITE_UPDATE & CHANNEL_OVERWRITE_DELETE"
+      "field": "role_name",
+      "type": "string",
+      "description": "Name of the role if type is \"0\" (not present if type is \"1\")",
+      "event types": "CHANNEL_OVERWRITE_CREATE & CHANNEL_OVERWRITE_UPDATE & CHANNEL_OVERWRITE_DELETE"
     },
     {
-      "Field": "type",
-      "Type": "string",
-      "Description": "Type of overwritten entity - role (\"0\") or member (\"1\")",
-      "Event Types": "CHANNEL_OVERWRITE_CREATE & CHANNEL_OVERWRITE_UPDATE & CHANNEL_OVERWRITE_DELETE"
+      "field": "type",
+      "type": "string",
+      "description": "Type of overwritten entity - role (\"0\") or member (\"1\")",
+      "event types": "CHANNEL_OVERWRITE_CREATE & CHANNEL_OVERWRITE_UPDATE & CHANNEL_OVERWRITE_DELETE"
     }
   ],
   "Audit Log Change Exceptions": [
     {
-      "Object Changed": "Command Permission",
-      "Change Key Exceptions": "snowflake as key",
-      "Change Object Exceptions": "The changes array contains objects with a key field representing the entity whose command was affected (role, channel, or user ID), a previous permissions object (with an old_value key), and an updated permissions object (with a new_value key)"
+      "object changed": "Command Permission",
+      "change key exceptions": "snowflake as key",
+      "change object exceptions": "The changes array contains objects with a key field representing the entity whose command was affected (role, channel, or user ID), a previous permissions object (with an old_value key), and an updated permissions object (with a new_value key)"
     },
     {
-      "Object Changed": "Invite and Invite Metadata",
-      "Change Key Exceptions": "Additional channel_id key (instead of object's channel.id)",
-      "Change Object Exceptions": ""
+      "object changed": "Invite and Invite Metadata",
+      "change key exceptions": "Additional channel_id key (instead of object's channel.id)",
+      "change object exceptions": ""
     },
     {
-      "Object Changed": "Partial Role",
-      "Change Key Exceptions": "$add and $remove as keys",
-      "Change Object Exceptions": "new_value is an array of objects that contain the role id and name"
+      "object changed": "Partial Role",
+      "change key exceptions": "$add and $remove as keys",
+      "change object exceptions": "new_value is an array of objects that contain the role id and name"
     },
     {
-      "Object Changed": "Webhook",
-      "Change Key Exceptions": "avatar_hash key (instead of avatar)",
-      "Change Object Exceptions": ""
+      "object changed": "Webhook",
+      "change key exceptions": "avatar_hash key (instead of avatar)",
+      "change object exceptions": ""
     }
   ]
 }

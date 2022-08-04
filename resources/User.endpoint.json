@@ -1,108 +1,108 @@
 {
   "Get Current User": {
-    "Command": "GET",
-    "URL": "/users/@me"
+    "command": "GET",
+    "url": "/users/@me"
   },
   "Get User": {
-    "Command": "GET",
-    "URL": "/users/{user.id}"
+    "command": "GET",
+    "url": "/users/{user.id}"
   },
   "Modify Current User": {
-    "Command": "PATCH",
-    "URL": "/users/@me",
+    "command": "PATCH",
+    "url": "/users/@me",
     "json": [
       {
-        "Field": "username",
-        "Type": "string",
-        "Description": "user's username, if changed may cause the user's discriminator to be randomized.",
-        "Optional": false,
-        "Nullable": false
+        "field": "username",
+        "type": "string",
+        "description": "user's username, if changed may cause the user's discriminator to be randomized.",
+        "optional": false,
+        "nullable": false
       },
       {
-        "Field": "avatar",
-        "Type": "image data",
-        "Description": "if passed, modifies the user's avatar",
-        "Optional": false,
-        "Nullable": true
+        "field": "avatar",
+        "type": "image data",
+        "description": "if passed, modifies the user's avatar",
+        "optional": false,
+        "nullable": true
       }
     ]
   },
   "Get Current User Guilds": {
-    "Command": "GET",
-    "URL": "/users/@me/guilds",
+    "command": "GET",
+    "url": "/users/@me/guilds",
     "query": [
       {
-        "Field": "before",
-        "Type": "snowflake",
-        "Description": "get guilds before this guild ID",
-        "Required": "false",
-        "Default": "absent",
-        "Optional": false,
-        "Nullable": false
+        "field": "before",
+        "type": "snowflake",
+        "description": "get guilds before this guild ID",
+        "required": "false",
+        "default": "absent",
+        "optional": false,
+        "nullable": false
       },
       {
-        "Field": "after",
-        "Type": "snowflake",
-        "Description": "get guilds after this guild ID",
-        "Required": "false",
-        "Default": "absent",
-        "Optional": false,
-        "Nullable": false
+        "field": "after",
+        "type": "snowflake",
+        "description": "get guilds after this guild ID",
+        "required": "false",
+        "default": "absent",
+        "optional": false,
+        "nullable": false
       },
       {
-        "Field": "limit",
-        "Type": "integer",
-        "Description": "max number of guilds to return (1-200)",
-        "Required": "false",
-        "Default": "200",
-        "Optional": false,
-        "Nullable": false
+        "field": "limit",
+        "type": "integer",
+        "description": "max number of guilds to return (1-200)",
+        "required": "false",
+        "default": "200",
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   "Get Current User Guild Member": {
-    "Command": "GET",
-    "URL": "/users/@me/guilds/{guild.id}/member"
+    "command": "GET",
+    "url": "/users/@me/guilds/{guild.id}/member"
   },
   "Leave Guild": {
-    "Command": "DELETE",
-    "URL": "/users/@me/guilds/{guild.id}"
+    "command": "DELETE",
+    "url": "/users/@me/guilds/{guild.id}"
   },
   "Create DM": {
-    "Command": "POST",
-    "URL": "/users/@me/channels",
+    "command": "POST",
+    "url": "/users/@me/channels",
     "json": [
       {
-        "Field": "recipient_id",
-        "Type": "snowflake",
-        "Description": "the recipient to open a DM channel with",
-        "Optional": false,
-        "Nullable": false
+        "field": "recipient_id",
+        "type": "snowflake",
+        "description": "the recipient to open a DM channel with",
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   "Create Group DM": {
-    "Command": "POST",
-    "URL": "/users/@me/channels",
+    "command": "POST",
+    "url": "/users/@me/channels",
     "json": [
       {
-        "Field": "access_tokens",
-        "Type": "array of strings",
-        "Description": "access tokens of users that have granted your app the gdm.join scope",
-        "Optional": false,
-        "Nullable": false
+        "field": "access_tokens",
+        "type": "array of strings",
+        "description": "access tokens of users that have granted your app the gdm.join scope",
+        "optional": false,
+        "nullable": false
       },
       {
-        "Field": "nicks",
-        "Type": "dict",
-        "Description": "a dictionary of user ids to their respective nicknames",
-        "Optional": false,
-        "Nullable": false
+        "field": "nicks",
+        "type": "dict",
+        "description": "a dictionary of user ids to their respective nicknames",
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   "Get User Connections": {
-    "Command": "GET",
-    "URL": "/users/@me/connections"
+    "command": "GET",
+    "url": "/users/@me/connections"
   }
 }

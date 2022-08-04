@@ -1,141 +1,141 @@
 {
   "Button": [
     {
-      "Field": "type",
-      "Type": "integer",
-      "Description": "2 for a button",
-      "Optional": false,
-      "Nullable": false
+      "field": "type",
+      "type": "integer",
+      "description": "2 for a button",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "style",
-      "Type": "integer",
-      "Description": "one of button styles",
-      "Optional": false,
-      "Nullable": false
+      "field": "style",
+      "type": "integer",
+      "description": "one of button styles",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "label",
-      "Type": "string",
-      "Description": "text that appears on the button, max 80 characters",
-      "Optional": true,
-      "Nullable": false
+      "field": "label",
+      "type": "string",
+      "description": "text that appears on the button, max 80 characters",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "emoji",
-      "Type": "partial emoji",
-      "Description": "name, id, and animated",
-      "Optional": true,
-      "Nullable": false
+      "field": "emoji",
+      "type": "partial emoji",
+      "description": "name, id, and animated",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "custom_id",
-      "Type": "string",
-      "Description": "a developer-defined identifier for the button, max 100 characters",
-      "Optional": true,
-      "Nullable": false
+      "field": "custom_id",
+      "type": "string",
+      "description": "a developer-defined identifier for the button, max 100 characters",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "url",
-      "Type": "string",
-      "Description": "a url for link-style buttons",
-      "Optional": true,
-      "Nullable": false
+      "field": "url",
+      "type": "string",
+      "description": "a url for link-style buttons",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "disabled",
-      "Type": "boolean",
-      "Description": "whether the button is disabled (default false)",
-      "Optional": true,
-      "Nullable": false
+      "field": "disabled",
+      "type": "boolean",
+      "description": "whether the button is disabled (default false)",
+      "optional": true,
+      "nullable": false
     }
   ],
   "Select Menu": [
     {
-      "Field": "type",
-      "Type": "integer",
-      "Description": "3 for a select menu",
-      "Optional": false,
-      "Nullable": false
+      "field": "type",
+      "type": "integer",
+      "description": "3 for a select menu",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "custom_id",
-      "Type": "string",
-      "Description": "a developer-defined identifier for the select menu, max 100 characters",
-      "Optional": false,
-      "Nullable": false
+      "field": "custom_id",
+      "type": "string",
+      "description": "a developer-defined identifier for the select menu, max 100 characters",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "options",
-      "Type": "array of select options",
-      "Description": "the choices in the select, max 25",
-      "Optional": false,
-      "Nullable": false
+      "field": "options",
+      "type": "array of select options",
+      "description": "the choices in the select, max 25",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "placeholder",
-      "Type": "string",
-      "Description": "custom placeholder text if nothing is selected, max 150 characters",
-      "Optional": true,
-      "Nullable": false
+      "field": "placeholder",
+      "type": "string",
+      "description": "custom placeholder text if nothing is selected, max 150 characters",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "min_values",
-      "Type": "integer",
-      "Description": "the minimum number of items that must be chosen; default 1, min 0, max 25",
-      "Optional": true,
-      "Nullable": false
+      "field": "min_values",
+      "type": "integer",
+      "description": "the minimum number of items that must be chosen; default 1, min 0, max 25",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "max_values",
-      "Type": "integer",
-      "Description": "the maximum number of items that can be chosen; default 1, max 25",
-      "Optional": true,
-      "Nullable": false
+      "field": "max_values",
+      "type": "integer",
+      "description": "the maximum number of items that can be chosen; default 1, max 25",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "disabled",
-      "Type": "boolean",
-      "Description": "disable the select, default false",
-      "Optional": true,
-      "Nullable": false
+      "field": "disabled",
+      "type": "boolean",
+      "description": "disable the select, default false",
+      "optional": true,
+      "nullable": false
     }
   ],
   "Select Option": [
     {
-      "Field": "label",
-      "Type": "string",
-      "Description": "the user-facing name of the option, max 100 characters",
-      "Optional": false,
-      "Nullable": false
+      "field": "label",
+      "type": "string",
+      "description": "the user-facing name of the option, max 100 characters",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "value",
-      "Type": "string",
-      "Description": "the dev-defined value of the option, max 100 characters",
-      "Optional": false,
-      "Nullable": false
+      "field": "value",
+      "type": "string",
+      "description": "the dev-defined value of the option, max 100 characters",
+      "optional": false,
+      "nullable": false
     },
     {
-      "Field": "description",
-      "Type": "string",
-      "Description": "an additional description of the option, max 100 characters",
-      "Optional": true,
-      "Nullable": false
+      "field": "description",
+      "type": "string",
+      "description": "an additional description of the option, max 100 characters",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "emoji",
-      "Type": "partial emoji object",
-      "Description": "id, name, and animated",
-      "Optional": true,
-      "Nullable": false
+      "field": "emoji",
+      "type": "partial emoji object",
+      "description": "id, name, and animated",
+      "optional": true,
+      "nullable": false
     },
     {
-      "Field": "default",
-      "Type": "boolean",
-      "Description": "will render this option as selected by default",
-      "Optional": true,
-      "Nullable": false
+      "field": "default",
+      "type": "boolean",
+      "description": "will render this option as selected by default",
+      "optional": true,
+      "nullable": false
     }
   ]
 }

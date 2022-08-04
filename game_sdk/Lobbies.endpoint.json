@@ -1,26 +1,26 @@
 {
   "Create Lobby": {
-    "Command": "POST",
-    "URL": "/lobbies"
+    "command": "POST",
+    "url": "/lobbies"
   },
   "Update Lobby": {
-    "Command": "PATCH",
-    "URL": "/lobbies/{lobby.id}"
+    "command": "PATCH",
+    "url": "/lobbies/{lobby.id}"
   },
   "Delete Lobby": {
-    "Command": "DELETE",
-    "URL": "/lobbies/{lobby.id}"
+    "command": "DELETE",
+    "url": "/lobbies/{lobby.id}"
   },
   "Update Lobby Member": {
-    "Command": "PATCH",
-    "URL": "/lobbies/{lobby.id}/members/{user.id}"
+    "command": "PATCH",
+    "url": "/lobbies/{lobby.id}/members/{user.id}"
   },
   "Create Lobby Search": {
-    "Command": "POST",
-    "URL": "/lobbies/search"
+    "command": "POST",
+    "url": "/lobbies/search"
   },
   "Send Lobby Data": {
-    "Command": "POST",
-    "URL": "/lobbies/{lobby.id}/send"
+    "command": "POST",
+    "url": "/lobbies/{lobby.id}/send"
   }
 }
