@@ -23,6 +23,12 @@
       "value": "4",
       "description": "check if content contains words from internal pre-defined wordsets",
       "max per guild": "1"
+    },
+    {
+      "type": "MENTION_SPAM",
+      "value": "5",
+      "description": "check if content contains more mentions than allowed",
+      "max per guild": "1"
     }
   ],
   "Trigger Metadata": [
@@ -43,6 +49,12 @@
       "type": "array of strings *",
       "associated trigger types": "KEYWORD_PRESET",
       "description": "substrings which will be exempt from triggering the preset trigger type"
+    },
+    {
+      "field": "mention_total_limit",
+      "type": "integer",
+      "associated trigger types": "MENTION_SPAM",
+      "description": "total number of mentions (role & user) allowed per message (Maximum of 50)"
     }
   ],
   "Keyword Preset Types": [
