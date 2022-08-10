@@ -2,35 +2,31 @@
   "Get Guild Audit Log": {
     "command": "GET",
     "url": "/guilds/{guild.id}/audit-logs",
-    "query": [
-      {
-        "field": "user_id",
+    "query": {
+      "user_id": {
         "type": "snowflake",
         "description": "Entries from a specific user ID",
         "optional": false,
         "nullable": false
       },
-      {
-        "field": "action_type",
+      "action_type": {
         "type": "integer",
         "description": "Entries for a specific audit log event",
         "optional": false,
         "nullable": false
       },
-      {
-        "field": "before",
+      "before": {
         "type": "snowflake",
         "description": "Entries that preceded a specific audit log entry ID",
         "optional": false,
         "nullable": false
       },
-      {
-        "field": "limit",
+      "limit": {
         "type": "integer",
         "description": "Maximum number of entries (between 1-100) to return, defaults to 50",
         "optional": false,
         "nullable": false
       }
-    ]
+    }
   }
 }

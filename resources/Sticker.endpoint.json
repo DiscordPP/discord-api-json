@@ -22,29 +22,26 @@
   "Modify Guild Sticker": {
     "command": "PATCH",
     "url": "/guilds/{guild.id}/stickers/{sticker.id}",
-    "json": [
-      {
-        "field": "name",
+    "json": {
+      "name": {
         "type": "string",
         "description": "name of the sticker (2-30 characters)",
         "optional": false,
         "nullable": false
       },
-      {
-        "field": "description",
+      "description": {
         "type": "string",
         "description": "description of the sticker (2-100 characters)",
         "optional": false,
         "nullable": true
       },
-      {
-        "field": "tags",
+      "tags": {
         "type": "string",
         "description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
         "optional": false,
         "nullable": false
       }
-    ]
+    }
   },
   "Delete Guild Sticker": {
     "command": "DELETE",

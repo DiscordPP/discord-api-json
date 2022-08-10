@@ -1,744 +1,643 @@
 {
-  "Guild": [
-    {
-      "field": "id",
+  "Guild": {
+    "id": {
       "type": "snowflake",
       "description": "guild id",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "name",
+    "name": {
       "type": "string",
       "description": "guild name (2-100 characters, excluding trailing and leading whitespace)",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "icon",
+    "icon": {
       "type": "string",
       "description": "icon hash",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "icon_hash",
+    "icon_hash": {
       "type": "string",
       "description": "icon hash, returned when in the template object",
       "optional": true,
       "nullable": true
     },
-    {
-      "field": "splash",
+    "splash": {
       "type": "string",
       "description": "splash hash",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "discovery_splash",
+    "discovery_splash": {
       "type": "string",
       "description": "discovery splash hash; only present for guilds with the \"DISCOVERABLE\" feature",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "owner",
+    "owner": {
       "type": "boolean",
       "description": "true if the user is the owner of the guild",
       "note": "*",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "owner_id",
+    "owner_id": {
       "type": "snowflake",
       "description": "id of owner",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "permissions",
+    "permissions": {
       "type": "string",
       "description": "total permissions for the user in the guild (excludes overwrites)",
       "note": "*",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "region",
+    "region": {
       "type": "string",
       "description": "voice region id for the guild (deprecated)",
       "note": "**",
       "optional": true,
       "nullable": true
     },
-    {
-      "field": "afk_channel_id",
+    "afk_channel_id": {
       "type": "snowflake",
       "description": "id of afk channel",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "afk_timeout",
+    "afk_timeout": {
       "type": "integer",
       "description": "afk timeout in seconds",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "widget_enabled",
+    "widget_enabled": {
       "type": "boolean",
       "description": "true if the server widget is enabled",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "widget_channel_id",
+    "widget_channel_id": {
       "type": "snowflake",
       "description": "the channel id that the widget will generate an invite to, or null if set to no invite",
       "optional": true,
       "nullable": true
     },
-    {
-      "field": "verification_level",
+    "verification_level": {
       "type": "integer",
       "description": "verification level required for the guild",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "default_message_notifications",
+    "default_message_notifications": {
       "type": "integer",
       "description": "default message notifications level",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "explicit_content_filter",
+    "explicit_content_filter": {
       "type": "integer",
       "description": "explicit content filter level",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "roles",
+    "roles": {
       "type": "array of role objects",
       "description": "roles in the guild",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "emojis",
+    "emojis": {
       "type": "array of emoji objects",
       "description": "custom guild emojis",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "features",
+    "features": {
       "type": "array of guild feature strings",
       "description": "enabled guild features",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "mfa_level",
+    "mfa_level": {
       "type": "integer",
       "description": "required MFA level for the guild",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "application_id",
+    "application_id": {
       "type": "snowflake",
       "description": "application id of the guild creator if it is bot-created",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "system_channel_id",
+    "system_channel_id": {
       "type": "snowflake",
       "description": "the id of the channel where guild notices such as welcome messages and boost events are posted",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "system_channel_flags",
+    "system_channel_flags": {
       "type": "integer",
       "description": "system channel flags",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "rules_channel_id",
+    "rules_channel_id": {
       "type": "snowflake",
       "description": "the id of the channel where Community guilds can display rules and/or guidelines",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "max_presences",
+    "max_presences": {
       "type": "integer",
       "description": "the maximum number of presences for the guild (null is always returned, apart from the largest of guilds)",
       "optional": true,
       "nullable": true
     },
-    {
-      "field": "max_members",
+    "max_members": {
       "type": "integer",
       "description": "the maximum number of members for the guild",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "vanity_url_code",
+    "vanity_url_code": {
       "type": "string",
       "description": "the vanity url code for the guild",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "description",
+    "description": {
       "type": "string",
       "description": "the description of a guild",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "banner",
+    "banner": {
       "type": "string",
       "description": "banner hash",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "premium_tier",
+    "premium_tier": {
       "type": "integer",
       "description": "premium tier (Server Boost level)",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "premium_subscription_count",
+    "premium_subscription_count": {
       "type": "integer",
       "description": "the number of boosts this guild currently has",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "preferred_locale",
+    "preferred_locale": {
       "type": "string",
       "description": "the preferred locale of a Community guild; used in server discovery and notices from Discord, and sent in interactions; defaults to \"en-US\"",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "public_updates_channel_id",
+    "public_updates_channel_id": {
       "type": "snowflake",
       "description": "the id of the channel where admins and moderators of Community guilds receive notices from Discord",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "max_video_channel_users",
+    "max_video_channel_users": {
       "type": "integer",
       "description": "the maximum amount of users in a video channel",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "approximate_member_count",
+    "approximate_member_count": {
       "type": "integer",
       "description": "approximate number of members in this guild, returned from the GET /guilds/<id> endpoint when with_counts is true",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "approximate_presence_count",
+    "approximate_presence_count": {
       "type": "integer",
       "description": "approximate number of non-offline members in this guild, returned from the GET /guilds/<id> endpoint when with_counts is true",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "welcome_screen",
+    "welcome_screen": {
       "type": "welcome screen object",
       "description": "the welcome screen of a Community guild, shown to new members, returned in an Invite's guild object",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "nsfw_level",
+    "nsfw_level": {
       "type": "integer",
       "description": "guild NSFW level",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "stickers",
+    "stickers": {
       "type": "array of sticker objects",
       "description": "custom guild stickers",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "premium_progress_bar_enabled",
+    "premium_progress_bar_enabled": {
       "type": "boolean",
       "description": "whether the guild has the boost progress bar enabled",
       "optional": false,
       "nullable": false
     }
-  ],
-  "Guild Preview": [
-    {
-      "field": "id",
+  },
+  "Guild Preview": {
+    "id": {
       "type": "snowflake",
       "description": "guild id",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "name",
+    "name": {
       "type": "string",
       "description": "guild name (2-100 characters)",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "icon",
+    "icon": {
       "type": "string",
       "description": "icon hash",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "splash",
+    "splash": {
       "type": "string",
       "description": "splash hash",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "discovery_splash",
+    "discovery_splash": {
       "type": "string",
       "description": "discovery splash hash",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "emojis",
+    "emojis": {
       "type": "array of emoji objects",
       "description": "custom guild emojis",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "features",
+    "features": {
       "type": "array of guild feature strings",
       "description": "enabled guild features",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "approximate_member_count",
+    "approximate_member_count": {
       "type": "integer",
       "description": "approximate number of members in this guild",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "approximate_presence_count",
+    "approximate_presence_count": {
       "type": "integer",
       "description": "approximate number of online members in this guild",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "description",
+    "description": {
       "type": "string",
       "description": "the description for the guild",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "stickers",
+    "stickers": {
       "type": "array of sticker objects",
       "description": "custom guild stickers",
       "optional": false,
       "nullable": false
     }
-  ],
-  "Guild Widget Settings": [
-    {
-      "field": "enabled",
+  },
+  "Guild Widget Settings": {
+    "enabled": {
       "type": "boolean",
       "description": "whether the widget is enabled",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "channel_id",
+    "channel_id": {
       "type": "snowflake",
       "description": "the widget channel id",
       "optional": false,
       "nullable": true
     }
-  ],
-  "Guild Widget": [
-    {
-      "field": "id",
+  },
+  "Guild Widget": {
+    "id": {
       "type": "snowflake",
       "description": "guild id",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "name",
+    "name": {
       "type": "string",
       "description": "guild name (2-100 characters)",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "instant_invite",
+    "instant_invite": {
       "type": "string",
       "description": "instant invite for the guilds specified widget invite channel",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "channels",
+    "channels": {
       "type": "array of partial channel objects",
       "description": "voice and stage channels which are accessible by @everyone",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "members",
+    "members": {
       "type": "array of partial user objects",
       "description": "special widget user objects that includes users presence (Limit 100)",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "presence_count",
+    "presence_count": {
       "type": "integer",
       "description": "number of online members in this guild",
       "optional": false,
       "nullable": false
     }
-  ],
-  "Guild Member": [
-    {
-      "field": "user",
+  },
+  "Guild Member": {
+    "user": {
       "type": "user object",
       "description": "the user this guild member represents",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "nick",
+    "nick": {
       "type": "string",
       "description": "this user's guild nickname",
       "optional": true,
       "nullable": true
     },
-    {
-      "field": "avatar",
+    "avatar": {
       "type": "string",
       "description": "the member's guild avatar hash",
       "optional": true,
       "nullable": true
     },
-    {
-      "field": "roles",
+    "roles": {
       "type": "array of snowflakes",
       "description": "array of role object ids",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "joined_at",
+    "joined_at": {
       "type": "ISO8601 timestamp",
       "description": "when the user joined the guild",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "premium_since",
+    "premium_since": {
       "type": "ISO8601 timestamp",
       "description": "when the user started boosting the guild",
       "optional": true,
       "nullable": true
     },
-    {
-      "field": "deaf",
+    "deaf": {
       "type": "boolean",
       "description": "whether the user is deafened in voice channels",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "mute",
+    "mute": {
       "type": "boolean",
       "description": "whether the user is muted in voice channels",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "pending",
+    "pending": {
       "type": "boolean",
       "description": "whether the user has not yet passed the guild's Membership Screening requirements",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "permissions",
+    "permissions": {
       "type": "string",
       "description": "total permissions of the member in the channel, including overwrites, returned when in the interaction object",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "communication_disabled_until",
+    "communication_disabled_until": {
       "type": "ISO8601 timestamp",
       "description": "when the user's timeout will expire and the user will be able to communicate in the guild again, null or a time in the past if the user is not timed out",
       "optional": true,
       "nullable": true
     }
-  ],
-  "Integration": [
-    {
-      "field": "id",
+  },
+  "Integration": {
+    "id": {
       "type": "snowflake",
       "description": "integration id",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "name",
+    "name": {
       "type": "string",
       "description": "integration name",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "type",
+    "type": {
       "type": "string",
       "description": "integration type (twitch, youtube, or discord)",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "enabled",
+    "enabled": {
       "type": "boolean",
       "description": "is this integration enabled",
       "note": "*",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "syncing",
+    "syncing": {
       "type": "boolean",
       "description": "is this integration syncing",
       "note": "*",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "role_id",
+    "role_id": {
       "type": "snowflake",
       "description": "id that this integration uses for \"subscribers\"",
       "note": "*",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "enable_emoticons",
+    "enable_emoticons": {
       "type": "boolean",
       "description": "whether emoticons should be synced for this integration (twitch only currently)",
       "note": "*",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "expire_behavior",
+    "expire_behavior": {
       "type": "integration expire behavior",
       "description": "the behavior of expiring subscribers",
       "note": "*",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "expire_grace_period",
+    "expire_grace_period": {
       "type": "integer",
       "description": "the grace period (in days) before expiring subscribers",
       "note": "*",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "user",
+    "user": {
       "type": "user object",
       "description": "user for this integration",
       "note": "*",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "account",
+    "account": {
       "type": "account object",
       "description": "integration account information",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "synced_at",
+    "synced_at": {
       "type": "ISO8601 timestamp",
       "description": "when this integration was last synced",
       "note": "*",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "subscriber_count",
+    "subscriber_count": {
       "type": "integer",
       "description": "how many subscribers this integration has",
       "note": "*",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "revoked",
+    "revoked": {
       "type": "boolean",
       "description": "has this integration been revoked",
       "note": "*",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "application",
+    "application": {
       "type": "application object",
       "description": "The bot/OAuth2 application for discord integrations",
       "optional": true,
       "nullable": false
     }
-  ],
-  "Integration Account": [
-    {
-      "field": "id",
+  },
+  "Integration Account": {
+    "id": {
       "type": "string",
       "description": "id of the account",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "name",
+    "name": {
       "type": "string",
       "description": "name of the account",
       "optional": false,
       "nullable": false
     }
-  ],
-  "Integration Application": [
-    {
-      "field": "id",
+  },
+  "Integration Application": {
+    "id": {
       "type": "snowflake",
       "description": "the id of the app",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "name",
+    "name": {
       "type": "string",
       "description": "the name of the app",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "icon",
+    "icon": {
       "type": "string",
       "description": "the icon hash of the app",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "description",
+    "description": {
       "type": "string",
       "description": "the description of the app",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "bot",
+    "bot": {
       "type": "user object",
       "description": "the bot associated with this application",
       "optional": true,
       "nullable": false
     }
-  ],
-  "Ban": [
-    {
-      "field": "reason",
+  },
+  "Ban": {
+    "reason": {
       "type": "string",
       "description": "the reason for the ban",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "user",
+    "user": {
       "type": "user object",
       "description": "the banned user",
       "optional": false,
       "nullable": false
     }
-  ],
-  "Welcome Screen": [
-    {
-      "field": "description",
+  },
+  "Welcome Screen": {
+    "description": {
       "type": "string",
       "description": "the server description shown in the welcome screen",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "welcome_channels",
+    "welcome_channels": {
       "type": "array of welcome screen channel objects",
       "description": "the channels shown in the welcome screen, up to 5",
       "optional": false,
       "nullable": false
     }
-  ],
-  "Welcome Screen Channel": [
-    {
-      "field": "channel_id",
+  },
+  "Welcome Screen Channel": {
+    "channel_id": {
       "type": "snowflake",
       "description": "the channel's id",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "description",
+    "description": {
       "type": "string",
       "description": "the description shown for the channel",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "emoji_id",
+    "emoji_id": {
       "type": "snowflake",
       "description": "the emoji id, if the emoji is custom",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "emoji_name",
+    "emoji_name": {
       "type": "string",
       "description": "the emoji name if custom, the unicode character if standard, or null if no emoji is set",
       "optional": false,
       "nullable": true
     }
-  ]
+  }
 }

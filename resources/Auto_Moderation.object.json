@@ -1,98 +1,85 @@
 {
-  "Auto Moderation Rule": [
-    {
-      "field": "id",
+  "Auto Moderation Rule": {
+    "id": {
       "type": "snowflake",
       "description": "the id of this rule",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "guild_id",
+    "guild_id": {
       "type": "snowflake",
       "description": "the id of the guild which this rule belongs to",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "name",
+    "name": {
       "type": "string",
       "description": "the rule name",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "creator_id",
+    "creator_id": {
       "type": "snowflake",
       "description": "the user which first created this rule",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "event_type",
+    "event_type": {
       "type": "integer",
       "description": "the rule event type",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "trigger_type",
+    "trigger_type": {
       "type": "integer",
       "description": "the rule trigger type",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "trigger_metadata",
+    "trigger_metadata": {
       "type": "object",
       "description": "the rule trigger metadata",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "actions",
+    "actions": {
       "type": "array of action objects",
       "description": "the actions which will execute when the rule is triggered",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "enabled",
+    "enabled": {
       "type": "boolean",
       "description": "whether the rule is enabled",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "exempt_roles",
+    "exempt_roles": {
       "type": "array of snowflakes",
       "description": "the role ids that should not be affected by the rule (Maximum of 20)",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "exempt_channels",
+    "exempt_channels": {
       "type": "array of snowflakes",
       "description": "the channel ids that should not be affected by the rule (Maximum of 50)",
       "optional": false,
       "nullable": false
     }
-  ],
-  "Auto Moderation Action": [
-    {
-      "field": "type",
+  },
+  "Auto Moderation Action": {
+    "type": {
       "type": "action type",
       "description": "the type of action",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "metadata",
+    "metadata": {
       "type": "action metadata",
       "description": "additional metadata needed during execution for this specific action type",
       "note": "*",
       "optional": true,
       "nullable": false
     }
-  ]
+  }
 }

@@ -6,22 +6,20 @@
   "Create Guild from Guild Template": {
     "command": "POST",
     "url": "/guilds/templates/{template.code}",
-    "json": [
-      {
-        "field": "name",
+    "json": {
+      "name": {
         "type": "string",
         "description": "name of the guild (2-100 characters)",
         "optional": false,
         "nullable": false
       },
-      {
-        "field": "icon",
+      "icon": {
         "type": "image data",
         "description": "base64 128x128 image for the guild icon",
         "optional": true,
         "nullable": false
       }
-    ]
+    }
   },
   "Get Guild Templates": {
     "command": "GET",
@@ -30,22 +28,20 @@
   "Create Guild Template": {
     "command": "POST",
     "url": "/guilds/{guild.id}/templates",
-    "json": [
-      {
-        "field": "name",
+    "json": {
+      "name": {
         "type": "string",
         "description": "name of the template (1-100 characters)",
         "optional": false,
         "nullable": false
       },
-      {
-        "field": "description",
+      "description": {
         "type": "string",
         "description": "description for the template (0-120 characters)",
         "optional": true,
         "nullable": true
       }
-    ]
+    }
   },
   "Sync Guild Template": {
     "command": "PUT",
@@ -54,22 +50,20 @@
   "Modify Guild Template": {
     "command": "PATCH",
     "url": "/guilds/{guild.id}/templates/{template.code}",
-    "json": [
-      {
-        "field": "name",
+    "json": {
+      "name": {
         "type": "string",
         "description": "name of the template (1-100 characters)",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "description",
+      "description": {
         "type": "string",
         "description": "description for the template (0-120 characters)",
         "optional": true,
         "nullable": true
       }
-    ]
+    }
   },
   "Delete Guild Template": {
     "command": "DELETE",

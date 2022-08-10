@@ -1,127 +1,110 @@
 {
-  "Audit Log": [
-    {
-      "field": "audit_log_entries",
+  "Audit Log": {
+    "audit_log_entries": {
       "type": "array of audit log entry objects",
       "description": "List of audit log entries, sorted from most to least recent",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "auto_moderation_rules",
+    "auto_moderation_rules": {
       "type": "array of auto moderation rule objects",
       "description": "List of auto moderation rules referenced in the audit log",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "guild_scheduled_events",
+    "guild_scheduled_events": {
       "type": "array of guild scheduled event objects",
       "description": "List of guild scheduled events referenced in the audit log",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "integrations",
+    "integrations": {
       "type": "array of partial integration objects",
       "description": "List of partial integration objects",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "threads",
+    "threads": {
       "type": "array of thread-specific channel objects",
       "description": "List of threads referenced in the audit log*",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "users",
+    "users": {
       "type": "array of user objects",
       "description": "List of users referenced in the audit log",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "webhooks",
+    "webhooks": {
       "type": "array of webhook objects",
       "description": "List of webhooks referenced in the audit log",
       "optional": false,
       "nullable": false
     }
-  ],
-  "Audit Log Entry": [
-    {
-      "field": "target_id",
+  },
+  "Audit Log Entry": {
+    "target_id": {
       "type": "string",
       "description": "ID of the affected entity (webhook, user, role, etc.)",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "changes",
+    "changes": {
       "type": "array of audit log change objects",
       "description": "Changes made to the target_id",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "user_id",
+    "user_id": {
       "type": "snowflake",
       "description": "User or app that made the changes",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "id",
+    "id": {
       "type": "snowflake",
       "description": "ID of the entry",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "action_type",
+    "action_type": {
       "type": "audit log event",
       "description": "Type of action that occurred",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "options",
+    "options": {
       "type": "optional audit entry info",
       "description": "Additional info for certain event types",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "reason",
+    "reason": {
       "type": "string",
       "description": "Reason for the change (1-512 characters)",
       "optional": true,
       "nullable": false
     }
-  ],
-  "Audit Log Change": [
-    {
-      "field": "new_value",
+  },
+  "Audit Log Change": {
+    "new_value": {
       "type": "mixed (matches object field's type)",
       "description": "New value of the key",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "old_value",
+    "old_value": {
       "type": "mixed (matches object field's type)",
       "description": "Old value of the key",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "key",
+    "key": {
       "type": "string",
       "description": "Name of the changed entity, with a few exceptions",
       "optional": false,
       "nullable": false
     }
-  ]
+  }
 }

@@ -2,179 +2,158 @@
   "List Scheduled Events for Guild": {
     "command": "GET",
     "url": "/guilds/{guild.id}/scheduled-events",
-    "query": [
-      {
-        "field": "with_user_count",
+    "query": {
+      "with_user_count": {
         "type": "boolean",
         "description": "include number of users subscribed to each event",
         "optional": true,
         "nullable": false
       }
-    ]
+    }
   },
   "Create Guild Scheduled Event": {
     "command": "POST",
     "url": "/guilds/{guild.id}/scheduled-events",
-    "json": [
-      {
-        "field": "channel_id",
+    "json": {
+      "channel_id": {
         "type": "snowflake *",
         "description": "the channel id of the scheduled event.",
         "note": "*",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "entity_metadata",
+      "entity_metadata": {
         "type": "entity metadata",
         "description": "the entity metadata of the scheduled event",
         "note": "**",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "name",
+      "name": {
         "type": "string",
         "description": "the name of the scheduled event",
         "optional": false,
         "nullable": false
       },
-      {
-        "field": "privacy_level",
+      "privacy_level": {
         "type": "privacy level",
         "description": "the privacy level of the scheduled event",
         "optional": false,
         "nullable": false
       },
-      {
-        "field": "scheduled_start_time",
+      "scheduled_start_time": {
         "type": "ISO8601 timestamp",
         "description": "the time to schedule the scheduled event",
         "optional": false,
         "nullable": false
       },
-      {
-        "field": "scheduled_end_time",
+      "scheduled_end_time": {
         "type": "ISO8601 timestamp",
         "description": "the time when the scheduled event is scheduled to end",
         "note": "**",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "description",
+      "description": {
         "type": "string",
         "description": "the description of the scheduled event",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "entity_type",
+      "entity_type": {
         "type": "entity type",
         "description": "the entity type of the scheduled event",
         "optional": false,
         "nullable": false
       },
-      {
-        "field": "image",
+      "image": {
         "type": "image data",
         "description": "the cover image of the scheduled event",
         "optional": true,
         "nullable": false
       }
-    ]
+    }
   },
   "Get Guild Scheduled Event": {
     "command": "GET",
     "url": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}",
-    "query": [
-      {
-        "field": "with_user_count",
+    "query": {
+      "with_user_count": {
         "type": "boolean",
         "description": "include number of users subscribed to this event",
         "optional": true,
         "nullable": false
       }
-    ]
+    }
   },
   "Modify Guild Scheduled Event": {
     "command": "PATCH",
     "url": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}",
-    "json": [
-      {
-        "field": "channel_id",
+    "json": {
+      "channel_id": {
         "type": "snowflake",
         "description": "the channel id of the scheduled event, set to null if changing entity type to EXTERNAL",
         "note": "*",
         "optional": true,
         "nullable": true
       },
-      {
-        "field": "entity_metadata",
+      "entity_metadata": {
         "type": "entity metadata",
         "description": "the entity metadata of the scheduled event",
         "optional": true,
         "nullable": true
       },
-      {
-        "field": "name",
+      "name": {
         "type": "string",
         "description": "the name of the scheduled event",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "privacy_level",
+      "privacy_level": {
         "type": "privacy level",
         "description": "the privacy level of the scheduled event",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "scheduled_start_time",
+      "scheduled_start_time": {
         "type": "ISO8601 timestamp",
         "description": "the time to schedule the scheduled event",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "scheduled_end_time",
+      "scheduled_end_time": {
         "type": "ISO8601 timestamp",
         "description": "the time when the scheduled event is scheduled to end",
         "note": "*",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "description",
+      "description": {
         "type": "string",
         "description": "the description of the scheduled event",
         "optional": true,
         "nullable": true
       },
-      {
-        "field": "entity_type",
+      "entity_type": {
         "type": "event entity type",
         "description": "the entity type of the scheduled event",
         "note": "*",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "status",
+      "status": {
         "type": "event status",
         "description": "the status of the scheduled event",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "image",
+      "image": {
         "type": "image data",
         "description": "the cover image of the scheduled event",
         "optional": true,
         "nullable": false
       }
-    ]
+    }
   },
   "Delete Guild Scheduled Event": {
     "command": "DELETE",
@@ -183,25 +162,22 @@
   "Get Guild Scheduled Event Users": {
     "command": "GET",
     "url": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}/users",
-    "query": [
-      {
-        "field": "limit",
+    "query": {
+      "limit": {
         "type": "number",
         "description": "number of users to return (up to maximum 100)",
         "default": "100",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "with_member",
+      "with_member": {
         "type": "boolean",
         "description": "include guild member data if it exists",
         "default": "false",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "before",
+      "before": {
         "type": "snowflake",
         "description": "consider only users before given user id",
         "default": "null",
@@ -209,8 +185,7 @@
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "after",
+      "after": {
         "type": "snowflake",
         "description": "consider only users after given user id",
         "default": "null",
@@ -218,6 +193,6 @@
         "optional": true,
         "nullable": false
       }
-    ]
+    }
   }
 }

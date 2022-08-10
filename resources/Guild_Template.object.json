@@ -1,81 +1,70 @@
 {
-  "Guild Template": [
-    {
-      "field": "code",
+  "Guild Template": {
+    "code": {
       "type": "string",
       "description": "the template code (unique ID)",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "name",
+    "name": {
       "type": "string",
       "description": "template name",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "description",
+    "description": {
       "type": "string",
       "description": "the description for the template",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "usage_count",
+    "usage_count": {
       "type": "integer",
       "description": "number of times this template has been used",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "creator_id",
+    "creator_id": {
       "type": "snowflake",
       "description": "the ID of the user who created the template",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "creator",
+    "creator": {
       "type": "user object",
       "description": "the user who created the template",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "created_at",
+    "created_at": {
       "type": "ISO8601 timestamp",
       "description": "when this template was created",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "updated_at",
+    "updated_at": {
       "type": "ISO8601 timestamp",
       "description": "when this template was last synced to the source guild",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "source_guild_id",
+    "source_guild_id": {
       "type": "snowflake",
       "description": "the ID of the guild this template is based on",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "serialized_source_guild",
+    "serialized_source_guild": {
       "type": "partial guild object",
       "description": "the guild snapshot this template contains",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "is_dirty",
+    "is_dirty": {
       "type": "boolean",
       "description": "whether the template has unsynced changes",
       "optional": false,
       "nullable": true
     }
-  ]
+  }
 }

@@ -1,1012 +1,874 @@
 {
-  "Channel": [
-    {
-      "field": "id",
+  "Channel": {
+    "id": {
       "type": "snowflake",
       "description": "the id of this channel",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "type",
+    "type": {
       "type": "integer",
       "description": "the type of channel",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "guild_id",
+    "guild_id": {
       "type": "snowflake",
       "description": "the id of the guild (may be missing for some channel objects received over gateway guild dispatches)",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "position",
+    "position": {
       "type": "integer",
       "description": "sorting position of the channel",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "permission_overwrites",
+    "permission_overwrites": {
       "type": "array of overwrite objects",
       "description": "explicit permission overwrites for members and roles",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "name",
+    "name": {
       "type": "string",
       "description": "the name of the channel (1-100 characters)",
       "optional": true,
       "nullable": true
     },
-    {
-      "field": "topic",
+    "topic": {
       "type": "string",
       "description": "the channel topic (0-1024 characters)",
       "optional": true,
       "nullable": true
     },
-    {
-      "field": "nsfw",
+    "nsfw": {
       "type": "boolean",
       "description": "whether the channel is nsfw",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "last_message_id",
+    "last_message_id": {
       "type": "snowflake",
       "description": "the id of the last message sent in this channel (or thread for GUILD_FORUM channels) (may not point to an existing or valid message or thread)",
       "optional": true,
       "nullable": true
     },
-    {
-      "field": "bitrate",
+    "bitrate": {
       "type": "integer",
       "description": "the bitrate (in bits) of the voice channel",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "user_limit",
+    "user_limit": {
       "type": "integer",
       "description": "the user limit of the voice channel",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "rate_limit_per_user?*",
+    "rate_limit_per_user?*": {
       "type": "integer",
       "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel, are unaffected",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "recipients",
+    "recipients": {
       "type": "array of user objects",
       "description": "the recipients of the DM",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "icon",
+    "icon": {
       "type": "string",
       "description": "icon hash of the group DM",
       "optional": true,
       "nullable": true
     },
-    {
-      "field": "owner_id",
+    "owner_id": {
       "type": "snowflake",
       "description": "id of the creator of the group DM or thread",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "application_id",
+    "application_id": {
       "type": "snowflake",
       "description": "application id of the group DM creator if it is bot-created",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "parent_id",
+    "parent_id": {
       "type": "snowflake",
       "description": "for guild channels: id of the parent category for a channel (each parent category can contain up to 50 channels), for threads: id of the text channel this thread was created",
       "optional": true,
       "nullable": true
     },
-    {
-      "field": "last_pin_timestamp",
+    "last_pin_timestamp": {
       "type": "ISO8601 timestamp",
       "description": "when the last pinned message was pinned. This may be null in events such as GUILD_CREATE when a message is not pinned.",
       "optional": true,
       "nullable": true
     },
-    {
-      "field": "rtc_region",
+    "rtc_region": {
       "type": "string",
       "description": "voice region id for the voice channel, automatic when set to null",
       "optional": true,
       "nullable": true
     },
-    {
-      "field": "video_quality_mode",
+    "video_quality_mode": {
       "type": "integer",
       "description": "the camera video quality mode of the voice channel, 1 when not present",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "message_count",
+    "message_count": {
       "type": "integer",
       "description": "number of messages (not including the initial message or deleted messages) in a thread (if the thread was created before July 1, 2022, it stops counting at 50)",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "member_count",
+    "member_count": {
       "type": "integer",
       "description": "an approximate count of users in a thread, stops counting at 50",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "thread_metadata",
+    "thread_metadata": {
       "type": "a thread metadata object",
       "description": "thread-specific fields not needed by other channels",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "member",
+    "member": {
       "type": "a thread member object",
       "description": "thread member object for the current user, if they have joined the thread, only included on certain API endpoints",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "default_auto_archive_duration",
+    "default_auto_archive_duration": {
       "type": "integer",
       "description": "default duration that the clients (not the API) will use for newly created threads, in minutes, to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "permissions",
+    "permissions": {
       "type": "string",
       "description": "computed permissions for the invoking user in the channel, including overwrites, only included when part of the resolved data received on a slash command interaction",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "flags",
+    "flags": {
       "type": "integer",
       "description": "channel flags combined as a bitfield",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "total_message_sent",
+    "total_message_sent": {
       "type": "integer",
       "description": "number of messages ever sent in a thread, it's similar to message_count on message creation, but will not decrement the number when a message is deleted",
       "optional": true,
       "nullable": false
     }
-  ],
-  "Message": [
-    {
-      "field": "id",
+  },
+  "Message": {
+    "id": {
       "type": "snowflake",
       "description": "id of the message",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "channel_id",
+    "channel_id": {
       "type": "snowflake",
       "description": "id of the channel the message was sent in",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "author*",
+    "author*": {
       "type": "user object",
       "description": "the author of this message (not guaranteed to be a valid user, see below)",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "content",
+    "content": {
       "type": "string",
       "description": "contents of the message",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "timestamp",
+    "timestamp": {
       "type": "ISO8601 timestamp",
       "description": "when this message was sent",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "edited_timestamp",
+    "edited_timestamp": {
       "type": "ISO8601 timestamp",
       "description": "when this message was edited (or null if never)",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "tts",
+    "tts": {
       "type": "boolean",
       "description": "whether this was a TTS message",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "mention_everyone",
+    "mention_everyone": {
       "type": "boolean",
       "description": "whether this message mentions everyone",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "mentions",
+    "mentions": {
       "type": "array of user objects",
       "description": "users specifically mentioned in the message",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "mention_roles",
+    "mention_roles": {
       "type": "array of role object ids",
       "description": "roles specifically mentioned in this message",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "mention_channels?**",
+    "mention_channels?**": {
       "type": "array of channel mention objects",
       "description": "channels specifically mentioned in this message",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "attachments",
+    "attachments": {
       "type": "array of attachment objects",
       "description": "any attached files",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "embeds",
+    "embeds": {
       "type": "array of embed objects",
       "description": "any embedded content",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "reactions",
+    "reactions": {
       "type": "array of reaction objects",
       "description": "reactions to the message",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "nonce",
+    "nonce": {
       "type": "integer or string",
       "description": "used for validating a message was sent",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "pinned",
+    "pinned": {
       "type": "boolean",
       "description": "whether this message is pinned",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "webhook_id",
+    "webhook_id": {
       "type": "snowflake",
       "description": "if the message is generated by a webhook, this is the webhook's id",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "type",
+    "type": {
       "type": "integer",
       "description": "type of message",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "activity",
+    "activity": {
       "type": "message activity object",
       "description": "sent with Rich Presence-related chat embeds",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "application",
+    "application": {
       "type": "partial application object",
       "description": "sent with Rich Presence-related chat embeds",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "application_id",
+    "application_id": {
       "type": "snowflake",
       "description": "if the message is an Interaction or application-owned webhook, this is the id of the application",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "message_reference",
+    "message_reference": {
       "type": "message reference object",
       "description": "data showing the source of a crosspost, channel follow add, pin, or reply message",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "flags",
+    "flags": {
       "type": "integer",
       "description": "message flags combined as a bitfield",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "referenced_message?***",
+    "referenced_message?***": {
       "type": "message object",
       "description": "the message associated with the message_reference",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "interaction",
+    "interaction": {
       "type": "message interaction object",
       "description": "sent if the message is a response to an Interaction",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "thread",
+    "thread": {
       "type": "channel object",
       "description": "the thread that was started from this message, includes thread member object",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "components",
+    "components": {
       "type": "Array of message components",
       "description": "sent if the message contains components like buttons, action rows, or other interactive components",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "sticker_items",
+    "sticker_items": {
       "type": "array of message sticker item objects",
       "description": "sent if the message contains stickers",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "stickers",
+    "stickers": {
       "type": "array of sticker objects",
       "description": "Deprecated the stickers sent with the message",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "position",
+    "position": {
       "type": "integer",
       "description": "A generally increasing integer (there may be gaps or duplicates) that represents the approximate position of the message in a thread, it can be used to estimate the relative position of the messsage in a thread in company with total_message_sent on parent thread",
       "optional": true,
       "nullable": false
     }
-  ],
-  "Message Activity": [
-    {
-      "field": "type",
+  },
+  "Message Activity": {
+    "type": {
       "type": "integer",
       "description": "type of message activity",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "party_id",
+    "party_id": {
       "type": "string",
       "description": "party_id from a Rich Presence event",
       "optional": true,
       "nullable": false
     }
-  ],
-  "Message Reference": [
-    {
-      "field": "message_id",
+  },
+  "Message Reference": {
+    "message_id": {
       "type": "snowflake",
       "description": "id of the originating message",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "channel_id",
+    "channel_id": {
       "type": "snowflake",
       "description": "id of the originating message's channel",
       "note": "*",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "guild_id",
+    "guild_id": {
       "type": "snowflake",
       "description": "id of the originating message's guild",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "fail_if_not_exists",
+    "fail_if_not_exists": {
       "type": "boolean",
       "description": "when sending, whether to error if the referenced message doesn't exist instead of sending as a normal (non-reply) message, default true",
       "optional": true,
       "nullable": false
     }
-  ],
-  "Followed Channel": [
-    {
-      "field": "channel_id",
+  },
+  "Followed Channel": {
+    "channel_id": {
       "type": "snowflake",
       "description": "source channel id",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "webhook_id",
+    "webhook_id": {
       "type": "snowflake",
       "description": "created target webhook id",
       "optional": false,
       "nullable": false
     }
-  ],
-  "Reaction": [
-    {
-      "field": "count",
+  },
+  "Reaction": {
+    "count": {
       "type": "integer",
       "description": "times this emoji has been used to react",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "me",
+    "me": {
       "type": "boolean",
       "description": "whether the current user reacted using this emoji",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "emoji",
+    "emoji": {
       "type": "partial emoji object",
       "description": "emoji information",
       "optional": false,
       "nullable": false
     }
-  ],
-  "Overwrite": [
-    {
-      "field": "id",
+  },
+  "Overwrite": {
+    "id": {
       "type": "snowflake",
       "description": "role or user id",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "type",
+    "type": {
       "type": "int",
       "description": "either 0 (role) or 1 (member)",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "allow",
+    "allow": {
       "type": "string",
       "description": "permission bit set",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "deny",
+    "deny": {
       "type": "string",
       "description": "permission bit set",
       "optional": false,
       "nullable": false
     }
-  ],
-  "Thread Metadata": [
-    {
-      "field": "archived",
+  },
+  "Thread Metadata": {
+    "archived": {
       "type": "boolean",
       "description": "whether the thread is archived",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "auto_archive_duration",
+    "auto_archive_duration": {
       "type": "integer",
       "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "archive_timestamp",
+    "archive_timestamp": {
       "type": "ISO8601 timestamp",
       "description": "timestamp when the thread's archive status was last changed, used for calculating recent activity",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "locked",
+    "locked": {
       "type": "boolean",
       "description": "whether the thread is locked; when a thread is locked, only users with MANAGE_THREADS can unarchive it",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "invitable",
+    "invitable": {
       "type": "boolean",
       "description": "whether non-moderators can add other non-moderators to a thread; only available on private threads",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "create_timestamp",
+    "create_timestamp": {
       "type": "ISO8601 timestamp",
       "description": "timestamp when the thread was created; only populated for threads created after 2022-01-09",
       "optional": true,
       "nullable": true
     }
-  ],
-  "Thread Member": [
-    {
-      "field": "id",
+  },
+  "Thread Member": {
+    "id": {
       "type": "snowflake",
       "description": "the id of the thread",
       "note": "*",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "user_id",
+    "user_id": {
       "type": "snowflake",
       "description": "the id of the user",
       "note": "*",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "join_timestamp",
+    "join_timestamp": {
       "type": "ISO8601 timestamp",
       "description": "the time the current user last joined the thread",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "flags",
+    "flags": {
       "type": "integer",
       "description": "any user-thread settings, currently only used for notifications",
       "optional": false,
       "nullable": false
     }
-  ],
-  "Embed": [
-    {
-      "field": "title",
+  },
+  "Embed": {
+    "title": {
       "type": "string",
       "description": "title of embed",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "type",
+    "type": {
       "type": "string",
       "description": "type of embed (always \"rich\" for webhook embeds)",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "description",
+    "description": {
       "type": "string",
       "description": "description of embed",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "url",
+    "url": {
       "type": "string",
       "description": "url of embed",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "timestamp",
+    "timestamp": {
       "type": "ISO8601 timestamp",
       "description": "timestamp of embed content",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "color",
+    "color": {
       "type": "integer",
       "description": "color code of the embed",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "footer",
+    "footer": {
       "type": "embed footer object",
       "description": "footer information",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "image",
+    "image": {
       "type": "embed image object",
       "description": "image information",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "thumbnail",
+    "thumbnail": {
       "type": "embed thumbnail object",
       "description": "thumbnail information",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "video",
+    "video": {
       "type": "embed video object",
       "description": "video information",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "provider",
+    "provider": {
       "type": "embed provider object",
       "description": "provider information",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "author",
+    "author": {
       "type": "embed author object",
       "description": "author information",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "fields",
+    "fields": {
       "type": "array of embed field objects",
       "description": "fields information",
       "optional": true,
       "nullable": false
     }
-  ],
-  "Embed Thumbnail": [
-    {
-      "field": "url",
+  },
+  "Embed Thumbnail": {
+    "url": {
       "type": "string",
       "description": "source url of thumbnail (only supports http(s) and attachments)",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "proxy_url",
+    "proxy_url": {
       "type": "string",
       "description": "a proxied url of the thumbnail",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "height",
+    "height": {
       "type": "integer",
       "description": "height of thumbnail",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "width",
+    "width": {
       "type": "integer",
       "description": "width of thumbnail",
       "optional": true,
       "nullable": false
     }
-  ],
-  "Embed Video": [
-    {
-      "field": "url",
+  },
+  "Embed Video": {
+    "url": {
       "type": "string",
       "description": "source url of video",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "proxy_url",
+    "proxy_url": {
       "type": "string",
       "description": "a proxied url of the video",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "height",
+    "height": {
       "type": "integer",
       "description": "height of video",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "width",
+    "width": {
       "type": "integer",
       "description": "width of video",
       "optional": true,
       "nullable": false
     }
-  ],
-  "Embed Image": [
-    {
-      "field": "url",
+  },
+  "Embed Image": {
+    "url": {
       "type": "string",
       "description": "source url of image (only supports http(s) and attachments)",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "proxy_url",
+    "proxy_url": {
       "type": "string",
       "description": "a proxied url of the image",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "height",
+    "height": {
       "type": "integer",
       "description": "height of image",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "width",
+    "width": {
       "type": "integer",
       "description": "width of image",
       "optional": true,
       "nullable": false
     }
-  ],
-  "Embed Provider": [
-    {
-      "field": "name",
+  },
+  "Embed Provider": {
+    "name": {
       "type": "string",
       "description": "name of provider",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "url",
+    "url": {
       "type": "string",
       "description": "url of provider",
       "optional": true,
       "nullable": false
     }
-  ],
-  "Embed Author": [
-    {
-      "field": "name",
+  },
+  "Embed Author": {
+    "name": {
       "type": "string",
       "description": "name of author",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "url",
+    "url": {
       "type": "string",
       "description": "url of author",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "icon_url",
+    "icon_url": {
       "type": "string",
       "description": "url of author icon (only supports http(s) and attachments)",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "proxy_icon_url",
+    "proxy_icon_url": {
       "type": "string",
       "description": "a proxied url of author icon",
       "optional": true,
       "nullable": false
     }
-  ],
-  "Embed Footer": [
-    {
-      "field": "text",
+  },
+  "Embed Footer": {
+    "text": {
       "type": "string",
       "description": "footer text",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "icon_url",
+    "icon_url": {
       "type": "string",
       "description": "url of footer icon (only supports http(s) and attachments)",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "proxy_icon_url",
+    "proxy_icon_url": {
       "type": "string",
       "description": "a proxied url of footer icon",
       "optional": true,
       "nullable": false
     }
-  ],
-  "Embed Field": [
-    {
-      "field": "name",
+  },
+  "Embed Field": {
+    "name": {
       "type": "string",
       "description": "name of the field",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "value",
+    "value": {
       "type": "string",
       "description": "value of the field",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "inline",
+    "inline": {
       "type": "boolean",
       "description": "whether or not this field should display inline",
       "optional": true,
       "nullable": false
     }
-  ],
-  "Attachment": [
-    {
-      "field": "id",
+  },
+  "Attachment": {
+    "id": {
       "type": "snowflake",
       "description": "attachment id",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "filename",
+    "filename": {
       "type": "string",
       "description": "name of file attached",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "description",
+    "description": {
       "type": "string",
       "description": "description for the file",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "content_type",
+    "content_type": {
       "type": "string",
       "description": "the attachment's media type",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "size",
+    "size": {
       "type": "integer",
       "description": "size of file in bytes",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "url",
+    "url": {
       "type": "string",
       "description": "source url of file",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "proxy_url",
+    "proxy_url": {
       "type": "string",
       "description": "a proxied url of file",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "height",
+    "height": {
       "type": "integer",
       "description": "height of file (if image)",
       "optional": true,
       "nullable": true
     },
-    {
-      "field": "width",
+    "width": {
       "type": "integer",
       "description": "width of file (if image)",
       "optional": true,
       "nullable": true
     },
-    {
-      "field": "ephemeral",
+    "ephemeral": {
       "type": "boolean",
       "description": "whether this attachment is ephemeral",
       "note": "*",
       "optional": true,
       "nullable": false
     }
-  ],
-  "Channel Mention": [
-    {
-      "field": "id",
+  },
+  "Channel Mention": {
+    "id": {
       "type": "snowflake",
       "description": "id of the channel",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "guild_id",
+    "guild_id": {
       "type": "snowflake",
       "description": "id of the guild containing the channel",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "type",
+    "type": {
       "type": "integer",
       "description": "the type of channel",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "name",
+    "name": {
       "type": "string",
       "description": "the name of the channel",
       "optional": false,
       "nullable": false
     }
-  ],
-  "Allowed Mentions": [
-    {
-      "field": "parse",
+  },
+  "Allowed Mentions": {
+    "parse": {
       "type": "array of allowed mention types",
       "description": "An array of allowed mention types to parse from the content.",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "roles",
+    "roles": {
       "type": "list of snowflakes",
       "description": "Array of role_ids to mention (Max size of 100)",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "users",
+    "users": {
       "type": "list of snowflakes",
       "description": "Array of user_ids to mention (Max size of 100)",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "replied_user",
+    "replied_user": {
       "type": "boolean",
       "description": "For replies, whether to mention the author of the message being replied to (default false)",
       "optional": false,
       "nullable": false
     }
-  ]
+  }
 }

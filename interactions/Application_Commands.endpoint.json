@@ -2,84 +2,74 @@
   "Get Global Application Commands": {
     "command": "GET",
     "url": "/applications/{application.id}/commands",
-    "query": [
-      {
-        "field": "with_localizations",
+    "query": {
+      "with_localizations": {
         "type": "boolean",
         "description": "Whether to include full localization dictionaries (name_localizations and description_localizations) in the returned objects, instead of the name_localized and description_localized fields. Default false.",
         "optional": true,
         "nullable": false
       }
-    ]
+    }
   },
   "Create Global Application Command": {
     "command": "POST",
     "url": "/applications/{application.id}/commands",
-    "json": [
-      {
-        "field": "name",
+    "json": {
+      "name": {
         "type": "string",
         "description": "Name of command, 1-32 characters",
         "optional": false,
         "nullable": false
       },
-      {
-        "field": "name_localizations",
+      "name_localizations": {
         "type": "dictionary with keys in available locales",
         "description": "Localization dictionary for the name field. Values follow the same restrictions as name",
         "optional": true,
         "nullable": true
       },
-      {
-        "field": "description",
+      "description": {
         "type": "string",
         "description": "1-100 character description",
         "optional": false,
         "nullable": false
       },
-      {
-        "field": "description_localizations",
+      "description_localizations": {
         "type": "dictionary with keys in available locales",
         "description": "Localization dictionary for the description field. Values follow the same restrictions as description",
         "optional": true,
         "nullable": true
       },
-      {
-        "field": "options",
+      "options": {
         "type": "array of application command option",
         "description": "the parameters for the command",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "default_member_permissions",
+      "default_member_permissions": {
         "type": "string",
         "description": "Set of permissions represented as a bit set",
         "optional": true,
         "nullable": true
       },
-      {
-        "field": "dm_permission",
+      "dm_permission": {
         "type": "boolean",
         "description": "Indicates whether the command is available in DMs with the app, only for globally-scoped commands. By default, commands are visible.",
         "optional": true,
         "nullable": true
       },
-      {
-        "field": "default_permission",
+      "default_permission": {
         "type": "boolean (default true)",
         "description": "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild.",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "type",
+      "type": {
         "type": "one of application command type",
         "description": "Type of command, defaults 1 if not set",
         "optional": true,
         "nullable": false
       }
-    ]
+    }
   },
   "Get Global Application Command": {
     "command": "GET",
@@ -88,64 +78,56 @@
   "Edit Global Application Command": {
     "command": "PATCH",
     "url": "/applications/{application.id}/commands/{command.id}",
-    "json": [
-      {
-        "field": "name",
+    "json": {
+      "name": {
         "type": "string",
         "description": "Name of command, 1-32 characters",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "name_localizations",
+      "name_localizations": {
         "type": "dictionary with keys in available locales",
         "description": "Localization dictionary for the name field. Values follow the same restrictions as name",
         "optional": true,
         "nullable": true
       },
-      {
-        "field": "description",
+      "description": {
         "type": "string",
         "description": "1-100 character description",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "description_localizations",
+      "description_localizations": {
         "type": "dictionary with keys in available locales",
         "description": "Localization dictionary for the description field. Values follow the same restrictions as description",
         "optional": true,
         "nullable": true
       },
-      {
-        "field": "options",
+      "options": {
         "type": "array of application command option",
         "description": "the parameters for the command",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "default_member_permissions",
+      "default_member_permissions": {
         "type": "string",
         "description": "Set of permissions represented as a bit set",
         "optional": true,
         "nullable": true
       },
-      {
-        "field": "dm_permission",
+      "dm_permission": {
         "type": "boolean",
         "description": "Indicates whether the command is available in DMs with the app, only for globally-scoped commands. By default, commands are visible.",
         "optional": true,
         "nullable": true
       },
-      {
-        "field": "default_permission",
+      "default_permission": {
         "type": "boolean (default true)",
         "description": "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild.",
         "optional": true,
         "nullable": false
       }
-    ]
+    }
   },
   "Delete Global Application Command": {
     "command": "DELETE",
@@ -158,77 +140,68 @@
   "Get Guild Application Commands": {
     "command": "GET",
     "url": "/applications/{application.id}/guilds/{guild.id}/commands",
-    "query": [
-      {
-        "field": "with_localizations",
+    "query": {
+      "with_localizations": {
         "type": "boolean",
         "description": "Whether to include full localization dictionaries (name_localizations and description_localizations) in the returned objects, instead of the name_localized and description_localized fields. Default false.",
         "optional": true,
         "nullable": false
       }
-    ]
+    }
   },
   "Create Guild Application Command": {
     "command": "POST",
     "url": "/applications/{application.id}/guilds/{guild.id}/commands",
-    "json": [
-      {
-        "field": "name",
+    "json": {
+      "name": {
         "type": "string",
         "description": "Name of command, 1-32 characters",
         "optional": false,
         "nullable": false
       },
-      {
-        "field": "name_localizations",
+      "name_localizations": {
         "type": "dictionary with keys in available locales",
         "description": "Localization dictionary for the name field. Values follow the same restrictions as name",
         "optional": true,
         "nullable": true
       },
-      {
-        "field": "description",
+      "description": {
         "type": "string",
         "description": "1-100 character description",
         "optional": false,
         "nullable": false
       },
-      {
-        "field": "description_localizations",
+      "description_localizations": {
         "type": "dictionary with keys in available locales",
         "description": "Localization dictionary for the description field. Values follow the same restrictions as description",
         "optional": true,
         "nullable": true
       },
-      {
-        "field": "options",
+      "options": {
         "type": "array of application command option",
         "description": "Parameters for the command",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "default_member_permissions",
+      "default_member_permissions": {
         "type": "string",
         "description": "Set of permissions represented as a bit set",
         "optional": true,
         "nullable": true
       },
-      {
-        "field": "default_permission",
+      "default_permission": {
         "type": "boolean (default true)",
         "description": "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild.",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "type",
+      "type": {
         "type": "one of application command type",
         "description": "Type of command, defaults 1 if not set",
         "optional": true,
         "nullable": false
       }
-    ]
+    }
   },
   "Get Guild Application Command": {
     "command": "GET",
@@ -237,57 +210,50 @@
   "Edit Guild Application Command": {
     "command": "PATCH",
     "url": "/applications/{application.id}/guilds/{guild.id}/commands/{command.id}",
-    "json": [
-      {
-        "field": "name",
+    "json": {
+      "name": {
         "type": "string",
         "description": "Name of command, 1-32 characters",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "name_localizations",
+      "name_localizations": {
         "type": "dictionary with keys in available locales",
         "description": "Localization dictionary for the name field. Values follow the same restrictions as name",
         "optional": true,
         "nullable": true
       },
-      {
-        "field": "description",
+      "description": {
         "type": "string",
         "description": "1-100 character description",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "description_localizations",
+      "description_localizations": {
         "type": "dictionary with keys in available locales",
         "description": "Localization dictionary for the description field. Values follow the same restrictions as description",
         "optional": true,
         "nullable": true
       },
-      {
-        "field": "options",
+      "options": {
         "type": "array of application command option",
         "description": "Parameters for the command",
         "optional": true,
         "nullable": false
       },
-      {
-        "field": "default_member_permissions",
+      "default_member_permissions": {
         "type": "string",
         "description": "Set of permissions represented as a bit set",
         "optional": true,
         "nullable": true
       },
-      {
-        "field": "default_permission",
+      "default_permission": {
         "type": "boolean (default true)",
         "description": "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild.",
         "optional": true,
         "nullable": false
       }
-    ]
+    }
   },
   "Delete Guild Application Command": {
     "command": "DELETE",
@@ -308,15 +274,14 @@
   "Edit Application Command Permissions": {
     "command": "PUT",
     "url": "/applications/{application.id}/guilds/{guild.id}/commands/{command.id}/permissions",
-    "json": [
-      {
-        "field": "permissions",
+    "json": {
+      "permissions": {
         "type": "array of application command permissions",
         "description": "Permissions for the command in the guild",
         "optional": false,
         "nullable": false
       }
-    ]
+    }
   },
   "Batch Edit Application Command Permissions": {
     "command": "PUT",

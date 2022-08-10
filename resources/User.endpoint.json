@@ -10,29 +10,26 @@
   "Modify Current User": {
     "command": "PATCH",
     "url": "/users/@me",
-    "json": [
-      {
-        "field": "username",
+    "json": {
+      "username": {
         "type": "string",
         "description": "user's username, if changed may cause the user's discriminator to be randomized.",
         "optional": false,
         "nullable": false
       },
-      {
-        "field": "avatar",
+      "avatar": {
         "type": "image data",
         "description": "if passed, modifies the user's avatar",
         "optional": false,
         "nullable": true
       }
-    ]
+    }
   },
   "Get Current User Guilds": {
     "command": "GET",
     "url": "/users/@me/guilds",
-    "query": [
-      {
-        "field": "before",
+    "query": {
+      "before": {
         "type": "snowflake",
         "description": "get guilds before this guild ID",
         "required": "false",
@@ -40,8 +37,7 @@
         "optional": false,
         "nullable": false
       },
-      {
-        "field": "after",
+      "after": {
         "type": "snowflake",
         "description": "get guilds after this guild ID",
         "required": "false",
@@ -49,8 +45,7 @@
         "optional": false,
         "nullable": false
       },
-      {
-        "field": "limit",
+      "limit": {
         "type": "integer",
         "description": "max number of guilds to return (1-200)",
         "required": "false",
@@ -58,7 +53,7 @@
         "optional": false,
         "nullable": false
       }
-    ]
+    }
   },
   "Get Current User Guild Member": {
     "command": "GET",
@@ -71,35 +66,32 @@
   "Create DM": {
     "command": "POST",
     "url": "/users/@me/channels",
-    "json": [
-      {
-        "field": "recipient_id",
+    "json": {
+      "recipient_id": {
         "type": "snowflake",
         "description": "the recipient to open a DM channel with",
         "optional": false,
         "nullable": false
       }
-    ]
+    }
   },
   "Create Group DM": {
     "command": "POST",
     "url": "/users/@me/channels",
-    "json": [
-      {
-        "field": "access_tokens",
+    "json": {
+      "access_tokens": {
         "type": "array of strings",
         "description": "access tokens of users that have granted your app the gdm.join scope",
         "optional": false,
         "nullable": false
       },
-      {
-        "field": "nicks",
+      "nicks": {
         "type": "dict",
         "description": "a dictionary of user ids to their respective nicknames",
         "optional": false,
         "nullable": false
       }
-    ]
+    }
   },
   "Get User Connections": {
     "command": "GET",

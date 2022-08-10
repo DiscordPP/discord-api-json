@@ -1,141 +1,122 @@
 {
-  "Button": [
-    {
-      "field": "type",
+  "Button": {
+    "type": {
       "type": "integer",
       "description": "2 for a button",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "style",
+    "style": {
       "type": "integer",
       "description": "one of button styles",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "label",
+    "label": {
       "type": "string",
       "description": "text that appears on the button, max 80 characters",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "emoji",
+    "emoji": {
       "type": "partial emoji",
       "description": "name, id, and animated",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "custom_id",
+    "custom_id": {
       "type": "string",
       "description": "a developer-defined identifier for the button, max 100 characters",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "url",
+    "url": {
       "type": "string",
       "description": "a url for link-style buttons",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "disabled",
+    "disabled": {
       "type": "boolean",
       "description": "whether the button is disabled (default false)",
       "optional": true,
       "nullable": false
     }
-  ],
-  "Select Menu": [
-    {
-      "field": "type",
+  },
+  "Select Menu": {
+    "type": {
       "type": "integer",
       "description": "3 for a select menu",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "custom_id",
+    "custom_id": {
       "type": "string",
       "description": "a developer-defined identifier for the select menu, max 100 characters",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "options",
+    "options": {
       "type": "array of select options",
       "description": "the choices in the select, max 25",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "placeholder",
+    "placeholder": {
       "type": "string",
       "description": "custom placeholder text if nothing is selected, max 150 characters",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "min_values",
+    "min_values": {
       "type": "integer",
       "description": "the minimum number of items that must be chosen; default 1, min 0, max 25",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "max_values",
+    "max_values": {
       "type": "integer",
       "description": "the maximum number of items that can be chosen; default 1, max 25",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "disabled",
+    "disabled": {
       "type": "boolean",
       "description": "disable the select, default false",
       "optional": true,
       "nullable": false
     }
-  ],
-  "Select Option": [
-    {
-      "field": "label",
+  },
+  "Select Option": {
+    "label": {
       "type": "string",
       "description": "the user-facing name of the option, max 100 characters",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "value",
+    "value": {
       "type": "string",
       "description": "the dev-defined value of the option, max 100 characters",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "description",
+    "description": {
       "type": "string",
       "description": "an additional description of the option, max 100 characters",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "emoji",
+    "emoji": {
       "type": "partial emoji object",
       "description": "id, name, and animated",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "default",
+    "default": {
       "type": "boolean",
       "description": "will render this option as selected by default",
       "optional": true,
       "nullable": false
     }
-  ]
+  }
 }

@@ -1,143 +1,124 @@
 {
-  "Guild Scheduled Event": [
-    {
-      "field": "id",
+  "Guild Scheduled Event": {
+    "id": {
       "type": "snowflake",
       "description": "the id of the scheduled event",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "guild_id",
+    "guild_id": {
       "type": "snowflake",
       "description": "the guild id which the scheduled event belongs to",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "channel_id",
+    "channel_id": {
       "type": "snowflake",
       "description": "the channel id in which the scheduled event will be hosted, or null if scheduled entity type is EXTERNAL",
       "note": "**",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "creator_id",
+    "creator_id": {
       "type": "snowflake",
       "description": "the id of the user that created the scheduled event *",
       "note": "*",
       "optional": true,
       "nullable": true
     },
-    {
-      "field": "name",
+    "name": {
       "type": "string",
       "description": "the name of the scheduled event (1-100 characters)",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "description",
+    "description": {
       "type": "string",
       "description": "the description of the scheduled event (1-1000 characters)",
       "optional": true,
       "nullable": true
     },
-    {
-      "field": "scheduled_start_time",
+    "scheduled_start_time": {
       "type": "ISO8601 timestamp",
       "description": "the time the scheduled event will start",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "scheduled_end_time",
+    "scheduled_end_time": {
       "type": "ISO8601 timestamp",
       "description": "the time the scheduled event will end, required if entity_type is EXTERNAL",
       "note": "**",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "privacy_level",
+    "privacy_level": {
       "type": "privacy level",
       "description": "the privacy level of the scheduled event",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "status",
+    "status": {
       "type": "event status",
       "description": "the status of the scheduled event",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "entity_type",
+    "entity_type": {
       "type": "scheduled entity type",
       "description": "the type of the scheduled event",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "entity_id",
+    "entity_id": {
       "type": "snowflake",
       "description": "the id of an entity associated with a guild scheduled event",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "entity_metadata",
+    "entity_metadata": {
       "type": "entity metadata",
       "description": "additional metadata for the guild scheduled event",
       "note": "**",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "creator",
+    "creator": {
       "type": "user object",
       "description": "the user that created the scheduled event",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "user_count",
+    "user_count": {
       "type": "integer",
       "description": "the number of users subscribed to the scheduled event",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "image",
+    "image": {
       "type": "string",
       "description": "the cover image hash of the scheduled event",
       "optional": true,
       "nullable": true
     }
-  ],
-  "Guild Scheduled Event User": [
-    {
-      "field": "guild_scheduled_event_id",
+  },
+  "Guild Scheduled Event User": {
+    "guild_scheduled_event_id": {
       "type": "snowflake",
       "description": "the scheduled event id which the user subscribed to",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "user",
+    "user": {
       "type": "user",
       "description": "user which subscribed to an event",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "member",
+    "member": {
       "type": "guild member",
       "description": "guild member data for this user for the guild which this event belongs to, if any",
       "optional": true,
       "nullable": false
     }
-  ]
+  }
 }

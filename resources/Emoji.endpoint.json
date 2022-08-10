@@ -10,49 +10,44 @@
   "Create Guild Emoji": {
     "command": "POST",
     "url": "/guilds/{guild.id}/emojis",
-    "json": [
-      {
-        "field": "name",
+    "json": {
+      "name": {
         "type": "string",
         "description": "name of the emoji",
         "optional": false,
         "nullable": false
       },
-      {
-        "field": "image",
+      "image": {
         "type": "image data",
         "description": "the 128x128 emoji image",
         "optional": false,
         "nullable": false
       },
-      {
-        "field": "roles",
+      "roles": {
         "type": "array of snowflakes",
         "description": "roles allowed to use this emoji",
         "optional": false,
         "nullable": false
       }
-    ]
+    }
   },
   "Modify Guild Emoji": {
     "command": "PATCH",
     "url": "/guilds/{guild.id}/emojis/{emoji.id}",
-    "json": [
-      {
-        "field": "name",
+    "json": {
+      "name": {
         "type": "string",
         "description": "name of the emoji",
         "optional": false,
         "nullable": false
       },
-      {
-        "field": "roles",
+      "roles": {
         "type": "array of snowflakes",
         "description": "roles allowed to use this emoji",
         "optional": false,
         "nullable": true
       }
-    ]
+    }
   },
   "Delete Guild Emoji": {
     "command": "DELETE",

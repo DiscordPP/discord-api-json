@@ -1,155 +1,134 @@
 {
-  "Invite": [
-    {
-      "field": "code",
+  "Invite": {
+    "code": {
       "type": "string",
       "description": "the invite code (unique ID)",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "guild",
+    "guild": {
       "type": "partial guild object",
       "description": "the guild this invite is for",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "channel",
+    "channel": {
       "type": "partial channel object",
       "description": "the channel this invite is for",
       "optional": false,
       "nullable": true
     },
-    {
-      "field": "inviter",
+    "inviter": {
       "type": "user object",
       "description": "the user who created the invite",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "target_type",
+    "target_type": {
       "type": "integer",
       "description": "the type of target for this voice channel invite",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "target_user",
+    "target_user": {
       "type": "user object",
       "description": "the user whose stream to display for this voice channel stream invite",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "target_application",
+    "target_application": {
       "type": "partial application object",
       "description": "the embedded application to open for this voice channel embedded application invite",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "approximate_presence_count",
+    "approximate_presence_count": {
       "type": "integer",
       "description": "approximate count of online members, returned from the GET /invites/<code> endpoint when with_counts is true",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "approximate_member_count",
+    "approximate_member_count": {
       "type": "integer",
       "description": "approximate count of total members, returned from the GET /invites/<code> endpoint when with_counts is true",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "expires_at",
+    "expires_at": {
       "type": "ISO8601 timestamp",
       "description": "the expiration date of this invite, returned from the GET /invites/<code> endpoint when with_expiration is true",
       "optional": true,
       "nullable": true
     },
-    {
-      "field": "stage_instance",
+    "stage_instance": {
       "type": "invite stage instance object",
       "description": "stage instance data if there is a public Stage instance in the Stage channel this invite is for (deprecated)",
       "optional": true,
       "nullable": false
     },
-    {
-      "field": "guild_scheduled_event",
+    "guild_scheduled_event": {
       "type": "guild scheduled event object",
       "description": "guild scheduled event data, only included if guild_scheduled_event_id contains a valid guild scheduled event id",
       "optional": true,
       "nullable": false
     }
-  ],
-  "Invite Metadata": [
-    {
-      "field": "uses",
+  },
+  "Invite Metadata": {
+    "uses": {
       "type": "integer",
       "description": "number of times this invite has been used",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "max_uses",
+    "max_uses": {
       "type": "integer",
       "description": "max number of times this invite can be used",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "max_age",
+    "max_age": {
       "type": "integer",
       "description": "duration (in seconds) after which the invite expires",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "temporary",
+    "temporary": {
       "type": "boolean",
       "description": "whether this invite only grants temporary membership",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "created_at",
+    "created_at": {
       "type": "ISO8601 timestamp",
       "description": "when this invite was created",
       "optional": false,
       "nullable": false
     }
-  ],
-  "Invite Stage Instance": [
-    {
-      "field": "members",
+  },
+  "Invite Stage Instance": {
+    "members": {
       "type": "array of partial guild member objects",
       "description": "the members speaking in the Stage",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "participant_count",
+    "participant_count": {
       "type": "integer",
       "description": "the number of users in the Stage",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "speaker_count",
+    "speaker_count": {
       "type": "integer",
       "description": "the number of users speaking in the Stage",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "topic",
+    "topic": {
       "type": "string",
       "description": "the topic of the Stage instance (1-120 characters)",
       "optional": false,
       "nullable": false
     }
-  ]
+  }
 }

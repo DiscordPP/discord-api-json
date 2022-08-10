@@ -1,53 +1,46 @@
 {
-  "Stage Instance": [
-    {
-      "field": "id",
+  "Stage Instance": {
+    "id": {
       "type": "snowflake",
       "description": "The id of this Stage instance",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "guild_id",
+    "guild_id": {
       "type": "snowflake",
       "description": "The guild id of the associated Stage channel",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "channel_id",
+    "channel_id": {
       "type": "snowflake",
       "description": "The id of the associated Stage channel",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "topic",
+    "topic": {
       "type": "string",
       "description": "The topic of the Stage instance (1-120 characters)",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "privacy_level",
+    "privacy_level": {
       "type": "integer",
       "description": "The privacy level of the Stage instance",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "discoverable_disabled",
+    "discoverable_disabled": {
       "type": "boolean",
       "description": "Whether or not Stage Discovery is disabled (deprecated)",
       "optional": false,
       "nullable": false
     },
-    {
-      "field": "guild_scheduled_event_id",
+    "guild_scheduled_event_id": {
       "type": "snowflake",
       "description": "The id of the scheduled event for this Stage instance",
       "optional": false,
       "nullable": true
     }
-  ]
+  }
 }
