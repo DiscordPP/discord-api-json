@@ -16,7 +16,7 @@
     "url": "/guilds/{guild.id}/scheduled-events",
     "json": {
       "channel_id": {
-        "type": "snowflake *",
+        "type": "snowflake",
         "description": "the channel id of the scheduled event.",
         "note": "*",
         "optional": true,
