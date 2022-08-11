@@ -15,16 +15,16 @@
     "s": {
       "type": "integer",
       "description": "sequence number, used for resuming sessions and heartbeats",
-      "note": "*",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "note-type": "s and t are null when op is not 0 (Gateway Dispatch Opcode)."
     },
     "t": {
       "type": "string",
       "description": "the event name for this payload",
-      "note": "*",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "note-type": "s and t are null when op is not 0 (Gateway Dispatch Opcode)."
     }
   },
   "Identify": {

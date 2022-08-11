@@ -39,9 +39,9 @@
     "owner": {
       "type": "boolean",
       "description": "true if the user is the owner of the guild",
-      "note": "*",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "note-field": "These fields are only sent when using the GET Current User Guilds endpoint and are relative to the requested user"
     },
     "owner_id": {
       "type": "snowflake",
@@ -52,16 +52,16 @@
     "permissions": {
       "type": "string",
       "description": "total permissions for the user in the guild (excludes overwrites)",
-      "note": "*",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "note-field": "These fields are only sent when using the GET Current User Guilds endpoint and are relative to the requested user"
     },
     "region": {
       "type": "string",
       "description": "voice region id for the guild (deprecated)",
-      "note": "**",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "note-field": "This field is deprecated and is replaced by channel.rtc_region"
     },
     "afk_channel_id": {
       "type": "snowflake",
@@ -460,51 +460,51 @@
     "enabled": {
       "type": "boolean",
       "description": "is this integration enabled",
-      "note": "*",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "note-field": "These fields are not provided for discord bot integrations."
     },
     "syncing": {
       "type": "boolean",
       "description": "is this integration syncing",
-      "note": "*",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "note-field": "These fields are not provided for discord bot integrations."
     },
     "role_id": {
       "type": "snowflake",
       "description": "id that this integration uses for \"subscribers\"",
-      "note": "*",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "note-field": "These fields are not provided for discord bot integrations."
     },
     "enable_emoticons": {
       "type": "boolean",
       "description": "whether emoticons should be synced for this integration (twitch only currently)",
-      "note": "*",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "note-field": "These fields are not provided for discord bot integrations."
     },
     "expire_behavior": {
       "type": "integration expire behavior",
       "description": "the behavior of expiring subscribers",
-      "note": "*",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "note-field": "These fields are not provided for discord bot integrations."
     },
     "expire_grace_period": {
       "type": "integer",
       "description": "the grace period (in days) before expiring subscribers",
-      "note": "*",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "note-field": "These fields are not provided for discord bot integrations."
     },
     "user": {
       "type": "user object",
       "description": "user for this integration",
-      "note": "*",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "note-field": "These fields are not provided for discord bot integrations."
     },
     "account": {
       "type": "account object",
@@ -515,23 +515,23 @@
     "synced_at": {
       "type": "ISO8601 timestamp",
       "description": "when this integration was last synced",
-      "note": "*",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "note-field": "These fields are not provided for discord bot integrations."
     },
     "subscriber_count": {
       "type": "integer",
       "description": "how many subscribers this integration has",
-      "note": "*",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "note-field": "These fields are not provided for discord bot integrations."
     },
     "revoked": {
       "type": "boolean",
       "description": "has this integration been revoked",
-      "note": "*",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "note-field": "These fields are not provided for discord bot integrations."
     },
     "application": {
       "type": "application object",

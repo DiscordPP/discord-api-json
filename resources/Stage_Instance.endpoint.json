@@ -24,9 +24,9 @@
       "send_start_notification": {
         "type": "boolean",
         "description": "Notify @everyone that a Stage instance has started",
-        "note": "*",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "note-field": "The stage moderator must have the MENTION_EVERYONE permission for this notification to be sent."
       }
     }
   },

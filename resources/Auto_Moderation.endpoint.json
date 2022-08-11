@@ -32,9 +32,9 @@
       "trigger_metadata": {
         "type": "object",
         "description": "the trigger metadata",
-        "note": "*",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "note-field": "Can be omitted based on trigger_type. See the Associated Trigger Types column in trigger metadata to understand which trigger_type values require trigger_metadata to be set."
       },
       "actions": {
         "type": "array of action objects",
@@ -81,9 +81,9 @@
       "trigger_metadata": {
         "type": "object",
         "description": "the trigger metadata",
-        "note": "*",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "note-field": "Can be omitted based on trigger_type. See the Associated Trigger Types column in trigger metadata to understand which trigger_type values require trigger_metadata to be set."
       },
       "actions": {
         "type": "array of action objects",

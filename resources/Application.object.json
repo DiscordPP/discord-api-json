@@ -63,7 +63,7 @@
     "summary": {
       "type": "string",
       "description": "deprecated and will be removed in v11. An empty string.",
-      "note": "(deprecated)",
+      "note-field": "(deprecated)",
       "optional": false,
       "nullable": false
     },

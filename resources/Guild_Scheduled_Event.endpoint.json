@@ -18,16 +18,16 @@
       "channel_id": {
         "type": "snowflake",
         "description": "the channel id of the scheduled event.",
-        "note": "*",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "note-type": "Optional for events with 'entity_type': EXTERNAL"
       },
       "entity_metadata": {
         "type": "entity metadata",
         "description": "the entity metadata of the scheduled event",
-        "note": "**",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "note-field": "Required for events with 'entity_type': EXTERNAL"
       },
       "name": {
         "type": "string",
@@ -50,9 +50,9 @@
       "scheduled_end_time": {
         "type": "ISO8601 timestamp",
         "description": "the time when the scheduled event is scheduled to end",
-        "note": "**",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "note-field": "Required for events with 'entity_type': EXTERNAL"
       },
       "description": {
         "type": "string",
@@ -93,9 +93,9 @@
       "channel_id": {
         "type": "snowflake",
         "description": "the channel id of the scheduled event, set to null if changing entity type to EXTERNAL",
-        "note": "*",
         "optional": true,
-        "nullable": true
+        "nullable": true,
+        "note-field": "If updating entity_type to EXTERNAL:"
       },
       "entity_metadata": {
         "type": "entity metadata",
@@ -124,9 +124,9 @@
       "scheduled_end_time": {
         "type": "ISO8601 timestamp",
         "description": "the time when the scheduled event is scheduled to end",
-        "note": "*",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "note-field": "If updating entity_type to EXTERNAL:"
       },
       "description": {
         "type": "string",
@@ -137,9 +137,9 @@
       "entity_type": {
         "type": "event entity type",
         "description": "the entity type of the scheduled event",
-        "note": "*",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "note-field": "If updating entity_type to EXTERNAL:"
       },
       "status": {
         "type": "event status",
@@ -181,17 +181,17 @@
         "type": "snowflake",
         "description": "consider only users before given user id",
         "default": "null",
-        "note": "*",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "note-field": "Provide a user id to before and after for pagination. Users will always be returned in ascending order by user_id. If both before and after are provided, only before is respected. Fetching users in-between before and after is not supported."
       },
       "after": {
         "type": "snowflake",
         "description": "consider only users after given user id",
         "default": "null",
-        "note": "*",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "note-field": "Provide a user id to before and after for pagination. Users will always be returned in ascending order by user_id. If both before and after are provided, only before is respected. Fetching users in-between before and after is not supported."
       }
     }
   }

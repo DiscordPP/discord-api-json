@@ -18,11 +18,12 @@
       "optional": false,
       "nullable": false
     },
-    "data?*": {
+    "data": {
       "type": "interaction data",
       "description": "Interaction data payload",
-      "optional": false,
-      "nullable": false
+      "optional": true,
+      "nullable": false,
+      "note-field": "This is always present on application command, message component, and modal submit interaction types. It is optional for future-proofing against new interaction types"
     },
     "guild_id": {
       "type": "snowflake",
@@ -36,11 +37,12 @@
       "optional": true,
       "nullable": false
     },
-    "member?**": {
+    "member": {
       "type": "guild member object",
       "description": "Guild member data for the invoking user, including permissions",
-      "optional": false,
-      "nullable": false
+      "optional": true,
+      "nullable": false,
+      "note-field": "member is sent when the interaction is invoked in a guild, and user is sent when invoked in a DM"
     },
     "user": {
       "type": "user object",
@@ -72,11 +74,12 @@
       "optional": true,
       "nullable": false
     },
-    "locale?***": {
+    "locale": {
       "type": "string",
       "description": "Selected language of the invoking user",
-      "optional": false,
-      "nullable": false
+      "optional": true,
+      "nullable": false,
+      "note-field": "This is available on all interaction types except PING"
     },
     "guild_locale": {
       "type": "string",
@@ -110,11 +113,12 @@
       "optional": true,
       "nullable": false
     },
-    "options?*": {
+    "options": {
       "type": "array of application command interaction data option",
       "description": "the params + values from the user",
-      "optional": false,
-      "nullable": false
+      "optional": true,
+      "nullable": false,
+      "note-field": "This can be partial when in response to APPLICATION_COMMAND_AUTOCOMPLETE"
     },
     "guild_id": {
       "type": "snowflake",
@@ -142,11 +146,12 @@
       "optional": false,
       "nullable": false
     },
-    "values?*": {
+    "values": {
       "type": "array of select option values",
       "description": "values the user selected in a select menu component",
-      "optional": false,
-      "nullable": false
+      "optional": true,
+      "nullable": false,
+      "note-field": "This is always present for select menu components"
     }
   },
   "Modal Submit Data": {
@@ -170,11 +175,12 @@
       "optional": true,
       "nullable": false
     },
-    "members?*": {
+    "members": {
       "type": "Map of Snowflakes to partial member objects",
       "description": "the ids and partial Member objects",
-      "optional": false,
-      "nullable": false
+      "optional": true,
+      "nullable": false,
+      "note-field": "Partial Member objects are missing user, deaf and mute fields"
     },
     "roles": {
       "type": "Map of Snowflakes to role objects",
@@ -182,11 +188,12 @@
       "optional": true,
       "nullable": false
     },
-    "channels?**": {
+    "channels": {
       "type": "Map of Snowflakes to partial channel objects",
       "description": "the ids and partial Channel objects",
-      "optional": false,
-      "nullable": false
+      "optional": true,
+      "nullable": false,
+      "note-field": "Partial Channel objects only have id, name, type and permissions fields. Threads will also have thread_metadata and parent_id fields."
     },
     "messages": {
       "type": "Map of Snowflakes to partial messages objects",

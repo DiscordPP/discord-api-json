@@ -77,9 +77,9 @@
     "metadata": {
       "type": "action metadata",
       "description": "additional metadata needed during execution for this specific action type",
-      "note": "*",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "note-field": "Can be omitted based on type. See the Associated Action Types column in action metadata to understand which type values require metadata to be set."
     }
   }
 }

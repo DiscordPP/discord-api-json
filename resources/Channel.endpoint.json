@@ -294,11 +294,12 @@
         "optional": true,
         "nullable": false
       },
-      "type?*": {
+      "type": {
         "type": "integer",
         "description": "the type of thread to create",
-        "optional": false,
-        "nullable": false
+        "optional": true,
+        "nullable": false,
+        "note-field": "type currently defaults to GUILD_PRIVATE_THREAD in order to match the behavior when thread documentation was first published. In a future API version this will be changed to be a required field, with no default."
       },
       "invitable": {
         "type": "boolean",

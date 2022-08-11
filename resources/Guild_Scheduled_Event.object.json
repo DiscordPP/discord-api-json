@@ -15,16 +15,16 @@
     "channel_id": {
       "type": "snowflake",
       "description": "the channel id in which the scheduled event will be hosted, or null if scheduled entity type is EXTERNAL",
-      "note": "**",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "note-field": "See field requirements by entity type to understand the relationship between entity_type and the following fields: channel_id, entity_metadata, and scheduled_end_time"
     },
     "creator_id": {
       "type": "snowflake",
       "description": "the id of the user that created the scheduled event *",
-      "note": "*",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "note-field": "creator_id will be null and creator will not be included for events created before October 25th, 2021, when the concept of creator_id was introduced and tracked."
     },
     "name": {
       "type": "string",
@@ -47,9 +47,9 @@
     "scheduled_end_time": {
       "type": "ISO8601 timestamp",
       "description": "the time the scheduled event will end, required if entity_type is EXTERNAL",
-      "note": "**",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "note-field": "See field requirements by entity type to understand the relationship between entity_type and the following fields: channel_id, entity_metadata, and scheduled_end_time"
     },
     "privacy_level": {
       "type": "privacy level",
@@ -78,9 +78,9 @@
     "entity_metadata": {
       "type": "entity metadata",
       "description": "additional metadata for the guild scheduled event",
-      "note": "**",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "note-field": "See field requirements by entity type to understand the relationship between entity_type and the following fields: channel_id, entity_metadata, and scheduled_end_time"
     },
     "creator": {
       "type": "user object",
