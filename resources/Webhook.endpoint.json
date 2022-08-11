@@ -3,6 +3,9 @@
     "command": "POST",
     "url": "/channels/{channel.id}/webhooks",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/webhook#webhook-object"
+      },
       "name": {
         "type": "string",
         "description": "name of the webhook (1-80 characters)",
@@ -37,6 +40,9 @@
     "command": "PATCH",
     "url": "/webhooks/{webhook.id}",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/webhook#webhook-object"
+      },
       "name": {
         "type": "string",
         "description": "the default name of the webhook",
@@ -73,6 +79,9 @@
     "command": "POST",
     "url": "/webhooks/{webhook.id}/{webhook.token}",
     "query": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/webhook#webhook-object"
+      },
       "wait": {
         "type": "boolean",
         "description": "waits for server confirmation of message send before response, and returns the created message body (defaults to false; when false a message that is not saved does not return an error)",
@@ -93,6 +102,9 @@
     "command": "POST",
     "url": "/webhooks/{webhook.id}/{webhook.token}/slack",
     "query": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/webhook#webhook-object"
+      },
       "thread_id": {
         "type": "snowflake",
         "description": "id of the thread to send the message in",
@@ -113,6 +125,9 @@
     "command": "POST",
     "url": "/webhooks/{webhook.id}/{webhook.token}/github",
     "query": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/webhook#webhook-object"
+      },
       "thread_id": {
         "type": "snowflake",
         "description": "id of the thread to send the message in",
@@ -133,6 +148,9 @@
     "command": "GET",
     "url": "/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}",
     "query": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/webhook#webhook-object"
+      },
       "thread_id": {
         "type": "snowflake",
         "description": "id of the thread the message is in",
@@ -146,6 +164,9 @@
     "command": "PATCH",
     "url": "/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}",
     "query": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/webhook#webhook-object"
+      },
       "thread_id": {
         "type": "snowflake",
         "description": "id of the thread the message is in",
@@ -159,6 +180,9 @@
     "command": "DELETE",
     "url": "/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}",
     "query": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/webhook#webhook-object"
+      },
       "thread_id": {
         "type": "snowflake",
         "description": "id of the thread the message is in",

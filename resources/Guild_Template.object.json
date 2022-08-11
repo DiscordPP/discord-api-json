@@ -1,5 +1,8 @@
 {
   "Guild Template": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild-template#guild-template-object"
+    },
     "code": {
       "type": "string",
       "description": "the template code (unique ID)",

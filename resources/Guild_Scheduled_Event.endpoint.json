@@ -3,6 +3,9 @@
     "command": "GET",
     "url": "/guilds/{guild.id}/scheduled-events",
     "query": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-user-object"
+      },
       "with_user_count": {
         "type": "boolean",
         "description": "include number of users subscribed to each event",
@@ -15,6 +18,9 @@
     "command": "POST",
     "url": "/guilds/{guild.id}/scheduled-events",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-user-object"
+      },
       "channel_id": {
         "type": "snowflake",
         "description": "the channel id of the scheduled event.",
@@ -78,6 +84,9 @@
     "command": "GET",
     "url": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}",
     "query": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-user-object"
+      },
       "with_user_count": {
         "type": "boolean",
         "description": "include number of users subscribed to this event",
@@ -90,6 +99,9 @@
     "command": "PATCH",
     "url": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-user-object"
+      },
       "channel_id": {
         "type": "snowflake",
         "description": "the channel id of the scheduled event, set to null if changing entity type to EXTERNAL",
@@ -163,6 +175,9 @@
     "command": "GET",
     "url": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}/users",
     "query": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-user-object"
+      },
       "limit": {
         "type": "number",
         "description": "number of users to return (up to maximum 100)",

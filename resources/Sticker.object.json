@@ -1,5 +1,8 @@
 {
   "Sticker": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/sticker#sticker-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "id of the sticker",
@@ -75,6 +78,9 @@
     }
   },
   "Sticker Item": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/sticker#sticker-item-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "id of the sticker",
@@ -95,6 +101,9 @@
     }
   },
   "Sticker Pack": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/sticker#sticker-pack-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "id of the sticker pack",

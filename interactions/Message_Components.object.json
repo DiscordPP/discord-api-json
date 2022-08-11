@@ -1,5 +1,8 @@
 {
   "Button": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/interactions/message-components#button-object"
+    },
     "type": {
       "type": "integer",
       "description": "2 for a button",
@@ -44,6 +47,9 @@
     }
   },
   "Select Menu": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/interactions/message-components#select-menu-object"
+    },
     "type": {
       "type": "integer",
       "description": "3 for a select menu",
@@ -88,6 +94,9 @@
     }
   },
   "Select Option": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/interactions/message-components#select-menu-object"
+    },
     "label": {
       "type": "string",
       "description": "the user-facing name of the option, max 100 characters",

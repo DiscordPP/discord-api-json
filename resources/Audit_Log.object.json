@@ -1,5 +1,8 @@
 {
   "Audit Log": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/audit-log#audit-log-object"
+    },
     "audit_log_entries": {
       "type": "array of audit log entry objects",
       "description": "List of audit log entries, sorted from most to least recent",
@@ -44,6 +47,9 @@
     }
   },
   "Audit Log Entry": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object"
+    },
     "target_id": {
       "type": "string",
       "description": "ID of the affected entity (webhook, user, role, etc.)",
@@ -88,6 +94,9 @@
     }
   },
   "Audit Log Change": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/audit-log#audit-log-change-object"
+    },
     "new_value": {
       "type": "mixed (matches object field's type)",
       "description": "New value of the key",

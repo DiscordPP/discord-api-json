@@ -1,5 +1,8 @@
 {
   "Voice State": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/voice#voice-state-object"
+    },
     "guild_id": {
       "type": "snowflake",
       "description": "the guild id this voice state is for",
@@ -80,6 +83,9 @@
     }
   },
   "Voice Region": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/voice#voice-region-object"
+    },
     "id": {
       "type": "string",
       "description": "unique ID for the region",

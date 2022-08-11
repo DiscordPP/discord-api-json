@@ -1,5 +1,8 @@
 {
   "Interaction": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "ID of the interaction",
@@ -89,6 +92,9 @@
     }
   },
   "Application Command Data": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "the ID of the invoked command",
@@ -134,6 +140,9 @@
     }
   },
   "Message Component Data": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object"
+    },
     "custom_id": {
       "type": "string",
       "description": "the custom_id of the component",
@@ -155,6 +164,9 @@
     }
   },
   "Modal Submit Data": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object"
+    },
     "custom_id": {
       "type": "string",
       "description": "the custom_id of the modal",
@@ -169,6 +181,9 @@
     }
   },
   "Resolved Data": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object"
+    },
     "users": {
       "type": "Map of Snowflakes to user objects",
       "description": "the ids and User objects",
@@ -209,6 +224,9 @@
     }
   },
   "Message Interaction": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#message-interaction-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "ID of the interaction",
@@ -241,6 +259,9 @@
     }
   },
   "Interaction Response": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-response-object"
+    },
     "type": {
       "type": "interaction callback type",
       "description": "the type of response",

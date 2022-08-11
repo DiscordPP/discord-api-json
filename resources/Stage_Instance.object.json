@@ -1,5 +1,8 @@
 {
   "Stage Instance": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/stage-instance#stage-instance-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "The id of this Stage instance",

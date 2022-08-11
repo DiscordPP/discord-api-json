@@ -1,5 +1,8 @@
 {
   "Gateway Payload": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/topics/gateway#payloads"
+    },
     "op": {
       "type": "integer",
       "description": "opcode for the payload",
@@ -28,6 +31,9 @@
     }
   },
   "Identify": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/topics/gateway#identify"
+    },
     "token": {
       "type": "string",
       "description": "authentication token",
@@ -79,6 +85,9 @@
     }
   },
   "Resume": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/topics/gateway#resume"
+    },
     "token": {
       "type": "string",
       "description": "session token",
@@ -99,6 +108,9 @@
     }
   },
   "Guild Request Members": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/topics/gateway#request-guild-members"
+    },
     "guild_id": {
       "type": "snowflake",
       "description": "id of the guild to get members for",
@@ -143,6 +155,9 @@
     }
   },
   "Gateway Voice State Update": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/topics/gateway#update-voice-state"
+    },
     "guild_id": {
       "type": "snowflake",
       "description": "id of the guild",
@@ -169,6 +184,9 @@
     }
   },
   "Gateway Presence Update": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/topics/gateway#update-presence"
+    },
     "since": {
       "type": "integer",
       "description": "unix time (in milliseconds) of when the client went idle, or null if the client is not idle",
@@ -195,6 +213,9 @@
     }
   },
   "Hello": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/topics/gateway#hello"
+    },
     "heartbeat_interval": {
       "type": "integer",
       "description": "the interval (in milliseconds) the client should heartbeat with",
@@ -203,6 +224,9 @@
     }
   },
   "Activity": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/topics/gateway#activity-object"
+    },
     "name": {
       "type": "string",
       "description": "the activity's name",
@@ -295,6 +319,9 @@
     }
   },
   "Session Start Limit": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/topics/gateway#session-start-limit-object"
+    },
     "total": {
       "type": "integer",
       "description": "The total number of session starts the current user is allowed",

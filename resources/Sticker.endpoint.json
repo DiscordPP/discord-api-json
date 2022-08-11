@@ -23,6 +23,9 @@
     "command": "PATCH",
     "url": "/guilds/{guild.id}/stickers/{sticker.id}",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/sticker#sticker-pack-object"
+      },
       "name": {
         "type": "string",
         "description": "name of the sticker (2-30 characters)",

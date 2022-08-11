@@ -1,5 +1,8 @@
 {
   "Application": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/application#application-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "the id of the app",
@@ -129,6 +132,9 @@
     }
   },
   "Install Params": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/application#install-params-object"
+    },
     "scopes": {
       "type": "array of strings",
       "description": "the scopes to add the application to the server with",

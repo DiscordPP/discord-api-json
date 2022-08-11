@@ -3,6 +3,9 @@
     "command": "POST",
     "url": "/stage-instances",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/stage-instance#stage-instance-object"
+      },
       "channel_id": {
         "type": "snowflake",
         "description": "The id of the Stage channel",
@@ -38,6 +41,9 @@
     "command": "PATCH",
     "url": "/stage-instances/{channel.id}",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/stage-instance#stage-instance-object"
+      },
       "topic": {
         "type": "string",
         "description": "The topic of the Stage instance (1-120 characters)",

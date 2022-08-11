@@ -1,5 +1,8 @@
 {
   "Auto Moderation Rule": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "the id of this rule",
@@ -68,6 +71,9 @@
     }
   },
   "Auto Moderation Action": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-action-object"
+    },
     "type": {
       "type": "action type",
       "description": "the type of action",

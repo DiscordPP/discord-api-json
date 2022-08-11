@@ -1,5 +1,8 @@
 {
   "Webhook": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/webhook#webhook-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "the id of the webhook",

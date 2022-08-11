@@ -1,5 +1,8 @@
 {
   "Guild Scheduled Event": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "the id of the scheduled event",
@@ -102,6 +105,9 @@
     }
   },
   "Guild Scheduled Event User": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-user-object"
+    },
     "guild_scheduled_event_id": {
       "type": "snowflake",
       "description": "the scheduled event id which the user subscribed to",

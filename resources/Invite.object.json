@@ -1,5 +1,8 @@
 {
   "Invite": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/invite#invite-object"
+    },
     "code": {
       "type": "string",
       "description": "the invite code (unique ID)",
@@ -74,6 +77,9 @@
     }
   },
   "Invite Metadata": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/invite#invite-metadata-object"
+    },
     "uses": {
       "type": "integer",
       "description": "number of times this invite has been used",
@@ -106,6 +112,9 @@
     }
   },
   "Invite Stage Instance": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/invite#invite-stage-instance-object"
+    },
     "members": {
       "type": "array of partial guild member objects",
       "description": "the members speaking in the Stage",

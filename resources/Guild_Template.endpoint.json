@@ -7,6 +7,9 @@
     "command": "POST",
     "url": "/guilds/templates/{template.code}",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/guild-template#guild-template-object"
+      },
       "name": {
         "type": "string",
         "description": "name of the guild (2-100 characters)",
@@ -29,6 +32,9 @@
     "command": "POST",
     "url": "/guilds/{guild.id}/templates",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/guild-template#guild-template-object"
+      },
       "name": {
         "type": "string",
         "description": "name of the template (1-100 characters)",
@@ -51,6 +57,9 @@
     "command": "PATCH",
     "url": "/guilds/{guild.id}/templates/{template.code}",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/guild-template#guild-template-object"
+      },
       "name": {
         "type": "string",
         "description": "name of the template (1-100 characters)",

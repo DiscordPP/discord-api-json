@@ -15,6 +15,9 @@
     "command": "GET",
     "url": "/channels/{channel.id}/messages",
     "query": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
+      },
       "around": {
         "type": "snowflake",
         "description": "Get messages around this message ID",
@@ -73,6 +76,9 @@
     "command": "GET",
     "url": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}",
     "query": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
+      },
       "after": {
         "type": "snowflake",
         "description": "Get users after this user ID",
@@ -109,6 +115,9 @@
     "command": "POST",
     "url": "/channels/{channel.id}/messages/bulk-delete",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
+      },
       "messages": {
         "type": "array of snowflakes",
         "description": "an array of message ids to delete (2-100)",
@@ -121,6 +130,9 @@
     "command": "PUT",
     "url": "/channels/{channel.id}/permissions/{overwrite.id}",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
+      },
       "allow": {
         "type": "string?",
         "description": "the bitwise value of all allowed permissions (default \"0\")",
@@ -149,6 +161,9 @@
     "command": "POST",
     "url": "/channels/{channel.id}/invites",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
+      },
       "max_age": {
         "type": "integer",
         "description": "duration of invite in seconds before expiry, or 0 for never. between 0 and 604800 (7 days)",
@@ -208,6 +223,9 @@
     "command": "POST",
     "url": "/channels/{channel.id}/followers",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
+      },
       "webhook_channel_id": {
         "type": "snowflake",
         "description": "id of target channel",
@@ -236,6 +254,9 @@
     "command": "PUT",
     "url": "/channels/{channel.id}/recipients/{user.id}",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
+      },
       "access_token": {
         "type": "string",
         "description": "access token of a user that has granted your app the gdm.join scope",
@@ -258,6 +279,9 @@
     "command": "POST",
     "url": "/channels/{channel.id}/messages/{message.id}/threads",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
+      },
       "name": {
         "type": "string",
         "description": "1-100 character channel name",
@@ -282,6 +306,9 @@
     "command": "POST",
     "url": "/channels/{channel.id}/threads",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
+      },
       "name": {
         "type": "string",
         "description": "1-100 character channel name",
@@ -347,6 +374,9 @@
     "command": "GET",
     "url": "/channels/{channel.id}/threads/archived/public",
     "query": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
+      },
       "before": {
         "type": "ISO8601 timestamp",
         "description": "returns threads before this timestamp",
@@ -365,6 +395,9 @@
     "command": "GET",
     "url": "/channels/{channel.id}/threads/archived/private",
     "query": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
+      },
       "before": {
         "type": "ISO8601 timestamp",
         "description": "returns threads before this timestamp",
@@ -383,6 +416,9 @@
     "command": "GET",
     "url": "/channels/{channel.id}/users/@me/threads/archived/private",
     "query": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
+      },
       "before": {
         "type": "snowflake",
         "description": "returns threads before this id",

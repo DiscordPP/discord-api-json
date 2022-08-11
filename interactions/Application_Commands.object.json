@@ -1,5 +1,8 @@
 {
   "Application Command": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "Unique ID of command",
@@ -93,6 +96,9 @@
     }
   },
   "Application Command Option": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object"
+    },
     "type": {
       "type": "one of application command option type",
       "description": "Type of option",
@@ -180,6 +186,9 @@
     }
   },
   "Application Command Option Choice": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object"
+    },
     "name": {
       "type": "string",
       "description": "1-100 character choice name",
@@ -201,6 +210,9 @@
     }
   },
   "Application Command Interaction Data Option": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object"
+    },
     "name": {
       "type": "string",
       "description": "Name of the parameter",
@@ -233,6 +245,9 @@
     }
   },
   "Guild Application Command Permissions": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "ID of the command or the application ID",
@@ -259,6 +274,9 @@
     }
   },
   "Application Command Permissions": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "ID of the role, user, or channel. It can also be a permission constant",

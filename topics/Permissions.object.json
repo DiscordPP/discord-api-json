@@ -1,5 +1,8 @@
 {
   "Role": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/topics/permissions#role-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "role id",
@@ -68,6 +71,9 @@
     }
   },
   "Role Tags": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/topics/permissions#role-object"
+    },
     "bot_id": {
       "type": "snowflake",
       "description": "the id of the bot this role belongs to",

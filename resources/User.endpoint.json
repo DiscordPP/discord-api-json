@@ -11,6 +11,9 @@
     "command": "PATCH",
     "url": "/users/@me",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/user#connection-object"
+      },
       "username": {
         "type": "string",
         "description": "user's username, if changed may cause the user's discriminator to be randomized.",
@@ -29,6 +32,9 @@
     "command": "GET",
     "url": "/users/@me/guilds",
     "query": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/user#connection-object"
+      },
       "before": {
         "type": "snowflake",
         "description": "get guilds before this guild ID",
@@ -67,6 +73,9 @@
     "command": "POST",
     "url": "/users/@me/channels",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/user#connection-object"
+      },
       "recipient_id": {
         "type": "snowflake",
         "description": "the recipient to open a DM channel with",
@@ -79,6 +88,9 @@
     "command": "POST",
     "url": "/users/@me/channels",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/user#connection-object"
+      },
       "access_tokens": {
         "type": "array of strings",
         "description": "access tokens of users that have granted your app the gdm.join scope",

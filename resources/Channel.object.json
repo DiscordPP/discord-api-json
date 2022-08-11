@@ -1,5 +1,8 @@
 {
   "Channel": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#channel-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "the id of this channel",
@@ -171,6 +174,9 @@
     }
   },
   "Message": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#message-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "id of the message",
@@ -356,6 +362,9 @@
     }
   },
   "Message Activity": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#message-object"
+    },
     "type": {
       "type": "integer",
       "description": "type of message activity",
@@ -370,6 +379,9 @@
     }
   },
   "Message Reference": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#message-reference-object"
+    },
     "message_id": {
       "type": "snowflake",
       "description": "id of the originating message",
@@ -397,6 +409,9 @@
     }
   },
   "Followed Channel": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#followed-channel-object"
+    },
     "channel_id": {
       "type": "snowflake",
       "description": "source channel id",
@@ -411,6 +426,9 @@
     }
   },
   "Reaction": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#reaction-object"
+    },
     "count": {
       "type": "integer",
       "description": "times this emoji has been used to react",
@@ -431,6 +449,9 @@
     }
   },
   "Overwrite": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#overwrite-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "role or user id",
@@ -457,6 +478,9 @@
     }
   },
   "Thread Metadata": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#thread-metadata-object"
+    },
     "archived": {
       "type": "boolean",
       "description": "whether the thread is archived",
@@ -495,6 +519,9 @@
     }
   },
   "Thread Member": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#thread-member-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "the id of the thread",
@@ -523,6 +550,9 @@
     }
   },
   "Embed": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
+    },
     "title": {
       "type": "string",
       "description": "title of embed",
@@ -603,6 +633,9 @@
     }
   },
   "Embed Thumbnail": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
+    },
     "url": {
       "type": "string",
       "description": "source url of thumbnail (only supports http(s) and attachments)",
@@ -629,6 +662,9 @@
     }
   },
   "Embed Video": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
+    },
     "url": {
       "type": "string",
       "description": "source url of video",
@@ -655,6 +691,9 @@
     }
   },
   "Embed Image": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
+    },
     "url": {
       "type": "string",
       "description": "source url of image (only supports http(s) and attachments)",
@@ -681,6 +720,9 @@
     }
   },
   "Embed Provider": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
+    },
     "name": {
       "type": "string",
       "description": "name of provider",
@@ -695,6 +737,9 @@
     }
   },
   "Embed Author": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
+    },
     "name": {
       "type": "string",
       "description": "name of author",
@@ -721,6 +766,9 @@
     }
   },
   "Embed Footer": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
+    },
     "text": {
       "type": "string",
       "description": "footer text",
@@ -741,6 +789,9 @@
     }
   },
   "Embed Field": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
+    },
     "name": {
       "type": "string",
       "description": "name of the field",
@@ -761,6 +812,9 @@
     }
   },
   "Attachment": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#attachment-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "attachment id",
@@ -824,6 +878,9 @@
     }
   },
   "Channel Mention": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#channel-mention-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "id of the channel",
@@ -850,6 +907,9 @@
     }
   },
   "Allowed Mentions": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
+    },
     "parse": {
       "type": "array of allowed mention types",
       "description": "An array of allowed mention types to parse from the content.",

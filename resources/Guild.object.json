@@ -1,5 +1,8 @@
 {
   "Guild": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#guild-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "guild id",
@@ -251,6 +254,9 @@
     }
   },
   "Guild Preview": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#guild-preview-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "guild id",
@@ -319,6 +325,9 @@
     }
   },
   "Guild Widget Settings": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#guild-widget-settings-object"
+    },
     "enabled": {
       "type": "boolean",
       "description": "whether the widget is enabled",
@@ -333,6 +342,9 @@
     }
   },
   "Guild Widget": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#guild-widget-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "guild id",
@@ -371,6 +383,9 @@
     }
   },
   "Guild Member": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#guild-member-object"
+    },
     "user": {
       "type": "user object",
       "description": "the user this guild member represents",
@@ -439,6 +454,9 @@
     }
   },
   "Integration": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#integration-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "integration id",
@@ -541,6 +559,9 @@
     }
   },
   "Integration Account": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#integration-account-object"
+    },
     "id": {
       "type": "string",
       "description": "id of the account",
@@ -555,6 +576,9 @@
     }
   },
   "Integration Application": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#integration-application-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "the id of the app",
@@ -587,6 +611,9 @@
     }
   },
   "Ban": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#ban-object"
+    },
     "reason": {
       "type": "string",
       "description": "the reason for the ban",
@@ -601,6 +628,9 @@
     }
   },
   "Welcome Screen": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
+    },
     "description": {
       "type": "string",
       "description": "the server description shown in the welcome screen",
@@ -615,6 +645,9 @@
     }
   },
   "Welcome Screen Channel": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
+    },
     "channel_id": {
       "type": "snowflake",
       "description": "the channel's id",

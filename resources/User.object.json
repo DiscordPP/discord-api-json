@@ -1,5 +1,8 @@
 {
   "User": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/user#user-object"
+    },
     "id": {
       "type": "snowflake",
       "description": "the user's id",
@@ -107,6 +110,9 @@
     }
   },
   "Connection": {
+    "discord-api-json": {
+      "docs_url": "https://discord.com/developers/docs/resources/user#connection-object"
+    },
     "id": {
       "type": "string",
       "description": "id of the connection account",

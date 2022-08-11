@@ -11,6 +11,9 @@
     "command": "POST",
     "url": "/guilds/{guild.id}/auto-moderation/rules",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-action-object"
+      },
       "name": {
         "type": "string",
         "description": "the rule name",
@@ -66,6 +69,9 @@
     "command": "PATCH",
     "url": "/guilds/{guild.id}/auto-moderation/rules/{auto_moderation_rule.id}",
     "json": {
+      "discord-api-json": {
+        "docs_url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-action-object"
+      },
       "name": {
         "type": "string",
         "description": "the rule name",
