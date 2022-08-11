@@ -1,4 +1,299 @@
 {
+  "Gateway Payload": {
+    "op": {
+      "type": "integer",
+      "description": "opcode for the payload",
+      "optional": false,
+      "nullable": false
+    },
+    "d": {
+      "type": "mixed (any JSON value)",
+      "description": "event data",
+      "optional": false,
+      "nullable": true
+    },
+    "s": {
+      "type": "integer",
+      "description": "sequence number, used for resuming sessions and heartbeats",
+      "note": "*",
+      "optional": false,
+      "nullable": true
+    },
+    "t": {
+      "type": "string",
+      "description": "the event name for this payload",
+      "note": "*",
+      "optional": false,
+      "nullable": true
+    }
+  },
+  "Identify": {
+    "token": {
+      "type": "string",
+      "description": "authentication token",
+      "default": "-",
+      "optional": false,
+      "nullable": false
+    },
+    "properties": {
+      "type": "object",
+      "description": "connection properties",
+      "default": "-",
+      "optional": false,
+      "nullable": false
+    },
+    "compress": {
+      "type": "boolean",
+      "description": "whether this connection supports compression of packets",
+      "default": "false",
+      "optional": true,
+      "nullable": false
+    },
+    "large_threshold": {
+      "type": "integer",
+      "description": "value between 50 and 250, total number of members where the gateway will stop sending offline members in the guild member list",
+      "default": "50",
+      "optional": true,
+      "nullable": false
+    },
+    "shard": {
+      "type": "array of two integers (shard_id, num_shards)",
+      "description": "used for Guild Sharding",
+      "default": "-",
+      "optional": true,
+      "nullable": false
+    },
+    "presence": {
+      "type": "update presence object",
+      "description": "presence structure for initial presence information",
+      "default": "-",
+      "optional": true,
+      "nullable": false
+    },
+    "intents": {
+      "type": "integer",
+      "description": "the Gateway Intents you wish to receive",
+      "default": "-",
+      "optional": false,
+      "nullable": false
+    }
+  },
+  "Resume": {
+    "token": {
+      "type": "string",
+      "description": "session token",
+      "optional": false,
+      "nullable": false
+    },
+    "session_id": {
+      "type": "string",
+      "description": "session id",
+      "optional": false,
+      "nullable": false
+    },
+    "seq": {
+      "type": "integer",
+      "description": "last sequence number received",
+      "optional": false,
+      "nullable": false
+    }
+  },
+  "Guild Request Members": {
+    "guild_id": {
+      "type": "snowflake",
+      "description": "id of the guild to get members for",
+      "required": "true",
+      "optional": false,
+      "nullable": false
+    },
+    "query": {
+      "type": "string",
+      "description": "string that username starts with, or an empty string to return all members",
+      "required": "one of query or user_ids",
+      "optional": true,
+      "nullable": false
+    },
+    "limit": {
+      "type": "integer",
+      "description": "maximum number of members to send matching the query; a limit of 0 can be used with an empty string query to return all members",
+      "required": "true when specifying query",
+      "optional": false,
+      "nullable": false
+    },
+    "presences": {
+      "type": "boolean",
+      "description": "used to specify if we want the presences of the matched members",
+      "required": "false",
+      "optional": true,
+      "nullable": false
+    },
+    "user_ids": {
+      "type": "snowflake or array of snowflakes",
+      "description": "used to specify which users you wish to fetch",
+      "required": "one of query or user_ids",
+      "optional": true,
+      "nullable": false
+    },
+    "nonce": {
+      "type": "string",
+      "description": "nonce to identify the Guild Members Chunk response",
+      "required": "false",
+      "optional": true,
+      "nullable": false
+    }
+  },
+  "Gateway Voice State Update": {
+    "guild_id": {
+      "type": "snowflake",
+      "description": "id of the guild",
+      "optional": false,
+      "nullable": false
+    },
+    "channel_id": {
+      "type": "snowflake",
+      "description": "id of the voice channel client wants to join (null if disconnecting)",
+      "optional": false,
+      "nullable": true
+    },
+    "self_mute": {
+      "type": "boolean",
+      "description": "is the client muted",
+      "optional": false,
+      "nullable": false
+    },
+    "self_deaf": {
+      "type": "boolean",
+      "description": "is the client deafened",
+      "optional": false,
+      "nullable": false
+    }
+  },
+  "Gateway Presence Update": {
+    "since": {
+      "type": "integer",
+      "description": "unix time (in milliseconds) of when the client went idle, or null if the client is not idle",
+      "optional": false,
+      "nullable": true
+    },
+    "activities": {
+      "type": "array of activity objects",
+      "description": "the user's activities",
+      "optional": false,
+      "nullable": false
+    },
+    "status": {
+      "type": "string",
+      "description": "the user's new status",
+      "optional": false,
+      "nullable": false
+    },
+    "afk": {
+      "type": "boolean",
+      "description": "whether or not the client is afk",
+      "optional": false,
+      "nullable": false
+    }
+  },
+  "Hello": {
+    "heartbeat_interval": {
+      "type": "integer",
+      "description": "the interval (in milliseconds) the client should heartbeat with",
+      "optional": false,
+      "nullable": false
+    }
+  },
+  "Activity": {
+    "name": {
+      "type": "string",
+      "description": "the activity's name",
+      "optional": false,
+      "nullable": false
+    },
+    "type": {
+      "type": "integer",
+      "description": "activity type",
+      "optional": false,
+      "nullable": false
+    },
+    "url": {
+      "type": "string",
+      "description": "stream url, is validated when type is 1",
+      "optional": true,
+      "nullable": true
+    },
+    "created_at": {
+      "type": "integer",
+      "description": "unix timestamp (in milliseconds) of when the activity was added to the user's session",
+      "optional": false,
+      "nullable": false
+    },
+    "timestamps": {
+      "type": "timestamps object",
+      "description": "unix timestamps for start and/or end of the game",
+      "optional": true,
+      "nullable": false
+    },
+    "application_id": {
+      "type": "snowflake",
+      "description": "application id for the game",
+      "optional": true,
+      "nullable": false
+    },
+    "details": {
+      "type": "string",
+      "description": "what the player is currently doing",
+      "optional": true,
+      "nullable": true
+    },
+    "state": {
+      "type": "string",
+      "description": "the user's current party status",
+      "optional": true,
+      "nullable": true
+    },
+    "emoji": {
+      "type": "emoji object",
+      "description": "the emoji used for a custom status",
+      "optional": true,
+      "nullable": true
+    },
+    "party": {
+      "type": "party object",
+      "description": "information for the current party of the player",
+      "optional": true,
+      "nullable": false
+    },
+    "assets": {
+      "type": "assets object",
+      "description": "images for the presence and their hover texts",
+      "optional": true,
+      "nullable": false
+    },
+    "secrets": {
+      "type": "secrets object",
+      "description": "secrets for Rich Presence joining and spectating",
+      "optional": true,
+      "nullable": false
+    },
+    "instance": {
+      "type": "boolean",
+      "description": "whether or not the activity is an instanced game session",
+      "optional": true,
+      "nullable": false
+    },
+    "flags": {
+      "type": "integer",
+      "description": "activity flags ORd together, describes what the payload includes",
+      "optional": true,
+      "nullable": false
+    },
+    "buttons": {
+      "type": "array of buttons",
+      "description": "the custom buttons shown in the Rich Presence (max 2)",
+      "optional": true,
+      "nullable": false
+    }
+  },
   "Session Start Limit": {
     "total": {
       "type": "integer",
