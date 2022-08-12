@@ -1,6 +1,6 @@
 {
   "Application Command": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object"
     },
     "id": {
@@ -96,7 +96,7 @@
     }
   },
   "Application Command Option": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object"
     },
     "type": {
@@ -186,7 +186,7 @@
     }
   },
   "Application Command Option Choice": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object"
     },
     "name": {
@@ -210,7 +210,7 @@
     }
   },
   "Application Command Interaction Data Option": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object"
     },
     "name": {
@@ -245,7 +245,7 @@
     }
   },
   "Guild Application Command Permissions": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object"
     },
     "id": {
@@ -274,7 +274,7 @@
     }
   },
   "Application Command Permissions": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object"
     },
     "id": {

@@ -1,6 +1,6 @@
 {
   "User": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/user#user-object"
     },
     "id": {
@@ -110,7 +110,7 @@
     }
   },
   "Connection": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/user#connection-object"
     },
     "id": {

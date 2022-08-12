@@ -1,6 +1,6 @@
 {
   "Guild": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#guild-object"
     },
     "id": {
@@ -254,7 +254,7 @@
     }
   },
   "Guild Preview": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#guild-preview-object"
     },
     "id": {
@@ -325,7 +325,7 @@
     }
   },
   "Guild Widget Settings": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#guild-widget-settings-object"
     },
     "enabled": {
@@ -342,7 +342,7 @@
     }
   },
   "Guild Widget": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#guild-widget-object"
     },
     "id": {
@@ -383,7 +383,7 @@
     }
   },
   "Guild Member": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#guild-member-object"
     },
     "user": {
@@ -454,7 +454,7 @@
     }
   },
   "Integration": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#integration-object"
     },
     "id": {
@@ -559,7 +559,7 @@
     }
   },
   "Integration Account": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#integration-account-object"
     },
     "id": {
@@ -576,7 +576,7 @@
     }
   },
   "Integration Application": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#integration-application-object"
     },
     "id": {
@@ -611,7 +611,7 @@
     }
   },
   "Ban": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#ban-object"
     },
     "reason": {
@@ -628,7 +628,7 @@
     }
   },
   "Welcome Screen": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
     },
     "description": {
@@ -645,7 +645,7 @@
     }
   },
   "Welcome Screen Channel": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
     },
     "channel_id": {

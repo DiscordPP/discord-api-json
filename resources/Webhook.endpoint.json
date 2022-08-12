@@ -3,7 +3,7 @@
     "command": "POST",
     "url": "/channels/{channel.id}/webhooks",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/webhook#webhook-object"
       },
       "name": {
@@ -40,7 +40,7 @@
     "command": "PATCH",
     "url": "/webhooks/{webhook.id}",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/webhook#webhook-object"
       },
       "name": {
@@ -79,7 +79,7 @@
     "command": "POST",
     "url": "/webhooks/{webhook.id}/{webhook.token}",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/webhook#webhook-object"
       },
       "wait": {
@@ -102,7 +102,7 @@
     "command": "POST",
     "url": "/webhooks/{webhook.id}/{webhook.token}/slack",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/webhook#webhook-object"
       },
       "thread_id": {
@@ -125,7 +125,7 @@
     "command": "POST",
     "url": "/webhooks/{webhook.id}/{webhook.token}/github",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/webhook#webhook-object"
       },
       "thread_id": {
@@ -148,7 +148,7 @@
     "command": "GET",
     "url": "/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/webhook#webhook-object"
       },
       "thread_id": {
@@ -164,7 +164,7 @@
     "command": "PATCH",
     "url": "/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/webhook#webhook-object"
       },
       "thread_id": {
@@ -180,7 +180,7 @@
     "command": "DELETE",
     "url": "/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/webhook#webhook-object"
       },
       "thread_id": {

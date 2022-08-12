@@ -1,6 +1,6 @@
 {
   "Guild Template": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild-template#guild-template-object"
     },
     "code": {

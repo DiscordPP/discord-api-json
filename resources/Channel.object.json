@@ -1,6 +1,6 @@
 {
   "Channel": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#channel-object"
     },
     "id": {
@@ -174,7 +174,7 @@
     }
   },
   "Message": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#message-object"
     },
     "id": {
@@ -362,7 +362,7 @@
     }
   },
   "Message Activity": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#message-object"
     },
     "type": {
@@ -379,7 +379,7 @@
     }
   },
   "Message Reference": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#message-reference-object"
     },
     "message_id": {
@@ -409,7 +409,7 @@
     }
   },
   "Followed Channel": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#followed-channel-object"
     },
     "channel_id": {
@@ -426,7 +426,7 @@
     }
   },
   "Reaction": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#reaction-object"
     },
     "count": {
@@ -449,7 +449,7 @@
     }
   },
   "Overwrite": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#overwrite-object"
     },
     "id": {
@@ -478,7 +478,7 @@
     }
   },
   "Thread Metadata": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#thread-metadata-object"
     },
     "archived": {
@@ -519,7 +519,7 @@
     }
   },
   "Thread Member": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#thread-member-object"
     },
     "id": {
@@ -550,7 +550,7 @@
     }
   },
   "Embed": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
     },
     "title": {
@@ -633,7 +633,7 @@
     }
   },
   "Embed Thumbnail": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
     },
     "url": {
@@ -662,7 +662,7 @@
     }
   },
   "Embed Video": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
     },
     "url": {
@@ -691,7 +691,7 @@
     }
   },
   "Embed Image": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
     },
     "url": {
@@ -720,7 +720,7 @@
     }
   },
   "Embed Provider": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
     },
     "name": {
@@ -737,7 +737,7 @@
     }
   },
   "Embed Author": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
     },
     "name": {
@@ -766,7 +766,7 @@
     }
   },
   "Embed Footer": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
     },
     "text": {
@@ -789,7 +789,7 @@
     }
   },
   "Embed Field": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
     },
     "name": {
@@ -812,7 +812,7 @@
     }
   },
   "Attachment": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#attachment-object"
     },
     "id": {
@@ -878,7 +878,7 @@
     }
   },
   "Channel Mention": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#channel-mention-object"
     },
     "id": {
@@ -907,7 +907,7 @@
     }
   },
   "Allowed Mentions": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
     },
     "parse": {

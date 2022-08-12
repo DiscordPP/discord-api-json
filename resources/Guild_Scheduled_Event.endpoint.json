@@ -3,7 +3,7 @@
     "command": "GET",
     "url": "/guilds/{guild.id}/scheduled-events",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-user-object"
       },
       "with_user_count": {
@@ -18,7 +18,7 @@
     "command": "POST",
     "url": "/guilds/{guild.id}/scheduled-events",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-user-object"
       },
       "channel_id": {
@@ -84,7 +84,7 @@
     "command": "GET",
     "url": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-user-object"
       },
       "with_user_count": {
@@ -99,7 +99,7 @@
     "command": "PATCH",
     "url": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-user-object"
       },
       "channel_id": {
@@ -175,7 +175,7 @@
     "command": "GET",
     "url": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}/users",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-user-object"
       },
       "limit": {

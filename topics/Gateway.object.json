@@ -1,6 +1,6 @@
 {
   "Gateway Payload": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#payloads"
     },
     "op": {
@@ -31,7 +31,7 @@
     }
   },
   "Identify": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#identify"
     },
     "token": {
@@ -85,7 +85,7 @@
     }
   },
   "Resume": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#resume"
     },
     "token": {
@@ -108,7 +108,7 @@
     }
   },
   "Guild Request Members": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#request-guild-members"
     },
     "guild_id": {
@@ -155,7 +155,7 @@
     }
   },
   "Gateway Voice State Update": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#update-voice-state"
     },
     "guild_id": {
@@ -184,7 +184,7 @@
     }
   },
   "Gateway Presence Update": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#update-presence"
     },
     "since": {
@@ -213,7 +213,7 @@
     }
   },
   "Hello": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#hello"
     },
     "heartbeat_interval": {
@@ -224,7 +224,7 @@
     }
   },
   "Activity": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#activity-object"
     },
     "name": {
@@ -319,7 +319,7 @@
     }
   },
   "Session Start Limit": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#session-start-limit-object"
     },
     "total": {

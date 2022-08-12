@@ -15,7 +15,7 @@
     "command": "GET",
     "url": "/channels/{channel.id}/messages",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
       },
       "around": {
@@ -76,7 +76,7 @@
     "command": "GET",
     "url": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
       },
       "after": {
@@ -115,7 +115,7 @@
     "command": "POST",
     "url": "/channels/{channel.id}/messages/bulk-delete",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
       },
       "messages": {
@@ -130,7 +130,7 @@
     "command": "PUT",
     "url": "/channels/{channel.id}/permissions/{overwrite.id}",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
       },
       "allow": {
@@ -161,7 +161,7 @@
     "command": "POST",
     "url": "/channels/{channel.id}/invites",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
       },
       "max_age": {
@@ -223,7 +223,7 @@
     "command": "POST",
     "url": "/channels/{channel.id}/followers",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
       },
       "webhook_channel_id": {
@@ -254,7 +254,7 @@
     "command": "PUT",
     "url": "/channels/{channel.id}/recipients/{user.id}",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
       },
       "access_token": {
@@ -279,7 +279,7 @@
     "command": "POST",
     "url": "/channels/{channel.id}/messages/{message.id}/threads",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
       },
       "name": {
@@ -306,7 +306,7 @@
     "command": "POST",
     "url": "/channels/{channel.id}/threads",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
       },
       "name": {
@@ -374,7 +374,7 @@
     "command": "GET",
     "url": "/channels/{channel.id}/threads/archived/public",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
       },
       "before": {
@@ -395,7 +395,7 @@
     "command": "GET",
     "url": "/channels/{channel.id}/threads/archived/private",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
       },
       "before": {
@@ -416,7 +416,7 @@
     "command": "GET",
     "url": "/channels/{channel.id}/users/@me/threads/archived/private",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
       },
       "before": {

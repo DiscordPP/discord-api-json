@@ -1,6 +1,6 @@
 {
   "Button": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/message-components#button-object"
     },
     "type": {
@@ -47,7 +47,7 @@
     }
   },
   "Select Menu": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/message-components#select-menu-object"
     },
     "type": {
@@ -94,7 +94,7 @@
     }
   },
   "Select Option": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/message-components#select-menu-object"
     },
     "label": {

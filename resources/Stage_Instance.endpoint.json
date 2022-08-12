@@ -3,7 +3,7 @@
     "command": "POST",
     "url": "/stage-instances",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/stage-instance#stage-instance-object"
       },
       "channel_id": {
@@ -41,7 +41,7 @@
     "command": "PATCH",
     "url": "/stage-instances/{channel.id}",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/stage-instance#stage-instance-object"
       },
       "topic": {

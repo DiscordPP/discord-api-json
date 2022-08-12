@@ -1,6 +1,6 @@
 {
   "Application": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/application#application-object"
     },
     "id": {
@@ -132,7 +132,7 @@
     }
   },
   "Install Params": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/application#install-params-object"
     },
     "scopes": {

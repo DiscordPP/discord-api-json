@@ -1,6 +1,6 @@
 {
   "Role": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/permissions#role-object"
     },
     "id": {
@@ -71,7 +71,7 @@
     }
   },
   "Role Tags": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/permissions#role-object"
     },
     "bot_id": {

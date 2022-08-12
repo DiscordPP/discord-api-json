@@ -3,7 +3,7 @@
     "command": "POST",
     "url": "/guilds",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "name": {
@@ -84,7 +84,7 @@
     "command": "GET",
     "url": "/guilds/{guild.id}",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "with_counts": {
@@ -105,7 +105,7 @@
     "command": "PATCH",
     "url": "/guilds/{guild.id}",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "name": {
@@ -242,7 +242,7 @@
     "command": "POST",
     "url": "/guilds/{guild.id}/channels",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "name": {
@@ -331,7 +331,7 @@
     "command": "PATCH",
     "url": "/guilds/{guild.id}/channels",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "id": {
@@ -372,7 +372,7 @@
     "command": "GET",
     "url": "/guilds/{guild.id}/members",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "limit": {
@@ -395,7 +395,7 @@
     "command": "GET",
     "url": "/guilds/{guild.id}/members/search",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "query": {
@@ -418,7 +418,7 @@
     "command": "PUT",
     "url": "/guilds/{guild.id}/members/{user.id}",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "access_token": {
@@ -462,7 +462,7 @@
     "command": "PATCH",
     "url": "/guilds/{guild.id}/members/{user.id}",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "nick": {
@@ -513,7 +513,7 @@
     "command": "PATCH",
     "url": "/guilds/{guild.id}/members/@me",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "nick": {
@@ -529,7 +529,7 @@
     "command": "PATCH",
     "url": "/guilds/{guild.id}/members/@me/nick",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "nick": {
@@ -557,7 +557,7 @@
     "command": "GET",
     "url": "/guilds/{guild.id}/bans",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "limit": {
@@ -593,7 +593,7 @@
     "command": "PUT",
     "url": "/guilds/{guild.id}/bans/{user.id}",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "delete_message_days": {
@@ -624,7 +624,7 @@
     "command": "POST",
     "url": "/guilds/{guild.id}/roles",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "name": {
@@ -682,7 +682,7 @@
     "command": "PATCH",
     "url": "/guilds/{guild.id}/roles",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "id": {
@@ -703,7 +703,7 @@
     "command": "PATCH",
     "url": "/guilds/{guild.id}/roles/{role.id}",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "name": {
@@ -754,7 +754,7 @@
     "command": "POST",
     "url": "/guilds/{guild.id}/mfa",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "level": {
@@ -773,7 +773,7 @@
     "command": "GET",
     "url": "/guilds/{guild.id}/prune",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "days": {
@@ -796,7 +796,7 @@
     "command": "POST",
     "url": "/guilds/{guild.id}/prune",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "days": {
@@ -865,7 +865,7 @@
     "command": "GET",
     "url": "/guilds/{guild.id}/widget.png",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "style": {
@@ -885,7 +885,7 @@
     "command": "PATCH",
     "url": "/guilds/{guild.id}/welcome-screen",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "enabled": {
@@ -912,7 +912,7 @@
     "command": "PATCH",
     "url": "/guilds/{guild.id}/voice-states/@me",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "channel_id": {
@@ -939,7 +939,7 @@
     "command": "PATCH",
     "url": "/guilds/{guild.id}/voice-states/{user.id}",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
       },
       "channel_id": {

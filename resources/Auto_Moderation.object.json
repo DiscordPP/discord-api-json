@@ -1,6 +1,6 @@
 {
   "Auto Moderation Rule": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object"
     },
     "id": {
@@ -71,7 +71,7 @@
     }
   },
   "Auto Moderation Action": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-action-object"
     },
     "type": {

@@ -11,7 +11,7 @@
     "command": "POST",
     "url": "/guilds/{guild.id}/emojis",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/emoji#emoji-object"
       },
       "name": {
@@ -38,7 +38,7 @@
     "command": "PATCH",
     "url": "/guilds/{guild.id}/emojis/{emoji.id}",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/emoji#emoji-object"
       },
       "name": {

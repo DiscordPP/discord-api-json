@@ -3,7 +3,7 @@
     "command": "GET",
     "url": "/applications/{application.id}/commands",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object"
       },
       "with_localizations": {
@@ -18,7 +18,7 @@
     "command": "POST",
     "url": "/applications/{application.id}/commands",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object"
       },
       "name": {
@@ -85,7 +85,7 @@
     "command": "PATCH",
     "url": "/applications/{application.id}/commands/{command.id}",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object"
       },
       "name": {
@@ -150,7 +150,7 @@
     "command": "GET",
     "url": "/applications/{application.id}/guilds/{guild.id}/commands",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object"
       },
       "with_localizations": {
@@ -165,7 +165,7 @@
     "command": "POST",
     "url": "/applications/{application.id}/guilds/{guild.id}/commands",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object"
       },
       "name": {
@@ -226,7 +226,7 @@
     "command": "PATCH",
     "url": "/applications/{application.id}/guilds/{guild.id}/commands/{command.id}",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object"
       },
       "name": {
@@ -293,7 +293,7 @@
     "command": "PUT",
     "url": "/applications/{application.id}/guilds/{guild.id}/commands/{command.id}/permissions",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object"
       },
       "permissions": {

@@ -1,6 +1,6 @@
 {
   "Audit Log": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/audit-log#audit-log-object"
     },
     "audit_log_entries": {
@@ -47,7 +47,7 @@
     }
   },
   "Audit Log Entry": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object"
     },
     "target_id": {
@@ -94,7 +94,7 @@
     }
   },
   "Audit Log Change": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/audit-log#audit-log-change-object"
     },
     "new_value": {

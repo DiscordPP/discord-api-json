@@ -23,7 +23,7 @@
     "command": "PATCH",
     "url": "/guilds/{guild.id}/stickers/{sticker.id}",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/sticker#sticker-pack-object"
       },
       "name": {

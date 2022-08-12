@@ -7,7 +7,7 @@
     "command": "POST",
     "url": "/guilds/templates/{template.code}",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild-template#guild-template-object"
       },
       "name": {
@@ -32,7 +32,7 @@
     "command": "POST",
     "url": "/guilds/{guild.id}/templates",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild-template#guild-template-object"
       },
       "name": {
@@ -57,7 +57,7 @@
     "command": "PATCH",
     "url": "/guilds/{guild.id}/templates/{template.code}",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/guild-template#guild-template-object"
       },
       "name": {

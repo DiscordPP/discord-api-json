@@ -11,7 +11,7 @@
     "command": "PATCH",
     "url": "/users/@me",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/user#connection-object"
       },
       "username": {
@@ -32,7 +32,7 @@
     "command": "GET",
     "url": "/users/@me/guilds",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/user#connection-object"
       },
       "before": {
@@ -73,7 +73,7 @@
     "command": "POST",
     "url": "/users/@me/channels",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/user#connection-object"
       },
       "recipient_id": {
@@ -88,7 +88,7 @@
     "command": "POST",
     "url": "/users/@me/channels",
     "json": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/user#connection-object"
       },
       "access_tokens": {

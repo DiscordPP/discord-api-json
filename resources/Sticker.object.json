@@ -1,6 +1,6 @@
 {
   "Sticker": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/sticker#sticker-object"
     },
     "id": {
@@ -78,7 +78,7 @@
     }
   },
   "Sticker Item": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/sticker#sticker-item-object"
     },
     "id": {
@@ -101,7 +101,7 @@
     }
   },
   "Sticker Pack": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/sticker#sticker-pack-object"
     },
     "id": {

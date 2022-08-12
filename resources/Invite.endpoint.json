@@ -3,7 +3,7 @@
     "command": "GET",
     "url": "/invites/{invite.code}",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/invite#invite-stage-instance-object"
       },
       "with_counts": {

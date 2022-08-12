@@ -1,6 +1,6 @@
 {
   "Invite": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/invite#invite-object"
     },
     "code": {
@@ -77,7 +77,7 @@
     }
   },
   "Invite Metadata": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/invite#invite-metadata-object"
     },
     "uses": {
@@ -112,7 +112,7 @@
     }
   },
   "Invite Stage Instance": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/invite#invite-stage-instance-object"
     },
     "members": {

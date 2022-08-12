@@ -3,7 +3,7 @@
     "command": "GET",
     "url": "/guilds/{guild.id}/audit-logs",
     "query": {
-      "discord-api-json": {
+      "parser-data": {
         "docs_url": "https://discord.com/developers/docs/resources/audit-log#audit-log-change-object"
       },
       "user_id": {

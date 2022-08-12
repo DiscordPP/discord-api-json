@@ -1,6 +1,6 @@
 {
   "Guild Scheduled Event": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object"
     },
     "id": {
@@ -105,7 +105,7 @@
     }
   },
   "Guild Scheduled Event User": {
-    "discord-api-json": {
+    "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-user-object"
     },
     "guild_scheduled_event_id": {
