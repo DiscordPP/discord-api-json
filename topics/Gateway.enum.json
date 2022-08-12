@@ -360,6 +360,11 @@
       "description": "used for resuming connections"
     },
     {
+      "field": "resume_gateway_url",
+      "type": "string",
+      "description": "gateway url for resuming connections"
+    },
+    {
       "field": "shard?",
       "type": "array of two integers (shard_id, num_shards)",
       "description": "the shard information associated with this session, if sent when identifying"
