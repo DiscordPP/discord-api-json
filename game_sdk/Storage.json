@@ -1,0 +1,425 @@
+{
+  "content": [
+    "|Storage"
+  ],
+  "Storage": {
+    "content": [
+      "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
+      "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
+      "We've been told that people playing games want to save their progress as they go, allowing them to come back where they left off and continue their epic journey of power.",
+      "Yeah, roguelikes. Even you.",
+      "Discord's storage manager lets you save data mapped to a key for easy reading, writing, and deleting both synchronously and asynchronously. It's saved to a super special directory, the Holy Grail of file mappings, that's unique per Discord user \u2014 no need to worry about your little brother overwriting your save file.",
+      "Creating this manager will also spawn an IO thread for async reads and writes, so unless you really want to be blocking, you don't need to be!",
+      "|Cloud Saves"
+    ],
+    "Cloud Saves": {
+      "content": [
+        "If you want to take that save data on your players' computers and save it to those BIG COMPUTERS in the cloud, look no further! All you need to do is head over to your manifest config file and set the following property:",
+        {
+          "language": "js",
+          "code": "{\n  \"storage\": {\n    \"sync\": true\n  }\n}\n"
+        },
+        "Yup, that's it! Don't know what this file is? Go read Branches and Builds.",
+        "|Data Models",
+        "|GetPath",
+        "|Read",
+        "|ReadAsync",
+        "|ReadAsyncPartial",
+        "|Write",
+        "|WriteAsync",
+        "|Delete",
+        "|Exists",
+        "|Stat",
+        "|Count",
+        "|StatAt",
+        "|Example: Saving, Reading, Deleting, and Checking Data"
+      ],
+      "Data Models": {
+        "content": [
+          "|FileStat Struct"
+        ],
+        "FileStat Struct": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "Filename",
+                "string",
+                "the name of the file"
+              ],
+              [
+                "Size",
+                "UInt64",
+                "the size of the file"
+              ],
+              [
+                "LastModified",
+                "UInt64",
+                "timestamp of when the file was last modified"
+              ]
+            ]
+          ]
+        }
+      },
+      "GetPath": {
+        "content": [
+          "> info\n> Value from environment variable DISCORD_STORAGE_PATH",
+          "Returns the filepath to which Discord saves files if you were to use the SDK's storage manager. Discord has branch-specific, user-specific saves, so you and your little brother will never overwrite each others' save files. If your game already has save file writing logic, you can use this method to get that user-specific path and help users protect their save files.",
+          "Returns a string.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            "None",
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "var savePath = storageManager.GetPath();\nConsole.WriteLine(\"You should write your save files to {0}\", savePath);\n"
+              }
+            ]
+          }
+        }
+      },
+      "Read": {
+        "content": [
+          "Reads data synchronously from the game's allocated save file into a buffer. The file is mapped by key value pairs, and this function will read data that exists for the given key name.",
+          "Returns a UInt32.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "name",
+                "string",
+                "the key name to read from the file"
+              ],
+              [
+                "data",
+                "byte[]",
+                "the buffer to read into"
+              ]
+            ]
+          ]
+        }
+      },
+      "ReadAsync": {
+        "content": [
+          "Reads data asynchronously from the game's allocated save file into a buffer.",
+          "Returns a Discord.Result and a byte[] containing the data via callback.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "name",
+                "string",
+                "the key name to read from the file"
+              ]
+            ],
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "storeManager.ReadAsync(\"high_score\", (result, data) =>\n{\n  if (result == Discord.Result.OK) {\n    LoadHighScore(data);\n  }\n});\n"
+              }
+            ]
+          }
+        }
+      },
+      "ReadAsyncPartial": {
+        "content": [
+          "Reads data asynchronously from the game's allocated save file into a buffer, starting at a given offset and up to a given length.",
+          "Returns a Discord.Result and byte[] containing the data via callback.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "name",
+                "string",
+                "the key name to read from the file"
+              ],
+              [
+                "offset",
+                "UInt64",
+                "the offset at which to start reading"
+              ],
+              [
+                "length",
+                "UInt64",
+                "the length to read"
+              ]
+            ],
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "storeManager.ReadAsyncPartial(\"high_score\", 10, 8, (result, data) =>\n{\n  if (result == Discord.Result.OK) {\n    LoadHighScore(data);\n  }\n});\n"
+              }
+            ]
+          }
+        }
+      },
+      "Write": {
+        "content": [
+          "Writes data synchronously to disk, under the given key name.",
+          "Returns void.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "name",
+                "string",
+                "the key name to write under"
+              ],
+              [
+                "data",
+                "byte[]",
+                "the data to write"
+              ]
+            ],
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "storageManager.Write(\"high_score\", Encoding.UTF8.GetBytes(\"9999\"));\n"
+              }
+            ]
+          }
+        }
+      },
+      "WriteAsync": {
+        "content": [
+          "Writes data asynchronously to disk under the given keyname.",
+          "Returns a Discord.Result via callback.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "name",
+                "string",
+                "the key name to write under"
+              ],
+              [
+                "data",
+                "byte[]",
+                "the data to write"
+              ]
+            ],
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "storageManager.WriteAsync(\"high_score\", Encoding.UTF8.GetBytes(\"9999\"), (result) =>\n{\n  if (result == Discord.Result.OK)\n  {\n    Console.WriteLine(\"Wrote data\");\n  }\n});\n"
+              }
+            ]
+          }
+        }
+      },
+      "Delete": {
+        "content": [
+          "Deletes written data for the given key name.",
+          "Returns void.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "name",
+                "string",
+                "the key name to delete"
+              ]
+            ],
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "storageManager.Delete(\"high_score\");\n// Because you cheated. Jerk.\n"
+              }
+            ]
+          }
+        }
+      },
+      "Exists": {
+        "content": [
+          "Checks if data exists for a given key name.",
+          "Returns bool.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "name",
+                "string",
+                "the key name to check"
+              ]
+            ],
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "var highScore = storageManager.Exists(\"high_score\");\nif (!highScore)\n{\n  Console.WriteLine(\"Couldn't find any highscore for you. Did you cheat? Jerk.\");\n}\n"
+              }
+            ]
+          }
+        }
+      },
+      "Stat": {
+        "content": [
+          "Returns file info for the given key name.",
+          "Returns a FileStat.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "name",
+                "string",
+                "the key name get file data for"
+              ]
+            ],
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "var file = storageManager.Stat(\"high_score\");\nConsole.WriteLine(\"File {0} is {1} in size and was last edited at {2}\", file.Name, file.Size, file.LastModified);\n"
+              }
+            ]
+          }
+        }
+      },
+      "Count": {
+        "content": [
+          "Returns the count of files, for iteration.",
+          "Returns an Int32.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            "None",
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "var numFiles = storageManager.Count();\nfor (int i = 0; i < numFiles; i++)\n{\n  Console.WriteLine(\"We're at file {0}\", i);\n}\n"
+              }
+            ]
+          }
+        }
+      },
+      "StatAt": {
+        "content": [
+          "Returns file info for the given index when iterating over files.",
+          "Returns a FileStat.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "index",
+                "Int32",
+                "the index to get file data for"
+              ]
+            ],
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "var numFiles = storageManager.Count();\nfor (int i = 0; i < numFiles; i++)\n{\n  var file = storageManager.StatAt(i);\n  Console.WriteLine(\"File is {0}\", file.Name);\n}\n"
+              }
+            ]
+          }
+        }
+      },
+      "Example: Saving, Reading, Deleting, and Checking Data": {
+        "content": [
+          {
+            "language": "cs",
+            "code": "var discord = new Discord.Discord(clientId, Discord.CreateFlags.Default);\nvar storageManager = discord.GetStorageManager();\n\n// Create some nonsense data\nvar contents = new byte[20000];\nvar random = new Random();\nrandom.NextBytes(contents);\n\n// Write the data asynchronously\nstorageManager.WriteAsync(\"foo\", contents, res =>\n{\n    // Get our list of files and iterate over it\n    for (int i = 0; i < storageManager.Count(); i++)\n    {\n        var file = storageManager.StatAt(i);\n        Console.WriteLine(\"file: {0} size: {1} last_modified: {2}\", file.Filename, file.Size, file.LastModified);\n    }\n\n    // Let's read just a small chunk of data from the \"foo\" key\n    storageManager.ReadAsyncPartial(\"foo\", 400, 50, (result, data) =>\n    {\n        Console.WriteLine(\"partial contents of foo match {0}\", Enumerable.SequenceEqual(data, new ArraySegment<byte>(contents, 400, 50)));\n    });\n\n    // Now let's read all of \"foo\"\n    storageManager.ReadAsync(\"foo\", (result, data) =>\n    {\n        Console.WriteLine(\"length of contents {0} data {1}\", contents.Length, data.Length);\n        Console.WriteLine(\"contents of foo match {0}\", Enumerable.SequenceEqual(data, contents));\n\n        // We just read it, but let's make sure \"foo\" exists\n        Console.WriteLine(\"foo exists? {0}\", storageManager.Exists(\"foo\"));\n\n        // Now delete it\n        storageManager.Delete(\"foo\");\n\n        // Make sure it was deleted\n        Console.WriteLine(\"post-delete foo exists? {0}\", storageManager.Exists(\"foo\"));\n    });\n});\n"
+          }
+        ]
+      }
+    }
+  }
+}

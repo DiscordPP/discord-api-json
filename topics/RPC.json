@@ -1,0 +1,2258 @@
+{
+  "content": [
+    "|RPC"
+  ],
+  "RPC": {
+    "content": [
+      "> danger\n> For now, RPC is in a private beta. We are not currently accepting any new developers into the program at this time.",
+      "All Discord clients have an RPC server running on localhost that allows control over local Discord clients.",
+      "|RPC Versions"
+    ],
+    "RPC Versions": {
+      "content": [
+        [
+          [
+            "Version",
+            "Out of Service"
+          ],
+          [
+            "1",
+            "no"
+          ]
+        ],
+        "|Restrictions",
+        "|Payloads",
+        "|Connecting",
+        "|Authenticating",
+        "|Commands and Events"
+      ],
+      "Restrictions": {
+        "content": [
+          "For connections to the RPC server, a list of approved testers is used to restrict access while you're still developing. You can invite up to 50 people.",
+          "For applications/games not approved, we limit you to creating 10 guilds and 10 channels. This limit is raised to virtually unlimited after approval."
+        ]
+      },
+      "Payloads": {
+        "content": [
+          "|Payload Structure"
+        ],
+        "Payload Structure": {
+          "content": [
+            [
+              [
+                "Field",
+                "Type",
+                "Description",
+                "Present"
+              ],
+              [
+                "cmd",
+                "enum",
+                "payload command",
+                "Always"
+              ],
+              [
+                "nonce",
+                "string",
+                "unique string used once for replies from the server",
+                "In responses to commands (not subscribed events)"
+              ],
+              [
+                "evt",
+                "enum",
+                "subscription event",
+                "In subscribed events, errors, and (un)subscribing events"
+              ],
+              [
+                "data",
+                "object",
+                "event data",
+                "In responses from the server"
+              ],
+              [
+                "args",
+                "object",
+                "command arguments",
+                "In commands sent to the server"
+              ]
+            ]
+          ]
+        }
+      },
+      "Connecting": {
+        "content": [
+          "The local RPC server runs on localhost (127.0.0.1) and is set up to process WebSocket connections and proxy API requests.",
+          "For WebSocket connections, the connection is always ws://127.0.0.1:PORT/?v=VERSION&client_id=CLIENT_ID&encoding=ENCODING:",
+          [
+            "CLIENT_ID is the client ID of the application accessing the RPC Server.",
+            "VERSION is the version of the RPC Server.",
+            "PORT is the port of the RPC Server.",
+            "ENCODING is the type of encoding for this connection to use. json and etf are supported."
+          ],
+          "To begin, you'll need to create an app. Head to your apps and click the big plus button. When you create an app on our Developers site, you must specify an \"RPC Origin\" and \"Redirect URI\" from which to permit connections and authorizations. The origin you send when connecting and the redirect uri you send when exchanging an authorization code for an access token must match one of the ones entered on the Developers site.",
+          "When establishing a WebSocket connection, we verify the Origin header on connection to prevent client ID spoofing. You will be instantly disconnected if the Origin does not match.",
+          "If you're connecting to the RPC server from within a browser, RPC origins are usually in the form SCHEME://HOST[:PORT], where SCHEME is typically https or http, HOST is your domain or ip, and PORT is the port of the webserver from which the user will be connecting (omitted for ports 80 and 443). For example, https://discord.com would be used if the user were connecting from https://discord.com/some/page/url.",
+          "If you're connecting to the RPC server from within a non-browser application (like a game), you just need to make sure that the origin is sent with the upgrade request when connecting to the WebSocket. For local testing, we recommend testing with an origin like https://localhost. For production apps, we recommend setting the origin to your company/game's domain, for example https://discord.com.",
+          "|RPC Server Ports"
+        ],
+        "RPC Server Ports": {
+          "content": [
+            "The port range for Discord's local RPC server is [6463, 6472]. Since the RPC server runs locally, there's a chance it might not be able to obtain its preferred port when it tries to bind to one. For this reason, the local RPC server will pick one port out of a range of these 10 ports, trying sequentially until it can bind to one. When implementing your client, you should perform the same sequential checking to find the correct port to connect to."
+          ]
+        }
+      },
+      "Authenticating": {
+        "content": [
+          "In order to call any commands over RPC, you must be authenticated or you will receive a code 4006 error response. Thankfully, we've removed the oppressive nature of a couple commands that will let you AUTHORIZE and AUTHENTICATE new users. First, call AUTHORIZE:",
+          "|RPC Authorize Example"
+        ],
+        "RPC Authorize Example": {
+          "content": [
+            {
+              "language": "json",
+              "code": "{\n  \"nonce\": \"f48f6176-4afb-4c03-b1b8-d960861f5216\",\n  \"args\": {\n    \"client_id\": \"192741864418312192\",\n    \"scopes\": [\"rpc\", \"identify\"]\n  },\n  \"cmd\": \"AUTHORIZE\"\n}\n"
+            },
+            "The user will then be prompted to authorize your app to access RPC on Discord. The AUTHORIZE command returns a code that you can exchange with a POST to https://discord.com/api/oauth2/token containing the standard OAuth2 body parameters for the token exchange. The token endpoint on our API will return an access_token that can be sent with AUTHENTICATE:",
+            "|RPC Authenticate Example"
+          ],
+          "RPC Authenticate Example": {
+            "content": [
+              {
+                "language": "json",
+                "code": "{\n  \"nonce\": \"5bb10a43-1fdc-4391-9512-0c8f4aa203d4\",\n  \"args\": {\n    \"access_token\": \"CZhtkLDpNYXgPH9Ml6shqh2OwykChw\"\n  },\n  \"cmd\": \"AUTHENTICATE\"\n}\n"
+              },
+              "You can now call RPC commands on behalf of the authorized user!"
+            ]
+          }
+        }
+      },
+      "Commands and Events": {
+        "content": [
+          "Commands are requests made to the RPC socket by a client.",
+          "|RPC Commands"
+        ],
+        "RPC Commands": {
+          "content": [
+            [
+              [
+                "Name",
+                "Description"
+              ],
+              [
+                "DISPATCH",
+                "event dispatch"
+              ],
+              [
+                "AUTHORIZE",
+                "used to authorize a new client with your app"
+              ],
+              [
+                "AUTHENTICATE",
+                "used to authenticate an existing client with your app"
+              ],
+              [
+                "GET_GUILD",
+                "used to retrieve guild information from the client"
+              ],
+              [
+                "GET_GUILDS",
+                "used to retrieve a list of guilds from the client"
+              ],
+              [
+                "GET_CHANNEL",
+                "used to retrieve channel information from the client"
+              ],
+              [
+                "GET_CHANNELS",
+                "used to retrieve a list of channels for a guild from the client"
+              ],
+              [
+                "SUBSCRIBE",
+                "used to subscribe to an RPC event"
+              ],
+              [
+                "UNSUBSCRIBE",
+                "used to unsubscribe from an RPC event"
+              ],
+              [
+                "SET_USER_VOICE_SETTINGS",
+                "used to change voice settings of users in voice channels"
+              ],
+              [
+                "SELECT_VOICE_CHANNEL",
+                "used to join or leave a voice channel, group dm, or dm"
+              ],
+              [
+                "GET_SELECTED_VOICE_CHANNEL",
+                "used to get the current voice channel the client is in"
+              ],
+              [
+                "SELECT_TEXT_CHANNEL",
+                "used to join or leave a text channel, group dm, or dm"
+              ],
+              [
+                "GET_VOICE_SETTINGS",
+                "used to retrieve the client's voice settings"
+              ],
+              [
+                "SET_VOICE_SETTINGS",
+                "used to set the client's voice settings"
+              ],
+              [
+                "SET_CERTIFIED_DEVICES",
+                "used to send info about certified hardware devices"
+              ],
+              [
+                "SET_ACTIVITY",
+                "used to update a user's Rich Presence"
+              ],
+              [
+                "SEND_ACTIVITY_JOIN_INVITE",
+                "used to consent to a Rich Presence Ask to Join request"
+              ],
+              [
+                "CLOSE_ACTIVITY_REQUEST",
+                "used to reject a Rich Presence Ask to Join request"
+              ]
+            ],
+            "Events are payloads sent over the socket to a client that correspond to events in Discord.",
+            "|RPC Events",
+            "|AUTHORIZE",
+            "|AUTHENTICATE",
+            "|GET_GUILDS",
+            "|GET_GUILD",
+            "|GET_CHANNEL",
+            "|GET_CHANNELS",
+            "|SET_USER_VOICE_SETTINGS",
+            "|SELECT_VOICE_CHANNEL",
+            "|GET_SELECTED_VOICE_CHANNEL",
+            "|SELECT_TEXT_CHANNEL",
+            "|GET_VOICE_SETTINGS",
+            "|SET_VOICE_SETTINGS",
+            "|SUBSCRIBE",
+            "|UNSUBSCRIBE",
+            "|SET_CERTIFIED_DEVICES",
+            "|SET_ACTIVITY",
+            "|SEND_ACTIVITY_JOIN_INVITE",
+            "|CLOSE_ACTIVITY_REQUEST",
+            "|READY",
+            "|ERROR",
+            "|GUILD_STATUS",
+            "|GUILD_CREATE",
+            "|CHANNEL_CREATE",
+            "|VOICE_CHANNEL_SELECT",
+            "|VOICE_SETTINGS_UPDATE",
+            "|VOICE_STATE_CREATE/VOICE_STATE_UPDATE/VOICE_STATE_DELETE",
+            "|VOICE_CONNECTION_STATUS",
+            "|MESSAGE_CREATE/MESSAGE_UPDATE/MESSAGE_DELETE",
+            "|SPEAKING_START/SPEAKING_STOP",
+            "|NOTIFICATION_CREATE",
+            "|ACTIVITY_JOIN",
+            "|ACTIVITY_SPECTATE",
+            "|ACTIVITY_JOIN_REQUEST"
+          ],
+          "RPC Events": {
+            "content": [
+              [
+                [
+                  "Name",
+                  "Description"
+                ],
+                [
+                  "READY",
+                  "non-subscription event sent immediately after connecting, contains server information"
+                ],
+                [
+                  "ERROR",
+                  "non-subscription event sent when there is an error, including command responses"
+                ],
+                [
+                  "GUILD_STATUS",
+                  "sent when a subscribed server's state changes"
+                ],
+                [
+                  "GUILD_CREATE",
+                  "sent when a guild is created/joined on the client"
+                ],
+                [
+                  "CHANNEL_CREATE",
+                  "sent when a channel is created/joined on the client"
+                ],
+                [
+                  "VOICE_CHANNEL_SELECT",
+                  "sent when the client joins a voice channel"
+                ],
+                [
+                  "VOICE_STATE_CREATE",
+                  "sent when a user joins a subscribed voice channel"
+                ],
+                [
+                  "VOICE_STATE_UPDATE",
+                  "sent when a user's voice state changes in a subscribed voice channel (mute, volume, etc.)"
+                ],
+                [
+                  "VOICE_STATE_DELETE",
+                  "sent when a user parts a subscribed voice channel"
+                ],
+                [
+                  "VOICE_SETTINGS_UPDATE",
+                  "sent when the client's voice settings update"
+                ],
+                [
+                  "VOICE_CONNECTION_STATUS",
+                  "sent when the client's voice connection status changes"
+                ],
+                [
+                  "SPEAKING_START",
+                  "sent when a user in a subscribed voice channel speaks"
+                ],
+                [
+                  "SPEAKING_STOP",
+                  "sent when a user in a subscribed voice channel stops speaking"
+                ],
+                [
+                  "MESSAGE_CREATE",
+                  "sent when a message is created in a subscribed text channel"
+                ],
+                [
+                  "MESSAGE_UPDATE",
+                  "sent when a message is updated in a subscribed text channel"
+                ],
+                [
+                  "MESSAGE_DELETE",
+                  "sent when a message is deleted in a subscribed text channel"
+                ],
+                [
+                  "NOTIFICATION_CREATE",
+                  "sent when the client receives a notification (mention or new message in eligible channels)"
+                ],
+                [
+                  "ACTIVITY_JOIN",
+                  "sent when the user clicks a Rich Presence join invite in chat to join a game"
+                ],
+                [
+                  "ACTIVITY_SPECTATE",
+                  "sent when the user clicks a Rich Presence spectate invite in chat to spectate a game"
+                ],
+                [
+                  "ACTIVITY_JOIN_REQUEST",
+                  "sent when the user receives a Rich Presence Ask to Join request"
+                ]
+              ]
+            ]
+          },
+          "AUTHORIZE": {
+            "content": [
+              "Used to authenticate a new client with your app. By default this pops up a modal in-app that asks the user to authorize access to your app.",
+              "We currently do not allow access to RPC for unapproved apps without being on the game's list of testers. We grant 50 testing spots, which should be ample for development. After approval, this restriction is removed and your app will be accessible to anyone.",
+              "We also have an RPC token system to bypass the user authorization modal. This is usable by approved games as well as by users on a game's list of testers, and also disallows use of the messages.read scope. If you have been granted access, you can send a POST request to https://discord.com/api/oauth2/token/rpc with your application's client_id and client_secret in the body (sent as a url-encoded body, not JSON). You can then pass the returned rpc_token value to the rpc_token field in your RPC authorize request (documented below).",
+              "|Authorize Argument Structure"
+            ],
+            "Authorize Argument Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "scopes",
+                    "array of OAuth2 scopes",
+                    "scopes to authorize"
+                  ],
+                  [
+                    "client_id",
+                    "string",
+                    "OAuth2 application id"
+                  ],
+                  [
+                    "rpc_token",
+                    "string",
+                    "one-time use RPC token"
+                  ],
+                  [
+                    "username",
+                    "string",
+                    "username to create a guest account with if the user does not have Discord"
+                  ]
+                ],
+                "|Authorize Response Structure",
+                "|Example Authorize Command Payload",
+                "|Example Authorize Response Payload"
+              ],
+              "Authorize Response Structure": {
+                "content": [
+                  [
+                    [
+                      "Field",
+                      "Type",
+                      "Description"
+                    ],
+                    [
+                      "code",
+                      "string",
+                      "OAuth2 authorization code"
+                    ]
+                  ]
+                ]
+              },
+              "Example Authorize Command Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"nonce\": \"f48f6176-4afb-4c03-b1b8-d960861f5216\",\n  \"args\": {\n    \"client_id\": \"192741864418312192\",\n    \"scopes\": [\"rpc\", \"identify\"]\n  },\n  \"cmd\": \"AUTHORIZE\"\n}\n"
+                  }
+                ]
+              },
+              "Example Authorize Response Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"AUTHORIZE\",\n  \"data\": {\n    \"code\": \"O62Q9JzFe8BEOUzIfsAndOjNd2V4sJ\"\n  },\n  \"nonce\": \"f48f6176-4afb-4c03-b1b8-d960861f5216\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "AUTHENTICATE": {
+            "content": [
+              "Used to authenticate an existing client with your app.",
+              "|Authenticate Argument Structure"
+            ],
+            "Authenticate Argument Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "access_token",
+                    "string",
+                    "OAuth2 access token"
+                  ]
+                ],
+                "|Authenticate Response Structure",
+                "|OAuth2 Application Structure",
+                "|Example Authenticate Command Payload",
+                "|Example Authenticate Response Payload"
+              ],
+              "Authenticate Response Structure": {
+                "content": [
+                  [
+                    [
+                      "Field",
+                      "Type",
+                      "Description"
+                    ],
+                    [
+                      "user",
+                      "partial user object",
+                      "the authed user"
+                    ],
+                    [
+                      "scopes",
+                      "array of OAuth2 scopes",
+                      "authorized scopes"
+                    ],
+                    [
+                      "expires",
+                      "date",
+                      "expiration date of OAuth2 token"
+                    ],
+                    [
+                      "application",
+                      "OAuth2 application object",
+                      "application the user authorized"
+                    ]
+                  ]
+                ]
+              },
+              "OAuth2 Application Structure": {
+                "content": [
+                  [
+                    [
+                      "Field",
+                      "Type",
+                      "Description"
+                    ],
+                    [
+                      "description",
+                      "string",
+                      "application description"
+                    ],
+                    [
+                      "icon",
+                      "string",
+                      "hash of the icon"
+                    ],
+                    [
+                      "id",
+                      "snowflake",
+                      "application client id"
+                    ],
+                    [
+                      "rpc_origins",
+                      "array of strings",
+                      "array of rpc origin urls"
+                    ],
+                    [
+                      "name",
+                      "string",
+                      "application name"
+                    ]
+                  ]
+                ]
+              },
+              "Example Authenticate Command Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"nonce\": \"5bb10a43-1fdc-4391-9512-0c8f4aa203d4\",\n  \"args\": {\n    \"access_token\": \"CZhtkLDpNYXgPH9Ml6shqh2OwykChw\"\n  },\n  \"cmd\": \"AUTHENTICATE\"\n}\n"
+                  }
+                ]
+              },
+              "Example Authenticate Response Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"AUTHENTICATE\",\n  \"data\": {\n    \"application\": {\n      \"description\": \"test app description\",\n      \"icon\": \"d6b51c21c48482d5b64aa4832d92fe14\",\n      \"id\": \"192741864418312192\",\n      \"rpc_origins\": [\"http://localhost:3344\"],\n      \"name\": \"test app\"\n    },\n    \"expires\": \"2017-06-29T19:09:52.361000+00:00\",\n    \"user\": {\n      \"username\": \"test user\",\n      \"discriminator\": \"7479\",\n      \"id\": \"190320984123768832\",\n      \"avatar\": \"b004ec1740a63ca06ae2e14c5cee11f3\"\n    },\n    \"scopes\": [\"rpc\", \"identify\"]\n  },\n  \"nonce\": \"5bb10a43-1fdc-4391-9512-0c8f4aa203d4\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "GET_GUILDS": {
+            "content": [
+              "Used to get a list of guilds the client is in.",
+              "|Get Guilds Response Structure"
+            ],
+            "Get Guilds Response Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "guilds",
+                    "array of partial guild objects",
+                    "the guilds the user is in"
+                  ]
+                ],
+                "|Example Get Guilds Command Payload",
+                "|Example Get Guilds Response Payload"
+              ],
+              "Example Get Guilds Command Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"nonce\": \"e16fcbed-8bfa-4fd4-ba09-73b72e809833\",\n  \"args\": {},\n  \"cmd\": \"GET_GUILDS\"\n}\n"
+                  }
+                ]
+              },
+              "Example Get Guilds Response Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"GET_GUILDS\",\n  \"data\": {\n    \"guilds\": [\n      {\n        \"id\": \"199737254929760256\",\n        \"name\": \"test\"\n      }\n    ]\n  },\n  \"nonce\": \"e16fcbed-8bfa-4fd4-ba09-73b72e809833\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "GET_GUILD": {
+            "content": [
+              "Used to get a guild the client is in.",
+              "|Get Guild Argument Structure"
+            ],
+            "Get Guild Argument Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "guild_id",
+                    "string",
+                    "id of the guild to get"
+                  ],
+                  [
+                    "timeout",
+                    "integer",
+                    "asynchronously get guild with time to wait before timing out"
+                  ]
+                ],
+                "|Get Guild Response Structure",
+                "|Example Get Guild Command Payload",
+                "|Example Get Guild Response Payload"
+              ],
+              "Get Guild Response Structure": {
+                "content": [
+                  [
+                    [
+                      "Field",
+                      "Type",
+                      "Description"
+                    ],
+                    [
+                      "id",
+                      "string",
+                      "guild id"
+                    ],
+                    [
+                      "name",
+                      "string",
+                      "guild name"
+                    ],
+                    [
+                      "icon_url",
+                      "string",
+                      "guild icon url"
+                    ],
+                    [
+                      "members",
+                      "array of guild member objects",
+                      "members of the guild (deprecated; always empty array)"
+                    ]
+                  ]
+                ]
+              },
+              "Example Get Guild Command Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"nonce\": \"9524922c-3d32-413a-bdaa-0804f4332588\",\n  \"args\": {\n    \"guild_id\": \"199737254929760256\"\n  },\n  \"cmd\": \"GET_GUILD\"\n}\n"
+                  }
+                ]
+              },
+              "Example Get Guild Response Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"GET_GUILD\",\n  \"data\": {\n    \"id\": \"199737254929760256\",\n    \"name\": \"test\",\n    \"icon_url\": null,\n    \"members\": []\n  },\n  \"nonce\": \"9524922c-3d32-413a-bdaa-0804f4332588\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "GET_CHANNEL": {
+            "content": [
+              "Used to get a channel the client is in.",
+              "|Get Channel Argument Structure"
+            ],
+            "Get Channel Argument Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "channel_id",
+                    "string",
+                    "id of the channel to get"
+                  ]
+                ],
+                "|Get Channel Response Structure",
+                "|Example Get Channel Command Payload",
+                "|Example Get Channel Response Payload"
+              ],
+              "Get Channel Response Structure": {
+                "content": [
+                  [
+                    [
+                      "Field",
+                      "Type",
+                      "Description"
+                    ],
+                    [
+                      "id",
+                      "string",
+                      "channel id"
+                    ],
+                    [
+                      "guild_id",
+                      "string",
+                      "channel's guild id"
+                    ],
+                    [
+                      "name",
+                      "string",
+                      "channel name"
+                    ],
+                    [
+                      "type",
+                      "integer",
+                      "channel type (guild text: 0, guild voice: 2, dm: 1, group dm: 3)"
+                    ],
+                    [
+                      "topic",
+                      "string",
+                      "(text) channel topic"
+                    ],
+                    [
+                      "bitrate",
+                      "integer",
+                      "(voice) bitrate of voice channel"
+                    ],
+                    [
+                      "user_limit",
+                      "integer",
+                      "(voice) user limit of voice channel (0 for none)"
+                    ],
+                    [
+                      "position",
+                      "integer",
+                      "position of channel in channel list"
+                    ],
+                    [
+                      "voice_states",
+                      "array of voice state objects",
+                      "(voice) channel's voice states"
+                    ],
+                    [
+                      "messages",
+                      "array of message objects",
+                      "(text) channel's messages"
+                    ]
+                  ]
+                ]
+              },
+              "Example Get Channel Command Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"nonce\": \"f682697e-d257-4a17-ac0a-7e4b84e66663\",\n  \"args\": {\n    \"channel_id\": \"199737254929760257\"\n  },\n  \"cmd\": \"GET_CHANNEL\"\n}\n"
+                  }
+                ]
+              },
+              "Example Get Channel Response Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"GET_CHANNEL\",\n  \"data\": {\n    \"id\": \"199737254929760257\",\n    \"name\": \"General\",\n    \"type\": 2,\n    \"bitrate\": 64000,\n    \"user_limit\": 0,\n    \"guild_id\": \"199737254929760256\",\n    \"position\": 0,\n    \"voice_states\": [\n      {\n        \"voice_state\": {\n          \"mute\": false,\n          \"deaf\": false,\n          \"self_mute\": false,\n          \"self_deaf\": false,\n          \"suppress\": false\n        },\n        \"user\": {\n          \"id\": \"190320984123768832\",\n          \"username\": \"test 2\",\n          \"discriminator\": \"7479\",\n          \"avatar\": \"b004ec1740a63ca06ae2e14c5cee11f3\",\n          \"bot\": false\n        },\n        \"nick\": \"test user 2\",\n        \"volume\": 110,\n        \"mute\": false,\n        \"pan\": {\n          \"left\": 1.0,\n          \"right\": 1.0\n        }\n      }\n    ]\n  },\n  \"nonce\": \"f682697e-d257-4a17-ac0a-7e4b84e66663\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "GET_CHANNELS": {
+            "content": [
+              "Used to get a guild's channels the client is in.",
+              "|Get Channels Argument Structure"
+            ],
+            "Get Channels Argument Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "guild_id",
+                    "string",
+                    "id of the guild to get channels for"
+                  ]
+                ],
+                "|Get Channels Response Structure",
+                "|Example Get Channels Command Payload",
+                "|Example Get Channels Response Payload"
+              ],
+              "Get Channels Response Structure": {
+                "content": [
+                  [
+                    [
+                      "Field",
+                      "Type",
+                      "Description"
+                    ],
+                    [
+                      "channels",
+                      "array of partial channel objects",
+                      "guild channels the user is in"
+                    ]
+                  ]
+                ]
+              },
+              "Example Get Channels Command Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"nonce\": \"0dee7bd4-8f62-4ecc-9e0f-1b1839a4fa93\",\n  \"args\": {\n    \"guild_id\": \"199737254929760256\"\n  },\n  \"cmd\": \"GET_CHANNELS\"\n}\n"
+                  }
+                ]
+              },
+              "Example Get Channels Response Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"GET_CHANNELS\",\n  \"data\": {\n    \"channels\": [\n      {\n        \"id\": \"199737254929760256\",\n        \"name\": \"general\",\n        \"type\": 0\n      },\n      {\n        \"id\": \"199737254929760257\",\n        \"name\": \"General\",\n        \"type\": 2\n      }\n    ]\n  },\n  \"nonce\": \"0dee7bd4-8f62-4ecc-9e0f-1b1839a4fa93\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "SET_USER_VOICE_SETTINGS": {
+            "content": [
+              "Used to change voice settings of users in voice channels",
+              "|Set User Voice Settings Argument and Response Structure"
+            ],
+            "Set User Voice Settings Argument and Response Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "user_id",
+                    "string",
+                    "user id"
+                  ],
+                  [
+                    "pan?",
+                    "pan object",
+                    "set the pan of the user"
+                  ],
+                  [
+                    "volume?",
+                    "integer",
+                    "set the volume of user (defaults to 100, min 0, max 200)"
+                  ],
+                  [
+                    "mute?",
+                    "boolean",
+                    "set the mute state of the user"
+                  ]
+                ],
+                "> info\n> In the current release, we only support a single modifier of voice settings at a time over RPC.\n> If an app changes voice settings, it will lock voice settings so that other apps connected simultaneously\n> lose the ability to change voice settings. Settings reset to what they were before being changed after the\n> controlling app disconnects. When an app that has previously set voice settings connects, the client will swap\n> to that app's configured voice settings and lock voice settings again. This is a temporary situation that will\n> be changed in the future.",
+                "|Pan Object",
+                "|Example Set User Voice Settings Command Payload",
+                "|Example Set User Voice Settings Response Payload"
+              ],
+              "Pan Object": {
+                "content": [
+                  [
+                    [
+                      "Field",
+                      "Type",
+                      "Description"
+                    ],
+                    [
+                      "left",
+                      "float",
+                      "left pan of user (min: 0.0, max: 1.0)"
+                    ],
+                    [
+                      "right",
+                      "float",
+                      "right pan of user (min: 0.0, max: 1.0)"
+                    ]
+                  ]
+                ]
+              },
+              "Example Set User Voice Settings Command Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"nonce\": \"eafc8152-2248-4478-9827-8457b7900cb4\",\n  \"args\": {\n    \"user_id\": \"192731515703001088\",\n    \"pan\": {\n      \"left\": 1.0,\n      \"right\": 1.0\n    },\n    \"volume\": 120,\n    \"mute\": false\n  },\n  \"cmd\": \"SET_USER_VOICE_SETTINGS\"\n}\n"
+                  }
+                ]
+              },
+              "Example Set User Voice Settings Response Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"SET_USER_VOICE_SETTINGS\",\n  \"data\": {\n    \"user_id\": \"192731515703001088\",\n    \"pan\": {\n      \"left\": 1.0,\n      \"right\": 1.0\n    },\n    \"volume\": 120,\n    \"mute\": false\n  },\n  \"nonce\": \"eafc8152-2248-4478-9827-8457b7900cb4\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "SELECT_VOICE_CHANNEL": {
+            "content": [
+              "Used to join and leave voice channels, group dms, or dms. Returns the Get Channel response, null if none.",
+              "|Select Voice Channel Argument Structure"
+            ],
+            "Select Voice Channel Argument Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "channel_id",
+                    "string",
+                    "channel id to join (or null to leave)"
+                  ],
+                  [
+                    "timeout",
+                    "integer",
+                    "asynchronously join channel with time to wait before timing out"
+                  ],
+                  [
+                    "force",
+                    "boolean",
+                    "forces a user to join a voice channel"
+                  ]
+                ],
+                "> warn\n> When trying to join the user to a voice channel, you will receive a 5003 error coded response if the user is already in a voice channel. The force parameter should only be specified in response to the case where a user is already in a voice channel and they have approved to be moved by your app to a new voice channel.",
+                "|Example Select Voice Channel Command Payload",
+                "|Example Select Voice Channel Response Payload"
+              ],
+              "Example Select Voice Channel Command Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"nonce\": \"5d9df76d-6408-46a1-9368-33dca74fa423\",\n  \"args\": {\n    \"channel_id\": \"199737254929760257\"\n  },\n  \"cmd\": \"SELECT_VOICE_CHANNEL\"\n}\n"
+                  }
+                ]
+              },
+              "Example Select Voice Channel Response Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"SELECT_VOICE_CHANNEL\",\n  \"data\": {\n    \"id\": \"199737254929760257\",\n    \"name\": \"General\",\n    \"type\": 2,\n    \"bitrate\": 64000,\n    \"user_limit\": 0,\n    \"guild_id\": \"199737254929760256\",\n    \"position\": 0,\n    \"voice_states\": [\n      {\n        \"voice_state\": {\n          \"mute\": false,\n          \"deaf\": false,\n          \"self_mute\": false,\n          \"self_deaf\": false,\n          \"suppress\": false\n        },\n        \"user\": {\n          \"id\": \"190320984123768832\",\n          \"username\": \"test 2\",\n          \"discriminator\": \"7479\",\n          \"avatar\": \"b004ec1740a63ca06ae2e14c5cee11f3\",\n          \"bot\": false\n        },\n        \"nick\": \"test user 2\",\n        \"mute\": false,\n        \"volume\": 110,\n        \"pan\": {\n          \"left\": 1.0,\n          \"right\": 1.0\n        }\n      }\n    ]\n  },\n  \"nonce\": \"5d9df76d-6408-46a1-9368-33dca74fa423\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "GET_SELECTED_VOICE_CHANNEL": {
+            "content": [
+              "Used to get the client's current voice channel. There are no arguments for this command. Returns the Get Channel response, or null if none."
+            ]
+          },
+          "SELECT_TEXT_CHANNEL": {
+            "content": [
+              "Used to join and leave text channels, group dms, or dms. Returns the Get Channel response, or null if none.",
+              "|Select Text Channel Argument Structure"
+            ],
+            "Select Text Channel Argument Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "channel_id",
+                    "string",
+                    "channel id to join (or null to leave)"
+                  ],
+                  [
+                    "timeout",
+                    "integer",
+                    "asynchronously join channel with time to wait before timing out"
+                  ]
+                ]
+              ]
+            }
+          },
+          "GET_VOICE_SETTINGS": {
+            "content": [
+              "|Get Voice Settings Response Structure"
+            ],
+            "Get Voice Settings Response Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "input",
+                    "voice settings input object",
+                    "input settings"
+                  ],
+                  [
+                    "output",
+                    "voice settings output object",
+                    "output settings"
+                  ],
+                  [
+                    "mode",
+                    "voice settings mode object",
+                    "voice mode settings"
+                  ],
+                  [
+                    "automatic_gain_control",
+                    "boolean",
+                    "state of automatic gain control"
+                  ],
+                  [
+                    "echo_cancellation",
+                    "boolean",
+                    "state of echo cancellation"
+                  ],
+                  [
+                    "noise_suppression",
+                    "boolean",
+                    "state of noise suppression"
+                  ],
+                  [
+                    "qos",
+                    "boolean",
+                    "state of voice quality of service"
+                  ],
+                  [
+                    "silence_warning",
+                    "boolean",
+                    "state of silence warning notice"
+                  ],
+                  [
+                    "deaf",
+                    "boolean",
+                    "state of self-deafen"
+                  ],
+                  [
+                    "mute",
+                    "boolean",
+                    "state of self-mute"
+                  ]
+                ],
+                "|Voice Settings Input Object",
+                "|Voice Settings Output Object",
+                "|Voice Settings Mode Object",
+                "|Shortcut Key Combo Object",
+                "|Key Types",
+                "|Example Get Voice Settings Response Payload"
+              ],
+              "Voice Settings Input Object": {
+                "content": [
+                  [
+                    [
+                      "Field",
+                      "Type",
+                      "Description"
+                    ],
+                    [
+                      "device_id",
+                      "string",
+                      "device id"
+                    ],
+                    [
+                      "volume",
+                      "float",
+                      "input voice level (min: 0, max: 100)"
+                    ],
+                    [
+                      "available_devices",
+                      "array of objects",
+                      "array of read-only device objects containing id and name string keys"
+                    ]
+                  ]
+                ]
+              },
+              "Voice Settings Output Object": {
+                "content": [
+                  [
+                    [
+                      "Field",
+                      "Type",
+                      "Description"
+                    ],
+                    [
+                      "device_id",
+                      "string",
+                      "device id"
+                    ],
+                    [
+                      "volume",
+                      "float",
+                      "output voice level (min: 0, max: 200)"
+                    ],
+                    [
+                      "available_devices",
+                      "array of objects",
+                      "array of read-only device objects containing id and name string keys"
+                    ]
+                  ]
+                ]
+              },
+              "Voice Settings Mode Object": {
+                "content": [
+                  [
+                    [
+                      "Field",
+                      "Type",
+                      "Description"
+                    ],
+                    [
+                      "type",
+                      "string",
+                      "voice setting mode type (can be PUSH_TO_TALK or VOICE_ACTIVITY)"
+                    ],
+                    [
+                      "auto_threshold",
+                      "boolean",
+                      "voice activity threshold automatically sets its threshold"
+                    ],
+                    [
+                      "threshold",
+                      "float",
+                      "threshold for voice activity (in dB) (min: -100, max: 0)"
+                    ],
+                    [
+                      "shortcut",
+                      "shortcut key combo object",
+                      "shortcut key combos for PTT"
+                    ],
+                    [
+                      "delay",
+                      "float",
+                      "the PTT release delay (in ms) (min: 0, max: 2000)"
+                    ]
+                  ]
+                ]
+              },
+              "Shortcut Key Combo Object": {
+                "content": [
+                  [
+                    [
+                      "Field",
+                      "Type",
+                      "Description"
+                    ],
+                    [
+                      "type",
+                      "integer",
+                      "see key types"
+                    ],
+                    [
+                      "code",
+                      "integer",
+                      "key code"
+                    ],
+                    [
+                      "name",
+                      "string",
+                      "key name"
+                    ]
+                  ]
+                ]
+              },
+              "Key Types": {
+                "content": [
+                  [
+                    [
+                      "Type",
+                      "Id"
+                    ],
+                    [
+                      "KEYBOARD_KEY",
+                      "0"
+                    ],
+                    [
+                      "MOUSE_BUTTON",
+                      "1"
+                    ],
+                    [
+                      "KEYBOARD_MODIFIER_KEY",
+                      "2"
+                    ],
+                    [
+                      "GAMEPAD_BUTTON",
+                      "3"
+                    ]
+                  ]
+                ]
+              },
+              "Example Get Voice Settings Response Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"GET_VOICE_SETTINGS\",\n  \"data\": {\n    \"input\": {\n      \"available_devices\": [\n        {\n          \"id\": \"default\",\n          \"name\": \"Default\"\n        },\n        {\n          \"id\": \"Built-in Microphone\",\n          \"name\": \"Built-in Microphone\"\n        }\n      ],\n      \"device_id\": \"default\",\n      \"volume\": 49.803921580314636\n    },\n    \"output\": {\n      \"available_devices\": [\n        {\n          \"id\": \"default\",\n          \"name\": \"Default\"\n        },\n        {\n          \"id\": \"Built-in Output\",\n          \"name\": \"Built-in Output\"\n        }\n      ],\n      \"device_id\": \"default\",\n      \"volume\": 93.00000071525574\n    },\n    \"mode\": {\n      \"type\": \"VOICE_ACTIVITY\",\n      \"auto_threshold\": true,\n      \"threshold\": -46.92622950819673,\n      \"shortcut\": [{ \"type\": 0, \"code\": 12, \"name\": \"i\" }],\n      \"delay\": 98.36065573770492\n    },\n    \"automatic_gain_control\": false,\n    \"echo_cancellation\": false,\n    \"noise_suppression\": false,\n    \"qos\": false,\n    \"silence_warning\": false,\n    \"deaf\": false,\n    \"mute\": false\n  },\n  \"nonce\": \"fa07c532-bb03-4f75-8b9a-397f5109afb6\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "SET_VOICE_SETTINGS": {
+            "content": [
+              "> info\n> In the current release, we only support a single modifier of voice settings at a time over RPC.\n> If an app changes voice settings, it will lock voice settings so that other apps connected simultaneously\n> lose the ability to change voice settings. Settings reset to what they were before being changed after the\n> controlling app disconnects. When an app that has previously set voice settings connects, the client will swap\n> to that app's configured voice settings and lock voice settings again. This is a temporary situation that will\n> be changed in the future.",
+              "When setting voice settings, all fields are optional. Only passed fields are updated.",
+              "|Set Voice Settings Argument and Response Structure"
+            ],
+            "Set Voice Settings Argument and Response Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "input",
+                    "voice settings input object",
+                    "input settings"
+                  ],
+                  [
+                    "output",
+                    "voice settings output object",
+                    "output settings"
+                  ],
+                  [
+                    "mode",
+                    "voice settings mode object",
+                    "voice mode settings"
+                  ],
+                  [
+                    "automatic_gain_control",
+                    "boolean",
+                    "state of automatic gain control"
+                  ],
+                  [
+                    "echo_cancellation",
+                    "boolean",
+                    "state of echo cancellation"
+                  ],
+                  [
+                    "noise_suppression",
+                    "boolean",
+                    "state of noise suppression"
+                  ],
+                  [
+                    "qos",
+                    "boolean",
+                    "state of voice quality of service"
+                  ],
+                  [
+                    "silence_warning",
+                    "boolean",
+                    "state of silence warning notice"
+                  ],
+                  [
+                    "deaf",
+                    "boolean",
+                    "state of self-deafen"
+                  ],
+                  [
+                    "mute",
+                    "boolean",
+                    "state of self-mute"
+                  ]
+                ],
+                "|Example Set Voice Settings Command Payload",
+                "|Example Set Voice Settings Response Payload"
+              ],
+              "Example Set Voice Settings Command Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"nonce\": \"3d64ed55-ef6e-4bd5-99c9-677533babc22\",\n  \"args\": {\n    \"input\": {\n      \"volume\": 90.5\n    }\n  },\n  \"cmd\": \"SET_VOICE_SETTINGS\"\n}\n"
+                  }
+                ]
+              },
+              "Example Set Voice Settings Response Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"SET_VOICE_SETTINGS\",\n  \"data\": {\n    \"input\": {\n      \"available_devices\": [\n        {\n          \"id\": \"default\",\n          \"name\": \"Default\"\n        },\n        {\n          \"id\": \"Built-in Microphone\",\n          \"name\": \"Built-in Microphone\"\n        }\n      ],\n      \"device_id\": \"default\",\n      \"volume\": 90.5\n    },\n    \"output\": {\n      \"available_devices\": [\n        {\n          \"id\": \"default\",\n          \"name\": \"Default\"\n        },\n        {\n          \"id\": \"Built-in Output\",\n          \"name\": \"Built-in Output\"\n        }\n      ],\n      \"device_id\": \"default\",\n      \"volume\": 93.00000071525574\n    },\n    \"mode\": {\n      \"type\": \"VOICE_ACTIVITY\",\n      \"auto_threshold\": true,\n      \"threshold\": -46.92622950819673,\n      \"shortcut\": [{ \"type\": 0, \"code\": 12, \"name\": \"i\" }],\n      \"delay\": 98.36065573770492\n    },\n    \"automatic_gain_control\": false,\n    \"echo_cancellation\": false,\n    \"noise_suppression\": false,\n    \"qos\": false,\n    \"silence_warning\": false,\n    \"deaf\": false,\n    \"mute\": false\n  },\n  \"nonce\": \"3d64ed55-ef6e-4bd5-99c9-677533babc22\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "SUBSCRIBE": {
+            "content": [
+              "Used to subscribe to events. evt of the payload should be set to the event being subscribed to. args of the payload should be set to the args needed for the event.",
+              "|Subscribe Response Structure"
+            ],
+            "Subscribe Response Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "evt",
+                    "string",
+                    "event name now subscribed to"
+                  ]
+                ],
+                "|Example Subscribe Command Payload",
+                "|Example Subscribe Response Payload"
+              ],
+              "Example Subscribe Command Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"nonce\": \"be9a6de3-31d0-4767-a8e9-4818c5690015\",\n  \"args\": {\n    \"guild_id\": \"199737254929760256\"\n  },\n  \"evt\": \"GUILD_STATUS\",\n  \"cmd\": \"SUBSCRIBE\"\n}\n"
+                  }
+                ]
+              },
+              "Example Subscribe Response Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"SUBSCRIBE\",\n  \"data\": {\n    \"evt\": \"GUILD_STATUS\"\n  },\n  \"nonce\": \"be9a6de3-31d0-4767-a8e9-4818c5690015\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "UNSUBSCRIBE": {
+            "content": [
+              "Used to unsubscribe from events. evt of the payload should be set to the event that was subscribed to. args of the payload should be set to the args needed for the previously subscribed event.",
+              "|Unsubscribe Response Structure"
+            ],
+            "Unsubscribe Response Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "evt",
+                    "string",
+                    "event name now unsubscribed from"
+                  ]
+                ],
+                "|Example Unsubscribe Command Payload",
+                "|Example Unsubscribe Response Payload"
+              ],
+              "Example Unsubscribe Command Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"nonce\": \"647d814a-4cf8-4fbb-948f-898aad24f55b\",\n  \"args\": {\n    \"guild_id\": \"199737254929760256\"\n  },\n  \"evt\": \"GUILD_STATUS\",\n  \"cmd\": \"UNSUBSCRIBE\"\n}\n"
+                  }
+                ]
+              },
+              "Example Unsubscribe Response Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"UNSUBSCRIBE\",\n  \"data\": {\n    \"evt\": \"GUILD_STATUS\"\n  },\n  \"nonce\": \"647d814a-4cf8-4fbb-948f-898aad24f55b\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "SET_CERTIFIED_DEVICES": {
+            "content": [
+              "Used by hardware manufacturers to send information about the current state of their certified devices that are connected to Discord.",
+              "|Set Certified Devices Argument Structure"
+            ],
+            "Set Certified Devices Argument Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "devices",
+                    "array of certified device objects",
+                    "a list of devices for your manufacturer, in order of priority"
+                  ]
+                ],
+                "|Device Object",
+                "|Vendor Object",
+                "|Model Object",
+                "|Device Type",
+                "|Example Set Certified Devices Command Payload",
+                "|Example Set Certified Devices Response Payload"
+              ],
+              "Device Object": {
+                "content": [
+                  [
+                    [
+                      "Field",
+                      "Type",
+                      "Description"
+                    ],
+                    [
+                      "type",
+                      "device type",
+                      "the type of device"
+                    ],
+                    [
+                      "id",
+                      "string",
+                      "the device's Windows UUID"
+                    ],
+                    [
+                      "vendor",
+                      "vendor object",
+                      "the hardware vendor"
+                    ],
+                    [
+                      "model",
+                      "model object",
+                      "the model of the product"
+                    ],
+                    [
+                      "related",
+                      "array of strings",
+                      "UUIDs of related devices"
+                    ],
+                    [
+                      "echo_cancellation?*",
+                      "boolean",
+                      "if the device's native echo cancellation is enabled"
+                    ],
+                    [
+                      "noise_suppression?*",
+                      "boolean",
+                      "if the device's native noise suppression is enabled"
+                    ],
+                    [
+                      "automatic_gain_control?*",
+                      "boolean",
+                      "if the device's native automatic gain control is enabled"
+                    ],
+                    [
+                      "hardware_mute?*",
+                      "boolean",
+                      "if the device is hardware muted"
+                    ]
+                  ],
+                  "*These fields are only applicable for AUDIO_INPUT device types"
+                ]
+              },
+              "Vendor Object": {
+                "content": [
+                  [
+                    [
+                      "Field",
+                      "Type",
+                      "Description"
+                    ],
+                    [
+                      "name",
+                      "string",
+                      "name of the vendor"
+                    ],
+                    [
+                      "url",
+                      "string",
+                      "url for the vendor"
+                    ]
+                  ]
+                ]
+              },
+              "Model Object": {
+                "content": [
+                  [
+                    [
+                      "Field",
+                      "Type",
+                      "Description"
+                    ],
+                    [
+                      "name",
+                      "string",
+                      "name of the model"
+                    ],
+                    [
+                      "url",
+                      "string",
+                      "url for the model"
+                    ]
+                  ]
+                ]
+              },
+              "Device Type": {
+                "content": [
+                  [
+                    [
+                      "Type",
+                      "Value"
+                    ],
+                    [
+                      "AUDIO_INPUT",
+                      "\"audioinput\""
+                    ],
+                    [
+                      "AUDIO_OUTPUT",
+                      "\"audiooutput\""
+                    ],
+                    [
+                      "VIDEO_INPUT",
+                      "\"videoinput\""
+                    ]
+                  ]
+                ]
+              },
+              "Example Set Certified Devices Command Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"nonce\": \"9b4e9711-97f3-4f35-b047-32c82a51978e\",\n  \"cmd\": \"SET_CERTIFIED_DEVICES\",\n  \"args\": {\n    \"devices\": [\n      {\n        \"type\": \"audioinput\",\n        \"id\": \"aafc2003-da0e-42a3-b982-6a17a2812510\",\n        \"vendor\": {\n          \"name\": \"SteelSeries\",\n          \"url\": \"https://steelseries.com\"\n        },\n        \"model\": {\n          \"name\": \"Arctis 7\",\n          \"url\": \"https://steelseries.com/gaming-headsets/arctis-7\"\n        },\n        \"related\": [\"aafc2003-da0e-42a3-b982-6a17a2819999\"],\n        \"echo_cancellation\": true,\n        \"noise_suppression\": true,\n        \"automatic_gain_control\": true,\n        \"hardware_mute\": false\n      }\n    ]\n  }\n}\n"
+                  }
+                ]
+              },
+              "Example Set Certified Devices Response Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"nonce\": \"9b4e9711-97f3-4f35-b047-32c82a51978e\",\n  \"cmd\": \"SET_CERTIFIED_DEVICES\",\n  \"data\": null,\n  \"evt\": null\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "SET_ACTIVITY": {
+            "content": [
+              "Used to update a user's Rich Presence.",
+              "|Set Activity Argument Structure"
+            ],
+            "Set Activity Argument Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "pid",
+                    "integer",
+                    "the application's process id"
+                  ],
+                  [
+                    "activity",
+                    "activity object",
+                    "the rich presence to assign to the user"
+                  ]
+                ],
+                "|Example Set Activity Payload"
+              ],
+              "Example Set Activity Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"SET_ACTIVITY\",\n  \"args\": {\n    \"pid\": 9999,\n    \"activity\": {\n      \"state\": \"In a Group\",\n      \"details\": \"Competitive | In a Match\",\n      \"timestamps\": {\n        \"start\": time(nullptr),\n        \"end\": time(nullptr) + (60 * 5 + 23)\n      },\n      \"assets\": {\n        \"large_image\": \"numbani_map\",\n        \"large_text\": \"Numbani\",\n        \"small_image\": \"pharah_profile\",\n        \"small_text\": \"Pharah\"\n      },\n      \"party\": {\n        \"id\": GameEngine.GetPartyId(),\n        \"size\": [3, 6]\n      },\n      \"secrets\": {\n        \"join\": \"025ed05c71f639de8bfaa0d679d7c94b2fdce12f\",\n        \"spectate\": \"e7eb30d2ee025ed05c71ea495f770b76454ee4e0\",\n        \"match\": \"4b2fdce12f639de8bfa7e3591b71a0d679d7c93f\"\n      },\n      \"instance\": true\n    }\n  },\n  \"nonce\": \"647d814a-4cf8-4fbb-948f-898abd24f55b\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "SEND_ACTIVITY_JOIN_INVITE": {
+            "content": [
+              "Used to accept an Ask to Join request.",
+              "|Send Activity Join Invite Argument Structure"
+            ],
+            "Send Activity Join Invite Argument Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "user_id",
+                    "snowflake",
+                    "the id of the requesting user"
+                  ]
+                ],
+                "|Example Send Activity Join Invite Payload"
+              ],
+              "Example Send Activity Join Invite Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"nonce\": \"5dc0c062-98c6-47a0-8922-15aerg126\",\n  \"cmd\": \"SEND_ACTIVITY_JOIN_INVITE\",\n  \"args\": {\n    \"user_id\": \"53908232506183680\"\n  }\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "CLOSE_ACTIVITY_REQUEST": {
+            "content": [
+              "Used to reject an Ask to Join request.",
+              "|Close Activity Request Argument Structure"
+            ],
+            "Close Activity Request Argument Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "user_id",
+                    "snowflake",
+                    "the id of the requesting user"
+                  ]
+                ],
+                "|Example Close Activity Request Payload"
+              ],
+              "Example Close Activity Request Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"nonce\": \"5dc0c062-98c6-47a0-8922-15aerg126\",\n  \"cmd\": \"CLOSE_ACTIVITY_REQUEST\",\n  \"args\": {\n    \"user_id\": \"53908232506183680\"\n  }\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "READY": {
+            "content": [
+              "|Ready Dispatch Data Structure"
+            ],
+            "Ready Dispatch Data Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "v",
+                    "integer",
+                    "RPC version"
+                  ],
+                  [
+                    "config",
+                    "rpc server configuration object",
+                    "server configuration"
+                  ],
+                  [
+                    "user",
+                    "partial user object",
+                    "the user to whom you are connected"
+                  ]
+                ],
+                "|RPC Server Configuration Object",
+                "|Example Ready Dispatch Payload"
+              ],
+              "RPC Server Configuration Object": {
+                "content": [
+                  [
+                    [
+                      "Field",
+                      "Type",
+                      "Description"
+                    ],
+                    [
+                      "cdn_host",
+                      "string",
+                      "server's cdn"
+                    ],
+                    [
+                      "api_endpoint",
+                      "string",
+                      "server's api endpoint"
+                    ],
+                    [
+                      "environment",
+                      "string",
+                      "server's environment"
+                    ]
+                  ]
+                ]
+              },
+              "Example Ready Dispatch Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"v\": 1,\n    \"config\": {\n      \"cdn_host\": \"cdn.discordapp.com\",\n      \"api_endpoint\": \"//discord.com/api\",\n      \"environment\": \"production\"\n    },\n    \"user\": {\n      \"id\": \"53908232506183680\",\n      \"username\": \"Mason\",\n      \"discriminator\": \"1337\",\n      \"avatar\": null\n    }\n  },\n  \"evt\": \"READY\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "ERROR": {
+            "content": [
+              "|Error Data Structure"
+            ],
+            "Error Data Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "code",
+                    "integer",
+                    "RPC Error Code"
+                  ],
+                  [
+                    "message",
+                    "string",
+                    "Error description"
+                  ]
+                ],
+                "|Example Error Payload"
+              ],
+              "Example Error Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"AUTHORIZE\",\n  \"data\": {\n    \"code\": 4007,\n    \"message\": \"No client id provided\"\n  },\n  \"evt\": \"ERROR\",\n  \"nonce\": \"5102b6f0-c769-4f37-8cca-25fb0ab22628\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "GUILD_STATUS": {
+            "content": [
+              "|Guild Status Argument Structure"
+            ],
+            "Guild Status Argument Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "guild_id",
+                    "string",
+                    "id of guild to listen to updates of"
+                  ]
+                ],
+                "|Guild Status Dispatch Data Structure",
+                "|Example Guild Status Dispatch Payload"
+              ],
+              "Guild Status Dispatch Data Structure": {
+                "content": [
+                  [
+                    [
+                      "Field",
+                      "Type",
+                      "Description"
+                    ],
+                    [
+                      "guild",
+                      "partial guild object",
+                      "guild with requested id"
+                    ],
+                    [
+                      "online",
+                      "integer",
+                      "number of online users in guild (deprecated; always 0)"
+                    ]
+                  ]
+                ]
+              },
+              "Example Guild Status Dispatch Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"guild\": {\n      \"id\": \"199737254929760256\",\n      \"name\": \"test\",\n      \"icon_url\": null\n    },\n    \"online\": 0\n  },\n  \"evt\": \"GUILD_STATUS\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "GUILD_CREATE": {
+            "content": [
+              "No arguments",
+              "|Guild Create Dispatch Data Structure"
+            ],
+            "Guild Create Dispatch Data Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "id",
+                    "string",
+                    "guild id"
+                  ],
+                  [
+                    "name",
+                    "string",
+                    "name of the guild"
+                  ]
+                ],
+                "|Example Guild Create Dispatch Payload"
+              ],
+              "Example Guild Create Dispatch Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"id\": \"199737254929767562\",\n    \"name\": \"Test Server\"\n  },\n  \"evt\": \"GUILD_CREATE\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "CHANNEL_CREATE": {
+            "content": [
+              "No arguments",
+              "|Channel Create Dispatch Data Structure"
+            ],
+            "Channel Create Dispatch Data Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "id",
+                    "string",
+                    "channel id"
+                  ],
+                  [
+                    "name",
+                    "string",
+                    "name of the channel"
+                  ],
+                  [
+                    "type",
+                    "integer",
+                    "channel type (guild text: 0, guild voice: 2, dm: 1, group dm: 3)"
+                  ]
+                ],
+                "|Example Channel Create Dispatch Payload"
+              ],
+              "Example Channel Create Dispatch Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"id\": \"199737254929760257\",\n    \"name\": \"General\",\n    \"type\": 0\n  },\n  \"evt\": \"CHANNEL_CREATE\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "VOICE_CHANNEL_SELECT": {
+            "content": [
+              "No arguments",
+              "|Voice Channel Select Dispatch Data Structure"
+            ],
+            "Voice Channel Select Dispatch Data Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "channel_id",
+                    "string",
+                    "id of channel (null if none)"
+                  ],
+                  [
+                    "guild_id",
+                    "string",
+                    "id of guild (null if none)"
+                  ]
+                ],
+                "|Example Voice Channel Select Dispatch Payload"
+              ],
+              "Example Voice Channel Select Dispatch Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"channel_id\": \"199737254929760257\",\n    \"guild_id\": \"199737254929760256\"\n  },\n  \"evt\": \"VOICE_CHANNEL_SELECT\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "VOICE_SETTINGS_UPDATE": {
+            "content": [
+              "|Voice Settings Argument Structure"
+            ],
+            "Voice Settings Argument Structure": {
+              "content": [
+                "No arguments. Dispatches the Get Voice Settings response.",
+                "|Example Voice Settings Dispatch Payload"
+              ],
+              "Example Voice Settings Dispatch Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"input\": {\n      \"available_devices\": [\n        {\n          \"id\": \"default\",\n          \"name\": \"Default\"\n        },\n        {\n          \"id\": \"Built-in Microphone\",\n          \"name\": \"Built-in Microphone\"\n        }\n      ],\n      \"device_id\": \"default\",\n      \"volume\": 49.803921580314636\n    },\n    \"output\": {\n      \"available_devices\": [\n        {\n          \"id\": \"default\",\n          \"name\": \"Default\"\n        },\n        {\n          \"id\": \"Built-in Output\",\n          \"name\": \"Built-in Output\"\n        }\n      ],\n      \"device_id\": \"default\",\n      \"volume\": 93.00000071525574\n    },\n    \"mode\": {\n      \"type\": \"VOICE_ACTIVITY\",\n      \"auto_threshold\": true,\n      \"threshold\": -46.92622950819673,\n      \"shortcut\": [{ \"type\": 0, \"code\": 12, \"name\": \"i\" }],\n      \"delay\": 98.36065573770492\n    },\n    \"automatic_gain_control\": false,\n    \"echo_cancellation\": false,\n    \"noise_suppression\": false,\n    \"qos\": false,\n    \"silence_warning\": false\n  },\n  \"evt\": \"VOICE_SETTINGS_UPDATE\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "VOICE_STATE_CREATE/VOICE_STATE_UPDATE/VOICE_STATE_DELETE": {
+            "content": [
+              "Dispatches channel voice state objects",
+              "|Voice State Argument Structure"
+            ],
+            "Voice State Argument Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "channel_id",
+                    "string",
+                    "id of channel to listen to updates of"
+                  ]
+                ],
+                "|Example Voice State Dispatch Payload"
+              ],
+              "Example Voice State Dispatch Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"DISPATCH\",\n  \"evt\": \"VOICE_STATE_CREATE\",\n  \"data\": {\n    \"voice_state\": {\n      \"mute\": false,\n      \"deaf\": false,\n      \"self_mute\": false,\n      \"self_deaf\": false,\n      \"suppress\": false\n    },\n    \"user\": {\n      \"id\": \"190320984123768832\",\n      \"username\": \"test 2\",\n      \"discriminator\": \"7479\",\n      \"avatar\": \"b004ec1740a63ca06ae2e14c5cee11f3\",\n      \"bot\": false\n    },\n    \"nick\": \"test user 2\",\n    \"volume\": 110,\n    \"mute\": false,\n    \"pan\": {\n      \"left\": 1.0,\n      \"right\": 1.0\n    }\n  }\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "VOICE_CONNECTION_STATUS": {
+            "content": [
+              "No arguments",
+              "|Voice Connection Status Dispatch Data Structure"
+            ],
+            "Voice Connection Status Dispatch Data Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "state",
+                    "string",
+                    "one of the voice connection states listed below"
+                  ],
+                  [
+                    "hostname",
+                    "string",
+                    "hostname of the connected voice server"
+                  ],
+                  [
+                    "pings",
+                    "array of integers",
+                    "last 20 pings (in ms)"
+                  ],
+                  [
+                    "average_ping",
+                    "integer",
+                    "average ping (in ms)"
+                  ],
+                  [
+                    "last_ping",
+                    "integer",
+                    "last ping (in ms)"
+                  ]
+                ],
+                "|Voice Connection States",
+                "|Example Voice Connection Status Dispatch Payload"
+              ],
+              "Voice Connection States": {
+                "content": [
+                  [
+                    [
+                      "Field",
+                      "Description"
+                    ],
+                    [
+                      "DISCONNECTED",
+                      "TCP disconnected"
+                    ],
+                    [
+                      "AWAITING_ENDPOINT",
+                      "Waiting for voice endpoint"
+                    ],
+                    [
+                      "AUTHENTICATING",
+                      "TCP authenticating"
+                    ],
+                    [
+                      "CONNECTING",
+                      "TCP connecting"
+                    ],
+                    [
+                      "CONNECTED",
+                      "TCP connected"
+                    ],
+                    [
+                      "VOICE_DISCONNECTED",
+                      "TCP connected, Voice disconnected"
+                    ],
+                    [
+                      "VOICE_CONNECTING",
+                      "TCP connected, Voice connecting"
+                    ],
+                    [
+                      "VOICE_CONNECTED",
+                      "TCP connected, Voice connected"
+                    ],
+                    [
+                      "NO_ROUTE",
+                      "No route to host"
+                    ],
+                    [
+                      "ICE_CHECKING",
+                      "WebRTC ice checking"
+                    ]
+                  ]
+                ]
+              },
+              "Example Voice Connection Status Dispatch Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"DISPATCH\",\n  \"evt\": \"VOICE_CONNECTION_STATUS\",\n  \"data\": {\n    \"state\": \"VOICE_CONNECTED\",\n    \"hostname\": \"some-server.discord.gg\",\n    \"pings\": [20, 13.37],\n    \"average_ping\": 13.37,\n    \"last_ping\": 20\n  }\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "MESSAGE_CREATE/MESSAGE_UPDATE/MESSAGE_DELETE": {
+            "content": [
+              "Dispatches message objects, with the exception of deletions, which only contains the id in the message object.",
+              "|Message Argument Structure"
+            ],
+            "Message Argument Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "channel_id",
+                    "string",
+                    "id of channel to listen to updates of"
+                  ]
+                ],
+                "|Example Message Dispatch Payload"
+              ],
+              "Example Message Dispatch Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"channel_id\": \"199737254929760256\",\n    \"message\": {\n      \"id\": \"199743874640379904\",\n      \"blocked\": false,\n      \"content\": \"test\",\n      \"content_parsed\": [\n        {\n          \"content\": \"test\",\n          \"type\": \"text\"\n        }\n      ],\n      \"author_color\": \"#ffffff\",\n      \"edited_timestamp\": null,\n      \"timestamp\": \"2016-07-05T04:30:50.776Z\",\n      \"tts\": false,\n      \"mentions\": [],\n      \"mention_roles\": [],\n      \"mention_everyone\": false,\n      \"embeds\": [],\n      \"attachments\": [],\n      \"type\": 0,\n      \"pinned\": false,\n      \"author\": {\n        \"id\": \"190320984123768832\",\n        \"username\": \"test user 2\",\n        \"discriminator\": \"7479\",\n        \"avatar\": \"b004ec1740a63ca06ae2e14c5cee11f3\",\n        \"bot\": false\n      }\n    }\n  },\n  \"evt\": \"MESSAGE_CREATE\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "SPEAKING_START/SPEAKING_STOP": {
+            "content": [
+              "|Speaking Argument Structure"
+            ],
+            "Speaking Argument Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "channel_id",
+                    "string",
+                    "id of channel to listen to updates of"
+                  ]
+                ],
+                "|Speaking Dispatch Data Structure",
+                "|Example Speaking Dispatch Payload"
+              ],
+              "Speaking Dispatch Data Structure": {
+                "content": [
+                  [
+                    [
+                      "Field",
+                      "Type",
+                      "Description"
+                    ],
+                    [
+                      "user_id",
+                      "string",
+                      "id of user who started/stopped speaking"
+                    ]
+                  ]
+                ]
+              },
+              "Example Speaking Dispatch Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"user_id\": \"190320984123768832\"\n  },\n  \"evt\": \"SPEAKING_STOP\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "NOTIFICATION_CREATE": {
+            "content": [
+              "No arguments. This event requires the rpc.notifications.read OAuth2 scope.",
+              "|Notification Create Dispatch Data Structure"
+            ],
+            "Notification Create Dispatch Data Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "channel_id",
+                    "string",
+                    "id of channel where notification occurred"
+                  ],
+                  [
+                    "message",
+                    "message object",
+                    "message that generated this notification"
+                  ],
+                  [
+                    "icon_url",
+                    "string",
+                    "icon url of the notification"
+                  ],
+                  [
+                    "title",
+                    "string",
+                    "title of the notification"
+                  ],
+                  [
+                    "body",
+                    "string",
+                    "body of the notification"
+                  ]
+                ],
+                "|Example Notification Create Dispatch Payload"
+              ],
+              "Example Notification Create Dispatch Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"channel_id\": \"199737254929760256\",\n    \"message\": {\n      \"id\": \"199743874640379904\",\n      \"blocked\": false,\n      \"content\": \"test\",\n      \"content_parsed\": [\n        {\n          \"content\": \"test\",\n          \"type\": \"text\"\n        }\n      ],\n      \"author_color\": \"#ffffff\",\n      \"edited_timestamp\": null,\n      \"timestamp\": \"2016-07-05T04:30:50.776Z\",\n      \"tts\": false,\n      \"mentions\": [],\n      \"mention_roles\": [],\n      \"mention_everyone\": false,\n      \"embeds\": [],\n      \"attachments\": [],\n      \"type\": 0,\n      \"pinned\": false,\n      \"author\": {\n        \"id\": \"190320984123768832\",\n        \"username\": \"test user 2\",\n        \"discriminator\": \"7479\",\n        \"avatar\": \"b004ec1740a63ca06ae2e14c5cee11f3\",\n        \"bot\": false\n      }\n    },\n    \"icon_url\": \"https://cdn.discordapp.com/avatars/155607406007681024/8ab559b8286e48270c04471ae382cd9d.jpg\",\n    \"title\": \"test_user (#general)\",\n    \"body\": \"test message\"\n  },\n  \"evt\": \"NOTIFICATION_CREATE\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "ACTIVITY_JOIN": {
+            "content": [
+              "No arguments",
+              "|Activity Join Dispatch Data Structure"
+            ],
+            "Activity Join Dispatch Data Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "secret",
+                    "string",
+                    "the join_secret for the given invite"
+                  ]
+                ],
+                "|Example Activity Join Dispatch Payload"
+              ],
+              "Example Activity Join Dispatch Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"secret\": \"025ed05c71f639de8bfaa0d679d7c94b2fdce12f\"\n  },\n  \"evt\": \"ACTIVITY_JOIN\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "ACTIVITY_SPECTATE": {
+            "content": [
+              "No arguments",
+              "|Activity Spectate Dispatch Data Structure"
+            ],
+            "Activity Spectate Dispatch Data Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "secret",
+                    "string",
+                    "the spectate_secret for the given invite"
+                  ]
+                ],
+                "|Example Activity Spectate Dispatch Payload"
+              ],
+              "Example Activity Spectate Dispatch Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"secret\": \"e7eb30d2ee025ed05c71ea495f770b76454ee4e0\"\n  },\n  \"evt\": \"ACTIVITY_SPECTATE\"\n}\n"
+                  }
+                ]
+              }
+            }
+          },
+          "ACTIVITY_JOIN_REQUEST": {
+            "content": [
+              "No arguments",
+              "|Activity Join Request Data Structure"
+            ],
+            "Activity Join Request Data Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "user",
+                    "partial user object",
+                    "information about the user requesting to join"
+                  ]
+                ],
+                "|Example Activity Join Request Dispatch Payload"
+              ],
+              "Example Activity Join Request Dispatch Payload": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"user\": {\n      \"id\": \"53908232506183680\",\n      \"username\": \"Mason\",\n      \"discriminator\": \"1337\",\n      \"avatar\": \"a_bab14f271d565501444b2ca3be944b25\"\n    }\n  },\n  \"evt\": \"ACTIVITY_JOIN_REQUEST\"\n}\n"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

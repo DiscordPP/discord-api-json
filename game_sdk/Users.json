@@ -1,0 +1,259 @@
+{
+  "content": [
+    "|Users"
+  ],
+  "Users": {
+    "content": [
+      "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
+      "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
+      "This manager helps retrieve basic user information for any user on Discord.",
+      "|Data Models"
+    ],
+    "Data Models": {
+      "content": [
+        "|User Struct",
+        "|GetCurrentUser",
+        "|GetUser",
+        "|GetCurrentUserPremiumType",
+        "|CurrentUserHasFlag",
+        "|OnCurrentUserUpdate",
+        "|Example: Fetching Data About a Discord User"
+      ],
+      "User Struct": {
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "Id",
+              "Int64",
+              "the user's id"
+            ],
+            [
+              "Username",
+              "string",
+              "their name"
+            ],
+            [
+              "Discriminator",
+              "string",
+              "the user's unique discrim"
+            ],
+            [
+              "Avatar",
+              "string",
+              "the hash of the user's avatar"
+            ],
+            [
+              "Bot",
+              "bool",
+              "if the user is a bot user"
+            ]
+          ],
+          "|UserFlag Enum"
+        ],
+        "UserFlag Enum": {
+          "content": [
+            [
+              [
+                "name",
+                "value",
+                "description"
+              ],
+              [
+                "Partner",
+                "2",
+                "Discord Partner"
+              ],
+              [
+                "HypeSquadEvents",
+                "4",
+                "HypeSquad Events participant"
+              ],
+              [
+                "HypeSquadHouse1",
+                "64",
+                "House Bravery"
+              ],
+              [
+                "HypeSquadHouse2",
+                "128",
+                "House Brilliance"
+              ],
+              [
+                "HypeSquadHouse3",
+                "256",
+                "House Balance"
+              ]
+            ],
+            "|PremiumType Enum"
+          ],
+          "PremiumType Enum": {
+            "content": [
+              [
+                [
+                  "name",
+                  "value",
+                  "description"
+                ],
+                [
+                  "None",
+                  "0",
+                  "Not a Nitro subscriber"
+                ],
+                [
+                  "Tier1",
+                  "1",
+                  "Nitro Classic subscriber"
+                ],
+                [
+                  "Tier2",
+                  "2",
+                  "Nitro subscriber"
+                ]
+              ]
+            ]
+          }
+        }
+      },
+      "GetCurrentUser": {
+        "content": [
+          "> info\n> Before calling this function, you'll need to wait for the OnCurrentUserUpdate callback to fire after instantiating the User manager.",
+          "Fetch information about the currently connected user account. If you're interested in getting more detailed information about a user\u2014for example, their email\u2014check out our GetCurrentUser API endpoint. You'll want to call this with an authorization header of Bearer <token>, where <token> is the token retrieved from a standard OAuth2 Authorization Code Grant flow.",
+          "Returns a Discord.User.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            "None",
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "var user = userManager.GetCurrentUser();\nConsole.WriteLine(\"Connected to user {0}\", user.Id);\n"
+              }
+            ]
+          }
+        }
+      },
+      "GetUser": {
+        "content": [
+          "Get user information for a given id.",
+          "Returns a Discord.Result and ref Discord.User via callback.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "userId",
+                "Int64",
+                "the id of the user to fetch"
+              ]
+            ],
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "userManager.GetUser(userId, (Discord.Result result, ref Discord.User user) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"User {0} is {1}\", user.Id, user.Username);\n  }\n});\n"
+              }
+            ]
+          }
+        }
+      },
+      "GetCurrentUserPremiumType": {
+        "content": [
+          "Get the PremiumType for the currently connected user.",
+          "Returns Discord.PremiumType.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            "None",
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "var userManager = discord.GetUserManager();\nvar premiumType = userManager.GetCurrentUserPremiumType();\nswitch (premiumType)\n{\n  case PremiumType.None:\n    Console.WriteLine(\"User is not a Nitro subscriber\");\n\n  case PremiumType.Tier1:\n    Console.WriteLine(\"User has Nitro Classic\");\n\n  case PremiumType.Tier2:\n    Console.WriteLine(\"User has Nitro\");\n\n  default:\n    return;\n}\n"
+              }
+            ]
+          }
+        }
+      },
+      "CurrentUserHasFlag": {
+        "content": [
+          "See whether or not the current user has a certain UserFlag on their account.",
+          "Returns bool.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "flag",
+                "UserFlag",
+                "the flag to check on the user's account"
+              ]
+            ],
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "var userManager = discord.GetUserManager();\nif (userManager.CurrentUserHasFlag(Discord.UserFlag.HypeSquadHouse1))\n{\n  Console.WriteLine(\"User is a member of House Bravery!\");\n}\n"
+              }
+            ]
+          }
+        }
+      },
+      "OnCurrentUserUpdate": {
+        "content": [
+          "Fires when the User struct of the currently connected user changes. They may have changed their avatar, username, or something else.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            "None",
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "var userManager = discord.GetUserManager();\n// GetCurrentUser will error until this fires once.\nuserManager.OnCurrentUserUpdate += () => {\n  var currentUser = userManager.GetCurrentUser();\n\n  Console.WriteLine(currentUser.Username);\n  Console.WriteLine(currentUser.Id);\n  Console.WriteLine(currentUser.Discriminator);\n  Console.WriteLine(currentUser.Avatar);\n};\n"
+              }
+            ]
+          }
+        }
+      },
+      "Example: Fetching Data About a Discord User": {
+        "content": [
+          {
+            "language": "cs",
+            "code": "var discord = new Discord.Discord(clientId, Discord.CreateFlags.Default);\n\nvar userManager = discord.GetUserManager();\nuserManager.GetUser(450795363658366976, (Discord.Result result, ref Discord.User user) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"user fetched: {0}\", user.Username);\n  }\n  else\n  {\n    Console.WriteLine(\"user fetch error: {0}\", result);\n  }\n});\n"
+          }
+        ]
+      }
+    }
+  }
+}

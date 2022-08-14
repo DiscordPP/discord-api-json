@@ -1,0 +1,248 @@
+{
+  "content": [
+    "|Overlay"
+  ],
+  "Overlay": {
+    "content": [
+      "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
+      "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
+      "> warn\n> The overlay is only supported on Windows for DirectX or OpenGL games. Linux, Mac, and games using Vulkan are not supported. Click here for more info.",
+      "Discord comes with an awesome built-in overlay, and you may want to make use of it for your game. This manager will help you do just that! It:",
+      [
+        "Gives you the current state of the overlay for the userLocked, enabled, unlocked, open, closed, etc.",
+        "Allows you to change that state"
+      ],
+      "|Data Models"
+    ],
+    "Data Models": {
+      "content": [
+        "|ActivityActionType Enum",
+        "|IsEnabled",
+        "|IsLocked",
+        "|SetLocked",
+        "|OpenActivityInvite",
+        "|OpenGuildInvite",
+        "|OpenVoiceSettings",
+        "|OnToggle",
+        "|Example: Activate Overlay Invite Modal"
+      ],
+      "ActivityActionType Enum": {
+        "content": [
+          [
+            [
+              "name",
+              "value"
+            ],
+            [
+              "Join",
+              "1"
+            ],
+            [
+              "Spectate",
+              "2"
+            ]
+          ]
+        ]
+      },
+      "IsEnabled": {
+        "content": [
+          "Check whether the user has the overlay enabled or disabled. If the overlay is disabled, all the functionality in this manager will still work. The calls will instead focus the Discord client and show the modal there instead.",
+          "Returns a bool.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            "None",
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "if (!overlaymanager.IsEnabled())\n{\n  Console.WriteLine(\"Overlay is not enabled. Modals will be shown in the Discord client instead\");\n}\n"
+              }
+            ]
+          }
+        }
+      },
+      "IsLocked": {
+        "content": [
+          "Check if the overlay is currently locked or unlocked",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            "None",
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "if (overlayManager.IsLocked())\n{\n  overlayManager.SetLocked(true, (res) =>\n  {\n    Console.WriteLine(\"Input in the overlay is now accessible again\");\n  });\n}\n"
+              }
+            ]
+          }
+        }
+      },
+      "SetLocked": {
+        "content": [
+          "Locks or unlocks input in the overlay. Calling SetLocked(true); will also close any modals in the overlay or in-app from things like IAP purchase flows and disallow input.",
+          "Returns Discord.Result via callback.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "locked",
+                "bool",
+                "lock or unlock the overlay"
+              ]
+            ],
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "overlayManager.SetLocked(true, (res) =>\n{\n  Console.WriteLine(\"Overlay has been locked and modals have been closed\");\n});\n"
+              }
+            ]
+          }
+        }
+      },
+      "OpenActivityInvite": {
+        "content": [
+          "Opens the overlay modal for sending game invitations to users, channels, and servers. If you do not have a valid activity with all the required fields, this call will error. See Activity Action Field Requirements for the fields required to have join and spectate invites function properly.",
+          "Returns a Discord.Result via callback.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "type",
+                "ActivityActionType",
+                "what type of invite to send"
+              ]
+            ],
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "overlayManager.OpenActivityInvite(Discord.ActivityActionType.Join, (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"User is now inviting others to play!\");\n  }\n});\n"
+              }
+            ]
+          }
+        }
+      },
+      "OpenGuildInvite": {
+        "content": [
+          "Opens the overlay modal for joining a Discord guild, given its invite code. An invite code for a server may look something like fortnite for a verified server\u2014the full invite being discord.gg/fortnite\u2014or something like rjEeUJq for a non-verified server, the full invite being discord.gg/rjEeUJq.",
+          "Returns a Discord.Result via callback. Note that a successful Discord.Result response does not necessarily mean that the user has joined the guild. If you want more granular control over and knowledge about users joining your guild, you may want to look into implementing the guilds.join OAuth2 scope in an authorization code grant in conjunction with the Add Guild Members endpoint.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "code",
+                "string",
+                "an invite code for a guild"
+              ]
+            ],
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "overlayManager.OpenGuildInvite(\"rjEeUJq\", (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Invite was valid.\");\n  }\n});\n"
+              }
+            ]
+          }
+        }
+      },
+      "OpenVoiceSettings": {
+        "content": [
+          "Opens the overlay widget for voice settings for the currently connected application. These settings are unique to each user within the context of your application. That means that a user can have different favorite voice settings for each of their games!",
+          "Screenshot of the Voice Settings modal for an application",
+          "Also, when connected to a lobby's voice channel, the overlay will show a widget that allows users to locally mute, deafen, and adjust the volume of others.",
+          "Screenshot of the Voice Widget displayed in an application",
+          "Returns a Discord.Result via callback.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            "None",
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "overlayManager.OpenVoiceSettings((result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Overlay is open to the voice settings for your application/\")\n  }\n})\n"
+              }
+            ]
+          }
+        }
+      },
+      "OnToggle": {
+        "content": [
+          "Fires when the overlay is locked or unlocked (a.k.a. opened or closed)",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "locked",
+                "bool",
+                "is the overlay now locked or unlocked"
+              ]
+            ],
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              "overlayManager.OnToggle += overlayLock =>\n{\nConsole.WriteLine(\"Overlay Locked: {0}\", overlayLock);\n};"
+            ]
+          }
+        }
+      },
+      "Example: Activate Overlay Invite Modal": {
+        "content": [
+          {
+            "language": "cs",
+            "code": "var discord = new Discord.Discord(clientId, Discord.CreateFlags.Default);\nvar overlayManager = discord.GetOverlayManager();\n\n// Invite users to join your game\noverlayManager.OpenActivityInvite(ActivityActionType.Join, (result) =>\n{\n  Console.WriteLine(\"Overlay is now open!\");\n})\n"
+          },
+          "And that invite modal looks like this!",
+          "Screenshot of an Invitation Modal in an application"
+        ]
+      }
+    }
+  }
+}

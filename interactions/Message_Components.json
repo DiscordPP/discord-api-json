@@ -1,0 +1,435 @@
+{
+  "content": [
+    "|Message Components"
+  ],
+  "Message Components": {
+    "content": [
+      "Message components\u2014we'll call them \"components\" moving forward\u2014are a framework for adding interactive elements to the messages your app or bot sends. They're accessible, customizable, and easy to use.",
+      "There are several different types of components; this documentation will outline the basics of this new framework and each example.",
+      "|What is a Component"
+    ],
+    "What is a Component": {
+      "content": [
+        "Components are a new field on the message object, so you can use them whether you're sending messages or responding to a slash command or other interaction.",
+        "The top-level components field is an array of Action Row components.",
+        "|Component Object",
+        "|Action Rows",
+        "|Responding to a Component Interaction",
+        "|Custom ID",
+        "|Buttons",
+        "|Select Menus",
+        "|Text Inputs"
+      ],
+      "Component Object": {
+        "content": [
+          "|Component Types"
+        ],
+        "Component Types": {
+          "content": [
+            [
+              [
+                "Type",
+                "Name",
+                "Description"
+              ],
+              [
+                "1",
+                "Action Row",
+                "A container for other components"
+              ],
+              [
+                "2",
+                "Button",
+                "A button object"
+              ],
+              [
+                "3",
+                "Select Menu",
+                "A select menu for picking from choices"
+              ],
+              [
+                "4",
+                "Text Input",
+                "A text input object"
+              ]
+            ],
+            "The structure of each component type is described in detail below.",
+            "|Example Component"
+          ],
+          "Example Component": {
+            "content": [
+              {
+                "language": "json",
+                "code": "{\n    \"content\": \"This is a message with components\",\n    \"components\": [\n        {\n            \"type\": 1,\n            \"components\": []\n        }\n    ]\n}\n"
+              }
+            ]
+          }
+        }
+      },
+      "Action Rows": {
+        "content": [
+          "An Action Row is a non-interactive container component for other types of components. It has a type: 1 and a sub-array of components of other types.",
+          [
+            "You can have up to 5 Action Rows per message",
+            "An Action Row cannot contain another Action Row"
+          ],
+          {
+            "language": "json",
+            "code": "{\n    \"content\": \"This is a message with components\",\n    \"components\": [\n        {\n            \"type\": 1,\n            \"components\": [\n                {\n                    \"type\": 2,\n                    \"label\": \"Click me!\",\n                    \"style\": 1,\n                    \"custom_id\": \"click_one\"\n                }\n            ]\n\n        }\n    ]\n}\n"
+          }
+        ]
+      },
+      "Responding to a Component Interaction": {
+        "content": [
+          "Responding to a user interacting with a component is the same as other interaction types, like application commands. You can simply ACK the request, send a followup message, or edit the original message to something new. Check out Responding to An Interaction and interaction response for more."
+        ]
+      },
+      "Custom ID": {
+        "content": [
+          "Components, aside from Action Rows, must have a custom_id field. This field is defined by the developer when sending the component payload, and is returned in the interaction payload sent when a user interacts with the component. For example, if you set custom_id: click_me on a button, you'll receive an interaction containing custom_id: click_me when a user clicks that button.",
+          "custom_id must be unique per component; multiple buttons on the same message must not share the same custom_id. This field is a string of max 100 characters, and can be used flexibly to maintain state or pass through other important data."
+        ]
+      },
+      "Buttons": {
+        "content": [
+          "Buttons are interactive components that render on messages. They can be clicked by users, and send an interaction to your app when clicked.",
+          [
+            "Buttons must be sent inside an Action Row",
+            "An Action Row can contain up to 5 buttons",
+            "An Action Row containing buttons cannot also contain a select menu"
+          ],
+          "|Button Object",
+          "|Component Interaction Object"
+        ],
+        "Button Object": {
+          "content": [
+            "|Button Structure"
+          ],
+          "Button Structure": {
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "type",
+                  "integer",
+                  "2 for a button"
+                ],
+                [
+                  "style",
+                  "integer",
+                  "one of button styles"
+                ],
+                [
+                  "label?",
+                  "string",
+                  "text that appears on the button, max 80 characters"
+                ],
+                [
+                  "emoji?",
+                  "partial emoji",
+                  "name, id, and animated"
+                ],
+                [
+                  "custom_id?",
+                  "string",
+                  "a developer-defined identifier for the button, max 100 characters"
+                ],
+                [
+                  "url?",
+                  "string",
+                  "a url for link-style buttons"
+                ],
+                [
+                  "disabled?",
+                  "boolean",
+                  "whether the button is disabled (default false)"
+                ]
+              ],
+              "Buttons come in a variety of styles to convey different types of actions. These styles also define what fields are valid for a button.",
+              [
+                "Non-link buttons must have a custom_id, and cannot have a url",
+                "Link buttons must have a url, and cannot have a custom_id",
+                "Link buttons do not send an interaction to your app when clicked"
+              ],
+              "|Button Styles"
+            ],
+            "Button Styles": {
+              "content": [
+                [
+                  [
+                    "Name",
+                    "Value",
+                    "Color",
+                    "Required Field"
+                  ],
+                  [
+                    "Primary",
+                    "1",
+                    "blurple",
+                    "custom_id"
+                  ],
+                  [
+                    "Secondary",
+                    "2",
+                    "grey",
+                    "custom_id"
+                  ],
+                  [
+                    "Success",
+                    "3",
+                    "green",
+                    "custom_id"
+                  ],
+                  [
+                    "Danger",
+                    "4",
+                    "red",
+                    "custom_id"
+                  ],
+                  [
+                    "Link",
+                    "5",
+                    "grey, navigates to a URL",
+                    "url"
+                  ]
+                ],
+                "An image showing the different button styles",
+                "When a user clicks on a button, your app will receive an interaction including the message the button was on:"
+              ]
+            }
+          }
+        },
+        "Component Interaction Object": {
+          "content": [
+            "|Sample Component Interaction"
+          ],
+          "Sample Component Interaction": {
+            "content": [
+              {
+                "language": "json",
+                "code": "{\n    \"version\": 1,\n    \"type\": 3,\n    \"token\": \"unique_interaction_token\",\n    \"message\": {\n        \"type\": 0,\n        \"tts\": false,\n        \"timestamp\": \"2021-05-19T02:12:51.710000+00:00\",\n        \"pinned\": false,\n        \"mentions\": [],\n        \"mention_roles\": [],\n        \"mention_everyone\": false,\n        \"id\": \"844397162624450620\",\n        \"flags\": 0,\n        \"embeds\": [],\n        \"edited_timestamp\": null,\n        \"content\": \"This is a message with components.\",\n        \"components\": [\n            {\n                \"type\": 1,\n                \"components\": [\n                    {\n                        \"type\": 2,\n                        \"label\": \"Click me!\",\n                        \"style\": 1,\n                        \"custom_id\": \"click_one\"\n                    }\n                ]\n            }\n        ],\n        \"channel_id\": \"345626669114982402\",\n        \"author\": {\n            \"username\": \"Mason\",\n            \"public_flags\": 131141,\n            \"id\": \"53908232506183680\",\n            \"discriminator\": \"1337\",\n            \"avatar\": \"a_d5efa99b3eeaa7dd43acca82f5692432\"\n        },\n        \"attachments\": []\n    },\n    \"member\": {\n        \"user\": {\n            \"username\": \"Mason\",\n            \"public_flags\": 131141,\n            \"id\": \"53908232506183680\",\n            \"discriminator\": \"1337\",\n            \"avatar\": \"a_d5efa99b3eeaa7dd43acca82f5692432\"\n        },\n        \"roles\": [\n            \"290926798626357999\"\n        ],\n        \"premium_since\": null,\n        \"permissions\": \"17179869183\",\n        \"pending\": false,\n        \"nick\": null,\n        \"mute\": false,\n        \"joined_at\": \"2017-03-13T19:19:14.040000+00:00\",\n        \"is_pending\": false,\n        \"deaf\": false,\n        \"avatar\": null\n    },\n    \"id\": \"846462639134605312\",\n    \"guild_id\": \"290926798626357999\",\n    \"data\": {\n        \"custom_id\": \"click_one\",\n        \"component_type\": 2\n    },\n    \"channel_id\": \"345626669114982999\",\n    \"application_id\": \"290926444748734465\"\n}\n"
+              }
+            ]
+          }
+        }
+      },
+      "Select Menus": {
+        "content": [
+          "Select menus are another interactive component that renders on messages. On desktop, clicking on a select menu opens a dropdown-style UI; on mobile, tapping a select menu opens up a half-sheet with the options.",
+          "A select menu open on desktop",
+          "Select menus support single-select and multi-select behavior, meaning you can prompt a user to choose just one item from a list, or multiple. When a user finishes making their choice by clicking out of the dropdown or closing the half-sheet, your app will receive an interaction.",
+          [
+            "Select menus must be sent inside an Action Row",
+            "An Action Row can contain only one select menu",
+            "An Action Row containing a select menu cannot also contain buttons"
+          ],
+          "|Select Menu Example",
+          "|Select Menu Object"
+        ],
+        "Select Menu Example": {
+          "content": [
+            {
+              "language": "json",
+              "code": "// This is a message\n{\n    \"content\": \"Mason is looking for new arena partners. What classes do you play?\",\n    \"components\": [\n        {\n            \"type\": 1,\n            \"components\": [\n                {\n                    \"type\": 3,\n                    \"custom_id\": \"class_select_1\",\n                    \"options\":[\n                        {\n                            \"label\": \"Rogue\",\n                            \"value\": \"rogue\",\n                            \"description\": \"Sneak n stab\",\n                            \"emoji\": {\n                                \"name\": \"rogue\",\n                                \"id\": \"625891304148303894\"\n                            }\n                        },\n                        {\n                            \"label\": \"Mage\",\n                            \"value\": \"mage\",\n                            \"description\": \"Turn 'em into a sheep\",\n                            \"emoji\": {\n                                \"name\": \"mage\",\n                                \"id\": \"625891304081063986\"\n                            }\n                        },\n                        {\n                            \"label\": \"Priest\",\n                            \"value\": \"priest\",\n                            \"description\": \"You get heals when I'm done doing damage\",\n                            \"emoji\": {\n                                \"name\": \"priest\",\n                                \"id\": \"625891303795982337\"\n                            }\n                        }\n                    ],\n                    \"placeholder\": \"Choose a class\",\n                    \"min_values\": 1,\n                    \"max_values\": 3\n                }\n            ]\n        }\n    ]\n}\n"
+            }
+          ]
+        },
+        "Select Menu Object": {
+          "content": [
+            "|Select Menu Structure"
+          ],
+          "Select Menu Structure": {
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "type",
+                  "integer",
+                  "3 for a select menu"
+                ],
+                [
+                  "custom_id",
+                  "string",
+                  "a developer-defined identifier for the select menu, max 100 characters"
+                ],
+                [
+                  "options",
+                  "array of select options",
+                  "the choices in the select, max 25"
+                ],
+                [
+                  "placeholder?",
+                  "string",
+                  "custom placeholder text if nothing is selected, max 150 characters"
+                ],
+                [
+                  "min_values?",
+                  "integer",
+                  "the minimum number of items that must be chosen; default 1, min 0, max 25"
+                ],
+                [
+                  "max_values?",
+                  "integer",
+                  "the maximum number of items that can be chosen; default 1, max 25"
+                ],
+                [
+                  "disabled?",
+                  "boolean",
+                  "disable the select, default false"
+                ]
+              ],
+              "|Select Option Structure"
+            ],
+            "Select Option Structure": {
+              "content": [
+                [
+                  [
+                    "Field",
+                    "Type",
+                    "Description"
+                  ],
+                  [
+                    "label",
+                    "string",
+                    "the user-facing name of the option, max 100 characters"
+                  ],
+                  [
+                    "value",
+                    "string",
+                    "the dev-defined value of the option, max 100 characters"
+                  ],
+                  [
+                    "description?",
+                    "string",
+                    "an additional description of the option, max 100 characters"
+                  ],
+                  [
+                    "emoji?",
+                    "partial emoji object",
+                    "id, name, and animated"
+                  ],
+                  [
+                    "default?",
+                    "boolean",
+                    "will render this option as selected by default"
+                  ]
+                ],
+                "|Select Menu Interaction"
+              ],
+              "Select Menu Interaction": {
+                "content": [
+                  {
+                    "language": "json",
+                    "code": "{\n    \"application_id\": \"845027738276462632\",\n    \"channel_id\": \"772908445358620702\",\n    \"data\": {\n        \"component_type\":3,\n        \"custom_id\": \"class_select_1\",\n        \"values\": [\n            \"mage\",\n            \"rogue\"\n        ]\n    },\n    \"guild_id\": \"772904309264089089\",\n    \"id\": \"847587388497854464\",\n    \"member\": {\n        \"avatar\": null,\n        \"deaf\": false,\n        \"is_pending\": false,\n        \"joined_at\": \"2020-11-02T19:25:47.248000+00:00\",\n        \"mute\": false,\n        \"nick\": \"Bot Man\",\n        \"pending\": false,\n        \"permissions\": \"17179869183\",\n        \"premium_since\": null,\n        \"roles\": [\n            \"785609923542777878\"\n        ],\n        \"user\":{\n            \"avatar\": \"a_d5efa99b3eeaa7dd43acca82f5692432\",\n            \"discriminator\": \"1337\",\n            \"id\": \"53908232506183680\",\n            \"public_flags\": 131141,\n            \"username\": \"Mason\"\n        }\n    },\n    \"message\":{\n        \"application_id\": \"845027738276462632\",\n        \"attachments\": [],\n        \"author\": {\n            \"avatar\": null,\n            \"bot\": true,\n            \"discriminator\": \"5284\",\n            \"id\": \"845027738276462632\",\n            \"public_flags\": 0,\n            \"username\": \"Interactions Test\"\n        },\n        \"channel_id\": \"772908445358620702\",\n        \"components\": [\n            {\n                \"components\": [\n                    {\n                        \"custom_id\": \"class_select_1\",\n                        \"max_values\": 1,\n                        \"min_values\": 1,\n                        \"options\": [\n                            {\n                                \"description\": \"Sneak n stab\",\n                                \"emoji\":{\n                                    \"id\": \"625891304148303894\",\n                                    \"name\": \"rogue\"\n                                },\n                                \"label\": \"Rogue\",\n                                \"value\": \"rogue\"\n                            },\n                            {\n                                \"description\": \"Turn 'em into a sheep\",\n                                \"emoji\":{\n                                    \"id\": \"625891304081063986\",\n                                    \"name\": \"mage\"\n                                },\n                                \"label\": \"Mage\",\n                                \"value\": \"mage\"\n                            },\n                            {\n                                \"description\": \"You get heals when I'm done doing damage\",\n                                \"emoji\":{\n                                    \"id\": \"625891303795982337\",\n                                    \"name\": \"priest\"\n                                },\n                                \"label\": \"Priest\",\n                                \"value\": \"priest\"\n                            }\n                        ],\n                        \"placeholder\": \"Choose a class\",\n                        \"type\": 3\n                    }\n                ],\n                \"type\": 1\n            }\n        ],\n        \"content\": \"Mason is looking for new arena partners. What classes do you play?\",\n        \"edited_timestamp\": null,\n        \"embeds\": [],\n        \"flags\": 0,\n        \"id\": \"847587334500646933\",\n        \"interaction\": {\n            \"id\": \"847587333942935632\",\n            \"name\": \"dropdown\",\n            \"type\": 2,\n            \"user\": {\n                \"avatar\": \"a_d5efa99b3eeaa7dd43acca82f5692432\",\n                \"discriminator\": \"1337\",\n                \"id\": \"53908232506183680\",\n                \"public_flags\": 131141,\n                \"username\": \"Mason\"\n            }\n        },\n        \"mention_everyone\": false,\n        \"mention_roles\":[],\n        \"mentions\":[],\n        \"pinned\": false,\n        \"timestamp\": \"2021-05-27T21:29:27.956000+00:00\",\n        \"tts\": false,\n        \"type\": 20,\n        \"webhook_id\": \"845027738276462632\"\n    },\n    \"token\": \"UNIQUE_TOKEN\",\n    \"type\": 3,\n    \"version\": 1\n}\n"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "Text Inputs": {
+        "content": [
+          "Text inputs are an interactive component that render on modals. They can be used to collect short-form or long-form text.",
+          "A text input in a modal on desktop client",
+          "|Text Input Example"
+        ],
+        "Text Input Example": {
+          "content": [
+            {
+              "language": "json",
+              "code": "// this is a modal\n{\n  \"title\": \"My Cool Modal\",\n  \"custom_id\": \"cool_modal\",\n  \"components\": [{\n    \"type\": 1,\n    \"components\": [{\n      \"type\": 4,\n      \"custom_id\": \"name\",\n      \"label\": \"Name\",\n      \"style\": 1,\n      \"min_length\": 1,\n      \"max_length\": 4000,\n      \"placeholder\": \"John\",\n      \"required\": true\n    }]\n  }]\n}\n"
+            },
+            "|Text Input Structure"
+          ],
+          "Text Input Structure": {
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "type",
+                  "integer",
+                  "4 for a text input"
+                ],
+                [
+                  "custom_id",
+                  "string",
+                  "a developer-defined identifier for the input, max 100 characters"
+                ],
+                [
+                  "style",
+                  "integer",
+                  "the Text Input Style"
+                ],
+                [
+                  "label",
+                  "string",
+                  "the label for this component, max 45 characters"
+                ],
+                [
+                  "min_length?",
+                  "integer",
+                  "the minimum input length for a text input, min 0, max 4000"
+                ],
+                [
+                  "max_length?",
+                  "integer",
+                  "the maximum input length for a text input, min 1, max 4000"
+                ],
+                [
+                  "required?",
+                  "boolean",
+                  "whether this component is required to be filled, default true"
+                ],
+                [
+                  "value?",
+                  "string",
+                  "a pre-filled value for this component, max 4000 characters"
+                ],
+                [
+                  "placeholder?",
+                  "string",
+                  "custom placeholder text if the input is empty, max 100 characters"
+                ]
+              ],
+              "|Text Input Styles"
+            ],
+            "Text Input Styles": {
+              "content": [
+                [
+                  [
+                    "Name",
+                    "Value",
+                    "Description"
+                  ],
+                  [
+                    "Short",
+                    "1",
+                    "A single-line input"
+                  ],
+                  [
+                    "Paragraph",
+                    "2",
+                    "A multi-line input"
+                  ]
+                ]
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

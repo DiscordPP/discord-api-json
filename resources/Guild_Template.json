@@ -1,0 +1,200 @@
+{
+  "content": [
+    "|Guild Template Resource"
+  ],
+  "Guild Template Resource": {
+    "content": [
+      "|Guild Template Object"
+    ],
+    "Guild Template Object": {
+      "content": [
+        "Represents a code that when used, creates a guild based on a snapshot of an existing guild.",
+        "|Guild Template Structure",
+        "|Get Guild Template % GET /guilds/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}",
+        "|Create Guild from Guild Template % POST /guilds/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}",
+        "|Get Guild Templates % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates",
+        "|Create Guild Template % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates",
+        "|Sync Guild Template % PUT /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}",
+        "|Modify Guild Template % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}",
+        "|Delete Guild Template % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}"
+      ],
+      "Guild Template Structure": {
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "code",
+              "string",
+              "the template code (unique ID)"
+            ],
+            [
+              "name",
+              "string",
+              "template name"
+            ],
+            [
+              "description",
+              "?string",
+              "the description for the template"
+            ],
+            [
+              "usage_count",
+              "integer",
+              "number of times this template has been used"
+            ],
+            [
+              "creator_id",
+              "snowflake",
+              "the ID of the user who created the template"
+            ],
+            [
+              "creator",
+              "user object",
+              "the user who created the template"
+            ],
+            [
+              "created_at",
+              "ISO8601 timestamp",
+              "when this template was created"
+            ],
+            [
+              "updated_at",
+              "ISO8601 timestamp",
+              "when this template was last synced to the source guild"
+            ],
+            [
+              "source_guild_id",
+              "snowflake",
+              "the ID of the guild this template is based on"
+            ],
+            [
+              "serialized_source_guild",
+              "partial guild object",
+              "the guild snapshot this template contains"
+            ],
+            [
+              "is_dirty",
+              "?boolean",
+              "whether the template has unsynced changes"
+            ]
+          ],
+          "|Example Guild Template Object"
+        ],
+        "Example Guild Template Object": {
+          "content": [
+            {
+              "language": "json",
+              "code": "{\n  \"code\": \"hgM48av5Q69A\",\n  \"name\": \"Friends & Family\",\n  \"description\": \"\",\n  \"usage_count\": 49605,\n  \"creator_id\": \"132837293881950208\",\n  \"creator\": {\n    \"id\": \"132837293881950208\",\n    \"username\": \"hoges\",\n    \"avatar\": \"79b0d9f8c340f2d43e1f78b09f175b62\",\n    \"discriminator\": \"0001\",\n    \"public_flags\": 129\n  },\n  \"created_at\": \"2020-04-02T21:10:38+00:00\",\n  \"updated_at\": \"2020-05-01T17:57:38+00:00\",\n  \"source_guild_id\": \"678070694164299796\",\n  \"serialized_source_guild\": {\n    \"name\": \"Friends & Family\",\n    \"description\": null,\n    \"region\": \"us-west\",\n    \"verification_level\": 0,\n    \"default_message_notifications\": 0,\n    \"explicit_content_filter\": 0,\n    \"preferred_locale\": \"en-US\",\n    \"afk_timeout\": 300,\n    \"roles\": [\n      {\n        \"id\": 0,\n        \"name\": \"@everyone\",\n        \"permissions\": 104324689,\n        \"color\": 0,\n        \"hoist\": false,\n        \"mentionable\": false\n      }\n    ],\n    \"channels\": [\n      {\n        \"name\": \"Text Channels\",\n        \"position\": 1,\n        \"topic\": null,\n        \"bitrate\": 64000,\n        \"user_limit\": 0,\n        \"nsfw\": false,\n        \"rate_limit_per_user\": 0,\n        \"parent_id\": null,\n        \"permission_overwrites\": [],\n        \"id\": 1,\n        \"type\": 4\n      },\n      {\n        \"name\": \"general\",\n        \"position\": 1,\n        \"topic\": null,\n        \"bitrate\": 64000,\n        \"user_limit\": 0,\n        \"nsfw\": false,\n        \"rate_limit_per_user\": 0,\n        \"parent_id\": 1,\n        \"permission_overwrites\": [],\n        \"id\": 2,\n        \"type\": 0\n      }\n    ],\n    \"afk_channel_id\": null,\n    \"system_channel_id\": 2,\n    \"system_channel_flags\": 0,\n    \"icon_hash\": null\n  },\n  \"is_dirty\": null\n}\n"
+            }
+          ]
+        }
+      },
+      "Get Guild Template % GET /guilds/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}": {
+        "content": [
+          "Returns a guild template object for the given code."
+        ]
+      },
+      "Create Guild from Guild Template % POST /guilds/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}": {
+        "content": [
+          "Create a new guild based on a template. Returns a guild object on success. Fires a Guild Create Gateway event.",
+          "> warn\n> This endpoint can be used only by bots in less than 10 guilds.",
+          "|JSON Params"
+        ],
+        "JSON Params": {
+          "content": [
+            [
+              [
+                "Field",
+                "Type",
+                "Description"
+              ],
+              [
+                "name",
+                "string",
+                "name of the guild (2-100 characters)"
+              ],
+              [
+                "icon?",
+                "image data",
+                "base64 128x128 image for the guild icon"
+              ]
+            ]
+          ]
+        }
+      },
+      "Get Guild Templates % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates": {
+        "content": [
+          "Returns an array of guild template objects. Requires the MANAGE_GUILD permission."
+        ]
+      },
+      "Create Guild Template % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates": {
+        "content": [
+          "Creates a template for the guild. Requires the MANAGE_GUILD permission. Returns the created guild template object on success.",
+          "|JSON Params"
+        ],
+        "JSON Params": {
+          "content": [
+            [
+              [
+                "Field",
+                "Type",
+                "Description"
+              ],
+              [
+                "name",
+                "string",
+                "name of the template (1-100 characters)"
+              ],
+              [
+                "description?",
+                "?string",
+                "description for the template (0-120 characters)"
+              ]
+            ]
+          ]
+        }
+      },
+      "Sync Guild Template % PUT /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}": {
+        "content": [
+          "Syncs the template to the guild's current state. Requires the MANAGE_GUILD permission. Returns the guild template object on success."
+        ]
+      },
+      "Modify Guild Template % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}": {
+        "content": [
+          "Modifies the template's metadata. Requires the MANAGE_GUILD permission. Returns the guild template object on success.",
+          "|JSON Params"
+        ],
+        "JSON Params": {
+          "content": [
+            [
+              [
+                "Field",
+                "Type",
+                "Description"
+              ],
+              [
+                "name?",
+                "string",
+                "name of the template (1-100 characters)"
+              ],
+              [
+                "description?",
+                "?string",
+                "description for the template (0-120 characters)"
+              ]
+            ]
+          ]
+        }
+      },
+      "Delete Guild Template % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}": {
+        "content": [
+          "Deletes the template. Requires the MANAGE_GUILD permission. Returns the deleted guild template object on success."
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,518 @@
+{
+  "content": [
+    "|Voice"
+  ],
+  "Voice": {
+    "content": [
+      "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
+      "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
+      "Discord's pride and joy is its voice chat. Well, ok, also its memes, but mostly the voice chat. Text and video chat are pretty great, too. And have you seen that store? Anyway.",
+      "If you want people playing your game to be able to talk with each other, this Voice manager can help you out! Note that the main functionality for voice in this SDK is not only in this manager. Connecting players to a voice chat happens with ConnectVoice in the Lobby manager, and robust voice settings work through OpenVoiceSettings in the Overlay manager. The Voice manager handles a few fine-grain details like self muting/deafening, swapping between VAD/PTT voice modes, and setting a PTT key. It's a subset of the robust settings from the overlay call for those of you that prefer to build UI and control things from your own game.",
+      "|Data Models"
+    ],
+    "Data Models": {
+      "content": [
+        "|InputModeType Enum",
+        "|GetInputMode",
+        "|SetInputMode",
+        "|IsSelfMute",
+        "|SetSelfMute",
+        "|IsSelfDeaf",
+        "|SetSelfDeaf",
+        "|IsLocalMute",
+        "|SetLocalMute",
+        "|GetLocalVolume",
+        "|SetLocalVolume"
+      ],
+      "InputModeType Enum": {
+        "content": [
+          [
+            [
+              "name",
+              "value"
+            ],
+            [
+              "VoiceActivity",
+              "0"
+            ],
+            [
+              "PushToTalk",
+              "1"
+            ]
+          ],
+          "|InputMode Struct"
+        ],
+        "InputMode Struct": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "Type",
+                "InputModeType",
+                "set either VAD or PTT as the voice input mode"
+              ],
+              [
+                "Shortcut",
+                "string",
+                "the PTT hotkey for the user"
+              ]
+            ],
+            "|Shortcut Keys"
+          ],
+          "Shortcut Keys": {
+            "content": [
+              "Keys can be mapped as a combination by adding a \"+\" between values, such as \"shift + 4\" or \"ctrl + v\".",
+              [
+                [
+                  "key type",
+                  "value"
+                ],
+                [
+                  "Alphabetical",
+                  "\"a\", \"b\", \"c\", etc."
+                ],
+                [
+                  "Numerical",
+                  "\"1\", \"2\", \"3\", etc."
+                ],
+                [
+                  "Symbols",
+                  "\"-\", \"+\", \".\", \"/\", etc."
+                ],
+                [
+                  "Function Keys",
+                  "\"f1\", \"f2\", \"f3\", etc."
+                ],
+                [
+                  "Gamepads",
+                  "standard XInput api values - \"GAMEPAD0\", \"GAMEPAD1\", etc."
+                ],
+                [
+                  "Enter",
+                  "\"enter\""
+                ],
+                [
+                  "Tab",
+                  "\"tab\""
+                ],
+                [
+                  "Spacebar",
+                  "\"space\""
+                ],
+                [
+                  "Backspace",
+                  "\"backspace\""
+                ],
+                [
+                  "Escape",
+                  "\"esc\""
+                ],
+                [
+                  "Meta",
+                  "\"meta\""
+                ],
+                [
+                  "Shift",
+                  "\"shift\""
+                ],
+                [
+                  "Caps Lock",
+                  "\"caps lock\""
+                ],
+                [
+                  "Alt",
+                  "\"alt\""
+                ],
+                [
+                  "Control",
+                  "\"ctrl\""
+                ],
+                [
+                  "Right Shift",
+                  "\"right shift\""
+                ],
+                [
+                  "Right Alt",
+                  "\"right alt\""
+                ],
+                [
+                  "Right Control",
+                  "\"right ctrl\""
+                ],
+                [
+                  "Right Meta",
+                  "\"right meta\""
+                ],
+                [
+                  "Page Up",
+                  "\"page up\""
+                ],
+                [
+                  "Page Down",
+                  "\"page down\""
+                ],
+                [
+                  "Scroll Lock",
+                  "\"scroll lock\""
+                ],
+                [
+                  "Print Screen",
+                  "\"print screen\""
+                ],
+                [
+                  "Rewind",
+                  "\"rewind\""
+                ],
+                [
+                  "Play",
+                  "\"play\""
+                ],
+                [
+                  "Fast Forward",
+                  "\"fast forward\""
+                ],
+                [
+                  "Delete",
+                  "\"del\""
+                ],
+                [
+                  "End",
+                  "\"end\""
+                ],
+                [
+                  "Insert",
+                  "\"insert\""
+                ],
+                [
+                  "Break",
+                  "\"break\""
+                ],
+                [
+                  "Home",
+                  "\"home\""
+                ],
+                [
+                  "Up Arrow",
+                  "\"up\""
+                ],
+                [
+                  "Down Arrow",
+                  "\"down\""
+                ],
+                [
+                  "Left Arrow",
+                  "\"left\""
+                ],
+                [
+                  "Right Arrow",
+                  "\"right\""
+                ]
+              ]
+            ]
+          }
+        }
+      },
+      "GetInputMode": {
+        "content": [
+          "Get the current voice input mode for the user.",
+          "Returns a Discord.InputMode.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            "None",
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "var voiceManager = discord.GetVoiceManager();\nvar inputMode = voiceManager.GetInputMode();\nConsole.WriteLine(\"The current input mode is {0}. The current PTT hotkey is set to {1}\", inputMode.Type, inputMode.Shortcut);\n"
+              }
+            ]
+          }
+        }
+      },
+      "SetInputMode": {
+        "content": [
+          "Sets a new voice input mode for the user. Refer to Shortcut Keys for a table of valid values for shortcuts.",
+          "Returns a Discord.Result via callback.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "inputMode",
+                "InputMode",
+                "the new input mode for the user"
+              ]
+            ],
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "var voiceManager = discord.GetVoiceManager();\nvar newMode = new Discord.InputMode()\n{\n  Type = Discord.InputModeType.PushToTalk,\n  Shortcut = \"ctrl\"\n};\nvoiceManager.SetInputMode(newMode, (res) =>\n{\n  if (res == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"New input mode set\");\n  }\n});\n"
+              }
+            ]
+          }
+        }
+      },
+      "IsSelfMute": {
+        "content": [
+          "Whether the connected user is currently muted.",
+          "Returns bool.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            "None",
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "var voiceManager = discord.GetVoiceManager();\nif (voiceManager.IsSelfMute())\n{\n  Console.WriteLine(\"You are muted\");\n}\n"
+              }
+            ]
+          }
+        }
+      },
+      "SetSelfMute": {
+        "content": [
+          "Mutes or unmutes the currently connected user.",
+          "Returns void.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "mute",
+                "bool",
+                "true for mute, false for unmute"
+              ]
+            ],
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "var voiceManager = discord.GetVoiceManager();\nif (voiceManager.IsSelfMute())\n{\n  voiceManager.SetSelfMute(false);\n  Console.WriteLine(\"We automatically unmuted you\");\n}\n"
+              }
+            ]
+          }
+        }
+      },
+      "IsSelfDeaf": {
+        "content": [
+          "Whether the connected user is currently deafened.",
+          "Returns bool.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            "None",
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "var voiceManager = discord.GetVoiceManager();\nif (voiceManager.IsSelfDeaf())\n{\n  Console.WriteLine(\"You are deafened. You can't hear anyone!\");\n}\n"
+              }
+            ]
+          }
+        }
+      },
+      "SetSelfDeaf": {
+        "content": [
+          "Deafens or undeafens the currently connected user.",
+          "Returns void.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "deaf",
+                "bool",
+                "true for mute, false for unmute"
+              ]
+            ],
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "var voiceManager = discord.GetVoiceManager();\nif (voiceManager.IsSelfDeaf())\n{\n  voiceManager.SetSelfDeaf(false);\n  Console.WriteLine(\"We automatically undeafened you. You can hear now!\");\n}\n"
+              }
+            ]
+          }
+        }
+      },
+      "IsLocalMute": {
+        "content": [
+          "Whether the given user is currently muted by the connected user.",
+          "Returns bool.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "userId",
+                "Int64",
+                "the id of the user to check"
+              ]
+            ],
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "var voiceManager = discord.GetVoiceManager();\nif (voiceManager.IsLocalMute(53908232506183680))\n{\n  Console.WriteLine(\"User is locally muted\");\n}\n"
+              }
+            ]
+          }
+        }
+      },
+      "SetLocalMute": {
+        "content": [
+          "Mutes or unmutes the given user for the currently connected user.",
+          "Returns void.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "userId",
+                "Int64",
+                "the id of the user to mute"
+              ],
+              [
+                "mute",
+                "bool",
+                "true for mute, false for unmute"
+              ]
+            ],
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "var voiceManager = discord.GetVoiceManager();\nif (!voiceManager.IsLocalMute(53908232506183680))\n{\n  voiceManager.SetLocalMute(53908232506183680, true);\n  Console.WriteLine(\"Muted that user for you\");\n}\n"
+              }
+            ]
+          }
+        }
+      },
+      "GetLocalVolume": {
+        "content": [
+          "Gets the local volume for a given user. This is the volume level at which the currently connected users hears the given user speak.",
+          "Returns byte.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "userId",
+                "Int64",
+                "the id of the user to check"
+              ]
+            ],
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "var voiceManager = discord.GetVoiceManager();\nvar volume = voiceManager.GetLocalVolume(53908232506183680);\nConsole.WriteLine(\"User is at volume level {0}\", volume);\n"
+              }
+            ]
+          }
+        }
+      },
+      "SetLocalVolume": {
+        "content": [
+          "Sets the local volume for a given user. This is the volume level at which the currently connected users hears the given user speak. Valid volume values are from 0 to 200, with 100 being the default. Lower than 100 will be a reduced volume level from default, whereas over 100 will be a boosted volume level from default.",
+          "Returns void.",
+          "|Parameters"
+        ],
+        "Parameters": {
+          "content": [
+            [
+              [
+                "name",
+                "type",
+                "description"
+              ],
+              [
+                "userId",
+                "Int64",
+                "the id of the user to change"
+              ],
+              [
+                "volume",
+                "byte",
+                "the volume at which to set the user, 0 to 200"
+              ]
+            ],
+            "|Example"
+          ],
+          "Example": {
+            "content": [
+              {
+                "language": "cs",
+                "code": "var voiceManager = discord.GetVoiceManager();\nvoiceManager.SetLocalVolume(53908232506183680, 70);\n"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

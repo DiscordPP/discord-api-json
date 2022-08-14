@@ -1,0 +1,155 @@
+{
+  "content": [
+    "|Hosting on Heroku"
+  ],
+  "Hosting on Heroku": {
+    "content": [
+      "Running your app locally can be helpful for development but once it's is ready for production, you should consider using a hosting provider. This tutorial guides you through deploying, managing, and monitoring a Discord app on Heroku.",
+      "The app we're building bakes bread (with varying degrees of success) through a Discord app. The source code for the app can be found on GitHub.",
+      "Discord app for tutorial",
+      "|Features and technologies used"
+    ],
+    "Features and technologies used": {
+      "content": [
+        [
+          "Slash commands",
+          "Interactive buttons",
+          "Discord.JS v13",
+          "Heroku"
+        ],
+        "\u2015",
+        "|Project structure",
+        "|Cloning and configuring baker bot",
+        "|Setting up Heroku",
+        "|Connecting Heroku to GitHub",
+        "|Configuring app in Heroku",
+        "|Maintenance and how to monitor",
+        "|Next steps"
+      ],
+      "Project structure": {
+        "content": [
+          {
+            "language": "",
+            "code": "\u251c\u2500\u2500 commands        -> sample commands\n\u2502   \u251c\u2500\u2500 breads.js\n\u2502   \u251c\u2500\u2500 cakes.js\n\u2502   \u251c\u2500\u2500 cookies.js\n\u2502   \u251c\u2500\u2500 pies.js\n\u2502   \u251c\u2500\u2500 createRoles.js\n\u2502   \u251c\u2500\u2500 setup.js\n\u251c\u2500\u2500 .env            -> sample .env file\n\u251c\u2500\u2500 index.js        -> main entrypoint for app\n\u251c\u2500\u2500 src    \n\u2502   \u251c\u2500\u2500 startup.js  -> slash command payload\n\u2502   \u251c\u2500\u2500 img\n\u2502   \u251c\u2500\u2500 handlers    -> utility functions\n\u2502   \u2502   \u251c\u2500\u2500 rng.js\n\u2502   \u2502   \u251c\u2500\u2500 cache.js\n\u2502   \u2502   \u251c\u2500\u2500 oven.js\n\u251c\u2500\u2500 Procfile        -> heroku start\n\u251c\u2500\u2500 package.json\n\u251c\u2500\u2500 README.md\n\u2514\u2500\u2500 .gitignore\n"
+          }
+        ]
+      },
+      "Cloning and configuring baker bot": {
+        "content": [
+          "If you have your own application to deploy, you can skip the baker-bot setup. However, you'll still need to add a Procfile, which specifies which commands are run when your Heroku app starts up. You can read about Procfiles in Heroku's documentation.",
+          "|Prepping required components",
+          "|Creating your Discord app"
+        ],
+        "Prepping required components": {
+          "content": [
+            "> info\n> If you don't have git configured, you can read the Git reference",
+            "To configure your app locally, first clone or fork the repository and install its dependencies.",
+            {
+              "language": "bash",
+              "code": "# Clone the respository\ngit clone https://github.com/discord/heroku-sample-app.git\n\n# Enter into the directory\ncd heroku-sample-app\n\n# Install the dependencies\nnpm install\n"
+            },
+            "After your dependencies are installed, you'll create your app and configure Heroku."
+          ]
+        },
+        "Creating your Discord app": {
+          "content": [
+            "In the heroku-baker directory, there is a .sample.env file that contains the credentials baker bot needs to run:",
+            {
+              "language": "",
+              "code": "TOKEN=\nGUILD_ID=\nCLIENT_ID=\n"
+            },
+            "These credentials will be added to your Heroku app later in the tutorial, or to a new .env file if you're developing locally.",
+            "> info\n> Enabling Developer Mode in your Discord client will let you right-click fetch the IDs for your guild (GUILD_ID) and bot application (CLIENT_ID).",
+            "To create your Discord app, go to the app configuration and click New Application in the upper-right corner.",
+            "Then click on the Bot tab and create a bot. Generate the bot token and save it in a safe place.",
+            "Discord bot token",
+            "After your bot is created, go to OAuth2 on the sidebar and copy the Client ID for later.",
+            "Then click URL Generator. Add the applications.commands and bot scopes, as well as the permission Manage Roles.",
+            "OAuth2 URL Generator",
+            "To install your app, copy and paste the URL in your browser and follow the installation flow. Make sure to install the app into a server where you can test and develop.",
+            "Once your app is installed copy the Guild ID for the server where you installed your app."
+          ]
+        }
+      },
+      "Setting up Heroku": {
+        "content": [
+          "The first thing you should do is set up an account for Heroku.",
+          "Head over to https://id.heroku.com/login and log in to your account, or set up a new account if you don\u2019t have one.",
+          "Heroku login",
+          "After logging in, at the top right corner of your account dashboard, click New > Create new app. You can then name it whatever you want.",
+          "|Adding a Procfile"
+        ],
+        "Adding a Procfile": {
+          "content": [
+            "For your app to work with Heroku, you'll need to add a Procfile. Create a new file called Procfile where you will add a short script that Heroku will run when starting up your app.",
+            "> info\n> For folks following the tutorial and using the sample repo, the Procfile will already be configured appropriately. Otherwise, the script in your Procfile will vary depending on what language you're coding in.",
+            {
+              "language": "bash",
+              "code": "# Procfile contents for bakerbot (startup)\nworker: node index.js\n"
+            },
+            "You now have an empty application for Heroku that's ready to be linked to your repository."
+          ]
+        }
+      },
+      "Connecting Heroku to GitHub": {
+        "content": [
+          "In this tutorial, we'll use a GitHub repository as the source for the Heroku app. Before you can deploy, you should push your project to GitHub.",
+          "> info\n> If you prefer to deploy from your local app, you can use the Heroku CLI",
+          "After you have your GitHub repo and Heroku application set up, you will be met with some options in the Deploy tab. From here, you have several deployment method options to choose from",
+          "Heroku dashboard",
+          "Click Connect this app to GitHub.",
+          "> info\n> Note that you can only connect Heroku apps to a single GitHub repository.",
+          "From there, you will be able to manage the app's deployment method:",
+          "Heroku deployment",
+          "Selecting a branch and enabling Automatic Deploys for your app will deploy a new version of this app every time a push occurs. Manual Deploys would require you to select a specific branch before updates go live for your bot.",
+          "> info\n> If you want to do this with the Heroku CLI, there are separate steps in the dashboard you can follow to accomplish this."
+        ]
+      },
+      "Configuring app in Heroku": {
+        "content": [
+          "Before your app can go online, you'll have to configure your Heroku environment with your Discord bot's credentials.",
+          "|Adding app credentials",
+          "|Adding a buildpack and configuring a dyno"
+        ],
+        "Adding app credentials": {
+          "content": [
+            "In the Settings tab, add your bot\u2019s TOKEN, GUILD_ID, CLIENT_ID from the section above, and any other tokens or API keys you want for your own app.",
+            "> info\n> If you're developing your app locally, you can store your credentials in a .env file (see .sample.env for an example)",
+            "Configuring variables in Heroku",
+            "You'll notice that there isn't anything you have to change in your source code. Amazin'"
+          ]
+        },
+        "Adding a buildpack and configuring a dyno": {
+          "content": [
+            "The next step is to add a buildpack to your app. The buildpack is responsible for compiling your deployed code and installing any dependencies, meaning the one you select will also depend on how you built your bot. Since Heroku-Baker is a node app, we'll need to add the nodeJS buildpack.",
+            "Adding a buildpack",
+            "Once you successfully connect your app to your bot's repo, you'll notice a new window in the dashboard called Dyno formation.",
+            "A Dyno is a virtualized Linux container that executes the code in Procfile - think of it as a mini computer dedicated to running your bot. By default, Heroku gives 550 free dyno hours per application per month. [Not quite enough to keep your bot online 24/7] If your app will need additional hours, you can look at Heroku's pricing page.",
+            "Congratulations, your bot is now ready to go live! \ud83d\ude04",
+            "In the Overview tab, click Configure Dynos then the Edit dyno formation button to toggle the dyno on. The script in Procfile (node index.js) will then run on start.",
+            "Dyno configuration"
+          ]
+        }
+      },
+      "Maintenance and how to monitor": {
+        "content": [
+          "View logs",
+          "Status and updates for the dyno, any deploys as well as specific logs from your bot will be available in the View Logs tab. if a shard ever goes off or your bot crashes, the app will automatically restart. These events will also be logged."
+        ]
+      },
+      "Next steps": {
+        "content": [
+          "> info\n> If you need to reference any of the code, you can find the repo on GitHub",
+          "You can play around with the app by navigating to the guild you installed it in. First /setup the necessary roles and channels, then start baking with the /start command. Good luck and don't set the oven on fire!",
+          "To see details on all commands, look in the commands folder in the sample repository.",
+          "With your app deployed on Heroku, you can start customizing it to be your own:",
+          [
+            "Use message components in your app to add more interactivity (like buttons and select menus).",
+            "Take a look at different public APIs on GitHub.",
+            "Join the Discord Developers server to ask questions about the API, attend events hosted by the Discord API team, and interact with other developers."
+          ]
+        ]
+      }
+    }
+  }
+}
