@@ -3,6 +3,8 @@
     "|Permissions"
   ],
   "Permissions": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/topics/permissions#permissions",
     "content": [
       "Permissions are a way to limit and grant certain abilities to users in Discord. A set of base permissions can be configured at the guild level for different roles. When these roles are attached to users, they grant or revoke specific privileges within the guild. Along with the guild-level permissions, Discord also supports permission overwrites that can be assigned to individual roles or members on a per-channel basis.",
       "> info\n> Application command permissions allow you to enable or disable specific commands for entire channels in addition to individual roles or users.",
@@ -15,9 +17,17 @@
       },
       "Additional logic is required when permission overwrites are involved; this is further explained below. For more information about bitwise operations and flags, see this page.",
       "Below is a table of all current permissions, their integer values in hexadecimal, brief descriptions of the privileges that they grant, and the channel type they apply to, if applicable.",
-      "|Bitwise Permission Flags"
+      "|Bitwise Permission Flags",
+      "|Permission Hierarchy",
+      "|Permission Overwrites",
+      "|Implicit Permissions",
+      "|Inherited Permissions (Threads)",
+      "|Permission Syncing",
+      "|Permissions For Timed Out Members"
     ],
     "Bitwise Permission Flags": {
+      "level": 6,
+      "url": "https://discord.com/developers/docs/topics/permissions#permissions-bitwise-permission-flags",
       "content": [
         [
           [
@@ -275,181 +285,195 @@
         ],
         "* These permissions require the owner account to use two-factor authentication when used on a guild that has server-wide 2FA enabled.",
         "** See Permissions for Timed Out Members to understand how permissions are temporarily modified for timed out users.",
-        "Note that permission names may be referred to differently in the Discord client. For example, \"Manage Permissions\" refers to MANAGE_ROLES, \"Use Voice Activity\" refers to USE_VAD, and \"Timeout Members\" refers to MODERATE_MEMBERS.",
-        "|Permission Hierarchy",
-        "|Permission Overwrites",
-        "|Implicit Permissions",
-        "|Inherited Permissions (Threads)",
-        "|Permission Syncing",
-        "|Permissions For Timed Out Members"
-      ],
-      "Permission Hierarchy": {
-        "content": [
-          "How permissions apply may at first seem intuitive, but there are some hidden restrictions that prevent bots from performing certain inappropriate actions based on a bot's highest role compared to its target's highest role. A bot's or user's highest role is its role that has the greatest position value in the guild, with the default @everyone role starting at 0. Permissions follow a hierarchy with the following rules:",
-          [
-            "A bot can grant roles to other users that are of a lower position than its own highest role.",
-            "A bot can edit roles of a lower position than its highest role, but it can only grant permissions it has to those roles.",
-            "A bot can only sort roles lower than its highest role.",
-            "A bot can only kick, ban, and edit nicknames for users whose highest role is lower than the bot's highest role."
-          ],
-          "Otherwise, permissions do not obey the role hierarchy. For example, a user has two roles: A and B. A denies the VIEW_CHANNEL permission on a #coolstuff channel. B allows the VIEW_CHANNEL permission on the same #coolstuff channel. The user would ultimately be able to view the #coolstuff channel, regardless of the role positions."
-        ]
-      },
-      "Permission Overwrites": {
-        "content": [
-          "Overwrites can be used to apply certain permissions to roles or members on a channel-level. Applicable permissions are indicated by a T for text channels, V for voice channels, or S for stage channels in the table above.",
-          "When using overwrites, there are cases where permission collisions could occur for a user; that is to say, the user may have certain overwrites with permissions that contradict each other or their guild-level role permissions. With this in mind, permissions are applied to users in the following hierarchy:",
-          [
-            "Base permissions given to @everyone are applied at a guild level",
-            "Permissions allowed to a user by their roles are applied at a guild level",
-            "Overwrites that deny permissions for @everyone are applied at a channel level",
-            "Overwrites that allow permissions for @everyone are applied at a channel level",
-            "Overwrites that deny permissions for specific roles are applied at a channel level",
-            "Overwrites that allow permissions for specific roles are applied at a channel level",
-            "Member-specific overwrites that deny permissions are applied at a channel level",
-            "Member-specific overwrites that allow permissions are applied at a channel level"
-          ],
-          "The following pseudocode demonstrates this process programmatically:",
-          {
-            "language": "python",
-            "code": "def compute_base_permissions(member, guild):\n    if guild.is_owner(member):\n        return ALL\n\n    role_everyone = guild.get_role(guild.id)  # get @everyone role\n    permissions = role_everyone.permissions\n\n    for role in member.roles:\n        permissions |= role.permissions\n\n    if permissions & ADMINISTRATOR == ADMINISTRATOR:\n        return ALL\n\n    return permissions\n\ndef compute_overwrites(base_permissions, member, channel):\n    # ADMINISTRATOR overrides any potential permission overwrites, so there is nothing to do here.\n    if base_permissions & ADMINISTRATOR == ADMINISTRATOR:\n        return ALL\n\n    permissions = base_permissions\n    overwrite_everyone = overwrites.get(channel.guild_id)  # Find (@everyone) role overwrite and apply it.\n    if overwrite_everyone:\n        permissions &= ~overwrite_everyone.deny\n        permissions |= overwrite_everyone.allow\n\n    # Apply role specific overwrites.\n    overwrites = channel.permission_overwrites\n    allow = NONE\n    deny = NONE\n    for role_id in member.roles:\n        overwrite_role = overwrites.get(role_id)\n        if overwrite_role:\n            allow |= overwrite_role.allow\n            deny |= overwrite_role.deny\n\n    permissions &= ~deny\n    permissions |= allow\n\n    # Apply member specific overwrite if it exist.\n    overwrite_member = overwrites.get(member.user_id)\n    if overwrite_member:\n        permissions &= ~overwrite_member.deny\n        permissions |= overwrite_member.allow\n\n    return permissions\n\ndef compute_permissions(member, channel):\n    base_permissions = compute_base_permissions(member, channel.guild)\n    return compute_overwrites(base_permissions, member, channel)\n"
-          }
-        ]
-      },
-      "Implicit Permissions": {
-        "content": [
-          "Permissions in Discord are sometimes implicitly denied or allowed based on logical use. The two main cases are VIEW_CHANNEL and SEND_MESSAGES for text channels. Denying a user or a role VIEW_CHANNEL on a channel implicitly denies other permissions on the channel. Though permissions like SEND_MESSAGES are not explicitly denied for the user, they are ignored because the user cannot read messages in the channel.",
-          "Denying SEND_MESSAGES implicitly denies MENTION_EVERYONE, SEND_TTS_MESSAGES, ATTACH_FILES, and EMBED_LINKS. Again, they are not explicitly denied when doing permissions calculations, but they are ignored because the user cannot do the base action of sending messages.",
-          "For voice and stage channels, denying the CONNECT permission also implicitly denies other permissions such as MANAGE_CHANNEL.",
-          "There may be other cases in which certain permissions implicitly deny or allow other permissions. In all cases, it is based on logical conclusions about how a user with certain permissions should or should not interact with Discord."
-        ]
-      },
-      "Inherited Permissions (Threads)": {
-        "content": [
-          "Threads inherit permissions from the parent channel (the channel they were created in), with one exception: The SEND_MESSAGES permission is not inherited; users must have SEND_MESSAGES_IN_THREADS to send a message in a thread, which allows for users to participate in threads in places like announcement channels.",
-          "Users must have the VIEW_CHANNEL permission to view any threads in the channel, even if they are directly mentioned or added to the thread."
-        ]
-      },
-      "Permission Syncing": {
-        "content": [
-          "Permissions with regards to categories and channels within categories are a bit tricky. Rather than inheritance, permissions are calculated by means of what we call Permission Syncing. If a child channel has the same permissions and overwrites (or lack thereof) as its parent category, the channel is considered \"synced\" to the category. Any further changes to a parent category will be reflected in its synced child channels. Any further changes to a child channel will cause it to become de-synced from its parent category, and its permissions will no longer change with changes to its parent category.",
-          "|Role Object"
+        "Note that permission names may be referred to differently in the Discord client. For example, \"Manage Permissions\" refers to MANAGE_ROLES, \"Use Voice Activity\" refers to USE_VAD, and \"Timeout Members\" refers to MODERATE_MEMBERS."
+      ]
+    },
+    "Permission Hierarchy": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/permissions#permission-hierarchy",
+      "content": [
+        "How permissions apply may at first seem intuitive, but there are some hidden restrictions that prevent bots from performing certain inappropriate actions based on a bot's highest role compared to its target's highest role. A bot's or user's highest role is its role that has the greatest position value in the guild, with the default @everyone role starting at 0. Permissions follow a hierarchy with the following rules:",
+        [
+          "A bot can grant roles to other users that are of a lower position than its own highest role.",
+          "A bot can edit roles of a lower position than its highest role, but it can only grant permissions it has to those roles.",
+          "A bot can only sort roles lower than its highest role.",
+          "A bot can only kick, ban, and edit nicknames for users whose highest role is lower than the bot's highest role."
         ],
-        "Role Object": {
-          "content": [
-            "Roles represent a set of permissions attached to a group of users. Roles have names, colors, and can be \"pinned\" to the side bar, causing their members to be listed separately. Roles can have separate permission profiles for the global context (guild) and channel context. The @everyone role has the same ID as the guild it belongs to.",
-            "|Role Structure"
-          ],
-          "Role Structure": {
-            "content": [
-              [
-                [
-                  "Field",
-                  "Type",
-                  "Description"
-                ],
-                [
-                  "id",
-                  "snowflake",
-                  "role id"
-                ],
-                [
-                  "name",
-                  "string",
-                  "role name"
-                ],
-                [
-                  "color",
-                  "integer",
-                  "integer representation of hexadecimal color code"
-                ],
-                [
-                  "hoist",
-                  "boolean",
-                  "if this role is pinned in the user listing"
-                ],
-                [
-                  "icon?",
-                  "?string",
-                  "role icon hash"
-                ],
-                [
-                  "unicode_emoji?",
-                  "?string",
-                  "role unicode emoji"
-                ],
-                [
-                  "position",
-                  "integer",
-                  "position of this role"
-                ],
-                [
-                  "permissions",
-                  "string",
-                  "permission bit set"
-                ],
-                [
-                  "managed",
-                  "boolean",
-                  "whether this role is managed by an integration"
-                ],
-                [
-                  "mentionable",
-                  "boolean",
-                  "whether this role is mentionable"
-                ],
-                [
-                  "tags?",
-                  "role tags object",
-                  "the tags this role has"
-                ]
-              ],
-              "Roles without colors (color == 0) do not count towards the final computed color in the user list.",
-              "|Role Tags Structure"
-            ],
-            "Role Tags Structure": {
-              "content": [
-                [
-                  [
-                    "Field",
-                    "Type",
-                    "Description"
-                  ],
-                  [
-                    "bot_id?",
-                    "snowflake",
-                    "the id of the bot this role belongs to"
-                  ],
-                  [
-                    "integration_id?",
-                    "snowflake",
-                    "the id of the integration this role belongs to"
-                  ],
-                  [
-                    "premium_subscriber?",
-                    "null",
-                    "whether this is the guild's premium subscriber role"
-                  ]
-                ],
-                "|Example Role"
-              ],
-              "Example Role": {
-                "content": [
-                  {
-                    "language": "json",
-                    "code": "{\n  \"id\": \"41771983423143936\",\n  \"name\": \"WE DEM BOYZZ!!!!!!\",\n  \"color\": 3447003,\n  \"hoist\": true,\n  \"icon\": \"cf3ced8600b777c9486c6d8d84fb4327\",\n  \"unicode_emoji\": null,\n  \"position\": 1,\n  \"permissions\": \"66321471\",\n  \"managed\": false,\n  \"mentionable\": false\n}\n"
-                  }
-                ]
-              }
-            }
-          }
+        "Otherwise, permissions do not obey the role hierarchy. For example, a user has two roles: A and B. A denies the VIEW_CHANNEL permission on a #coolstuff channel. B allows the VIEW_CHANNEL permission on the same #coolstuff channel. The user would ultimately be able to view the #coolstuff channel, regardless of the role positions."
+      ]
+    },
+    "Permission Overwrites": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/permissions#permission-overwrites",
+      "content": [
+        "Overwrites can be used to apply certain permissions to roles or members on a channel-level. Applicable permissions are indicated by a T for text channels, V for voice channels, or S for stage channels in the table above.",
+        "When using overwrites, there are cases where permission collisions could occur for a user; that is to say, the user may have certain overwrites with permissions that contradict each other or their guild-level role permissions. With this in mind, permissions are applied to users in the following hierarchy:",
+        [
+          "Base permissions given to @everyone are applied at a guild level",
+          "Permissions allowed to a user by their roles are applied at a guild level",
+          "Overwrites that deny permissions for @everyone are applied at a channel level",
+          "Overwrites that allow permissions for @everyone are applied at a channel level",
+          "Overwrites that deny permissions for specific roles are applied at a channel level",
+          "Overwrites that allow permissions for specific roles are applied at a channel level",
+          "Member-specific overwrites that deny permissions are applied at a channel level",
+          "Member-specific overwrites that allow permissions are applied at a channel level"
+        ],
+        "The following pseudocode demonstrates this process programmatically:",
+        {
+          "language": "python",
+          "code": "def compute_base_permissions(member, guild):\n    if guild.is_owner(member):\n        return ALL\n\n    role_everyone = guild.get_role(guild.id)  # get @everyone role\n    permissions = role_everyone.permissions\n\n    for role in member.roles:\n        permissions |= role.permissions\n\n    if permissions & ADMINISTRATOR == ADMINISTRATOR:\n        return ALL\n\n    return permissions\n\ndef compute_overwrites(base_permissions, member, channel):\n    # ADMINISTRATOR overrides any potential permission overwrites, so there is nothing to do here.\n    if base_permissions & ADMINISTRATOR == ADMINISTRATOR:\n        return ALL\n\n    permissions = base_permissions\n    overwrite_everyone = overwrites.get(channel.guild_id)  # Find (@everyone) role overwrite and apply it.\n    if overwrite_everyone:\n        permissions &= ~overwrite_everyone.deny\n        permissions |= overwrite_everyone.allow\n\n    # Apply role specific overwrites.\n    overwrites = channel.permission_overwrites\n    allow = NONE\n    deny = NONE\n    for role_id in member.roles:\n        overwrite_role = overwrites.get(role_id)\n        if overwrite_role:\n            allow |= overwrite_role.allow\n            deny |= overwrite_role.deny\n\n    permissions &= ~deny\n    permissions |= allow\n\n    # Apply member specific overwrite if it exist.\n    overwrite_member = overwrites.get(member.user_id)\n    if overwrite_member:\n        permissions &= ~overwrite_member.deny\n        permissions |= overwrite_member.allow\n\n    return permissions\n\ndef compute_permissions(member, channel):\n    base_permissions = compute_base_permissions(member, channel.guild)\n    return compute_overwrites(base_permissions, member, channel)\n"
         }
-      },
-      "Permissions For Timed Out Members": {
+      ]
+    },
+    "Implicit Permissions": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/permissions#implicit-permissions",
+      "content": [
+        "Permissions in Discord are sometimes implicitly denied or allowed based on logical use. The two main cases are VIEW_CHANNEL and SEND_MESSAGES for text channels. Denying a user or a role VIEW_CHANNEL on a channel implicitly denies other permissions on the channel. Though permissions like SEND_MESSAGES are not explicitly denied for the user, they are ignored because the user cannot read messages in the channel.",
+        "Denying SEND_MESSAGES implicitly denies MENTION_EVERYONE, SEND_TTS_MESSAGES, ATTACH_FILES, and EMBED_LINKS. Again, they are not explicitly denied when doing permissions calculations, but they are ignored because the user cannot do the base action of sending messages.",
+        "For voice and stage channels, denying the CONNECT permission also implicitly denies other permissions such as MANAGE_CHANNEL.",
+        "There may be other cases in which certain permissions implicitly deny or allow other permissions. In all cases, it is based on logical conclusions about how a user with certain permissions should or should not interact with Discord."
+      ]
+    },
+    "Inherited Permissions (Threads)": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/permissions#inherited-permissions-(threads)",
+      "content": [
+        "Threads inherit permissions from the parent channel (the channel they were created in), with one exception: The SEND_MESSAGES permission is not inherited; users must have SEND_MESSAGES_IN_THREADS to send a message in a thread, which allows for users to participate in threads in places like announcement channels.",
+        "Users must have the VIEW_CHANNEL permission to view any threads in the channel, even if they are directly mentioned or added to the thread."
+      ]
+    },
+    "Permission Syncing": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/permissions#permission-syncing",
+      "content": [
+        "Permissions with regards to categories and channels within categories are a bit tricky. Rather than inheritance, permissions are calculated by means of what we call Permission Syncing. If a child channel has the same permissions and overwrites (or lack thereof) as its parent category, the channel is considered \"synced\" to the category. Any further changes to a parent category will be reflected in its synced child channels. Any further changes to a child channel will cause it to become de-synced from its parent category, and its permissions will no longer change with changes to its parent category.",
+        "|Role Object"
+      ],
+      "Role Object": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/permissions#role-object",
         "content": [
-          "Timed out members will temporarily lose all permissions except VIEW_CHANNEL and READ_MESSAGE_HISTORY. Owners and admin users with ADMINISTRATOR permissions are exempt."
-        ]
+          "Roles represent a set of permissions attached to a group of users. Roles have names, colors, and can be \"pinned\" to the side bar, causing their members to be listed separately. Roles can have separate permission profiles for the global context (guild) and channel context. The @everyone role has the same ID as the guild it belongs to.",
+          "|Role Structure",
+          "|Role Tags Structure",
+          "|Example Role"
+        ],
+        "Role Structure": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/permissions#role-object-role-structure",
+          "content": [
+            [
+              [
+                "Field",
+                "Type",
+                "Description"
+              ],
+              [
+                "id",
+                "snowflake",
+                "role id"
+              ],
+              [
+                "name",
+                "string",
+                "role name"
+              ],
+              [
+                "color",
+                "integer",
+                "integer representation of hexadecimal color code"
+              ],
+              [
+                "hoist",
+                "boolean",
+                "if this role is pinned in the user listing"
+              ],
+              [
+                "icon?",
+                "?string",
+                "role icon hash"
+              ],
+              [
+                "unicode_emoji?",
+                "?string",
+                "role unicode emoji"
+              ],
+              [
+                "position",
+                "integer",
+                "position of this role"
+              ],
+              [
+                "permissions",
+                "string",
+                "permission bit set"
+              ],
+              [
+                "managed",
+                "boolean",
+                "whether this role is managed by an integration"
+              ],
+              [
+                "mentionable",
+                "boolean",
+                "whether this role is mentionable"
+              ],
+              [
+                "tags?",
+                "role tags object",
+                "the tags this role has"
+              ]
+            ],
+            "Roles without colors (color == 0) do not count towards the final computed color in the user list."
+          ]
+        },
+        "Role Tags Structure": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/permissions#role-object-role-tags-structure",
+          "content": [
+            [
+              [
+                "Field",
+                "Type",
+                "Description"
+              ],
+              [
+                "bot_id?",
+                "snowflake",
+                "the id of the bot this role belongs to"
+              ],
+              [
+                "integration_id?",
+                "snowflake",
+                "the id of the integration this role belongs to"
+              ],
+              [
+                "premium_subscriber?",
+                "null",
+                "whether this is the guild's premium subscriber role"
+              ]
+            ]
+          ]
+        },
+        "Example Role": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/permissions#role-object-example-role",
+          "content": [
+            {
+              "language": "json",
+              "code": "{\n  \"id\": \"41771983423143936\",\n  \"name\": \"WE DEM BOYZZ!!!!!!\",\n  \"color\": 3447003,\n  \"hoist\": true,\n  \"icon\": \"cf3ced8600b777c9486c6d8d84fb4327\",\n  \"unicode_emoji\": null,\n  \"position\": 1,\n  \"permissions\": \"66321471\",\n  \"managed\": false,\n  \"mentionable\": false\n}\n"
+            }
+          ]
+        }
       }
+    },
+    "Permissions For Timed Out Members": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/permissions#permissions-for-timed-out-members",
+      "content": [
+        "Timed out members will temporarily lose all permissions except VIEW_CHANNEL and READ_MESSAGE_HISTORY. Owners and admin users with ADMINISTRATOR permissions are exempt."
+      ]
     }
   }
 }

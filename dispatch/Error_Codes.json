@@ -3,6 +3,8 @@
     "|Error Codes"
   ],
   "Error Codes": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/dispatch/error-codes#error-codes",
     "content": [
       "> info\n> Need help with Dispatch? Talk to us in the Discord Developers Server!",
       "This page outlines some of the common errors codes that may be encountered when using Dispatch.",

@@ -3,11 +3,24 @@
     "|Users Resource"
   ],
   "Users Resource": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/resources/user#users-resource",
     "content": [
       "Users in Discord are generally considered the base entity. Users can spawn across the entire platform, be members of\nguilds, participate in text and voice chat, and much more. Users are separated by a distinction of \"bot\" vs \"normal.\" Although they are similar, bot users are automated users that are \"owned\" by another user. Unlike normal users, bot users do\nnot have a limitation on the number of Guilds they can be a part of.",
-      "|Usernames and Nicknames"
+      "|Usernames and Nicknames",
+      "|Get Current User % GET /users/@me",
+      "|Get User % GET /users/{user.id#DOCS_RESOURCES_USER/user-object}",
+      "|Modify Current User % PATCH /users/@me",
+      "|Get Current User Guilds % GET /users/@me/guilds",
+      "|Get Current User Guild Member % GET /users/@me/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/member",
+      "|Leave Guild % DELETE /users/@me/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}",
+      "|Create DM % POST /users/@me/channels",
+      "|Create Group DM % POST /users/@me/channels",
+      "|Get User Connections % GET /users/@me/connections"
     ],
     "Usernames and Nicknames": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/user#usernames-and-nicknames",
       "content": [
         "Discord enforces the following restrictions for usernames and nicknames:",
         [
@@ -23,22 +36,20 @@
         ],
         "There are other rules and restrictions not shared here for the sake of spam and abuse mitigation, but the majority of users won't encounter them. It's important to properly handle all error messages returned by Discord when editing or updating names.",
         "|User Object",
-        "|Get Current User % GET /users/@me",
-        "|Get User % GET /users/{user.id#DOCS_RESOURCES_USER/user-object}",
-        "|Modify Current User % PATCH /users/@me",
-        "|Get Current User Guilds % GET /users/@me/guilds",
-        "|Get Current User Guild Member % GET /users/@me/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/member",
-        "|Leave Guild % DELETE /users/@me/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}",
-        "|Create DM % POST /users/@me/channels",
-        "|Create Group DM % POST /users/@me/channels",
-        "|Get User Connections % GET /users/@me/connections"
+        "|Connection Object"
       ],
       "User Object": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/resources/user#user-object",
         "content": [
           "|User Structure",
-          "|Connection Object"
+          "|Example User",
+          "|User Flags",
+          "|Premium Types"
         ],
         "User Structure": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/resources/user#user-object-user-structure",
           "content": [
             [
               [
@@ -137,386 +148,140 @@
                 "the public flags on a user's account",
                 "identify"
               ]
-            ],
-            "|Example User"
-          ],
-          "Example User": {
-            "content": [
-              {
-                "language": "json",
-                "code": "{\n  \"id\": \"80351110224678912\",\n  \"username\": \"Nelly\",\n  \"discriminator\": \"1337\",\n  \"avatar\": \"8342729096ea3675442027381ff50dfe\",\n  \"verified\": true,\n  \"email\": \"nelly@discord.com\",\n  \"flags\": 64,\n  \"banner\": \"06c16474723fe537c283b8efa61a30c8\",\n  \"accent_color\": 16711680,\n  \"premium_type\": 1,\n  \"public_flags\": 64\n}\n"
-              },
-              "|User Flags"
-            ],
-            "User Flags": {
-              "content": [
-                [
-                  [
-                    "Value",
-                    "Name",
-                    "Description"
-                  ],
-                  [
-                    "1 << 0",
-                    "STAFF",
-                    "Discord Employee"
-                  ],
-                  [
-                    "1 << 1",
-                    "PARTNER",
-                    "Partnered Server Owner"
-                  ],
-                  [
-                    "1 << 2",
-                    "HYPESQUAD",
-                    "HypeSquad Events Member"
-                  ],
-                  [
-                    "1 << 3",
-                    "BUG_HUNTER_LEVEL_1",
-                    "Bug Hunter Level 1"
-                  ],
-                  [
-                    "1 << 6",
-                    "HYPESQUAD_ONLINE_HOUSE_1",
-                    "House Bravery Member"
-                  ],
-                  [
-                    "1 << 7",
-                    "HYPESQUAD_ONLINE_HOUSE_2",
-                    "House Brilliance Member"
-                  ],
-                  [
-                    "1 << 8",
-                    "HYPESQUAD_ONLINE_HOUSE_3",
-                    "House Balance Member"
-                  ],
-                  [
-                    "1 << 9",
-                    "PREMIUM_EARLY_SUPPORTER",
-                    "Early Nitro Supporter"
-                  ],
-                  [
-                    "1 << 10",
-                    "TEAM_PSEUDO_USER",
-                    "User is a team"
-                  ],
-                  [
-                    "1 << 14",
-                    "BUG_HUNTER_LEVEL_2",
-                    "Bug Hunter Level 2"
-                  ],
-                  [
-                    "1 << 16",
-                    "VERIFIED_BOT",
-                    "Verified Bot"
-                  ],
-                  [
-                    "1 << 17",
-                    "VERIFIED_DEVELOPER",
-                    "Early Verified Bot Developer"
-                  ],
-                  [
-                    "1 << 18",
-                    "CERTIFIED_MODERATOR",
-                    "Discord Certified Moderator"
-                  ],
-                  [
-                    "1 << 19",
-                    "BOT_HTTP_INTERACTIONS",
-                    "Bot uses only HTTP interactions and is shown in the online member list"
-                  ]
-                ],
-                "|Premium Types"
-              ],
-              "Premium Types": {
-                "content": [
-                  "Premium types denote the level of premium a user has. Visit the Nitro page to learn more about the premium plans we currently offer.",
-                  [
-                    [
-                      "Value",
-                      "Name"
-                    ],
-                    [
-                      "0",
-                      "None"
-                    ],
-                    [
-                      "1",
-                      "Nitro Classic"
-                    ],
-                    [
-                      "2",
-                      "Nitro"
-                    ]
-                  ]
-                ]
-              }
-            }
-          }
-        },
-        "Connection Object": {
-          "content": [
-            "The connection object that the user has attached.",
-            "|Connection Structure"
-          ],
-          "Connection Structure": {
-            "content": [
-              [
-                [
-                  "Field",
-                  "Type",
-                  "Description"
-                ],
-                [
-                  "id",
-                  "string",
-                  "id of the connection account"
-                ],
-                [
-                  "name",
-                  "string",
-                  "the username of the connection account"
-                ],
-                [
-                  "type",
-                  "string",
-                  "the service of this connection"
-                ],
-                [
-                  "revoked?",
-                  "boolean",
-                  "whether the connection is revoked"
-                ],
-                [
-                  "integrations?",
-                  "array",
-                  "an array of partial server integrations"
-                ],
-                [
-                  "verified",
-                  "boolean",
-                  "whether the connection is verified"
-                ],
-                [
-                  "friend_sync",
-                  "boolean",
-                  "whether friend sync is enabled for this connection"
-                ],
-                [
-                  "show_activity",
-                  "boolean",
-                  "whether activities related to this connection will be shown in presence updates"
-                ],
-                [
-                  "visibility",
-                  "integer",
-                  "visibility of this connection"
-                ]
-              ],
-              "|Services"
-            ],
-            "Services": {
-              "content": [
-                [
-                  [
-                    "Value",
-                    "Name"
-                  ],
-                  [
-                    "battlenet",
-                    "Battle.net"
-                  ],
-                  [
-                    "epicgames",
-                    "Epic Games"
-                  ],
-                  [
-                    "facebook",
-                    "Facebook"
-                  ],
-                  [
-                    "github",
-                    "GitHub"
-                  ],
-                  [
-                    "leagueoflegends *",
-                    "League of Legends"
-                  ],
-                  [
-                    "playstation",
-                    "PlayStation Network"
-                  ],
-                  [
-                    "reddit",
-                    "Reddit"
-                  ],
-                  [
-                    "samsunggalaxy *",
-                    "Samsung Galaxy"
-                  ],
-                  [
-                    "spotify",
-                    "Spotify"
-                  ],
-                  [
-                    "skype *",
-                    "Skype"
-                  ],
-                  [
-                    "steam",
-                    "Steam"
-                  ],
-                  [
-                    "twitch",
-                    "Twitch"
-                  ],
-                  [
-                    "twitter",
-                    "Twitter"
-                  ],
-                  [
-                    "xbox",
-                    "Xbox"
-                  ],
-                  [
-                    "youtube",
-                    "YouTube"
-                  ]
-                ],
-                "* Service can no longer be added by users",
-                "|Visibility Types"
-              ],
-              "Visibility Types": {
-                "content": [
-                  [
-                    [
-                      "Value",
-                      "Name",
-                      "Description"
-                    ],
-                    [
-                      "0",
-                      "None",
-                      "invisible to everyone except the user themselves"
-                    ],
-                    [
-                      "1",
-                      "Everyone",
-                      "visible to everyone"
-                    ]
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      },
-      "Get Current User % GET /users/@me": {
-        "content": [
-          "Returns the user object of the requester's account. For OAuth2, this requires the identify scope, which will return the object without an email, and optionally the email scope, which returns the object with an email."
-        ]
-      },
-      "Get User % GET /users/{user.id#DOCS_RESOURCES_USER/user-object}": {
-        "content": [
-          "Returns a user object for a given user ID."
-        ]
-      },
-      "Modify Current User % PATCH /users/@me": {
-        "content": [
-          "Modify the requester's user account settings. Returns a user object on success.",
-          "> info\n> All parameters to this endpoint are optional.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "username",
-                "string",
-                "user's username, if changed may cause the user's discriminator to be randomized."
-              ],
-              [
-                "avatar",
-                "?image data",
-                "if passed, modifies the user's avatar"
-              ]
             ]
           ]
-        }
-      },
-      "Get Current User Guilds % GET /users/@me/guilds": {
-        "content": [
-          "Returns a list of partial guild objects the current user is a member of. Requires the guilds OAuth2 scope.",
-          "|Example Partial Guild"
-        ],
-        "Example Partial Guild": {
+        },
+        "Example User": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/resources/user#user-object-example-user",
           "content": [
             {
               "language": "json",
-              "code": "{\n  \"id\": \"80351110224678912\",\n  \"name\": \"1337 Krew\",\n  \"icon\": \"8342729096ea3675442027381ff50dfe\",\n  \"owner\": true,\n  \"permissions\": \"36953089\",\n  \"features\": [\"COMMUNITY\", \"NEWS\"]\n}\n"
-            },
-            "> info\n> This endpoint returns 200 guilds by default, which is the maximum number of guilds a non-bot user can join. Therefore, pagination is not needed for integrations that need to get a list of the users' guilds.",
-            "|Query String Params"
-          ],
-          "Query String Params": {
-            "content": [
+              "code": "{\n  \"id\": \"80351110224678912\",\n  \"username\": \"Nelly\",\n  \"discriminator\": \"1337\",\n  \"avatar\": \"8342729096ea3675442027381ff50dfe\",\n  \"verified\": true,\n  \"email\": \"nelly@discord.com\",\n  \"flags\": 64,\n  \"banner\": \"06c16474723fe537c283b8efa61a30c8\",\n  \"accent_color\": 16711680,\n  \"premium_type\": 1,\n  \"public_flags\": 64\n}\n"
+            }
+          ]
+        },
+        "User Flags": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/resources/user#user-object-user-flags",
+          "content": [
+            [
               [
-                [
-                  "Field",
-                  "Type",
-                  "Description",
-                  "Required",
-                  "Default"
-                ],
-                [
-                  "before",
-                  "snowflake",
-                  "get guilds before this guild ID",
-                  "false",
-                  "absent"
-                ],
-                [
-                  "after",
-                  "snowflake",
-                  "get guilds after this guild ID",
-                  "false",
-                  "absent"
-                ],
-                [
-                  "limit",
-                  "integer",
-                  "max number of guilds to return (1-200)",
-                  "false",
-                  "200"
-                ]
+                "Value",
+                "Name",
+                "Description"
+              ],
+              [
+                "1 << 0",
+                "STAFF",
+                "Discord Employee"
+              ],
+              [
+                "1 << 1",
+                "PARTNER",
+                "Partnered Server Owner"
+              ],
+              [
+                "1 << 2",
+                "HYPESQUAD",
+                "HypeSquad Events Member"
+              ],
+              [
+                "1 << 3",
+                "BUG_HUNTER_LEVEL_1",
+                "Bug Hunter Level 1"
+              ],
+              [
+                "1 << 6",
+                "HYPESQUAD_ONLINE_HOUSE_1",
+                "House Bravery Member"
+              ],
+              [
+                "1 << 7",
+                "HYPESQUAD_ONLINE_HOUSE_2",
+                "House Brilliance Member"
+              ],
+              [
+                "1 << 8",
+                "HYPESQUAD_ONLINE_HOUSE_3",
+                "House Balance Member"
+              ],
+              [
+                "1 << 9",
+                "PREMIUM_EARLY_SUPPORTER",
+                "Early Nitro Supporter"
+              ],
+              [
+                "1 << 10",
+                "TEAM_PSEUDO_USER",
+                "User is a team"
+              ],
+              [
+                "1 << 14",
+                "BUG_HUNTER_LEVEL_2",
+                "Bug Hunter Level 2"
+              ],
+              [
+                "1 << 16",
+                "VERIFIED_BOT",
+                "Verified Bot"
+              ],
+              [
+                "1 << 17",
+                "VERIFIED_DEVELOPER",
+                "Early Verified Bot Developer"
+              ],
+              [
+                "1 << 18",
+                "CERTIFIED_MODERATOR",
+                "Discord Certified Moderator"
+              ],
+              [
+                "1 << 19",
+                "BOT_HTTP_INTERACTIONS",
+                "Bot uses only HTTP interactions and is shown in the online member list"
               ]
             ]
-          }
+          ]
+        },
+        "Premium Types": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/resources/user#user-object-premium-types",
+          "content": [
+            "Premium types denote the level of premium a user has. Visit the Nitro page to learn more about the premium plans we currently offer.",
+            [
+              [
+                "Value",
+                "Name"
+              ],
+              [
+                "0",
+                "None"
+              ],
+              [
+                "1",
+                "Nitro Classic"
+              ],
+              [
+                "2",
+                "Nitro"
+              ]
+            ]
+          ]
         }
       },
-      "Get Current User Guild Member % GET /users/@me/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/member": {
+      "Connection Object": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/resources/user#connection-object",
         "content": [
-          "Returns a guild member object for the current user. Requires the guilds.members.read OAuth2 scope."
-        ]
-      },
-      "Leave Guild % DELETE /users/@me/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}": {
-        "content": [
-          "Leave a guild. Returns a 204 empty response on success."
-        ]
-      },
-      "Create DM % POST /users/@me/channels": {
-        "content": [
-          "Create a new DM channel with a user. Returns a DM channel object.",
-          "> warn\n> You should not use this endpoint to DM everyone in a server about something. DMs should generally be initiated by a user action. If you open a significant amount of DMs too quickly, your bot may be rate limited or blocked from opening new ones.",
-          "|JSON Params"
+          "The connection object that the user has attached.",
+          "|Connection Structure",
+          "|Services",
+          "|Visibility Types"
         ],
-        "JSON Params": {
+        "Connection Structure": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/resources/user#connection-object-connection-structure",
           "content": [
             [
               [
@@ -525,47 +290,332 @@
                 "Description"
               ],
               [
-                "recipient_id",
-                "snowflake",
-                "the recipient to open a DM channel with"
+                "id",
+                "string",
+                "id of the connection account"
+              ],
+              [
+                "name",
+                "string",
+                "the username of the connection account"
+              ],
+              [
+                "type",
+                "string",
+                "the service of this connection"
+              ],
+              [
+                "revoked?",
+                "boolean",
+                "whether the connection is revoked"
+              ],
+              [
+                "integrations?",
+                "array",
+                "an array of partial server integrations"
+              ],
+              [
+                "verified",
+                "boolean",
+                "whether the connection is verified"
+              ],
+              [
+                "friend_sync",
+                "boolean",
+                "whether friend sync is enabled for this connection"
+              ],
+              [
+                "show_activity",
+                "boolean",
+                "whether activities related to this connection will be shown in presence updates"
+              ],
+              [
+                "visibility",
+                "integer",
+                "visibility of this connection"
               ]
             ]
           ]
-        }
-      },
-      "Create Group DM % POST /users/@me/channels": {
-        "content": [
-          "Create a new group DM channel with multiple users. Returns a DM channel object. This endpoint was intended to be used with the now-deprecated GameBridge SDK. DMs created with this endpoint will not be shown in the Discord client",
-          "> warn\n> This endpoint is limited to 10 active group DMs.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
+        },
+        "Services": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/resources/user#connection-object-services",
           "content": [
             [
               [
-                "Field",
-                "Type",
+                "Value",
+                "Name"
+              ],
+              [
+                "battlenet",
+                "Battle.net"
+              ],
+              [
+                "epicgames",
+                "Epic Games"
+              ],
+              [
+                "facebook",
+                "Facebook"
+              ],
+              [
+                "github",
+                "GitHub"
+              ],
+              [
+                "leagueoflegends *",
+                "League of Legends"
+              ],
+              [
+                "playstation",
+                "PlayStation Network"
+              ],
+              [
+                "reddit",
+                "Reddit"
+              ],
+              [
+                "samsunggalaxy *",
+                "Samsung Galaxy"
+              ],
+              [
+                "spotify",
+                "Spotify"
+              ],
+              [
+                "skype *",
+                "Skype"
+              ],
+              [
+                "steam",
+                "Steam"
+              ],
+              [
+                "twitch",
+                "Twitch"
+              ],
+              [
+                "twitter",
+                "Twitter"
+              ],
+              [
+                "xbox",
+                "Xbox"
+              ],
+              [
+                "youtube",
+                "YouTube"
+              ]
+            ],
+            "* Service can no longer be added by users"
+          ]
+        },
+        "Visibility Types": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/resources/user#connection-object-visibility-types",
+          "content": [
+            [
+              [
+                "Value",
+                "Name",
                 "Description"
               ],
               [
-                "access_tokens",
-                "array of strings",
-                "access tokens of users that have granted your app the gdm.join scope"
+                "0",
+                "None",
+                "invisible to everyone except the user themselves"
               ],
               [
-                "nicks",
-                "dict",
-                "a dictionary of user ids to their respective nicknames"
+                "1",
+                "Everyone",
+                "visible to everyone"
               ]
             ]
           ]
         }
-      },
-      "Get User Connections % GET /users/@me/connections": {
+      }
+    },
+    "Get Current User % GET /users/@me": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/user#get-current-user-%-get-/users/@me",
+      "content": [
+        "Returns the user object of the requester's account. For OAuth2, this requires the identify scope, which will return the object without an email, and optionally the email scope, which returns the object with an email."
+      ]
+    },
+    "Get User % GET /users/{user.id#DOCS_RESOURCES_USER/user-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/user#get-user-%-get-/users/{user.id#docs_resources_user/user-object}",
+      "content": [
+        "Returns a user object for a given user ID."
+      ]
+    },
+    "Modify Current User % PATCH /users/@me": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/user#modify-current-user-%-patch-/users/@me",
+      "content": [
+        "Modify the requester's user account settings. Returns a user object on success.",
+        "> info\n> All parameters to this endpoint are optional.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/user#modify-current-user-%-patch-/users/@me-json-params",
         "content": [
-          "Returns a list of connection objects. Requires the connections OAuth2 scope."
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "username",
+              "string",
+              "user's username, if changed may cause the user's discriminator to be randomized."
+            ],
+            [
+              "avatar",
+              "?image data",
+              "if passed, modifies the user's avatar"
+            ]
+          ]
         ]
       }
+    },
+    "Get Current User Guilds % GET /users/@me/guilds": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/user#get-current-user-guilds-%-get-/users/@me/guilds",
+      "content": [
+        "Returns a list of partial guild objects the current user is a member of. Requires the guilds OAuth2 scope.",
+        "|Example Partial Guild",
+        "|Query String Params"
+      ],
+      "Example Partial Guild": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/user#get-current-user-guilds-%-get-/users/@me/guilds-example-partial-guild",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"id\": \"80351110224678912\",\n  \"name\": \"1337 Krew\",\n  \"icon\": \"8342729096ea3675442027381ff50dfe\",\n  \"owner\": true,\n  \"permissions\": \"36953089\",\n  \"features\": [\"COMMUNITY\", \"NEWS\"]\n}\n"
+          },
+          "> info\n> This endpoint returns 200 guilds by default, which is the maximum number of guilds a non-bot user can join. Therefore, pagination is not needed for integrations that need to get a list of the users' guilds."
+        ]
+      },
+      "Query String Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/user#get-current-user-guilds-%-get-/users/@me/guilds-query-string-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description",
+              "Required",
+              "Default"
+            ],
+            [
+              "before",
+              "snowflake",
+              "get guilds before this guild ID",
+              "false",
+              "absent"
+            ],
+            [
+              "after",
+              "snowflake",
+              "get guilds after this guild ID",
+              "false",
+              "absent"
+            ],
+            [
+              "limit",
+              "integer",
+              "max number of guilds to return (1-200)",
+              "false",
+              "200"
+            ]
+          ]
+        ]
+      }
+    },
+    "Get Current User Guild Member % GET /users/@me/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/member": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/user#get-current-user-guild-member-%-get-/users/@me/guilds/{guild.id#docs_resources_guild/guild-object}/member",
+      "content": [
+        "Returns a guild member object for the current user. Requires the guilds.members.read OAuth2 scope."
+      ]
+    },
+    "Leave Guild % DELETE /users/@me/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/user#leave-guild-%-delete-/users/@me/guilds/{guild.id#docs_resources_guild/guild-object}",
+      "content": [
+        "Leave a guild. Returns a 204 empty response on success."
+      ]
+    },
+    "Create DM % POST /users/@me/channels": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/user#create-dm-%-post-/users/@me/channels",
+      "content": [
+        "Create a new DM channel with a user. Returns a DM channel object.",
+        "> warn\n> You should not use this endpoint to DM everyone in a server about something. DMs should generally be initiated by a user action. If you open a significant amount of DMs too quickly, your bot may be rate limited or blocked from opening new ones.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/user#create-dm-%-post-/users/@me/channels-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "recipient_id",
+              "snowflake",
+              "the recipient to open a DM channel with"
+            ]
+          ]
+        ]
+      }
+    },
+    "Create Group DM % POST /users/@me/channels": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/user#create-group-dm-%-post-/users/@me/channels",
+      "content": [
+        "Create a new group DM channel with multiple users. Returns a DM channel object. This endpoint was intended to be used with the now-deprecated GameBridge SDK. DMs created with this endpoint will not be shown in the Discord client",
+        "> warn\n> This endpoint is limited to 10 active group DMs.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/user#create-group-dm-%-post-/users/@me/channels-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "access_tokens",
+              "array of strings",
+              "access tokens of users that have granted your app the gdm.join scope"
+            ],
+            [
+              "nicks",
+              "dict",
+              "a dictionary of user ids to their respective nicknames"
+            ]
+          ]
+        ]
+      }
+    },
+    "Get User Connections % GET /users/@me/connections": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/user#get-user-connections-%-get-/users/@me/connections",
+      "content": [
+        "Returns a list of connection objects. Requires the connections OAuth2 scope."
+      ]
     }
   }
 }

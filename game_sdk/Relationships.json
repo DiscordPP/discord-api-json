@@ -3,6 +3,8 @@
     "|Relationships"
   ],
   "Relationships": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/game_sdk/relationships#relationships",
     "content": [
       "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
       "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
@@ -12,302 +14,352 @@
         "Filter those relationships based on a given criteria",
         "Build a user's friends list"
       ],
-      "|First Notes"
+      "|First Notes",
+      "|Data Models",
+      "|Filter",
+      "|Get",
+      "|GetAt",
+      "|Count",
+      "|OnRefresh",
+      "|OnRelationshipUpdate",
+      "|Example: Creating a Friends List",
+      "|Example: Invite Users Who Are Playing the Same Game"
     ],
     "First Notes": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/relationships#first-notes",
       "content": [
         "Relationships on Discord change often; people start and stop playing games, go online, offline, invisible, or otherwise change state. Therefore, there are some important factors to remember when working with this manager. When you are first getting a list of a user's relationships, before you can Filter(), you need to wait for the OnRefresh callback to fire. This is your indicator that Discord has successfully taken a snapshot of the state of all your relationships at a given moment. Now that you have this snapshot, you can Filter() it to build the list that you want, and then iterate over that list to do whatever your game needs to do. Use this to build your initial social graph for a user.",
         "As relationships change, the OnRelationshipUpdate event will fire. You can use this to update the user's social graph, changing the status of the other Discord users that you chose to filter, e.g. someone is now online, or now playing the game, or no longer playing.",
-        "An example of how to do this properly is at the end of this documentation page.",
-        "|Data Models",
-        "|Filter",
-        "|Get",
-        "|GetAt",
-        "|Count",
-        "|OnRefresh",
-        "|OnRelationshipUpdate",
-        "|Example: Creating a Friends List",
-        "|Example: Invite Users Who Are Playing the Same Game"
+        "An example of how to do this properly is at the end of this documentation page."
+      ]
+    },
+    "Data Models": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/relationships#data-models",
+      "content": [
+        "|Relationship Struct",
+        "|RelationshipType Enum",
+        "|Presence Struct",
+        "|Status Enum"
       ],
-      "Data Models": {
+      "Relationship Struct": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/relationships#data-models-relationship-struct",
         "content": [
-          "|Relationship Struct"
-        ],
-        "Relationship Struct": {
-          "content": [
+          [
             [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "Type",
-                "RelationshipType",
-                "what kind of relationship it is"
-              ],
-              [
-                "User",
-                "User",
-                "the user the relationship is for"
-              ],
-              [
-                "Presence",
-                "Presence",
-                "that user's current presence"
-              ]
+              "name",
+              "type",
+              "description"
             ],
-            "|RelationshipType Enum"
-          ],
-          "RelationshipType Enum": {
-            "content": [
-              [
-                [
-                  "value",
-                  "description"
-                ],
-                [
-                  "None",
-                  "user has no intrinsic relationship"
-                ],
-                [
-                  "Friend",
-                  "user is a friend"
-                ],
-                [
-                  "Blocked",
-                  "user is blocked"
-                ],
-                [
-                  "PendingIncoming",
-                  "user has a pending incoming friend request to connected user"
-                ],
-                [
-                  "PendingOutgoing",
-                  "current user has a pending outgoing friend request to user"
-                ],
-                [
-                  "Implicit",
-                  "user is not friends, but interacts with current user often (frequency + recency)"
-                ]
-              ],
-              "|Presence Struct"
-            ],
-            "Presence Struct": {
-              "content": [
-                [
-                  [
-                    "name",
-                    "type",
-                    "description"
-                  ],
-                  [
-                    "Status",
-                    "Status",
-                    "the user's current online status"
-                  ],
-                  [
-                    "Activity",
-                    "Activity",
-                    "the user's current activity"
-                  ]
-                ],
-                "|Status Enum"
-              ],
-              "Status Enum": {
-                "content": [
-                  [
-                    [
-                      "name",
-                      "value"
-                    ],
-                    [
-                      "Offline",
-                      "0"
-                    ],
-                    [
-                      "Online",
-                      "1"
-                    ],
-                    [
-                      "Idle",
-                      "2"
-                    ],
-                    [
-                      "DoNotDisturb",
-                      "3"
-                    ]
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      },
-      "Filter": {
-        "content": [
-          "Filters a user's relationship list by a boolean condition.",
-          "Returns void.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            "A function that takes a Relationship parameter.",
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "relationshipsManager.Filter(relationship =>\n{\n  return relationship.Presence.Status == Discord.Status.Online;\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "Get": {
-        "content": [
-          "Get the relationship between the current user and a given user by id.",
-          "Returns a Relationship.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
             [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "userId",
-                "Int64",
-                "the id of the user to fetch"
-              ]
+              "Type",
+              "RelationshipType",
+              "what kind of relationship it is"
             ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var friend = relationshipsManager.Get(53908232506183680);\nConsole.WriteLine(\"This is my friend, {0}\", friend.User.Username);\n"
-              }
-            ]
-          }
-        }
-      },
-      "GetAt": {
-        "content": [
-          "Get the relationship at a given index when iterating over a list of relationships.",
-          "Returns a Relationship.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
             [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "index",
-                "UInt32",
-                "index in the list"
-              ]
+              "User",
+              "User",
+              "the user the relationship is for"
             ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "for (int i = 0; i < relationshipsManager.Count(); i++)\n{\n  var r = relationshipsManager.GetAt(i);\n  Console.WriteLine(\"This person is {0}\", r.User.Username);\n}\n"
-              }
+            [
+              "Presence",
+              "Presence",
+              "that user's current presence"
             ]
-          }
-        }
-      },
-      "Count": {
-        "content": [
-          "Get the number of relationships that match your Filter().",
-          "Returns an Int32.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            "None",
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "for (int i = 0; i < relationshipsManager.Count(); i++)\n{\n  var r = relationshipsManager.At(i);\n  Console.WriteLine(\"This person is {0}\", r.User.Username);\n}\n"
-              }
-            ]
-          }
-        }
-      },
-      "OnRefresh": {
-        "content": [
-          "Fires at initialization when Discord has cached a snapshot of the current status of all your relationships. Wait for this to fire before calling Filter within its callback.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            "None"
           ]
-        }
-      },
-      "OnRelationshipUpdate": {
-        "content": [
-          "Fires when a relationship in the filtered list changes, like an updated presence or user attribute.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "relationship",
-                "ref Relationship",
-                "the relationship that changed"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "OnRelationshipUpdate += (ref Discord.Relationship relationship) =>\n{\n  Console.WriteLine(\"Who changed? {0}\", relationship.User.Id);\n};\n"
-              }
-            ]
-          }
-        }
-      },
-      "Example: Creating a Friends List": {
-        "content": [
-          {
-            "language": "cs",
-            "code": "var discord = new Discord.Discord(clientId, Discord.CreateFlags.Default);\nvar relationshipManager = discord.GetRelationshipManager();\n\n// Assign this handle right away to get the initial relationships update.\n// This callback will only be fired when the whole list is initially loaded or was reset\n\n// Wait for OnRefresh to fire to access a stable list\n// Filter a user's relationship list to be just friends\n// Use this list as your base\nrelationshipManager.OnRefresh += () =>\n{\n  relationshipManager.Filter((relationship) =>\n  {\n    return relationship.Type == Discord.RelationshipType.Friend;\n  });\n\n  // Loop over all friends a user has.\n  Console.WriteLine(\"relationships updated: {0}\", relationshipManager.Count());\n\n  for (var i = 0; i < relationshipManager.Count(); i++)\n  {\n      // Get an individual relationship from the list\n      var r = relationshipManager.GetAt((uint)i);\n      Console.WriteLine(\"relationships: {0} {1}\", r.Type, r.User.Username);\n      // Save r off to a list of user's relationships\n  }\n}\n\nrelationshipManager.OnRelationshipUpdate += (ref Discord.Relationship relationship) =>\n{\n  Console.WriteLine(\"User is {0}\", relationship.User.Username);\n  // Update the matching user in your previously created list\n}\n"
-          }
         ]
       },
-      "Example: Invite Users Who Are Playing the Same Game": {
+      "RelationshipType Enum": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/relationships#data-models-relationshiptype-enum",
+        "content": [
+          [
+            [
+              "value",
+              "description"
+            ],
+            [
+              "None",
+              "user has no intrinsic relationship"
+            ],
+            [
+              "Friend",
+              "user is a friend"
+            ],
+            [
+              "Blocked",
+              "user is blocked"
+            ],
+            [
+              "PendingIncoming",
+              "user has a pending incoming friend request to connected user"
+            ],
+            [
+              "PendingOutgoing",
+              "current user has a pending outgoing friend request to user"
+            ],
+            [
+              "Implicit",
+              "user is not friends, but interacts with current user often (frequency + recency)"
+            ]
+          ]
+        ]
+      },
+      "Presence Struct": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/relationships#data-models-presence-struct",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "Status",
+              "Status",
+              "the user's current online status"
+            ],
+            [
+              "Activity",
+              "Activity",
+              "the user's current activity"
+            ]
+          ]
+        ]
+      },
+      "Status Enum": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/relationships#data-models-status-enum",
+        "content": [
+          [
+            [
+              "name",
+              "value"
+            ],
+            [
+              "Offline",
+              "0"
+            ],
+            [
+              "Online",
+              "1"
+            ],
+            [
+              "Idle",
+              "2"
+            ],
+            [
+              "DoNotDisturb",
+              "3"
+            ]
+          ]
+        ]
+      }
+    },
+    "Filter": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/relationships#filter",
+      "content": [
+        "Filters a user's relationship list by a boolean condition.",
+        "Returns void.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/relationships#filter-parameters",
+        "content": [
+          "A function that takes a Relationship parameter."
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/relationships#filter-example",
         "content": [
           {
             "language": "cs",
-            "code": "var discord = new Discord.Discord(clientId, Discord.CreateFlags.Default);\nvar relationshipManager = discord.GetRelationshipManager();\nvar activityManager = discord.GetActivityManager();\n\nrelationshipManager.OnRefresh += () =>\n{\n  relationshipManager.Filter((relationship) =>\n  {\n    // Filter for users who are playing the same game as the current user\n    // Is their activity application id the same as my client id?\n    return relationship.Presence.Activity.ApplicationId == clientId;\n  });\n\n  for (var i = 0; i < relationshipManager.Count(); i++)\n  {\n      // Get an individual relationship from the list\n      var r = relationshipManager.GetAt((uint)i);\n      Console.WriteLine(\"relationships: {0} {1}\", r.Type, r.User.Username);\n\n      // Send them a game invite!\n      activityManager.InviteUser(r.User.Id, Discord.ActivityActionType.Join, \"Come play with me!\", (result) =>\n      {\n        Console.WriteLine(\"Invited user {0} to play with you\", r.User.Username);\n      });\n  };\n}\n"
+            "code": "relationshipsManager.Filter(relationship =>\n{\n  return relationship.Presence.Status == Discord.Status.Online;\n});\n"
           }
         ]
       }
+    },
+    "Get": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/relationships#get",
+      "content": [
+        "Get the relationship between the current user and a given user by id.",
+        "Returns a Relationship.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/relationships#get-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "userId",
+              "Int64",
+              "the id of the user to fetch"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/relationships#get-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var friend = relationshipsManager.Get(53908232506183680);\nConsole.WriteLine(\"This is my friend, {0}\", friend.User.Username);\n"
+          }
+        ]
+      }
+    },
+    "GetAt": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/relationships#getat",
+      "content": [
+        "Get the relationship at a given index when iterating over a list of relationships.",
+        "Returns a Relationship.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/relationships#getat-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "index",
+              "UInt32",
+              "index in the list"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/relationships#getat-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "for (int i = 0; i < relationshipsManager.Count(); i++)\n{\n  var r = relationshipsManager.GetAt(i);\n  Console.WriteLine(\"This person is {0}\", r.User.Username);\n}\n"
+          }
+        ]
+      }
+    },
+    "Count": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/relationships#count",
+      "content": [
+        "Get the number of relationships that match your Filter().",
+        "Returns an Int32.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/relationships#count-parameters",
+        "content": [
+          "None"
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/relationships#count-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "for (int i = 0; i < relationshipsManager.Count(); i++)\n{\n  var r = relationshipsManager.At(i);\n  Console.WriteLine(\"This person is {0}\", r.User.Username);\n}\n"
+          }
+        ]
+      }
+    },
+    "OnRefresh": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/relationships#onrefresh",
+      "content": [
+        "Fires at initialization when Discord has cached a snapshot of the current status of all your relationships. Wait for this to fire before calling Filter within its callback.",
+        "|Parameters"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/relationships#onrefresh-parameters",
+        "content": [
+          "None"
+        ]
+      }
+    },
+    "OnRelationshipUpdate": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/relationships#onrelationshipupdate",
+      "content": [
+        "Fires when a relationship in the filtered list changes, like an updated presence or user attribute.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/relationships#onrelationshipupdate-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "relationship",
+              "ref Relationship",
+              "the relationship that changed"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/relationships#onrelationshipupdate-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "OnRelationshipUpdate += (ref Discord.Relationship relationship) =>\n{\n  Console.WriteLine(\"Who changed? {0}\", relationship.User.Id);\n};\n"
+          }
+        ]
+      }
+    },
+    "Example: Creating a Friends List": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/relationships#example:-creating-a-friends-list",
+      "content": [
+        {
+          "language": "cs",
+          "code": "var discord = new Discord.Discord(clientId, Discord.CreateFlags.Default);\nvar relationshipManager = discord.GetRelationshipManager();\n\n// Assign this handle right away to get the initial relationships update.\n// This callback will only be fired when the whole list is initially loaded or was reset\n\n// Wait for OnRefresh to fire to access a stable list\n// Filter a user's relationship list to be just friends\n// Use this list as your base\nrelationshipManager.OnRefresh += () =>\n{\n  relationshipManager.Filter((relationship) =>\n  {\n    return relationship.Type == Discord.RelationshipType.Friend;\n  });\n\n  // Loop over all friends a user has.\n  Console.WriteLine(\"relationships updated: {0}\", relationshipManager.Count());\n\n  for (var i = 0; i < relationshipManager.Count(); i++)\n  {\n      // Get an individual relationship from the list\n      var r = relationshipManager.GetAt((uint)i);\n      Console.WriteLine(\"relationships: {0} {1}\", r.Type, r.User.Username);\n      // Save r off to a list of user's relationships\n  }\n}\n\nrelationshipManager.OnRelationshipUpdate += (ref Discord.Relationship relationship) =>\n{\n  Console.WriteLine(\"User is {0}\", relationship.User.Username);\n  // Update the matching user in your previously created list\n}\n"
+        }
+      ]
+    },
+    "Example: Invite Users Who Are Playing the Same Game": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/relationships#example:-invite-users-who-are-playing-the-same-game",
+      "content": [
+        {
+          "language": "cs",
+          "code": "var discord = new Discord.Discord(clientId, Discord.CreateFlags.Default);\nvar relationshipManager = discord.GetRelationshipManager();\nvar activityManager = discord.GetActivityManager();\n\nrelationshipManager.OnRefresh += () =>\n{\n  relationshipManager.Filter((relationship) =>\n  {\n    // Filter for users who are playing the same game as the current user\n    // Is their activity application id the same as my client id?\n    return relationship.Presence.Activity.ApplicationId == clientId;\n  });\n\n  for (var i = 0; i < relationshipManager.Count(); i++)\n  {\n      // Get an individual relationship from the list\n      var r = relationshipManager.GetAt((uint)i);\n      Console.WriteLine(\"relationships: {0} {1}\", r.Type, r.User.Username);\n\n      // Send them a game invite!\n      activityManager.InviteUser(r.User.Id, Discord.ActivityActionType.Join, \"Come play with me!\", (result) =>\n      {\n        Console.WriteLine(\"Invited user {0} to play with you\", r.User.Username);\n      });\n  };\n}\n"
+        }
+      ]
     }
   }
 }

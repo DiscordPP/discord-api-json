@@ -3,14 +3,23 @@
     "|Application Resource"
   ],
   "Application Resource": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/resources/application#application-resource",
     "content": [
-      "|Application Object"
+      "|Application Object",
+      "|Install Params Object"
     ],
     "Application Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/application#application-object",
       "content": [
-        "|Application Structure"
+        "|Application Structure",
+        "|Example Application Object",
+        "|Application Flags"
       ],
       "Application Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/application#application-object-application-structure",
         "content": [
           [
             [
@@ -123,96 +132,101 @@
               "string",
               "the application's default custom authorization link, if enabled"
             ]
-          ],
-          "|Example Application Object",
-          "|Install Params Object"
-        ],
-        "Example Application Object": {
-          "content": [
-            {
-              "language": "json",
-              "code": "{\n  \"bot_public\": true,\n  \"bot_require_code_grant\": false,\n  \"cover_image\": \"31deabb7e45b6c8ecfef77d2f99c81a5\",\n  \"description\": \"Test\",\n  \"guild_id\": \"290926798626357260\",\n  \"icon\": null,\n  \"id\": \"172150183260323840\",\n  \"name\": \"Baba O-Riley\",\n  \"owner\": {\n    \"avatar\": null,\n    \"discriminator\": \"1738\",\n    \"flags\": 1024,\n    \"id\": \"172150183260323840\",\n    \"username\": \"i own a bot\"\n  },\n  \"primary_sku_id\": \"172150183260323840\",\n  \"slug\": \"test\",\n  \"summary\": \"\",\n  \"team\": {\n    \"icon\": \"dd9b7dcfdf5351b9c3de0fe167bacbe1\",\n    \"id\": \"531992624043786253\",\n    \"members\": [\n      {\n        \"membership_state\": 2,\n        \"permissions\": [\"*\"],\n        \"team_id\": \"531992624043786253\",\n        \"user\": {\n          \"avatar\": \"d9e261cd35999608eb7e3de1fae3688b\",\n          \"discriminator\": \"0001\",\n          \"id\": \"511972282709709995\",\n          \"username\": \"Mr Owner\"\n        }\n      }\n    ]\n  },\n  \"verify_key\": \"1e0a356058d627ca38a5c8c9648818061d49e49bd9da9e3ab17d98ad4d6bg2u8\"\n}\n"
-            },
-            "|Application Flags"
-          ],
-          "Application Flags": {
-            "content": [
-              [
-                [
-                  "Value",
-                  "Name",
-                  "Description"
-                ],
-                [
-                  "1 << 12",
-                  "GATEWAY_PRESENCE",
-                  "Intent required for bots in 100 or more servers to receive presence_update events"
-                ],
-                [
-                  "1 << 13",
-                  "GATEWAY_PRESENCE_LIMITED",
-                  "Intent required for bots in under 100 servers to receive presence_update events, found in Bot Settings"
-                ],
-                [
-                  "1 << 14",
-                  "GATEWAY_GUILD_MEMBERS",
-                  "Intent required for bots in 100 or more servers to receive member-related events like guild_member_add. See list of member-related events under GUILD_MEMBERS"
-                ],
-                [
-                  "1 << 15",
-                  "GATEWAY_GUILD_MEMBERS_LIMITED",
-                  "Intent required for bots in under 100 servers to receive member-related events like guild_member_add, found in Bot Settings. See list of member-related events under GUILD_MEMBERS"
-                ],
-                [
-                  "1 << 16",
-                  "VERIFICATION_PENDING_GUILD_LIMIT",
-                  "Indicates unusual growth of an app that prevents verification"
-                ],
-                [
-                  "1 << 17",
-                  "EMBEDDED",
-                  "Indicates if an app is embedded within the Discord client (currently unavailable publicly)"
-                ],
-                [
-                  "1 << 18",
-                  "GATEWAY_MESSAGE_CONTENT",
-                  "Intent required for bots in 100 or more servers to receive message content"
-                ],
-                [
-                  "1 << 19",
-                  "GATEWAY_MESSAGE_CONTENT_LIMITED",
-                  "Intent required for bots in under 100 servers to receive message content, found in Bot Settings"
-                ]
-              ]
-            ]
+          ]
+        ]
+      },
+      "Example Application Object": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/application#application-object-example-application-object",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"bot_public\": true,\n  \"bot_require_code_grant\": false,\n  \"cover_image\": \"31deabb7e45b6c8ecfef77d2f99c81a5\",\n  \"description\": \"Test\",\n  \"guild_id\": \"290926798626357260\",\n  \"icon\": null,\n  \"id\": \"172150183260323840\",\n  \"name\": \"Baba O-Riley\",\n  \"owner\": {\n    \"avatar\": null,\n    \"discriminator\": \"1738\",\n    \"flags\": 1024,\n    \"id\": \"172150183260323840\",\n    \"username\": \"i own a bot\"\n  },\n  \"primary_sku_id\": \"172150183260323840\",\n  \"slug\": \"test\",\n  \"summary\": \"\",\n  \"team\": {\n    \"icon\": \"dd9b7dcfdf5351b9c3de0fe167bacbe1\",\n    \"id\": \"531992624043786253\",\n    \"members\": [\n      {\n        \"membership_state\": 2,\n        \"permissions\": [\"*\"],\n        \"team_id\": \"531992624043786253\",\n        \"user\": {\n          \"avatar\": \"d9e261cd35999608eb7e3de1fae3688b\",\n          \"discriminator\": \"0001\",\n          \"id\": \"511972282709709995\",\n          \"username\": \"Mr Owner\"\n        }\n      }\n    ]\n  },\n  \"verify_key\": \"1e0a356058d627ca38a5c8c9648818061d49e49bd9da9e3ab17d98ad4d6bg2u8\"\n}\n"
           }
-        },
-        "Install Params Object": {
-          "content": [
-            "|Install Params Structure"
-          ],
-          "Install Params Structure": {
-            "content": [
-              [
-                [
-                  "Field",
-                  "Type",
-                  "Description"
-                ],
-                [
-                  "scopes",
-                  "array of strings",
-                  "the scopes to add the application to the server with"
-                ],
-                [
-                  "permissions",
-                  "string",
-                  "the permissions to request for the bot role"
-                ]
-              ]
+        ]
+      },
+      "Application Flags": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/application#application-object-application-flags",
+        "content": [
+          [
+            [
+              "Value",
+              "Name",
+              "Description"
+            ],
+            [
+              "1 << 12",
+              "GATEWAY_PRESENCE",
+              "Intent required for bots in 100 or more servers to receive presence_update events"
+            ],
+            [
+              "1 << 13",
+              "GATEWAY_PRESENCE_LIMITED",
+              "Intent required for bots in under 100 servers to receive presence_update events, found in Bot Settings"
+            ],
+            [
+              "1 << 14",
+              "GATEWAY_GUILD_MEMBERS",
+              "Intent required for bots in 100 or more servers to receive member-related events like guild_member_add. See list of member-related events under GUILD_MEMBERS"
+            ],
+            [
+              "1 << 15",
+              "GATEWAY_GUILD_MEMBERS_LIMITED",
+              "Intent required for bots in under 100 servers to receive member-related events like guild_member_add, found in Bot Settings. See list of member-related events under GUILD_MEMBERS"
+            ],
+            [
+              "1 << 16",
+              "VERIFICATION_PENDING_GUILD_LIMIT",
+              "Indicates unusual growth of an app that prevents verification"
+            ],
+            [
+              "1 << 17",
+              "EMBEDDED",
+              "Indicates if an app is embedded within the Discord client (currently unavailable publicly)"
+            ],
+            [
+              "1 << 18",
+              "GATEWAY_MESSAGE_CONTENT",
+              "Intent required for bots in 100 or more servers to receive message content"
+            ],
+            [
+              "1 << 19",
+              "GATEWAY_MESSAGE_CONTENT_LIMITED",
+              "Intent required for bots in under 100 servers to receive message content, found in Bot Settings"
             ]
-          }
-        }
+          ]
+        ]
+      }
+    },
+    "Install Params Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/application#install-params-object",
+      "content": [
+        "|Install Params Structure"
+      ],
+      "Install Params Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/application#install-params-object-install-params-structure",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "scopes",
+              "array of strings",
+              "the scopes to add the application to the server with"
+            ],
+            [
+              "permissions",
+              "string",
+              "the permissions to request for the bot role"
+            ]
+          ]
+        ]
       }
     }
   }

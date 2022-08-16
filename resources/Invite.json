@@ -3,17 +3,27 @@
     "|Invite Resource"
   ],
   "Invite Resource": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/resources/invite#invite-resource",
     "content": [
-      "|Invite Object"
+      "|Invite Object",
+      "|Invite Metadata Object",
+      "|Invite Stage Instance Object",
+      "|Get Invite % GET /invites/{invite.code#DOCS_RESOURCES_INVITE/invite-object}",
+      "|Delete Invite % DELETE /invites/{invite.code#DOCS_RESOURCES_INVITE/invite-object}"
     ],
     "Invite Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/invite#invite-object",
       "content": [
         "Represents a code that when used, adds a user to a guild or group DM channel.",
         "|Invite Structure",
-        "|Get Invite % GET /invites/{invite.code#DOCS_RESOURCES_INVITE/invite-object}",
-        "|Delete Invite % DELETE /invites/{invite.code#DOCS_RESOURCES_INVITE/invite-object}"
+        "|Invite Target Types",
+        "|Example Invite Object"
       ],
       "Invite Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/invite#invite-object-invite-structure",
         "content": [
           [
             [
@@ -81,174 +91,192 @@
               "guild scheduled event object",
               "guild scheduled event data, only included if guild_scheduled_event_id contains a valid guild scheduled event id"
             ]
-          ],
-          "|Invite Target Types",
-          "|Invite Metadata Object",
-          "|Invite Stage Instance Object"
-        ],
-        "Invite Target Types": {
-          "content": [
-            [
-              [
-                "Type",
-                "Value"
-              ],
-              [
-                "STREAM",
-                "1"
-              ],
-              [
-                "EMBEDDED_APPLICATION",
-                "2"
-              ]
-            ],
-            "|Example Invite Object"
-          ],
-          "Example Invite Object": {
-            "content": [
-              {
-                "language": "json",
-                "code": "{\n  \"code\": \"0vCdhLbwjZZTWZLD\",\n  \"guild\": {\n    \"id\": \"165176875973476352\",\n    \"name\": \"CS:GO Fraggers Only\",\n    \"splash\": null,\n    \"banner\": null,\n    \"description\": \"Very good description\",\n    \"icon\": null,\n    \"features\": [\"NEWS\", \"DISCOVERABLE\"],\n    \"verification_level\": 2,\n    \"vanity_url_code\": null,\n    \"nsfw_level\": 0,\n    \"premium_subscription_count\": 5\n  },\n  \"channel\": {\n    \"id\": \"165176875973476352\",\n    \"name\": \"illuminati\",\n    \"type\": 0\n  },\n  \"inviter\": {\n    \"id\": \"115590097100865541\",\n    \"username\": \"speed\",\n    \"avatar\": \"deadbeef\",\n    \"discriminator\": \"7653\",\n    \"public_flags\": 131328\n  },\n  \"target_type\": 1,\n  \"target_user\": {\n    \"id\": \"165176875973476352\",\n    \"username\": \"bob\",\n    \"avatar\": \"deadbeef\",\n    \"discriminator\": \"1234\",\n    \"public_flags\": 64\n  }\n}\n"
-              }
-            ]
-          }
-        },
-        "Invite Metadata Object": {
-          "content": [
-            "Extra information about an invite, will extend the invite object.",
-            "|Invite Metadata Structure"
-          ],
-          "Invite Metadata Structure": {
-            "content": [
-              [
-                [
-                  "Field",
-                  "Type",
-                  "Description"
-                ],
-                [
-                  "uses",
-                  "integer",
-                  "number of times this invite has been used"
-                ],
-                [
-                  "max_uses",
-                  "integer",
-                  "max number of times this invite can be used"
-                ],
-                [
-                  "max_age",
-                  "integer",
-                  "duration (in seconds) after which the invite expires"
-                ],
-                [
-                  "temporary",
-                  "boolean",
-                  "whether this invite only grants temporary membership"
-                ],
-                [
-                  "created_at",
-                  "ISO8601 timestamp",
-                  "when this invite was created"
-                ]
-              ],
-              "|Example Invite Metadata"
-            ],
-            "Example Invite Metadata": {
-              "content": [
-                {
-                  "language": "json",
-                  "code": "{\n  \"uses\": 0,\n  \"max_uses\": 0,\n  \"max_age\": 0,\n  \"temporary\": false,\n  \"created_at\": \"2016-03-31T19:15:39.954000+00:00\"\n}\n"
-                }
-              ]
-            }
-          }
-        },
-        "Invite Stage Instance Object": {
-          "content": [
-            "> warn\n> This is deprecated.",
-            "|Invite Stage Instance Structure"
-          ],
-          "Invite Stage Instance Structure": {
-            "content": [
-              [
-                [
-                  "Field",
-                  "Type",
-                  "Description"
-                ],
-                [
-                  "members",
-                  "array of partial guild member objects",
-                  "the members speaking in the Stage"
-                ],
-                [
-                  "participant_count",
-                  "integer",
-                  "the number of users in the Stage"
-                ],
-                [
-                  "speaker_count",
-                  "integer",
-                  "the number of users speaking in the Stage"
-                ],
-                [
-                  "topic",
-                  "string",
-                  "the topic of the Stage instance (1-120 characters)"
-                ]
-              ],
-              "|Example Invite Stage Instance"
-            ],
-            "Example Invite Stage Instance": {
-              "content": [
-                {
-                  "language": "json",
-                  "code": "{\n  \"topic\": \"The debate is over: diet is better than regular\",\n  \"participant_count\": 200,\n  \"speaker_count\": 5 ,\n  \"members\": [\n    {\n      \"roles\": [],\n      \"nick\": \"NOT API SUPPORT\",\n      \"avatar\": null,\n      \"premium_since\": null,\n      \"joined_at\": \"2015-04-26T06:26:56.936000+00:00\",\n      \"pending\": false,\n      \"user\": {}\n    }\n  ]\n}\n"
-                }
-              ]
-            }
-          }
-        }
+          ]
+        ]
       },
-      "Get Invite % GET /invites/{invite.code#DOCS_RESOURCES_INVITE/invite-object}": {
+      "Invite Target Types": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/invite#invite-object-invite-target-types",
         "content": [
-          "Returns an invite object for the given code.",
-          "|Query String Params"
-        ],
-        "Query String Params": {
-          "content": [
+          [
             [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "with_counts?",
-                "boolean",
-                "whether the invite should contain approximate member counts"
-              ],
-              [
-                "with_expiration?",
-                "boolean",
-                "whether the invite should contain the expiration date"
-              ],
-              [
-                "guild_scheduled_event_id?",
-                "snowflake",
-                "the guild scheduled event to include with the invite"
-              ]
+              "Type",
+              "Value"
+            ],
+            [
+              "STREAM",
+              "1"
+            ],
+            [
+              "EMBEDDED_APPLICATION",
+              "2"
             ]
           ]
-        }
+        ]
       },
-      "Delete Invite % DELETE /invites/{invite.code#DOCS_RESOURCES_INVITE/invite-object}": {
+      "Example Invite Object": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/invite#invite-object-example-invite-object",
         "content": [
-          "Delete an invite. Requires the MANAGE_CHANNELS permission on the channel this invite belongs to, or MANAGE_GUILD to remove any invite across the guild. Returns an invite object on success. Fires a Invite Delete Gateway event.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header."
+          {
+            "language": "json",
+            "code": "{\n  \"code\": \"0vCdhLbwjZZTWZLD\",\n  \"guild\": {\n    \"id\": \"165176875973476352\",\n    \"name\": \"CS:GO Fraggers Only\",\n    \"splash\": null,\n    \"banner\": null,\n    \"description\": \"Very good description\",\n    \"icon\": null,\n    \"features\": [\"NEWS\", \"DISCOVERABLE\"],\n    \"verification_level\": 2,\n    \"vanity_url_code\": null,\n    \"nsfw_level\": 0,\n    \"premium_subscription_count\": 5\n  },\n  \"channel\": {\n    \"id\": \"165176875973476352\",\n    \"name\": \"illuminati\",\n    \"type\": 0\n  },\n  \"inviter\": {\n    \"id\": \"115590097100865541\",\n    \"username\": \"speed\",\n    \"avatar\": \"deadbeef\",\n    \"discriminator\": \"7653\",\n    \"public_flags\": 131328\n  },\n  \"target_type\": 1,\n  \"target_user\": {\n    \"id\": \"165176875973476352\",\n    \"username\": \"bob\",\n    \"avatar\": \"deadbeef\",\n    \"discriminator\": \"1234\",\n    \"public_flags\": 64\n  }\n}\n"
+          }
         ]
       }
+    },
+    "Invite Metadata Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/invite#invite-metadata-object",
+      "content": [
+        "Extra information about an invite, will extend the invite object.",
+        "|Invite Metadata Structure",
+        "|Example Invite Metadata"
+      ],
+      "Invite Metadata Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/invite#invite-metadata-object-invite-metadata-structure",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "uses",
+              "integer",
+              "number of times this invite has been used"
+            ],
+            [
+              "max_uses",
+              "integer",
+              "max number of times this invite can be used"
+            ],
+            [
+              "max_age",
+              "integer",
+              "duration (in seconds) after which the invite expires"
+            ],
+            [
+              "temporary",
+              "boolean",
+              "whether this invite only grants temporary membership"
+            ],
+            [
+              "created_at",
+              "ISO8601 timestamp",
+              "when this invite was created"
+            ]
+          ]
+        ]
+      },
+      "Example Invite Metadata": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/invite#invite-metadata-object-example-invite-metadata",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"uses\": 0,\n  \"max_uses\": 0,\n  \"max_age\": 0,\n  \"temporary\": false,\n  \"created_at\": \"2016-03-31T19:15:39.954000+00:00\"\n}\n"
+          }
+        ]
+      }
+    },
+    "Invite Stage Instance Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/invite#invite-stage-instance-object",
+      "content": [
+        "> warn\n> This is deprecated.",
+        "|Invite Stage Instance Structure",
+        "|Example Invite Stage Instance"
+      ],
+      "Invite Stage Instance Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/invite#invite-stage-instance-object-invite-stage-instance-structure",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "members",
+              "array of partial guild member objects",
+              "the members speaking in the Stage"
+            ],
+            [
+              "participant_count",
+              "integer",
+              "the number of users in the Stage"
+            ],
+            [
+              "speaker_count",
+              "integer",
+              "the number of users speaking in the Stage"
+            ],
+            [
+              "topic",
+              "string",
+              "the topic of the Stage instance (1-120 characters)"
+            ]
+          ]
+        ]
+      },
+      "Example Invite Stage Instance": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/invite#invite-stage-instance-object-example-invite-stage-instance",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"topic\": \"The debate is over: diet is better than regular\",\n  \"participant_count\": 200,\n  \"speaker_count\": 5 ,\n  \"members\": [\n    {\n      \"roles\": [],\n      \"nick\": \"NOT API SUPPORT\",\n      \"avatar\": null,\n      \"premium_since\": null,\n      \"joined_at\": \"2015-04-26T06:26:56.936000+00:00\",\n      \"pending\": false,\n      \"user\": {}\n    }\n  ]\n}\n"
+          }
+        ]
+      }
+    },
+    "Get Invite % GET /invites/{invite.code#DOCS_RESOURCES_INVITE/invite-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/invite#get-invite-%-get-/invites/{invite.code#docs_resources_invite/invite-object}",
+      "content": [
+        "Returns an invite object for the given code.",
+        "|Query String Params"
+      ],
+      "Query String Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/invite#get-invite-%-get-/invites/{invite.code#docs_resources_invite/invite-object}-query-string-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "with_counts?",
+              "boolean",
+              "whether the invite should contain approximate member counts"
+            ],
+            [
+              "with_expiration?",
+              "boolean",
+              "whether the invite should contain the expiration date"
+            ],
+            [
+              "guild_scheduled_event_id?",
+              "snowflake",
+              "the guild scheduled event to include with the invite"
+            ]
+          ]
+        ]
+      }
+    },
+    "Delete Invite % DELETE /invites/{invite.code#DOCS_RESOURCES_INVITE/invite-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/invite#delete-invite-%-delete-/invites/{invite.code#docs_resources_invite/invite-object}",
+      "content": [
+        "Delete an invite. Requires the MANAGE_CHANNELS permission on the channel this invite belongs to, or MANAGE_GUILD to remove any invite across the guild. Returns an invite object on success. Fires a Invite Delete Gateway event.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header."
+      ]
     }
   }
 }

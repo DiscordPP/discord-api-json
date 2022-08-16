@@ -3,6 +3,8 @@
     "|Dispatch and You"
   ],
   "Dispatch and You": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/dispatch/dispatch-and-you#dispatch-and-you",
     "content": [
       "> info\n> Need help with Dispatch? Talk to us in the Discord Developers Server!",
       "If you're distributing a game on Discord, you'll need to send us the files! We quickly learned that email has a file size limit, and we ran out of carrier pigeons. Don't ask. Very touchy subject.",

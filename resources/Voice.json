@@ -3,16 +3,24 @@
     "|Voice Resource"
   ],
   "Voice Resource": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/resources/voice#voice-resource",
     "content": [
-      "|Voice State Object"
+      "|Voice State Object",
+      "|Voice Region Object",
+      "|List Voice Regions % GET /voice/regions"
     ],
     "Voice State Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/voice#voice-state-object",
       "content": [
         "Used to represent a user's voice connection status.",
         "|Voice State Structure",
-        "|List Voice Regions % GET /voice/regions"
+        "|Example Voice State"
       ],
       "Voice State Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/voice#voice-state-object-voice-state-structure",
         "content": [
           [
             [
@@ -85,65 +93,71 @@
               "?ISO8601 timestamp",
               "the time at which the user requested to speak"
             ]
-          ],
-          "|Example Voice State",
-          "|Voice Region Object"
-        ],
-        "Example Voice State": {
-          "content": [
-            {
-              "language": "json",
-              "code": "{\n  \"channel_id\": \"157733188964188161\",\n  \"user_id\": \"80351110224678912\",\n  \"session_id\": \"90326bd25d71d39b9ef95b299e3872ff\",\n  \"deaf\": false,\n  \"mute\": false,\n  \"self_deaf\": false,\n  \"self_mute\": true,\n  \"suppress\": false,\n  \"request_to_speak_timestamp\": \"2021-03-31T18:45:31.297561+00:00\"\n}\n"
-            }
           ]
-        },
-        "Voice Region Object": {
-          "content": [
-            "|Voice Region Structure"
-          ],
-          "Voice Region Structure": {
-            "content": [
-              [
-                [
-                  "Field",
-                  "Type",
-                  "Description"
-                ],
-                [
-                  "id",
-                  "string",
-                  "unique ID for the region"
-                ],
-                [
-                  "name",
-                  "string",
-                  "name of the region"
-                ],
-                [
-                  "optimal",
-                  "boolean",
-                  "true for a single server that is closest to the current user's client"
-                ],
-                [
-                  "deprecated",
-                  "boolean",
-                  "whether this is a deprecated voice region (avoid switching to these)"
-                ],
-                [
-                  "custom",
-                  "boolean",
-                  "whether this is a custom voice region (used for events/etc)"
-                ]
-              ]
-            ]
-          }
-        }
+        ]
       },
-      "List Voice Regions % GET /voice/regions": {
+      "Example Voice State": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/voice#voice-state-object-example-voice-state",
         "content": [
-          "Returns an array of voice region objects that can be used when setting a voice or stage channel's rtc_region."
+          {
+            "language": "json",
+            "code": "{\n  \"channel_id\": \"157733188964188161\",\n  \"user_id\": \"80351110224678912\",\n  \"session_id\": \"90326bd25d71d39b9ef95b299e3872ff\",\n  \"deaf\": false,\n  \"mute\": false,\n  \"self_deaf\": false,\n  \"self_mute\": true,\n  \"suppress\": false,\n  \"request_to_speak_timestamp\": \"2021-03-31T18:45:31.297561+00:00\"\n}\n"
+          }
         ]
       }
+    },
+    "Voice Region Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/voice#voice-region-object",
+      "content": [
+        "|Voice Region Structure"
+      ],
+      "Voice Region Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/voice#voice-region-object-voice-region-structure",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "id",
+              "string",
+              "unique ID for the region"
+            ],
+            [
+              "name",
+              "string",
+              "name of the region"
+            ],
+            [
+              "optimal",
+              "boolean",
+              "true for a single server that is closest to the current user's client"
+            ],
+            [
+              "deprecated",
+              "boolean",
+              "whether this is a deprecated voice region (avoid switching to these)"
+            ],
+            [
+              "custom",
+              "boolean",
+              "whether this is a custom voice region (used for events/etc)"
+            ]
+          ]
+        ]
+      }
+    },
+    "List Voice Regions % GET /voice/regions": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/voice#list-voice-regions-%-get-/voice/regions",
+      "content": [
+        "Returns an array of voice region objects that can be used when setting a voice or stage channel's rtc_region."
+      ]
     }
   }
 }

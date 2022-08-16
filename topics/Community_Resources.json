@@ -3,187 +3,209 @@
     "|Community Resources"
   ],
   "Community Resources": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/topics/community-resources#community-resources",
     "content": [
       "Discord has the best online community. At least, we like to think so, and this is our website, so our word is law, deal with it. Therefore it's a fact that our community is the best, and they make really awesome things that we want to share with developers to make their lives easier. From permissions calculators to embed visualizers to full libraries to interface with our API, there are so many great things that have come out of our community.",
-      "|Discord Developers"
+      "|Discord Developers",
+      "|Libraries",
+      "|Interactions",
+      "|Game SDK Tools",
+      "|Dispatch Tools",
+      "|Permission Calculators",
+      "|Intent Calculators",
+      "|Embed Visualizers",
+      "|API Types"
     ],
     "Discord Developers": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/community-resources#discord-developers",
       "content": [
-        "The Official Discord Developers server is a developer ran, but community driven, support hub. If you need help with developing something on Discord or want official updates from the developers, this is the place to be.",
-        "|Libraries",
-        "|Interactions",
-        "|Game SDK Tools",
-        "|Dispatch Tools",
-        "|Permission Calculators",
-        "|Intent Calculators",
-        "|Embed Visualizers",
-        "|API Types"
+        "The Official Discord Developers server is a developer ran, but community driven, support hub. If you need help with developing something on Discord or want official updates from the developers, this is the place to be."
+      ]
+    },
+    "Libraries": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/community-resources#libraries",
+      "content": [
+        "Discord does not maintain official SDKs.  The following table is an inexhaustive list of third-party libraries that have valid rate limit implementations, are recently maintained, and have large communities of active bots.",
+        "|Discord Libraries"
       ],
-      "Libraries": {
+      "Discord Libraries": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/community-resources#libraries-discord-libraries",
         "content": [
-          "Discord does not maintain official SDKs.  The following table is an inexhaustive list of third-party libraries that have valid rate limit implementations, are recently maintained, and have large communities of active bots.",
-          "|Discord Libraries"
-        ],
-        "Discord Libraries": {
-          "content": [
-            [
-              [
-                "Name",
-                "Language"
-              ],
-              [
-                "Discord.Net",
-                "C#"
-              ],
-              [
-                "DSharpPlus",
-                "C#"
-              ],
-              [
-                "DiscordGo",
-                "Go"
-              ],
-              [
-                "Discord4J",
-                "Java"
-              ],
-              [
-                "Javacord",
-                "Java"
-              ],
-              [
-                "JDA",
-                "Java"
-              ],
-              [
-                "discord.js",
-                "JavaScript"
-              ],
-              [
-                "Eris",
-                "JavaScript"
-              ],
-              [
-                "Discordia",
-                "Lua"
-              ],
-              [
-                "DiscordPHP",
-                "PHP"
-              ],
-              [
-                "discord.py",
-                "Python"
-              ],
-              [
-                "disnake",
-                "Python"
-              ],
-              [
-                "hikari",
-                "Python"
-              ],
-              [
-                "interactions.py",
-                "Python"
-              ],
-              [
-                "nextcord",
-                "Python"
-              ],
-              [
-                "pycord",
-                "Python"
-              ],
-              [
-                "discordrb",
-                "Ruby"
-              ],
-              [
-                "Serenity",
-                "Rust"
-              ]
-            ]
-          ]
-        }
-      },
-      "Interactions": {
-        "content": [
-          "Interactions are the great, new way of making a Discord bot. The following open-source libraries provide help for the security and authentication checks that are mandatory if you are receiving Interactions via outgoing webhook. They also include some types for the Interactions data models.",
-          [
-            "C#Discord.Net.Rest",
-            "Clojurering-discord-auth",
-            "Dartnyxx_interactions",
-            "Godiscord-interactions-go",
-            "Javascriptdiscord-interactions-jsdiscord-slash-commands and its Deno forkslash-create",
-            "Pythondiscord-interactions-pythondiscord-interactions.pydispikeflask-discord-interactions",
-            "PHPdiscord-interactions-php",
-            "Othercaddy-discord-interactions-verifierRauf's Slash Command GeneratorAutocode Slash Command BuilderBsati's Slash Command Builder"
-          ]
-        ]
-      },
-      "Game SDK Tools": {
-        "content": [
-          "Discord Game SDK's lobby and networking layer shares similarities with other gaming platforms (i.e. Valve's Steamworks SDK). The following open source library provides developers a uniform interface for these shared features and can simplify developing for multiple platforms. Note: this library is tailored for Unity3D development.",
-          [
-            "HouraiNetworking"
-          ]
-        ]
-      },
-      "Dispatch Tools": {
-        "content": [
-          "Using Discord's Dispatch tool for game developers publishing on Discord can sometimes involve using the same long commands multiple times. The following open-source tool helps shorten these commands for you. It will also provide webhook support for when you're pushing an update.",
-          [
-            "JohnyTheCarrot's Dispatch CLI"
-          ]
-        ]
-      },
-      "Permission Calculators": {
-        "content": [
-          "Permissions in Discord are tricky. Luckily, we've got really smart people who love us and have made some great permissions calculators. If you're making a bot for others, and you're not sure how to properly calculate permissions or generate your authorization URL, these are great tools:",
-          [
-            "FiniteReality's Permissions Calculator",
-            "abalabahaha's Permissions Calculator"
-          ]
-        ]
-      },
-      "Intent Calculators": {
-        "content": [
-          "Gateway Intents are pretty confusing at first. If you're not sure what to send in your identify payload, then these tools may be of help:",
-          [
-            "ziad87's Intent Calculator",
-            "Larko's Intent Calculator"
-          ]
-        ]
-      },
-      "Embed Visualizers": {
-        "content": [
-          "Webhooks and embeds might seem like black magic. That's because they are, but let us help you demystify them a bit. These tools can help you test how embeds will appear inside of Discord:",
-          [
-            "Autocode Embed Builder",
-            "JohnyTheCarrot's Embed Previewer (Browser Extension)"
-          ]
-        ]
-      },
-      "API Types": {
-        "content": [
-          "If you're working on a project that interacts with our API, you might find an API types module useful as it provides type inspection/completion for the Discord API.",
           [
             [
               "Name",
               "Language"
             ],
             [
-              "dasgo",
+              "Discord.Net",
+              "C#"
+            ],
+            [
+              "DSharpPlus",
+              "C#"
+            ],
+            [
+              "DiscordGo",
               "Go"
             ],
             [
-              "discord.js API Types",
+              "Discord4J",
+              "Java"
+            ],
+            [
+              "Javacord",
+              "Java"
+            ],
+            [
+              "JDA",
+              "Java"
+            ],
+            [
+              "discord.js",
               "JavaScript"
+            ],
+            [
+              "Eris",
+              "JavaScript"
+            ],
+            [
+              "Discordia",
+              "Lua"
+            ],
+            [
+              "DiscordPHP",
+              "PHP"
+            ],
+            [
+              "discord.py",
+              "Python"
+            ],
+            [
+              "disnake",
+              "Python"
+            ],
+            [
+              "hikari",
+              "Python"
+            ],
+            [
+              "interactions.py",
+              "Python"
+            ],
+            [
+              "nextcord",
+              "Python"
+            ],
+            [
+              "pycord",
+              "Python"
+            ],
+            [
+              "discordrb",
+              "Ruby"
+            ],
+            [
+              "Serenity",
+              "Rust"
             ]
           ]
         ]
       }
+    },
+    "Interactions": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/community-resources#interactions",
+      "content": [
+        "Interactions are the great, new way of making a Discord bot. The following open-source libraries provide help for the security and authentication checks that are mandatory if you are receiving Interactions via outgoing webhook. They also include some types for the Interactions data models.",
+        [
+          "C#Discord.Net.Rest",
+          "Clojurering-discord-auth",
+          "Dartnyxx_interactions",
+          "Godiscord-interactions-go",
+          "Javascriptdiscord-interactions-jsdiscord-slash-commands and its Deno forkslash-create",
+          "Pythondiscord-interactions-pythondiscord-interactions.pydispikeflask-discord-interactions",
+          "PHPdiscord-interactions-php",
+          "Othercaddy-discord-interactions-verifierRauf's Slash Command GeneratorAutocode Slash Command BuilderBsati's Slash Command Builder"
+        ]
+      ]
+    },
+    "Game SDK Tools": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/community-resources#game-sdk-tools",
+      "content": [
+        "Discord Game SDK's lobby and networking layer shares similarities with other gaming platforms (i.e. Valve's Steamworks SDK). The following open source library provides developers a uniform interface for these shared features and can simplify developing for multiple platforms. Note: this library is tailored for Unity3D development.",
+        [
+          "HouraiNetworking"
+        ]
+      ]
+    },
+    "Dispatch Tools": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/community-resources#dispatch-tools",
+      "content": [
+        "Using Discord's Dispatch tool for game developers publishing on Discord can sometimes involve using the same long commands multiple times. The following open-source tool helps shorten these commands for you. It will also provide webhook support for when you're pushing an update.",
+        [
+          "JohnyTheCarrot's Dispatch CLI"
+        ]
+      ]
+    },
+    "Permission Calculators": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/community-resources#permission-calculators",
+      "content": [
+        "Permissions in Discord are tricky. Luckily, we've got really smart people who love us and have made some great permissions calculators. If you're making a bot for others, and you're not sure how to properly calculate permissions or generate your authorization URL, these are great tools:",
+        [
+          "FiniteReality's Permissions Calculator",
+          "abalabahaha's Permissions Calculator"
+        ]
+      ]
+    },
+    "Intent Calculators": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/community-resources#intent-calculators",
+      "content": [
+        "Gateway Intents are pretty confusing at first. If you're not sure what to send in your identify payload, then these tools may be of help:",
+        [
+          "ziad87's Intent Calculator",
+          "Larko's Intent Calculator"
+        ]
+      ]
+    },
+    "Embed Visualizers": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/community-resources#embed-visualizers",
+      "content": [
+        "Webhooks and embeds might seem like black magic. That's because they are, but let us help you demystify them a bit. These tools can help you test how embeds will appear inside of Discord:",
+        [
+          "Autocode Embed Builder",
+          "JohnyTheCarrot's Embed Previewer (Browser Extension)"
+        ]
+      ]
+    },
+    "API Types": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/community-resources#api-types",
+      "content": [
+        "If you're working on a project that interacts with our API, you might find an API types module useful as it provides type inspection/completion for the Discord API.",
+        [
+          [
+            "Name",
+            "Language"
+          ],
+          [
+            "dasgo",
+            "Go"
+          ],
+          [
+            "discord.js API Types",
+            "JavaScript"
+          ]
+        ]
+      ]
     }
   }
 }

@@ -3,15 +3,23 @@
     "|Predefined Field Values"
   ],
   "Predefined Field Values": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/dispatch/field-values#predefined-field-values",
     "content": [
       "> info\n> Need help with Dispatch? Talk to us in the Discord Developers Server!",
       "|Manifests"
     ],
     "Manifests": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/dispatch/field-values#manifests",
       "content": [
-        "|Platform Values"
+        "|Platform Values",
+        "|Redistributable values",
+        "|Cloud Save Path Replacements"
       ],
       "Platform Values": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/dispatch/field-values#manifests-platform-values",
         "content": [
           [
             [
@@ -29,127 +37,129 @@
             [
               "linux"
             ]
-          ],
-          "|Redistributable values"
-        ],
-        "Redistributable values": {
-          "content": [
+          ]
+        ]
+      },
+      "Redistributable values": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/dispatch/field-values#manifests-redistributable-values",
+        "content": [
+          [
             [
-              [
-                "Redistributable"
-              ],
-              [
-                "directx_june_2010"
-              ],
-              [
-                "vcredist_2005_x86"
-              ],
-              [
-                "vcredist_2008_sp1_x86"
-              ],
-              [
-                "vcredist_2010_x64"
-              ],
-              [
-                "vcredist_2010_x86"
-              ],
-              [
-                "vcredist_2012_update_4_x64"
-              ],
-              [
-                "vcredist_2012_update_4_x86"
-              ],
-              [
-                "vcredist_2013_x64"
-              ],
-              [
-                "vcredist_2013_x86"
-              ],
-              [
-                "vcredist_2015_x64"
-              ],
-              [
-                "vcredist_2015_x86"
-              ],
-              [
-                "vcredist_2017_x64"
-              ],
-              [
-                "vcredist_2017_x86"
-              ],
-              [
-                "xnafx_40"
-              ]
+              "Redistributable"
             ],
-            "|Cloud Save Path Replacements"
-          ],
-          "Cloud Save Path Replacements": {
-            "content": [
-              [
-                [
-                  "value",
-                  "Windows path",
-                  "macOS path",
-                  "linux path"
-                ],
-                [
-                  "${HOME}",
-                  "%USERPROFILE%",
-                  "~/",
-                  "~/"
-                ],
-                [
-                  "${DOCUMENTS}",
-                  "%USERPROFILE%\\Documents",
-                  "~/Documents",
-                  "$XDG_DOCUMENTS_DIR"
-                ],
-                [
-                  "${DATA}",
-                  "%USERPROFILE%\\AppData\\Roaming",
-                  "~/Library/Application Support",
-                  "$XDG_DATA_HOME"
-                ],
-                [
-                  "${DATALOCAL}",
-                  "%USERPROFILE%\\AppData\\Local",
-                  "~/Library/Application Support",
-                  "$XDG_DATA_HOME"
-                ],
-                [
-                  "${DATALOCALLOW}",
-                  "%USERPROFILE%\\AppData\\LocalLow",
-                  "~/Library/Application Support",
-                  "$XDG_DATA_HOME"
-                ],
-                [
-                  "${SAVEDGAMES}",
-                  "%USERPROFILE%\\Saved Games",
-                  "(not supported)",
-                  "(not supported)"
-                ],
-                [
-                  "${INSTALLDIR}",
-                  "the game's install directory",
-                  "(same)",
-                  "(same)"
-                ],
-                [
-                  "${USERID}",
-                  "the user's id - use within a path to define saves for multiple users",
-                  "(same)",
-                  "(same)"
-                ],
-                [
-                  "${BRANCHID}",
-                  "the id of the game branch - use within a path to define saves for multiple branches",
-                  "(same)",
-                  "(same)"
-                ]
-              ]
+            [
+              "directx_june_2010"
+            ],
+            [
+              "vcredist_2005_x86"
+            ],
+            [
+              "vcredist_2008_sp1_x86"
+            ],
+            [
+              "vcredist_2010_x64"
+            ],
+            [
+              "vcredist_2010_x86"
+            ],
+            [
+              "vcredist_2012_update_4_x64"
+            ],
+            [
+              "vcredist_2012_update_4_x86"
+            ],
+            [
+              "vcredist_2013_x64"
+            ],
+            [
+              "vcredist_2013_x86"
+            ],
+            [
+              "vcredist_2015_x64"
+            ],
+            [
+              "vcredist_2015_x86"
+            ],
+            [
+              "vcredist_2017_x64"
+            ],
+            [
+              "vcredist_2017_x86"
+            ],
+            [
+              "xnafx_40"
             ]
-          }
-        }
+          ]
+        ]
+      },
+      "Cloud Save Path Replacements": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/dispatch/field-values#manifests-cloud-save-path-replacements",
+        "content": [
+          [
+            [
+              "value",
+              "Windows path",
+              "macOS path",
+              "linux path"
+            ],
+            [
+              "${HOME}",
+              "%USERPROFILE%",
+              "~/",
+              "~/"
+            ],
+            [
+              "${DOCUMENTS}",
+              "%USERPROFILE%\\Documents",
+              "~/Documents",
+              "$XDG_DOCUMENTS_DIR"
+            ],
+            [
+              "${DATA}",
+              "%USERPROFILE%\\AppData\\Roaming",
+              "~/Library/Application Support",
+              "$XDG_DATA_HOME"
+            ],
+            [
+              "${DATALOCAL}",
+              "%USERPROFILE%\\AppData\\Local",
+              "~/Library/Application Support",
+              "$XDG_DATA_HOME"
+            ],
+            [
+              "${DATALOCALLOW}",
+              "%USERPROFILE%\\AppData\\LocalLow",
+              "~/Library/Application Support",
+              "$XDG_DATA_HOME"
+            ],
+            [
+              "${SAVEDGAMES}",
+              "%USERPROFILE%\\Saved Games",
+              "(not supported)",
+              "(not supported)"
+            ],
+            [
+              "${INSTALLDIR}",
+              "the game's install directory",
+              "(same)",
+              "(same)"
+            ],
+            [
+              "${USERID}",
+              "the user's id - use within a path to define saves for multiple users",
+              "(same)",
+              "(same)"
+            ],
+            [
+              "${BRANCHID}",
+              "the id of the game branch - use within a path to define saves for multiple branches",
+              "(same)",
+              "(same)"
+            ]
+          ]
+        ]
       }
     }
   }

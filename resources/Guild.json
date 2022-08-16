@@ -3,59 +3,85 @@
     "|Guild Resource"
   ],
   "Guild Resource": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/resources/guild#guild-resource",
     "content": [
       "Guilds in Discord represent an isolated collection of users and channels, and are often referred to as \"servers\" in the UI.",
-      "|Guild Object"
+      "|Guild Object",
+      "|Unavailable Guild Object",
+      "|Guild Preview Object",
+      "|Guild Widget Settings Object",
+      "|Guild Widget Object",
+      "|Guild Member Object",
+      "|Integration Object",
+      "|Integration Account Object",
+      "|Integration Application Object",
+      "|Ban Object",
+      "|Welcome Screen Object",
+      "|Membership Screening Object",
+      "|Create Guild % POST /guilds",
+      "|Get Guild % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}",
+      "|Get Guild Preview % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/preview",
+      "|Modify Guild % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}",
+      "|Delete Guild % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}",
+      "|Get Guild Channels % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/channels",
+      "|Create Guild Channel % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/channels",
+      "|Modify Guild Channel Positions % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/channels",
+      "|List Active Guild Threads % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/threads/active",
+      "|Get Guild Member % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}",
+      "|List Guild Members % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members",
+      "|Search Guild Members % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/search",
+      "|Add Guild Member % PUT /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}",
+      "|Modify Guild Member % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}",
+      "|Modify Current Member % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/@me",
+      "|Modify Current User Nick % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/@me/nick",
+      "|Add Guild Member Role % PUT /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}/roles/{role.id#DOCS_TOPICS_PERMISSIONS/role-object}",
+      "|Remove Guild Member Role % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}/roles/{role.id#DOCS_TOPICS_PERMISSIONS/role-object}",
+      "|Remove Guild Member % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}",
+      "|Get Guild Bans % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/bans",
+      "|Get Guild Ban % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/bans/{user.id#DOCS_RESOURCES_USER/user-object}",
+      "|Create Guild Ban % PUT /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/bans/{user.id#DOCS_RESOURCES_USER/user-object}",
+      "|Remove Guild Ban % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/bans/{user.id#DOCS_RESOURCES_USER/user-object}",
+      "|Get Guild Roles % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/roles",
+      "|Create Guild Role % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/roles",
+      "|Modify Guild Role Positions % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/roles",
+      "|Modify Guild Role % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/roles/{role.id#DOCS_TOPICS_PERMISSIONS/role-object}",
+      "|Modify Guild MFA Level % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/mfa",
+      "|Delete Guild Role % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/roles/{role.id#DOCS_TOPICS_PERMISSIONS/role-object}",
+      "|Get Guild Prune Count % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/prune",
+      "|Begin Guild Prune % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/prune",
+      "|Get Guild Voice Regions % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/regions",
+      "|Get Guild Invites % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/invites",
+      "|Get Guild Integrations % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/integrations",
+      "|Delete Guild Integration % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/integrations/{integration.id#DOCS_RESOURCES_GUILD/integration-object}",
+      "|Get Guild Widget Settings % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/widget",
+      "|Modify Guild Widget % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/widget",
+      "|Get Guild Widget % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/widget.json",
+      "|Get Guild Vanity URL % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/vanity-url",
+      "|Get Guild Widget Image % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/widget.png",
+      "|Get Guild Welcome Screen % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/welcome-screen",
+      "|Modify Guild Welcome Screen % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/welcome-screen",
+      "|Modify Current User Voice State % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/voice-states/@me",
+      "|Modify User Voice State % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/voice-states/{user.id#DOCS_RESOURCES_USER/user-object}"
     ],
     "Guild Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/guild#guild-object",
       "content": [
         "|Guild Structure",
-        "|Create Guild % POST /guilds",
-        "|Get Guild % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}",
-        "|Get Guild Preview % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/preview",
-        "|Modify Guild % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}",
-        "|Delete Guild % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}",
-        "|Get Guild Channels % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/channels",
-        "|Create Guild Channel % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/channels",
-        "|Modify Guild Channel Positions % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/channels",
-        "|List Active Guild Threads % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/threads/active",
-        "|Get Guild Member % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}",
-        "|List Guild Members % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members",
-        "|Search Guild Members % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/search",
-        "|Add Guild Member % PUT /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}",
-        "|Modify Guild Member % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}",
-        "|Modify Current Member % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/@me",
-        "|Modify Current User Nick % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/@me/nick",
-        "|Add Guild Member Role % PUT /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}/roles/{role.id#DOCS_TOPICS_PERMISSIONS/role-object}",
-        "|Remove Guild Member Role % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}/roles/{role.id#DOCS_TOPICS_PERMISSIONS/role-object}",
-        "|Remove Guild Member % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}",
-        "|Get Guild Bans % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/bans",
-        "|Get Guild Ban % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/bans/{user.id#DOCS_RESOURCES_USER/user-object}",
-        "|Create Guild Ban % PUT /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/bans/{user.id#DOCS_RESOURCES_USER/user-object}",
-        "|Remove Guild Ban % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/bans/{user.id#DOCS_RESOURCES_USER/user-object}",
-        "|Get Guild Roles % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/roles",
-        "|Create Guild Role % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/roles",
-        "|Modify Guild Role Positions % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/roles",
-        "|Modify Guild Role % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/roles/{role.id#DOCS_TOPICS_PERMISSIONS/role-object}",
-        "|Modify Guild MFA Level % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/mfa",
-        "|Delete Guild Role % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/roles/{role.id#DOCS_TOPICS_PERMISSIONS/role-object}",
-        "|Get Guild Prune Count % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/prune",
-        "|Begin Guild Prune % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/prune",
-        "|Get Guild Voice Regions % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/regions",
-        "|Get Guild Invites % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/invites",
-        "|Get Guild Integrations % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/integrations",
-        "|Delete Guild Integration % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/integrations/{integration.id#DOCS_RESOURCES_GUILD/integration-object}",
-        "|Get Guild Widget Settings % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/widget",
-        "|Modify Guild Widget % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/widget",
-        "|Get Guild Widget % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/widget.json",
-        "|Get Guild Vanity URL % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/vanity-url",
-        "|Get Guild Widget Image % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/widget.png",
-        "|Get Guild Welcome Screen % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/welcome-screen",
-        "|Modify Guild Welcome Screen % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/welcome-screen",
-        "|Modify Current User Voice State % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/voice-states/@me",
-        "|Modify User Voice State % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/voice-states/{user.id#DOCS_RESOURCES_USER/user-object}"
+        "|Default Message Notification Level",
+        "|Explicit Content Filter Level",
+        "|MFA Level",
+        "|Verification Level",
+        "|Guild NSFW Level",
+        "|Premium Tier",
+        "|System Channel Flags",
+        "|Guild Features",
+        "|Example Guild"
       ],
       "Guild Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#guild-object-guild-structure",
         "content": [
           "> info\n> Fields specific to the GUILD_CREATE event are listed in the Gateway documentation.",
           [
@@ -271,2112 +297,2319 @@
             ]
           ],
           "* These fields are only sent when using the GET Current User Guilds endpoint and are relative to the requested user",
-          "** This field is deprecated and is replaced by channel.rtc_region",
-          "|Default Message Notification Level",
-          "|Unavailable Guild Object",
-          "|Guild Preview Object",
-          "|Guild Widget Settings Object",
-          "|Guild Widget Object",
-          "|Guild Member Object",
-          "|Integration Object",
-          "|Integration Account Object",
-          "|Integration Application Object",
-          "|Ban Object",
-          "|Welcome Screen Object",
-          "|Membership Screening Object"
-        ],
-        "Default Message Notification Level": {
-          "content": [
+          "** This field is deprecated and is replaced by channel.rtc_region"
+        ]
+      },
+      "Default Message Notification Level": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#guild-object-default-message-notification-level",
+        "content": [
+          [
             [
-              [
-                "Key",
-                "Value",
-                "Description"
-              ],
-              [
-                "ALL_MESSAGES",
-                "0",
-                "members will receive notifications for all messages by default"
-              ],
-              [
-                "ONLY_MENTIONS",
-                "1",
-                "members will receive notifications only for messages that @mention them by default"
-              ]
+              "Key",
+              "Value",
+              "Description"
             ],
-            "|Explicit Content Filter Level"
-          ],
-          "Explicit Content Filter Level": {
-            "content": [
-              [
-                [
-                  "Level",
-                  "Integer",
-                  "Description"
-                ],
-                [
-                  "DISABLED",
-                  "0",
-                  "media content will not be scanned"
-                ],
-                [
-                  "MEMBERS_WITHOUT_ROLES",
-                  "1",
-                  "media content sent by members without roles will be scanned"
-                ],
-                [
-                  "ALL_MEMBERS",
-                  "2",
-                  "media content sent by all members will be scanned"
-                ]
-              ],
-              "|MFA Level"
+            [
+              "ALL_MESSAGES",
+              "0",
+              "members will receive notifications for all messages by default"
             ],
-            "MFA Level": {
-              "content": [
-                [
-                  [
-                    "Level",
-                    "Integer",
-                    "Description"
-                  ],
-                  [
-                    "NONE",
-                    "0",
-                    "guild has no MFA/2FA requirement for moderation actions"
-                  ],
-                  [
-                    "ELEVATED",
-                    "1",
-                    "guild has a 2FA requirement for moderation actions"
-                  ]
-                ],
-                "|Verification Level",
-                "|Guild NSFW Level",
-                "|Premium Tier",
-                "|System Channel Flags",
-                "|Guild Features",
-                "|Example Guild"
-              ],
-              "Verification Level": {
-                "content": [
-                  [
-                    [
-                      "Level",
-                      "Integer",
-                      "Description"
-                    ],
-                    [
-                      "NONE",
-                      "0",
-                      "unrestricted"
-                    ],
-                    [
-                      "LOW",
-                      "1",
-                      "must have verified email on account"
-                    ],
-                    [
-                      "MEDIUM",
-                      "2",
-                      "must be registered on Discord for longer than 5 minutes"
-                    ],
-                    [
-                      "HIGH",
-                      "3",
-                      "must be a member of the server for longer than 10 minutes"
-                    ],
-                    [
-                      "VERY_HIGH",
-                      "4",
-                      "must have a verified phone number"
-                    ]
-                  ]
-                ]
-              },
-              "Guild NSFW Level": {
-                "content": [
-                  [
-                    [
-                      "Level",
-                      "Value"
-                    ],
-                    [
-                      "DEFAULT",
-                      "0"
-                    ],
-                    [
-                      "EXPLICIT",
-                      "1"
-                    ],
-                    [
-                      "SAFE",
-                      "2"
-                    ],
-                    [
-                      "AGE_RESTRICTED",
-                      "3"
-                    ]
-                  ]
-                ]
-              },
-              "Premium Tier": {
-                "content": [
-                  [
-                    [
-                      "Level",
-                      "Integer",
-                      "Description"
-                    ],
-                    [
-                      "NONE",
-                      "0",
-                      "guild has not unlocked any Server Boost perks"
-                    ],
-                    [
-                      "TIER_1",
-                      "1",
-                      "guild has unlocked Server Boost level 1 perks"
-                    ],
-                    [
-                      "TIER_2",
-                      "2",
-                      "guild has unlocked Server Boost level 2 perks"
-                    ],
-                    [
-                      "TIER_3",
-                      "3",
-                      "guild has unlocked Server Boost level 3 perks"
-                    ]
-                  ]
-                ]
-              },
-              "System Channel Flags": {
-                "content": [
-                  [
-                    [
-                      "Flag",
-                      "Value",
-                      "Description"
-                    ],
-                    [
-                      "SUPPRESS_JOIN_NOTIFICATIONS",
-                      "1 << 0",
-                      "Suppress member join notifications"
-                    ],
-                    [
-                      "SUPPRESS_PREMIUM_SUBSCRIPTIONS",
-                      "1 << 1",
-                      "Suppress server boost notifications"
-                    ],
-                    [
-                      "SUPPRESS_GUILD_REMINDER_NOTIFICATIONS",
-                      "1 << 2",
-                      "Suppress server setup tips"
-                    ],
-                    [
-                      "SUPPRESS_JOIN_NOTIFICATION_REPLIES",
-                      "1 << 3",
-                      "Hide member join sticker reply buttons"
-                    ]
-                  ]
-                ]
-              },
-              "Guild Features": {
-                "content": [
-                  [
-                    [
-                      "Feature",
-                      "Description"
-                    ],
-                    [
-                      "ANIMATED_BANNER",
-                      "guild has access to set an animated guild banner image"
-                    ],
-                    [
-                      "ANIMATED_ICON",
-                      "guild has access to set an animated guild icon"
-                    ],
-                    [
-                      "AUTO_MODERATION",
-                      "guild has set up auto moderation rules"
-                    ],
-                    [
-                      "BANNER",
-                      "guild has access to set a guild banner image"
-                    ],
-                    [
-                      "COMMUNITY",
-                      "guild can enable welcome screen, Membership Screening, stage channels and discovery, and receives community updates"
-                    ],
-                    [
-                      "DISCOVERABLE",
-                      "guild is able to be discovered in the directory"
-                    ],
-                    [
-                      "FEATURABLE",
-                      "guild is able to be featured in the directory"
-                    ],
-                    [
-                      "INVITE_SPLASH",
-                      "guild has access to set an invite splash background"
-                    ],
-                    [
-                      "MEMBER_VERIFICATION_GATE_ENABLED",
-                      "guild has enabled Membership Screening"
-                    ],
-                    [
-                      "MONETIZATION_ENABLED",
-                      "guild has enabled monetization"
-                    ],
-                    [
-                      "MORE_STICKERS",
-                      "guild has increased custom sticker slots"
-                    ],
-                    [
-                      "NEWS",
-                      "guild has access to create news channels"
-                    ],
-                    [
-                      "PARTNERED",
-                      "guild is partnered"
-                    ],
-                    [
-                      "PREVIEW_ENABLED",
-                      "guild can be previewed before joining via Membership Screening or the directory"
-                    ],
-                    [
-                      "PRIVATE_THREADS",
-                      "guild has access to create private threads"
-                    ],
-                    [
-                      "ROLE_ICONS",
-                      "guild is able to set role icons"
-                    ],
-                    [
-                      "TICKETED_EVENTS_ENABLED",
-                      "guild has enabled ticketed events"
-                    ],
-                    [
-                      "VANITY_URL",
-                      "guild has access to set a vanity URL"
-                    ],
-                    [
-                      "VERIFIED",
-                      "guild is verified"
-                    ],
-                    [
-                      "VIP_REGIONS",
-                      "guild has access to set 384kbps bitrate in voice (previously VIP voice servers)"
-                    ],
-                    [
-                      "WELCOME_SCREEN_ENABLED",
-                      "guild has enabled the welcome screen"
-                    ]
-                  ]
-                ]
-              },
-              "Example Guild": {
-                "content": [
-                  {
-                    "language": "json",
-                    "code": "{\n  \"id\": \"197038439483310086\",\n  \"name\": \"Discord Testers\",\n  \"icon\": \"f64c482b807da4f539cff778d174971c\",\n  \"description\": \"The official place to report Discord Bugs!\",\n  \"splash\": null,\n  \"discovery_splash\": null,\n  \"features\": [\n    \"ANIMATED_ICON\",\n    \"VERIFIED\",\n    \"NEWS\",\n    \"VANITY_URL\",\n    \"DISCOVERABLE\",\n    \"MORE_EMOJI\",\n    \"INVITE_SPLASH\",\n    \"BANNER\",\n    \"COMMUNITY\"\n  ],\n  \"emojis\": [],\n  \"banner\": \"9b6439a7de04f1d26af92f84ac9e1e4a\",\n  \"owner_id\": \"73193882359173120\",\n  \"application_id\": null,\n  \"region\": null,\n  \"afk_channel_id\": null,\n  \"afk_timeout\": 300,\n  \"system_channel_id\": null,\n  \"widget_enabled\": true,\n  \"widget_channel_id\": null,\n  \"verification_level\": 3,\n  \"roles\": [],\n  \"default_message_notifications\": 1,\n  \"mfa_level\": 1,\n  \"explicit_content_filter\": 2,\n  \"max_presences\": 40000,\n  \"max_members\": 250000,\n  \"vanity_url_code\": \"discord-testers\",\n  \"premium_tier\": 3,\n  \"premium_subscription_count\": 33,\n  \"system_channel_flags\": 0,\n  \"preferred_locale\": \"en-US\",\n  \"rules_channel_id\": \"441688182833020939\",\n  \"public_updates_channel_id\": \"281283303326089216\"\n}\n"
-                  }
-                ]
-              }
-            }
+            [
+              "ONLY_MENTIONS",
+              "1",
+              "members will receive notifications only for messages that @mention them by default"
+            ]
+          ]
+        ]
+      },
+      "Explicit Content Filter Level": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#guild-object-explicit-content-filter-level",
+        "content": [
+          [
+            [
+              "Level",
+              "Integer",
+              "Description"
+            ],
+            [
+              "DISABLED",
+              "0",
+              "media content will not be scanned"
+            ],
+            [
+              "MEMBERS_WITHOUT_ROLES",
+              "1",
+              "media content sent by members without roles will be scanned"
+            ],
+            [
+              "ALL_MEMBERS",
+              "2",
+              "media content sent by all members will be scanned"
+            ]
+          ]
+        ]
+      },
+      "MFA Level": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#guild-object-mfa-level",
+        "content": [
+          [
+            [
+              "Level",
+              "Integer",
+              "Description"
+            ],
+            [
+              "NONE",
+              "0",
+              "guild has no MFA/2FA requirement for moderation actions"
+            ],
+            [
+              "ELEVATED",
+              "1",
+              "guild has a 2FA requirement for moderation actions"
+            ]
+          ]
+        ]
+      },
+      "Verification Level": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#guild-object-verification-level",
+        "content": [
+          [
+            [
+              "Level",
+              "Integer",
+              "Description"
+            ],
+            [
+              "NONE",
+              "0",
+              "unrestricted"
+            ],
+            [
+              "LOW",
+              "1",
+              "must have verified email on account"
+            ],
+            [
+              "MEDIUM",
+              "2",
+              "must be registered on Discord for longer than 5 minutes"
+            ],
+            [
+              "HIGH",
+              "3",
+              "must be a member of the server for longer than 10 minutes"
+            ],
+            [
+              "VERY_HIGH",
+              "4",
+              "must have a verified phone number"
+            ]
+          ]
+        ]
+      },
+      "Guild NSFW Level": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#guild-object-guild-nsfw-level",
+        "content": [
+          [
+            [
+              "Level",
+              "Value"
+            ],
+            [
+              "DEFAULT",
+              "0"
+            ],
+            [
+              "EXPLICIT",
+              "1"
+            ],
+            [
+              "SAFE",
+              "2"
+            ],
+            [
+              "AGE_RESTRICTED",
+              "3"
+            ]
+          ]
+        ]
+      },
+      "Premium Tier": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#guild-object-premium-tier",
+        "content": [
+          [
+            [
+              "Level",
+              "Integer",
+              "Description"
+            ],
+            [
+              "NONE",
+              "0",
+              "guild has not unlocked any Server Boost perks"
+            ],
+            [
+              "TIER_1",
+              "1",
+              "guild has unlocked Server Boost level 1 perks"
+            ],
+            [
+              "TIER_2",
+              "2",
+              "guild has unlocked Server Boost level 2 perks"
+            ],
+            [
+              "TIER_3",
+              "3",
+              "guild has unlocked Server Boost level 3 perks"
+            ]
+          ]
+        ]
+      },
+      "System Channel Flags": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#guild-object-system-channel-flags",
+        "content": [
+          [
+            [
+              "Flag",
+              "Value",
+              "Description"
+            ],
+            [
+              "SUPPRESS_JOIN_NOTIFICATIONS",
+              "1 << 0",
+              "Suppress member join notifications"
+            ],
+            [
+              "SUPPRESS_PREMIUM_SUBSCRIPTIONS",
+              "1 << 1",
+              "Suppress server boost notifications"
+            ],
+            [
+              "SUPPRESS_GUILD_REMINDER_NOTIFICATIONS",
+              "1 << 2",
+              "Suppress server setup tips"
+            ],
+            [
+              "SUPPRESS_JOIN_NOTIFICATION_REPLIES",
+              "1 << 3",
+              "Hide member join sticker reply buttons"
+            ]
+          ]
+        ]
+      },
+      "Guild Features": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#guild-object-guild-features",
+        "content": [
+          [
+            [
+              "Feature",
+              "Description"
+            ],
+            [
+              "ANIMATED_BANNER",
+              "guild has access to set an animated guild banner image"
+            ],
+            [
+              "ANIMATED_ICON",
+              "guild has access to set an animated guild icon"
+            ],
+            [
+              "AUTO_MODERATION",
+              "guild has set up auto moderation rules"
+            ],
+            [
+              "BANNER",
+              "guild has access to set a guild banner image"
+            ],
+            [
+              "COMMUNITY",
+              "guild can enable welcome screen, Membership Screening, stage channels and discovery, and receives community updates"
+            ],
+            [
+              "DISCOVERABLE",
+              "guild is able to be discovered in the directory"
+            ],
+            [
+              "FEATURABLE",
+              "guild is able to be featured in the directory"
+            ],
+            [
+              "INVITE_SPLASH",
+              "guild has access to set an invite splash background"
+            ],
+            [
+              "MEMBER_VERIFICATION_GATE_ENABLED",
+              "guild has enabled Membership Screening"
+            ],
+            [
+              "MONETIZATION_ENABLED",
+              "guild has enabled monetization"
+            ],
+            [
+              "MORE_STICKERS",
+              "guild has increased custom sticker slots"
+            ],
+            [
+              "NEWS",
+              "guild has access to create news channels"
+            ],
+            [
+              "PARTNERED",
+              "guild is partnered"
+            ],
+            [
+              "PREVIEW_ENABLED",
+              "guild can be previewed before joining via Membership Screening or the directory"
+            ],
+            [
+              "PRIVATE_THREADS",
+              "guild has access to create private threads"
+            ],
+            [
+              "ROLE_ICONS",
+              "guild is able to set role icons"
+            ],
+            [
+              "TICKETED_EVENTS_ENABLED",
+              "guild has enabled ticketed events"
+            ],
+            [
+              "VANITY_URL",
+              "guild has access to set a vanity URL"
+            ],
+            [
+              "VERIFIED",
+              "guild is verified"
+            ],
+            [
+              "VIP_REGIONS",
+              "guild has access to set 384kbps bitrate in voice (previously VIP voice servers)"
+            ],
+            [
+              "WELCOME_SCREEN_ENABLED",
+              "guild has enabled the welcome screen"
+            ]
+          ]
+        ]
+      },
+      "Example Guild": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#guild-object-example-guild",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"id\": \"197038439483310086\",\n  \"name\": \"Discord Testers\",\n  \"icon\": \"f64c482b807da4f539cff778d174971c\",\n  \"description\": \"The official place to report Discord Bugs!\",\n  \"splash\": null,\n  \"discovery_splash\": null,\n  \"features\": [\n    \"ANIMATED_ICON\",\n    \"VERIFIED\",\n    \"NEWS\",\n    \"VANITY_URL\",\n    \"DISCOVERABLE\",\n    \"MORE_EMOJI\",\n    \"INVITE_SPLASH\",\n    \"BANNER\",\n    \"COMMUNITY\"\n  ],\n  \"emojis\": [],\n  \"banner\": \"9b6439a7de04f1d26af92f84ac9e1e4a\",\n  \"owner_id\": \"73193882359173120\",\n  \"application_id\": null,\n  \"region\": null,\n  \"afk_channel_id\": null,\n  \"afk_timeout\": 300,\n  \"system_channel_id\": null,\n  \"widget_enabled\": true,\n  \"widget_channel_id\": null,\n  \"verification_level\": 3,\n  \"roles\": [],\n  \"default_message_notifications\": 1,\n  \"mfa_level\": 1,\n  \"explicit_content_filter\": 2,\n  \"max_presences\": 40000,\n  \"max_members\": 250000,\n  \"vanity_url_code\": \"discord-testers\",\n  \"premium_tier\": 3,\n  \"premium_subscription_count\": 33,\n  \"system_channel_flags\": 0,\n  \"preferred_locale\": \"en-US\",\n  \"rules_channel_id\": \"441688182833020939\",\n  \"public_updates_channel_id\": \"281283303326089216\"\n}\n"
           }
-        },
-        "Unavailable Guild Object": {
-          "content": [
-            "A partial guild object. Represents an Offline Guild, or a Guild whose information has not been provided through Guild Create events during the Gateway connect.",
-            "|Example Unavailable Guild"
-          ],
-          "Example Unavailable Guild": {
-            "content": [
-              {
-                "language": "json",
-                "code": "{\n  \"id\": \"41771983423143937\",\n  \"unavailable\": true\n}\n"
-              }
-            ]
+        ]
+      }
+    },
+    "Unavailable Guild Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/guild#unavailable-guild-object",
+      "content": [
+        "A partial guild object. Represents an Offline Guild, or a Guild whose information has not been provided through Guild Create events during the Gateway connect.",
+        "|Example Unavailable Guild"
+      ],
+      "Example Unavailable Guild": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#unavailable-guild-object-example-unavailable-guild",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"id\": \"41771983423143937\",\n  \"unavailable\": true\n}\n"
           }
-        },
-        "Guild Preview Object": {
-          "content": [
-            "|Guild Preview Structure"
-          ],
-          "Guild Preview Structure": {
-            "content": [
-              [
-                [
-                  "Field",
-                  "Type",
-                  "Description"
-                ],
-                [
-                  "id",
-                  "snowflake",
-                  "guild id"
-                ],
-                [
-                  "name",
-                  "string",
-                  "guild name (2-100 characters)"
-                ],
-                [
-                  "icon",
-                  "?string",
-                  "icon hash"
-                ],
-                [
-                  "splash",
-                  "?string",
-                  "splash hash"
-                ],
-                [
-                  "discovery_splash",
-                  "?string",
-                  "discovery splash hash"
-                ],
-                [
-                  "emojis",
-                  "array of emoji objects",
-                  "custom guild emojis"
-                ],
-                [
-                  "features",
-                  "array of guild feature strings",
-                  "enabled guild features"
-                ],
-                [
-                  "approximate_member_count",
-                  "integer",
-                  "approximate number of members in this guild"
-                ],
-                [
-                  "approximate_presence_count",
-                  "integer",
-                  "approximate number of online members in this guild"
-                ],
-                [
-                  "description",
-                  "?string",
-                  "the description for the guild"
-                ],
-                [
-                  "stickers",
-                  "array of sticker objects",
-                  "custom guild stickers"
-                ]
-              ],
-              "|Example Guild Preview"
+        ]
+      }
+    },
+    "Guild Preview Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/guild#guild-preview-object",
+      "content": [
+        "|Guild Preview Structure",
+        "|Example Guild Preview"
+      ],
+      "Guild Preview Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#guild-preview-object-guild-preview-structure",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
             ],
-            "Example Guild Preview": {
-              "content": [
-                {
-                  "language": "json",
-                  "code": "{\n  \"id\": \"197038439483310086\",\n  \"name\": \"Discord Testers\",\n  \"icon\": \"f64c482b807da4f539cff778d174971c\",\n  \"splash\": null,\n  \"discovery_splash\": null,\n  \"emojis\": [],\n  \"features\": [\n    \"DISCOVERABLE\",\n    \"VANITY_URL\",\n    \"ANIMATED_ICON\",\n    \"INVITE_SPLASH\",\n    \"NEWS\",\n    \"COMMUNITY\",\n    \"BANNER\",\n    \"VERIFIED\",\n    \"MORE_EMOJI\"\n  ],\n  \"approximate_member_count\": 60814,\n  \"approximate_presence_count\": 20034,\n  \"description\": \"The official place to report Discord Bugs!\",\n  \"stickers\": []\n}\n"
-                }
-              ]
-            }
+            [
+              "id",
+              "snowflake",
+              "guild id"
+            ],
+            [
+              "name",
+              "string",
+              "guild name (2-100 characters)"
+            ],
+            [
+              "icon",
+              "?string",
+              "icon hash"
+            ],
+            [
+              "splash",
+              "?string",
+              "splash hash"
+            ],
+            [
+              "discovery_splash",
+              "?string",
+              "discovery splash hash"
+            ],
+            [
+              "emojis",
+              "array of emoji objects",
+              "custom guild emojis"
+            ],
+            [
+              "features",
+              "array of guild feature strings",
+              "enabled guild features"
+            ],
+            [
+              "approximate_member_count",
+              "integer",
+              "approximate number of members in this guild"
+            ],
+            [
+              "approximate_presence_count",
+              "integer",
+              "approximate number of online members in this guild"
+            ],
+            [
+              "description",
+              "?string",
+              "the description for the guild"
+            ],
+            [
+              "stickers",
+              "array of sticker objects",
+              "custom guild stickers"
+            ]
+          ]
+        ]
+      },
+      "Example Guild Preview": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#guild-preview-object-example-guild-preview",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"id\": \"197038439483310086\",\n  \"name\": \"Discord Testers\",\n  \"icon\": \"f64c482b807da4f539cff778d174971c\",\n  \"splash\": null,\n  \"discovery_splash\": null,\n  \"emojis\": [],\n  \"features\": [\n    \"DISCOVERABLE\",\n    \"VANITY_URL\",\n    \"ANIMATED_ICON\",\n    \"INVITE_SPLASH\",\n    \"NEWS\",\n    \"COMMUNITY\",\n    \"BANNER\",\n    \"VERIFIED\",\n    \"MORE_EMOJI\"\n  ],\n  \"approximate_member_count\": 60814,\n  \"approximate_presence_count\": 20034,\n  \"description\": \"The official place to report Discord Bugs!\",\n  \"stickers\": []\n}\n"
           }
-        },
-        "Guild Widget Settings Object": {
-          "content": [
-            "|Guild Widget Settings Structure"
-          ],
-          "Guild Widget Settings Structure": {
-            "content": [
-              [
-                [
-                  "Field",
-                  "Type",
-                  "Description"
-                ],
-                [
-                  "enabled",
-                  "boolean",
-                  "whether the widget is enabled"
-                ],
-                [
-                  "channel_id",
-                  "?snowflake",
-                  "the widget channel id"
-                ]
-              ],
-              "|Example Guild Widget Settings"
+        ]
+      }
+    },
+    "Guild Widget Settings Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/guild#guild-widget-settings-object",
+      "content": [
+        "|Guild Widget Settings Structure",
+        "|Example Guild Widget Settings"
+      ],
+      "Guild Widget Settings Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#guild-widget-settings-object-guild-widget-settings-structure",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
             ],
-            "Example Guild Widget Settings": {
-              "content": [
-                {
-                  "language": "json",
-                  "code": "{\n  \"enabled\": true,\n  \"channel_id\": \"41771983444115456\"\n}\n"
-                }
-              ]
-            }
+            [
+              "enabled",
+              "boolean",
+              "whether the widget is enabled"
+            ],
+            [
+              "channel_id",
+              "?snowflake",
+              "the widget channel id"
+            ]
+          ]
+        ]
+      },
+      "Example Guild Widget Settings": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#guild-widget-settings-object-example-guild-widget-settings",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"enabled\": true,\n  \"channel_id\": \"41771983444115456\"\n}\n"
           }
-        },
-        "Guild Widget Object": {
-          "content": [
-            "|Guild Widget Structure"
+        ]
+      }
+    },
+    "Guild Widget Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/guild#guild-widget-object",
+      "content": [
+        "|Guild Widget Structure",
+        "|Example Guild Widget"
+      ],
+      "Guild Widget Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#guild-widget-object-guild-widget-structure",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "id",
+              "snowflake",
+              "guild id"
+            ],
+            [
+              "name",
+              "string",
+              "guild name (2-100 characters)"
+            ],
+            [
+              "instant_invite",
+              "?string",
+              "instant invite for the guilds specified widget invite channel"
+            ],
+            [
+              "channels",
+              "array of partial channel objects",
+              "voice and stage channels which are accessible by @everyone"
+            ],
+            [
+              "members",
+              "array of partial user objects",
+              "special widget user objects that includes users presence (Limit 100)"
+            ],
+            [
+              "presence_count",
+              "integer",
+              "number of online members in this guild"
+            ]
           ],
-          "Guild Widget Structure": {
-            "content": [
-              [
-                [
-                  "Field",
-                  "Type",
-                  "Description"
-                ],
-                [
-                  "id",
-                  "snowflake",
-                  "guild id"
-                ],
-                [
-                  "name",
-                  "string",
-                  "guild name (2-100 characters)"
-                ],
-                [
-                  "instant_invite",
-                  "?string",
-                  "instant invite for the guilds specified widget invite channel"
-                ],
-                [
-                  "channels",
-                  "array of partial channel objects",
-                  "voice and stage channels which are accessible by @everyone"
-                ],
-                [
-                  "members",
-                  "array of partial user objects",
-                  "special widget user objects that includes users presence (Limit 100)"
-                ],
-                [
-                  "presence_count",
-                  "integer",
-                  "number of online members in this guild"
-                ]
-              ],
-              "> warn\n> The fields id, discriminator and avatar are anonymized to prevent abuse.",
-              "|Example Guild Widget"
-            ],
-            "Example Guild Widget": {
-              "content": [
-                {
-                  "language": "json",
-                  "code": "{\n  \"id\": \"290926798626999250\",\n  \"name\": \"Test Server\",\n  \"instant_invite\": \"https://discord.com/invite/abcdefg\",\n  \"channels\": [\n    {\n      \"id\": \"705216630279993882\",\n      \"name\": \"elephant\",\n      \"position\": 2\n    },\n    {\n      \"id\": \"669583461748992190\",\n      \"name\": \"groovy-music\",\n      \"position\": 1\n    }\n  ],\n  \"members\": [\n    {\n      \"id\": \"0\",\n      \"username\": \"1234\",\n      \"discriminator\": \"0000\",\n      \"avatar\": null,\n      \"status\": \"online\",\n      \"avatar_url\": \"https://cdn.discordapp.com/widget-avatars/FfvURgcr3Za92K3JtoCppqnYMppMDc5B-Rll74YrGCU/C-1DyBZPQ6t5q2RuATFuMFgq0_uEMZVzd_6LbGN_uJKvZflobA9diAlTjhf6CAESLLeTuu4dLuHFWOb_PNLteooNfhC4C6k5QgAGuxEOP12tVVVCvX6t64k14PMXZrGTDq8pWZhukP40Wg\"\n    }\n  ],\n  \"presence_count\": 1\n}\n"
-                }
-              ]
-            }
+          "> warn\n> The fields id, discriminator and avatar are anonymized to prevent abuse."
+        ]
+      },
+      "Example Guild Widget": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#guild-widget-object-example-guild-widget",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"id\": \"290926798626999250\",\n  \"name\": \"Test Server\",\n  \"instant_invite\": \"https://discord.com/invite/abcdefg\",\n  \"channels\": [\n    {\n      \"id\": \"705216630279993882\",\n      \"name\": \"elephant\",\n      \"position\": 2\n    },\n    {\n      \"id\": \"669583461748992190\",\n      \"name\": \"groovy-music\",\n      \"position\": 1\n    }\n  ],\n  \"members\": [\n    {\n      \"id\": \"0\",\n      \"username\": \"1234\",\n      \"discriminator\": \"0000\",\n      \"avatar\": null,\n      \"status\": \"online\",\n      \"avatar_url\": \"https://cdn.discordapp.com/widget-avatars/FfvURgcr3Za92K3JtoCppqnYMppMDc5B-Rll74YrGCU/C-1DyBZPQ6t5q2RuATFuMFgq0_uEMZVzd_6LbGN_uJKvZflobA9diAlTjhf6CAESLLeTuu4dLuHFWOb_PNLteooNfhC4C6k5QgAGuxEOP12tVVVCvX6t64k14PMXZrGTDq8pWZhukP40Wg\"\n    }\n  ],\n  \"presence_count\": 1\n}\n"
           }
-        },
-        "Guild Member Object": {
-          "content": [
-            "|Guild Member Structure"
+        ]
+      }
+    },
+    "Guild Member Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/guild#guild-member-object",
+      "content": [
+        "|Guild Member Structure",
+        "|Example Guild Member"
+      ],
+      "Guild Member Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#guild-member-object-guild-member-structure",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "user?",
+              "user object",
+              "the user this guild member represents"
+            ],
+            [
+              "nick?",
+              "?string",
+              "this user's guild nickname"
+            ],
+            [
+              "avatar?",
+              "?string",
+              "the member's guild avatar hash"
+            ],
+            [
+              "roles",
+              "array of snowflakes",
+              "array of role object ids"
+            ],
+            [
+              "joined_at",
+              "ISO8601 timestamp",
+              "when the user joined the guild"
+            ],
+            [
+              "premium_since?",
+              "?ISO8601 timestamp",
+              "when the user started boosting the guild"
+            ],
+            [
+              "deaf",
+              "boolean",
+              "whether the user is deafened in voice channels"
+            ],
+            [
+              "mute",
+              "boolean",
+              "whether the user is muted in voice channels"
+            ],
+            [
+              "pending?",
+              "boolean",
+              "whether the user has not yet passed the guild's Membership Screening requirements"
+            ],
+            [
+              "permissions?",
+              "string",
+              "total permissions of the member in the channel, including overwrites, returned when in the interaction object"
+            ],
+            [
+              "communication_disabled_until?",
+              "?ISO8601 timestamp",
+              "when the user's timeout will expire and the user will be able to communicate in the guild again, null or a time in the past if the user is not timed out"
+            ]
           ],
-          "Guild Member Structure": {
-            "content": [
-              [
-                [
-                  "Field",
-                  "Type",
-                  "Description"
-                ],
-                [
-                  "user?",
-                  "user object",
-                  "the user this guild member represents"
-                ],
-                [
-                  "nick?",
-                  "?string",
-                  "this user's guild nickname"
-                ],
-                [
-                  "avatar?",
-                  "?string",
-                  "the member's guild avatar hash"
-                ],
-                [
-                  "roles",
-                  "array of snowflakes",
-                  "array of role object ids"
-                ],
-                [
-                  "joined_at",
-                  "ISO8601 timestamp",
-                  "when the user joined the guild"
-                ],
-                [
-                  "premium_since?",
-                  "?ISO8601 timestamp",
-                  "when the user started boosting the guild"
-                ],
-                [
-                  "deaf",
-                  "boolean",
-                  "whether the user is deafened in voice channels"
-                ],
-                [
-                  "mute",
-                  "boolean",
-                  "whether the user is muted in voice channels"
-                ],
-                [
-                  "pending?",
-                  "boolean",
-                  "whether the user has not yet passed the guild's Membership Screening requirements"
-                ],
-                [
-                  "permissions?",
-                  "string",
-                  "total permissions of the member in the channel, including overwrites, returned when in the interaction object"
-                ],
-                [
-                  "communication_disabled_until?",
-                  "?ISO8601 timestamp",
-                  "when the user's timeout will expire and the user will be able to communicate in the guild again, null or a time in the past if the user is not timed out"
-                ]
-              ],
-              "> info\n> The field user won't be included in the member object attached to MESSAGE_CREATE and MESSAGE_UPDATE gateway events.",
-              "> info\n> In GUILD_ events, pending will always be included as true or false. In non GUILD_ events which can only be triggered by non-pending users, pending will not be included.",
-              "|Example Guild Member"
-            ],
-            "Example Guild Member": {
-              "content": [
-                {
-                  "language": "json",
-                  "code": "{\n  \"user\": {},\n  \"nick\": \"NOT API SUPPORT\",\n  \"avatar\": null,\n  \"roles\": [],\n  \"joined_at\": \"2015-04-26T06:26:56.936000+00:00\",\n  \"deaf\": false,\n  \"mute\": false\n}\n"
-                }
-              ]
-            }
+          "> info\n> The field user won't be included in the member object attached to MESSAGE_CREATE and MESSAGE_UPDATE gateway events.",
+          "> info\n> In GUILD_ events, pending will always be included as true or false. In non GUILD_ events which can only be triggered by non-pending users, pending will not be included."
+        ]
+      },
+      "Example Guild Member": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#guild-member-object-example-guild-member",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"user\": {},\n  \"nick\": \"NOT API SUPPORT\",\n  \"avatar\": null,\n  \"roles\": [],\n  \"joined_at\": \"2015-04-26T06:26:56.936000+00:00\",\n  \"deaf\": false,\n  \"mute\": false\n}\n"
           }
-        },
-        "Integration Object": {
-          "content": [
-            "|Integration Structure"
+        ]
+      }
+    },
+    "Integration Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/guild#integration-object",
+      "content": [
+        "|Integration Structure",
+        "|Integration Expire Behaviors"
+      ],
+      "Integration Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#integration-object-integration-structure",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "id",
+              "snowflake",
+              "integration id"
+            ],
+            [
+              "name",
+              "string",
+              "integration name"
+            ],
+            [
+              "type",
+              "string",
+              "integration type (twitch, youtube, or discord)"
+            ],
+            [
+              "enabled? *",
+              "boolean",
+              "is this integration enabled"
+            ],
+            [
+              "syncing? *",
+              "boolean",
+              "is this integration syncing"
+            ],
+            [
+              "role_id? *",
+              "snowflake",
+              "id that this integration uses for \"subscribers\""
+            ],
+            [
+              "enable_emoticons? *",
+              "boolean",
+              "whether emoticons should be synced for this integration (twitch only currently)"
+            ],
+            [
+              "expire_behavior? *",
+              "integration expire behavior",
+              "the behavior of expiring subscribers"
+            ],
+            [
+              "expire_grace_period? *",
+              "integer",
+              "the grace period (in days) before expiring subscribers"
+            ],
+            [
+              "user? *",
+              "user object",
+              "user for this integration"
+            ],
+            [
+              "account",
+              "account object",
+              "integration account information"
+            ],
+            [
+              "synced_at? *",
+              "ISO8601 timestamp",
+              "when this integration was last synced"
+            ],
+            [
+              "subscriber_count? *",
+              "integer",
+              "how many subscribers this integration has"
+            ],
+            [
+              "revoked? *",
+              "boolean",
+              "has this integration been revoked"
+            ],
+            [
+              "application?",
+              "application object",
+              "The bot/OAuth2 application for discord integrations"
+            ]
           ],
-          "Integration Structure": {
-            "content": [
-              [
-                [
-                  "Field",
-                  "Type",
-                  "Description"
-                ],
-                [
-                  "id",
-                  "snowflake",
-                  "integration id"
-                ],
-                [
-                  "name",
-                  "string",
-                  "integration name"
-                ],
-                [
-                  "type",
-                  "string",
-                  "integration type (twitch, youtube, or discord)"
-                ],
-                [
-                  "enabled? *",
-                  "boolean",
-                  "is this integration enabled"
-                ],
-                [
-                  "syncing? *",
-                  "boolean",
-                  "is this integration syncing"
-                ],
-                [
-                  "role_id? *",
-                  "snowflake",
-                  "id that this integration uses for \"subscribers\""
-                ],
-                [
-                  "enable_emoticons? *",
-                  "boolean",
-                  "whether emoticons should be synced for this integration (twitch only currently)"
-                ],
-                [
-                  "expire_behavior? *",
-                  "integration expire behavior",
-                  "the behavior of expiring subscribers"
-                ],
-                [
-                  "expire_grace_period? *",
-                  "integer",
-                  "the grace period (in days) before expiring subscribers"
-                ],
-                [
-                  "user? *",
-                  "user object",
-                  "user for this integration"
-                ],
-                [
-                  "account",
-                  "account object",
-                  "integration account information"
-                ],
-                [
-                  "synced_at? *",
-                  "ISO8601 timestamp",
-                  "when this integration was last synced"
-                ],
-                [
-                  "subscriber_count? *",
-                  "integer",
-                  "how many subscribers this integration has"
-                ],
-                [
-                  "revoked? *",
-                  "boolean",
-                  "has this integration been revoked"
-                ],
-                [
-                  "application?",
-                  "application object",
-                  "The bot/OAuth2 application for discord integrations"
-                ]
-              ],
-              "* These fields are not provided for discord bot integrations.",
-              "|Integration Expire Behaviors"
+          "* These fields are not provided for discord bot integrations."
+        ]
+      },
+      "Integration Expire Behaviors": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#integration-object-integration-expire-behaviors",
+        "content": [
+          [
+            [
+              "Value",
+              "Name"
             ],
-            "Integration Expire Behaviors": {
-              "content": [
-                [
-                  [
-                    "Value",
-                    "Name"
-                  ],
-                  [
-                    "0",
-                    "Remove role"
-                  ],
-                  [
-                    "1",
-                    "Kick"
-                  ]
-                ]
-              ]
-            }
+            [
+              "0",
+              "Remove role"
+            ],
+            [
+              "1",
+              "Kick"
+            ]
+          ]
+        ]
+      }
+    },
+    "Integration Account Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/guild#integration-account-object",
+      "content": [
+        "|Integration Account Structure"
+      ],
+      "Integration Account Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#integration-account-object-integration-account-structure",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "id",
+              "string",
+              "id of the account"
+            ],
+            [
+              "name",
+              "string",
+              "name of the account"
+            ]
+          ]
+        ]
+      }
+    },
+    "Integration Application Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/guild#integration-application-object",
+      "content": [
+        "|Integration Application Structure"
+      ],
+      "Integration Application Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#integration-application-object-integration-application-structure",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "id",
+              "snowflake",
+              "the id of the app"
+            ],
+            [
+              "name",
+              "string",
+              "the name of the app"
+            ],
+            [
+              "icon",
+              "?string",
+              "the icon hash of the app"
+            ],
+            [
+              "description",
+              "string",
+              "the description of the app"
+            ],
+            [
+              "bot?",
+              "user object",
+              "the bot associated with this application"
+            ]
+          ]
+        ]
+      }
+    },
+    "Ban Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/guild#ban-object",
+      "content": [
+        "|Ban Structure",
+        "|Example Ban"
+      ],
+      "Ban Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#ban-object-ban-structure",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "reason",
+              "?string",
+              "the reason for the ban"
+            ],
+            [
+              "user",
+              "user object",
+              "the banned user"
+            ]
+          ]
+        ]
+      },
+      "Example Ban": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#ban-object-example-ban",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"reason\": \"mentioning b1nzy\",\n  \"user\": {\n    \"username\": \"Mason\",\n    \"discriminator\": \"9999\",\n    \"id\": \"53908099506183680\",\n    \"avatar\": \"a_bab14f271d565501444b2ca3be944b25\",\n    \"public_flags\": 131141\n  }\n}\n"
           }
-        },
-        "Integration Account Object": {
-          "content": [
-            "|Integration Account Structure"
+        ]
+      }
+    },
+    "Welcome Screen Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object",
+      "content": [
+        "|Welcome Screen Structure",
+        "|Welcome Screen Channel Structure",
+        "|Example Welcome Screen"
+      ],
+      "Welcome Screen Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object-welcome-screen-structure",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "description",
+              "?string",
+              "the server description shown in the welcome screen"
+            ],
+            [
+              "welcome_channels",
+              "array of welcome screen channel objects",
+              "the channels shown in the welcome screen, up to 5"
+            ]
+          ]
+        ]
+      },
+      "Welcome Screen Channel Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object-welcome-screen-channel-structure",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "channel_id",
+              "snowflake",
+              "the channel's id"
+            ],
+            [
+              "description",
+              "string",
+              "the description shown for the channel"
+            ],
+            [
+              "emoji_id",
+              "?snowflake",
+              "the emoji id, if the emoji is custom"
+            ],
+            [
+              "emoji_name",
+              "?string",
+              "the emoji name if custom, the unicode character if standard, or null if no emoji is set"
+            ]
+          ]
+        ]
+      },
+      "Example Welcome Screen": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object-example-welcome-screen",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"description\": \"Discord Developers is a place to learn about Discord's API, bots, and SDKs and integrations. This is NOT a general Discord support server.\",\n  \"welcome_channels\": [\n    {\n      \"channel_id\": \"697138785317814292\",\n      \"description\": \"Follow for official Discord API updates\",\n      \"emoji_id\": null,\n      \"emoji_name\": \"\ud83d\udce1\"\n    },\n    {\n      \"channel_id\": \"697236247739105340\",\n      \"description\": \"Get help with Bot Verifications\",\n      \"emoji_id\": null,\n      \"emoji_name\": \"\ud83d\udcf8\"\n    },\n    {\n      \"channel_id\": \"697489244649816084\",\n      \"description\": \"Create amazing things with Discord's API\",\n      \"emoji_id\": null,\n      \"emoji_name\": \"\ud83d\udd2c\"\n    },\n    {\n      \"channel_id\": \"613425918748131338\",\n      \"description\": \"Integrate Discord into your game\",\n      \"emoji_id\": null,\n      \"emoji_name\": \"\ud83c\udfae\"\n    },\n    {\n      \"channel_id\": \"646517734150242346\",\n      \"description\": \"Find more places to help you on your quest\",\n      \"emoji_id\": null,\n      \"emoji_name\": \"\ud83d\udd26\"\n    }\n  ]\n}\n"
+          }
+        ]
+      }
+    },
+    "Membership Screening Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/guild#membership-screening-object",
+      "content": [
+        "In guilds with Membership Screening enabled, when a member joins, Guild Member Add will be emitted but they will initially be restricted from doing any actions in the guild, and pending will be true in the member object. When the member completes the screening, Guild Member Update will be emitted and pending will be false.",
+        "Giving the member a role will bypass Membership Screening as well as the guild's verification level, giving the member immediate access to chat. Therefore, instead of giving a role when the member joins, it is recommended to not give the role until the user is no longer pending.",
+        "> warn\n> We are making significant changes to the Membership Screening API specifically related to getting and editing the Membership Screening object. Long story short is that it can be improved. As such, we have removed those documentation. There will not be any changes to how pending members work, as outlined above. That behavior will stay the same."
+      ]
+    },
+    "Create Guild % POST /guilds": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#create-guild-%-post-/guilds",
+      "content": [
+        "Create a new guild. Returns a guild object on success. Fires a Guild Create Gateway event.",
+        "> warn\n> This endpoint can be used only by bots in less than 10 guilds.",
+        "|JSON Params",
+        "|Example Partial Channel Object",
+        "|Example Category Channel"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#create-guild-%-post-/guilds-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "name",
+              "string",
+              "name of the guild (2-100 characters)"
+            ],
+            [
+              "region?",
+              "?string",
+              "voice region id (deprecated)"
+            ],
+            [
+              "icon?",
+              "image data",
+              "base64 128x128 image for the guild icon"
+            ],
+            [
+              "verification_level?",
+              "integer",
+              "verification level"
+            ],
+            [
+              "default_message_notifications?",
+              "integer",
+              "default message notification level"
+            ],
+            [
+              "explicit_content_filter?",
+              "integer",
+              "explicit content filter level"
+            ],
+            [
+              "roles?",
+              "array of role objects",
+              "new guild roles"
+            ],
+            [
+              "channels?",
+              "array of partial channel objects",
+              "new guild's channels"
+            ],
+            [
+              "afk_channel_id?",
+              "snowflake",
+              "id for afk channel"
+            ],
+            [
+              "afk_timeout?",
+              "integer",
+              "afk timeout in seconds"
+            ],
+            [
+              "system_channel_id?",
+              "snowflake",
+              "the id of the channel where guild notices such as welcome messages and boost events are posted"
+            ],
+            [
+              "system_channel_flags?",
+              "integer",
+              "system channel flags"
+            ]
           ],
-          "Integration Account Structure": {
-            "content": [
-              [
-                [
-                  "Field",
-                  "Type",
-                  "Description"
-                ],
-                [
-                  "id",
-                  "string",
-                  "id of the account"
-                ],
-                [
-                  "name",
-                  "string",
-                  "name of the account"
-                ]
-              ]
-            ]
+          "> warn\n> When using the roles parameter, the first member of the array is used to change properties of the guild's @everyone role. If you are trying to bootstrap a guild with additional roles, keep this in mind.",
+          "> info\n> When using the roles parameter, the required id field within each role object is an integer placeholder, and will be replaced by the API upon consumption. Its purpose is to allow you to overwrite a role's permissions in a channel when also passing in channels with the channels array.",
+          "> warn\n> When using the channels parameter, the position field is ignored, and none of the default channels are created.",
+          "> info\n> When using the channels parameter, the id field within each channel object may be set to an integer placeholder, and will be replaced by the API upon consumption. Its purpose is to allow you to create GUILD_CATEGORY channels by setting the parent_id field on any children to the category's id field. Category channels must be listed before any children.",
+          "> warn\n> The region field is deprecated and is replaced by channel.rtc_region."
+        ]
+      },
+      "Example Partial Channel Object": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#create-guild-%-post-/guilds-example-partial-channel-object",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"name\": \"naming-things-is-hard\",\n  \"type\": 0\n}\n"
           }
-        },
-        "Integration Application Object": {
-          "content": [
-            "|Integration Application Structure"
+        ]
+      },
+      "Example Category Channel": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#create-guild-%-post-/guilds-example-category-channel",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"name\": \"my-category\",\n  \"type\": 4,\n  \"id\": 1\n}\n{\n  \"name\": \"naming-things-is-hard\",\n  \"type\": 0,\n  \"id\": 2,\n  \"parent_id\": 1\n}\n"
+          }
+        ]
+      }
+    },
+    "Get Guild % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#get-guild-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}",
+      "content": [
+        "Returns the guild object for the given id. If with_counts is set to true, this endpoint will also return approximate_member_count and approximate_presence_count for the guild.",
+        "|Query String Params",
+        "|Example Response"
+      ],
+      "Query String Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#get-guild-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}-query-string-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description",
+              "Required",
+              "Default"
+            ],
+            [
+              "with_counts?",
+              "boolean",
+              "when true, will return approximate member and presence counts for the guild",
+              "false",
+              "false"
+            ]
+          ]
+        ]
+      },
+      "Example Response": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#get-guild-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}-example-response",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"id\": \"2909267986263572999\",\n  \"name\": \"Mason's Test Server\",\n  \"icon\": \"389030ec9db118cb5b85a732333b7c98\",\n  \"description\": null,\n  \"splash\": \"75610b05a0dd09ec2c3c7df9f6975ea0\",\n  \"discovery_splash\": null,\n  \"approximate_member_count\": 2,\n  \"approximate_presence_count\": 2,\n  \"features\": [\n    \"INVITE_SPLASH\",\n    \"VANITY_URL\",\n    \"COMMERCE\",\n    \"BANNER\",\n    \"NEWS\",\n    \"VERIFIED\",\n    \"VIP_REGIONS\"\n  ],\n  \"emojis\": [\n    {\n      \"name\": \"ultrafastparrot\",\n      \"roles\": [],\n      \"id\": \"393564762228785161\",\n      \"require_colons\": true,\n      \"managed\": false,\n      \"animated\": true,\n      \"available\": true\n    }\n  ],\n  \"banner\": \"5c3cb8d1bc159937fffe7e641ec96ca7\",\n  \"owner_id\": \"53908232506183680\",\n  \"application_id\": null,\n  \"region\": null,\n  \"afk_channel_id\": null,\n  \"afk_timeout\": 300,\n  \"system_channel_id\": null,\n  \"widget_enabled\": true,\n  \"widget_channel_id\": \"639513352485470208\",\n  \"verification_level\": 0,\n  \"roles\": [\n    {\n      \"id\": \"2909267986263572999\",\n      \"name\": \"@everyone\",\n      \"permissions\": \"49794752\",\n      \"position\": 0,\n      \"color\": 0,\n      \"hoist\": false,\n      \"managed\": false,\n      \"mentionable\": false\n    }\n  ],\n  \"default_message_notifications\": 1,\n  \"mfa_level\": 0,\n  \"explicit_content_filter\": 0,\n  \"max_presences\": null,\n  \"max_members\": 250000,\n  \"max_video_channel_users\": 25,\n  \"vanity_url_code\": \"no\",\n  \"premium_tier\": 0,\n  \"premium_subscription_count\": 0,\n  \"system_channel_flags\": 0,\n  \"preferred_locale\": \"en-US\",\n  \"rules_channel_id\": null,\n  \"public_updates_channel_id\": null\n}\n"
+          }
+        ]
+      }
+    },
+    "Get Guild Preview % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/preview": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#get-guild-preview-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/preview",
+      "content": [
+        "Returns the guild preview object for the given id. If the user is not in the guild, then the guild must be lurkable."
+      ]
+    },
+    "Modify Guild % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#modify-guild-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}",
+      "content": [
+        "Modify a guild's settings. Requires the MANAGE_GUILD permission. Returns the updated guild object on success. Fires a Guild Update Gateway event.",
+        "> info\n> All parameters to this endpoint are optional",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
+        "> warn\n> Attempting to add or remove the COMMUNITY guild feature requires the ADMINISTRATOR permission.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#modify-guild-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "name",
+              "string",
+              "guild name"
+            ],
+            [
+              "region",
+              "?string",
+              "guild voice region id (deprecated)"
+            ],
+            [
+              "verification_level",
+              "?integer",
+              "verification level"
+            ],
+            [
+              "default_message_notifications",
+              "?integer",
+              "default message notification level"
+            ],
+            [
+              "explicit_content_filter",
+              "?integer",
+              "explicit content filter level"
+            ],
+            [
+              "afk_channel_id",
+              "?snowflake",
+              "id for afk channel"
+            ],
+            [
+              "afk_timeout",
+              "integer",
+              "afk timeout in seconds"
+            ],
+            [
+              "icon",
+              "?image data",
+              "base64 1024x1024 png/jpeg/gif image for the guild icon (can be animated gif when the server has the ANIMATED_ICON feature)"
+            ],
+            [
+              "owner_id",
+              "snowflake",
+              "user id to transfer guild ownership to (must be owner)"
+            ],
+            [
+              "splash",
+              "?image data",
+              "base64 16:9 png/jpeg image for the guild splash (when the server has the INVITE_SPLASH feature)"
+            ],
+            [
+              "discovery_splash",
+              "?image data",
+              "base64 16:9 png/jpeg image for the guild discovery splash (when the server has the DISCOVERABLE feature)"
+            ],
+            [
+              "banner",
+              "?image data",
+              "base64 16:9 png/jpeg image for the guild banner (when the server has the BANNER feature; can be animated gif when the server has the ANIMATED_BANNER feature)"
+            ],
+            [
+              "system_channel_id",
+              "?snowflake",
+              "the id of the channel where guild notices such as welcome messages and boost events are posted"
+            ],
+            [
+              "system_channel_flags",
+              "integer",
+              "system channel flags"
+            ],
+            [
+              "rules_channel_id",
+              "?snowflake",
+              "the id of the channel where Community guilds display rules and/or guidelines"
+            ],
+            [
+              "public_updates_channel_id",
+              "?snowflake",
+              "the id of the channel where admins and moderators of Community guilds receive notices from Discord"
+            ],
+            [
+              "preferred_locale",
+              "?string",
+              "the preferred locale of a Community guild used in server discovery and notices from Discord; defaults to \"en-US\""
+            ],
+            [
+              "features",
+              "array of guild feature strings",
+              "enabled guild features"
+            ],
+            [
+              "description",
+              "?string",
+              "the description for the guild"
+            ],
+            [
+              "premium_progress_bar_enabled",
+              "boolean",
+              "whether the guild's boost progress bar should be enabled"
+            ]
+          ]
+        ]
+      }
+    },
+    "Delete Guild % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#delete-guild-%-delete-/guilds/{guild.id#docs_resources_guild/guild-object}",
+      "content": [
+        "Delete a guild permanently. User must be owner. Returns 204 No Content on success. Fires a Guild Delete Gateway event."
+      ]
+    },
+    "Get Guild Channels % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/channels": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#get-guild-channels-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/channels",
+      "content": [
+        "Returns a list of guild channel objects. Does not include threads."
+      ]
+    },
+    "Create Guild Channel % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/channels": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#create-guild-channel-%-post-/guilds/{guild.id#docs_resources_guild/guild-object}/channels",
+      "content": [
+        "Create a new channel object for the guild. Requires the MANAGE_CHANNELS permission. If setting permission overwrites, only permissions your bot has in the guild can be allowed/denied. Setting MANAGE_ROLES permission in channels is only possible for guild administrators. Returns the new channel object on success. Fires a Channel Create Gateway event.",
+        "> info\n> All parameters to this endpoint are optional and nullable excluding name",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#create-guild-channel-%-post-/guilds/{guild.id#docs_resources_guild/guild-object}/channels-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "name",
+              "string",
+              "channel name (1-100 characters)"
+            ],
+            [
+              "type",
+              "integer",
+              "the type of channel"
+            ],
+            [
+              "topic",
+              "string",
+              "channel topic (0-1024 characters)"
+            ],
+            [
+              "bitrate*",
+              "integer",
+              "the bitrate (in bits) of the voice or stage channel; min 8000"
+            ],
+            [
+              "user_limit",
+              "integer",
+              "the user limit of the voice channel"
+            ],
+            [
+              "rate_limit_per_user",
+              "integer",
+              "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel, are unaffected"
+            ],
+            [
+              "position",
+              "integer",
+              "sorting position of the channel"
+            ],
+            [
+              "permission_overwrites**",
+              "array of partial overwrite objects",
+              "the channel's permission overwrites"
+            ],
+            [
+              "parent_id",
+              "snowflake",
+              "id of the parent category for a channel"
+            ],
+            [
+              "nsfw",
+              "boolean",
+              "whether the channel is nsfw"
+            ],
+            [
+              "rtc_region",
+              "string",
+              "channel voice region id of the voice or stage channel, automatic when set to null"
+            ],
+            [
+              "video_quality_mode",
+              "integer",
+              "the camera video quality mode of the voice channel"
+            ],
+            [
+              "default_auto_archive_duration",
+              "integer",
+              "the default duration that the clients use (not the API) for newly created threads in the channel, in minutes, to automatically archive the thread after recent activity"
+            ]
           ],
-          "Integration Application Structure": {
-            "content": [
-              [
-                [
-                  "Field",
-                  "Type",
-                  "Description"
-                ],
-                [
-                  "id",
-                  "snowflake",
-                  "the id of the app"
-                ],
-                [
-                  "name",
-                  "string",
-                  "the name of the app"
-                ],
-                [
-                  "icon",
-                  "?string",
-                  "the icon hash of the app"
-                ],
-                [
-                  "description",
-                  "string",
-                  "the description of the app"
-                ],
-                [
-                  "bot?",
-                  "user object",
-                  "the bot associated with this application"
-                ]
-              ]
+          "* For voice channels, normal servers can set bitrate up to 96000, servers with Boost level 1 can set up to 128000, servers with Boost level 2 can set up to 256000, and servers with Boost level 3 or the VIP_REGIONS guild feature can set up to 384000. For stage channels, bitrate can be set up to 64000.",
+          "** In each overwrite object, the allow and deny keys can be omitted or set to null, which both default to \"0\"."
+        ]
+      }
+    },
+    "Modify Guild Channel Positions % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/channels": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#modify-guild-channel-positions-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/channels",
+      "content": [
+        "Modify the positions of a set of channel objects for the guild. Requires MANAGE_CHANNELS permission. Returns a 204 empty response on success. Fires multiple Channel Update Gateway events.",
+        "> info\n> Only channels to be modified are required.",
+        "This endpoint takes a JSON array of parameters in the following format:",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#modify-guild-channel-positions-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/channels-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "id",
+              "snowflake",
+              "channel id"
+            ],
+            [
+              "position",
+              "?integer",
+              "sorting position of the channel"
+            ],
+            [
+              "lock_permissions",
+              "?boolean",
+              "syncs the permission overwrites with the new parent, if moving to a new category"
+            ],
+            [
+              "parent_id",
+              "?snowflake",
+              "the new parent ID for the channel that is moved"
             ]
-          }
-        },
-        "Ban Object": {
-          "content": [
-            "|Ban Structure"
+          ]
+        ]
+      }
+    },
+    "List Active Guild Threads % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/threads/active": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#list-active-guild-threads-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/threads/active",
+      "content": [
+        "Returns all active threads in the guild, including public and private threads. Threads are ordered by their id, in descending order.",
+        "|Response Body"
+      ],
+      "Response Body": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#list-active-guild-threads-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/threads/active-response-body",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "threads",
+              "array of channel objects",
+              "the active threads"
+            ],
+            [
+              "members",
+              "array of thread members objects",
+              "a thread member object for each returned thread the current user has joined"
+            ]
+          ]
+        ]
+      }
+    },
+    "Get Guild Member % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#get-guild-member-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/members/{user.id#docs_resources_user/user-object}",
+      "content": [
+        "Returns a guild member object for the specified user."
+      ]
+    },
+    "List Guild Members % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#list-guild-members-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/members",
+      "content": [
+        "Returns a list of guild member objects that are members of the guild.",
+        "> warn\n> This endpoint is restricted according to whether the GUILD_MEMBERS Privileged Intent is enabled for your application.",
+        "> info\n> All parameters to this endpoint are optional",
+        "|Query String Params"
+      ],
+      "Query String Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#list-guild-members-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/members-query-string-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description",
+              "Default"
+            ],
+            [
+              "limit",
+              "integer",
+              "max number of members to return (1-1000)",
+              "1"
+            ],
+            [
+              "after",
+              "snowflake",
+              "the highest user id in the previous page",
+              "0"
+            ]
+          ]
+        ]
+      }
+    },
+    "Search Guild Members % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/search": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#search-guild-members-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/members/search",
+      "content": [
+        "Returns a list of guild member objects whose username or nickname starts with a provided string.",
+        "> info\n> All parameters to this endpoint except for query are optional",
+        "|Query String Params"
+      ],
+      "Query String Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#search-guild-members-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/members/search-query-string-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description",
+              "Default"
+            ],
+            [
+              "query",
+              "string",
+              "Query string to match username(s) and nickname(s) against.",
+              ""
+            ],
+            [
+              "limit",
+              "integer",
+              "max number of members to return (1-1000)",
+              "1"
+            ]
+          ]
+        ]
+      }
+    },
+    "Add Guild Member % PUT /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#add-guild-member-%-put-/guilds/{guild.id#docs_resources_guild/guild-object}/members/{user.id#docs_resources_user/user-object}",
+      "content": [
+        "Adds a user to the guild, provided you have a valid oauth2 access token for the user with the guilds.join scope. Returns a 201 Created with the guild member as the body, or 204 No Content if the user is already a member of the guild. Fires a Guild Member Add Gateway event.",
+        "For guilds with Membership Screening enabled, this endpoint will default to adding new members as pending in the guild member object. Members that are pending will have to complete membership screening before they become full members that can talk.",
+        "> info\n> All parameters to this endpoint except for access_token are optional.",
+        "> info\n> The Authorization header must be a Bot token (belonging to the same application used for authorization), and the bot must be a member of the guild with CREATE_INSTANT_INVITE permission.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#add-guild-member-%-put-/guilds/{guild.id#docs_resources_guild/guild-object}/members/{user.id#docs_resources_user/user-object}-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description",
+              "Permission"
+            ],
+            [
+              "access_token",
+              "string",
+              "an oauth2 access token granted with the guilds.join to the bot's application for the user you want to add to the guild",
+              ""
+            ],
+            [
+              "nick",
+              "string",
+              "value to set user's nickname to",
+              "MANAGE_NICKNAMES"
+            ],
+            [
+              "roles",
+              "array of snowflakes",
+              "array of role ids the member is assigned",
+              "MANAGE_ROLES"
+            ],
+            [
+              "mute",
+              "boolean",
+              "whether the user is muted in voice channels",
+              "MUTE_MEMBERS"
+            ],
+            [
+              "deaf",
+              "boolean",
+              "whether the user is deafened in voice channels",
+              "DEAFEN_MEMBERS"
+            ]
           ],
-          "Ban Structure": {
-            "content": [
-              [
-                [
-                  "Field",
-                  "Type",
-                  "Description"
-                ],
-                [
-                  "reason",
-                  "?string",
-                  "the reason for the ban"
-                ],
-                [
-                  "user",
-                  "user object",
-                  "the banned user"
-                ]
-              ],
-              "|Example Ban"
+          "> warn\n> For guilds with Membership Screening enabled, assigning a role using the roles parameter will add the user to the guild as a full member (pending is false in the member object). A member with a role will bypass membership screening and the guild's verification level, and get immediate access to chat. Therefore, instead of assigning a role when the member joins, it is recommended to grant roles only after the user completes screening."
+        ]
+      }
+    },
+    "Modify Guild Member % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#modify-guild-member-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/members/{user.id#docs_resources_user/user-object}",
+      "content": [
+        "Modify attributes of a guild member. Returns a 200 OK with the guild member as the body. Fires a Guild Member Update Gateway event. If the channel_id is set to null, this will force the target user to be disconnected from voice.",
+        "> info\n> All parameters to this endpoint are optional and nullable. When moving members to channels, the API user must have permissions to both connect to the channel and have the MOVE_MEMBERS permission.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#modify-guild-member-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/members/{user.id#docs_resources_user/user-object}-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description",
+              "Permission"
             ],
-            "Example Ban": {
-              "content": [
-                {
-                  "language": "json",
-                  "code": "{\n  \"reason\": \"mentioning b1nzy\",\n  \"user\": {\n    \"username\": \"Mason\",\n    \"discriminator\": \"9999\",\n    \"id\": \"53908099506183680\",\n    \"avatar\": \"a_bab14f271d565501444b2ca3be944b25\",\n    \"public_flags\": 131141\n  }\n}\n"
-                }
-              ]
-            }
-          }
-        },
-        "Welcome Screen Object": {
-          "content": [
-            "|Welcome Screen Structure"
+            [
+              "nick",
+              "string",
+              "value to set user's nickname to",
+              "MANAGE_NICKNAMES"
+            ],
+            [
+              "roles",
+              "array of snowflakes",
+              "array of role ids the member is assigned",
+              "MANAGE_ROLES"
+            ],
+            [
+              "mute",
+              "boolean",
+              "whether the user is muted in voice channels. Will throw a 400 error if the user is not in a voice channel",
+              "MUTE_MEMBERS"
+            ],
+            [
+              "deaf",
+              "boolean",
+              "whether the user is deafened in voice channels. Will throw a 400 error if the user is not in a voice channel",
+              "DEAFEN_MEMBERS"
+            ],
+            [
+              "channel_id",
+              "snowflake",
+              "id of channel to move user to (if they are connected to voice)",
+              "MOVE_MEMBERS"
+            ],
+            [
+              "communication_disabled_until",
+              "ISO8601 timestamp",
+              "when the user's timeout will expire and the user will be able to communicate in the guild again (up to 28 days in the future), set to null to remove timeout. Will throw a 403 error if the user has the ADMINISTRATOR permission or is the owner of the guild",
+              "MODERATE_MEMBERS"
+            ]
+          ]
+        ]
+      }
+    },
+    "Modify Current Member % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/@me": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#modify-current-member-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/members/@me",
+      "content": [
+        "Modifies the current member in a guild. Returns a 200 with the updated member object on success. Fires a Guild Member Update Gateway event.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#modify-current-member-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/members/@me-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description",
+              "Permission"
+            ],
+            [
+              "nick?",
+              "?string",
+              "value to set user's nickname to",
+              "CHANGE_NICKNAME"
+            ]
+          ]
+        ]
+      }
+    },
+    "Modify Current User Nick % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/@me/nick": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#modify-current-user-nick-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/members/@me/nick",
+      "content": [
+        "> danger\n> Deprecated in favor of Modify Current Member.",
+        "Modifies the nickname of the current user in a guild. Returns a 200 with the nickname on success. Fires a Guild Member Update Gateway event.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#modify-current-user-nick-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/members/@me/nick-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description",
+              "Permission"
+            ],
+            [
+              "nick?",
+              "?string",
+              "value to set user's nickname to",
+              "CHANGE_NICKNAME"
+            ]
+          ]
+        ]
+      }
+    },
+    "Add Guild Member Role % PUT /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}/roles/{role.id#DOCS_TOPICS_PERMISSIONS/role-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#add-guild-member-role-%-put-/guilds/{guild.id#docs_resources_guild/guild-object}/members/{user.id#docs_resources_user/user-object}/roles/{role.id#docs_topics_permissions/role-object}",
+      "content": [
+        "Adds a role to a guild member. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header."
+      ]
+    },
+    "Remove Guild Member Role % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}/roles/{role.id#DOCS_TOPICS_PERMISSIONS/role-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#remove-guild-member-role-%-delete-/guilds/{guild.id#docs_resources_guild/guild-object}/members/{user.id#docs_resources_user/user-object}/roles/{role.id#docs_topics_permissions/role-object}",
+      "content": [
+        "Removes a role from a guild member. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header."
+      ]
+    },
+    "Remove Guild Member % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#remove-guild-member-%-delete-/guilds/{guild.id#docs_resources_guild/guild-object}/members/{user.id#docs_resources_user/user-object}",
+      "content": [
+        "Remove a member from a guild. Requires KICK_MEMBERS permission. Returns a 204 empty response on success. Fires a Guild Member Remove Gateway event.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header."
+      ]
+    },
+    "Get Guild Bans % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/bans": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#get-guild-bans-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/bans",
+      "content": [
+        "Returns a list of ban objects for the users banned from this guild. Requires the BAN_MEMBERS permission.",
+        "|Query String Params"
+      ],
+      "Query String Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#get-guild-bans-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/bans-query-string-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description",
+              "Default"
+            ],
+            [
+              "limit?",
+              "number",
+              "number of users to return (up to maximum 1000)",
+              "1000"
+            ],
+            [
+              "before? *",
+              "snowflake",
+              "consider only users before given user id",
+              "null"
+            ],
+            [
+              "after? *",
+              "snowflake",
+              "consider only users after given user id",
+              "null"
+            ]
           ],
-          "Welcome Screen Structure": {
-            "content": [
-              [
-                [
-                  "Field",
-                  "Type",
-                  "Description"
-                ],
-                [
-                  "description",
-                  "?string",
-                  "the server description shown in the welcome screen"
-                ],
-                [
-                  "welcome_channels",
-                  "array of welcome screen channel objects",
-                  "the channels shown in the welcome screen, up to 5"
-                ]
-              ],
-              "|Welcome Screen Channel Structure"
+          "* Provide a user id to before and after for pagination. Users will always be returned in ascending order by user.id. If both before and after are provided, only before is respected."
+        ]
+      }
+    },
+    "Get Guild Ban % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/bans/{user.id#DOCS_RESOURCES_USER/user-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#get-guild-ban-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/bans/{user.id#docs_resources_user/user-object}",
+      "content": [
+        "Returns a ban object for the given user or a 404 not found if the ban cannot be found. Requires the BAN_MEMBERS permission."
+      ]
+    },
+    "Create Guild Ban % PUT /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/bans/{user.id#DOCS_RESOURCES_USER/user-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#create-guild-ban-%-put-/guilds/{guild.id#docs_resources_guild/guild-object}/bans/{user.id#docs_resources_user/user-object}",
+      "content": [
+        "Create a guild ban, and optionally delete previous messages sent by the banned user. Requires the BAN_MEMBERS permission. Returns a 204 empty response on success. Fires a Guild Ban Add Gateway event.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#create-guild-ban-%-put-/guilds/{guild.id#docs_resources_guild/guild-object}/bans/{user.id#docs_resources_user/user-object}-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description",
+              "Default"
             ],
-            "Welcome Screen Channel Structure": {
-              "content": [
-                [
-                  [
-                    "Field",
-                    "Type",
-                    "Description"
-                  ],
-                  [
-                    "channel_id",
-                    "snowflake",
-                    "the channel's id"
-                  ],
-                  [
-                    "description",
-                    "string",
-                    "the description shown for the channel"
-                  ],
-                  [
-                    "emoji_id",
-                    "?snowflake",
-                    "the emoji id, if the emoji is custom"
-                  ],
-                  [
-                    "emoji_name",
-                    "?string",
-                    "the emoji name if custom, the unicode character if standard, or null if no emoji is set"
-                  ]
-                ],
-                "|Example Welcome Screen"
-              ],
-              "Example Welcome Screen": {
-                "content": [
-                  {
-                    "language": "json",
-                    "code": "{\n  \"description\": \"Discord Developers is a place to learn about Discord's API, bots, and SDKs and integrations. This is NOT a general Discord support server.\",\n  \"welcome_channels\": [\n    {\n      \"channel_id\": \"697138785317814292\",\n      \"description\": \"Follow for official Discord API updates\",\n      \"emoji_id\": null,\n      \"emoji_name\": \"\ud83d\udce1\"\n    },\n    {\n      \"channel_id\": \"697236247739105340\",\n      \"description\": \"Get help with Bot Verifications\",\n      \"emoji_id\": null,\n      \"emoji_name\": \"\ud83d\udcf8\"\n    },\n    {\n      \"channel_id\": \"697489244649816084\",\n      \"description\": \"Create amazing things with Discord's API\",\n      \"emoji_id\": null,\n      \"emoji_name\": \"\ud83d\udd2c\"\n    },\n    {\n      \"channel_id\": \"613425918748131338\",\n      \"description\": \"Integrate Discord into your game\",\n      \"emoji_id\": null,\n      \"emoji_name\": \"\ud83c\udfae\"\n    },\n    {\n      \"channel_id\": \"646517734150242346\",\n      \"description\": \"Find more places to help you on your quest\",\n      \"emoji_id\": null,\n      \"emoji_name\": \"\ud83d\udd26\"\n    }\n  ]\n}\n"
-                  }
-                ]
-              }
-            }
+            [
+              "delete_message_days?",
+              "integer",
+              "number of days to delete messages for (0-7)",
+              "0"
+            ],
+            [
+              "reason?",
+              "string",
+              "reason for the ban (deprecated)",
+              ""
+            ]
+          ]
+        ]
+      }
+    },
+    "Remove Guild Ban % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/bans/{user.id#DOCS_RESOURCES_USER/user-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#remove-guild-ban-%-delete-/guilds/{guild.id#docs_resources_guild/guild-object}/bans/{user.id#docs_resources_user/user-object}",
+      "content": [
+        "Remove the ban for a user. Requires the BAN_MEMBERS permissions. Returns a 204 empty response on success. Fires a Guild Ban Remove Gateway event.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header."
+      ]
+    },
+    "Get Guild Roles % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/roles": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#get-guild-roles-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/roles",
+      "content": [
+        "Returns a list of role objects for the guild."
+      ]
+    },
+    "Create Guild Role % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/roles": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#create-guild-role-%-post-/guilds/{guild.id#docs_resources_guild/guild-object}/roles",
+      "content": [
+        "Create a new role for the guild. Requires the MANAGE_ROLES permission. Returns the new role object on success. Fires a Guild Role Create Gateway event. All JSON params are optional.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#create-guild-role-%-post-/guilds/{guild.id#docs_resources_guild/guild-object}/roles-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description",
+              "Default"
+            ],
+            [
+              "name",
+              "string",
+              "name of the role",
+              "\"new role\""
+            ],
+            [
+              "permissions",
+              "string",
+              "bitwise value of the enabled/disabled permissions",
+              "@everyone permissions in guild"
+            ],
+            [
+              "color",
+              "integer",
+              "RGB color value",
+              "0"
+            ],
+            [
+              "hoist",
+              "boolean",
+              "whether the role should be displayed separately in the sidebar",
+              "false"
+            ],
+            [
+              "icon",
+              "?image data",
+              "the role's icon image (if the guild has the ROLE_ICONS feature)",
+              "null"
+            ],
+            [
+              "unicode_emoji",
+              "?string",
+              "the role's unicode emoji as a standard emoji (if the guild has the ROLE_ICONS feature)",
+              "null"
+            ],
+            [
+              "mentionable",
+              "boolean",
+              "whether the role should be mentionable",
+              "false"
+            ]
+          ]
+        ]
+      }
+    },
+    "Modify Guild Role Positions % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/roles": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#modify-guild-role-positions-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/roles",
+      "content": [
+        "Modify the positions of a set of role objects for the guild. Requires the MANAGE_ROLES permission. Returns a list of all of the guild's role objects on success. Fires multiple Guild Role Update Gateway events.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
+        "This endpoint takes a JSON array of parameters in the following format:",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#modify-guild-role-positions-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/roles-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "id",
+              "snowflake",
+              "role"
+            ],
+            [
+              "position?",
+              "?integer",
+              "sorting position of the role"
+            ]
+          ]
+        ]
+      }
+    },
+    "Modify Guild Role % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/roles/{role.id#DOCS_TOPICS_PERMISSIONS/role-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#modify-guild-role-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/roles/{role.id#docs_topics_permissions/role-object}",
+      "content": [
+        "Modify a guild role. Requires the MANAGE_ROLES permission. Returns the updated role on success. Fires a Guild Role Update Gateway event.",
+        "> info\n> All parameters to this endpoint are optional and nullable.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#modify-guild-role-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/roles/{role.id#docs_topics_permissions/role-object}-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "name",
+              "string",
+              "name of the role"
+            ],
+            [
+              "permissions",
+              "string",
+              "bitwise value of the enabled/disabled permissions"
+            ],
+            [
+              "color",
+              "integer",
+              "RGB color value"
+            ],
+            [
+              "hoist",
+              "boolean",
+              "whether the role should be displayed separately in the sidebar"
+            ],
+            [
+              "icon",
+              "image data",
+              "the role's icon image (if the guild has the ROLE_ICONS feature)"
+            ],
+            [
+              "unicode_emoji",
+              "string",
+              "the role's unicode emoji as a standard emoji (if the guild has the ROLE_ICONS feature)"
+            ],
+            [
+              "mentionable",
+              "boolean",
+              "whether the role should be mentionable"
+            ]
+          ]
+        ]
+      }
+    },
+    "Modify Guild MFA Level % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/mfa": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#modify-guild-mfa-level-%-post-/guilds/{guild.id#docs_resources_guild/guild-object}/mfa",
+      "content": [
+        "Modify a guild's MFA level. Requires guild ownership. Returns the updated level on success. Fires a Guild Update Gateway event.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#modify-guild-mfa-level-%-post-/guilds/{guild.id#docs_resources_guild/guild-object}/mfa-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "level",
+              "integer",
+              "MFA level"
+            ]
+          ]
+        ]
+      }
+    },
+    "Delete Guild Role % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/roles/{role.id#DOCS_TOPICS_PERMISSIONS/role-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#delete-guild-role-%-delete-/guilds/{guild.id#docs_resources_guild/guild-object}/roles/{role.id#docs_topics_permissions/role-object}",
+      "content": [
+        "Delete a guild role. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Role Delete Gateway event.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header."
+      ]
+    },
+    "Get Guild Prune Count % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/prune": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#get-guild-prune-count-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/prune",
+      "content": [
+        "Returns an object with one pruned key indicating the number of members that would be removed in a prune operation. Requires the KICK_MEMBERS permission.",
+        "By default, prune will not remove users with roles. You can optionally include specific roles in your prune by providing the include_roles parameter. Any inactive user that has a subset of the provided role(s) will be counted in the prune and users with additional roles will not.",
+        "|Query String Params"
+      ],
+      "Query String Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#get-guild-prune-count-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/prune-query-string-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description",
+              "Default"
+            ],
+            [
+              "days",
+              "integer",
+              "number of days to count prune for (1-30)",
+              "7"
+            ],
+            [
+              "include_roles",
+              "string; comma-delimited array of snowflakes",
+              "role(s) to include",
+              "none"
+            ]
+          ]
+        ]
+      }
+    },
+    "Begin Guild Prune % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/prune": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#begin-guild-prune-%-post-/guilds/{guild.id#docs_resources_guild/guild-object}/prune",
+      "content": [
+        "Begin a prune operation. Requires the KICK_MEMBERS permission. Returns an object with one pruned key indicating the number of members that were removed in the prune operation. For large guilds it's recommended to set the compute_prune_count option to false, forcing pruned to null. Fires multiple Guild Member Remove Gateway events.",
+        "By default, prune will not remove users with roles. You can optionally include specific roles in your prune by providing the include_roles parameter. Any inactive user that has a subset of the provided role(s) will be included in the prune and users with additional roles will not.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#begin-guild-prune-%-post-/guilds/{guild.id#docs_resources_guild/guild-object}/prune-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description",
+              "Default"
+            ],
+            [
+              "days",
+              "integer",
+              "number of days to prune (1-30)",
+              "7"
+            ],
+            [
+              "compute_prune_count",
+              "boolean",
+              "whether pruned is returned, discouraged for large guilds",
+              "true"
+            ],
+            [
+              "include_roles",
+              "array of snowflakes",
+              "role(s) to include",
+              "none"
+            ],
+            [
+              "reason?",
+              "string",
+              "reason for the prune (deprecated)",
+              ""
+            ]
+          ]
+        ]
+      }
+    },
+    "Get Guild Voice Regions % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/regions": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#get-guild-voice-regions-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/regions",
+      "content": [
+        "Returns a list of voice region objects for the guild. Unlike the similar /voice route, this returns VIP servers when the guild is VIP-enabled."
+      ]
+    },
+    "Get Guild Invites % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/invites": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#get-guild-invites-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/invites",
+      "content": [
+        "Returns a list of invite objects (with invite metadata) for the guild. Requires the MANAGE_GUILD permission."
+      ]
+    },
+    "Get Guild Integrations % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/integrations": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#get-guild-integrations-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/integrations",
+      "content": [
+        "Returns a list of integration objects for the guild. Requires the MANAGE_GUILD permission."
+      ]
+    },
+    "Delete Guild Integration % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/integrations/{integration.id#DOCS_RESOURCES_GUILD/integration-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#delete-guild-integration-%-delete-/guilds/{guild.id#docs_resources_guild/guild-object}/integrations/{integration.id#docs_resources_guild/integration-object}",
+      "content": [
+        "Delete the attached integration object for the guild. Deletes any associated webhooks and kicks the associated bot if there is one. Requires the MANAGE_GUILD permission. Returns a 204 empty response on success. Fires a Guild Integrations Update Gateway event.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header."
+      ]
+    },
+    "Get Guild Widget Settings % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/widget": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#get-guild-widget-settings-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/widget",
+      "content": [
+        "Returns a guild widget settings object. Requires the MANAGE_GUILD permission."
+      ]
+    },
+    "Modify Guild Widget % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/widget": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#modify-guild-widget-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/widget",
+      "content": [
+        "Modify a guild widget settings object for the guild. All attributes may be passed in with JSON and modified. Requires the MANAGE_GUILD permission. Returns the updated guild widget object.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header."
+      ]
+    },
+    "Get Guild Widget % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/widget.json": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#get-guild-widget-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/widget.json",
+      "content": [
+        "Returns the widget for the guild."
+      ]
+    },
+    "Get Guild Vanity URL % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/vanity-url": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#get-guild-vanity-url-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/vanity-url",
+      "content": [
+        "Returns a partial invite object for guilds with that feature enabled. Requires the MANAGE_GUILD permission. code will be null if a vanity url for the guild is not set.",
+        "|Example Partial Invite Object"
+      ],
+      "Example Partial Invite Object": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#get-guild-vanity-url-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/vanity-url-example-partial-invite-object",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"code\": \"abc\",\n  \"uses\": 12\n}\n"
           }
-        },
-        "Membership Screening Object": {
-          "content": [
-            "In guilds with Membership Screening enabled, when a member joins, Guild Member Add will be emitted but they will initially be restricted from doing any actions in the guild, and pending will be true in the member object. When the member completes the screening, Guild Member Update will be emitted and pending will be false.",
-            "Giving the member a role will bypass Membership Screening as well as the guild's verification level, giving the member immediate access to chat. Therefore, instead of giving a role when the member joins, it is recommended to not give the role until the user is no longer pending.",
-            "> warn\n> We are making significant changes to the Membership Screening API specifically related to getting and editing the Membership Screening object. Long story short is that it can be improved. As such, we have removed those documentation. There will not be any changes to how pending members work, as outlined above. That behavior will stay the same."
-          ]
-        }
-      },
-      "Create Guild % POST /guilds": {
+        ]
+      }
+    },
+    "Get Guild Widget Image % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/widget.png": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#get-guild-widget-image-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/widget.png",
+      "content": [
+        "Returns a PNG image widget for the guild. Requires no permissions or authentication.",
+        "> info\n> All parameters to this endpoint are optional.",
+        "|Query String Params",
+        "|Widget Style Options"
+      ],
+      "Query String Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#get-guild-widget-image-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/widget.png-query-string-params",
         "content": [
-          "Create a new guild. Returns a guild object on success. Fires a Guild Create Gateway event.",
-          "> warn\n> This endpoint can be used only by bots in less than 10 guilds.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
+          [
             [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "name",
-                "string",
-                "name of the guild (2-100 characters)"
-              ],
-              [
-                "region?",
-                "?string",
-                "voice region id (deprecated)"
-              ],
-              [
-                "icon?",
-                "image data",
-                "base64 128x128 image for the guild icon"
-              ],
-              [
-                "verification_level?",
-                "integer",
-                "verification level"
-              ],
-              [
-                "default_message_notifications?",
-                "integer",
-                "default message notification level"
-              ],
-              [
-                "explicit_content_filter?",
-                "integer",
-                "explicit content filter level"
-              ],
-              [
-                "roles?",
-                "array of role objects",
-                "new guild roles"
-              ],
-              [
-                "channels?",
-                "array of partial channel objects",
-                "new guild's channels"
-              ],
-              [
-                "afk_channel_id?",
-                "snowflake",
-                "id for afk channel"
-              ],
-              [
-                "afk_timeout?",
-                "integer",
-                "afk timeout in seconds"
-              ],
-              [
-                "system_channel_id?",
-                "snowflake",
-                "the id of the channel where guild notices such as welcome messages and boost events are posted"
-              ],
-              [
-                "system_channel_flags?",
-                "integer",
-                "system channel flags"
-              ]
+              "Field",
+              "Type",
+              "Description",
+              "Default"
             ],
-            "> warn\n> When using the roles parameter, the first member of the array is used to change properties of the guild's @everyone role. If you are trying to bootstrap a guild with additional roles, keep this in mind.",
-            "> info\n> When using the roles parameter, the required id field within each role object is an integer placeholder, and will be replaced by the API upon consumption. Its purpose is to allow you to overwrite a role's permissions in a channel when also passing in channels with the channels array.",
-            "> warn\n> When using the channels parameter, the position field is ignored, and none of the default channels are created.",
-            "> info\n> When using the channels parameter, the id field within each channel object may be set to an integer placeholder, and will be replaced by the API upon consumption. Its purpose is to allow you to create GUILD_CATEGORY channels by setting the parent_id field on any children to the category's id field. Category channels must be listed before any children.",
-            "> warn\n> The region field is deprecated and is replaced by channel.rtc_region.",
-            "|Example Partial Channel Object"
-          ],
-          "Example Partial Channel Object": {
-            "content": [
-              {
-                "language": "json",
-                "code": "{\n  \"name\": \"naming-things-is-hard\",\n  \"type\": 0\n}\n"
-              },
-              "|Example Category Channel"
+            [
+              "style",
+              "string",
+              "style of the widget image returned (see below)",
+              "shield"
+            ]
+          ]
+        ]
+      },
+      "Widget Style Options": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#get-guild-widget-image-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/widget.png-widget-style-options",
+        "content": [
+          [
+            [
+              "Value",
+              "Description",
+              "Example"
             ],
-            "Example Category Channel": {
-              "content": [
-                {
-                  "language": "json",
-                  "code": "{\n  \"name\": \"my-category\",\n  \"type\": 4,\n  \"id\": 1\n}\n{\n  \"name\": \"naming-things-is-hard\",\n  \"type\": 0,\n  \"id\": 2,\n  \"parent_id\": 1\n}\n"
-                }
-              ]
-            }
-          }
-        }
-      },
-      "Get Guild % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}": {
-        "content": [
-          "Returns the guild object for the given id. If with_counts is set to true, this endpoint will also return approximate_member_count and approximate_presence_count for the guild.",
-          "|Query String Params"
-        ],
-        "Query String Params": {
-          "content": [
             [
-              [
-                "Field",
-                "Type",
-                "Description",
-                "Required",
-                "Default"
-              ],
-              [
-                "with_counts?",
-                "boolean",
-                "when true, will return approximate member and presence counts for the guild",
-                "false",
-                "false"
-              ]
+              "shield",
+              "shield style widget with Discord icon and guild members online count",
+              "Example"
             ],
-            "|Example Response"
-          ],
-          "Example Response": {
-            "content": [
-              {
-                "language": "json",
-                "code": "{\n  \"id\": \"2909267986263572999\",\n  \"name\": \"Mason's Test Server\",\n  \"icon\": \"389030ec9db118cb5b85a732333b7c98\",\n  \"description\": null,\n  \"splash\": \"75610b05a0dd09ec2c3c7df9f6975ea0\",\n  \"discovery_splash\": null,\n  \"approximate_member_count\": 2,\n  \"approximate_presence_count\": 2,\n  \"features\": [\n    \"INVITE_SPLASH\",\n    \"VANITY_URL\",\n    \"COMMERCE\",\n    \"BANNER\",\n    \"NEWS\",\n    \"VERIFIED\",\n    \"VIP_REGIONS\"\n  ],\n  \"emojis\": [\n    {\n      \"name\": \"ultrafastparrot\",\n      \"roles\": [],\n      \"id\": \"393564762228785161\",\n      \"require_colons\": true,\n      \"managed\": false,\n      \"animated\": true,\n      \"available\": true\n    }\n  ],\n  \"banner\": \"5c3cb8d1bc159937fffe7e641ec96ca7\",\n  \"owner_id\": \"53908232506183680\",\n  \"application_id\": null,\n  \"region\": null,\n  \"afk_channel_id\": null,\n  \"afk_timeout\": 300,\n  \"system_channel_id\": null,\n  \"widget_enabled\": true,\n  \"widget_channel_id\": \"639513352485470208\",\n  \"verification_level\": 0,\n  \"roles\": [\n    {\n      \"id\": \"2909267986263572999\",\n      \"name\": \"@everyone\",\n      \"permissions\": \"49794752\",\n      \"position\": 0,\n      \"color\": 0,\n      \"hoist\": false,\n      \"managed\": false,\n      \"mentionable\": false\n    }\n  ],\n  \"default_message_notifications\": 1,\n  \"mfa_level\": 0,\n  \"explicit_content_filter\": 0,\n  \"max_presences\": null,\n  \"max_members\": 250000,\n  \"max_video_channel_users\": 25,\n  \"vanity_url_code\": \"no\",\n  \"premium_tier\": 0,\n  \"premium_subscription_count\": 0,\n  \"system_channel_flags\": 0,\n  \"preferred_locale\": \"en-US\",\n  \"rules_channel_id\": null,\n  \"public_updates_channel_id\": null\n}\n"
-              }
-            ]
-          }
-        }
-      },
-      "Get Guild Preview % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/preview": {
-        "content": [
-          "Returns the guild preview object for the given id. If the user is not in the guild, then the guild must be lurkable."
-        ]
-      },
-      "Modify Guild % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}": {
-        "content": [
-          "Modify a guild's settings. Requires the MANAGE_GUILD permission. Returns the updated guild object on success. Fires a Guild Update Gateway event.",
-          "> info\n> All parameters to this endpoint are optional",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
-          "> warn\n> Attempting to add or remove the COMMUNITY guild feature requires the ADMINISTRATOR permission.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
             [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "name",
-                "string",
-                "guild name"
-              ],
-              [
-                "region",
-                "?string",
-                "guild voice region id (deprecated)"
-              ],
-              [
-                "verification_level",
-                "?integer",
-                "verification level"
-              ],
-              [
-                "default_message_notifications",
-                "?integer",
-                "default message notification level"
-              ],
-              [
-                "explicit_content_filter",
-                "?integer",
-                "explicit content filter level"
-              ],
-              [
-                "afk_channel_id",
-                "?snowflake",
-                "id for afk channel"
-              ],
-              [
-                "afk_timeout",
-                "integer",
-                "afk timeout in seconds"
-              ],
-              [
-                "icon",
-                "?image data",
-                "base64 1024x1024 png/jpeg/gif image for the guild icon (can be animated gif when the server has the ANIMATED_ICON feature)"
-              ],
-              [
-                "owner_id",
-                "snowflake",
-                "user id to transfer guild ownership to (must be owner)"
-              ],
-              [
-                "splash",
-                "?image data",
-                "base64 16:9 png/jpeg image for the guild splash (when the server has the INVITE_SPLASH feature)"
-              ],
-              [
-                "discovery_splash",
-                "?image data",
-                "base64 16:9 png/jpeg image for the guild discovery splash (when the server has the DISCOVERABLE feature)"
-              ],
-              [
-                "banner",
-                "?image data",
-                "base64 16:9 png/jpeg image for the guild banner (when the server has the BANNER feature; can be animated gif when the server has the ANIMATED_BANNER feature)"
-              ],
-              [
-                "system_channel_id",
-                "?snowflake",
-                "the id of the channel where guild notices such as welcome messages and boost events are posted"
-              ],
-              [
-                "system_channel_flags",
-                "integer",
-                "system channel flags"
-              ],
-              [
-                "rules_channel_id",
-                "?snowflake",
-                "the id of the channel where Community guilds display rules and/or guidelines"
-              ],
-              [
-                "public_updates_channel_id",
-                "?snowflake",
-                "the id of the channel where admins and moderators of Community guilds receive notices from Discord"
-              ],
-              [
-                "preferred_locale",
-                "?string",
-                "the preferred locale of a Community guild used in server discovery and notices from Discord; defaults to \"en-US\""
-              ],
-              [
-                "features",
-                "array of guild feature strings",
-                "enabled guild features"
-              ],
-              [
-                "description",
-                "?string",
-                "the description for the guild"
-              ],
-              [
-                "premium_progress_bar_enabled",
-                "boolean",
-                "whether the guild's boost progress bar should be enabled"
-              ]
-            ]
-          ]
-        }
-      },
-      "Delete Guild % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}": {
-        "content": [
-          "Delete a guild permanently. User must be owner. Returns 204 No Content on success. Fires a Guild Delete Gateway event."
-        ]
-      },
-      "Get Guild Channels % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/channels": {
-        "content": [
-          "Returns a list of guild channel objects. Does not include threads."
-        ]
-      },
-      "Create Guild Channel % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/channels": {
-        "content": [
-          "Create a new channel object for the guild. Requires the MANAGE_CHANNELS permission. If setting permission overwrites, only permissions your bot has in the guild can be allowed/denied. Setting MANAGE_ROLES permission in channels is only possible for guild administrators. Returns the new channel object on success. Fires a Channel Create Gateway event.",
-          "> info\n> All parameters to this endpoint are optional and nullable excluding name",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "name",
-                "string",
-                "channel name (1-100 characters)"
-              ],
-              [
-                "type",
-                "integer",
-                "the type of channel"
-              ],
-              [
-                "topic",
-                "string",
-                "channel topic (0-1024 characters)"
-              ],
-              [
-                "bitrate*",
-                "integer",
-                "the bitrate (in bits) of the voice or stage channel; min 8000"
-              ],
-              [
-                "user_limit",
-                "integer",
-                "the user limit of the voice channel"
-              ],
-              [
-                "rate_limit_per_user",
-                "integer",
-                "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel, are unaffected"
-              ],
-              [
-                "position",
-                "integer",
-                "sorting position of the channel"
-              ],
-              [
-                "permission_overwrites**",
-                "array of partial overwrite objects",
-                "the channel's permission overwrites"
-              ],
-              [
-                "parent_id",
-                "snowflake",
-                "id of the parent category for a channel"
-              ],
-              [
-                "nsfw",
-                "boolean",
-                "whether the channel is nsfw"
-              ],
-              [
-                "rtc_region",
-                "string",
-                "channel voice region id of the voice or stage channel, automatic when set to null"
-              ],
-              [
-                "video_quality_mode",
-                "integer",
-                "the camera video quality mode of the voice channel"
-              ],
-              [
-                "default_auto_archive_duration",
-                "integer",
-                "the default duration that the clients use (not the API) for newly created threads in the channel, in minutes, to automatically archive the thread after recent activity"
-              ]
+              "banner1",
+              "large image with guild icon, name and online count. \"POWERED BY DISCORD\" as the footer of the widget",
+              "Example"
             ],
-            "* For voice channels, normal servers can set bitrate up to 96000, servers with Boost level 1 can set up to 128000, servers with Boost level 2 can set up to 256000, and servers with Boost level 3 or the VIP_REGIONS guild feature can set up to 384000. For stage channels, bitrate can be set up to 64000.",
-            "** In each overwrite object, the allow and deny keys can be omitted or set to null, which both default to \"0\"."
-          ]
-        }
-      },
-      "Modify Guild Channel Positions % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/channels": {
-        "content": [
-          "Modify the positions of a set of channel objects for the guild. Requires MANAGE_CHANNELS permission. Returns a 204 empty response on success. Fires multiple Channel Update Gateway events.",
-          "> info\n> Only channels to be modified are required.",
-          "This endpoint takes a JSON array of parameters in the following format:",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
             [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "id",
-                "snowflake",
-                "channel id"
-              ],
-              [
-                "position",
-                "?integer",
-                "sorting position of the channel"
-              ],
-              [
-                "lock_permissions",
-                "?boolean",
-                "syncs the permission overwrites with the new parent, if moving to a new category"
-              ],
-              [
-                "parent_id",
-                "?snowflake",
-                "the new parent ID for the channel that is moved"
-              ]
-            ]
-          ]
-        }
-      },
-      "List Active Guild Threads % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/threads/active": {
-        "content": [
-          "Returns all active threads in the guild, including public and private threads. Threads are ordered by their id, in descending order.",
-          "|Response Body"
-        ],
-        "Response Body": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "threads",
-                "array of channel objects",
-                "the active threads"
-              ],
-              [
-                "members",
-                "array of thread members objects",
-                "a thread member object for each returned thread the current user has joined"
-              ]
-            ]
-          ]
-        }
-      },
-      "Get Guild Member % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}": {
-        "content": [
-          "Returns a guild member object for the specified user."
-        ]
-      },
-      "List Guild Members % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members": {
-        "content": [
-          "Returns a list of guild member objects that are members of the guild.",
-          "> warn\n> This endpoint is restricted according to whether the GUILD_MEMBERS Privileged Intent is enabled for your application.",
-          "> info\n> All parameters to this endpoint are optional",
-          "|Query String Params"
-        ],
-        "Query String Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description",
-                "Default"
-              ],
-              [
-                "limit",
-                "integer",
-                "max number of members to return (1-1000)",
-                "1"
-              ],
-              [
-                "after",
-                "snowflake",
-                "the highest user id in the previous page",
-                "0"
-              ]
-            ]
-          ]
-        }
-      },
-      "Search Guild Members % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/search": {
-        "content": [
-          "Returns a list of guild member objects whose username or nickname starts with a provided string.",
-          "> info\n> All parameters to this endpoint except for query are optional",
-          "|Query String Params"
-        ],
-        "Query String Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description",
-                "Default"
-              ],
-              [
-                "query",
-                "string",
-                "Query string to match username(s) and nickname(s) against.",
-                ""
-              ],
-              [
-                "limit",
-                "integer",
-                "max number of members to return (1-1000)",
-                "1"
-              ]
-            ]
-          ]
-        }
-      },
-      "Add Guild Member % PUT /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}": {
-        "content": [
-          "Adds a user to the guild, provided you have a valid oauth2 access token for the user with the guilds.join scope. Returns a 201 Created with the guild member as the body, or 204 No Content if the user is already a member of the guild. Fires a Guild Member Add Gateway event.",
-          "For guilds with Membership Screening enabled, this endpoint will default to adding new members as pending in the guild member object. Members that are pending will have to complete membership screening before they become full members that can talk.",
-          "> info\n> All parameters to this endpoint except for access_token are optional.",
-          "> info\n> The Authorization header must be a Bot token (belonging to the same application used for authorization), and the bot must be a member of the guild with CREATE_INSTANT_INVITE permission.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description",
-                "Permission"
-              ],
-              [
-                "access_token",
-                "string",
-                "an oauth2 access token granted with the guilds.join to the bot's application for the user you want to add to the guild",
-                ""
-              ],
-              [
-                "nick",
-                "string",
-                "value to set user's nickname to",
-                "MANAGE_NICKNAMES"
-              ],
-              [
-                "roles",
-                "array of snowflakes",
-                "array of role ids the member is assigned",
-                "MANAGE_ROLES"
-              ],
-              [
-                "mute",
-                "boolean",
-                "whether the user is muted in voice channels",
-                "MUTE_MEMBERS"
-              ],
-              [
-                "deaf",
-                "boolean",
-                "whether the user is deafened in voice channels",
-                "DEAFEN_MEMBERS"
-              ]
+              "banner2",
+              "smaller widget style with guild icon, name and online count. Split on the right with Discord logo",
+              "Example"
             ],
-            "> warn\n> For guilds with Membership Screening enabled, assigning a role using the roles parameter will add the user to the guild as a full member (pending is false in the member object). A member with a role will bypass membership screening and the guild's verification level, and get immediate access to chat. Therefore, instead of assigning a role when the member joins, it is recommended to grant roles only after the user completes screening."
-          ]
-        }
-      },
-      "Modify Guild Member % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}": {
-        "content": [
-          "Modify attributes of a guild member. Returns a 200 OK with the guild member as the body. Fires a Guild Member Update Gateway event. If the channel_id is set to null, this will force the target user to be disconnected from voice.",
-          "> info\n> All parameters to this endpoint are optional and nullable. When moving members to channels, the API user must have permissions to both connect to the channel and have the MOVE_MEMBERS permission.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
             [
-              [
-                "Field",
-                "Type",
-                "Description",
-                "Permission"
-              ],
-              [
-                "nick",
-                "string",
-                "value to set user's nickname to",
-                "MANAGE_NICKNAMES"
-              ],
-              [
-                "roles",
-                "array of snowflakes",
-                "array of role ids the member is assigned",
-                "MANAGE_ROLES"
-              ],
-              [
-                "mute",
-                "boolean",
-                "whether the user is muted in voice channels. Will throw a 400 error if the user is not in a voice channel",
-                "MUTE_MEMBERS"
-              ],
-              [
-                "deaf",
-                "boolean",
-                "whether the user is deafened in voice channels. Will throw a 400 error if the user is not in a voice channel",
-                "DEAFEN_MEMBERS"
-              ],
-              [
-                "channel_id",
-                "snowflake",
-                "id of channel to move user to (if they are connected to voice)",
-                "MOVE_MEMBERS"
-              ],
-              [
-                "communication_disabled_until",
-                "ISO8601 timestamp",
-                "when the user's timeout will expire and the user will be able to communicate in the guild again (up to 28 days in the future), set to null to remove timeout. Will throw a 403 error if the user has the ADMINISTRATOR permission or is the owner of the guild",
-                "MODERATE_MEMBERS"
-              ]
-            ]
-          ]
-        }
-      },
-      "Modify Current Member % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/@me": {
-        "content": [
-          "Modifies the current member in a guild. Returns a 200 with the updated member object on success. Fires a Guild Member Update Gateway event.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description",
-                "Permission"
-              ],
-              [
-                "nick?",
-                "?string",
-                "value to set user's nickname to",
-                "CHANGE_NICKNAME"
-              ]
-            ]
-          ]
-        }
-      },
-      "Modify Current User Nick % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/@me/nick": {
-        "content": [
-          "> danger\n> Deprecated in favor of Modify Current Member.",
-          "Modifies the nickname of the current user in a guild. Returns a 200 with the nickname on success. Fires a Guild Member Update Gateway event.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description",
-                "Permission"
-              ],
-              [
-                "nick?",
-                "?string",
-                "value to set user's nickname to",
-                "CHANGE_NICKNAME"
-              ]
-            ]
-          ]
-        }
-      },
-      "Add Guild Member Role % PUT /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}/roles/{role.id#DOCS_TOPICS_PERMISSIONS/role-object}": {
-        "content": [
-          "Adds a role to a guild member. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header."
-        ]
-      },
-      "Remove Guild Member Role % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}/roles/{role.id#DOCS_TOPICS_PERMISSIONS/role-object}": {
-        "content": [
-          "Removes a role from a guild member. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header."
-        ]
-      },
-      "Remove Guild Member % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/members/{user.id#DOCS_RESOURCES_USER/user-object}": {
-        "content": [
-          "Remove a member from a guild. Requires KICK_MEMBERS permission. Returns a 204 empty response on success. Fires a Guild Member Remove Gateway event.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header."
-        ]
-      },
-      "Get Guild Bans % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/bans": {
-        "content": [
-          "Returns a list of ban objects for the users banned from this guild. Requires the BAN_MEMBERS permission.",
-          "|Query String Params"
-        ],
-        "Query String Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description",
-                "Default"
-              ],
-              [
-                "limit?",
-                "number",
-                "number of users to return (up to maximum 1000)",
-                "1000"
-              ],
-              [
-                "before? *",
-                "snowflake",
-                "consider only users before given user id",
-                "null"
-              ],
-              [
-                "after? *",
-                "snowflake",
-                "consider only users after given user id",
-                "null"
-              ]
+              "banner3",
+              "large image with guild icon, name and online count. In the footer, Discord logo on the left and \"Chat Now\" on the right",
+              "Example"
             ],
-            "* Provide a user id to before and after for pagination. Users will always be returned in ascending order by user.id. If both before and after are provided, only before is respected."
-          ]
-        }
-      },
-      "Get Guild Ban % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/bans/{user.id#DOCS_RESOURCES_USER/user-object}": {
-        "content": [
-          "Returns a ban object for the given user or a 404 not found if the ban cannot be found. Requires the BAN_MEMBERS permission."
-        ]
-      },
-      "Create Guild Ban % PUT /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/bans/{user.id#DOCS_RESOURCES_USER/user-object}": {
-        "content": [
-          "Create a guild ban, and optionally delete previous messages sent by the banned user. Requires the BAN_MEMBERS permission. Returns a 204 empty response on success. Fires a Guild Ban Add Gateway event.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
             [
-              [
-                "Field",
-                "Type",
-                "Description",
-                "Default"
-              ],
-              [
-                "delete_message_days?",
-                "integer",
-                "number of days to delete messages for (0-7)",
-                "0"
-              ],
-              [
-                "reason?",
-                "string",
-                "reason for the ban (deprecated)",
-                ""
-              ]
+              "banner4",
+              "large Discord logo at the top of the widget. Guild icon, name and online count in the middle portion of the widget and a \"JOIN MY SERVER\" button at the bottom",
+              "Example"
             ]
           ]
-        }
-      },
-      "Remove Guild Ban % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/bans/{user.id#DOCS_RESOURCES_USER/user-object}": {
-        "content": [
-          "Remove the ban for a user. Requires the BAN_MEMBERS permissions. Returns a 204 empty response on success. Fires a Guild Ban Remove Gateway event.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header."
         ]
-      },
-      "Get Guild Roles % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/roles": {
+      }
+    },
+    "Get Guild Welcome Screen % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/welcome-screen": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#get-guild-welcome-screen-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/welcome-screen",
+      "content": [
+        "Returns the Welcome Screen object for the guild. If the welcome screen is not enabled, the MANAGE_GUILD permission is required."
+      ]
+    },
+    "Modify Guild Welcome Screen % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/welcome-screen": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#modify-guild-welcome-screen-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/welcome-screen",
+      "content": [
+        "Modify the guild's Welcome Screen. Requires the MANAGE_GUILD permission. Returns the updated Welcome Screen object.",
+        "> info\n> All parameters to this endpoint are optional and nullable",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#modify-guild-welcome-screen-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/welcome-screen-json-params",
         "content": [
-          "Returns a list of role objects for the guild."
-        ]
-      },
-      "Create Guild Role % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/roles": {
-        "content": [
-          "Create a new role for the guild. Requires the MANAGE_ROLES permission. Returns the new role object on success. Fires a Guild Role Create Gateway event. All JSON params are optional.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
+          [
             [
-              [
-                "Field",
-                "Type",
-                "Description",
-                "Default"
-              ],
-              [
-                "name",
-                "string",
-                "name of the role",
-                "\"new role\""
-              ],
-              [
-                "permissions",
-                "string",
-                "bitwise value of the enabled/disabled permissions",
-                "@everyone permissions in guild"
-              ],
-              [
-                "color",
-                "integer",
-                "RGB color value",
-                "0"
-              ],
-              [
-                "hoist",
-                "boolean",
-                "whether the role should be displayed separately in the sidebar",
-                "false"
-              ],
-              [
-                "icon",
-                "?image data",
-                "the role's icon image (if the guild has the ROLE_ICONS feature)",
-                "null"
-              ],
-              [
-                "unicode_emoji",
-                "?string",
-                "the role's unicode emoji as a standard emoji (if the guild has the ROLE_ICONS feature)",
-                "null"
-              ],
-              [
-                "mentionable",
-                "boolean",
-                "whether the role should be mentionable",
-                "false"
-              ]
-            ]
-          ]
-        }
-      },
-      "Modify Guild Role Positions % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/roles": {
-        "content": [
-          "Modify the positions of a set of role objects for the guild. Requires the MANAGE_ROLES permission. Returns a list of all of the guild's role objects on success. Fires multiple Guild Role Update Gateway events.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
-          "This endpoint takes a JSON array of parameters in the following format:",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "id",
-                "snowflake",
-                "role"
-              ],
-              [
-                "position?",
-                "?integer",
-                "sorting position of the role"
-              ]
-            ]
-          ]
-        }
-      },
-      "Modify Guild Role % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/roles/{role.id#DOCS_TOPICS_PERMISSIONS/role-object}": {
-        "content": [
-          "Modify a guild role. Requires the MANAGE_ROLES permission. Returns the updated role on success. Fires a Guild Role Update Gateway event.",
-          "> info\n> All parameters to this endpoint are optional and nullable.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "name",
-                "string",
-                "name of the role"
-              ],
-              [
-                "permissions",
-                "string",
-                "bitwise value of the enabled/disabled permissions"
-              ],
-              [
-                "color",
-                "integer",
-                "RGB color value"
-              ],
-              [
-                "hoist",
-                "boolean",
-                "whether the role should be displayed separately in the sidebar"
-              ],
-              [
-                "icon",
-                "image data",
-                "the role's icon image (if the guild has the ROLE_ICONS feature)"
-              ],
-              [
-                "unicode_emoji",
-                "string",
-                "the role's unicode emoji as a standard emoji (if the guild has the ROLE_ICONS feature)"
-              ],
-              [
-                "mentionable",
-                "boolean",
-                "whether the role should be mentionable"
-              ]
-            ]
-          ]
-        }
-      },
-      "Modify Guild MFA Level % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/mfa": {
-        "content": [
-          "Modify a guild's MFA level. Requires guild ownership. Returns the updated level on success. Fires a Guild Update Gateway event.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "level",
-                "integer",
-                "MFA level"
-              ]
-            ]
-          ]
-        }
-      },
-      "Delete Guild Role % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/roles/{role.id#DOCS_TOPICS_PERMISSIONS/role-object}": {
-        "content": [
-          "Delete a guild role. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Role Delete Gateway event.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header."
-        ]
-      },
-      "Get Guild Prune Count % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/prune": {
-        "content": [
-          "Returns an object with one pruned key indicating the number of members that would be removed in a prune operation. Requires the KICK_MEMBERS permission.",
-          "By default, prune will not remove users with roles. You can optionally include specific roles in your prune by providing the include_roles parameter. Any inactive user that has a subset of the provided role(s) will be counted in the prune and users with additional roles will not.",
-          "|Query String Params"
-        ],
-        "Query String Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description",
-                "Default"
-              ],
-              [
-                "days",
-                "integer",
-                "number of days to count prune for (1-30)",
-                "7"
-              ],
-              [
-                "include_roles",
-                "string; comma-delimited array of snowflakes",
-                "role(s) to include",
-                "none"
-              ]
-            ]
-          ]
-        }
-      },
-      "Begin Guild Prune % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/prune": {
-        "content": [
-          "Begin a prune operation. Requires the KICK_MEMBERS permission. Returns an object with one pruned key indicating the number of members that were removed in the prune operation. For large guilds it's recommended to set the compute_prune_count option to false, forcing pruned to null. Fires multiple Guild Member Remove Gateway events.",
-          "By default, prune will not remove users with roles. You can optionally include specific roles in your prune by providing the include_roles parameter. Any inactive user that has a subset of the provided role(s) will be included in the prune and users with additional roles will not.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description",
-                "Default"
-              ],
-              [
-                "days",
-                "integer",
-                "number of days to prune (1-30)",
-                "7"
-              ],
-              [
-                "compute_prune_count",
-                "boolean",
-                "whether pruned is returned, discouraged for large guilds",
-                "true"
-              ],
-              [
-                "include_roles",
-                "array of snowflakes",
-                "role(s) to include",
-                "none"
-              ],
-              [
-                "reason?",
-                "string",
-                "reason for the prune (deprecated)",
-                ""
-              ]
-            ]
-          ]
-        }
-      },
-      "Get Guild Voice Regions % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/regions": {
-        "content": [
-          "Returns a list of voice region objects for the guild. Unlike the similar /voice route, this returns VIP servers when the guild is VIP-enabled."
-        ]
-      },
-      "Get Guild Invites % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/invites": {
-        "content": [
-          "Returns a list of invite objects (with invite metadata) for the guild. Requires the MANAGE_GUILD permission."
-        ]
-      },
-      "Get Guild Integrations % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/integrations": {
-        "content": [
-          "Returns a list of integration objects for the guild. Requires the MANAGE_GUILD permission."
-        ]
-      },
-      "Delete Guild Integration % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/integrations/{integration.id#DOCS_RESOURCES_GUILD/integration-object}": {
-        "content": [
-          "Delete the attached integration object for the guild. Deletes any associated webhooks and kicks the associated bot if there is one. Requires the MANAGE_GUILD permission. Returns a 204 empty response on success. Fires a Guild Integrations Update Gateway event.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header."
-        ]
-      },
-      "Get Guild Widget Settings % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/widget": {
-        "content": [
-          "Returns a guild widget settings object. Requires the MANAGE_GUILD permission."
-        ]
-      },
-      "Modify Guild Widget % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/widget": {
-        "content": [
-          "Modify a guild widget settings object for the guild. All attributes may be passed in with JSON and modified. Requires the MANAGE_GUILD permission. Returns the updated guild widget object.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header."
-        ]
-      },
-      "Get Guild Widget % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/widget.json": {
-        "content": [
-          "Returns the widget for the guild."
-        ]
-      },
-      "Get Guild Vanity URL % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/vanity-url": {
-        "content": [
-          "Returns a partial invite object for guilds with that feature enabled. Requires the MANAGE_GUILD permission. code will be null if a vanity url for the guild is not set.",
-          "|Example Partial Invite Object"
-        ],
-        "Example Partial Invite Object": {
-          "content": [
-            {
-              "language": "json",
-              "code": "{\n  \"code\": \"abc\",\n  \"uses\": 12\n}\n"
-            }
-          ]
-        }
-      },
-      "Get Guild Widget Image % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/widget.png": {
-        "content": [
-          "Returns a PNG image widget for the guild. Requires no permissions or authentication.",
-          "> info\n> All parameters to this endpoint are optional.",
-          "|Query String Params"
-        ],
-        "Query String Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description",
-                "Default"
-              ],
-              [
-                "style",
-                "string",
-                "style of the widget image returned (see below)",
-                "shield"
-              ]
+              "Field",
+              "Type",
+              "Description"
             ],
-            "|Widget Style Options"
-          ],
-          "Widget Style Options": {
-            "content": [
-              [
-                [
-                  "Value",
-                  "Description",
-                  "Example"
-                ],
-                [
-                  "shield",
-                  "shield style widget with Discord icon and guild members online count",
-                  "Example"
-                ],
-                [
-                  "banner1",
-                  "large image with guild icon, name and online count. \"POWERED BY DISCORD\" as the footer of the widget",
-                  "Example"
-                ],
-                [
-                  "banner2",
-                  "smaller widget style with guild icon, name and online count. Split on the right with Discord logo",
-                  "Example"
-                ],
-                [
-                  "banner3",
-                  "large image with guild icon, name and online count. In the footer, Discord logo on the left and \"Chat Now\" on the right",
-                  "Example"
-                ],
-                [
-                  "banner4",
-                  "large Discord logo at the top of the widget. Guild icon, name and online count in the middle portion of the widget and a \"JOIN MY SERVER\" button at the bottom",
-                  "Example"
-                ]
-              ]
-            ]
-          }
-        }
-      },
-      "Get Guild Welcome Screen % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/welcome-screen": {
-        "content": [
-          "Returns the Welcome Screen object for the guild. If the welcome screen is not enabled, the MANAGE_GUILD permission is required."
-        ]
-      },
-      "Modify Guild Welcome Screen % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/welcome-screen": {
-        "content": [
-          "Modify the guild's Welcome Screen. Requires the MANAGE_GUILD permission. Returns the updated Welcome Screen object.",
-          "> info\n> All parameters to this endpoint are optional and nullable",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
             [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "enabled",
-                "boolean",
-                "whether the welcome screen is enabled"
-              ],
-              [
-                "welcome_channels",
-                "array of welcome screen channel objects",
-                "channels linked in the welcome screen and their display options"
-              ],
-              [
-                "description",
-                "string",
-                "the server description to show in the welcome screen"
-              ]
+              "enabled",
+              "boolean",
+              "whether the welcome screen is enabled"
+            ],
+            [
+              "welcome_channels",
+              "array of welcome screen channel objects",
+              "channels linked in the welcome screen and their display options"
+            ],
+            [
+              "description",
+              "string",
+              "the server description to show in the welcome screen"
             ]
           ]
-        }
-      },
-      "Modify Current User Voice State % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/voice-states/@me": {
+        ]
+      }
+    },
+    "Modify Current User Voice State % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/voice-states/@me": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#modify-current-user-voice-state-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/voice-states/@me",
+      "content": [
+        "Updates the current user's voice state. Returns 204 No Content on success.",
+        "|JSON Params",
+        "|Caveats"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#modify-current-user-voice-state-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/voice-states/@me-json-params",
         "content": [
-          "Updates the current user's voice state. Returns 204 No Content on success.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
+          [
             [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "channel_id",
-                "snowflake",
-                "the id of the channel the user is currently in"
-              ],
-              [
-                "suppress?",
-                "boolean",
-                "toggles the user's suppress state"
-              ],
-              [
-                "request_to_speak_timestamp?",
-                "?ISO8601 timestamp",
-                "sets the user's request to speak"
-              ]
+              "Field",
+              "Type",
+              "Description"
             ],
-            "|Caveats"
-          ],
-          "Caveats": {
-            "content": [
-              "There are currently several caveats for this endpoint:",
-              [
-                "channel_id must currently point to a stage channel.",
-                "current user must already have joined channel_id.",
-                "You must have the MUTE_MEMBERS permission to unsuppress yourself. You can always suppress yourself.",
-                "You must have the REQUEST_TO_SPEAK permission to request to speak. You can always clear your own request to speak.",
-                "You are able to set request_to_speak_timestamp to any present or future time."
-              ]
+            [
+              "channel_id",
+              "snowflake",
+              "the id of the channel the user is currently in"
+            ],
+            [
+              "suppress?",
+              "boolean",
+              "toggles the user's suppress state"
+            ],
+            [
+              "request_to_speak_timestamp?",
+              "?ISO8601 timestamp",
+              "sets the user's request to speak"
             ]
-          }
-        }
+          ]
+        ]
       },
-      "Modify User Voice State % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/voice-states/{user.id#DOCS_RESOURCES_USER/user-object}": {
+      "Caveats": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#modify-current-user-voice-state-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/voice-states/@me-caveats",
         "content": [
-          "Updates another user's voice state.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
+          "There are currently several caveats for this endpoint:",
+          [
+            "channel_id must currently point to a stage channel.",
+            "current user must already have joined channel_id.",
+            "You must have the MUTE_MEMBERS permission to unsuppress yourself. You can always suppress yourself.",
+            "You must have the REQUEST_TO_SPEAK permission to request to speak. You can always clear your own request to speak.",
+            "You are able to set request_to_speak_timestamp to any present or future time."
+          ]
+        ]
+      }
+    },
+    "Modify User Voice State % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/voice-states/{user.id#DOCS_RESOURCES_USER/user-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild#modify-user-voice-state-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/voice-states/{user.id#docs_resources_user/user-object}",
+      "content": [
+        "Updates another user's voice state.",
+        "|JSON Params",
+        "|Caveats"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#modify-user-voice-state-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/voice-states/{user.id#docs_resources_user/user-object}-json-params",
+        "content": [
+          [
             [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "channel_id",
-                "snowflake",
-                "the id of the channel the user is currently in"
-              ],
-              [
-                "suppress?",
-                "boolean",
-                "toggles the user's suppress state"
-              ]
+              "Field",
+              "Type",
+              "Description"
             ],
-            "|Caveats"
-          ],
-          "Caveats": {
-            "content": [
-              "There are currently several caveats for this endpoint:",
-              [
-                "channel_id must currently point to a stage channel.",
-                "User must already have joined channel_id.",
-                "You must have the MUTE_MEMBERS permission. (Since suppression is the only thing that is available currently.)",
-                "When unsuppressed, non-bot users will have their request_to_speak_timestamp set to the current time. Bot users will not.",
-                "When suppressed, the user will have their request_to_speak_timestamp removed."
-              ]
+            [
+              "channel_id",
+              "snowflake",
+              "the id of the channel the user is currently in"
+            ],
+            [
+              "suppress?",
+              "boolean",
+              "toggles the user's suppress state"
             ]
-          }
-        }
+          ]
+        ]
+      },
+      "Caveats": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#modify-user-voice-state-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/voice-states/{user.id#docs_resources_user/user-object}-caveats",
+        "content": [
+          "There are currently several caveats for this endpoint:",
+          [
+            "channel_id must currently point to a stage channel.",
+            "User must already have joined channel_id.",
+            "You must have the MUTE_MEMBERS permission. (Since suppression is the only thing that is available currently.)",
+            "When unsuppressed, non-bot users will have their request_to_speak_timestamp set to the current time. Bot users will not.",
+            "When suppressed, the user will have their request_to_speak_timestamp removed."
+          ]
+        ]
       }
     }
   }

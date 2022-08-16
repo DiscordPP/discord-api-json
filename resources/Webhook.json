@@ -3,31 +3,41 @@
     "|Webhook Resource"
   ],
   "Webhook Resource": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/resources/webhook#webhook-resource",
     "content": [
       "Webhooks are a low-effort way to post messages to channels in Discord. They do not require a bot user or authentication to use.",
-      "|Webhook Object"
+      "|Webhook Object",
+      "|Create Webhook % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/webhooks",
+      "|Get Channel Webhooks % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/webhooks",
+      "|Get Guild Webhooks % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/webhooks",
+      "|Get Webhook % GET /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}",
+      "|Get Webhook with Token % GET /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}",
+      "|Modify Webhook % PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}",
+      "|Modify Webhook with Token % PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}",
+      "|Delete Webhook % DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}",
+      "|Delete Webhook with Token % DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}",
+      "|Execute Webhook % POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}",
+      "|Execute Slack-Compatible Webhook % POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/slack",
+      "|Execute GitHub-Compatible Webhook % POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/github",
+      "|Get Webhook Message % GET /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
+      "|Edit Webhook Message % PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
+      "|Delete Webhook Message % DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}"
     ],
     "Webhook Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/webhook#webhook-object",
       "content": [
         "Used to represent a webhook.",
         "|Webhook Structure",
-        "|Create Webhook % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/webhooks",
-        "|Get Channel Webhooks % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/webhooks",
-        "|Get Guild Webhooks % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/webhooks",
-        "|Get Webhook % GET /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}",
-        "|Get Webhook with Token % GET /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}",
-        "|Modify Webhook % PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}",
-        "|Modify Webhook with Token % PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}",
-        "|Delete Webhook % DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}",
-        "|Delete Webhook with Token % DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}",
-        "|Execute Webhook % POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}",
-        "|Execute Slack-Compatible Webhook % POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/slack",
-        "|Execute GitHub-Compatible Webhook % POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/github",
-        "|Get Webhook Message % GET /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
-        "|Edit Webhook Message % PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
-        "|Delete Webhook Message % DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}"
+        "|Webhook Types",
+        "|Example Incoming Webhook",
+        "|Example Channel Follower Webhook",
+        "|Example Application Webhook"
       ],
       "Webhook Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/webhook#webhook-object-webhook-structure",
         "content": [
           [
             [
@@ -95,470 +105,524 @@
               "string",
               "the url used for executing the webhook (returned by the webhooks OAuth2 flow)"
             ]
-          ],
-          "|Webhook Types"
-        ],
-        "Webhook Types": {
-          "content": [
-            [
-              [
-                "Value",
-                "Name",
-                "Description"
-              ],
-              [
-                "1",
-                "Incoming",
-                "Incoming Webhooks can post messages to channels with a generated token"
-              ],
-              [
-                "2",
-                "Channel Follower",
-                "Channel Follower Webhooks are internal webhooks used with Channel Following to post new messages into channels"
-              ],
-              [
-                "3",
-                "Application",
-                "Application webhooks are webhooks used with Interactions"
-              ]
-            ],
-            "|Example Incoming Webhook"
-          ],
-          "Example Incoming Webhook": {
-            "content": [
-              {
-                "language": "json",
-                "code": "{\n  \"name\": \"test webhook\",\n  \"type\": 1,\n  \"channel_id\": \"199737254929760256\",\n  \"token\": \"3d89bb7572e0fb30d8128367b3b1b44fecd1726de135cbe28a41f8b2f777c372ba2939e72279b94526ff5d1bd4358d65cf11\",\n  \"avatar\": null,\n  \"guild_id\": \"199737254929760256\",\n  \"id\": \"223704706495545344\",\n  \"application_id\": null,\n  \"user\": {\n    \"username\": \"test\",\n    \"discriminator\": \"7479\",\n    \"id\": \"190320984123768832\",\n    \"avatar\": \"b004ec1740a63ca06ae2e14c5cee11f3\",\n    \"public_flags\": 131328\n  }\n}\n"
-              },
-              "|Example Channel Follower Webhook"
-            ],
-            "Example Channel Follower Webhook": {
-              "content": [
-                {
-                  "language": "json",
-                  "code": "{\n  \"type\": 2,\n  \"id\": \"752831914402115456\",\n  \"name\": \"Guildy name\",\n  \"avatar\": \"bb71f469c158984e265093a81b3397fb\",\n  \"channel_id\": \"561885260615255432\",\n  \"guild_id\": \"56188498421443265\",\n  \"application_id\": null,\n  \"source_guild\": {\n    \"id\": \"56188498421476534\",\n    \"name\": \"Guildy name\",\n    \"icon\": \"bb71f469c158984e265093a81b3397fb\"\n  },\n  \"source_channel\": {\n    \"id\": \"5618852344134324\",\n    \"name\": \"announcements\"\n  },\n  \"user\": {\n    \"username\": \"test\",\n    \"discriminator\": \"7479\",\n    \"id\": \"190320984123768832\",\n    \"avatar\": \"b004ec1740a63ca06ae2e14c5cee11f3\",\n    \"public_flags\": 131328\n  }\n}\n"
-                },
-                "|Example Application Webhook"
-              ],
-              "Example Application Webhook": {
-                "content": [
-                  {
-                    "language": "json",
-                    "code": "{\n  \"type\": 3,\n  \"id\": \"658822586720976555\",\n  \"name\": \"Clyde\",\n  \"avatar\": \"689161dc90ac261d00f1608694ac6bfd\",\n  \"channel_id\": null,\n  \"guild_id\": null,\n  \"application_id\": \"658822586720976555\"\n}\n"
-                  }
-                ]
-              }
-            }
-          }
-        }
+          ]
+        ]
       },
-      "Create Webhook % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/webhooks": {
+      "Webhook Types": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/webhook#webhook-object-webhook-types",
         "content": [
-          "Creates a new webhook and returns a webhook object on success. Requires the MANAGE_WEBHOOKS permission.",
-          "An error will be returned if a webhook name (name) is not valid. A webhook name is valid if:",
           [
-            "It does not contain the substring 'clyde' (case-insensitive)",
-            "It follows the nickname guidelines in the Usernames and Nicknames documentation, with an exception that webhook names can be up to 80 characters"
-          ],
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
             [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "name",
-                "string",
-                "name of the webhook (1-80 characters)"
-              ],
-              [
-                "avatar?",
-                "?image data",
-                "image for the default webhook avatar"
-              ]
-            ]
-          ]
-        }
-      },
-      "Get Channel Webhooks % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/webhooks": {
-        "content": [
-          "Returns a list of channel webhook objects. Requires the MANAGE_WEBHOOKS permission."
-        ]
-      },
-      "Get Guild Webhooks % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/webhooks": {
-        "content": [
-          "Returns a list of guild webhook objects. Requires the MANAGE_WEBHOOKS permission."
-        ]
-      },
-      "Get Webhook % GET /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}": {
-        "content": [
-          "Returns the new webhook object for the given id."
-        ]
-      },
-      "Get Webhook with Token % GET /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}": {
-        "content": [
-          "Same as above, except this call does not require authentication and returns no user in the webhook object."
-        ]
-      },
-      "Modify Webhook % PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}": {
-        "content": [
-          "Modify a webhook. Requires the MANAGE_WEBHOOKS permission. Returns the updated webhook object on success.",
-          "> info\n> All parameters to this endpoint are optional",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "name",
-                "string",
-                "the default name of the webhook"
-              ],
-              [
-                "avatar",
-                "?image data",
-                "image for the default webhook avatar"
-              ],
-              [
-                "channel_id",
-                "snowflake",
-                "the new channel id this webhook should be moved to"
-              ]
-            ]
-          ]
-        }
-      },
-      "Modify Webhook with Token % PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}": {
-        "content": [
-          "Same as above, except this call does not require authentication, does not accept a channel_id parameter in the body, and does not return a user in the webhook object."
-        ]
-      },
-      "Delete Webhook % DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}": {
-        "content": [
-          "Delete a webhook permanently. Requires the MANAGE_WEBHOOKS permission. Returns a 204 No Content response on success.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header."
-        ]
-      },
-      "Delete Webhook with Token % DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}": {
-        "content": [
-          "Same as above, except this call does not require authentication."
-        ]
-      },
-      "Execute Webhook % POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}": {
-        "content": [
-          "Refer to Uploading Files for details on attachments and multipart/form-data requests. Returns a message or 204 No Content depending on the wait query parameter.",
-          "> info\n> Note that when sending a message, you must provide a value for at least one of content, embeds, or file.",
-          "> info\n> If the webhook channel is a forum channel, you must provide either thread_id in the query string params, or thread_name in the JSON/form params. If thread_id is provided, the message will send in that thread. If thread_name is provided, a thread with that name will be created in the forum channel.",
-          "|Query String Params"
-        ],
-        "Query String Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description",
-                "Required"
-              ],
-              [
-                "wait",
-                "boolean",
-                "waits for server confirmation of message send before response, and returns the created message body (defaults to false; when false a message that is not saved does not return an error)",
-                "false"
-              ],
-              [
-                "thread_id",
-                "snowflake",
-                "Send a message to the specified thread within a webhook's channel. The thread will automatically be unarchived.",
-                "false"
-              ]
+              "Value",
+              "Name",
+              "Description"
             ],
-            "|JSON/Form Params"
-          ],
-          "JSON/Form Params": {
-            "content": [
-              [
-                [
-                  "Field",
-                  "Type",
-                  "Description",
-                  "Required"
-                ],
-                [
-                  "content",
-                  "string",
-                  "the message contents (up to 2000 characters)",
-                  "one of content, file, embeds"
-                ],
-                [
-                  "username",
-                  "string",
-                  "override the default username of the webhook",
-                  "false"
-                ],
-                [
-                  "avatar_url",
-                  "string",
-                  "override the default avatar of the webhook",
-                  "false"
-                ],
-                [
-                  "tts",
-                  "boolean",
-                  "true if this is a TTS message",
-                  "false"
-                ],
-                [
-                  "embeds",
-                  "array of up to 10 embed objects",
-                  "embedded rich content",
-                  "one of content, file, embeds"
-                ],
-                [
-                  "allowed_mentions",
-                  "allowed mention object",
-                  "allowed mentions for the message",
-                  "false"
-                ],
-                [
-                  "components *",
-                  "array of message component",
-                  "the components to include with the message",
-                  "false"
-                ],
-                [
-                  "files[n] **",
-                  "file contents",
-                  "the contents of the file being sent",
-                  "one of content, file, embeds"
-                ],
-                [
-                  "payload_json **",
-                  "string",
-                  "JSON encoded body of non-file params",
-                  "multipart/form-data only"
-                ],
-                [
-                  "attachments **",
-                  "array of partial attachment objects",
-                  "attachment objects with filename and description",
-                  "false"
-                ],
-                [
-                  "flags",
-                  "integer",
-                  "message flags combined as a bitfield (only SUPPRESS_EMBEDS can be set)",
-                  "false"
-                ],
-                [
-                  "thread_name",
-                  "string",
-                  "name of thread to create (requires the webhook channel to be a forum channel)",
-                  "false"
-                ]
-              ],
-              "* Requires an application-owned webhook.",
-              "** See Uploading Files for details.",
-              "> info\n> For the webhook embed objects, you can set every field except type (it will be rich regardless of if you try to set it), provider, video, and any height, width, or proxy_url values for images."
-            ]
-          }
-        }
-      },
-      "Execute Slack-Compatible Webhook % POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/slack": {
-        "content": [
-          "Refer to Slack's documentation for more information. We do not support Slack's channel, icon_emoji, mrkdwn, or mrkdwn_in properties.",
-          "|Query String Params"
-        ],
-        "Query String Params": {
-          "content": [
             [
-              [
-                "Field",
-                "Type",
-                "Description",
-                "Required"
-              ],
-              [
-                "thread_id",
-                "snowflake",
-                "id of the thread to send the message in",
-                "false"
-              ],
-              [
-                "wait",
-                "boolean",
-                "waits for server confirmation of message send before response (defaults to true; when false a message that is not saved does not return an error)",
-                "false"
-              ]
-            ]
-          ]
-        }
-      },
-      "Execute GitHub-Compatible Webhook % POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/github": {
-        "content": [
-          "Add a new webhook to your GitHub repo (in the repo's settings), and use this endpoint as the \"Payload URL.\" You can choose what events your Discord channel receives by choosing the \"Let me select individual events\" option and selecting individual events for the new webhook you're configuring.",
-          "|Query String Params"
-        ],
-        "Query String Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description",
-                "Required"
-              ],
-              [
-                "thread_id",
-                "snowflake",
-                "id of the thread to send the message in",
-                "false"
-              ],
-              [
-                "wait",
-                "boolean",
-                "waits for server confirmation of message send before response (defaults to true; when false a message that is not saved does not return an error)",
-                "false"
-              ]
-            ]
-          ]
-        }
-      },
-      "Get Webhook Message % GET /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}": {
-        "content": [
-          "Returns a previously-sent webhook message from the same token. Returns a message object on success.",
-          "|Query String Params"
-        ],
-        "Query String Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description",
-                "Required"
-              ],
-              [
-                "thread_id",
-                "snowflake",
-                "id of the thread the message is in",
-                "false"
-              ]
-            ]
-          ]
-        }
-      },
-      "Edit Webhook Message % PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}": {
-        "content": [
-          "Edits a previously-sent webhook message from the same token. Returns a message object on success.",
-          "When the content field is edited, the mentions array in the message object will be reconstructed from scratch based on the new content. The allowed_mentions field of the edit request controls how this happens. If there is no explicit allowed_mentions in the edit request, the content will be parsed with default allowances, that is, without regard to whether or not an allowed_mentions was present in the request that originally created the message.",
-          "Refer to Uploading Files for details on attachments and multipart/form-data requests.\nAny provided files will be appended to the message. To remove or replace files you will have to supply the attachments field which specifies the files to retain on the message after edit.",
-          "> warn\n> Starting with API v10, the attachments array must contain all attachments that should be present after edit, including retained and new attachments provided in the request body.",
-          "> info\n> All parameters to this endpoint are optional and nullable.",
-          "|Query String Params"
-        ],
-        "Query String Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description",
-                "Required"
-              ],
-              [
-                "thread_id",
-                "snowflake",
-                "id of the thread the message is in",
-                "false"
-              ]
+              "1",
+              "Incoming",
+              "Incoming Webhooks can post messages to channels with a generated token"
             ],
-            "|JSON/Form Params"
-          ],
-          "JSON/Form Params": {
-            "content": [
-              [
-                [
-                  "Field",
-                  "Type",
-                  "Description"
-                ],
-                [
-                  "content",
-                  "string",
-                  "the message contents (up to 2000 characters)"
-                ],
-                [
-                  "embeds",
-                  "array of up to 10 embed objects",
-                  "embedded rich content"
-                ],
-                [
-                  "allowed_mentions",
-                  "allowed mention object",
-                  "allowed mentions for the message"
-                ],
-                [
-                  "components *",
-                  "array of message component",
-                  "the components to include with the message"
-                ],
-                [
-                  "files[n] **",
-                  "file contents",
-                  "the contents of the file being sent/edited"
-                ],
-                [
-                  "payload_json **",
-                  "string",
-                  "JSON encoded body of non-file params (multipart/form-data only)"
-                ],
-                [
-                  "attachments **",
-                  "array of partial attachment objects",
-                  "attached files to keep and possible descriptions for new files"
-                ]
-              ],
-              "* Requires an application-owned webhook.",
-              "** See Uploading Files for details."
-            ]
-          }
-        }
-      },
-      "Delete Webhook Message % DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}": {
-        "content": [
-          "Deletes a message that was created by the webhook. Returns a 204 No Content response on success.",
-          "|Query String Params"
-        ],
-        "Query String Params": {
-          "content": [
             [
-              [
-                "Field",
-                "Type",
-                "Description",
-                "Required"
-              ],
-              [
-                "thread_id",
-                "snowflake",
-                "id of the thread the message is in",
-                "false"
-              ]
+              "2",
+              "Channel Follower",
+              "Channel Follower Webhooks are internal webhooks used with Channel Following to post new messages into channels"
+            ],
+            [
+              "3",
+              "Application",
+              "Application webhooks are webhooks used with Interactions"
             ]
           ]
-        }
+        ]
+      },
+      "Example Incoming Webhook": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/webhook#webhook-object-example-incoming-webhook",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"name\": \"test webhook\",\n  \"type\": 1,\n  \"channel_id\": \"199737254929760256\",\n  \"token\": \"3d89bb7572e0fb30d8128367b3b1b44fecd1726de135cbe28a41f8b2f777c372ba2939e72279b94526ff5d1bd4358d65cf11\",\n  \"avatar\": null,\n  \"guild_id\": \"199737254929760256\",\n  \"id\": \"223704706495545344\",\n  \"application_id\": null,\n  \"user\": {\n    \"username\": \"test\",\n    \"discriminator\": \"7479\",\n    \"id\": \"190320984123768832\",\n    \"avatar\": \"b004ec1740a63ca06ae2e14c5cee11f3\",\n    \"public_flags\": 131328\n  }\n}\n"
+          }
+        ]
+      },
+      "Example Channel Follower Webhook": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/webhook#webhook-object-example-channel-follower-webhook",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"type\": 2,\n  \"id\": \"752831914402115456\",\n  \"name\": \"Guildy name\",\n  \"avatar\": \"bb71f469c158984e265093a81b3397fb\",\n  \"channel_id\": \"561885260615255432\",\n  \"guild_id\": \"56188498421443265\",\n  \"application_id\": null,\n  \"source_guild\": {\n    \"id\": \"56188498421476534\",\n    \"name\": \"Guildy name\",\n    \"icon\": \"bb71f469c158984e265093a81b3397fb\"\n  },\n  \"source_channel\": {\n    \"id\": \"5618852344134324\",\n    \"name\": \"announcements\"\n  },\n  \"user\": {\n    \"username\": \"test\",\n    \"discriminator\": \"7479\",\n    \"id\": \"190320984123768832\",\n    \"avatar\": \"b004ec1740a63ca06ae2e14c5cee11f3\",\n    \"public_flags\": 131328\n  }\n}\n"
+          }
+        ]
+      },
+      "Example Application Webhook": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/webhook#webhook-object-example-application-webhook",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"type\": 3,\n  \"id\": \"658822586720976555\",\n  \"name\": \"Clyde\",\n  \"avatar\": \"689161dc90ac261d00f1608694ac6bfd\",\n  \"channel_id\": null,\n  \"guild_id\": null,\n  \"application_id\": \"658822586720976555\"\n}\n"
+          }
+        ]
+      }
+    },
+    "Create Webhook % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/webhooks": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/webhook#create-webhook-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/webhooks",
+      "content": [
+        "Creates a new webhook and returns a webhook object on success. Requires the MANAGE_WEBHOOKS permission.",
+        "An error will be returned if a webhook name (name) is not valid. A webhook name is valid if:",
+        [
+          "It does not contain the substring 'clyde' (case-insensitive)",
+          "It follows the nickname guidelines in the Usernames and Nicknames documentation, with an exception that webhook names can be up to 80 characters"
+        ],
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/webhook#create-webhook-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/webhooks-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "name",
+              "string",
+              "name of the webhook (1-80 characters)"
+            ],
+            [
+              "avatar?",
+              "?image data",
+              "image for the default webhook avatar"
+            ]
+          ]
+        ]
+      }
+    },
+    "Get Channel Webhooks % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/webhooks": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/webhook#get-channel-webhooks-%-get-/channels/{channel.id#docs_resources_channel/channel-object}/webhooks",
+      "content": [
+        "Returns a list of channel webhook objects. Requires the MANAGE_WEBHOOKS permission."
+      ]
+    },
+    "Get Guild Webhooks % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/webhooks": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/webhook#get-guild-webhooks-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/webhooks",
+      "content": [
+        "Returns a list of guild webhook objects. Requires the MANAGE_WEBHOOKS permission."
+      ]
+    },
+    "Get Webhook % GET /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/webhook#get-webhook-%-get-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}",
+      "content": [
+        "Returns the new webhook object for the given id."
+      ]
+    },
+    "Get Webhook with Token % GET /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/webhook#get-webhook-with-token-%-get-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}",
+      "content": [
+        "Same as above, except this call does not require authentication and returns no user in the webhook object."
+      ]
+    },
+    "Modify Webhook % PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/webhook#modify-webhook-%-patch-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}",
+      "content": [
+        "Modify a webhook. Requires the MANAGE_WEBHOOKS permission. Returns the updated webhook object on success.",
+        "> info\n> All parameters to this endpoint are optional",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/webhook#modify-webhook-%-patch-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "name",
+              "string",
+              "the default name of the webhook"
+            ],
+            [
+              "avatar",
+              "?image data",
+              "image for the default webhook avatar"
+            ],
+            [
+              "channel_id",
+              "snowflake",
+              "the new channel id this webhook should be moved to"
+            ]
+          ]
+        ]
+      }
+    },
+    "Modify Webhook with Token % PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/webhook#modify-webhook-with-token-%-patch-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}",
+      "content": [
+        "Same as above, except this call does not require authentication, does not accept a channel_id parameter in the body, and does not return a user in the webhook object."
+      ]
+    },
+    "Delete Webhook % DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/webhook#delete-webhook-%-delete-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}",
+      "content": [
+        "Delete a webhook permanently. Requires the MANAGE_WEBHOOKS permission. Returns a 204 No Content response on success.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header."
+      ]
+    },
+    "Delete Webhook with Token % DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/webhook#delete-webhook-with-token-%-delete-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}",
+      "content": [
+        "Same as above, except this call does not require authentication."
+      ]
+    },
+    "Execute Webhook % POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/webhook#execute-webhook-%-post-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}",
+      "content": [
+        "Refer to Uploading Files for details on attachments and multipart/form-data requests. Returns a message or 204 No Content depending on the wait query parameter.",
+        "> info\n> Note that when sending a message, you must provide a value for at least one of content, embeds, or file.",
+        "> info\n> If the webhook channel is a forum channel, you must provide either thread_id in the query string params, or thread_name in the JSON/form params. If thread_id is provided, the message will send in that thread. If thread_name is provided, a thread with that name will be created in the forum channel.",
+        "|Query String Params",
+        "|JSON/Form Params"
+      ],
+      "Query String Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/webhook#execute-webhook-%-post-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}-query-string-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description",
+              "Required"
+            ],
+            [
+              "wait",
+              "boolean",
+              "waits for server confirmation of message send before response, and returns the created message body (defaults to false; when false a message that is not saved does not return an error)",
+              "false"
+            ],
+            [
+              "thread_id",
+              "snowflake",
+              "Send a message to the specified thread within a webhook's channel. The thread will automatically be unarchived.",
+              "false"
+            ]
+          ]
+        ]
+      },
+      "JSON/Form Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/webhook#execute-webhook-%-post-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}-json/form-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description",
+              "Required"
+            ],
+            [
+              "content",
+              "string",
+              "the message contents (up to 2000 characters)",
+              "one of content, file, embeds"
+            ],
+            [
+              "username",
+              "string",
+              "override the default username of the webhook",
+              "false"
+            ],
+            [
+              "avatar_url",
+              "string",
+              "override the default avatar of the webhook",
+              "false"
+            ],
+            [
+              "tts",
+              "boolean",
+              "true if this is a TTS message",
+              "false"
+            ],
+            [
+              "embeds",
+              "array of up to 10 embed objects",
+              "embedded rich content",
+              "one of content, file, embeds"
+            ],
+            [
+              "allowed_mentions",
+              "allowed mention object",
+              "allowed mentions for the message",
+              "false"
+            ],
+            [
+              "components *",
+              "array of message component",
+              "the components to include with the message",
+              "false"
+            ],
+            [
+              "files[n] **",
+              "file contents",
+              "the contents of the file being sent",
+              "one of content, file, embeds"
+            ],
+            [
+              "payload_json **",
+              "string",
+              "JSON encoded body of non-file params",
+              "multipart/form-data only"
+            ],
+            [
+              "attachments **",
+              "array of partial attachment objects",
+              "attachment objects with filename and description",
+              "false"
+            ],
+            [
+              "flags",
+              "integer",
+              "message flags combined as a bitfield (only SUPPRESS_EMBEDS can be set)",
+              "false"
+            ],
+            [
+              "thread_name",
+              "string",
+              "name of thread to create (requires the webhook channel to be a forum channel)",
+              "false"
+            ]
+          ],
+          "* Requires an application-owned webhook.",
+          "** See Uploading Files for details.",
+          "> info\n> For the webhook embed objects, you can set every field except type (it will be rich regardless of if you try to set it), provider, video, and any height, width, or proxy_url values for images."
+        ]
+      }
+    },
+    "Execute Slack-Compatible Webhook % POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/slack": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/webhook#execute-slack-compatible-webhook-%-post-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/slack",
+      "content": [
+        "Refer to Slack's documentation for more information. We do not support Slack's channel, icon_emoji, mrkdwn, or mrkdwn_in properties.",
+        "|Query String Params"
+      ],
+      "Query String Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/webhook#execute-slack-compatible-webhook-%-post-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/slack-query-string-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description",
+              "Required"
+            ],
+            [
+              "thread_id",
+              "snowflake",
+              "id of the thread to send the message in",
+              "false"
+            ],
+            [
+              "wait",
+              "boolean",
+              "waits for server confirmation of message send before response (defaults to true; when false a message that is not saved does not return an error)",
+              "false"
+            ]
+          ]
+        ]
+      }
+    },
+    "Execute GitHub-Compatible Webhook % POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/github": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/webhook#execute-github-compatible-webhook-%-post-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/github",
+      "content": [
+        "Add a new webhook to your GitHub repo (in the repo's settings), and use this endpoint as the \"Payload URL.\" You can choose what events your Discord channel receives by choosing the \"Let me select individual events\" option and selecting individual events for the new webhook you're configuring.",
+        "|Query String Params"
+      ],
+      "Query String Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/webhook#execute-github-compatible-webhook-%-post-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/github-query-string-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description",
+              "Required"
+            ],
+            [
+              "thread_id",
+              "snowflake",
+              "id of the thread to send the message in",
+              "false"
+            ],
+            [
+              "wait",
+              "boolean",
+              "waits for server confirmation of message send before response (defaults to true; when false a message that is not saved does not return an error)",
+              "false"
+            ]
+          ]
+        ]
+      }
+    },
+    "Get Webhook Message % GET /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/webhook#get-webhook-message-%-get-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/messages/{message.id#docs_resources_channel/message-object}",
+      "content": [
+        "Returns a previously-sent webhook message from the same token. Returns a message object on success.",
+        "|Query String Params"
+      ],
+      "Query String Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/webhook#get-webhook-message-%-get-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/messages/{message.id#docs_resources_channel/message-object}-query-string-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description",
+              "Required"
+            ],
+            [
+              "thread_id",
+              "snowflake",
+              "id of the thread the message is in",
+              "false"
+            ]
+          ]
+        ]
+      }
+    },
+    "Edit Webhook Message % PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/webhook#edit-webhook-message-%-patch-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/messages/{message.id#docs_resources_channel/message-object}",
+      "content": [
+        "Edits a previously-sent webhook message from the same token. Returns a message object on success.",
+        "When the content field is edited, the mentions array in the message object will be reconstructed from scratch based on the new content. The allowed_mentions field of the edit request controls how this happens. If there is no explicit allowed_mentions in the edit request, the content will be parsed with default allowances, that is, without regard to whether or not an allowed_mentions was present in the request that originally created the message.",
+        "Refer to Uploading Files for details on attachments and multipart/form-data requests.\nAny provided files will be appended to the message. To remove or replace files you will have to supply the attachments field which specifies the files to retain on the message after edit.",
+        "> warn\n> Starting with API v10, the attachments array must contain all attachments that should be present after edit, including retained and new attachments provided in the request body.",
+        "> info\n> All parameters to this endpoint are optional and nullable.",
+        "|Query String Params",
+        "|JSON/Form Params"
+      ],
+      "Query String Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/webhook#edit-webhook-message-%-patch-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/messages/{message.id#docs_resources_channel/message-object}-query-string-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description",
+              "Required"
+            ],
+            [
+              "thread_id",
+              "snowflake",
+              "id of the thread the message is in",
+              "false"
+            ]
+          ]
+        ]
+      },
+      "JSON/Form Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/webhook#edit-webhook-message-%-patch-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/messages/{message.id#docs_resources_channel/message-object}-json/form-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "content",
+              "string",
+              "the message contents (up to 2000 characters)"
+            ],
+            [
+              "embeds",
+              "array of up to 10 embed objects",
+              "embedded rich content"
+            ],
+            [
+              "allowed_mentions",
+              "allowed mention object",
+              "allowed mentions for the message"
+            ],
+            [
+              "components *",
+              "array of message component",
+              "the components to include with the message"
+            ],
+            [
+              "files[n] **",
+              "file contents",
+              "the contents of the file being sent/edited"
+            ],
+            [
+              "payload_json **",
+              "string",
+              "JSON encoded body of non-file params (multipart/form-data only)"
+            ],
+            [
+              "attachments **",
+              "array of partial attachment objects",
+              "attached files to keep and possible descriptions for new files"
+            ]
+          ],
+          "* Requires an application-owned webhook.",
+          "** See Uploading Files for details."
+        ]
+      }
+    },
+    "Delete Webhook Message % DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/webhook#delete-webhook-message-%-delete-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/messages/{message.id#docs_resources_channel/message-object}",
+      "content": [
+        "Deletes a message that was created by the webhook. Returns a 204 No Content response on success.",
+        "|Query String Params"
+      ],
+      "Query String Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/webhook#delete-webhook-message-%-delete-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/messages/{message.id#docs_resources_channel/message-object}-query-string-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description",
+              "Required"
+            ],
+            [
+              "thread_id",
+              "snowflake",
+              "id of the thread the message is in",
+              "false"
+            ]
+          ]
+        ]
       }
     }
   }

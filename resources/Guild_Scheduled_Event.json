@@ -3,23 +3,36 @@
     "|Guild Scheduled Event"
   ],
   "Guild Scheduled Event": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event",
     "content": [
       "A representation of a scheduled event in a guild.",
-      "|Guild Scheduled Event Object"
+      "|Guild Scheduled Event Object",
+      "|Guild Scheduled Event User Object",
+      "|List Scheduled Events for Guild % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events",
+      "|Create Guild Scheduled Event % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events",
+      "|Get Guild Scheduled Event % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}",
+      "|Modify Guild Scheduled Event % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}",
+      "|Delete Guild Scheduled Event % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}",
+      "|Get Guild Scheduled Event Users % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}/users",
+      "|Guild Scheduled Event Status Update Automation",
+      "|Guild Scheduled Event Permissions Requirements"
     ],
     "Guild Scheduled Event Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object",
       "content": [
         "|Guild Scheduled Event Structure",
-        "|List Scheduled Events for Guild % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events",
-        "|Create Guild Scheduled Event % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events",
-        "|Get Guild Scheduled Event % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}",
-        "|Modify Guild Scheduled Event % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}",
-        "|Delete Guild Scheduled Event % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}",
-        "|Get Guild Scheduled Event Users % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}/users",
-        "|Guild Scheduled Event Status Update Automation",
-        "|Guild Scheduled Event Permissions Requirements"
+        "|Guild Scheduled Event Privacy Level",
+        "|Guild Scheduled Event Entity Types",
+        "|Field Requirements By Entity Type",
+        "|Guild Scheduled Event Status",
+        "|Valid Guild Scheduled Event Status Transitions",
+        "|Guild Scheduled Event Entity Metadata"
       ],
       "Guild Scheduled Event Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object-guild-scheduled-event-structure",
         "content": [
           [
             [
@@ -109,512 +122,575 @@
             ]
           ],
           "* creator_id will be null and creator will not be included for events created before October 25th, 2021, when the concept of creator_id was introduced and tracked.",
-          "** See field requirements by entity type to understand the relationship between entity_type and the following fields: channel_id, entity_metadata, and scheduled_end_time",
-          "|Guild Scheduled Event Privacy Level",
-          "|Guild Scheduled Event User Object"
-        ],
-        "Guild Scheduled Event Privacy Level": {
-          "content": [
-            [
-              [
-                "Level",
-                "Value",
-                "Description"
-              ],
-              [
-                "GUILD_ONLY",
-                "2",
-                "the scheduled event is only accessible to guild members"
-              ]
-            ],
-            "|Guild Scheduled Event Entity Types"
-          ],
-          "Guild Scheduled Event Entity Types": {
-            "content": [
-              [
-                [
-                  "Type",
-                  "Value"
-                ],
-                [
-                  "STAGE_INSTANCE",
-                  "1"
-                ],
-                [
-                  "VOICE",
-                  "2"
-                ],
-                [
-                  "EXTERNAL",
-                  "3"
-                ]
-              ],
-              "|Field Requirements By Entity Type"
-            ],
-            "Field Requirements By Entity Type": {
-              "content": [
-                "The following table shows field requirements based on current entity type.",
-                "value : This field is required to be a non-null value",
-                "null     : This field is required to be null",
-                "-        : No strict requirements",
-                [
-                  [
-                    "Entity Type",
-                    "channel_id",
-                    "entity_metadata",
-                    "scheduled_end_time"
-                  ],
-                  [
-                    "STAGE_INSTANCE",
-                    "value",
-                    "null",
-                    "-"
-                  ],
-                  [
-                    "VOICE",
-                    "value",
-                    "null",
-                    "-"
-                  ],
-                  [
-                    "EXTERNAL",
-                    "null",
-                    "value *",
-                    "value"
-                  ]
-                ],
-                "* entity_metadata with a non-null location must be provided",
-                "|Guild Scheduled Event Status",
-                "|Valid Guild Scheduled Event Status Transitions",
-                "|Guild Scheduled Event Entity Metadata"
-              ],
-              "Guild Scheduled Event Status": {
-                "content": [
-                  [
-                    [
-                      "Type",
-                      "Value"
-                    ],
-                    [
-                      "SCHEDULED",
-                      "1"
-                    ],
-                    [
-                      "ACTIVE",
-                      "2"
-                    ],
-                    [
-                      "COMPLETED *",
-                      "3"
-                    ],
-                    [
-                      "CANCELED  *",
-                      "4"
-                    ]
-                  ],
-                  "* Once status is set to COMPLETED or CANCELED, the status can no longer be updated"
-                ]
-              },
-              "Valid Guild Scheduled Event Status Transitions": {
-                "content": [
-                  "SCHEDULED --> ACTIVE",
-                  "ACTIVE --------> COMPLETED",
-                  "SCHEDULED --> CANCELED"
-                ]
-              },
-              "Guild Scheduled Event Entity Metadata": {
-                "content": [
-                  [
-                    [
-                      "Field",
-                      "Type",
-                      "Description"
-                    ],
-                    [
-                      "location? *",
-                      "string",
-                      "location of the event (1-100 characters)"
-                    ]
-                  ],
-                  "* required for events with 'entity_type': EXTERNAL"
-                ]
-              }
-            }
-          }
-        },
-        "Guild Scheduled Event User Object": {
-          "content": [
-            "|Guild Scheduled Event User Structure"
-          ],
-          "Guild Scheduled Event User Structure": {
-            "content": [
-              [
-                [
-                  "Field",
-                  "Type",
-                  "Description"
-                ],
-                [
-                  "guild_scheduled_event_id",
-                  "snowflake",
-                  "the scheduled event id which the user subscribed to"
-                ],
-                [
-                  "user",
-                  "user",
-                  "user which subscribed to an event"
-                ],
-                [
-                  "member?",
-                  "guild member",
-                  "guild member data for this user for the guild which this event belongs to, if any"
-                ]
-              ]
-            ]
-          }
-        }
-      },
-      "List Scheduled Events for Guild % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events": {
-        "content": [
-          "Returns a list of guild scheduled event objects for the given guild.",
-          "|Query String Params"
-        ],
-        "Query String Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "with_user_count?",
-                "boolean",
-                "include number of users subscribed to each event"
-              ]
-            ]
-          ]
-        }
-      },
-      "Create Guild Scheduled Event % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events": {
-        "content": [
-          "Create a guild scheduled event in the guild. Returns a guild scheduled event object on success.",
-          "> info\n> A guild can have a maximum of 100 events with SCHEDULED or ACTIVE status at any time.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "channel_id? *",
-                "snowflake *",
-                "the channel id of the scheduled event."
-              ],
-              [
-                "entity_metadata? **",
-                "entity metadata",
-                "the entity metadata of the scheduled event"
-              ],
-              [
-                "name",
-                "string",
-                "the name of the scheduled event"
-              ],
-              [
-                "privacy_level",
-                "privacy level",
-                "the privacy level of the scheduled event"
-              ],
-              [
-                "scheduled_start_time",
-                "ISO8601 timestamp",
-                "the time to schedule the scheduled event"
-              ],
-              [
-                "scheduled_end_time? **",
-                "ISO8601 timestamp",
-                "the time when the scheduled event is scheduled to end"
-              ],
-              [
-                "description?",
-                "string",
-                "the description of the scheduled event"
-              ],
-              [
-                "entity_type",
-                "entity type",
-                "the entity type of the scheduled event"
-              ],
-              [
-                "image?",
-                "image data",
-                "the cover image of the scheduled event"
-              ]
-            ],
-            "* Optional for events with 'entity_type': EXTERNAL",
-            "** Required for events with 'entity_type': EXTERNAL"
-          ]
-        }
-      },
-      "Get Guild Scheduled Event % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}": {
-        "content": [
-          "Get a guild scheduled event. Returns a guild scheduled event object on success.",
-          "|Query String Params"
-        ],
-        "Query String Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "with_user_count?",
-                "boolean",
-                "include number of users subscribed to this event"
-              ]
-            ]
-          ]
-        }
-      },
-      "Modify Guild Scheduled Event % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}": {
-        "content": [
-          "Modify a guild scheduled event. Returns the modified guild scheduled event object on success.",
-          "> info\n> To start or end an event, use this endpoint to modify the event's status field.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
-          "> info\n> This endpoint silently discards entity_metadata for non-EXTERNAL events.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "channel_id? *",
-                "?snowflake",
-                "the channel id of the scheduled event, set to null if changing entity type to EXTERNAL"
-              ],
-              [
-                "entity_metadata?",
-                "?entity metadata",
-                "the entity metadata of the scheduled event"
-              ],
-              [
-                "name?",
-                "string",
-                "the name of the scheduled event"
-              ],
-              [
-                "privacy_level?",
-                "privacy level",
-                "the privacy level of the scheduled event"
-              ],
-              [
-                "scheduled_start_time?",
-                "ISO8601 timestamp",
-                "the time to schedule the scheduled event"
-              ],
-              [
-                "scheduled_end_time? *",
-                "ISO8601 timestamp",
-                "the time when the scheduled event is scheduled to end"
-              ],
-              [
-                "description?",
-                "?string",
-                "the description of the scheduled event"
-              ],
-              [
-                "entity_type? *",
-                "event entity type",
-                "the entity type of the scheduled event"
-              ],
-              [
-                "status?",
-                "event status",
-                "the status of the scheduled event"
-              ],
-              [
-                "image?",
-                "image data",
-                "the cover image of the scheduled event"
-              ]
-            ],
-            "* If updating entity_type to EXTERNAL:",
-            [
-              "channel_id is required and must be set to null",
-              "entity_metadata with a location field must be provided",
-              "scheduled_end_time must be provided"
-            ]
-          ]
-        }
-      },
-      "Delete Guild Scheduled Event % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}": {
-        "content": [
-          "Delete a guild scheduled event. Returns a 204 on success."
+          "** See field requirements by entity type to understand the relationship between entity_type and the following fields: channel_id, entity_metadata, and scheduled_end_time"
         ]
       },
-      "Get Guild Scheduled Event Users % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}/users": {
+      "Guild Scheduled Event Privacy Level": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object-guild-scheduled-event-privacy-level",
         "content": [
-          "Get a list of guild scheduled event users subscribed to a guild scheduled event. Returns a list of guild scheduled event user objects on success. Guild member data, if it exists, is included if the with_member query parameter is set.",
-          "|Query String Params"
+          [
+            [
+              "Level",
+              "Value",
+              "Description"
+            ],
+            [
+              "GUILD_ONLY",
+              "2",
+              "the scheduled event is only accessible to guild members"
+            ]
+          ]
+        ]
+      },
+      "Guild Scheduled Event Entity Types": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object-guild-scheduled-event-entity-types",
+        "content": [
+          [
+            [
+              "Type",
+              "Value"
+            ],
+            [
+              "STAGE_INSTANCE",
+              "1"
+            ],
+            [
+              "VOICE",
+              "2"
+            ],
+            [
+              "EXTERNAL",
+              "3"
+            ]
+          ]
+        ]
+      },
+      "Field Requirements By Entity Type": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object-field-requirements-by-entity-type",
+        "content": [
+          "The following table shows field requirements based on current entity type.",
+          "value : This field is required to be a non-null value",
+          "null     : This field is required to be null",
+          "-        : No strict requirements",
+          [
+            [
+              "Entity Type",
+              "channel_id",
+              "entity_metadata",
+              "scheduled_end_time"
+            ],
+            [
+              "STAGE_INSTANCE",
+              "value",
+              "null",
+              "-"
+            ],
+            [
+              "VOICE",
+              "value",
+              "null",
+              "-"
+            ],
+            [
+              "EXTERNAL",
+              "null",
+              "value *",
+              "value"
+            ]
+          ],
+          "* entity_metadata with a non-null location must be provided"
+        ]
+      },
+      "Guild Scheduled Event Status": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object-guild-scheduled-event-status",
+        "content": [
+          [
+            [
+              "Type",
+              "Value"
+            ],
+            [
+              "SCHEDULED",
+              "1"
+            ],
+            [
+              "ACTIVE",
+              "2"
+            ],
+            [
+              "COMPLETED *",
+              "3"
+            ],
+            [
+              "CANCELED  *",
+              "4"
+            ]
+          ],
+          "* Once status is set to COMPLETED or CANCELED, the status can no longer be updated"
+        ]
+      },
+      "Valid Guild Scheduled Event Status Transitions": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object-valid-guild-scheduled-event-status-transitions",
+        "content": [
+          "SCHEDULED --> ACTIVE",
+          "ACTIVE --------> COMPLETED",
+          "SCHEDULED --> CANCELED"
+        ]
+      },
+      "Guild Scheduled Event Entity Metadata": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object-guild-scheduled-event-entity-metadata",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "location? *",
+              "string",
+              "location of the event (1-100 characters)"
+            ]
+          ],
+          "* required for events with 'entity_type': EXTERNAL"
+        ]
+      }
+    },
+    "Guild Scheduled Event User Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-user-object",
+      "content": [
+        "|Guild Scheduled Event User Structure"
+      ],
+      "Guild Scheduled Event User Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-user-object-guild-scheduled-event-user-structure",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "guild_scheduled_event_id",
+              "snowflake",
+              "the scheduled event id which the user subscribed to"
+            ],
+            [
+              "user",
+              "user",
+              "user which subscribed to an event"
+            ],
+            [
+              "member?",
+              "guild member",
+              "guild member data for this user for the guild which this event belongs to, if any"
+            ]
+          ]
+        ]
+      }
+    },
+    "List Scheduled Events for Guild % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#list-scheduled-events-for-guild-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events",
+      "content": [
+        "Returns a list of guild scheduled event objects for the given guild.",
+        "|Query String Params"
+      ],
+      "Query String Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#list-scheduled-events-for-guild-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events-query-string-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "with_user_count?",
+              "boolean",
+              "include number of users subscribed to each event"
+            ]
+          ]
+        ]
+      }
+    },
+    "Create Guild Scheduled Event % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#create-guild-scheduled-event-%-post-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events",
+      "content": [
+        "Create a guild scheduled event in the guild. Returns a guild scheduled event object on success.",
+        "> info\n> A guild can have a maximum of 100 events with SCHEDULED or ACTIVE status at any time.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#create-guild-scheduled-event-%-post-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "channel_id? *",
+              "snowflake *",
+              "the channel id of the scheduled event."
+            ],
+            [
+              "entity_metadata? **",
+              "entity metadata",
+              "the entity metadata of the scheduled event"
+            ],
+            [
+              "name",
+              "string",
+              "the name of the scheduled event"
+            ],
+            [
+              "privacy_level",
+              "privacy level",
+              "the privacy level of the scheduled event"
+            ],
+            [
+              "scheduled_start_time",
+              "ISO8601 timestamp",
+              "the time to schedule the scheduled event"
+            ],
+            [
+              "scheduled_end_time? **",
+              "ISO8601 timestamp",
+              "the time when the scheduled event is scheduled to end"
+            ],
+            [
+              "description?",
+              "string",
+              "the description of the scheduled event"
+            ],
+            [
+              "entity_type",
+              "entity type",
+              "the entity type of the scheduled event"
+            ],
+            [
+              "image?",
+              "image data",
+              "the cover image of the scheduled event"
+            ]
+          ],
+          "* Optional for events with 'entity_type': EXTERNAL",
+          "** Required for events with 'entity_type': EXTERNAL"
+        ]
+      }
+    },
+    "Get Guild Scheduled Event % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events/{guild_scheduled_event.id#docs_resources_guild_scheduled_event/guild-scheduled-event-object}",
+      "content": [
+        "Get a guild scheduled event. Returns a guild scheduled event object on success.",
+        "|Query String Params"
+      ],
+      "Query String Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events/{guild_scheduled_event.id#docs_resources_guild_scheduled_event/guild-scheduled-event-object}-query-string-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "with_user_count?",
+              "boolean",
+              "include number of users subscribed to this event"
+            ]
+          ]
+        ]
+      }
+    },
+    "Modify Guild Scheduled Event % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#modify-guild-scheduled-event-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events/{guild_scheduled_event.id#docs_resources_guild_scheduled_event/guild-scheduled-event-object}",
+      "content": [
+        "Modify a guild scheduled event. Returns the modified guild scheduled event object on success.",
+        "> info\n> To start or end an event, use this endpoint to modify the event's status field.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
+        "> info\n> This endpoint silently discards entity_metadata for non-EXTERNAL events.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#modify-guild-scheduled-event-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events/{guild_scheduled_event.id#docs_resources_guild_scheduled_event/guild-scheduled-event-object}-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "channel_id? *",
+              "?snowflake",
+              "the channel id of the scheduled event, set to null if changing entity type to EXTERNAL"
+            ],
+            [
+              "entity_metadata?",
+              "?entity metadata",
+              "the entity metadata of the scheduled event"
+            ],
+            [
+              "name?",
+              "string",
+              "the name of the scheduled event"
+            ],
+            [
+              "privacy_level?",
+              "privacy level",
+              "the privacy level of the scheduled event"
+            ],
+            [
+              "scheduled_start_time?",
+              "ISO8601 timestamp",
+              "the time to schedule the scheduled event"
+            ],
+            [
+              "scheduled_end_time? *",
+              "ISO8601 timestamp",
+              "the time when the scheduled event is scheduled to end"
+            ],
+            [
+              "description?",
+              "?string",
+              "the description of the scheduled event"
+            ],
+            [
+              "entity_type? *",
+              "event entity type",
+              "the entity type of the scheduled event"
+            ],
+            [
+              "status?",
+              "event status",
+              "the status of the scheduled event"
+            ],
+            [
+              "image?",
+              "image data",
+              "the cover image of the scheduled event"
+            ]
+          ],
+          "* If updating entity_type to EXTERNAL:",
+          [
+            "channel_id is required and must be set to null",
+            "entity_metadata with a location field must be provided",
+            "scheduled_end_time must be provided"
+          ]
+        ]
+      }
+    },
+    "Delete Guild Scheduled Event % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#delete-guild-scheduled-event-%-delete-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events/{guild_scheduled_event.id#docs_resources_guild_scheduled_event/guild-scheduled-event-object}",
+      "content": [
+        "Delete a guild scheduled event. Returns a 204 on success."
+      ]
+    },
+    "Get Guild Scheduled Event Users % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}/users": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event-users-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events/{guild_scheduled_event.id#docs_resources_guild_scheduled_event/guild-scheduled-event-object}/users",
+      "content": [
+        "Get a list of guild scheduled event users subscribed to a guild scheduled event. Returns a list of guild scheduled event user objects on success. Guild member data, if it exists, is included if the with_member query parameter is set.",
+        "|Query String Params"
+      ],
+      "Query String Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event-users-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events/{guild_scheduled_event.id#docs_resources_guild_scheduled_event/guild-scheduled-event-object}/users-query-string-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description",
+              "Default"
+            ],
+            [
+              "limit?",
+              "number",
+              "number of users to return (up to maximum 100)",
+              "100"
+            ],
+            [
+              "with_member?",
+              "boolean",
+              "include guild member data if it exists",
+              "false"
+            ],
+            [
+              "before? *",
+              "snowflake",
+              "consider only users before given user id",
+              "null"
+            ],
+            [
+              "after? *",
+              "snowflake",
+              "consider only users after given user id",
+              "null"
+            ]
+          ],
+          "* Provide a user id to before and after for pagination. Users will always be returned in ascending order by user_id. If both before and after are provided, only before is respected. Fetching users in-between before and after is not supported."
+        ]
+      }
+    },
+    "Guild Scheduled Event Status Update Automation": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-status-update-automation",
+      "content": [
+        "NOTE: status and entity_type here are expressed by name rather than their value for readability",
+        "|An active scheduled event for a stage channel where all users have left the stage channel will automatically end a few minutes after the last user leaves the channel",
+        "|An active scheduled event for a voice channel where all users have left the voice channel will automatically end a few minutes after the last user leaves the channel",
+        "|An external event will automatically begin at its scheduled start time",
+        "|An external event will automatically end at its scheduled end time",
+        "|Any scheduled event which has not begun after its scheduled start time will be automatically cancelled after a few hours"
+      ],
+      "An active scheduled event for a stage channel where all users have left the stage channel will automatically end a few minutes after the last user leaves the channel": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#an-active-scheduled-event-for-a-stage-channel-where-all-users-have-left-the-stage-channel-will-automatically-end-a-few-minutes-after-the-last-user-leaves-the-channel",
+        "content": [
+          "When an event with 'status': ACTIVE and 'entity_type': STAGE_INSTANCE has no users connected to the stage channel for a certain period of time (on the order of minutes), the event status will be automatically set to COMPLETED."
+        ]
+      },
+      "An active scheduled event for a voice channel where all users have left the voice channel will automatically end a few minutes after the last user leaves the channel": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#an-active-scheduled-event-for-a-voice-channel-where-all-users-have-left-the-voice-channel-will-automatically-end-a-few-minutes-after-the-last-user-leaves-the-channel",
+        "content": [
+          "When an event with 'status': ACTIVE and 'entity_type': VOICE has no users connected to the voice channel for a certain period of time (on the order of minutes), the event status will be automatically set to COMPLETED."
+        ]
+      },
+      "An external event will automatically begin at its scheduled start time": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#an-external-event-will-automatically-begin-at-its-scheduled-start-time",
+        "content": [
+          "An event with 'entity_type': EXTERNAL at its scheduled_start_time will automatically have status set to ACTIVE."
+        ]
+      },
+      "An external event will automatically end at its scheduled end time": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#an-external-event-will-automatically-end-at-its-scheduled-end-time",
+        "content": [
+          "An event with 'entity_type': EXTERNAL at its scheduled_end_time  will automatically have status set to COMPLETED."
+        ]
+      },
+      "Any scheduled event which has not begun after its scheduled start time will be automatically cancelled after a few hours": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#any-scheduled-event-which-has-not-begun-after-its-scheduled-start-time-will-be-automatically-cancelled-after-a-few-hours",
+        "content": [
+          "Any event with 'status': SCHEDULED after a certain time interval (on the order of hours) beyond its scheduled_start_time will have its status automatically set to CANCELLED."
+        ]
+      }
+    },
+    "Guild Scheduled Event Permissions Requirements": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-permissions-requirements",
+      "content": [
+        "NOTE: entity_type is expressed by name rather than value for readability",
+        "> info\n> A user must be a member of the guild in order to access events for that guild unless the guild is lurkable. If a guild is lurkable,\n> events in that guild may be visible to lurkers depending on the event type and the permissions of any channels associated with the event.",
+        "|Permissions to create an event with entity_type: STAGE_INSTANCE",
+        "|Permissions to create an event with entity_type: VOICE",
+        "|Permissions to create an event with entity_type: EXTERNAL"
+      ],
+      "Permissions to create an event with entity_type: STAGE_INSTANCE": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#permissions-to-create-an-event-with-entity_type:-stage_instance",
+        "content": [
+          "|Write Permissions (CREATE / UPDATE)",
+          "|Read Permissions (GET)"
         ],
-        "Query String Params": {
+        "Write Permissions (CREATE / UPDATE)": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#permissions-to-create-an-event-with-entity_type:-stage_instance-write-permissions-(create-/-update)",
           "content": [
             [
-              [
-                "Field",
-                "Type",
-                "Description",
-                "Default"
-              ],
-              [
-                "limit?",
-                "number",
-                "number of users to return (up to maximum 100)",
-                "100"
-              ],
-              [
-                "with_member?",
-                "boolean",
-                "include guild member data if it exists",
-                "false"
-              ],
-              [
-                "before? *",
-                "snowflake",
-                "consider only users before given user id",
-                "null"
-              ],
-              [
-                "after? *",
-                "snowflake",
-                "consider only users after given user id",
-                "null"
-              ]
-            ],
-            "* Provide a user id to before and after for pagination. Users will always be returned in ascending order by user_id. If both before and after are provided, only before is respected. Fetching users in-between before and after is not supported."
+              "MANAGE_EVENTS at the guild level or at least MANAGE_EVENTS for the channel_id associated with the event",
+              "MANAGE_CHANNELS",
+              "MUTE_MEMBERS",
+              "MOVE_MEMBERS"
+            ]
+          ]
+        },
+        "Read Permissions (GET)": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#permissions-to-create-an-event-with-entity_type:-stage_instance-read-permissions-(get)",
+          "content": [
+            [
+              "VIEW_CHANNEL for channel_id associated with the event"
+            ]
           ]
         }
       },
-      "Guild Scheduled Event Status Update Automation": {
+      "Permissions to create an event with entity_type: VOICE": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#permissions-to-create-an-event-with-entity_type:-voice",
         "content": [
-          "NOTE: status and entity_type here are expressed by name rather than their value for readability",
-          "|An active scheduled event for a stage channel where all users have left the stage channel will automatically end a few minutes after the last user leaves the channel",
-          "|An active scheduled event for a voice channel where all users have left the voice channel will automatically end a few minutes after the last user leaves the channel",
-          "|An external event will automatically begin at its scheduled start time",
-          "|An external event will automatically end at its scheduled end time",
-          "|Any scheduled event which has not begun after its scheduled start time will be automatically cancelled after a few hours"
+          "|Write Permissions (CREATE / UPDATE)",
+          "|Read Permissions (GET)"
         ],
-        "An active scheduled event for a stage channel where all users have left the stage channel will automatically end a few minutes after the last user leaves the channel": {
+        "Write Permissions (CREATE / UPDATE)": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#permissions-to-create-an-event-with-entity_type:-voice-write-permissions-(create-/-update)",
           "content": [
-            "When an event with 'status': ACTIVE and 'entity_type': STAGE_INSTANCE has no users connected to the stage channel for a certain period of time (on the order of minutes), the event status will be automatically set to COMPLETED."
+            [
+              "MANAGE_EVENTS at the guild level or MANAGE_EVENTS for the channel_id associated with the event",
+              "VIEW_CHANNEL for channel_id associated with event",
+              "CONNECT for channel_id associated with event"
+            ]
           ]
         },
-        "An active scheduled event for a voice channel where all users have left the voice channel will automatically end a few minutes after the last user leaves the channel": {
+        "Read Permissions (GET)": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#permissions-to-create-an-event-with-entity_type:-voice-read-permissions-(get)",
           "content": [
-            "When an event with 'status': ACTIVE and 'entity_type': VOICE has no users connected to the voice channel for a certain period of time (on the order of minutes), the event status will be automatically set to COMPLETED."
-          ]
-        },
-        "An external event will automatically begin at its scheduled start time": {
-          "content": [
-            "An event with 'entity_type': EXTERNAL at its scheduled_start_time will automatically have status set to ACTIVE."
-          ]
-        },
-        "An external event will automatically end at its scheduled end time": {
-          "content": [
-            "An event with 'entity_type': EXTERNAL at its scheduled_end_time  will automatically have status set to COMPLETED."
-          ]
-        },
-        "Any scheduled event which has not begun after its scheduled start time will be automatically cancelled after a few hours": {
-          "content": [
-            "Any event with 'status': SCHEDULED after a certain time interval (on the order of hours) beyond its scheduled_start_time will have its status automatically set to CANCELLED."
+            [
+              "VIEW_CHANNEL for channel_id associated with the event"
+            ]
           ]
         }
       },
-      "Guild Scheduled Event Permissions Requirements": {
+      "Permissions to create an event with entity_type: EXTERNAL": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#permissions-to-create-an-event-with-entity_type:-external",
         "content": [
-          "NOTE: entity_type is expressed by name rather than value for readability",
-          "> info\n> A user must be a member of the guild in order to access events for that guild unless the guild is lurkable. If a guild is lurkable,\n> events in that guild may be visible to lurkers depending on the event type and the permissions of any channels associated with the event.",
-          "|Permissions to create an event with entity_type: STAGE_INSTANCE",
-          "|Permissions to create an event with entity_type: VOICE",
-          "|Permissions to create an event with entity_type: EXTERNAL"
+          "|Write Permissions (CREATE / UPDATE)",
+          "|Read Permissions (GET)"
         ],
-        "Permissions to create an event with entity_type: STAGE_INSTANCE": {
+        "Write Permissions (CREATE / UPDATE)": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#permissions-to-create-an-event-with-entity_type:-external-write-permissions-(create-/-update)",
           "content": [
-            "|Write Permissions (CREATE / UPDATE)",
-            "|Read Permissions (GET)"
-          ],
-          "Write Permissions (CREATE / UPDATE)": {
-            "content": [
-              [
-                "MANAGE_EVENTS at the guild level or at least MANAGE_EVENTS for the channel_id associated with the event",
-                "MANAGE_CHANNELS",
-                "MUTE_MEMBERS",
-                "MOVE_MEMBERS"
-              ]
+            [
+              "MANAGE_EVENTS at the guild level"
             ]
-          },
-          "Read Permissions (GET)": {
-            "content": [
-              [
-                "VIEW_CHANNEL for channel_id associated with the event"
-              ]
-            ]
-          }
+          ]
         },
-        "Permissions to create an event with entity_type: VOICE": {
+        "Read Permissions (GET)": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#permissions-to-create-an-event-with-entity_type:-external-read-permissions-(get)",
           "content": [
-            "|Write Permissions (CREATE / UPDATE)",
-            "|Read Permissions (GET)"
-          ],
-          "Write Permissions (CREATE / UPDATE)": {
-            "content": [
-              [
-                "MANAGE_EVENTS at the guild level or MANAGE_EVENTS for the channel_id associated with the event",
-                "VIEW_CHANNEL for channel_id associated with event",
-                "CONNECT for channel_id associated with event"
-              ]
+            [
+              "No other permissions required"
             ]
-          },
-          "Read Permissions (GET)": {
-            "content": [
-              [
-                "VIEW_CHANNEL for channel_id associated with the event"
-              ]
-            ]
-          }
-        },
-        "Permissions to create an event with entity_type: EXTERNAL": {
-          "content": [
-            "|Write Permissions (CREATE / UPDATE)",
-            "|Read Permissions (GET)"
-          ],
-          "Write Permissions (CREATE / UPDATE)": {
-            "content": [
-              [
-                "MANAGE_EVENTS at the guild level"
-              ]
-            ]
-          },
-          "Read Permissions (GET)": {
-            "content": [
-              [
-                "No other permissions required"
-              ]
-            ]
-          }
+          ]
         }
       }
     }

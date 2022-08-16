@@ -3,21 +3,29 @@
     "|Stage Instance Resource"
   ],
   "Stage Instance Resource": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/resources/stage-instance#stage-instance-resource",
     "content": [
       "A Stage Instance holds information about a live stage.",
-      "|Stage Instance Object"
+      "|Stage Instance Object",
+      "|Definitions",
+      "|Auto Closing",
+      "|Create Stage Instance % POST /stage-instances",
+      "|Get Stage Instance % GET /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}",
+      "|Modify Stage Instance % PATCH /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}",
+      "|Delete Stage Instance % DELETE /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}"
     ],
     "Stage Instance Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/stage-instance#stage-instance-object",
       "content": [
         "|Stage Instance Structure",
-        "|Definitions",
-        "|Auto Closing",
-        "|Create Stage Instance % POST /stage-instances",
-        "|Get Stage Instance % GET /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}",
-        "|Modify Stage Instance % PATCH /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}",
-        "|Delete Stage Instance % DELETE /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}"
+        "|Privacy Level",
+        "|Example Stage Instance"
       ],
       "Stage Instance Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/stage-instance#stage-instance-object-stage-instance-structure",
         "content": [
           [
             [
@@ -60,138 +68,156 @@
               "?snowflake",
               "The id of the scheduled event for this Stage instance"
             ]
-          ],
-          "|Privacy Level"
-        ],
-        "Privacy Level": {
-          "content": [
-            [
-              [
-                "Level",
-                "Value",
-                "Description"
-              ],
-              [
-                "PUBLIC",
-                "1",
-                "The Stage instance is visible publicly. (deprecated)"
-              ],
-              [
-                "GUILD_ONLY",
-                "2",
-                "The Stage instance is visible to only guild members."
-              ]
-            ],
-            "|Example Stage Instance"
-          ],
-          "Example Stage Instance": {
-            "content": [
-              {
-                "language": "json",
-                "code": "{\n  \"id\": \"840647391636226060\",\n  \"guild_id\": \"197038439483310086\",\n  \"channel_id\": \"733488538393510049\",\n  \"topic\": \"Testing Testing, 123\",\n  \"privacy_level\": 1,\n  \"discoverable_disabled\": false,\n  \"guild_scheduled_event_id\": \"947656305244532806\"\n}\n"
-              }
-            ]
-          }
-        }
+          ]
+        ]
       },
-      "Definitions": {
+      "Privacy Level": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/stage-instance#stage-instance-object-privacy-level",
         "content": [
-          "Below are some definitions related to stages.",
           [
-            "Liveness: A Stage channel is considered live when there is an associated stage instance. Conversely, a Stage channel is not live when there is no associated stage instance.",
-            "Speakers: A participant of a Stage channel is a speaker when their voice stateis not suppressed, and has no request_to_speak_timestamp.",
-            "Moderators: A member of the guild is a moderator of a Stage channel if they have all of the following permissions:MANAGE_CHANNELSMUTE_MEMBERSMOVE_MEMBERS",
-            "Topic: This is the blurb that gets shown below the channel's name, among other places.",
-            "Public: A Stage instance is public when it has a privacy_level of PUBLIC. While a guild has a public Stage instance:The guild will be lurkable.Lurkers may join any Stage channel with a public Stage instance.Users in the Stage can have the Stage show in their activities.Invites to the Stage channel will have the stage_instance field."
-          ]
-        ]
-      },
-      "Auto Closing": {
-        "content": [
-          "When a Stage channel has no speakers for a certain period of time (on the order of minutes), the Stage instance will be automatically deleted."
-        ]
-      },
-      "Create Stage Instance % POST /stage-instances": {
-        "content": [
-          "Creates a new Stage instance associated to a Stage channel. Returns that Stage instance.",
-          "Requires the user to be a moderator of the Stage channel.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
             [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "channel_id",
-                "snowflake",
-                "The id of the Stage channel"
-              ],
-              [
-                "topic",
-                "string",
-                "The topic of the Stage instance (1-120 characters)"
-              ],
-              [
-                "privacy_level?",
-                "integer",
-                "The privacy level of the Stage instance (default GUILD_ONLY)"
-              ],
-              [
-                "send_start_notification? *",
-                "boolean",
-                "Notify @everyone that a Stage instance has started"
-              ]
+              "Level",
+              "Value",
+              "Description"
             ],
-            "* The stage moderator must have the MENTION_EVERYONE permission for this notification to be sent."
-          ]
-        }
-      },
-      "Get Stage Instance % GET /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}": {
-        "content": [
-          "Gets the stage instance associated with the Stage channel, if it exists."
-        ]
-      },
-      "Modify Stage Instance % PATCH /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}": {
-        "content": [
-          "Updates fields of an existing Stage instance. Returns the updated Stage instance.",
-          "Requires the user to be a moderator of the Stage channel.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
             [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "topic?",
-                "string",
-                "The topic of the Stage instance (1-120 characters)"
-              ],
-              [
-                "privacy_level?",
-                "integer",
-                "The privacy level of the Stage instance"
-              ]
+              "PUBLIC",
+              "1",
+              "The Stage instance is visible publicly. (deprecated)"
+            ],
+            [
+              "GUILD_ONLY",
+              "2",
+              "The Stage instance is visible to only guild members."
             ]
           ]
-        }
+        ]
       },
-      "Delete Stage Instance % DELETE /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}": {
+      "Example Stage Instance": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/stage-instance#stage-instance-object-example-stage-instance",
         "content": [
-          "Deletes the Stage instance. Returns 204 No Content.",
-          "Requires the user to be a moderator of the Stage channel.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header."
+          {
+            "language": "json",
+            "code": "{\n  \"id\": \"840647391636226060\",\n  \"guild_id\": \"197038439483310086\",\n  \"channel_id\": \"733488538393510049\",\n  \"topic\": \"Testing Testing, 123\",\n  \"privacy_level\": 1,\n  \"discoverable_disabled\": false,\n  \"guild_scheduled_event_id\": \"947656305244532806\"\n}\n"
+          }
         ]
       }
+    },
+    "Definitions": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/stage-instance#definitions",
+      "content": [
+        "Below are some definitions related to stages.",
+        [
+          "Liveness: A Stage channel is considered live when there is an associated stage instance. Conversely, a Stage channel is not live when there is no associated stage instance.",
+          "Speakers: A participant of a Stage channel is a speaker when their voice stateis not suppressed, and has no request_to_speak_timestamp.",
+          "Moderators: A member of the guild is a moderator of a Stage channel if they have all of the following permissions:MANAGE_CHANNELSMUTE_MEMBERSMOVE_MEMBERS",
+          "Topic: This is the blurb that gets shown below the channel's name, among other places.",
+          "Public: A Stage instance is public when it has a privacy_level of PUBLIC. While a guild has a public Stage instance:The guild will be lurkable.Lurkers may join any Stage channel with a public Stage instance.Users in the Stage can have the Stage show in their activities.Invites to the Stage channel will have the stage_instance field."
+        ]
+      ]
+    },
+    "Auto Closing": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/stage-instance#auto-closing",
+      "content": [
+        "When a Stage channel has no speakers for a certain period of time (on the order of minutes), the Stage instance will be automatically deleted."
+      ]
+    },
+    "Create Stage Instance % POST /stage-instances": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/stage-instance#create-stage-instance-%-post-/stage-instances",
+      "content": [
+        "Creates a new Stage instance associated to a Stage channel. Returns that Stage instance.",
+        "Requires the user to be a moderator of the Stage channel.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/stage-instance#create-stage-instance-%-post-/stage-instances-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "channel_id",
+              "snowflake",
+              "The id of the Stage channel"
+            ],
+            [
+              "topic",
+              "string",
+              "The topic of the Stage instance (1-120 characters)"
+            ],
+            [
+              "privacy_level?",
+              "integer",
+              "The privacy level of the Stage instance (default GUILD_ONLY)"
+            ],
+            [
+              "send_start_notification? *",
+              "boolean",
+              "Notify @everyone that a Stage instance has started"
+            ]
+          ],
+          "* The stage moderator must have the MENTION_EVERYONE permission for this notification to be sent."
+        ]
+      }
+    },
+    "Get Stage Instance % GET /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/stage-instance#get-stage-instance-%-get-/stage-instances/{channel.id#docs_resources_channel/channel-object}",
+      "content": [
+        "Gets the stage instance associated with the Stage channel, if it exists."
+      ]
+    },
+    "Modify Stage Instance % PATCH /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/stage-instance#modify-stage-instance-%-patch-/stage-instances/{channel.id#docs_resources_channel/channel-object}",
+      "content": [
+        "Updates fields of an existing Stage instance. Returns the updated Stage instance.",
+        "Requires the user to be a moderator of the Stage channel.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/stage-instance#modify-stage-instance-%-patch-/stage-instances/{channel.id#docs_resources_channel/channel-object}-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "topic?",
+              "string",
+              "The topic of the Stage instance (1-120 characters)"
+            ],
+            [
+              "privacy_level?",
+              "integer",
+              "The privacy level of the Stage instance"
+            ]
+          ]
+        ]
+      }
+    },
+    "Delete Stage Instance % DELETE /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/stage-instance#delete-stage-instance-%-delete-/stage-instances/{channel.id#docs_resources_channel/channel-object}",
+      "content": [
+        "Deletes the Stage instance. Returns 204 No Content.",
+        "Requires the user to be a moderator of the Stage channel.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header."
+      ]
     }
   }
 }

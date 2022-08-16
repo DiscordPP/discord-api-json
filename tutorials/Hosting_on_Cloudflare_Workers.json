@@ -3,189 +3,217 @@
     "|Hosting a Reddit API Discord app on Cloudflare Workers"
   ],
   "Hosting a Reddit API Discord app on Cloudflare Workers": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/tutorials/hosting-on-cloudflare-workers#hosting-a-reddit-api-discord-app-on-cloudflare-workers",
     "content": [
       "When building Discord apps, your app can receive common events from the client as webhooks when users interact with your app through interactions like application commands or message components.",
       "Discord will send these events to a pre-configured HTTPS endpoint (called an Interactions Endpoint URL in an app's configuration) as a JSON payload with details about the event.",
       "This tutorial walks through building a Discord app powered by r/aww using JavaScript:",
       "Demo of Reddit API app",
       "All of the code for this app can be found on Github.",
-      "|Features and technologies used"
+      "|Features and technologies used",
+      "|Creating an app on Discord",
+      "|Adding bot permissions",
+      "|Creating your Cloudflare Worker",
+      "|Running locally",
+      "|Deployment",
+      "|Code deep dive",
+      "|Next steps"
     ],
     "Features and technologies used": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/tutorials/hosting-on-cloudflare-workers#features-and-technologies-used",
       "content": [
         [
           "Discord Interactions API (specifically slash commands)",
           "Cloudflare Workers for hosting",
           "Reddit API to send messages back to the user"
         ],
-        "\u2015",
-        "|Creating an app on Discord",
-        "|Adding bot permissions",
-        "|Creating your Cloudflare Worker",
-        "|Running locally",
-        "|Deployment",
-        "|Code deep dive",
-        "|Next steps"
-      ],
-      "Creating an app on Discord": {
-        "content": [
-          "To start, we'll create the app through the Discord Developer Dashboard:",
-          [
-            "Visit https://discord.com/developers/applications",
-            "Click New Application, and choose a name",
-            "Copy your Public Key and Application ID, and put them somewhere locally (we'll need these later)"
-          ],
-          "IDs found in app settings",
-          [
-            "Now click on the Bot tab on the left sidebar, and create a bot! You can choose the same name as your app.",
-            "Grab the token for your bot, and store it somewhere safe (I like to put these tokens in a password manager like 1password or lastpass)."
-          ],
-          "> warn\n> For security reasons, you can only view your bot token once. If you misplace your token, you'll have to generate a new one."
-        ]
-      },
-      "Adding bot permissions": {
-        "content": [
-          "Now we'll configure the bot with permissions required to create and use slash commands, as well as send messages in  channels.",
-          [
-            "Click on the OAuth2 tab, and choose the URL Generator. Click the bot and applications.commands scopes.",
-            "Check the boxes next to Send Messages and Use Slash Commands, then copy the Generated URL."
-          ],
-          "Configuring bot permissions in app settings",
-          [
-            "Paste the URL into the browser and follow the OAuth flow, selecting the server where you'd like to develop and test your bot."
-          ]
-        ]
-      },
-      "Creating your Cloudflare Worker": {
-        "content": [
-          "Cloudflare Workers are a convenient way to host Discord apps due to the free tier, simple development model, and automatically managed environment (no VMs!).",
-          "> warn\n> When using Cloudflare Workers, your app won't be able to access non-ephemeral CDN media. For example, trying to fetch an image like https://cdn.discordapp.com/attachments/1234/56789/my_image.png would result in a 403 error. Cloudflare Workers are still able to access ephemeral CDN media.",
-          [
-            "Visit the Cloudflare Dashboard",
-            "Click on the Workers tab, and create a new service using the same name as your Discord bot",
-            "Make sure to install the Wrangler CLI and set it up."
-          ],
-          "|Storing secrets"
+        "\u2015"
+      ]
+    },
+    "Creating an app on Discord": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/tutorials/hosting-on-cloudflare-workers#creating-an-app-on-discord",
+      "content": [
+        "To start, we'll create the app through the Discord Developer Dashboard:",
+        [
+          "Visit https://discord.com/developers/applications",
+          "Click New Application, and choose a name",
+          "Copy your Public Key and Application ID, and put them somewhere locally (we'll need these later)"
         ],
-        "Storing secrets": {
-          "content": [
-            "The production service needs access to some of the information we saved earlier. To set those variables, run:",
-            {
-              "language": "",
-              "code": "$ wrangler secret put DISCORD_TOKEN\n$ wrangler secret put DISCORD_PUBLIC_KEY\n$ wrangler secret put DISCORD_APPLICATION_ID\n"
-            },
-            "You'll also need the Guild ID for the server where your app is installed. This can be found in the URL when you visit any channel in that server.",
-            "> info\n> For example, if my URL was https://discord.com/channels/123456/789101112, the Guild ID is the first number\u2014in this case 123456.",
-            "Once you know your Guild ID, set that variable as well:",
-            {
-              "language": "",
-              "code": "$ wrangler secret put DISCORD_TEST_GUILD_ID\n"
-            }
-          ]
-        }
-      },
-      "Running locally": {
+        "IDs found in app settings",
+        [
+          "Now click on the Bot tab on the left sidebar, and create a bot! You can choose the same name as your app.",
+          "Grab the token for your bot, and store it somewhere safe (I like to put these tokens in a password manager like 1password or lastpass)."
+        ],
+        "> warn\n> For security reasons, you can only view your bot token once. If you misplace your token, you'll have to generate a new one."
+      ]
+    },
+    "Adding bot permissions": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/tutorials/hosting-on-cloudflare-workers#adding-bot-permissions",
+      "content": [
+        "Now we'll configure the bot with permissions required to create and use slash commands, as well as send messages in  channels.",
+        [
+          "Click on the OAuth2 tab, and choose the URL Generator. Click the bot and applications.commands scopes.",
+          "Check the boxes next to Send Messages and Use Slash Commands, then copy the Generated URL."
+        ],
+        "Configuring bot permissions in app settings",
+        [
+          "Paste the URL into the browser and follow the OAuth flow, selecting the server where you'd like to develop and test your bot."
+        ]
+      ]
+    },
+    "Creating your Cloudflare Worker": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/tutorials/hosting-on-cloudflare-workers#creating-your-cloudflare-worker",
+      "content": [
+        "Cloudflare Workers are a convenient way to host Discord apps due to the free tier, simple development model, and automatically managed environment (no VMs!).",
+        "> warn\n> When using Cloudflare Workers, your app won't be able to access non-ephemeral CDN media. For example, trying to fetch an image like https://cdn.discordapp.com/attachments/1234/56789/my_image.png would result in a 403 error. Cloudflare Workers are still able to access ephemeral CDN media.",
+        [
+          "Visit the Cloudflare Dashboard",
+          "Click on the Workers tab, and create a new service using the same name as your Discord bot",
+          "Make sure to install the Wrangler CLI and set it up."
+        ],
+        "|Storing secrets"
+      ],
+      "Storing secrets": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/tutorials/hosting-on-cloudflare-workers#storing-secrets",
         "content": [
-          "> info\n> This depends on the beta version of the wrangler package, which better supports ESM on Cloudflare Workers.",
-          "Let's start by cloning the repository and installing dependencies. This requires at least v16 of Node.js:",
+          "The production service needs access to some of the information we saved earlier. To set those variables, run:",
           {
             "language": "",
-            "code": "$ npm install\n"
+            "code": "$ wrangler secret put DISCORD_TOKEN\n$ wrangler secret put DISCORD_PUBLIC_KEY\n$ wrangler secret put DISCORD_APPLICATION_ID\n"
           },
-          "|Project structure",
-          "|Registering commands",
-          "|Running the server",
-          "|Setting up ngrok"
-        ],
-        "Project structure": {
-          "content": [
-            "A brief look at the cloned app's project structure:",
-            {
-              "language": "",
-              "code": "\u251c\u2500\u2500 .github/workflows/ci.yaml -> Github Action configuration\n\u251c\u2500\u2500 src\n\u2502   \u251c\u2500\u2500 commands.js           -> JSON payloads for commands\n\u2502   \u251c\u2500\u2500 reddit.js             -> Interactions with the Reddit API\n\u2502   \u251c\u2500\u2500 register.js           -> Sets up commands with the Discord API\n\u2502   \u251c\u2500\u2500 server.js             -> Discord app logic and routing\n\u251c\u2500\u2500 test\n|   \u251c\u2500\u2500 test.js               -> Tests for app\n\u251c\u2500\u2500 wrangler.toml             -> Configuration for Cloudflare Workers\n\u251c\u2500\u2500 package.json\n\u251c\u2500\u2500 README.md\n\u251c\u2500\u2500 renovate.json             -> Configuration for repo automation\n\u251c\u2500\u2500 .eslintrc.json\n\u251c\u2500\u2500 .prettierignore\n\u251c\u2500\u2500 .prettierrc.json\n\u2514\u2500\u2500 .gitignore\n"
-            }
-          ]
-        },
-        "Registering commands": {
-          "content": [
-            "Before testing our app, we need to register our desired slash commands. For this app, we'll have a /awwww command, and a /invite command. The name and description for these are kept separate in commands.js:",
-            {
-              "language": "js",
-              "code": "export const AWW_COMMAND = {\n  name: 'awwww',\n  description: 'Drop some cuteness on this channel.',\n};\n\nexport const INVITE_COMMAND = {\n  name: 'invite',\n  description: 'Get an invite link to add the bot to your server',\n};\n"
-            },
-            "The code to register commands lives in register.js. Commands can be registered globally, making them available for all servers with the app installed, or they can be registered on a single server.",
-            "In this example - we'll just focus on global commands:",
-            {
-              "language": "js",
-              "code": "import { AWW_COMMAND, INVITE_COMMAND } from './commands.js';\nimport fetch from 'node-fetch';\n\n/**\n * This file is meant to be run from the command line, and is not used by the\n * application server.  It's allowed to use node.js primitives, and only needs\n * to be run once.\n */\n\nconst token = process.env.DISCORD_TOKEN;\nconst applicationId = process.env.DISCORD_APPLICATION_ID;\n\nif (!token) {\n  throw new Error('The DISCORD_TOKEN environment variable is required.');\n}\nif (!applicationId) {\n  throw new Error(\n    'The DISCORD_APPLICATION_ID environment variable is required.'\n  );\n}\n\n/**\n * Register all commands globally.  This can take o(minutes), so wait until\n * you're sure these are the commands you want.\n */\nasync function registerGlobalCommands() {\n  const url = `https://discord.com/api/v10/applications/${applicationId}/commands`;\n  await registerCommands(url);\n}\n\nasync function registerCommands(url) {\n  const response = await fetch(url, {\n    headers: {\n      'Content-Type': 'application/json',\n      Authorization: `Bot ${token}`,\n    },\n    method: 'PUT',\n    body: JSON.stringify([AWW_COMMAND, INVITE_COMMAND]),\n  });\n\n  if (response.ok) {\n    console.log('Registered all commands');\n  } else {\n    console.error('Error registering commands');\n    const text = await response.text();\n    console.error(text);\n  }\n  return response;\n}\n\nawait registerGlobalCommands();\n"
-            }
-          ]
-        },
-        "Running the server": {
-          "content": [
-            "This command needs to be run locally, once before getting started:",
-            {
-              "language": "",
-              "code": "$ DISCORD_TOKEN=**** DISCORD_APPLICATION_ID=**** node src/register.js\n"
-            },
-            "We're finally ready to run this code locally! Let's start by running our local development server:",
-            {
-              "language": "",
-              "code": "$ npm run dev\n"
-            }
-          ]
-        },
-        "Setting up ngrok": {
-          "content": [
-            "When a user types a slash command, Discord will send an HTTP request to a public endpoint. During local development this can be a little challenging, so we're going to use a tool called ngrok to create an HTTP tunnel.",
-            {
-              "language": "",
-              "code": "$ npm run ngrok\n"
-            },
-            "ngrok forwarding address",
-            "This is going to bounce requests off of an external endpoint, and forward them to your machine. Copy the HTTPS link provided by the tool. It should look something like https://8098-24-22-245-250.ngrok.io.",
-            "Now head back to the Discord Developer Dashboard, and update the Interactions Endpoint URL for your app:",
-            "Interactions Endpoint URL",
-            "This is the process we'll use for local testing and development. When you've published your app to Cloudflare, you will want to update this field to use your Cloudflare Worker URL."
-          ]
-        }
-      },
-      "Deployment": {
-        "content": [
-          "This repository is set up to automatically deploy to Cloudflare Workers when new changes land on the main branch. To deploy manually, run npm run publish, which uses the wrangler publish command under the hood.",
-          "Publishing via a GitHub Action requires obtaining an API Token and your Account ID from Cloudflare. These are stored as secrets in the GitHub repository, making them available to GitHub Actions.",
-          "The following configuration in .github/workflows/ci.yaml demonstrates how to tie it all together:",
+          "You'll also need the Guild ID for the server where your app is installed. This can be found in the URL when you visit any channel in that server.",
+          "> info\n> For example, if my URL was https://discord.com/channels/123456/789101112, the Guild ID is the first number\u2014in this case 123456.",
+          "Once you know your Guild ID, set that variable as well:",
           {
-            "language": "yaml",
-            "code": "release:\n  if: github.ref == 'refs/heads/main'\n  runs-on: ubuntu-latest\n  needs: [test, lint]\n  steps:\n    - uses: actions/checkout@v2\n    - uses: actions/setup-node@v2\n      with:\n        node-version: 16\n    - run: npm install\n    - run: npm run publish\n      env:\n        CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}\n        CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}\n"
+            "language": "",
+            "code": "$ wrangler secret put DISCORD_TEST_GUILD_ID\n"
           }
-        ]
-      },
-      "Code deep dive": {
-        "content": [
-          "Most of the interesting code in this app lives in src/server.js. Cloudflare Workers require exposing a fetch function, which is called as the entry point for each request. This code will largely do two things for us: validate the request is valid and actually came from Discord, and hand the request over to a router to help give us a little more control over execution.",
-          {
-            "language": "js",
-            "code": "export default {\n  /**\n   * Every request to a worker will start in the `fetch` method.\n   * Verify the signature with the request, and dispatch to the router.\n   * @param {*} request A Fetch Request object\n   * @param {*} env A map of key/value pairs with env vars and secrets from the cloudflare env.\n   * @returns\n   */\n  async fetch(request, env) {\n    if (request.method === 'POST') {\n      // Using the incoming headers, verify this request actually came from discord.\n      const signature = request.headers.get('x-signature-ed25519');\n      const timestamp = request.headers.get('x-signature-timestamp');\n      const body = await request.clone().arrayBuffer();\n      const isValidRequest = verifyKey(\n        body,\n        signature,\n        timestamp,\n        env.DISCORD_PUBLIC_KEY\n      );\n      if (!isValidRequest) {\n        console.error('Invalid Request');\n        return new Response('Bad request signature.', { status: 401 });\n      }\n    }\n\n    // Dispatch the request to the appropriate route\n    return router.handle(request, env);\n  },\n};\n"
-          },
-          "All of the API calls from Discord in this example will be POSTed to /. From here, we will use the discord-interactions npm module to help us interpret the event, and to send results.",
-          {
-            "language": "js",
-            "code": "/**\n * Main route for all requests sent from Discord.  All incoming messages will\n * include a JSON payload described here:\n * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object\n */\nrouter.post('/', async (request, env) => {\n  const message = await request.json();\n  console.log(message);\n  if (message.type === InteractionType.PING) {\n    // The `PING` message is used during the initial webhook handshake, and is\n    // required to configure the webhook in the developer portal.\n    console.log('Handling Ping request');\n    return new JsonResponse({\n      type: InteractionResponseType.PONG,\n    });\n  }\n\n  if (message.type === InteractionType.APPLICATION_COMMAND) {\n    // Most user commands will come as `APPLICATION_COMMAND`.\n    switch (message.data.name.toLowerCase()) {\n      case AWW_COMMAND.name.toLowerCase(): {\n        console.log('handling cute request');\n        const cuteUrl = await getCuteUrl();\n        return new JsonResponse({\n          type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,\n          data: {\n            content: cuteUrl,\n          },\n        });\n      }\n      case INVITE_COMMAND.name.toLowerCase(): {\n        const applicationId = env.DISCORD_APPLICATION_ID;\n        const INVITE_URL = `https://discord.com/oauth2/authorize?client_id=${applicationId}&scope=applications.commands`;\n        return new JsonResponse({\n          type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,\n          data: {\n            content: INVITE_URL,\n            flags: InteractionResponseFlags.EPHEMERAL,\n          },\n        });\n      }\n      default:\n        console.error('Unknown Command');\n        return new JsonResponse({ error: 'Unknown Type' }, { status: 400 });\n    }\n  }\n\n  console.error('Unknown Type');\n  return new JsonResponse({ error: 'Unknown Type' }, { status: 400 });\n});\n"
-          }
-        ]
-      },
-      "Next steps": {
-        "content": [
-          "> info\n> In case you need to reference any of the code, you can find the repo on Github",
-          "With your app built and deployed, you can start customizing it to be your own:",
-          [
-            "Use message components in your app to add more interactivity (like buttons and select menus).",
-            "Take a look at different public APIs on Github.",
-            "Join the Discord Developers server to ask questions about the API, attend events hosted by the Discord API team, and interact with other developers."
-          ]
         ]
       }
+    },
+    "Running locally": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/tutorials/hosting-on-cloudflare-workers#running-locally",
+      "content": [
+        "> info\n> This depends on the beta version of the wrangler package, which better supports ESM on Cloudflare Workers.",
+        "Let's start by cloning the repository and installing dependencies. This requires at least v16 of Node.js:",
+        {
+          "language": "",
+          "code": "$ npm install\n"
+        },
+        "|Project structure",
+        "|Registering commands",
+        "|Running the server",
+        "|Setting up ngrok"
+      ],
+      "Project structure": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/tutorials/hosting-on-cloudflare-workers#project-structure",
+        "content": [
+          "A brief look at the cloned app's project structure:",
+          {
+            "language": "",
+            "code": "\u251c\u2500\u2500 .github/workflows/ci.yaml -> Github Action configuration\n\u251c\u2500\u2500 src\n\u2502   \u251c\u2500\u2500 commands.js           -> JSON payloads for commands\n\u2502   \u251c\u2500\u2500 reddit.js             -> Interactions with the Reddit API\n\u2502   \u251c\u2500\u2500 register.js           -> Sets up commands with the Discord API\n\u2502   \u251c\u2500\u2500 server.js             -> Discord app logic and routing\n\u251c\u2500\u2500 test\n|   \u251c\u2500\u2500 test.js               -> Tests for app\n\u251c\u2500\u2500 wrangler.toml             -> Configuration for Cloudflare Workers\n\u251c\u2500\u2500 package.json\n\u251c\u2500\u2500 README.md\n\u251c\u2500\u2500 renovate.json             -> Configuration for repo automation\n\u251c\u2500\u2500 .eslintrc.json\n\u251c\u2500\u2500 .prettierignore\n\u251c\u2500\u2500 .prettierrc.json\n\u2514\u2500\u2500 .gitignore\n"
+          }
+        ]
+      },
+      "Registering commands": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/tutorials/hosting-on-cloudflare-workers#registering-commands",
+        "content": [
+          "Before testing our app, we need to register our desired slash commands. For this app, we'll have a /awwww command, and a /invite command. The name and description for these are kept separate in commands.js:",
+          {
+            "language": "js",
+            "code": "export const AWW_COMMAND = {\n  name: 'awwww',\n  description: 'Drop some cuteness on this channel.',\n};\n\nexport const INVITE_COMMAND = {\n  name: 'invite',\n  description: 'Get an invite link to add the bot to your server',\n};\n"
+          },
+          "The code to register commands lives in register.js. Commands can be registered globally, making them available for all servers with the app installed, or they can be registered on a single server.",
+          "In this example - we'll just focus on global commands:",
+          {
+            "language": "js",
+            "code": "import { AWW_COMMAND, INVITE_COMMAND } from './commands.js';\nimport fetch from 'node-fetch';\n\n/**\n * This file is meant to be run from the command line, and is not used by the\n * application server.  It's allowed to use node.js primitives, and only needs\n * to be run once.\n */\n\nconst token = process.env.DISCORD_TOKEN;\nconst applicationId = process.env.DISCORD_APPLICATION_ID;\n\nif (!token) {\n  throw new Error('The DISCORD_TOKEN environment variable is required.');\n}\nif (!applicationId) {\n  throw new Error(\n    'The DISCORD_APPLICATION_ID environment variable is required.'\n  );\n}\n\n/**\n * Register all commands globally.  This can take o(minutes), so wait until\n * you're sure these are the commands you want.\n */\nasync function registerGlobalCommands() {\n  const url = `https://discord.com/api/v10/applications/${applicationId}/commands`;\n  await registerCommands(url);\n}\n\nasync function registerCommands(url) {\n  const response = await fetch(url, {\n    headers: {\n      'Content-Type': 'application/json',\n      Authorization: `Bot ${token}`,\n    },\n    method: 'PUT',\n    body: JSON.stringify([AWW_COMMAND, INVITE_COMMAND]),\n  });\n\n  if (response.ok) {\n    console.log('Registered all commands');\n  } else {\n    console.error('Error registering commands');\n    const text = await response.text();\n    console.error(text);\n  }\n  return response;\n}\n\nawait registerGlobalCommands();\n"
+          }
+        ]
+      },
+      "Running the server": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/tutorials/hosting-on-cloudflare-workers#running-the-server",
+        "content": [
+          "This command needs to be run locally, once before getting started:",
+          {
+            "language": "",
+            "code": "$ DISCORD_TOKEN=**** DISCORD_APPLICATION_ID=**** node src/register.js\n"
+          },
+          "We're finally ready to run this code locally! Let's start by running our local development server:",
+          {
+            "language": "",
+            "code": "$ npm run dev\n"
+          }
+        ]
+      },
+      "Setting up ngrok": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/tutorials/hosting-on-cloudflare-workers#setting-up-ngrok",
+        "content": [
+          "When a user types a slash command, Discord will send an HTTP request to a public endpoint. During local development this can be a little challenging, so we're going to use a tool called ngrok to create an HTTP tunnel.",
+          {
+            "language": "",
+            "code": "$ npm run ngrok\n"
+          },
+          "ngrok forwarding address",
+          "This is going to bounce requests off of an external endpoint, and forward them to your machine. Copy the HTTPS link provided by the tool. It should look something like https://8098-24-22-245-250.ngrok.io.",
+          "Now head back to the Discord Developer Dashboard, and update the Interactions Endpoint URL for your app:",
+          "Interactions Endpoint URL",
+          "This is the process we'll use for local testing and development. When you've published your app to Cloudflare, you will want to update this field to use your Cloudflare Worker URL."
+        ]
+      }
+    },
+    "Deployment": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/tutorials/hosting-on-cloudflare-workers#deployment",
+      "content": [
+        "This repository is set up to automatically deploy to Cloudflare Workers when new changes land on the main branch. To deploy manually, run npm run publish, which uses the wrangler publish command under the hood.",
+        "Publishing via a GitHub Action requires obtaining an API Token and your Account ID from Cloudflare. These are stored as secrets in the GitHub repository, making them available to GitHub Actions.",
+        "The following configuration in .github/workflows/ci.yaml demonstrates how to tie it all together:",
+        {
+          "language": "yaml",
+          "code": "release:\n  if: github.ref == 'refs/heads/main'\n  runs-on: ubuntu-latest\n  needs: [test, lint]\n  steps:\n    - uses: actions/checkout@v2\n    - uses: actions/setup-node@v2\n      with:\n        node-version: 16\n    - run: npm install\n    - run: npm run publish\n      env:\n        CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}\n        CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}\n"
+        }
+      ]
+    },
+    "Code deep dive": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/tutorials/hosting-on-cloudflare-workers#code-deep-dive",
+      "content": [
+        "Most of the interesting code in this app lives in src/server.js. Cloudflare Workers require exposing a fetch function, which is called as the entry point for each request. This code will largely do two things for us: validate the request is valid and actually came from Discord, and hand the request over to a router to help give us a little more control over execution.",
+        {
+          "language": "js",
+          "code": "export default {\n  /**\n   * Every request to a worker will start in the `fetch` method.\n   * Verify the signature with the request, and dispatch to the router.\n   * @param {*} request A Fetch Request object\n   * @param {*} env A map of key/value pairs with env vars and secrets from the cloudflare env.\n   * @returns\n   */\n  async fetch(request, env) {\n    if (request.method === 'POST') {\n      // Using the incoming headers, verify this request actually came from discord.\n      const signature = request.headers.get('x-signature-ed25519');\n      const timestamp = request.headers.get('x-signature-timestamp');\n      const body = await request.clone().arrayBuffer();\n      const isValidRequest = verifyKey(\n        body,\n        signature,\n        timestamp,\n        env.DISCORD_PUBLIC_KEY\n      );\n      if (!isValidRequest) {\n        console.error('Invalid Request');\n        return new Response('Bad request signature.', { status: 401 });\n      }\n    }\n\n    // Dispatch the request to the appropriate route\n    return router.handle(request, env);\n  },\n};\n"
+        },
+        "All of the API calls from Discord in this example will be POSTed to /. From here, we will use the discord-interactions npm module to help us interpret the event, and to send results.",
+        {
+          "language": "js",
+          "code": "/**\n * Main route for all requests sent from Discord.  All incoming messages will\n * include a JSON payload described here:\n * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object\n */\nrouter.post('/', async (request, env) => {\n  const message = await request.json();\n  console.log(message);\n  if (message.type === InteractionType.PING) {\n    // The `PING` message is used during the initial webhook handshake, and is\n    // required to configure the webhook in the developer portal.\n    console.log('Handling Ping request');\n    return new JsonResponse({\n      type: InteractionResponseType.PONG,\n    });\n  }\n\n  if (message.type === InteractionType.APPLICATION_COMMAND) {\n    // Most user commands will come as `APPLICATION_COMMAND`.\n    switch (message.data.name.toLowerCase()) {\n      case AWW_COMMAND.name.toLowerCase(): {\n        console.log('handling cute request');\n        const cuteUrl = await getCuteUrl();\n        return new JsonResponse({\n          type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,\n          data: {\n            content: cuteUrl,\n          },\n        });\n      }\n      case INVITE_COMMAND.name.toLowerCase(): {\n        const applicationId = env.DISCORD_APPLICATION_ID;\n        const INVITE_URL = `https://discord.com/oauth2/authorize?client_id=${applicationId}&scope=applications.commands`;\n        return new JsonResponse({\n          type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,\n          data: {\n            content: INVITE_URL,\n            flags: InteractionResponseFlags.EPHEMERAL,\n          },\n        });\n      }\n      default:\n        console.error('Unknown Command');\n        return new JsonResponse({ error: 'Unknown Type' }, { status: 400 });\n    }\n  }\n\n  console.error('Unknown Type');\n  return new JsonResponse({ error: 'Unknown Type' }, { status: 400 });\n});\n"
+        }
+      ]
+    },
+    "Next steps": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/tutorials/hosting-on-cloudflare-workers#next-steps",
+      "content": [
+        "> info\n> In case you need to reference any of the code, you can find the repo on Github",
+        "With your app built and deployed, you can start customizing it to be your own:",
+        [
+          "Use message components in your app to add more interactivity (like buttons and select menus).",
+          "Take a look at different public APIs on Github.",
+          "Join the Discord Developers server to ask questions about the API, attend events hosted by the Discord API team, and interact with other developers."
+        ]
+      ]
     }
   }
 }

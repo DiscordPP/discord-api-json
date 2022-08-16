@@ -3,11 +3,20 @@
     "|Certified Devices"
   ],
   "Certified Devices": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/topics/certified-devices#certified-devices",
     "content": [
       "Baked into Discord is the ability for hardware manufacturers to tell us a little more about the certified devices that are plugged into a user's computer. Unfortunately, no, you can't show that a user's PUBG Chicken Dinner was all thanks to the amazing TotallyRealHardware RGB Mouse and Keyboard Set Extraordinaire\u2122, but you can give them an amazing experience using your hardware with Discord!",
-      "|How's it work?"
+      "|How's it work?",
+      "|Connecting",
+      "|Getting Device UUID",
+      "|HTTP Example",
+      "|WebSocket Example",
+      "|Models"
     ],
     "How's it work?": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/certified-devices#how's-it-work?",
       "content": [
         "I'm glad you asked!",
         [
@@ -16,263 +25,294 @@
           "Send us a SET_CERTIFIED_DEVICES WebSocket payload or equivalent HTTP POST whenever the state of the device changes"
         ],
         "Yup, that's it. You give us the real-time info about any connected devices, and we'll handle the rest to make sure that anyone using your device will have an awesome experience. Your device will also have a CERTIFIED badge in Discord's audio settings, and really, who doesn't love badges?",
-        "An example of how a certified device may be shown for an example audio input and output device",
-        "|Connecting",
-        "|Getting Device UUID",
-        "|HTTP Example",
-        "|WebSocket Example",
-        "|Models"
+        "An example of how a certified device may be shown for an example audio input and output device"
+      ]
+    },
+    "Connecting": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/certified-devices#connecting",
+      "content": [
+        "|Query String Params",
+        "|HTTP",
+        "|WebSocket"
       ],
-      "Connecting": {
+      "Query String Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/certified-devices#connecting-query-string-params",
         "content": [
-          "|Query String Params"
-        ],
-        "Query String Params": {
-          "content": [
+          [
             [
-              [
-                "Name",
-                "Value",
-                "Required"
-              ],
-              [
-                "v",
-                "1",
-                "All"
-              ],
-              [
-                "client_id",
-                "your app's client id",
-                "All"
-              ],
-              [
-                "encoding",
-                "json",
-                "WebSocket"
-              ]
+              "Name",
+              "Value",
+              "Required"
             ],
-            "You can send event updates to the following URIs:",
-            "|HTTP"
-          ],
-          "HTTP": {
-            "content": [
-              {
-                "language": "",
-                "code": "http://127.0.0.1:PORT/rpc?v=1&client_id=YOUR_CLIENT_ID\n"
-              },
-              "|WebSocket"
-            ],
-            "WebSocket": {
-              "content": [
-                {
-                  "language": "",
-                  "code": "ws://127.0.0.1:PORT?v=1&client_id=YOUR_CLIENT_ID&encoding=json\n"
-                },
-                "PORT is a range of ports from 6463 to 6473. You should iterate over these ports with your request until one returns a success response code or succeeds with a socket connection. Keep track of that port number for the rest of the session.",
-                "To keep your hardware in sync with Discord, send updates any time the hardware mute is toggled, or one of the voice features like echo cancellation is enabled or disabled by the user. This lets Discord get out of the way of your optimization when you're in control, or help out when you're not, ensuring an awesome experience for anyone using your hardware.",
-                "Each time you update, send a full array of devices, sorted by your preferred priority. That means if you want a specific headset to be the default that Discord will attempt to use, put it first in the array."
-              ]
-            }
-          }
-        }
-      },
-      "Getting Device UUID": {
-        "content": [
-          "For each device in the SET_CERTIFIED_DEVICES payload, there is an id field. This id should be the Windows device's UUID, retrieved through the native Windows API. You'll get back something that looks like {0.0.1.00000000}.{6cff2b76-44a8-46b9-b528-262ad8609d9f}.",
-          "> info\n> On macOS, the id will be the name of the device.",
-          "|Microphone Id Example"
-        ],
-        "Microphone Id Example": {
-          "content": [
-            {
-              "language": "cpp",
-              "code": "id = waveInMessage((HWAVEIN)IntToPtr(index),\n                      DRV_QUERYFUNCTIONINSTANCEID,\n                      (DWORD_PTR)pstrEndpointId,\n                      cbEndpointId);\n"
-            },
-            "|Speaker Id Example"
-          ],
-          "Speaker Id Example": {
-            "content": [
-              {
-                "language": "cpp",
-                "code": "id = waveOutMessage((HWAVEIN)IntToPtr(index),\n                      DRV_QUERYFUNCTIONINSTANCEID,\n                      (DWORD_PTR)pstrEndpointId,\n                      cbEndpointId);\n"
-              }
-            ]
-          }
-        }
-      },
-      "HTTP Example": {
-        "content": [
-          "|HTTP Request Example"
-        ],
-        "HTTP Request Example": {
-          "content": [
-            {
-              "language": "",
-              "code": "curl -X POST -H 'Content-Type: application/json' -d '\n{\n  \"nonce\": \"9b4e9711-97f3-4f35-b047-32c82a51978e\",\n  \"cmd\": \"SET_CERTIFIED_DEVICES\",\n  \"args\": {\n    \"devices\": [\n      {\n        \"type\": \"audioinput\",\n        \"id\": \"{0.0.1.00000000}.{6cff2b76-44a8-46b9-b528-262ad8609d9f}\",\n        \"vendor\": {\n          \"name\": \"SteelSeries\",\n          \"url\": \"https://steelseries.com\"\n        },\n        \"model\": {\n          \"name\": \"Arctis 7\",\n          \"url\": \"https://steelseries.com/gaming-headsets/arctis-7\"\n        },\n        \"related\": [\"{0.0.1.00000000}.{6cff2b76-44a8-46b9-b528-262ad8609d9f}\"],\n        \"echo_cancellation\": true,\n        \"noise_suppression\": true,\n        \"automatic_gain_control\": true,\n        \"hardware_mute\": false\n      }\n    ]\n  }\n}\n' http://127.0.0.1:PORT/rpc?v=1&client_id=YOUR_CLIENT_ID\n"
-            },
-            "The socket will respond with a 200 OK status code and the following JSON.",
-            "|HTTP Response Example"
-          ],
-          "HTTP Response Example": {
-            "content": [
-              {
-                "language": "json",
-                "code": "{\n  \"cmd\": \"SET_CERTIFIED_DEVICES\",\n  \"data\": null,\n  \"evt\": null,\n  \"nonce\": \"9b4e9711-97f3-4f35-b047-32c82a51978e\"\n}\n"
-              }
-            ]
-          }
-        }
-      },
-      "WebSocket Example": {
-        "content": [
-          "|RPC Command Example"
-        ],
-        "RPC Command Example": {
-          "content": [
-            {
-              "language": "json",
-              "code": "{\n  \"nonce\": \"9b4e9711-97f3-4f35-b047-32c82a51978e\",\n  \"cmd\": \"SET_CERTIFIED_DEVICES\",\n  \"args\": {\n    \"devices\": [\n      {\n        \"type\": \"audioinput\",\n        \"id\": \"{0.0.1.00000000}.{6cff2b76-44a8-46b9-b528-262ad8609d9f}\",\n        \"vendor\": {\n          \"name\": \"SteelSeries\",\n          \"url\": \"https://steelseries.com\"\n        },\n        \"model\": {\n          \"name\": \"Arctis 7\",\n          \"url\": \"https://steelseries.com/gaming-headsets/arctis-7\"\n        },\n        \"related\": [\"{0.0.1.00000000}.{6cff2b76-44a8-46b9-b528-262ad8609d9f}\"],\n        \"echo_cancellation\": true,\n        \"noise_suppression\": true,\n        \"automatic_gain_control\": true,\n        \"hardware_mute\": false\n      }\n    ]\n  }\n}\n"
-            },
-            "|RPC Response Example"
-          ],
-          "RPC Response Example": {
-            "content": [
-              {
-                "language": "json",
-                "code": "{\n  \"nonce\": \"9b4e9711-97f3-4f35-b047-32c82a51978e\",\n  \"cmd\": \"SET_CERTIFIED_DEVICES\",\n  \"data\": null,\n  \"evt\": null\n}\n"
-              }
-            ]
-          }
-        }
-      },
-      "Models": {
-        "content": [
-          "|Device Object"
-        ],
-        "Device Object": {
-          "content": [
             [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "type",
-                "device type",
-                "the type of device"
-              ],
-              [
-                "id",
-                "string",
-                "the device's Windows UUID"
-              ],
-              [
-                "vendor",
-                "vendor object",
-                "the hardware vendor"
-              ],
-              [
-                "model",
-                "model object",
-                "the model of the product"
-              ],
-              [
-                "related",
-                "array of strings",
-                "UUIDs of related devices"
-              ],
-              [
-                "echo_cancellation?*",
-                "boolean",
-                "if the device's native echo cancellation is enabled"
-              ],
-              [
-                "noise_suppression?*",
-                "boolean",
-                "if the device's native noise suppression is enabled"
-              ],
-              [
-                "automatic_gain_control?*",
-                "boolean",
-                "if the device's native automatic gain control is enabled"
-              ],
-              [
-                "hardware_mute?*",
-                "boolean",
-                "if the device is hardware muted"
-              ]
+              "v",
+              "1",
+              "All"
             ],
-            "*These fields are only applicable for AUDIO_INPUT device types",
-            "|Vendor Object"
+            [
+              "client_id",
+              "your app's client id",
+              "All"
+            ],
+            [
+              "encoding",
+              "json",
+              "WebSocket"
+            ]
           ],
-          "Vendor Object": {
-            "content": [
-              [
-                [
-                  "Field",
-                  "Type",
-                  "Description"
-                ],
-                [
-                  "name",
-                  "string",
-                  "name of the vendor"
-                ],
-                [
-                  "url",
-                  "string",
-                  "url for the vendor"
-                ]
-              ],
-              "|Model Object"
-            ],
-            "Model Object": {
-              "content": [
-                [
-                  [
-                    "Field",
-                    "Type",
-                    "Description"
-                  ],
-                  [
-                    "name",
-                    "string",
-                    "name of the model"
-                  ],
-                  [
-                    "url",
-                    "string",
-                    "url for the model"
-                  ]
-                ],
-                "|Device Type"
-              ],
-              "Device Type": {
-                "content": [
-                  [
-                    [
-                      "Type",
-                      "Value"
-                    ],
-                    [
-                      "AUDIO_INPUT",
-                      "\"audioinput\""
-                    ],
-                    [
-                      "AUDIO_OUTPUT",
-                      "\"audiooutput\""
-                    ],
-                    [
-                      "VIDEO_INPUT",
-                      "\"videoinput\""
-                    ]
-                  ]
-                ]
-              }
-            }
+          "You can send event updates to the following URIs:"
+        ]
+      },
+      "HTTP": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/certified-devices#connecting-http",
+        "content": [
+          {
+            "language": "",
+            "code": "http://127.0.0.1:PORT/rpc?v=1&client_id=YOUR_CLIENT_ID\n"
           }
-        }
+        ]
+      },
+      "WebSocket": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/certified-devices#connecting-websocket",
+        "content": [
+          {
+            "language": "",
+            "code": "ws://127.0.0.1:PORT?v=1&client_id=YOUR_CLIENT_ID&encoding=json\n"
+          },
+          "PORT is a range of ports from 6463 to 6473. You should iterate over these ports with your request until one returns a success response code or succeeds with a socket connection. Keep track of that port number for the rest of the session.",
+          "To keep your hardware in sync with Discord, send updates any time the hardware mute is toggled, or one of the voice features like echo cancellation is enabled or disabled by the user. This lets Discord get out of the way of your optimization when you're in control, or help out when you're not, ensuring an awesome experience for anyone using your hardware.",
+          "Each time you update, send a full array of devices, sorted by your preferred priority. That means if you want a specific headset to be the default that Discord will attempt to use, put it first in the array."
+        ]
+      }
+    },
+    "Getting Device UUID": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/certified-devices#getting-device-uuid",
+      "content": [
+        "For each device in the SET_CERTIFIED_DEVICES payload, there is an id field. This id should be the Windows device's UUID, retrieved through the native Windows API. You'll get back something that looks like {0.0.1.00000000}.{6cff2b76-44a8-46b9-b528-262ad8609d9f}.",
+        "> info\n> On macOS, the id will be the name of the device.",
+        "|Microphone Id Example",
+        "|Speaker Id Example"
+      ],
+      "Microphone Id Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/certified-devices#getting-device-uuid-microphone-id-example",
+        "content": [
+          {
+            "language": "cpp",
+            "code": "id = waveInMessage((HWAVEIN)IntToPtr(index),\n                      DRV_QUERYFUNCTIONINSTANCEID,\n                      (DWORD_PTR)pstrEndpointId,\n                      cbEndpointId);\n"
+          }
+        ]
+      },
+      "Speaker Id Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/certified-devices#getting-device-uuid-speaker-id-example",
+        "content": [
+          {
+            "language": "cpp",
+            "code": "id = waveOutMessage((HWAVEIN)IntToPtr(index),\n                      DRV_QUERYFUNCTIONINSTANCEID,\n                      (DWORD_PTR)pstrEndpointId,\n                      cbEndpointId);\n"
+          }
+        ]
+      }
+    },
+    "HTTP Example": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/certified-devices#http-example",
+      "content": [
+        "|HTTP Request Example",
+        "|HTTP Response Example"
+      ],
+      "HTTP Request Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/certified-devices#http-example-http-request-example",
+        "content": [
+          {
+            "language": "",
+            "code": "curl -X POST -H 'Content-Type: application/json' -d '\n{\n  \"nonce\": \"9b4e9711-97f3-4f35-b047-32c82a51978e\",\n  \"cmd\": \"SET_CERTIFIED_DEVICES\",\n  \"args\": {\n    \"devices\": [\n      {\n        \"type\": \"audioinput\",\n        \"id\": \"{0.0.1.00000000}.{6cff2b76-44a8-46b9-b528-262ad8609d9f}\",\n        \"vendor\": {\n          \"name\": \"SteelSeries\",\n          \"url\": \"https://steelseries.com\"\n        },\n        \"model\": {\n          \"name\": \"Arctis 7\",\n          \"url\": \"https://steelseries.com/gaming-headsets/arctis-7\"\n        },\n        \"related\": [\"{0.0.1.00000000}.{6cff2b76-44a8-46b9-b528-262ad8609d9f}\"],\n        \"echo_cancellation\": true,\n        \"noise_suppression\": true,\n        \"automatic_gain_control\": true,\n        \"hardware_mute\": false\n      }\n    ]\n  }\n}\n' http://127.0.0.1:PORT/rpc?v=1&client_id=YOUR_CLIENT_ID\n"
+          },
+          "The socket will respond with a 200 OK status code and the following JSON."
+        ]
+      },
+      "HTTP Response Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/certified-devices#http-example-http-response-example",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"cmd\": \"SET_CERTIFIED_DEVICES\",\n  \"data\": null,\n  \"evt\": null,\n  \"nonce\": \"9b4e9711-97f3-4f35-b047-32c82a51978e\"\n}\n"
+          }
+        ]
+      }
+    },
+    "WebSocket Example": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/certified-devices#websocket-example",
+      "content": [
+        "|RPC Command Example",
+        "|RPC Response Example"
+      ],
+      "RPC Command Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/certified-devices#websocket-example-rpc-command-example",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"nonce\": \"9b4e9711-97f3-4f35-b047-32c82a51978e\",\n  \"cmd\": \"SET_CERTIFIED_DEVICES\",\n  \"args\": {\n    \"devices\": [\n      {\n        \"type\": \"audioinput\",\n        \"id\": \"{0.0.1.00000000}.{6cff2b76-44a8-46b9-b528-262ad8609d9f}\",\n        \"vendor\": {\n          \"name\": \"SteelSeries\",\n          \"url\": \"https://steelseries.com\"\n        },\n        \"model\": {\n          \"name\": \"Arctis 7\",\n          \"url\": \"https://steelseries.com/gaming-headsets/arctis-7\"\n        },\n        \"related\": [\"{0.0.1.00000000}.{6cff2b76-44a8-46b9-b528-262ad8609d9f}\"],\n        \"echo_cancellation\": true,\n        \"noise_suppression\": true,\n        \"automatic_gain_control\": true,\n        \"hardware_mute\": false\n      }\n    ]\n  }\n}\n"
+          }
+        ]
+      },
+      "RPC Response Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/certified-devices#websocket-example-rpc-response-example",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"nonce\": \"9b4e9711-97f3-4f35-b047-32c82a51978e\",\n  \"cmd\": \"SET_CERTIFIED_DEVICES\",\n  \"data\": null,\n  \"evt\": null\n}\n"
+          }
+        ]
+      }
+    },
+    "Models": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/certified-devices#models",
+      "content": [
+        "|Device Object",
+        "|Vendor Object",
+        "|Model Object",
+        "|Device Type"
+      ],
+      "Device Object": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/certified-devices#models-device-object",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "type",
+              "device type",
+              "the type of device"
+            ],
+            [
+              "id",
+              "string",
+              "the device's Windows UUID"
+            ],
+            [
+              "vendor",
+              "vendor object",
+              "the hardware vendor"
+            ],
+            [
+              "model",
+              "model object",
+              "the model of the product"
+            ],
+            [
+              "related",
+              "array of strings",
+              "UUIDs of related devices"
+            ],
+            [
+              "echo_cancellation?*",
+              "boolean",
+              "if the device's native echo cancellation is enabled"
+            ],
+            [
+              "noise_suppression?*",
+              "boolean",
+              "if the device's native noise suppression is enabled"
+            ],
+            [
+              "automatic_gain_control?*",
+              "boolean",
+              "if the device's native automatic gain control is enabled"
+            ],
+            [
+              "hardware_mute?*",
+              "boolean",
+              "if the device is hardware muted"
+            ]
+          ],
+          "*These fields are only applicable for AUDIO_INPUT device types"
+        ]
+      },
+      "Vendor Object": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/certified-devices#models-vendor-object",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "name",
+              "string",
+              "name of the vendor"
+            ],
+            [
+              "url",
+              "string",
+              "url for the vendor"
+            ]
+          ]
+        ]
+      },
+      "Model Object": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/certified-devices#models-model-object",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "name",
+              "string",
+              "name of the model"
+            ],
+            [
+              "url",
+              "string",
+              "url for the model"
+            ]
+          ]
+        ]
+      },
+      "Device Type": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/certified-devices#models-device-type",
+        "content": [
+          [
+            [
+              "Type",
+              "Value"
+            ],
+            [
+              "AUDIO_INPUT",
+              "\"audioinput\""
+            ],
+            [
+              "AUDIO_OUTPUT",
+              "\"audiooutput\""
+            ],
+            [
+              "VIDEO_INPUT",
+              "\"videoinput\""
+            ]
+          ]
+        ]
       }
     }
   }

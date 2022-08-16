@@ -3,6 +3,8 @@
     "|Lobbies"
   ],
   "Lobbies": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbies",
     "content": [
       "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
       "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
@@ -14,2429 +16,2811 @@
       ],
       "Lobbies in Discord work in one of two ways. By using calls from the SDK, lobbies are effectively \"owned\" by the user who's client creates the lobby. Someone boots up the game, hits your \"Create Lobby\" button, and their game client calls LobbyManager.CreateLobby() from the Discord SDK.",
       "There is also another way to create and \"own\" lobbies with which the source of truth can be your own server. These SDK functions calls map to API endpoints that are exposed in Discord's HTTP API. In lieu of creating and managing lobbies in the SDK, you can call those endpoints directly with a token for your application and take care of it all on some far-away, totally secure server. Let's go over the SDK first.",
-      "|The SDK Way"
+      "|The SDK Way",
+      "|Data Models",
+      "|LobbyTransaction.SetType",
+      "|LobbyTransaction.SetOwner",
+      "|LobbyTransaction.SetCapacity",
+      "|LobbyTransaction.SetMetadata",
+      "|LobbyTransaction.DeleteMetadata",
+      "|LobbyTransaction.SetLocked",
+      "|LobbyMemberTransaction.SetMetadata",
+      "|LobbyMemberTransaction.DeleteMetadata",
+      "|LobbySearchQuery.Filter",
+      "|LobbySearchQuery.Sort",
+      "|LobbySearchQuery.Limit",
+      "|LobbySearchQuery.Distance",
+      "|GetLobbyCreateTransaction",
+      "|GetLobbyUpdateTransaction",
+      "|GetMemberUpdateTransaction",
+      "|CreateLobby",
+      "|UpdateLobby",
+      "|DeleteLobby",
+      "|ConnectLobby",
+      "|ConnectLobbyWithActivitySecret",
+      "|GetLobbyActivitySecret",
+      "|DisconnectLobby",
+      "|GetLobby",
+      "|LobbyMetadataCount",
+      "|GetLobbyMetadataKey",
+      "|GetLobbyMetadataValue",
+      "|MemberCount",
+      "|GetMemberUserId",
+      "|GetMemberUser",
+      "|MemberMetadataCount",
+      "|GetMemberMetadataKey",
+      "|GetMemberMetadataValue",
+      "|UpdateMember",
+      "|SendLobbyMessage",
+      "|GetSearchQuery",
+      "|Search",
+      "|LobbyCount",
+      "|GetLobbyId",
+      "|ConnectVoice",
+      "|DisconnectVoice",
+      "|OnLobbyUpdate",
+      "|OnLobbyDelete",
+      "|OnMemberConnect",
+      "|OnMemberUpdate",
+      "|OnMemberDisconnect",
+      "|OnLobbyMessage",
+      "|OnSpeaking",
+      "|Connecting to Lobbies",
+      "|Example: Crossplayish",
+      "|The API Way",
+      "|Create Lobby % POST /lobbies",
+      "|Update Lobby % PATCH /lobbies/{lobby.id#DOCS_LOBBIES/data-models-lobby-struct}",
+      "|Delete Lobby % DELETE /lobbies/{lobby.id#DOCS_GAME_SDK_LOBBIES/data-models-lobby-struct}",
+      "|Update Lobby Member % PATCH /lobbies/{lobby.id#DOCS_GAME_SDK_LOBBIES/data-models-lobby-struct}/members/{user.id#DOCS_RESOURCES_USER/user-object}",
+      "|Create Lobby Search % POST /lobbies/search",
+      "|Send Lobby Data % POST /lobbies/{lobby.id#DOCS_GAME_SDK_LOBBIES/data-models-lobby-struct}/send",
+      "|Integrated Networking",
+      "|ConnectNetwork",
+      "|DisconnectNetwork",
+      "|FlushNetwork",
+      "|OpenNetworkChannel",
+      "|SendNetworkMessage",
+      "|OnNetworkMessage",
+      "|Example: Networking the Easy Way"
     ],
     "The SDK Way": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#the-sdk-way",
       "content": [
         "In order to ensure that Discord lobbies are consistent for all players, this manager works with \"transactions\". A LobbyTransaction is needed to set lobby properties, like capacity. A MemberTransaction is needed to set lobby member properties, like metadata.",
         "To update a user or a lobby, create or get a transaction for that resource, call the needed methods on it, and then pass it to the Create() or Update() methods. When passed to a Create() or Update() method, the transaction objected is consumed. So, if you want to do another Create() or Update(), you need to get a new transaction.",
-        "|Example: Creating a Lobby",
-        "|Data Models",
-        "|LobbyTransaction.SetType",
-        "|LobbyTransaction.SetOwner",
-        "|LobbyTransaction.SetCapacity",
-        "|LobbyTransaction.SetMetadata",
-        "|LobbyTransaction.DeleteMetadata",
-        "|LobbyTransaction.SetLocked",
-        "|LobbyMemberTransaction.SetMetadata",
-        "|LobbyMemberTransaction.DeleteMetadata",
-        "|LobbySearchQuery.Filter",
-        "|LobbySearchQuery.Sort",
-        "|LobbySearchQuery.Limit",
-        "|LobbySearchQuery.Distance",
-        "|GetLobbyCreateTransaction",
-        "|GetLobbyUpdateTransaction",
-        "|GetMemberUpdateTransaction",
-        "|CreateLobby",
-        "|UpdateLobby",
-        "|DeleteLobby",
-        "|ConnectLobby",
-        "|ConnectLobbyWithActivitySecret",
-        "|GetLobbyActivitySecret",
-        "|DisconnectLobby",
-        "|GetLobby",
-        "|LobbyMetadataCount",
-        "|GetLobbyMetadataKey",
-        "|GetLobbyMetadataValue",
-        "|MemberCount",
-        "|GetMemberUserId",
-        "|GetMemberUser",
-        "|MemberMetadataCount",
-        "|GetMemberMetadataKey",
-        "|GetMemberMetadataValue",
-        "|UpdateMember",
-        "|SendLobbyMessage",
-        "|GetSearchQuery",
-        "|Search",
-        "|LobbyCount",
-        "|GetLobbyId",
-        "|ConnectVoice",
-        "|DisconnectVoice",
-        "|OnLobbyUpdate",
-        "|OnLobbyDelete",
-        "|OnMemberConnect",
-        "|OnMemberUpdate",
-        "|OnMemberDisconnect",
-        "|OnLobbyMessage",
-        "|OnSpeaking",
-        "|Connecting to Lobbies",
-        "|Example: Crossplayish",
-        "|The API Way",
-        "|Create Lobby % POST /lobbies",
-        "|Update Lobby % PATCH /lobbies/{lobby.id#DOCS_LOBBIES/data-models-lobby-struct}",
-        "|Delete Lobby % DELETE /lobbies/{lobby.id#DOCS_GAME_SDK_LOBBIES/data-models-lobby-struct}",
-        "|Update Lobby Member % PATCH /lobbies/{lobby.id#DOCS_GAME_SDK_LOBBIES/data-models-lobby-struct}/members/{user.id#DOCS_RESOURCES_USER/user-object}",
-        "|Create Lobby Search % POST /lobbies/search",
-        "|Send Lobby Data % POST /lobbies/{lobby.id#DOCS_GAME_SDK_LOBBIES/data-models-lobby-struct}/send",
-        "|Integrated Networking",
-        "|ConnectNetwork",
-        "|DisconnectNetwork",
-        "|FlushNetwork",
-        "|OpenNetworkChannel",
-        "|SendNetworkMessage",
-        "|OnNetworkMessage",
-        "|Example: Networking the Easy Way"
+        "|Example: Creating a Lobby"
       ],
       "Example: Creating a Lobby": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#the-sdk-way-example:-creating-a-lobby",
         "content": [
           {
             "language": "cs",
             "code": "var lobbyManager = discord.GetLobbyManager();\n\n// Create the transaction\nvar txn = lobbyManager.GetLobbyCreateTransaction();\n\n// Set lobby information\ntxn.SetCapacity(6);\ntxn.SetType(Discord.LobbyType.Public);\ntxn.SetMetadata(\"a\", \"123\");\n\n// Create it!\nlobbyManager.CreateLobby(txn, (Discord.Result result, ref Discord.Lobby lobby) =>\n{\n  Console.WriteLine(\"lobby {0} created with secret {1}\", lobby.Id, lobby.Secret);\n\n  // We want to update the capacity of the lobby\n  // So we get a new transaction for the lobby\n  var newTxn = lobbyManager.GetLobbyUpdateTransaction(lobby.id);\n  newTxn.SetCapacity(5);\n\n  lobbyManager.UpdateLobby(lobby.id, newTxn, (result) =>\n  {\n    Console.WriteLine(\"lobby {0} updated\", lobby.Id);\n  });\n});\n"
           }
         ]
-      },
-      "Data Models": {
+      }
+    },
+    "Data Models": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#data-models",
+      "content": [
+        "|LobbyType Enum",
+        "|Lobby Struct",
+        "|LobbySearchComparison Enum",
+        "|LobbySearchCast Enum",
+        "|LobbySearchDistance Enum",
+        "|LobbyTransaction Struct",
+        "|LobbyMemberTransaction Struct",
+        "|LobbySearchQuery Struct"
+      ],
+      "LobbyType Enum": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#data-models-lobbytype-enum",
         "content": [
-          "|LobbyType Enum"
-        ],
-        "LobbyType Enum": {
-          "content": [
-            [
-              [
-                "name",
-                "value"
-              ],
-              [
-                "Private",
-                "1"
-              ],
-              [
-                "Public",
-                "2"
-              ]
-            ],
-            "|Lobby Struct"
-          ],
-          "Lobby Struct": {
-            "content": [
-              [
-                [
-                  "name",
-                  "type",
-                  "description"
-                ],
-                [
-                  "Id",
-                  "Int64",
-                  "the unique id of the lobby"
-                ],
-                [
-                  "Type",
-                  "LobbyType",
-                  "if the lobby is public or private"
-                ],
-                [
-                  "OwnerId",
-                  "Int64",
-                  "the userId of the lobby owner"
-                ],
-                [
-                  "Secret",
-                  "string",
-                  "the password to the lobby"
-                ],
-                [
-                  "Capacity",
-                  "UInt32",
-                  "the max capacity of the lobby"
-                ],
-                [
-                  "Locked",
-                  "bool",
-                  "whether or not the lobby can be joined"
-                ]
-              ],
-              "|LobbySearchComparison Enum"
-            ],
-            "LobbySearchComparison Enum": {
-              "content": [
-                [
-                  [
-                    "name",
-                    "value"
-                  ],
-                  [
-                    "LessThanOrEqual",
-                    "-2"
-                  ],
-                  [
-                    "LessThan",
-                    "-1"
-                  ],
-                  [
-                    "Equal",
-                    "0"
-                  ],
-                  [
-                    "GreaterThan",
-                    "1"
-                  ],
-                  [
-                    "GreaterThanOrEqual",
-                    "2"
-                  ],
-                  [
-                    "NotEqual",
-                    "3"
-                  ]
-                ],
-                "|LobbySearchCast Enum",
-                "|LobbySearchDistance Enum",
-                "|LobbyTransaction Struct",
-                "|LobbyMemberTransaction Struct",
-                "|LobbySearchQuery Struct"
-              ],
-              "LobbySearchCast Enum": {
-                "content": [
-                  [
-                    [
-                      "name",
-                      "value"
-                    ],
-                    [
-                      "String",
-                      "1"
-                    ],
-                    [
-                      "Number",
-                      "2"
-                    ]
-                  ]
-                ]
-              },
-              "LobbySearchDistance Enum": {
-                "content": [
-                  [
-                    [
-                      "name",
-                      "value",
-                      "description"
-                    ],
-                    [
-                      "Local",
-                      "0",
-                      "within the same region"
-                    ],
-                    [
-                      "Default",
-                      "1",
-                      "within the same and adjacent regions"
-                    ],
-                    [
-                      "Extended",
-                      "2",
-                      "far distances, like US to EU"
-                    ],
-                    [
-                      "Global",
-                      "3",
-                      "all regions"
-                    ]
-                  ]
-                ]
-              },
-              "LobbyTransaction Struct": {
-                "content": [
-                  "Has no values, but has member functions, outlined later."
-                ]
-              },
-              "LobbyMemberTransaction Struct": {
-                "content": [
-                  "Has no values, but has member functions, outlined later."
-                ]
-              },
-              "LobbySearchQuery Struct": {
-                "content": [
-                  "Has no values, but has member functions, outlined later."
-                ]
-              }
-            }
-          }
-        }
-      },
-      "LobbyTransaction.SetType": {
-        "content": [
-          "Marks a lobby as private or public.",
-          "Returns void.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "type",
-                "LobbyType",
-                "private or public"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var txn = lobbyManager.GetLobbyUpdateTransaction();\ntxn.SetType(Discord.LobbyType.Public);\nlobbyManager.UpdateLobby(lobbyId, txn, (Discord.Result result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Lobby type updated!\");\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "LobbyTransaction.SetOwner": {
-        "content": [
-          "> warn\n> This method is only valid for LobbyUpdateTransactions and may cause issues if you set it on a LobbyCreateTransaction.",
-          "Sets a new owner for the lobby.",
-          "Returns void.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "userId",
-                "Int64",
-                "the new owner's user id"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var txn = lobbyManager.GetLobbyUpdateTransaction();\ntxn.SetOwner(53908232506183680);\nlobbyManager.UpdateLobby(lobbyId, txn, (Discord.Result result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Lobby owner updated!\");\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "LobbyTransaction.SetCapacity": {
-        "content": [
-          "Sets a new capacity for the lobby.",
-          "Returns void.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "capacity",
-                "UInt32",
-                "the new max lobby size"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var txn = lobbyManager.GetLobbyUpdateTransaction();\ntxn.SetCapacity(10);\nlobbyManager.UpdateLobby(lobbyId, txn, (Discord.Result result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Lobby capacity updated!\");\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "LobbyTransaction.SetMetadata": {
-        "content": [
-          "Sets metadata value under a given key name for the lobby.",
-          "Returns void.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "key",
-                "string",
-                "key for the data"
-              ],
-              [
-                "value",
-                "string",
-                "data value"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var txn = lobbyManager.GetLobbyUpdateTransaction();\ntxn.SetMetadata(\"average_mmr\", \"4500\");\nlobbyManager.UpdateLobby(lobbyId, txn, (Discord.Result result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Lobby metadata updated!\");\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "LobbyTransaction.DeleteMetadata": {
-        "content": [
-          "Deletes the lobby metadata for a key.",
-          "Returns void.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "key",
-                "string",
-                "key for the data"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var txn = lobbyManager.GetLobbyUpdateTransaction();\ntxn.DeleteMetadata(\"average_mmr\");\nlobbyManager.UpdateLobby(lobbyId, txn, (Discord.Result result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Lobby metadata updated!\");\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "LobbyTransaction.SetLocked": {
-        "content": [
-          "Sets the lobby to locked or unlocked. When locked, new users cannot join the lobby.",
-          "Returns void.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "locked",
-                "bool",
-                "whether to lock or unlock the lobby"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var txn = lobbyManager.GetLobbyUpdateTransaction();\ntxn.SetLocked(true);\nlobbyManager.UpdateLobby(lobbyId, txn, (Discord.Result result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Lobby type updated!\");\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "LobbyMemberTransaction.SetMetadata": {
-        "content": [
-          "Sets metadata value under a given key name for the current user.",
-          "Returns void.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "key",
-                "string",
-                "key for the data"
-              ],
-              [
-                "value",
-                "string",
-                "data value"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var txn = lobbyManager.GetMemberUpdateTransaction();\ntxn.SetMetadata(\"current_mmr\", \"4267\");\nlobbyManager.UpdateMember(lobbyId, memberId, txn, (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Member metadata updated!\");\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "LobbyMemberTransaction.DeleteMetadata": {
-        "content": [
-          "Sets metadata value under a given key name for the current user.",
-          "Returns void.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "key",
-                "string",
-                "key for the data"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var txn = lobbyManager.GetMemberUpdateTransaction();\ntxn.DeleteMetadata(\"current_mmr\");\nlobbyManager.UpdateMember(lobbyId, memberId, txn, (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Member metadata updated!\");\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "LobbySearchQuery.Filter": {
-        "content": [
-          "Filters lobbies based on metadata comparison. Available filter values are owner_id, capacity, slots, and metadata. If you are filtering based on metadata, make sure you prepend your key with \"metadata.\" For example, filtering on matchmaking rating would be \"metadata.matchmaking_rating\".",
-          "Returns void.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "key",
-                "string",
-                "key to search for filter data"
-              ],
-              [
-                "comp",
-                "LobbySearchComparison",
-                "how the value on the lobby metadata should be compared to the search value"
-              ],
-              [
-                "cast",
-                "LobbySearchCast",
-                "should the search value be cast as a string or a number"
-              ],
-              [
-                "value",
-                "string",
-                "the value to filter against"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var query = lobbyManager.GetSearchQuery();\nquery.Filter(\"metadata.matchmaking_rating\", LobbySearchComparison.GreaterThan, LobbySearchCast.Number, \"455\");\n"
-              }
-            ]
-          }
-        }
-      },
-      "LobbySearchQuery.Sort": {
-        "content": [
-          "Sorts the filtered lobbies based on \"near-ness\" to a given value.",
-          "Returns void.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "key",
-                "string",
-                "key for the data"
-              ],
-              [
-                "cast",
-                "LobbySearchCast",
-                "should the search value be cast as a string or a number"
-              ],
-              [
-                "value",
-                "string",
-                "the value to sort by"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var query = lobbyManager.GetSearchQuery();\nquery.Sort(\"metadata.ELO\", LobbySearchCast.Number, \"1337\");\n"
-              }
-            ]
-          }
-        }
-      },
-      "LobbySearchQuery.Limit": {
-        "content": [
-          "Limits the number of lobbies returned in a search.",
-          "Returns void.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "limit",
-                "UInt32",
-                "the number of lobbies to return at max"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var query = lobbyManager.GetSearchQuery();\nquery.Limit(10);\n"
-              }
-            ]
-          }
-        }
-      },
-      "LobbySearchQuery.Distance": {
-        "content": [
-          "Filters lobby results to within certain regions relative to the user's location.",
-          "Returns void.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "distance",
-                "Discord.LobbySearchDistance",
-                "the distance within which to search for lobbies"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var query = lobbyManager.GetSearchQuery();\nquery.Distance(LobbySearchDistance.Local);\n"
-              }
-            ]
-          }
-        }
-      },
-      "GetLobbyCreateTransaction": {
-        "content": [
-          "Gets a Lobby transaction used for creating a new lobby",
-          "Returns a Discord.LobbyTransaction.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            "None",
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var txn = lobbyManager.GetLobbyCreateTransaction();\n"
-              }
-            ]
-          }
-        }
-      },
-      "GetLobbyUpdateTransaction": {
-        "content": [
-          "Gets a lobby transaction used for updating an existing lobby.",
-          "Returns a Discord.LobbyTransaction.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the lobby you want to change"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var txn = lobbyManager.GetLobbyUpdateTransaction(290926798626357250);\n"
-              }
-            ]
-          }
-        }
-      },
-      "GetMemberUpdateTransaction": {
-        "content": [
-          "Gets a new member transaction for a lobby member in a given lobby.",
-          "Returns a Discord.LobbyMemberTransaction.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the lobby you want to change"
-              ],
-              [
-                "userId",
-                "Int64",
-                "the user you wish to change"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var txn = lobbyManager.GetMemberUpdateTransaction(290926798626357250, 53908232506183680);\n"
-              }
-            ]
-          }
-        }
-      },
-      "CreateLobby": {
-        "content": [
-          "Creates a lobby. Creating a lobby auto-joins the connected user to it. Do not call SetOwner() in the transaction for this method.",
-          "Returns Discord.Result and ref Discord.Lobby via callback.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "transaction",
-                "LobbyTransaction",
-                "a lobby transaction with set properties like capacity"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "lobbyManager.CreateLobby(txn, (Discord.Result result, ref Discord.Lobby lobby) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Created lobby {0}\", lobby.Id);\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "UpdateLobby": {
-        "content": [
-          "Updates a lobby with data from the given transaction. You can call SetOwner() in this transaction.",
-          "Returns Discord.Result via callback.",
-          "> warn\n> This call has a rate limit of 10 updates per 5 seconds. If you fear you might hit that, it may be a good idea to batch your lobby updates into transactions.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the lobby you want to change"
-              ],
-              [
-                "transaction",
-                "LobbyTransaction",
-                "the transaction with wanted changes"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "lobbymanager.UpdateLobby(290926798626357250, transaction, (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Lobby updated!\");\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "DeleteLobby": {
-        "content": [
-          "Deletes a given lobby.",
-          "Returns Discord.Result via callback.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the lobby you want to delete"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "lobbyManager.DeleteLobby(290926798626357250, (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Lobby deleted!\");\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "ConnectLobby": {
-        "content": [
-          "Connects the current user to a given lobby. You can be connected to up to five lobbies at a time.",
-          "Returns Discord.Result and ref Discord.Lobby via callback.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the lobby you want to connect to"
-              ],
-              [
-                "lobbySecret",
-                "string",
-                "the password for the lobby"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "lobbyManager.ConnectLobby(290926798626357250, \"363446008341987328:123123\", (Discord.Result result, ref Discord.Lobby lobby) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Connected to lobby {0}!\", lobby.Id);\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "ConnectLobbyWithActivitySecret": {
-        "content": [
-          "Connects the current user to a lobby; requires the special activity secret from the lobby which is a concatenated lobbyId and secret.",
-          "Returns Discord.Result and ref Discord.Lobby via callback.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "activitySecret",
-                "string",
-                "the special activity secret for the lobby"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "lobbyManager.ConnectLobbyWithActivitySecret(\"363446008341987328:123123\", (Discord.Result result, ref Discord.Lobby lobby) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Connected to lobby {0}!\", lobby.Id);\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "GetLobbyActivitySecret": {
-        "content": [
-          "Gets the special activity secret for a given lobby. If you are creating lobbies from game clients, use this to easily interact with Rich Presence invites. Set the returned secret to your activity's JoinSecret.",
-          "Returns string.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the lobby you want to get the secret for"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var activitySecret = lobbyManager.GetLobbyActivitySecret(290926798626357250);\nvar activity = new Discord.Activity\n{\n  State = \"olleh\",\n  Details = \"foo details\",\n    Party = {\n      Id = \"foo partyID\",\n      Size = {\n          CurrentSize = 1,\n          MaxSize = 4,\n      },\n  },\n  Secrets = {\n      Join = activitySecret,\n  },\n  Instance = true,\n};\n\nActivityManager.UpdateActivity(activity, (result) =>\n{\n  Console.WriteLine(\"Update Activity {0}\", result);\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "DisconnectLobby": {
-        "content": [
-          "Disconnects the current user from a lobby.",
-          "Returns Discord.Result via callback.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the lobby you want to leave"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "lobbyManager.DisconnectLobby(290926798626357250, (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Left lobby!\");\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "GetLobby": {
-        "content": [
-          "Gets the lobby object for a given lobby id. Because of the way that the SDK is architected, you must first call Search() to build a stable list of lobbies. This function will then query those lobbies for ones with a matching id.",
-          "Returns a Discord.Lobby.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the lobby you want to get"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var lobbyId = 12345;\n\nvar query = lobbyManager.GetSearchQuery();\nlobbyManager.Search(query, (res) =>\n{\n  if (res == Discord.Result.Ok)\n  {\n    // This will return you a lobby\n    var lobby = lobbyManager.GetLobby(lobbyId);\n  }\n});\n\n// This will return NotFound\nvar lobby_2 = lobbyManager.GetLobby(lobbyId);\n"
-              }
-            ]
-          }
-        }
-      },
-      "LobbyMetadataCount": {
-        "content": [
-          "Returns the number of metadata key/value pairs on a given lobby. Used for accessing metadata by iterating over the list.",
-          "Returns Int32.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the lobby you want to get metadata for"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var count = lobbyManager.LobbyMetadataCount(290926798626357250);\nfor (int i = 0; i < count; i++)\n{\n  var value = lobbyManager.GetLobbyMetadataKey(290926798626357250, i);\n}\n"
-              }
-            ]
-          }
-        }
-      },
-      "GetLobbyMetadataKey": {
-        "content": [
-          "Returns the key for the lobby metadata at the given index.",
-          "Returns string.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the lobby you want to get metadata for"
-              ],
-              [
-                "index",
-                "Int32",
-                "the index of lobby metadata to access"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var count = lobbyManager.GetLobbyMetadataCount(290926798626357250);\nfor (int i = 0; i < count; i++)\n{\n  var value = lobbyManager.GetLobbyMetadataKey(290926798626357250, i);\n}\n"
-              }
-            ]
-          }
-        }
-      },
-      "GetLobbyMetadataValue": {
-        "content": [
-          "Returns lobby metadata value for a given key and id. Can be used with iteration, or direct access by keyname.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the lobby you want to get metadata for"
-              ],
-              [
-                "key",
-                "string",
-                "the key name to access"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var averageMmr = lobbyManager.GetLobbyMetadataValue(290926798626357250, \"metadata.average_mmr\");\n"
-              }
-            ]
-          }
-        }
-      },
-      "MemberCount": {
-        "content": [
-          "Get the number of members in a lobby.",
-          "Returns Int32.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the lobby you want to get members for"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var count = lobbyManager.MemberCount(290926798626357250);\nfor (int i = 0; i < count; i++)\n{\n  var id = lobbyManager.GetMemberUserId(290926798626357250, i);\n}\n"
-              }
-            ]
-          }
-        }
-      },
-      "GetMemberUserId": {
-        "content": [
-          "Gets the user id of the lobby member at the given index.",
-          "Returns Int64.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the lobby you want to get members for"
-              ],
-              [
-                "index",
-                "Int32",
-                "the index of lobby member to access"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var count = lobbyManager.MemberCount(290926798626357250);\nfor (int i = 0; i < count; i++)\n{\n  var id = lobbyManager.GetMemberUserId(290926798626357250, i);\n}\n"
-              }
-            ]
-          }
-        }
-      },
-      "GetMemberUser": {
-        "content": [
-          "Gets the user object for a given user id.",
-          "Returns Discord.User.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the lobby you want to get members for"
-              ],
-              [
-                "userId",
-                "Int64",
-                "the user's userId"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var count = lobbyManager.MemberCount(290926798626357250);\nfor (int i = 0; i < count; i++)\n{\n  var id = lobbyManager.GetMemberUserId(290926798626357250, i);\n  var user = lobbyManager.GetMemberUser(290926798626357250, id);\n  Console.WriteLine(\"Got user {0}\", user.Id);\n}\n"
-              }
-            ]
-          }
-        }
-      },
-      "MemberMetadataCount": {
-        "content": [
-          "Gets the number of metadata key/value pairs for the given lobby member. Used for accessing metadata by iterating over a list.",
-          "Returns Int32.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the lobby the member belongs to"
-              ],
-              [
-                "userId",
-                "Int64",
-                "the id of the user to get metadata for"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var count = lobbyManager.MemberMetadataCount(290926798626357250, 53908232506183680);\nfor (int i = 0; i < count; i++)\n{\n  var key = lobbyManager.GetMemberMetadataKey(290926798626357250, 53908232506183680, i);\n}\n"
-              }
-            ]
-          }
-        }
-      },
-      "GetMemberMetadataKey": {
-        "content": [
-          "Gets the key for the lobby metadata at the given index on a lobby member.",
-          "Returns string.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the lobby the member belongs to"
-              ],
-              [
-                "userId",
-                "Int64",
-                "the id of the user to get metadata for"
-              ],
-              [
-                "index",
-                "Int32",
-                "the index of metadata to access"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var count = lobbyManager.MemberMetadataCount(290926798626357250, 53908232506183680);\nfor (int i = 0; i < count; i++)\n{\n  var key = lobbyManager.GetMemberMetadataKey(290926798626357250, 53908232506183680, i);\n}\n"
-              }
-            ]
-          }
-        }
-      },
-      "GetMemberMetadataValue": {
-        "content": [
-          "Returns user metadata for a given key. Can be used in conjunction with the count and get key functions if you're iterating over metadata. Or you can access the metadata directly by keyname",
-          "Returns string.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the lobby the member belongs to"
-              ],
-              [
-                "userId",
-                "Int64",
-                "the id of the user to get metadata for"
-              ],
-              [
-                "key",
-                "string",
-                "the metadata key to access"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var count = lobbyManager.MemberMetadataCount(290926798626357250, 53908232506183680);\nfor (int i = 0; i < count; i++)\n{\n  var key = lobbyManager.GetMemberMetadataKey(290926798626357250, 53908232506183680, i);\n  var value = lobbyManager.GetMemberMetadataValue(290926798626357250, 53908232506183680, key);\n  Console.WriteLine(\"Value: {0}\", value);\n}\n"
-              }
-            ]
-          }
-        }
-      },
-      "UpdateMember": {
-        "content": [
-          "Updates lobby member info for a given member of the lobby.",
-          "Returns Discord.Result via callback.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "lobby the member belongs to"
-              ],
-              [
-                "userId",
-                "Int64",
-                "id of the user"
-              ],
-              [
-                "transaction",
-                "LobbyMemberTransaction",
-                "transaction with the changed data"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var txn = lobbyManager.GetMemberUpdateTransaction();\ntxn.SetMetadata(\"my_mmr\", \"9999\");\nlobbyManager.UpdateMember(290926798626357250, 53908232506183680, txn, (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Lobby member updated!\");\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "SendLobbyMessage": {
-        "content": [
-          "Sends a message to the lobby on behalf of the current user. You must be connected to the lobby you are messaging. You should use this function for message sending if you are not using the built in networking layer for the lobby. If you are, you should use SendNetworkMessage instead.",
-          "This method has a rate limit of 10 messages per 5 seconds.",
-          "Returns a Discord.Result via callback.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "lobby the member belongs to"
-              ],
-              [
-                "data",
-                "byte[]",
-                "the data to send"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "lobbyManager.SendLobbyMessage(290926798626357250, Encoding.UTF8.GetBytes(\"hey.\"), (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Message sent successfully\");\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "GetSearchQuery": {
-        "content": [
-          "Creates a search object to search available lobbies.",
-          "Returns Discord.LobbySearchQuery.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            "None",
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var search = lobbyManager.GetSearchQuery();\n"
-              }
-            ]
-          }
-        }
-      },
-      "Search": {
-        "content": [
-          "Searches available lobbies based on the search criteria chosen in the Discord.LobbySearch member functions. Lobbies that meet the criteria are then globally filtered, and can be accessed via iteration with LobbyCount() and GetLobbyId(). The callback fires when the list of lobbies is stable and ready for iteration.",
-          "You do not necessarily need to access the filtered lobbies within the context of the result callback, but it may make it easier for the sake of asynchronous timing.",
-          "Returns Discord.Result via callback.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "search",
-                "LobbySearch",
-                "the search criteria"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var search = lobbyManger.GetSearchQuery();\nsearch.Filter(\"metadata.matchmaking_rating\", LobbySearchComparison.GreaterThan, LobbySearchCast.Number, \"455\");\nsearch.Sort(\"metadata.matchmaking_rating\", LobbySearchCast.Number, \"456\");\nsearch.Limit(10);\nlobbyManager.Search(search, (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    var count = lobbyManager.LobbyCount();\n    Console.WriteLine(\"There are {0} lobbies that match your search criteria\", count);\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "LobbyCount": {
-        "content": [
-          "Get the number of lobbies that match the search.",
-          "Returns Int32.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            "None",
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "lobbyManager.Search(search, () =>\n{\n  var count = lobbyManager.LobbyCount();\n  Console.WriteLine(\"There are {0} lobbies that match your search criteria\", count);\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "GetLobbyId": {
-        "content": [
-          "Returns the id for the lobby at the given index.",
-          "Returns Int64.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "index",
-                "Int32",
-                "the index at which to access the list of lobbies"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "lobbyManager.Search(search, () =>\n{\n  var count = lobbyManager.LobbyCount();\n  for (int i = 0; i < count; i++)\n  {\n    var id = lobbyManager.GetLobbyId(i);\n    Console.WriteLine(\"Found lobby {0}\", id);\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "ConnectVoice": {
-        "content": [
-          "Connects to the voice channel of the current lobby. When connected to voice, the user can open their Discord overlay to see a list of other users with whom they are in voice, allowing them to mute/deafen themselves as well as mute/adjust the volume of other lobby members.",
-          "You can also allow users to adjust voice settings for your game with Overlay OpenVoiceSettings.",
-          "When integrating lobby voice into your game, be thoughtful about the user's experience. Auto-joining to voice can be jarring for users who may not be expecting it. We recommend voice always being opt-in, or at least that you provide an option for a player to choose whether or not to auto-join the voice channel of lobbies they join.",
-          "Returns Discord.Result via callback.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "lobby to voice connect to"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "lobbyManager.ConnectVoice(290926798626357250, (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Voice connected!\");\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "DisconnectVoice": {
-        "content": [
-          "Disconnects from the voice channel of a given lobby.",
-          "Returns Discord.Result via callback.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "lobby to voice disconnect from"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "lobbyManager.DisconnectVoice(290926798626357250, (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Voice disconnected!\");\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "OnLobbyUpdate": {
-        "content": [
-          "Fires when a lobby is updated.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "lobby that updated"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "lobbyManager.OnLobbyUpdate += (lobbyID) =>\n{\n  Console.WriteLine(\"lobby successfully updated: {0}\", lobbyID);\n};\n"
-              }
-            ]
-          }
-        }
-      },
-      "OnLobbyDelete": {
-        "content": [
-          "Fired when a lobby is deleted.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "lobby that was deleted"
-              ],
-              [
-                "reason",
-                "string",
-                "reason for deletion - this is a system message"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "lobbyManager.OnLobbyDelete += (lobbyID, reason) =>\n{\n  Console.WriteLine(\"lobby successfully deleted: {0} with reason: {1}\", lobbyID, reason);\n};\n"
-              }
-            ]
-          }
-        }
-      },
-      "OnMemberConnect": {
-        "content": [
-          "Fires when a new member joins the lobby.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "lobby the user joined"
-              ],
-              [
-                "userId",
-                "Int64",
-                "user that joined"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "lobbyManager.OnMemberConnect += (lobbyID, userID) =>\n{\n  Console.WriteLine(\"user {0} connected to lobby: {1}\", userID, lobbyID);\n};\n"
-              }
-            ]
-          }
-        }
-      },
-      "OnMemberUpdate": {
-        "content": [
-          "Fires when data for a lobby member is updated.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "lobby the user is a member of"
-              ],
-              [
-                "userId",
-                "Int64",
-                "user that was updated"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "lobbyManager.OnMemberUpdate += (lobbyID, userID) =>\n{\n  Console.WriteLine(\"user {0} got updated in lobby: {1}\", userID, lobbyID);\n};\n"
-              }
-            ]
-          }
-        }
-      },
-      "OnMemberDisconnect": {
-        "content": [
-          "Fires when a member leaves the lobby.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "lobby the user was a member of"
-              ],
-              [
-                "userId",
-                "Int64",
-                "user that left"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "lobbyManager.OnMemberDisconnect += (lobbyID, userID) =>\n{\n  Console.WriteLine(\"user {0} disconnected from lobby: {1}\", userID, lobbyID);\n};\n"
-              }
-            ]
-          }
-        }
-      },
-      "OnLobbyMessage": {
-        "content": [
-          "Fires when a message is sent to the lobby.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "lobby the message is sent to"
-              ],
-              [
-                "userId",
-                "Int64",
-                "user that sent the message"
-              ],
-              [
-                "data",
-                "byte[]",
-                "the message contents"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "lobbyManager.OnLobbyMessage += (lobbyID, userID, data) =>\n{\n  Console.WriteLine(\"lobby message: {0}, user who sent the message: {1}, Containing: {2}\", lobbyID, userID, Encoding.UTF8.GetString(data));\n};\n"
-              }
-            ]
-          }
-        }
-      },
-      "OnSpeaking": {
-        "content": [
-          "Fires when a user connected to voice starts or stops speaking.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "lobby the user is connected to"
-              ],
-              [
-                "userId",
-                "Int64",
-                "user in voice"
-              ],
-              [
-                "speaking",
-                "bool",
-                "true == started speaking, false == stopped speaking"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "lobbyManager.OnSpeaking += (lobbyID, userID, speaking) =>\n{\n  Console.WriteLine(\"lobby speaking: {0} {1} {2}\", lobbyID, userID, speaking);\n};\n"
-              }
-            ]
-          }
-        }
-      },
-      "Connecting to Lobbies": {
-        "content": [
-          "In the preceding section, you probably noticed there are a couple different methods for connecting to a lobby: Connect() and ConnectWithActivitySecret(). Lobbies in Discord are even more useful when hooked together with Activities/Rich Presence functionality; they give you everything you need to create an awesome game invite system.",
-          "If you are creating lobbies for users in the game client, and not on a backend server, consider using GetLobbyActivitySecret and ConnectWithActivitySecret(). GetLobbyActivitySecret() will return you a unique secret for the lobby concatenated with the lobby's id. You can pipe this value directly to the Secrets.Join field of the Activity payload. Then, when a user receives the secret, their client can call ConnectWithActivitySecret() with just the secret; the lobby id is parsed out automatically. This saves you the effort of concatenating the secret + id together yourself and then parsing them out again. As a code example:",
-          {
-            "language": "cs",
-            "code": "var discord = new Discord.Discord(clientId, Discord.CreateFlags.Default);\nvar lobbyManager = discord.GetLobbyManager();\nvar activityManager = discord.GetActivityManager();\n\n// Create a lobby\nvar txn = lobbyManager.GetLobbyCreateTransaction();\ntxn.SetCapacity(5);\ntxn.SetType(Discord.LobbyType.Private);\n\nlobbyManager.CreateLobby(txn, (Discord.Result result, ref Discord.Lobby lobby) =>\n{\n  // Get the special activity secret\n  var secret = lobbyManager.GetLobbyActivitySecret(lobby.id);\n\n  // Create a new activity\n  // Set the party id to the lobby id, so everyone in the lobby has the same value\n  // Set the join secret to the special activity secret\n  var activity = new Discord.Activity\n  {\n    Party =\n    {\n      Id = lobby.id,\n      Size = {\n        CurrentSize = 1,\n        MaxSize = 5\n      }\n    },\n    Secrets =\n    {\n      Join = secret\n    }\n  };\n\n  activityManager.UpdateActivity(activity, (result) =>\n  {\n    // Now, you can send chat invites, or others can ask to join\n    // When other clients receive the OnActivityJoin() event, they'll receive the special activity secret\n    // They can then directly call lobbyManager.ConnectLobbyWithActivitySecret() and be put into the lobby together\n  })\n});\n"
-          },
-          "If you are creating lobbies with your own backend system (see the section below), this method may not be useful for you. In that case, you can use Connect() and pass the lobby id and secret as you normally would. If you're hooking up to Activities, just make sure you send both the lobby secret and the lobby id in the Secrets.Join field, so anyone who tries to join has the right data.",
-          "|Example: Search for a Lobby, Connect, and Join Voice"
-        ],
-        "Example: Search for a Lobby, Connect, and Join Voice": {
-          "content": [
-            {
-              "language": "cs",
-              "code": "var discord = new Discord.Discord(clientId, Discord.CreateFlags.Default);\n\n// Search lobbies.\nvar query = lobbyManager.GetSearchQuery();\n\n// Filter by a metadata value.\nquery.Filter(\"metadata.ELO\", Discord.LobbySearchComparison.EqualTo, Discord.LobbySearchCast.Number, \"1337\");\n\n// Only return 1 result max.\nquery.Limit(1);\n\nlobbyManager.Search(query, () =>\n{\n  Console.WriteLine(\"search returned {0} lobbies\", lobbyManager.LobbyCount());\n\n  if (lobbyManager.LobbyCount() == 1)\n  {\n    Console.WriteLine(\"first lobby: {0}\", lobbyManager.GetLobbyId(0));\n  }\n\n  // Get the id of the lobby, and connect to voice\n  var id = lobbyManager.GetLobbyId(0);\n  lobbyManager.ConnectVoice(id, (result) =>\n  {\n    Console.WriteLine(\"Connected to voice!\");\n  });\n});\n"
-            }
-          ]
-        }
-      },
-      "Example: Crossplayish": {
-        "content": [
-          "So, an explanation. Because the DLL that you ship with your game is a stub that calls out to the local Discord client for actual operations, the SDK does not necessarily care if the game was launched from Discord. As long as the player launching the game:",
           [
-            "Has Discord installed",
-            "Has a Discord account",
-            "Has logged into Discord on their machine (whether or not Discord is open)"
-          ],
-          "The SDK will function as if the game were launched from Discord and everything will work; if Discord is not currently launched, the SDK will launch it.",
-          "That means that if Player A is launching Your Amazing Game from Discord, and Player B is launching it from Other Cool But Not As Cool As Discord Game Store, as long as Player B meets the above criteria, both players can play with each other using Discord's lobbies + networking functions. If the SDK is not able to launch Discord for Player B\u2014maybe they've never installed/used Discord before!\u2014you'll get an error saying as much. We're not saying what you should do, but hey, wouldn't this make a really neat in-game touchpoint for your players to join their friends on Discord, and maybe even join your game's verified server?",
-          "OK so this wasn't really a code example, but I think you get how this works."
-        ]
-      },
-      "The API Way": {
-        "content": [
-          "Below are the API endpoints and the parameters they accept. If you choose to interface directly with the Discord API, you will need a \"Bot token\". This is a special authorization token with which your application can access Discord's HTTP API. Head on over to your app's dashboard, and hit the big \"Add a Bot User\" button. From there, mutter abra kadabra and reveal the token. This token is used as an authorization header against our API like so:",
-          {
-            "language": "",
-            "code": "curl -x POST -h \"Authorization: Bot <your token>\" https://discord.com/api/some-route/that-does-a-thing\n"
-          },
-          "> info\n> Make sure to prepend your token with \"Bot\"!",
-          "Here are the routes; they all expect JSON bodies. Also, hey, while you're here. You've got a bot token. You're looking at our API. You should check out all the other awesome stuff you can do with it!"
-        ]
-      },
-      "Create Lobby % POST /lobbies": {
-        "content": [
-          "Creates a new lobby. Returns an object similar to the SDK Lobby struct, documented below.",
-          "To get a list of valid regions, call the List Voice Regions endpoint.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
             [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "application_id",
-                "string",
-                "your application id"
-              ],
-              [
-                "type",
-                "LobbyType",
-                "the type of lobby"
-              ],
-              [
-                "metadata",
-                "dict",
-                "metadata for the lobby - key/value pairs with types string"
-              ],
-              [
-                "capacity",
-                "int",
-                "max lobby capacity with a default of 16"
-              ],
-              [
-                "region",
-                "string",
-                "the region in which to make the lobby - defaults to the region of the requesting server's IP address"
-              ]
+              "name",
+              "value"
             ],
-            "|Return Object"
-          ],
-          "Return Object": {
-            "content": [
-              {
-                "language": "json",
-                "code": "{\n  \"capacity\": 10,\n  \"region\": \"us-west\",\n  \"secret\": \"400316b221351324\",\n  \"application_id\": \"299996444748734465\",\n  \"metadata\": {\n    \"a\": \"wow\",\n    \"b\": \"some test metadata\"\n  },\n  \"type\": 1,\n  \"id\": \"469317204969993265\",\n  \"owner_id\": \"53908232599983680\"\n}\n"
-              }
-            ]
-          }
-        }
-      },
-      "Update Lobby % PATCH /lobbies/{lobby.id#DOCS_LOBBIES/data-models-lobby-struct}": {
-        "content": [
-          "Updates a lobby.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
             [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "type",
-                "LobbyType",
-                "the type of lobby"
-              ],
-              [
-                "metadata",
-                "dict",
-                "metadata for the lobby - key/value pairs with types string"
-              ],
-              [
-                "capacity",
-                "int",
-                "max lobby capacity with a default of 16"
-              ]
+              "Private",
+              "1"
+            ],
+            [
+              "Public",
+              "2"
             ]
           ]
-        }
-      },
-      "Delete Lobby % DELETE /lobbies/{lobby.id#DOCS_GAME_SDK_LOBBIES/data-models-lobby-struct}": {
-        "content": [
-          "Deletes a lobby."
         ]
       },
-      "Update Lobby Member % PATCH /lobbies/{lobby.id#DOCS_GAME_SDK_LOBBIES/data-models-lobby-struct}/members/{user.id#DOCS_RESOURCES_USER/user-object}": {
+      "Lobby Struct": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#data-models-lobby-struct",
         "content": [
-          "Updates the metadata for a lobby member.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
+          [
             [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "metadata",
-                "dict",
-                "metadata for the lobby member - key/value pairs with types string"
-              ]
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "Id",
+              "Int64",
+              "the unique id of the lobby"
+            ],
+            [
+              "Type",
+              "LobbyType",
+              "if the lobby is public or private"
+            ],
+            [
+              "OwnerId",
+              "Int64",
+              "the userId of the lobby owner"
+            ],
+            [
+              "Secret",
+              "string",
+              "the password to the lobby"
+            ],
+            [
+              "Capacity",
+              "UInt32",
+              "the max capacity of the lobby"
+            ],
+            [
+              "Locked",
+              "bool",
+              "whether or not the lobby can be joined"
             ]
           ]
-        }
-      },
-      "Create Lobby Search % POST /lobbies/search": {
-        "content": [
-          "Creates a lobby search for matchmaking around given criteria.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "application_id",
-                "string",
-                "your application id"
-              ],
-              [
-                "filter",
-                "array of SearchFilter objects",
-                "the filter to check against"
-              ],
-              [
-                "sort",
-                "array of SearchSort objects",
-                "how to sort the results"
-              ],
-              [
-                "limit",
-                "int",
-                "limit of lobbies returned, default of 25"
-              ]
-            ],
-            "|SearchFilter Object"
-          ],
-          "SearchFilter Object": {
-            "content": [
-              [
-                [
-                  "name",
-                  "type",
-                  "description"
-                ],
-                [
-                  "key",
-                  "string",
-                  "the metadata key to search"
-                ],
-                [
-                  "value",
-                  "string",
-                  "the value of the metadata key to validate against"
-                ],
-                [
-                  "cast",
-                  "SearchCast",
-                  "the type to cast value as"
-                ],
-                [
-                  "comparison",
-                  "SearchComparison",
-                  "how to compare the metadata values"
-                ]
-              ],
-              "|SearchComparison Types"
-            ],
-            "SearchComparison Types": {
-              "content": [
-                [
-                  [
-                    "name",
-                    "value"
-                  ],
-                  [
-                    "EQUAL_TO_OR_LESS_THAN",
-                    "-2"
-                  ],
-                  [
-                    "LESS_THAN",
-                    "-1"
-                  ],
-                  [
-                    "EQUAL",
-                    "0"
-                  ],
-                  [
-                    "EQUAL_TO_OR_GREATER_THAN",
-                    "1"
-                  ],
-                  [
-                    "GREATER_THAN",
-                    "2"
-                  ],
-                  [
-                    "NOT_EQUAL",
-                    "3"
-                  ]
-                ],
-                "|SearchSort Object",
-                "|SearchCast Types"
-              ],
-              "SearchSort Object": {
-                "content": [
-                  [
-                    [
-                      "name",
-                      "type",
-                      "description"
-                    ],
-                    [
-                      "key",
-                      "string",
-                      "the metadata key on which to sort lobbies that meet the search criteria"
-                    ],
-                    [
-                      "cast",
-                      "SearchCast",
-                      "the type to cast value as"
-                    ],
-                    [
-                      "near_value",
-                      "string",
-                      "the value around which to sort the key"
-                    ]
-                  ]
-                ]
-              },
-              "SearchCast Types": {
-                "content": [
-                  [
-                    [
-                      "name",
-                      "value"
-                    ],
-                    [
-                      "STRING",
-                      "1"
-                    ],
-                    [
-                      "NUMBER",
-                      "2"
-                    ]
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      },
-      "Send Lobby Data % POST /lobbies/{lobby.id#DOCS_GAME_SDK_LOBBIES/data-models-lobby-struct}/send": {
-        "content": [
-          "Sends a message to the lobby, fanning it out to other lobby members.",
-          "This endpoints accepts a UTF8 string. If your message is already a string, you're good to go! If you want to send binary, you can send it to this endpoint as a base64 encoded data uri.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "data",
-                "string",
-                "a message to be sent to other lobby members"
-              ]
-            ]
-          ]
-        }
-      },
-      "Integrated Networking": {
-        "content": [
-          "Discord lobbies have the option of being used with a wrapped networking layer, allowing you to start sending packets quickly and easily without needing to do state management around routes, peer IDs, member metadata, and the like.",
-          "This layer allows you to easily connect to the network and open channels to all lobby members with one function call. You can then send network messages to users by their user ID, easily retrieved via lobby methods.",
-          "We take care of all the route updating for you, so you can get up and running quickly and easily. If you'd like to see how the lower level networking functionality works, or want to try it yourself so you can tweak it to your liking, check out Networking;"
         ]
       },
-      "ConnectNetwork": {
+      "LobbySearchComparison Enum": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#data-models-lobbysearchcomparison-enum",
         "content": [
-          "Connects to the networking layer for the given lobby ID. Call this when connecting to the lobby.",
-          "Returns void.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
+          [
             [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the ID of the lobby you are in"
-              ]
+              "name",
+              "value"
             ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "lobbyManager.ConnectLobby(lobbyId, (result, lobby) =>\n{\n  lobbyManager.ConnectNetwork(lobby.Id);\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "DisconnectNetwork": {
-        "content": [
-          "Disconnects from the networking layer for the given lobby ID.",
-          "Returns void.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
             [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the ID of the lobby you are in"
-              ]
+              "LessThanOrEqual",
+              "-2"
             ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "lobbyManager.DisconnectNetwork(lobby.Id);\n"
-              }
-            ]
-          }
-        }
-      },
-      "FlushNetwork": {
-        "content": [
-          "Flushes the network. Call this when you're done sending messages. In Unity, this should be in LateUpdate().",
-          "Returns void.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            "None",
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "void LateUpdate()\n{\n  var lobbyManager = discord.GetLobbyManager();\n  lobbyManager.FlushNetwork();\n}\n"
-              }
-            ]
-          }
-        }
-      },
-      "OpenNetworkChannel": {
-        "content": [
-          "Opens a network channel to all users in a lobby on the given channel number. No need to iterate over everyone!",
-          "Returns void.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
             [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the ID of the lobby you are in"
-              ],
-              [
-                "channelId",
-                "byte",
-                "the channel on which to connect"
-              ],
-              [
-                "reliable",
-                "bool",
-                "whether the channel should be unreliable or reliable"
-              ]
+              "LessThan",
+              "-1"
             ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var lobbyManager = discord.GetLobbyManager();\nlobbyManager.ConnectLobby(lobbyId, (result, lobby) =>\n{\n  lobbyManager.ConnectNetwork(lobby.Id);\n  lobbyManager.OpenNetworkChannel(lobby.Id, 0, true);\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "SendNetworkMessage": {
-        "content": [
-          "Sends a network message to the given user ID that is a member of the given lobby ID over the given channel ID.",
-          "Returns void.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
             [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the ID of the lobby you are in"
-              ],
-              [
-                "userId",
-                "Int64",
-                "the ID of the user to send a message to"
-              ],
-              [
-                "channelId",
-                "byte",
-                "the channel on which to connect"
-              ],
-              [
-                "data",
-                "byte[]",
-                "the message to send"
-              ]
+              "Equal",
+              "0"
             ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var lobbyManager = discord.GetLobbyManager();\nlobbyManager.ConnectLobby(lobbyId, (result, lobby) =>\n{\n  lobbyManager.ConnectNetwork(lobby.Id);\n  lobbyManager.OpenNetworkChannel(lobby.Id, 0, true);\n  for (int i = 0; i < lobbyManager.MemberCount(); i++)\n  {\n    var userId = lobbyManager.GetMemberUserId(i);\n    lobbyManager.SendNetworkMessage(lobby.Id, userId, 0, System.Text.Encoding.UTF8.GetBytes(\"Hello!\"));\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "OnNetworkMessage": {
-        "content": [
-          "Fires when the user receives a message from the lobby's networking layer.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
             [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "lobbyId",
-                "Int64",
-                "the ID of the lobby you are in"
-              ],
-              [
-                "userId",
-                "Int64",
-                "the ID of the user who sent the message"
-              ],
-              [
-                "channelId",
-                "byte",
-                "the channel the message was sent on"
-              ],
-              [
-                "data",
-                "byte[]",
-                "the message"
-              ]
+              "GreaterThan",
+              "1"
+            ],
+            [
+              "GreaterThanOrEqual",
+              "2"
+            ],
+            [
+              "NotEqual",
+              "3"
             ]
           ]
-        }
+        ]
       },
-      "Example: Networking the Easy Way": {
+      "LobbySearchCast Enum": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#data-models-lobbysearchcast-enum",
+        "content": [
+          [
+            [
+              "name",
+              "value"
+            ],
+            [
+              "String",
+              "1"
+            ],
+            [
+              "Number",
+              "2"
+            ]
+          ]
+        ]
+      },
+      "LobbySearchDistance Enum": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#data-models-lobbysearchdistance-enum",
+        "content": [
+          [
+            [
+              "name",
+              "value",
+              "description"
+            ],
+            [
+              "Local",
+              "0",
+              "within the same region"
+            ],
+            [
+              "Default",
+              "1",
+              "within the same and adjacent regions"
+            ],
+            [
+              "Extended",
+              "2",
+              "far distances, like US to EU"
+            ],
+            [
+              "Global",
+              "3",
+              "all regions"
+            ]
+          ]
+        ]
+      },
+      "LobbyTransaction Struct": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#data-models-lobbytransaction-struct",
+        "content": [
+          "Has no values, but has member functions, outlined later."
+        ]
+      },
+      "LobbyMemberTransaction Struct": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#data-models-lobbymembertransaction-struct",
+        "content": [
+          "Has no values, but has member functions, outlined later."
+        ]
+      },
+      "LobbySearchQuery Struct": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#data-models-lobbysearchquery-struct",
+        "content": [
+          "Has no values, but has member functions, outlined later."
+        ]
+      }
+    },
+    "LobbyTransaction.SetType": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.settype",
+      "content": [
+        "Marks a lobby as private or public.",
+        "Returns void.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.settype-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "type",
+              "LobbyType",
+              "private or public"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.settype-example",
         "content": [
           {
             "language": "cs",
-            "code": "// We can create a helper method to easily connect to the networking layer of the lobby\npublic void InitNetworking(Int64 lobbyId)\n{\n  // First, connect to the lobby network layer\n  var lobbyManager = discord.GetLobbyManager();\n  lobbyManager.ConnectNetwork(lobbyId);\n\n  // Next, deterministically open our channels\n  // Reliable on 0, unreliable on 1\n  lobbyManager.OpenNetworkChannel(lobbyId, 0, true);\n  lobbyManager.OpenNetworkChannel(lobbyId, 1, false);\n\n  // We're ready to go!\n}\n\n// Let's say we got a game invite from Rich Presence\nactivityManager.OnActivityJoin += secret =>\n{\n  var lobbyManager = discord.GetLobbyManager();\n  lobbyManager.ConnectLobbyWithActivitySecret(secret, (Discord.Result result, ref Discord.Lobby lobby) =>\n  {\n    // Connect to networking\n    InitNetworking(lobby.Id);\n\n    // Say hello!\n    for (int i = 0; i < lobbyManager.MemberCount(); i++)\n    {\n      var userId = lobbyManager.GetMemberUserId(i);\n      lobbyManager.SendNetworkMessage(lobby.Id, userId, 0, System.Text.Encoding.UTF8.GetBytes(\"Hello!\"));\n    }\n  });\n}\n"
+            "code": "var txn = lobbyManager.GetLobbyUpdateTransaction();\ntxn.SetType(Discord.LobbyType.Public);\nlobbyManager.UpdateLobby(lobbyId, txn, (Discord.Result result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Lobby type updated!\");\n  }\n});\n"
           }
         ]
       }
+    },
+    "LobbyTransaction.SetOwner": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setowner",
+      "content": [
+        "> warn\n> This method is only valid for LobbyUpdateTransactions and may cause issues if you set it on a LobbyCreateTransaction.",
+        "Sets a new owner for the lobby.",
+        "Returns void.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setowner-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "userId",
+              "Int64",
+              "the new owner's user id"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setowner-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var txn = lobbyManager.GetLobbyUpdateTransaction();\ntxn.SetOwner(53908232506183680);\nlobbyManager.UpdateLobby(lobbyId, txn, (Discord.Result result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Lobby owner updated!\");\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "LobbyTransaction.SetCapacity": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setcapacity",
+      "content": [
+        "Sets a new capacity for the lobby.",
+        "Returns void.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setcapacity-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "capacity",
+              "UInt32",
+              "the new max lobby size"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setcapacity-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var txn = lobbyManager.GetLobbyUpdateTransaction();\ntxn.SetCapacity(10);\nlobbyManager.UpdateLobby(lobbyId, txn, (Discord.Result result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Lobby capacity updated!\");\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "LobbyTransaction.SetMetadata": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setmetadata",
+      "content": [
+        "Sets metadata value under a given key name for the lobby.",
+        "Returns void.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setmetadata-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "key",
+              "string",
+              "key for the data"
+            ],
+            [
+              "value",
+              "string",
+              "data value"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setmetadata-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var txn = lobbyManager.GetLobbyUpdateTransaction();\ntxn.SetMetadata(\"average_mmr\", \"4500\");\nlobbyManager.UpdateLobby(lobbyId, txn, (Discord.Result result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Lobby metadata updated!\");\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "LobbyTransaction.DeleteMetadata": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.deletemetadata",
+      "content": [
+        "Deletes the lobby metadata for a key.",
+        "Returns void.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.deletemetadata-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "key",
+              "string",
+              "key for the data"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.deletemetadata-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var txn = lobbyManager.GetLobbyUpdateTransaction();\ntxn.DeleteMetadata(\"average_mmr\");\nlobbyManager.UpdateLobby(lobbyId, txn, (Discord.Result result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Lobby metadata updated!\");\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "LobbyTransaction.SetLocked": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setlocked",
+      "content": [
+        "Sets the lobby to locked or unlocked. When locked, new users cannot join the lobby.",
+        "Returns void.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setlocked-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "locked",
+              "bool",
+              "whether to lock or unlock the lobby"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setlocked-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var txn = lobbyManager.GetLobbyUpdateTransaction();\ntxn.SetLocked(true);\nlobbyManager.UpdateLobby(lobbyId, txn, (Discord.Result result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Lobby type updated!\");\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "LobbyMemberTransaction.SetMetadata": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbymembertransaction.setmetadata",
+      "content": [
+        "Sets metadata value under a given key name for the current user.",
+        "Returns void.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbymembertransaction.setmetadata-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "key",
+              "string",
+              "key for the data"
+            ],
+            [
+              "value",
+              "string",
+              "data value"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbymembertransaction.setmetadata-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var txn = lobbyManager.GetMemberUpdateTransaction();\ntxn.SetMetadata(\"current_mmr\", \"4267\");\nlobbyManager.UpdateMember(lobbyId, memberId, txn, (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Member metadata updated!\");\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "LobbyMemberTransaction.DeleteMetadata": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbymembertransaction.deletemetadata",
+      "content": [
+        "Sets metadata value under a given key name for the current user.",
+        "Returns void.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbymembertransaction.deletemetadata-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "key",
+              "string",
+              "key for the data"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbymembertransaction.deletemetadata-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var txn = lobbyManager.GetMemberUpdateTransaction();\ntxn.DeleteMetadata(\"current_mmr\");\nlobbyManager.UpdateMember(lobbyId, memberId, txn, (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Member metadata updated!\");\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "LobbySearchQuery.Filter": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.filter",
+      "content": [
+        "Filters lobbies based on metadata comparison. Available filter values are owner_id, capacity, slots, and metadata. If you are filtering based on metadata, make sure you prepend your key with \"metadata.\" For example, filtering on matchmaking rating would be \"metadata.matchmaking_rating\".",
+        "Returns void.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.filter-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "key",
+              "string",
+              "key to search for filter data"
+            ],
+            [
+              "comp",
+              "LobbySearchComparison",
+              "how the value on the lobby metadata should be compared to the search value"
+            ],
+            [
+              "cast",
+              "LobbySearchCast",
+              "should the search value be cast as a string or a number"
+            ],
+            [
+              "value",
+              "string",
+              "the value to filter against"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.filter-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var query = lobbyManager.GetSearchQuery();\nquery.Filter(\"metadata.matchmaking_rating\", LobbySearchComparison.GreaterThan, LobbySearchCast.Number, \"455\");\n"
+          }
+        ]
+      }
+    },
+    "LobbySearchQuery.Sort": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.sort",
+      "content": [
+        "Sorts the filtered lobbies based on \"near-ness\" to a given value.",
+        "Returns void.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.sort-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "key",
+              "string",
+              "key for the data"
+            ],
+            [
+              "cast",
+              "LobbySearchCast",
+              "should the search value be cast as a string or a number"
+            ],
+            [
+              "value",
+              "string",
+              "the value to sort by"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.sort-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var query = lobbyManager.GetSearchQuery();\nquery.Sort(\"metadata.ELO\", LobbySearchCast.Number, \"1337\");\n"
+          }
+        ]
+      }
+    },
+    "LobbySearchQuery.Limit": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.limit",
+      "content": [
+        "Limits the number of lobbies returned in a search.",
+        "Returns void.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.limit-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "limit",
+              "UInt32",
+              "the number of lobbies to return at max"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.limit-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var query = lobbyManager.GetSearchQuery();\nquery.Limit(10);\n"
+          }
+        ]
+      }
+    },
+    "LobbySearchQuery.Distance": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.distance",
+      "content": [
+        "Filters lobby results to within certain regions relative to the user's location.",
+        "Returns void.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.distance-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "distance",
+              "Discord.LobbySearchDistance",
+              "the distance within which to search for lobbies"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.distance-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var query = lobbyManager.GetSearchQuery();\nquery.Distance(LobbySearchDistance.Local);\n"
+          }
+        ]
+      }
+    },
+    "GetLobbyCreateTransaction": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbycreatetransaction",
+      "content": [
+        "Gets a Lobby transaction used for creating a new lobby",
+        "Returns a Discord.LobbyTransaction.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbycreatetransaction-parameters",
+        "content": [
+          "None"
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbycreatetransaction-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var txn = lobbyManager.GetLobbyCreateTransaction();\n"
+          }
+        ]
+      }
+    },
+    "GetLobbyUpdateTransaction": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbyupdatetransaction",
+      "content": [
+        "Gets a lobby transaction used for updating an existing lobby.",
+        "Returns a Discord.LobbyTransaction.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbyupdatetransaction-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the lobby you want to change"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbyupdatetransaction-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var txn = lobbyManager.GetLobbyUpdateTransaction(290926798626357250);\n"
+          }
+        ]
+      }
+    },
+    "GetMemberUpdateTransaction": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmemberupdatetransaction",
+      "content": [
+        "Gets a new member transaction for a lobby member in a given lobby.",
+        "Returns a Discord.LobbyMemberTransaction.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmemberupdatetransaction-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the lobby you want to change"
+            ],
+            [
+              "userId",
+              "Int64",
+              "the user you wish to change"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmemberupdatetransaction-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var txn = lobbyManager.GetMemberUpdateTransaction(290926798626357250, 53908232506183680);\n"
+          }
+        ]
+      }
+    },
+    "CreateLobby": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#createlobby",
+      "content": [
+        "Creates a lobby. Creating a lobby auto-joins the connected user to it. Do not call SetOwner() in the transaction for this method.",
+        "Returns Discord.Result and ref Discord.Lobby via callback.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#createlobby-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "transaction",
+              "LobbyTransaction",
+              "a lobby transaction with set properties like capacity"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#createlobby-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "lobbyManager.CreateLobby(txn, (Discord.Result result, ref Discord.Lobby lobby) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Created lobby {0}\", lobby.Id);\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "UpdateLobby": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#updatelobby",
+      "content": [
+        "Updates a lobby with data from the given transaction. You can call SetOwner() in this transaction.",
+        "Returns Discord.Result via callback.",
+        "> warn\n> This call has a rate limit of 10 updates per 5 seconds. If you fear you might hit that, it may be a good idea to batch your lobby updates into transactions.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#updatelobby-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the lobby you want to change"
+            ],
+            [
+              "transaction",
+              "LobbyTransaction",
+              "the transaction with wanted changes"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#updatelobby-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "lobbymanager.UpdateLobby(290926798626357250, transaction, (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Lobby updated!\");\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "DeleteLobby": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#deletelobby",
+      "content": [
+        "Deletes a given lobby.",
+        "Returns Discord.Result via callback.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#deletelobby-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the lobby you want to delete"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#deletelobby-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "lobbyManager.DeleteLobby(290926798626357250, (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Lobby deleted!\");\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "ConnectLobby": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectlobby",
+      "content": [
+        "Connects the current user to a given lobby. You can be connected to up to five lobbies at a time.",
+        "Returns Discord.Result and ref Discord.Lobby via callback.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectlobby-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the lobby you want to connect to"
+            ],
+            [
+              "lobbySecret",
+              "string",
+              "the password for the lobby"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectlobby-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "lobbyManager.ConnectLobby(290926798626357250, \"363446008341987328:123123\", (Discord.Result result, ref Discord.Lobby lobby) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Connected to lobby {0}!\", lobby.Id);\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "ConnectLobbyWithActivitySecret": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectlobbywithactivitysecret",
+      "content": [
+        "Connects the current user to a lobby; requires the special activity secret from the lobby which is a concatenated lobbyId and secret.",
+        "Returns Discord.Result and ref Discord.Lobby via callback.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectlobbywithactivitysecret-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "activitySecret",
+              "string",
+              "the special activity secret for the lobby"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectlobbywithactivitysecret-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "lobbyManager.ConnectLobbyWithActivitySecret(\"363446008341987328:123123\", (Discord.Result result, ref Discord.Lobby lobby) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Connected to lobby {0}!\", lobby.Id);\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "GetLobbyActivitySecret": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbyactivitysecret",
+      "content": [
+        "Gets the special activity secret for a given lobby. If you are creating lobbies from game clients, use this to easily interact with Rich Presence invites. Set the returned secret to your activity's JoinSecret.",
+        "Returns string.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbyactivitysecret-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the lobby you want to get the secret for"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbyactivitysecret-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var activitySecret = lobbyManager.GetLobbyActivitySecret(290926798626357250);\nvar activity = new Discord.Activity\n{\n  State = \"olleh\",\n  Details = \"foo details\",\n    Party = {\n      Id = \"foo partyID\",\n      Size = {\n          CurrentSize = 1,\n          MaxSize = 4,\n      },\n  },\n  Secrets = {\n      Join = activitySecret,\n  },\n  Instance = true,\n};\n\nActivityManager.UpdateActivity(activity, (result) =>\n{\n  Console.WriteLine(\"Update Activity {0}\", result);\n});\n"
+          }
+        ]
+      }
+    },
+    "DisconnectLobby": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#disconnectlobby",
+      "content": [
+        "Disconnects the current user from a lobby.",
+        "Returns Discord.Result via callback.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#disconnectlobby-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the lobby you want to leave"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#disconnectlobby-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "lobbyManager.DisconnectLobby(290926798626357250, (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Left lobby!\");\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "GetLobby": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobby",
+      "content": [
+        "Gets the lobby object for a given lobby id. Because of the way that the SDK is architected, you must first call Search() to build a stable list of lobbies. This function will then query those lobbies for ones with a matching id.",
+        "Returns a Discord.Lobby.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobby-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the lobby you want to get"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobby-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var lobbyId = 12345;\n\nvar query = lobbyManager.GetSearchQuery();\nlobbyManager.Search(query, (res) =>\n{\n  if (res == Discord.Result.Ok)\n  {\n    // This will return you a lobby\n    var lobby = lobbyManager.GetLobby(lobbyId);\n  }\n});\n\n// This will return NotFound\nvar lobby_2 = lobbyManager.GetLobby(lobbyId);\n"
+          }
+        ]
+      }
+    },
+    "LobbyMetadataCount": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbymetadatacount",
+      "content": [
+        "Returns the number of metadata key/value pairs on a given lobby. Used for accessing metadata by iterating over the list.",
+        "Returns Int32.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbymetadatacount-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the lobby you want to get metadata for"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbymetadatacount-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var count = lobbyManager.LobbyMetadataCount(290926798626357250);\nfor (int i = 0; i < count; i++)\n{\n  var value = lobbyManager.GetLobbyMetadataKey(290926798626357250, i);\n}\n"
+          }
+        ]
+      }
+    },
+    "GetLobbyMetadataKey": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbymetadatakey",
+      "content": [
+        "Returns the key for the lobby metadata at the given index.",
+        "Returns string.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbymetadatakey-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the lobby you want to get metadata for"
+            ],
+            [
+              "index",
+              "Int32",
+              "the index of lobby metadata to access"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbymetadatakey-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var count = lobbyManager.GetLobbyMetadataCount(290926798626357250);\nfor (int i = 0; i < count; i++)\n{\n  var value = lobbyManager.GetLobbyMetadataKey(290926798626357250, i);\n}\n"
+          }
+        ]
+      }
+    },
+    "GetLobbyMetadataValue": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbymetadatavalue",
+      "content": [
+        "Returns lobby metadata value for a given key and id. Can be used with iteration, or direct access by keyname.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbymetadatavalue-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the lobby you want to get metadata for"
+            ],
+            [
+              "key",
+              "string",
+              "the key name to access"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbymetadatavalue-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var averageMmr = lobbyManager.GetLobbyMetadataValue(290926798626357250, \"metadata.average_mmr\");\n"
+          }
+        ]
+      }
+    },
+    "MemberCount": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#membercount",
+      "content": [
+        "Get the number of members in a lobby.",
+        "Returns Int32.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#membercount-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the lobby you want to get members for"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#membercount-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var count = lobbyManager.MemberCount(290926798626357250);\nfor (int i = 0; i < count; i++)\n{\n  var id = lobbyManager.GetMemberUserId(290926798626357250, i);\n}\n"
+          }
+        ]
+      }
+    },
+    "GetMemberUserId": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmemberuserid",
+      "content": [
+        "Gets the user id of the lobby member at the given index.",
+        "Returns Int64.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmemberuserid-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the lobby you want to get members for"
+            ],
+            [
+              "index",
+              "Int32",
+              "the index of lobby member to access"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmemberuserid-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var count = lobbyManager.MemberCount(290926798626357250);\nfor (int i = 0; i < count; i++)\n{\n  var id = lobbyManager.GetMemberUserId(290926798626357250, i);\n}\n"
+          }
+        ]
+      }
+    },
+    "GetMemberUser": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmemberuser",
+      "content": [
+        "Gets the user object for a given user id.",
+        "Returns Discord.User.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmemberuser-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the lobby you want to get members for"
+            ],
+            [
+              "userId",
+              "Int64",
+              "the user's userId"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmemberuser-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var count = lobbyManager.MemberCount(290926798626357250);\nfor (int i = 0; i < count; i++)\n{\n  var id = lobbyManager.GetMemberUserId(290926798626357250, i);\n  var user = lobbyManager.GetMemberUser(290926798626357250, id);\n  Console.WriteLine(\"Got user {0}\", user.Id);\n}\n"
+          }
+        ]
+      }
+    },
+    "MemberMetadataCount": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#membermetadatacount",
+      "content": [
+        "Gets the number of metadata key/value pairs for the given lobby member. Used for accessing metadata by iterating over a list.",
+        "Returns Int32.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#membermetadatacount-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the lobby the member belongs to"
+            ],
+            [
+              "userId",
+              "Int64",
+              "the id of the user to get metadata for"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#membermetadatacount-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var count = lobbyManager.MemberMetadataCount(290926798626357250, 53908232506183680);\nfor (int i = 0; i < count; i++)\n{\n  var key = lobbyManager.GetMemberMetadataKey(290926798626357250, 53908232506183680, i);\n}\n"
+          }
+        ]
+      }
+    },
+    "GetMemberMetadataKey": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmembermetadatakey",
+      "content": [
+        "Gets the key for the lobby metadata at the given index on a lobby member.",
+        "Returns string.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmembermetadatakey-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the lobby the member belongs to"
+            ],
+            [
+              "userId",
+              "Int64",
+              "the id of the user to get metadata for"
+            ],
+            [
+              "index",
+              "Int32",
+              "the index of metadata to access"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmembermetadatakey-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var count = lobbyManager.MemberMetadataCount(290926798626357250, 53908232506183680);\nfor (int i = 0; i < count; i++)\n{\n  var key = lobbyManager.GetMemberMetadataKey(290926798626357250, 53908232506183680, i);\n}\n"
+          }
+        ]
+      }
+    },
+    "GetMemberMetadataValue": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmembermetadatavalue",
+      "content": [
+        "Returns user metadata for a given key. Can be used in conjunction with the count and get key functions if you're iterating over metadata. Or you can access the metadata directly by keyname",
+        "Returns string.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmembermetadatavalue-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the lobby the member belongs to"
+            ],
+            [
+              "userId",
+              "Int64",
+              "the id of the user to get metadata for"
+            ],
+            [
+              "key",
+              "string",
+              "the metadata key to access"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmembermetadatavalue-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var count = lobbyManager.MemberMetadataCount(290926798626357250, 53908232506183680);\nfor (int i = 0; i < count; i++)\n{\n  var key = lobbyManager.GetMemberMetadataKey(290926798626357250, 53908232506183680, i);\n  var value = lobbyManager.GetMemberMetadataValue(290926798626357250, 53908232506183680, key);\n  Console.WriteLine(\"Value: {0}\", value);\n}\n"
+          }
+        ]
+      }
+    },
+    "UpdateMember": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#updatemember",
+      "content": [
+        "Updates lobby member info for a given member of the lobby.",
+        "Returns Discord.Result via callback.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#updatemember-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "lobby the member belongs to"
+            ],
+            [
+              "userId",
+              "Int64",
+              "id of the user"
+            ],
+            [
+              "transaction",
+              "LobbyMemberTransaction",
+              "transaction with the changed data"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#updatemember-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var txn = lobbyManager.GetMemberUpdateTransaction();\ntxn.SetMetadata(\"my_mmr\", \"9999\");\nlobbyManager.UpdateMember(290926798626357250, 53908232506183680, txn, (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Lobby member updated!\");\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "SendLobbyMessage": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#sendlobbymessage",
+      "content": [
+        "Sends a message to the lobby on behalf of the current user. You must be connected to the lobby you are messaging. You should use this function for message sending if you are not using the built in networking layer for the lobby. If you are, you should use SendNetworkMessage instead.",
+        "This method has a rate limit of 10 messages per 5 seconds.",
+        "Returns a Discord.Result via callback.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#sendlobbymessage-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "lobby the member belongs to"
+            ],
+            [
+              "data",
+              "byte[]",
+              "the data to send"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#sendlobbymessage-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "lobbyManager.SendLobbyMessage(290926798626357250, Encoding.UTF8.GetBytes(\"hey.\"), (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Message sent successfully\");\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "GetSearchQuery": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getsearchquery",
+      "content": [
+        "Creates a search object to search available lobbies.",
+        "Returns Discord.LobbySearchQuery.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getsearchquery-parameters",
+        "content": [
+          "None"
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getsearchquery-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var search = lobbyManager.GetSearchQuery();\n"
+          }
+        ]
+      }
+    },
+    "Search": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#search",
+      "content": [
+        "Searches available lobbies based on the search criteria chosen in the Discord.LobbySearch member functions. Lobbies that meet the criteria are then globally filtered, and can be accessed via iteration with LobbyCount() and GetLobbyId(). The callback fires when the list of lobbies is stable and ready for iteration.",
+        "You do not necessarily need to access the filtered lobbies within the context of the result callback, but it may make it easier for the sake of asynchronous timing.",
+        "Returns Discord.Result via callback.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#search-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "search",
+              "LobbySearch",
+              "the search criteria"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#search-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var search = lobbyManger.GetSearchQuery();\nsearch.Filter(\"metadata.matchmaking_rating\", LobbySearchComparison.GreaterThan, LobbySearchCast.Number, \"455\");\nsearch.Sort(\"metadata.matchmaking_rating\", LobbySearchCast.Number, \"456\");\nsearch.Limit(10);\nlobbyManager.Search(search, (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    var count = lobbyManager.LobbyCount();\n    Console.WriteLine(\"There are {0} lobbies that match your search criteria\", count);\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "LobbyCount": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbycount",
+      "content": [
+        "Get the number of lobbies that match the search.",
+        "Returns Int32.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbycount-parameters",
+        "content": [
+          "None"
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbycount-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "lobbyManager.Search(search, () =>\n{\n  var count = lobbyManager.LobbyCount();\n  Console.WriteLine(\"There are {0} lobbies that match your search criteria\", count);\n});\n"
+          }
+        ]
+      }
+    },
+    "GetLobbyId": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbyid",
+      "content": [
+        "Returns the id for the lobby at the given index.",
+        "Returns Int64.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbyid-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "index",
+              "Int32",
+              "the index at which to access the list of lobbies"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbyid-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "lobbyManager.Search(search, () =>\n{\n  var count = lobbyManager.LobbyCount();\n  for (int i = 0; i < count; i++)\n  {\n    var id = lobbyManager.GetLobbyId(i);\n    Console.WriteLine(\"Found lobby {0}\", id);\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "ConnectVoice": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectvoice",
+      "content": [
+        "Connects to the voice channel of the current lobby. When connected to voice, the user can open their Discord overlay to see a list of other users with whom they are in voice, allowing them to mute/deafen themselves as well as mute/adjust the volume of other lobby members.",
+        "You can also allow users to adjust voice settings for your game with Overlay OpenVoiceSettings.",
+        "When integrating lobby voice into your game, be thoughtful about the user's experience. Auto-joining to voice can be jarring for users who may not be expecting it. We recommend voice always being opt-in, or at least that you provide an option for a player to choose whether or not to auto-join the voice channel of lobbies they join.",
+        "Returns Discord.Result via callback.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectvoice-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "lobby to voice connect to"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectvoice-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "lobbyManager.ConnectVoice(290926798626357250, (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Voice connected!\");\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "DisconnectVoice": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#disconnectvoice",
+      "content": [
+        "Disconnects from the voice channel of a given lobby.",
+        "Returns Discord.Result via callback.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#disconnectvoice-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "lobby to voice disconnect from"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#disconnectvoice-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "lobbyManager.DisconnectVoice(290926798626357250, (result) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Voice disconnected!\");\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "OnLobbyUpdate": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#onlobbyupdate",
+      "content": [
+        "Fires when a lobby is updated.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onlobbyupdate-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "lobby that updated"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onlobbyupdate-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "lobbyManager.OnLobbyUpdate += (lobbyID) =>\n{\n  Console.WriteLine(\"lobby successfully updated: {0}\", lobbyID);\n};\n"
+          }
+        ]
+      }
+    },
+    "OnLobbyDelete": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#onlobbydelete",
+      "content": [
+        "Fired when a lobby is deleted.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onlobbydelete-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "lobby that was deleted"
+            ],
+            [
+              "reason",
+              "string",
+              "reason for deletion - this is a system message"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onlobbydelete-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "lobbyManager.OnLobbyDelete += (lobbyID, reason) =>\n{\n  Console.WriteLine(\"lobby successfully deleted: {0} with reason: {1}\", lobbyID, reason);\n};\n"
+          }
+        ]
+      }
+    },
+    "OnMemberConnect": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#onmemberconnect",
+      "content": [
+        "Fires when a new member joins the lobby.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onmemberconnect-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "lobby the user joined"
+            ],
+            [
+              "userId",
+              "Int64",
+              "user that joined"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onmemberconnect-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "lobbyManager.OnMemberConnect += (lobbyID, userID) =>\n{\n  Console.WriteLine(\"user {0} connected to lobby: {1}\", userID, lobbyID);\n};\n"
+          }
+        ]
+      }
+    },
+    "OnMemberUpdate": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#onmemberupdate",
+      "content": [
+        "Fires when data for a lobby member is updated.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onmemberupdate-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "lobby the user is a member of"
+            ],
+            [
+              "userId",
+              "Int64",
+              "user that was updated"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onmemberupdate-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "lobbyManager.OnMemberUpdate += (lobbyID, userID) =>\n{\n  Console.WriteLine(\"user {0} got updated in lobby: {1}\", userID, lobbyID);\n};\n"
+          }
+        ]
+      }
+    },
+    "OnMemberDisconnect": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#onmemberdisconnect",
+      "content": [
+        "Fires when a member leaves the lobby.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onmemberdisconnect-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "lobby the user was a member of"
+            ],
+            [
+              "userId",
+              "Int64",
+              "user that left"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onmemberdisconnect-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "lobbyManager.OnMemberDisconnect += (lobbyID, userID) =>\n{\n  Console.WriteLine(\"user {0} disconnected from lobby: {1}\", userID, lobbyID);\n};\n"
+          }
+        ]
+      }
+    },
+    "OnLobbyMessage": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#onlobbymessage",
+      "content": [
+        "Fires when a message is sent to the lobby.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onlobbymessage-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "lobby the message is sent to"
+            ],
+            [
+              "userId",
+              "Int64",
+              "user that sent the message"
+            ],
+            [
+              "data",
+              "byte[]",
+              "the message contents"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onlobbymessage-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "lobbyManager.OnLobbyMessage += (lobbyID, userID, data) =>\n{\n  Console.WriteLine(\"lobby message: {0}, user who sent the message: {1}, Containing: {2}\", lobbyID, userID, Encoding.UTF8.GetString(data));\n};\n"
+          }
+        ]
+      }
+    },
+    "OnSpeaking": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#onspeaking",
+      "content": [
+        "Fires when a user connected to voice starts or stops speaking.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onspeaking-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "lobby the user is connected to"
+            ],
+            [
+              "userId",
+              "Int64",
+              "user in voice"
+            ],
+            [
+              "speaking",
+              "bool",
+              "true == started speaking, false == stopped speaking"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onspeaking-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "lobbyManager.OnSpeaking += (lobbyID, userID, speaking) =>\n{\n  Console.WriteLine(\"lobby speaking: {0} {1} {2}\", lobbyID, userID, speaking);\n};\n"
+          }
+        ]
+      }
+    },
+    "Connecting to Lobbies": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#connecting-to-lobbies",
+      "content": [
+        "In the preceding section, you probably noticed there are a couple different methods for connecting to a lobby: Connect() and ConnectWithActivitySecret(). Lobbies in Discord are even more useful when hooked together with Activities/Rich Presence functionality; they give you everything you need to create an awesome game invite system.",
+        "If you are creating lobbies for users in the game client, and not on a backend server, consider using GetLobbyActivitySecret and ConnectWithActivitySecret(). GetLobbyActivitySecret() will return you a unique secret for the lobby concatenated with the lobby's id. You can pipe this value directly to the Secrets.Join field of the Activity payload. Then, when a user receives the secret, their client can call ConnectWithActivitySecret() with just the secret; the lobby id is parsed out automatically. This saves you the effort of concatenating the secret + id together yourself and then parsing them out again. As a code example:",
+        {
+          "language": "cs",
+          "code": "var discord = new Discord.Discord(clientId, Discord.CreateFlags.Default);\nvar lobbyManager = discord.GetLobbyManager();\nvar activityManager = discord.GetActivityManager();\n\n// Create a lobby\nvar txn = lobbyManager.GetLobbyCreateTransaction();\ntxn.SetCapacity(5);\ntxn.SetType(Discord.LobbyType.Private);\n\nlobbyManager.CreateLobby(txn, (Discord.Result result, ref Discord.Lobby lobby) =>\n{\n  // Get the special activity secret\n  var secret = lobbyManager.GetLobbyActivitySecret(lobby.id);\n\n  // Create a new activity\n  // Set the party id to the lobby id, so everyone in the lobby has the same value\n  // Set the join secret to the special activity secret\n  var activity = new Discord.Activity\n  {\n    Party =\n    {\n      Id = lobby.id,\n      Size = {\n        CurrentSize = 1,\n        MaxSize = 5\n      }\n    },\n    Secrets =\n    {\n      Join = secret\n    }\n  };\n\n  activityManager.UpdateActivity(activity, (result) =>\n  {\n    // Now, you can send chat invites, or others can ask to join\n    // When other clients receive the OnActivityJoin() event, they'll receive the special activity secret\n    // They can then directly call lobbyManager.ConnectLobbyWithActivitySecret() and be put into the lobby together\n  })\n});\n"
+        },
+        "If you are creating lobbies with your own backend system (see the section below), this method may not be useful for you. In that case, you can use Connect() and pass the lobby id and secret as you normally would. If you're hooking up to Activities, just make sure you send both the lobby secret and the lobby id in the Secrets.Join field, so anyone who tries to join has the right data.",
+        "|Example: Search for a Lobby, Connect, and Join Voice"
+      ],
+      "Example: Search for a Lobby, Connect, and Join Voice": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#example:-search-for-a-lobby,-connect,-and-join-voice",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var discord = new Discord.Discord(clientId, Discord.CreateFlags.Default);\n\n// Search lobbies.\nvar query = lobbyManager.GetSearchQuery();\n\n// Filter by a metadata value.\nquery.Filter(\"metadata.ELO\", Discord.LobbySearchComparison.EqualTo, Discord.LobbySearchCast.Number, \"1337\");\n\n// Only return 1 result max.\nquery.Limit(1);\n\nlobbyManager.Search(query, () =>\n{\n  Console.WriteLine(\"search returned {0} lobbies\", lobbyManager.LobbyCount());\n\n  if (lobbyManager.LobbyCount() == 1)\n  {\n    Console.WriteLine(\"first lobby: {0}\", lobbyManager.GetLobbyId(0));\n  }\n\n  // Get the id of the lobby, and connect to voice\n  var id = lobbyManager.GetLobbyId(0);\n  lobbyManager.ConnectVoice(id, (result) =>\n  {\n    Console.WriteLine(\"Connected to voice!\");\n  });\n});\n"
+          }
+        ]
+      }
+    },
+    "Example: Crossplayish": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#example:-crossplayish",
+      "content": [
+        "So, an explanation. Because the DLL that you ship with your game is a stub that calls out to the local Discord client for actual operations, the SDK does not necessarily care if the game was launched from Discord. As long as the player launching the game:",
+        [
+          "Has Discord installed",
+          "Has a Discord account",
+          "Has logged into Discord on their machine (whether or not Discord is open)"
+        ],
+        "The SDK will function as if the game were launched from Discord and everything will work; if Discord is not currently launched, the SDK will launch it.",
+        "That means that if Player A is launching Your Amazing Game from Discord, and Player B is launching it from Other Cool But Not As Cool As Discord Game Store, as long as Player B meets the above criteria, both players can play with each other using Discord's lobbies + networking functions. If the SDK is not able to launch Discord for Player B\u2014maybe they've never installed/used Discord before!\u2014you'll get an error saying as much. We're not saying what you should do, but hey, wouldn't this make a really neat in-game touchpoint for your players to join their friends on Discord, and maybe even join your game's verified server?",
+        "OK so this wasn't really a code example, but I think you get how this works."
+      ]
+    },
+    "The API Way": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#the-api-way",
+      "content": [
+        "Below are the API endpoints and the parameters they accept. If you choose to interface directly with the Discord API, you will need a \"Bot token\". This is a special authorization token with which your application can access Discord's HTTP API. Head on over to your app's dashboard, and hit the big \"Add a Bot User\" button. From there, mutter abra kadabra and reveal the token. This token is used as an authorization header against our API like so:",
+        {
+          "language": "",
+          "code": "curl -x POST -h \"Authorization: Bot <your token>\" https://discord.com/api/some-route/that-does-a-thing\n"
+        },
+        "> info\n> Make sure to prepend your token with \"Bot\"!",
+        "Here are the routes; they all expect JSON bodies. Also, hey, while you're here. You've got a bot token. You're looking at our API. You should check out all the other awesome stuff you can do with it!"
+      ]
+    },
+    "Create Lobby % POST /lobbies": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#create-lobby-%-post-/lobbies",
+      "content": [
+        "Creates a new lobby. Returns an object similar to the SDK Lobby struct, documented below.",
+        "To get a list of valid regions, call the List Voice Regions endpoint.",
+        "|Parameters",
+        "|Return Object"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#create-lobby-%-post-/lobbies-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "application_id",
+              "string",
+              "your application id"
+            ],
+            [
+              "type",
+              "LobbyType",
+              "the type of lobby"
+            ],
+            [
+              "metadata",
+              "dict",
+              "metadata for the lobby - key/value pairs with types string"
+            ],
+            [
+              "capacity",
+              "int",
+              "max lobby capacity with a default of 16"
+            ],
+            [
+              "region",
+              "string",
+              "the region in which to make the lobby - defaults to the region of the requesting server's IP address"
+            ]
+          ]
+        ]
+      },
+      "Return Object": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#create-lobby-%-post-/lobbies-return-object",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"capacity\": 10,\n  \"region\": \"us-west\",\n  \"secret\": \"400316b221351324\",\n  \"application_id\": \"299996444748734465\",\n  \"metadata\": {\n    \"a\": \"wow\",\n    \"b\": \"some test metadata\"\n  },\n  \"type\": 1,\n  \"id\": \"469317204969993265\",\n  \"owner_id\": \"53908232599983680\"\n}\n"
+          }
+        ]
+      }
+    },
+    "Update Lobby % PATCH /lobbies/{lobby.id#DOCS_LOBBIES/data-models-lobby-struct}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#update-lobby-%-patch-/lobbies/{lobby.id#docs_lobbies/data-models-lobby-struct}",
+      "content": [
+        "Updates a lobby.",
+        "|Parameters"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#update-lobby-%-patch-/lobbies/{lobby.id#docs_lobbies/data-models-lobby-struct}-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "type",
+              "LobbyType",
+              "the type of lobby"
+            ],
+            [
+              "metadata",
+              "dict",
+              "metadata for the lobby - key/value pairs with types string"
+            ],
+            [
+              "capacity",
+              "int",
+              "max lobby capacity with a default of 16"
+            ]
+          ]
+        ]
+      }
+    },
+    "Delete Lobby % DELETE /lobbies/{lobby.id#DOCS_GAME_SDK_LOBBIES/data-models-lobby-struct}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#delete-lobby-%-delete-/lobbies/{lobby.id#docs_game_sdk_lobbies/data-models-lobby-struct}",
+      "content": [
+        "Deletes a lobby."
+      ]
+    },
+    "Update Lobby Member % PATCH /lobbies/{lobby.id#DOCS_GAME_SDK_LOBBIES/data-models-lobby-struct}/members/{user.id#DOCS_RESOURCES_USER/user-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#update-lobby-member-%-patch-/lobbies/{lobby.id#docs_game_sdk_lobbies/data-models-lobby-struct}/members/{user.id#docs_resources_user/user-object}",
+      "content": [
+        "Updates the metadata for a lobby member.",
+        "|Parameters"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#update-lobby-member-%-patch-/lobbies/{lobby.id#docs_game_sdk_lobbies/data-models-lobby-struct}/members/{user.id#docs_resources_user/user-object}-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "metadata",
+              "dict",
+              "metadata for the lobby member - key/value pairs with types string"
+            ]
+          ]
+        ]
+      }
+    },
+    "Create Lobby Search % POST /lobbies/search": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#create-lobby-search-%-post-/lobbies/search",
+      "content": [
+        "Creates a lobby search for matchmaking around given criteria.",
+        "|Parameters",
+        "|SearchFilter Object",
+        "|SearchComparison Types",
+        "|SearchSort Object",
+        "|SearchCast Types"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#create-lobby-search-%-post-/lobbies/search-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "application_id",
+              "string",
+              "your application id"
+            ],
+            [
+              "filter",
+              "array of SearchFilter objects",
+              "the filter to check against"
+            ],
+            [
+              "sort",
+              "array of SearchSort objects",
+              "how to sort the results"
+            ],
+            [
+              "limit",
+              "int",
+              "limit of lobbies returned, default of 25"
+            ]
+          ]
+        ]
+      },
+      "SearchFilter Object": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#create-lobby-search-%-post-/lobbies/search-searchfilter-object",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "key",
+              "string",
+              "the metadata key to search"
+            ],
+            [
+              "value",
+              "string",
+              "the value of the metadata key to validate against"
+            ],
+            [
+              "cast",
+              "SearchCast",
+              "the type to cast value as"
+            ],
+            [
+              "comparison",
+              "SearchComparison",
+              "how to compare the metadata values"
+            ]
+          ]
+        ]
+      },
+      "SearchComparison Types": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#create-lobby-search-%-post-/lobbies/search-searchcomparison-types",
+        "content": [
+          [
+            [
+              "name",
+              "value"
+            ],
+            [
+              "EQUAL_TO_OR_LESS_THAN",
+              "-2"
+            ],
+            [
+              "LESS_THAN",
+              "-1"
+            ],
+            [
+              "EQUAL",
+              "0"
+            ],
+            [
+              "EQUAL_TO_OR_GREATER_THAN",
+              "1"
+            ],
+            [
+              "GREATER_THAN",
+              "2"
+            ],
+            [
+              "NOT_EQUAL",
+              "3"
+            ]
+          ]
+        ]
+      },
+      "SearchSort Object": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#create-lobby-search-%-post-/lobbies/search-searchsort-object",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "key",
+              "string",
+              "the metadata key on which to sort lobbies that meet the search criteria"
+            ],
+            [
+              "cast",
+              "SearchCast",
+              "the type to cast value as"
+            ],
+            [
+              "near_value",
+              "string",
+              "the value around which to sort the key"
+            ]
+          ]
+        ]
+      },
+      "SearchCast Types": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#create-lobby-search-%-post-/lobbies/search-searchcast-types",
+        "content": [
+          [
+            [
+              "name",
+              "value"
+            ],
+            [
+              "STRING",
+              "1"
+            ],
+            [
+              "NUMBER",
+              "2"
+            ]
+          ]
+        ]
+      }
+    },
+    "Send Lobby Data % POST /lobbies/{lobby.id#DOCS_GAME_SDK_LOBBIES/data-models-lobby-struct}/send": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#send-lobby-data-%-post-/lobbies/{lobby.id#docs_game_sdk_lobbies/data-models-lobby-struct}/send",
+      "content": [
+        "Sends a message to the lobby, fanning it out to other lobby members.",
+        "This endpoints accepts a UTF8 string. If your message is already a string, you're good to go! If you want to send binary, you can send it to this endpoint as a base64 encoded data uri.",
+        "|Parameters"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#send-lobby-data-%-post-/lobbies/{lobby.id#docs_game_sdk_lobbies/data-models-lobby-struct}/send-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "data",
+              "string",
+              "a message to be sent to other lobby members"
+            ]
+          ]
+        ]
+      }
+    },
+    "Integrated Networking": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#integrated-networking",
+      "content": [
+        "Discord lobbies have the option of being used with a wrapped networking layer, allowing you to start sending packets quickly and easily without needing to do state management around routes, peer IDs, member metadata, and the like.",
+        "This layer allows you to easily connect to the network and open channels to all lobby members with one function call. You can then send network messages to users by their user ID, easily retrieved via lobby methods.",
+        "We take care of all the route updating for you, so you can get up and running quickly and easily. If you'd like to see how the lower level networking functionality works, or want to try it yourself so you can tweak it to your liking, check out Networking;"
+      ]
+    },
+    "ConnectNetwork": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectnetwork",
+      "content": [
+        "Connects to the networking layer for the given lobby ID. Call this when connecting to the lobby.",
+        "Returns void.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectnetwork-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the ID of the lobby you are in"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectnetwork-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "lobbyManager.ConnectLobby(lobbyId, (result, lobby) =>\n{\n  lobbyManager.ConnectNetwork(lobby.Id);\n});\n"
+          }
+        ]
+      }
+    },
+    "DisconnectNetwork": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#disconnectnetwork",
+      "content": [
+        "Disconnects from the networking layer for the given lobby ID.",
+        "Returns void.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#disconnectnetwork-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the ID of the lobby you are in"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#disconnectnetwork-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "lobbyManager.DisconnectNetwork(lobby.Id);\n"
+          }
+        ]
+      }
+    },
+    "FlushNetwork": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#flushnetwork",
+      "content": [
+        "Flushes the network. Call this when you're done sending messages. In Unity, this should be in LateUpdate().",
+        "Returns void.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#flushnetwork-parameters",
+        "content": [
+          "None"
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#flushnetwork-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "void LateUpdate()\n{\n  var lobbyManager = discord.GetLobbyManager();\n  lobbyManager.FlushNetwork();\n}\n"
+          }
+        ]
+      }
+    },
+    "OpenNetworkChannel": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#opennetworkchannel",
+      "content": [
+        "Opens a network channel to all users in a lobby on the given channel number. No need to iterate over everyone!",
+        "Returns void.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#opennetworkchannel-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the ID of the lobby you are in"
+            ],
+            [
+              "channelId",
+              "byte",
+              "the channel on which to connect"
+            ],
+            [
+              "reliable",
+              "bool",
+              "whether the channel should be unreliable or reliable"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#opennetworkchannel-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var lobbyManager = discord.GetLobbyManager();\nlobbyManager.ConnectLobby(lobbyId, (result, lobby) =>\n{\n  lobbyManager.ConnectNetwork(lobby.Id);\n  lobbyManager.OpenNetworkChannel(lobby.Id, 0, true);\n});\n"
+          }
+        ]
+      }
+    },
+    "SendNetworkMessage": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#sendnetworkmessage",
+      "content": [
+        "Sends a network message to the given user ID that is a member of the given lobby ID over the given channel ID.",
+        "Returns void.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#sendnetworkmessage-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the ID of the lobby you are in"
+            ],
+            [
+              "userId",
+              "Int64",
+              "the ID of the user to send a message to"
+            ],
+            [
+              "channelId",
+              "byte",
+              "the channel on which to connect"
+            ],
+            [
+              "data",
+              "byte[]",
+              "the message to send"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#sendnetworkmessage-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var lobbyManager = discord.GetLobbyManager();\nlobbyManager.ConnectLobby(lobbyId, (result, lobby) =>\n{\n  lobbyManager.ConnectNetwork(lobby.Id);\n  lobbyManager.OpenNetworkChannel(lobby.Id, 0, true);\n  for (int i = 0; i < lobbyManager.MemberCount(); i++)\n  {\n    var userId = lobbyManager.GetMemberUserId(i);\n    lobbyManager.SendNetworkMessage(lobby.Id, userId, 0, System.Text.Encoding.UTF8.GetBytes(\"Hello!\"));\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "OnNetworkMessage": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#onnetworkmessage",
+      "content": [
+        "Fires when the user receives a message from the lobby's networking layer.",
+        "|Parameters"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onnetworkmessage-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "lobbyId",
+              "Int64",
+              "the ID of the lobby you are in"
+            ],
+            [
+              "userId",
+              "Int64",
+              "the ID of the user who sent the message"
+            ],
+            [
+              "channelId",
+              "byte",
+              "the channel the message was sent on"
+            ],
+            [
+              "data",
+              "byte[]",
+              "the message"
+            ]
+          ]
+        ]
+      }
+    },
+    "Example: Networking the Easy Way": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/lobbies#example:-networking-the-easy-way",
+      "content": [
+        {
+          "language": "cs",
+          "code": "// We can create a helper method to easily connect to the networking layer of the lobby\npublic void InitNetworking(Int64 lobbyId)\n{\n  // First, connect to the lobby network layer\n  var lobbyManager = discord.GetLobbyManager();\n  lobbyManager.ConnectNetwork(lobbyId);\n\n  // Next, deterministically open our channels\n  // Reliable on 0, unreliable on 1\n  lobbyManager.OpenNetworkChannel(lobbyId, 0, true);\n  lobbyManager.OpenNetworkChannel(lobbyId, 1, false);\n\n  // We're ready to go!\n}\n\n// Let's say we got a game invite from Rich Presence\nactivityManager.OnActivityJoin += secret =>\n{\n  var lobbyManager = discord.GetLobbyManager();\n  lobbyManager.ConnectLobbyWithActivitySecret(secret, (Discord.Result result, ref Discord.Lobby lobby) =>\n  {\n    // Connect to networking\n    InitNetworking(lobby.Id);\n\n    // Say hello!\n    for (int i = 0; i < lobbyManager.MemberCount(); i++)\n    {\n      var userId = lobbyManager.GetMemberUserId(i);\n      lobbyManager.SendNetworkMessage(lobby.Id, userId, 0, System.Text.Encoding.UTF8.GetBytes(\"Hello!\"));\n    }\n  });\n}\n"
+        }
+      ]
     }
   }
 }

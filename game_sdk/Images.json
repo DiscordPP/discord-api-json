@@ -3,22 +3,30 @@
     "|Images"
   ],
   "Images": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/game_sdk/images#images",
     "content": [
       "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
       "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
       "Discord is like a book; it's better with pictures. The image manager helps you fetch image data for images in Discord, including user's avatars. They worked hard to pick out those photos and gifs. Show them you care, too.",
-      "|Data Models"
+      "|Data Models",
+      "|Fetch",
+      "|GetDimensions",
+      "|GetData",
+      "|GetTexture",
+      "|Example: User's Avatar Data"
     ],
     "Data Models": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/images#data-models",
       "content": [
         "|ImageDimensions Struct",
-        "|Fetch",
-        "|GetDimensions",
-        "|GetData",
-        "|GetTexture",
-        "|Example: User's Avatar Data"
+        "|ImageType Enum",
+        "|ImageHandle Struct"
       ],
       "ImageDimensions Struct": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/images#data-models-imagedimensions-struct",
         "content": [
           [
             [
@@ -36,211 +44,241 @@
               "UInt32",
               "the height of the image"
             ]
-          ],
-          "|ImageType Enum"
-        ],
-        "ImageType Enum": {
-          "content": [
-            [
-              [
-                "value",
-                "description"
-              ],
-              [
-                "User",
-                "image is a user's avatar"
-              ]
-            ],
-            "|ImageHandle Struct"
-          ],
-          "ImageHandle Struct": {
-            "content": [
-              [
-                [
-                  "name",
-                  "type",
-                  "description"
-                ],
-                [
-                  "Type",
-                  "ImageType",
-                  "the source of the image"
-                ],
-                [
-                  "Id",
-                  "Int64",
-                  "the id of the user whose avatar you want to get"
-                ],
-                [
-                  "Size",
-                  "UInt32",
-                  "the resolution at which you want the image"
-                ]
-              ]
-            ]
-          }
-        }
+          ]
+        ]
       },
-      "Fetch": {
+      "ImageType Enum": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/images#data-models-imagetype-enum",
         "content": [
-          "Prepares an image to later retrieve data about it.",
-          "Returns a Discord.Result and Discord.ImageHandle via callback.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
+          [
             [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "handle",
-                "ImageHandle",
-                "contains the desired userId and size for the returned image"
-              ],
-              [
-                "refresh",
-                "bool",
-                "whether to use cached data for fetch anew"
-              ]
+              "value",
+              "description"
             ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var handle = new Discord.ImageHandle()\n{\n  Id = 53908232506183680,\n  Size = 1024\n};\n\nimageManager.Fetch(handle, false, (result, returnedHandle) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    var data = imageManager.GetData(returnedHandle);\n    // Do stuff with the byte[] data\n  }\n});\n"
-              }
+            [
+              "User",
+              "image is a user's avatar"
             ]
-          }
-        }
+          ]
+        ]
       },
-      "GetDimensions": {
+      "ImageHandle Struct": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/images#data-models-imagehandle-struct",
         "content": [
-          "Gets the dimensions for the given user's avatar's source image.",
-          "Returns Discord.ImageDimensions.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
+          [
             [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "handle",
-                "ImageHandle",
-                "contains the desired userId and size for the returned image"
-              ]
+              "name",
+              "type",
+              "description"
             ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var handle = new Discord.ImageHandle()\n{\n  Id = 53908232506183680,\n  Size = 1024\n};\nvar dimensions =  imageManager.GetDimensions(handle);\n"
-              }
+            [
+              "Type",
+              "ImageType",
+              "the source of the image"
+            ],
+            [
+              "Id",
+              "Int64",
+              "the id of the user whose avatar you want to get"
+            ],
+            [
+              "Size",
+              "UInt32",
+              "the resolution at which you want the image"
             ]
-          }
-        }
-      },
-      "GetData": {
+          ]
+        ]
+      }
+    },
+    "Fetch": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/images#fetch",
+      "content": [
+        "Prepares an image to later retrieve data about it.",
+        "Returns a Discord.Result and Discord.ImageHandle via callback.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/images#fetch-parameters",
         "content": [
-          "Gets the image data for a given user's avatar. In C#, this is overloaded by a helper function that will directly return a byte[] with the image data in it. In C++/C, this function reads image data into a passed pointer of defined size.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
+          [
             [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "handle",
-                "ImageHandle",
-                "the image handle from the Fetch() callback"
-              ],
-              [
-                "data",
-                "uint8_t*",
-                "a buffer to read image data into (C++/C only)"
-              ],
-              [
-                "size",
-                "uint",
-                "the size of the buffer (C++/C only)"
-              ]
+              "name",
+              "type",
+              "description"
             ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var handle = new Discord.ImageHandle()\n{\n  Id = 53908232506183680,\n  Size = 1024\n};\n\nimageManager.Fetch(handle, false, (result, handle) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    var data = imageManager.GetData(handle);\n    // Do stuff with data now\n  }\n});\n"
-              },
-              "|Example Cpp"
-            ],
-            "Example Cpp": {
-              "content": [
-                {
-                  "language": "cpp",
-                  "code": "core->ImageManager().Fetch(\n    handle, true, [&state](discord::Result res, discord::ImageHandle handle) {\n        if (res == discord::Result::Ok) {\n            discord::ImageDimensions dims{};\n            state.core->ImageManager().GetDimensions(handle, &dims);\n            std::cout << \"Fetched \" << dims.GetWidth() << \"x\" << dims.GetHeight()\n                      << \" avatar!\\n\";\n\n            std::vector<uint8_t> data;\n            data.reserve(dims.GetWidth() * dims.GetHeight() * 4);\n            uint8_t* d = data.data();\n            state.core->ImageManager().GetData(handle, d, data.size());\n        }\n    }\n);\n"
-                }
-              ]
-            }
-          }
-        }
-      },
-      "GetTexture": {
-        "content": [
-          "> warn\n> This is only exposed in Unity",
-          "Gets the Texture2D for a given user's avatar for use within a Unity environment.",
-          "Returns a Texture2D.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
             [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "handle",
-                "ImageHandle",
-                "the image handle from the Fetch() callback"
-              ]
+              "handle",
+              "ImageHandle",
+              "contains the desired userId and size for the returned image"
             ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "var handle = new Discord.ImageHandle()\n{\n  Id = 53908232506183680,\n  Size = 1024\n};\n\nimageManager.Fetch(handle, false, (result, handle) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    var texture = imageManager.GetTexture(handle);\n    // Do stuff with texture now\n  }\n});\n"
-              }
+            [
+              "refresh",
+              "bool",
+              "whether to use cached data for fetch anew"
             ]
-          }
-        }
+          ]
+        ]
       },
-      "Example: User's Avatar Data": {
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/images#fetch-example",
         "content": [
           {
             "language": "cs",
-            "code": "var discord = new Discord.Discord(clientId, Discord.CreateFlags.Default);\n\n// Request user's avatar data. Sizes can be powers of 2 between 16 and 2048\nimageManager.Fetch(Discord.ImageHandle.User(53908232506183680, 128), (result, handle) =>\n{\n  {\n    if (result == Discord.Result.Ok)\n    {\n      // If you are working in Unity, you can also use GetTexture()\n      // Which is only exposed for Unity builds\n      // These return raw RGBA.\n      var data = imageManager.GetData(handle);\n    }\n    else\n    {\n      Console.WriteLine(\"image error {0}\", handle.Id);\n    }\n  }\n};\n"
+            "code": "var handle = new Discord.ImageHandle()\n{\n  Id = 53908232506183680,\n  Size = 1024\n};\n\nimageManager.Fetch(handle, false, (result, returnedHandle) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    var data = imageManager.GetData(returnedHandle);\n    // Do stuff with the byte[] data\n  }\n});\n"
           }
         ]
       }
+    },
+    "GetDimensions": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/images#getdimensions",
+      "content": [
+        "Gets the dimensions for the given user's avatar's source image.",
+        "Returns Discord.ImageDimensions.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/images#getdimensions-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "handle",
+              "ImageHandle",
+              "contains the desired userId and size for the returned image"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/images#getdimensions-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var handle = new Discord.ImageHandle()\n{\n  Id = 53908232506183680,\n  Size = 1024\n};\nvar dimensions =  imageManager.GetDimensions(handle);\n"
+          }
+        ]
+      }
+    },
+    "GetData": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/images#getdata",
+      "content": [
+        "Gets the image data for a given user's avatar. In C#, this is overloaded by a helper function that will directly return a byte[] with the image data in it. In C++/C, this function reads image data into a passed pointer of defined size.",
+        "|Parameters",
+        "|Example",
+        "|Example Cpp"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/images#getdata-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "handle",
+              "ImageHandle",
+              "the image handle from the Fetch() callback"
+            ],
+            [
+              "data",
+              "uint8_t*",
+              "a buffer to read image data into (C++/C only)"
+            ],
+            [
+              "size",
+              "uint",
+              "the size of the buffer (C++/C only)"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/images#getdata-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var handle = new Discord.ImageHandle()\n{\n  Id = 53908232506183680,\n  Size = 1024\n};\n\nimageManager.Fetch(handle, false, (result, handle) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    var data = imageManager.GetData(handle);\n    // Do stuff with data now\n  }\n});\n"
+          }
+        ]
+      },
+      "Example Cpp": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/images#getdata-example-cpp",
+        "content": [
+          {
+            "language": "cpp",
+            "code": "core->ImageManager().Fetch(\n    handle, true, [&state](discord::Result res, discord::ImageHandle handle) {\n        if (res == discord::Result::Ok) {\n            discord::ImageDimensions dims{};\n            state.core->ImageManager().GetDimensions(handle, &dims);\n            std::cout << \"Fetched \" << dims.GetWidth() << \"x\" << dims.GetHeight()\n                      << \" avatar!\\n\";\n\n            std::vector<uint8_t> data;\n            data.reserve(dims.GetWidth() * dims.GetHeight() * 4);\n            uint8_t* d = data.data();\n            state.core->ImageManager().GetData(handle, d, data.size());\n        }\n    }\n);\n"
+          }
+        ]
+      }
+    },
+    "GetTexture": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/images#gettexture",
+      "content": [
+        "> warn\n> This is only exposed in Unity",
+        "Gets the Texture2D for a given user's avatar for use within a Unity environment.",
+        "Returns a Texture2D.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/images#gettexture-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "handle",
+              "ImageHandle",
+              "the image handle from the Fetch() callback"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/images#gettexture-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "var handle = new Discord.ImageHandle()\n{\n  Id = 53908232506183680,\n  Size = 1024\n};\n\nimageManager.Fetch(handle, false, (result, handle) =>\n{\n  if (result == Discord.Result.Ok)\n  {\n    var texture = imageManager.GetTexture(handle);\n    // Do stuff with texture now\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "Example: User's Avatar Data": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/images#example:-user's-avatar-data",
+      "content": [
+        {
+          "language": "cs",
+          "code": "var discord = new Discord.Discord(clientId, Discord.CreateFlags.Default);\n\n// Request user's avatar data. Sizes can be powers of 2 between 16 and 2048\nimageManager.Fetch(Discord.ImageHandle.User(53908232506183680, 128), (result, handle) =>\n{\n  {\n    if (result == Discord.Result.Ok)\n    {\n      // If you are working in Unity, you can also use GetTexture()\n      // Which is only exposed for Unity builds\n      // These return raw RGBA.\n      var data = imageManager.GetData(handle);\n    }\n    else\n    {\n      Console.WriteLine(\"image error {0}\", handle.Id);\n    }\n  }\n};\n"
+        }
+      ]
     }
   }
 }

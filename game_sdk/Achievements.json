@@ -3,6 +3,8 @@
     "|Achievements"
   ],
   "Achievements": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/game_sdk/achievements#achievements",
     "content": [
       "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
       "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
@@ -10,27 +12,32 @@
       "Anyway\u2014Discord has achievements! Show your players just how successful they are.",
       "Achievements are managed in the Developer Portal. Head over to your application --> Achievements to create and manage achievements for your game. You'll give them an icon, a name, and a description; then they'll be assigned an id.",
       "You can also mark achievements as secret and secure. \"Secret\" achievements will not be shown to the user until they've unlocked them. \"Secure\" achievements can only be set via HTTP calls from your server, not by a game client using the SDK. No cheaters here!",
-      "|Data Models"
+      "|Data Models",
+      "|SetUserAchievement",
+      "|FetchUserAchievements",
+      "|CountUserAchievements",
+      "|GetUserAchievementAt",
+      "|GetUserAchievement",
+      "|OnUserAchievementUpdate",
+      "|The API Way",
+      "|Get Achievements % GET /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements",
+      "|Get Achievement % GET /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements/{achievement.id#DOCS_GAME_SDK_ACHIEVEMENTS/data-models-achievement-struct}",
+      "|Create Achievement % POST /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements",
+      "|Update Achievement % PATCH /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements/{achievement.id#DOCS_GAME_SDK_ACHIEVEMENTS/data-models-achievement-struct}",
+      "|Delete Achievement % DELETE /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements/{achievement.id#DOCS_GAME_SDK_ACHIEVEMENTS/data-models-achievement-struct}",
+      "|Update User Achievement % PUT /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements/{achievement.id#DOCS_GAME_SDK_ACHIEVEMENTS/data-models-achievement-struct}",
+      "|Get User Achievements % GET /users/@me/applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements"
     ],
     "Data Models": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/achievements#data-models",
       "content": [
         "|Achievement Struct",
-        "|SetUserAchievement",
-        "|FetchUserAchievements",
-        "|CountUserAchievements",
-        "|GetUserAchievementAt",
-        "|GetUserAchievement",
-        "|OnUserAchievementUpdate",
-        "|The API Way",
-        "|Get Achievements % GET /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements",
-        "|Get Achievement % GET /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements/{achievement.id#DOCS_GAME_SDK_ACHIEVEMENTS/data-models-achievement-struct}",
-        "|Create Achievement % POST /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements",
-        "|Update Achievement % PATCH /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements/{achievement.id#DOCS_GAME_SDK_ACHIEVEMENTS/data-models-achievement-struct}",
-        "|Delete Achievement % DELETE /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements/{achievement.id#DOCS_GAME_SDK_ACHIEVEMENTS/data-models-achievement-struct}",
-        "|Update User Achievement % PUT /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements/{achievement.id#DOCS_GAME_SDK_ACHIEVEMENTS/data-models-achievement-struct}",
-        "|Get User Achievements % GET /users/@me/applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements"
+        "|User Achievement Struct"
       ],
       "Achievement Struct": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#data-models-achievement-struct",
         "content": [
           [
             [
@@ -83,423 +90,498 @@
               "string",
               "Hash of the icon"
             ]
-          ],
-          "|User Achievement Struct"
-        ],
-        "User Achievement Struct": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "UserId",
-                "Int64",
-                "the unique ID of the user working on the achievement"
-              ],
-              [
-                "AchievementId",
-                "Int64",
-                "the unique ID of the achievement"
-              ],
-              [
-                "PercentComplete",
-                "UInt8",
-                "how far along the user is to completing the achievement (0-100)"
-              ],
-              [
-                "UnlockedAt",
-                "string",
-                "the timestamp at which the user completed the achievement (PercentComplete was set to 100)"
-              ]
-            ]
           ]
-        }
-      },
-      "SetUserAchievement": {
-        "content": [
-          "Updates the current user's status for a given achievement. If percentComplete is set to 100, the UnlockedAt field will be automatically updated with the current timestamp.",
-          "Returns Discord.Result via callback.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "achievementId",
-                "Int64",
-                "the ID of the achievement to update"
-              ],
-              [
-                "percentComplete",
-                "UInt8",
-                "the user's updated percentage progress"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "achievementManager.SetUserAchievement(580159119969878046, 25, (res) =>\n{\n  if (res == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Achievement updated for user\");\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "FetchUserAchievements": {
-        "content": [
-          "Loads a stable list of the current user's achievements to iterate over. If the user has any achievements, do your iteration within the callback of this function.",
-          "Returns Discord.Result via callback.",
-          "> info\n> Remember to only iterate when there are results!",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            "None.",
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "achievementManager.FetchUserAchievements((res) =>\n{\n  if (res == Discord.Result.Ok)\n  {\n    // Count()\n    // for() loop\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "CountUserAchievements": {
-        "content": [
-          "Counts the list of a user's achievements for iteration.",
-          "Returns Int32.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            "None",
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "achievementManager.FetchUserAchievements((res) =>\n{\n  if (res == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"User has {0} achievements for this game\", achievementManager.CountUserAchievements());\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "GetUserAchievementAt": {
-        "content": [
-          "Gets the user's achievement at a given index of their list of achievements.",
-          "Returns Discord.UserAchievement",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "index",
-                "Int32",
-                "the index at which to get the achievement"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "achievementManager.FetchUserAchievements((res) =>\n{\n  if (res == Discord.Result.Ok)\n  {\n    for (int i = 0; i < achievementManager.CountUserAchievements(); i++)\n    {\n      var achievement = achievementManager.GetUserAchievementAt(i);\n      Console.WriteLine(\"Achievement progress for {0} for user {1}: {2}\",\n                        achievement.AchievementId,\n                        achievement.UserId,\n                        achievement.PercentComplete);\n    }\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "GetUserAchievement": {
-        "content": [
-          "Gets the user achievement for the given achievement id. If you keep a hardcoded mapping of achievement <--> ID in your codebase, this will be better than iterating over each achievement. Make sure to call FetchUserAchievements() first still!",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "achievementId",
-                "Int64",
-                "the ID of the achievement to get"
-              ]
-            ],
-            "|Example"
-          ],
-          "Example": {
-            "content": [
-              {
-                "language": "cs",
-                "code": "achievementManager.FetchUserAchievements((res) =>\n{\n  if (res == Discord.Result.Ok)\n  {\n    var achievement = achievementManager.GetUserAchievement(580159119969878046);\n    Console.WriteLine(\"Achievement progress for {0} for user {1}: {2}\",\n                      achievement.AchievementId,\n                      achievement.UserId,\n                      achievement.PercentComplete);\n  }\n});\n"
-              }
-            ]
-          }
-        }
-      },
-      "OnUserAchievementUpdate": {
-        "content": [
-          "Fires when an achievement is updated for the currently connected user",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
-            [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "achievement",
-                "ref UserAchievement",
-                "the achievement that was updated"
-              ]
-            ]
-          ]
-        }
-      },
-      "The API Way": {
-        "content": [
-          "Below are the API endpoints and the parameters they accept. If you choose to interface directly with the Discord API, you will need a \"Bot token\". This is a special authorization token with which your application can access Discord's HTTP API. Head on over to your app's dashboard, and hit the big \"Add a Bot User\" button. From there, mutter abra kadabra and reveal the token. This token is used as an authorization header against our API like so:",
-          {
-            "language": "",
-            "code": "curl -x POST -h \"Authorization: Bot <your token>\" https://discord.com/api/some-route/that-does-a-thing\n"
-          },
-          "> info\n> Make sure to prepend your token with \"Bot\"!"
         ]
       },
-      "Get Achievements % GET /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements": {
+      "User Achievement Struct": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#data-models-user-achievement-struct",
         "content": [
-          "Returns all achievements for the given application. This endpoint has a rate limit of 5 requests per 5 seconds per application.",
-          "|Return Object"
-        ],
-        "Return Object": {
-          "content": [
-            {
-              "language": "json",
-              "code": "[\n  {\n    \"application_id\": \"461618159171141643\",\n    \"name\": {\n      \"default\": \"Win the Game\"\n    },\n    \"description\": {\n      \"default\": \"You won!\"\n    },\n    \"secret\": false,\n    \"icon_hash\": \"52c1636444f64ad7cb5368b158847def\",\n    \"id\": \"580159119969878046\",\n    \"secure\": false\n  }\n]\n"
-            }
-          ]
-        }
-      },
-      "Get Achievement % GET /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements/{achievement.id#DOCS_GAME_SDK_ACHIEVEMENTS/data-models-achievement-struct}": {
-        "content": [
-          "Returns the given achievement for the given application. This endpoint has a rate limit of 5 requests per 5 seconds per application.",
-          "|Return Object"
-        ],
-        "Return Object": {
-          "content": [
-            {
-              "language": "json",
-              "code": "{\n  \"application_id\": \"461618159171141643\",\n  \"name\": {\n    \"default\": \"Win the Game\"\n  },\n  \"description\": {\n    \"default\": \"You won!\"\n  },\n  \"secret\": false,\n  \"icon_hash\": \"52c1636444f64ad7cb5368b158847def\",\n  \"id\": \"580159119969878046\",\n  \"secure\": false\n}\n"
-            }
-          ]
-        }
-      },
-      "Create Achievement % POST /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements": {
-        "content": [
-          "Creates a new achievement for your application. Applications can have a maximum of 1000 achievements. This endpoint has a rate limit of 5 requests per 5 seconds per application.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
+          [
             [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "name",
-                "string",
-                "the name of the achievement"
-              ],
-              [
-                "description",
-                "string",
-                "the user-facing achievement description"
-              ],
-              [
-                "secret",
-                "bool",
-                "if the achievement is secret"
-              ],
-              [
-                "secure",
-                "bool",
-                "if the achievement is secure"
-              ],
-              [
-                "icon",
-                "ImageType",
-                "the icon for the achievement"
-              ]
+              "name",
+              "type",
+              "description"
             ],
-            "|Example: Creating an Achievement"
-          ],
-          "Example: Creating an Achievement": {
-            "content": [
-              {
-                "language": "json",
-                "code": "{\n  \"name\": {\n    \"default\": \"Find the Secret\"\n  },\n  \"description\": {\n    \"default\": \"You found it!\"\n  },\n  \"secret\": true,\n  \"secure\": false,\n  \"icon\": \"data:image/png;base64,base64_data_here\"\n}\n"
-              },
-              "|Return Object"
-            ],
-            "Return Object": {
-              "content": [
-                {
-                  "language": "json",
-                  "code": "{\n  \"application_id\": \"461618159171141643\",\n  \"name\": {\n    \"default\": \"Find the Secret\"\n  },\n  \"description\": {\n    \"default\": \"You found it!\"\n  },\n  \"secret\": true,\n  \"icon_hash\": \"52c1636444f64ad7cb5368b158847def\",\n  \"id\": \"597763781871861018\",\n  \"secure\": false\n}\n"
-                }
-              ]
-            }
-          }
-        }
-      },
-      "Update Achievement % PATCH /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements/{achievement.id#DOCS_GAME_SDK_ACHIEVEMENTS/data-models-achievement-struct}": {
-        "content": [
-          "Updates the achievement for __ALL USERS__. This is NOT to update a single user's achievement progress; this is to edit the UserAchievement itself. This endpoint has a rate limit of 5 requests per 5 seconds per application.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
             [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "name",
-                "string",
-                "the name of the achievement"
-              ],
-              [
-                "description",
-                "string",
-                "the user-facing achievement description"
-              ],
-              [
-                "secret",
-                "bool",
-                "if the achievement is secret"
-              ],
-              [
-                "secure",
-                "bool",
-                "if the achievement is secure"
-              ],
-              [
-                "icon",
-                "ImageType",
-                "the icon for the achievement"
-              ]
+              "UserId",
+              "Int64",
+              "the unique ID of the user working on the achievement"
             ],
-            "|Example: Updating an Achievement"
-          ],
-          "Example: Updating an Achievement": {
-            "content": [
-              {
-                "language": "json",
-                "code": "{\n  \"name\": {\n    \"default\": \"How do methods break up?\"\n  },\n  \"description\": {\n    \"default\": \"They stop calling each other!\"\n  },\n  \"secret\": false,\n  \"secure\": false,\n  \"icon\": \"data:image/png;base64,base64_data_here\"\n}\n"
-              },
-              "|Return Object"
-            ],
-            "Return Object": {
-              "content": [
-                {
-                  "language": "json",
-                  "code": "{\n  \"application_id\": \"461618159171141643\",\n  \"name\": {\n    \"default\": \"How do methods break up?\"\n  },\n  \"description\": {\n    \"default\": \"They stop calling each other!\"\n  },\n  \"secret\": false,\n  \"icon_hash\": \"7d698b594c691e3d28c92e226b28293c\",\n  \"id\": \"597638720379682816\",\n  \"secure\": false\n}\n"
-                }
-              ]
-            }
-          }
-        }
-      },
-      "Delete Achievement % DELETE /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements/{achievement.id#DOCS_GAME_SDK_ACHIEVEMENTS/data-models-achievement-struct}": {
-        "content": [
-          "Deletes the given achievement from your application. This endpoint has a rate limit of 5 requests per 5 seconds per application.",
-          "|Return Object"
-        ],
-        "Return Object": {
-          "content": [
-            {
-              "language": "json",
-              "code": "// 204 No Content\n"
-            }
-          ]
-        }
-      },
-      "Update User Achievement % PUT /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements/{achievement.id#DOCS_GAME_SDK_ACHIEVEMENTS/data-models-achievement-struct}": {
-        "content": [
-          "Updates the UserAchievement record for a given user. Use this endpoint to update secure achievement progress for users. This endpoint has a rate limit of 5 requests per 5 seconds per application.",
-          "|Parameters"
-        ],
-        "Parameters": {
-          "content": [
             [
-              [
-                "name",
-                "type",
-                "description"
-              ],
-              [
-                "percent_complete",
-                "int",
-                "the user's progress towards completing the achievement"
-              ]
+              "AchievementId",
+              "Int64",
+              "the unique ID of the achievement"
             ],
-            "|Return Object"
-          ],
-          "Return Object": {
-            "content": [
-              {
-                "language": "json",
-                "code": "{}\n"
-              }
+            [
+              "PercentComplete",
+              "UInt8",
+              "how far along the user is to completing the achievement (0-100)"
+            ],
+            [
+              "UnlockedAt",
+              "string",
+              "the timestamp at which the user completed the achievement (PercentComplete was set to 100)"
             ]
-          }
-        }
-      },
-      "Get User Achievements % GET /users/@me/applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements": {
-        "content": [
-          "Returns a list of achievements for the user whose token you're making the request with. This endpoint will NOT accept the Bearer token for your application generated via the Client Credentials Grant. You will need the user's bearer token, gotten via either the Authorization Code OAuth2 Grant or via the SDK with GetOAuth2Token. This endpoint has a rate limit of 2 requests per 5 seconds per application per user.",
-          "> info\n> This endpoint will not return any achievements marked as secret that the user has not yet completed.",
-          "|Return Object"
-        ],
-        "Return Object": {
-          "content": [
-            {
-              "language": "json",
-              "code": "[\n  {\n    \"application_id\": \"461618159171141643\",\n    \"name\": {\n      \"default\": \"Win the Game\"\n    },\n    \"description\": {\n      \"default\": \"You won!\"\n    },\n    \"secret\": false,\n    \"icon_hash\": \"52c1636444f64ad7cb5368b158847def\",\n    \"id\": \"580159119969878046\",\n    \"secure\": false\n  }\n]\n"
-            }
           ]
-        }
+        ]
+      }
+    },
+    "SetUserAchievement": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/achievements#setuserachievement",
+      "content": [
+        "Updates the current user's status for a given achievement. If percentComplete is set to 100, the UnlockedAt field will be automatically updated with the current timestamp.",
+        "Returns Discord.Result via callback.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#setuserachievement-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "achievementId",
+              "Int64",
+              "the ID of the achievement to update"
+            ],
+            [
+              "percentComplete",
+              "UInt8",
+              "the user's updated percentage progress"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#setuserachievement-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "achievementManager.SetUserAchievement(580159119969878046, 25, (res) =>\n{\n  if (res == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"Achievement updated for user\");\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "FetchUserAchievements": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/achievements#fetchuserachievements",
+      "content": [
+        "Loads a stable list of the current user's achievements to iterate over. If the user has any achievements, do your iteration within the callback of this function.",
+        "Returns Discord.Result via callback.",
+        "> info\n> Remember to only iterate when there are results!",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#fetchuserachievements-parameters",
+        "content": [
+          "None."
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#fetchuserachievements-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "achievementManager.FetchUserAchievements((res) =>\n{\n  if (res == Discord.Result.Ok)\n  {\n    // Count()\n    // for() loop\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "CountUserAchievements": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/achievements#countuserachievements",
+      "content": [
+        "Counts the list of a user's achievements for iteration.",
+        "Returns Int32.",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#countuserachievements-parameters",
+        "content": [
+          "None"
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#countuserachievements-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "achievementManager.FetchUserAchievements((res) =>\n{\n  if (res == Discord.Result.Ok)\n  {\n    Console.WriteLine(\"User has {0} achievements for this game\", achievementManager.CountUserAchievements());\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "GetUserAchievementAt": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/achievements#getuserachievementat",
+      "content": [
+        "Gets the user's achievement at a given index of their list of achievements.",
+        "Returns Discord.UserAchievement",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#getuserachievementat-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "index",
+              "Int32",
+              "the index at which to get the achievement"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#getuserachievementat-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "achievementManager.FetchUserAchievements((res) =>\n{\n  if (res == Discord.Result.Ok)\n  {\n    for (int i = 0; i < achievementManager.CountUserAchievements(); i++)\n    {\n      var achievement = achievementManager.GetUserAchievementAt(i);\n      Console.WriteLine(\"Achievement progress for {0} for user {1}: {2}\",\n                        achievement.AchievementId,\n                        achievement.UserId,\n                        achievement.PercentComplete);\n    }\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "GetUserAchievement": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/achievements#getuserachievement",
+      "content": [
+        "Gets the user achievement for the given achievement id. If you keep a hardcoded mapping of achievement <--> ID in your codebase, this will be better than iterating over each achievement. Make sure to call FetchUserAchievements() first still!",
+        "|Parameters",
+        "|Example"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#getuserachievement-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "achievementId",
+              "Int64",
+              "the ID of the achievement to get"
+            ]
+          ]
+        ]
+      },
+      "Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#getuserachievement-example",
+        "content": [
+          {
+            "language": "cs",
+            "code": "achievementManager.FetchUserAchievements((res) =>\n{\n  if (res == Discord.Result.Ok)\n  {\n    var achievement = achievementManager.GetUserAchievement(580159119969878046);\n    Console.WriteLine(\"Achievement progress for {0} for user {1}: {2}\",\n                      achievement.AchievementId,\n                      achievement.UserId,\n                      achievement.PercentComplete);\n  }\n});\n"
+          }
+        ]
+      }
+    },
+    "OnUserAchievementUpdate": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/achievements#onuserachievementupdate",
+      "content": [
+        "Fires when an achievement is updated for the currently connected user",
+        "|Parameters"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#onuserachievementupdate-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "achievement",
+              "ref UserAchievement",
+              "the achievement that was updated"
+            ]
+          ]
+        ]
+      }
+    },
+    "The API Way": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/achievements#the-api-way",
+      "content": [
+        "Below are the API endpoints and the parameters they accept. If you choose to interface directly with the Discord API, you will need a \"Bot token\". This is a special authorization token with which your application can access Discord's HTTP API. Head on over to your app's dashboard, and hit the big \"Add a Bot User\" button. From there, mutter abra kadabra and reveal the token. This token is used as an authorization header against our API like so:",
+        {
+          "language": "",
+          "code": "curl -x POST -h \"Authorization: Bot <your token>\" https://discord.com/api/some-route/that-does-a-thing\n"
+        },
+        "> info\n> Make sure to prepend your token with \"Bot\"!"
+      ]
+    },
+    "Get Achievements % GET /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/achievements#get-achievements-%-get-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/achievements",
+      "content": [
+        "Returns all achievements for the given application. This endpoint has a rate limit of 5 requests per 5 seconds per application.",
+        "|Return Object"
+      ],
+      "Return Object": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#get-achievements-%-get-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/achievements-return-object",
+        "content": [
+          {
+            "language": "json",
+            "code": "[\n  {\n    \"application_id\": \"461618159171141643\",\n    \"name\": {\n      \"default\": \"Win the Game\"\n    },\n    \"description\": {\n      \"default\": \"You won!\"\n    },\n    \"secret\": false,\n    \"icon_hash\": \"52c1636444f64ad7cb5368b158847def\",\n    \"id\": \"580159119969878046\",\n    \"secure\": false\n  }\n]\n"
+          }
+        ]
+      }
+    },
+    "Get Achievement % GET /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements/{achievement.id#DOCS_GAME_SDK_ACHIEVEMENTS/data-models-achievement-struct}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/achievements#get-achievement-%-get-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/achievements/{achievement.id#docs_game_sdk_achievements/data-models-achievement-struct}",
+      "content": [
+        "Returns the given achievement for the given application. This endpoint has a rate limit of 5 requests per 5 seconds per application.",
+        "|Return Object"
+      ],
+      "Return Object": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#get-achievement-%-get-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/achievements/{achievement.id#docs_game_sdk_achievements/data-models-achievement-struct}-return-object",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"application_id\": \"461618159171141643\",\n  \"name\": {\n    \"default\": \"Win the Game\"\n  },\n  \"description\": {\n    \"default\": \"You won!\"\n  },\n  \"secret\": false,\n  \"icon_hash\": \"52c1636444f64ad7cb5368b158847def\",\n  \"id\": \"580159119969878046\",\n  \"secure\": false\n}\n"
+          }
+        ]
+      }
+    },
+    "Create Achievement % POST /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/achievements#create-achievement-%-post-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/achievements",
+      "content": [
+        "Creates a new achievement for your application. Applications can have a maximum of 1000 achievements. This endpoint has a rate limit of 5 requests per 5 seconds per application.",
+        "|Parameters",
+        "|Example: Creating an Achievement",
+        "|Return Object"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#create-achievement-%-post-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/achievements-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "name",
+              "string",
+              "the name of the achievement"
+            ],
+            [
+              "description",
+              "string",
+              "the user-facing achievement description"
+            ],
+            [
+              "secret",
+              "bool",
+              "if the achievement is secret"
+            ],
+            [
+              "secure",
+              "bool",
+              "if the achievement is secure"
+            ],
+            [
+              "icon",
+              "ImageType",
+              "the icon for the achievement"
+            ]
+          ]
+        ]
+      },
+      "Example: Creating an Achievement": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#create-achievement-%-post-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/achievements-example:-creating-an-achievement",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"name\": {\n    \"default\": \"Find the Secret\"\n  },\n  \"description\": {\n    \"default\": \"You found it!\"\n  },\n  \"secret\": true,\n  \"secure\": false,\n  \"icon\": \"data:image/png;base64,base64_data_here\"\n}\n"
+          }
+        ]
+      },
+      "Return Object": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#create-achievement-%-post-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/achievements-return-object",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"application_id\": \"461618159171141643\",\n  \"name\": {\n    \"default\": \"Find the Secret\"\n  },\n  \"description\": {\n    \"default\": \"You found it!\"\n  },\n  \"secret\": true,\n  \"icon_hash\": \"52c1636444f64ad7cb5368b158847def\",\n  \"id\": \"597763781871861018\",\n  \"secure\": false\n}\n"
+          }
+        ]
+      }
+    },
+    "Update Achievement % PATCH /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements/{achievement.id#DOCS_GAME_SDK_ACHIEVEMENTS/data-models-achievement-struct}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/achievements#update-achievement-%-patch-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/achievements/{achievement.id#docs_game_sdk_achievements/data-models-achievement-struct}",
+      "content": [
+        "Updates the achievement for __ALL USERS__. This is NOT to update a single user's achievement progress; this is to edit the UserAchievement itself. This endpoint has a rate limit of 5 requests per 5 seconds per application.",
+        "|Parameters",
+        "|Example: Updating an Achievement",
+        "|Return Object"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#update-achievement-%-patch-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/achievements/{achievement.id#docs_game_sdk_achievements/data-models-achievement-struct}-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "name",
+              "string",
+              "the name of the achievement"
+            ],
+            [
+              "description",
+              "string",
+              "the user-facing achievement description"
+            ],
+            [
+              "secret",
+              "bool",
+              "if the achievement is secret"
+            ],
+            [
+              "secure",
+              "bool",
+              "if the achievement is secure"
+            ],
+            [
+              "icon",
+              "ImageType",
+              "the icon for the achievement"
+            ]
+          ]
+        ]
+      },
+      "Example: Updating an Achievement": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#update-achievement-%-patch-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/achievements/{achievement.id#docs_game_sdk_achievements/data-models-achievement-struct}-example:-updating-an-achievement",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"name\": {\n    \"default\": \"How do methods break up?\"\n  },\n  \"description\": {\n    \"default\": \"They stop calling each other!\"\n  },\n  \"secret\": false,\n  \"secure\": false,\n  \"icon\": \"data:image/png;base64,base64_data_here\"\n}\n"
+          }
+        ]
+      },
+      "Return Object": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#update-achievement-%-patch-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/achievements/{achievement.id#docs_game_sdk_achievements/data-models-achievement-struct}-return-object",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"application_id\": \"461618159171141643\",\n  \"name\": {\n    \"default\": \"How do methods break up?\"\n  },\n  \"description\": {\n    \"default\": \"They stop calling each other!\"\n  },\n  \"secret\": false,\n  \"icon_hash\": \"7d698b594c691e3d28c92e226b28293c\",\n  \"id\": \"597638720379682816\",\n  \"secure\": false\n}\n"
+          }
+        ]
+      }
+    },
+    "Delete Achievement % DELETE /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements/{achievement.id#DOCS_GAME_SDK_ACHIEVEMENTS/data-models-achievement-struct}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/achievements#delete-achievement-%-delete-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/achievements/{achievement.id#docs_game_sdk_achievements/data-models-achievement-struct}",
+      "content": [
+        "Deletes the given achievement from your application. This endpoint has a rate limit of 5 requests per 5 seconds per application.",
+        "|Return Object"
+      ],
+      "Return Object": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#delete-achievement-%-delete-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/achievements/{achievement.id#docs_game_sdk_achievements/data-models-achievement-struct}-return-object",
+        "content": [
+          {
+            "language": "json",
+            "code": "// 204 No Content\n"
+          }
+        ]
+      }
+    },
+    "Update User Achievement % PUT /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements/{achievement.id#DOCS_GAME_SDK_ACHIEVEMENTS/data-models-achievement-struct}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/achievements#update-user-achievement-%-put-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/achievements/{achievement.id#docs_game_sdk_achievements/data-models-achievement-struct}",
+      "content": [
+        "Updates the UserAchievement record for a given user. Use this endpoint to update secure achievement progress for users. This endpoint has a rate limit of 5 requests per 5 seconds per application.",
+        "|Parameters",
+        "|Return Object"
+      ],
+      "Parameters": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#update-user-achievement-%-put-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/achievements/{achievement.id#docs_game_sdk_achievements/data-models-achievement-struct}-parameters",
+        "content": [
+          [
+            [
+              "name",
+              "type",
+              "description"
+            ],
+            [
+              "percent_complete",
+              "int",
+              "the user's progress towards completing the achievement"
+            ]
+          ]
+        ]
+      },
+      "Return Object": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#update-user-achievement-%-put-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/achievements/{achievement.id#docs_game_sdk_achievements/data-models-achievement-struct}-return-object",
+        "content": [
+          {
+            "language": "json",
+            "code": "{}\n"
+          }
+        ]
+      }
+    },
+    "Get User Achievements % GET /users/@me/applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/achievements": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/game_sdk/achievements#get-user-achievements-%-get-/users/@me/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/achievements",
+      "content": [
+        "Returns a list of achievements for the user whose token you're making the request with. This endpoint will NOT accept the Bearer token for your application generated via the Client Credentials Grant. You will need the user's bearer token, gotten via either the Authorization Code OAuth2 Grant or via the SDK with GetOAuth2Token. This endpoint has a rate limit of 2 requests per 5 seconds per application per user.",
+        "> info\n> This endpoint will not return any achievements marked as secret that the user has not yet completed.",
+        "|Return Object"
+      ],
+      "Return Object": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/game_sdk/achievements#get-user-achievements-%-get-/users/@me/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/achievements-return-object",
+        "content": [
+          {
+            "language": "json",
+            "code": "[\n  {\n    \"application_id\": \"461618159171141643\",\n    \"name\": {\n      \"default\": \"Win the Game\"\n    },\n    \"description\": {\n      \"default\": \"You won!\"\n    },\n    \"secret\": false,\n    \"icon_hash\": \"52c1636444f64ad7cb5368b158847def\",\n    \"id\": \"580159119969878046\",\n    \"secure\": false\n  }\n]\n"
+          }
+        ]
       }
     }
   }

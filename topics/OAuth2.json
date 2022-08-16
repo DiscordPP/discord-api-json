@@ -3,24 +3,31 @@
     "|OAuth2"
   ],
   "OAuth2": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/topics/oauth2#oauth2",
     "content": [
       "OAuth2 enables application developers to build applications that utilize authentication and data from the Discord API. Within Discord, there are multiple types of OAuth2 authentication. We support the authorization code grant, the implicit grant, client credentials, and some modified special-for-Discord flows for Bots and Webhooks.",
-      "|Shared Resources"
+      "|Shared Resources",
+      "|State and Security",
+      "|Authorization Code Grant",
+      "|Implicit Grant",
+      "|Client Credentials Grant",
+      "|Bots",
+      "|Webhooks",
+      "|Get Current Bot Application Information % GET /oauth2/applications/@me",
+      "|Get Current Authorization Information % GET /oauth2/@me"
     ],
     "Shared Resources": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/oauth2#shared-resources",
       "content": [
         "The first step in implementing OAuth2 is registering a developer application and retrieving your client ID and client secret. Most people who will be implementing OAuth2 will want to find and utilize a library in the language of their choice. For those implementing OAuth2 from scratch, please see RFC 6749 for details. After you create your application with Discord, make sure that you have your client_id and client_secret handy. The next step is to figure out which OAuth2 flow is right for your purposes.",
         "|OAuth2 URLs",
-        "|State and Security",
-        "|Authorization Code Grant",
-        "|Implicit Grant",
-        "|Client Credentials Grant",
-        "|Bots",
-        "|Webhooks",
-        "|Get Current Bot Application Information % GET /oauth2/applications/@me",
-        "|Get Current Authorization Information % GET /oauth2/@me"
+        "|OAuth2 Scopes"
       ],
       "OAuth2 URLs": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/oauth2#shared-resources-oauth2-urls",
         "content": [
           [
             [
@@ -40,425 +47,482 @@
               "Token Revocation URL"
             ]
           ],
-          "> warn\n> In accordance with the relevant RFCs, the token and token revocation URLs will only accept a content type of application/x-www-form-urlencoded. JSON content is not permitted and will return an error.",
-          "|OAuth2 Scopes"
-        ],
-        "OAuth2 Scopes": {
-          "content": [
-            "These are a list of all the OAuth2 scopes that Discord supports. Some scopes require approval from Discord to use. Requesting them from a user without approval from Discord may cause errors or undocumented behavior in the OAuth2 flow.",
-            [
-              [
-                "Name",
-                "Description"
-              ],
-              [
-                "activities.read",
-                "allows your app to fetch data from a user's \"Now Playing/Recently Played\" list - requires Discord approval"
-              ],
-              [
-                "activities.write",
-                "allows your app to update a user's activity - requires Discord approval (NOT REQUIRED FOR GAMESDK ACTIVITY MANAGER)"
-              ],
-              [
-                "applications.builds.read",
-                "allows your app to read build data for a user's applications"
-              ],
-              [
-                "applications.builds.upload",
-                "allows your app to upload/update builds for a user's applications - requires Discord approval"
-              ],
-              [
-                "applications.commands",
-                "allows your app to use commands in a guild"
-              ],
-              [
-                "applications.commands.update",
-                "allows your app to update its commands using a Bearer token - client credentials grant only"
-              ],
-              [
-                "applications.commands.permissions.update",
-                "allows your app to update permissions for its commands in a guild a user has permissions to"
-              ],
-              [
-                "applications.entitlements",
-                "allows your app to read entitlements for a user's applications"
-              ],
-              [
-                "applications.store.update",
-                "allows your app to read and update store data (SKUs, store listings, achievements, etc.) for a user's applications"
-              ],
-              [
-                "bot",
-                "for oauth2 bots, this puts the bot in the user's selected guild by default"
-              ],
-              [
-                "connections",
-                "allows /users/@me/connections to return linked third-party accounts"
-              ],
-              [
-                "dm_channels.read",
-                "allows your app to see information about the user's DMs and group DMs - requires Discord approval"
-              ],
-              [
-                "email",
-                "enables /users/@me to return an email"
-              ],
-              [
-                "gdm.join",
-                "allows your app to join users to a group dm"
-              ],
-              [
-                "guilds",
-                "allows /users/@me/guilds to return basic information about all of a user's guilds"
-              ],
-              [
-                "guilds.join",
-                "allows /guilds/{guild.id}/members/{user.id} to be used for joining users to a guild"
-              ],
-              [
-                "guilds.members.read",
-                "allows /users/@me/guilds/{guild.id}/member to return a user's member information in a guild"
-              ],
-              [
-                "identify",
-                "allows /users/@me without email"
-              ],
-              [
-                "messages.read",
-                "for local rpc server api access, this allows you to read messages from all client channels (otherwise restricted to channels/guilds your app creates)"
-              ],
-              [
-                "relationships.read",
-                "allows your app to know a user's friends and implicit relationships - requires Discord approval"
-              ],
-              [
-                "rpc",
-                "for local rpc server access, this allows you to control a user's local Discord client - requires Discord approval"
-              ],
-              [
-                "rpc.activities.write",
-                "for local rpc server access, this allows you to update a user's activity - requires Discord approval"
-              ],
-              [
-                "rpc.notifications.read",
-                "for local rpc server access, this allows you to receive notifications pushed out to the user - requires Discord approval"
-              ],
-              [
-                "rpc.voice.read",
-                "for local rpc server access, this allows you to read a user's voice settings and listen for voice events - requires Discord approval"
-              ],
-              [
-                "rpc.voice.write",
-                "for local rpc server access, this allows you to update a user's voice settings - requires Discord approval"
-              ],
-              [
-                "voice",
-                "allows your app to connect to voice on user's behalf and see all the voice members - requires Discord approval"
-              ],
-              [
-                "webhook.incoming",
-                "this generates a webhook that is returned in the oauth token response for authorization code grants"
-              ]
-            ],
-            "> info\n> guilds.join and bot require you to have a bot account linked to your application. Also, in order to add a user to a guild, your bot has to already belong to that guild."
-          ]
-        }
-      },
-      "State and Security": {
-        "content": [
-          "Before we dive into the semantics of the different OAuth2 grants, we should stop and discuss security, specifically the use of the state parameter. Cross-site request forgery, or CSRF, and Clickjacking are security vulnerabilities that must be addressed by individuals implementing OAuth. This is typically accomplished using the state parameter. state is sent in the authorization request and returned back in the response and should be a value that binds the user's request to their authenticated state. For example, state could be a hash of the user's session cookie, or some other nonce that can be linked to the user's session.",
-          "When a user begins an authorization flow on the client, a state is generated that is unique to that user's request. This value is stored somewhere only accessible to the client and the user, i.e. protected by the same-origin policy. When the user is redirected, the state parameter is returned. The client validates the request by checking that the state returned matches the stored value. If they match, it is a valid authorization request. If they do not match, it's possible that someone intercepted the request or otherwise falsely authorized themselves to another user's resources, and the request should be denied.",
-          "While Discord does not require the use of the state parameter, we support it and highly recommend that you implement it for the security of your own applications and data."
+          "> warn\n> In accordance with the relevant RFCs, the token and token revocation URLs will only accept a content type of application/x-www-form-urlencoded. JSON content is not permitted and will return an error."
         ]
       },
-      "Authorization Code Grant": {
+      "OAuth2 Scopes": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/oauth2#shared-resources-oauth2-scopes",
         "content": [
-          "The authorization code grant is what most developers will recognize as \"standard OAuth2\" and involves retrieving an access code and exchanging it for a user's access token. It allows the authorization server to act as an intermediary between the client and the resource owner, so the resource owner's credentials are never shared directly with the client.",
-          "|Authorization URL Example"
-        ],
-        "Authorization URL Example": {
-          "content": [
-            {
-              "language": "",
-              "code": "https://discord.com/api/oauth2/authorize?response_type=code&client_id=157730590492196864&scope=identify%20guilds.join&state=15773059ghq9183habn&redirect_uri=https%3A%2F%2Fnicememe.website&prompt=consent\n"
-            },
-            "client_id is your application's client_id. scope is a list of OAuth2 scopes separated by url encoded spaces (%20). redirect_uri is whatever URL you registered when creating your application, url-encoded. state is the unique string mentioned in State and Security.",
-            "When someone navigates to this URL, they will be prompted to authorize your application for the requested scopes. On acceptance, they will be redirected to your redirect_uri, which will contain an additional querystring parameter, code. state will also be returned if previously sent, and should be validated at this point.",
-            "prompt controls how the authorization flow handles existing authorizations. If a user has previously authorized your application with the requested scopes and prompt is set to consent, it will request them to reapprove their authorization. If set to none, it will skip the authorization screen and redirect them back to your redirect URI without requesting their authorization. For passthrough scopes, like bot and webhook.incoming, authorization is always required.",
-            "|Redirect URL Example"
-          ],
-          "Redirect URL Example": {
-            "content": [
-              {
-                "language": "",
-                "code": "https://nicememe.website/?code=NhhvTDYsFcdgNLnnLijcl7Ku7bEEeee&state=15773059ghq9183habn\n"
-              },
-              "code is now exchanged for the user's access token by making a POST request to the token URL with the following parameters:",
-              [
-                "client_id - your application's client id",
-                "client_secret - your application's client secret",
-                "grant_type - must be set to authorization_code",
-                "code - the code from the querystring",
-                "redirect_uri - the redirect_uri associated with this authorization, usually from your authorization URL"
-              ],
-              "|Access Token Exchange Example"
-            ],
-            "Access Token Exchange Example": {
-              "content": [
-                {
-                  "language": "python",
-                  "code": "import requests\n\nAPI_ENDPOINT = 'https://discord.com/api/v10'\nCLIENT_ID = '332269999912132097'\nCLIENT_SECRET = '937it3ow87i4ery69876wqire'\nREDIRECT_URI = 'https://nicememe.website'\n\ndef exchange_code(code):\n  data = {\n    'client_id': CLIENT_ID,\n    'client_secret': CLIENT_SECRET,\n    'grant_type': 'authorization_code',\n    'code': code,\n    'redirect_uri': REDIRECT_URI\n  }\n  headers = {\n    'Content-Type': 'application/x-www-form-urlencoded'\n  }\n  r = requests.post('%s/oauth2/token' % API_ENDPOINT, data=data, headers=headers)\n  r.raise_for_status()\n  return r.json()\n"
-                },
-                "You can also pass your client_id and client_secret as basic authentication with client_id as the username and client_secret as the password. In response, you will receive:",
-                "|Access Token Response",
-                "|Refresh Token Exchange Example"
-              ],
-              "Access Token Response": {
-                "content": [
-                  {
-                    "language": "json",
-                    "code": "{\n  \"access_token\": \"6qrZcUqja7812RVdnEKjpzOL4CvHBFG\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 604800,\n  \"refresh_token\": \"D43f5y0ahjqew82jZ4NViEr2YafMKhue\",\n  \"scope\": \"identify\"\n}\n"
-                  },
-                  "Having the user's access token allows your application to make certain requests to the API on their behalf, restricted to whatever scopes were requested. expires_in is how long, in seconds, until the returned access token expires, allowing you to anticipate the expiration and refresh the token. To refresh, make another POST request to the token URL with the following parameters:",
-                  [
-                    "client_id - your application's client id",
-                    "client_secret - your application's client secret",
-                    "grant_type - must be set to refresh_token",
-                    "refresh_token - the user's refresh token"
-                  ]
-                ]
-              },
-              "Refresh Token Exchange Example": {
-                "content": [
-                  {
-                    "language": "python",
-                    "code": "import requests\n\nAPI_ENDPOINT = 'https://discord.com/api/v10'\nCLIENT_ID = '332269999912132097'\nCLIENT_SECRET = '937it3ow87i4ery69876wqire'\nREDIRECT_URI = 'https://nicememe.website'\n\ndef refresh_token(refresh_token):\n  data = {\n    'client_id': CLIENT_ID,\n    'client_secret': CLIENT_SECRET,\n    'grant_type': 'refresh_token',\n    'refresh_token': refresh_token\n  }\n  headers = {\n    'Content-Type': 'application/x-www-form-urlencoded'\n  }\n  r = requests.post('%s/oauth2/token' % API_ENDPOINT, data=data, headers=headers)\n  r.raise_for_status()\n  return r.json()\n"
-                  },
-                  "Boom; fresh access token response!"
-                ]
-              }
-            }
-          }
-        }
-      },
-      "Implicit Grant": {
-        "content": [
-          "The implicit OAuth2 grant is a simplified flow optimized for in-browser clients. Instead of issuing the client an authorization code to be exchanged for an access token, the client is directly issued an access token. The URL is formatted as follows:",
-          "|Authorization URL Example"
-        ],
-        "Authorization URL Example": {
-          "content": [
-            {
-              "language": "",
-              "code": "https://discord.com/api/oauth2/authorize?response_type=token&client_id=290926444748734499&state=15773059ghq9183habn&scope=identify\n"
-            },
-            "On redirect, your redirect URI will contain additional URI fragments: access_token, token_type, expires_in, scope, and state(if specified). These are not querystring parameters. Be mindful of the \"#\" character:",
-            "|Redirect URL Example"
-          ],
-          "Redirect URL Example": {
-            "content": [
-              {
-                "language": "",
-                "code": "https://findingfakeurlsisprettyhard.tv/#access_token=RTfP0OK99U3kbRtHOoKLmJbOn45PjL&token_type=Bearer&expires_in=604800&scope=identify&state=15773059ghq9183habn\n"
-              },
-              "There are tradeoffs in using the implicit grant flow. It is both quicker and easier to implement, but rather than exchanging a code and getting a token returned in a secure HTTP body, the access token is returned in the URI fragment, which makes it possibly exposed to unauthorized parties. You also are not returned a refresh token, so the user must explicitly re-authorize once their token expires."
-            ]
-          }
-        }
-      },
-      "Client Credentials Grant": {
-        "content": [
-          "The client credential flow is a quick and easy way for bot developers to get their own bearer tokens for testing purposes. By making a POST request to the token URL with a grant type of client_credentials, using Basic authentication with your client id as the username and your client secret as the password, you will be returned an access token for the bot owner. Therefore, always be super-extra-very-we-are-not-kidding-like-really-be-secure-make-sure-your-info-is-not-in-your-source-code careful with your client_id and client_secret. We don't take kindly to imposters around these parts.",
-          "You can specify scopes with the scope parameter, which is a list of OAuth2 scopes separated by spaces:",
-          "> info\n> Team applications are limited to the identify and applications.commands.update scope, because teams are not bound to a specific user.",
-          "|Client Credentials Token Request Example"
-        ],
-        "Client Credentials Token Request Example": {
-          "content": [
-            {
-              "language": "python",
-              "code": "import requests\n\nAPI_ENDPOINT = 'https://discord.com/api/v10'\nCLIENT_ID = '332269999912132097'\nCLIENT_SECRET = '937it3ow87i4ery69876wqire'\n\ndef get_token():\n  data = {\n    'grant_type': 'client_credentials',\n    'scope': 'identify connections'\n  }\n  headers = {\n    'Content-Type': 'application/x-www-form-urlencoded'\n  }\n  r = requests.post('%s/oauth2/token' % API_ENDPOINT, data=data, headers=headers, auth=(CLIENT_ID, CLIENT_SECRET))\n  r.raise_for_status()\n  return r.json()\n"
-            },
-            "In return, you will receive an access token (without a refresh token):",
-            "|Client Credentials Access Token Response"
-          ],
-          "Client Credentials Access Token Response": {
-            "content": [
-              {
-                "language": "json",
-                "code": "{\n  \"access_token\": \"6qrZcUqja7812RVdnEKjpzOL4CvHBFG\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 604800,\n  \"scope\": \"identify connections\"\n}\n"
-              }
-            ]
-          }
-        }
-      },
-      "Bots": {
-        "content": [
-          "So, what are bot accounts?",
-          "|Bot vs User Accounts",
-          "|Bot Authorization Flow",
-          "|Advanced Bot Authorization",
-          "|Two-Factor Authentication Requirement"
-        ],
-        "Bot vs User Accounts": {
-          "content": [
-            "Discord's API provides a separate type of user account dedicated to automation, called a bot account. Bot accounts can be created through the applications page, and are authenticated using a token (rather than a username and password). Unlike the normal OAuth2 flow, bot accounts have full access to most API routes without using bearer tokens, and can connect to the Real Time Gateway. Automating normal user accounts (generally called \"self-bots\") outside of the OAuth2/bot API is forbidden, and can result in account termination if found.",
-            "Bot accounts have a few differences in comparison to normal user accounts, namely:",
+          "These are a list of all the OAuth2 scopes that Discord supports. Some scopes require approval from Discord to use. Requesting them from a user without approval from Discord may cause errors or undocumented behavior in the OAuth2 flow.",
+          [
             [
-              "Bots are added to guilds through the OAuth2 API, and cannot accept normal invites.",
-              "Bots cannot have friends, nor be added to or join Group DMs.",
-              "Verified bots do not have a maximum number of Guilds.",
-              "Bots have an entirely separate set of Rate Limits."
-            ]
-          ]
-        },
-        "Bot Authorization Flow": {
-          "content": [
-            "Bot authorization is a special server-less and callback-less OAuth2 flow that makes it easy for users to add bots to guilds. The URL you create looks similar to what we use for full stack implementation:",
-            "|Bot Auth Parameters"
-          ],
-          "Bot Auth Parameters": {
-            "content": [
-              [
-                [
-                  "name",
-                  "description"
-                ],
-                [
-                  "client_id",
-                  "your app's client id"
-                ],
-                [
-                  "scope",
-                  "needs to include bot for the bot flow"
-                ],
-                [
-                  "permissions",
-                  "the permissions you're requesting"
-                ],
-                [
-                  "guild_id",
-                  "pre-fills the dropdown picker with a guild for the user"
-                ],
-                [
-                  "disable_guild_select",
-                  "true or false\u2014disallows the user from changing the guild dropdown"
-                ]
-              ],
-              "|URL Example"
+              "Name",
+              "Description"
             ],
-            "URL Example": {
-              "content": [
-                {
-                  "language": "",
-                  "code": "https://discord.com/api/oauth2/authorize?client_id=157730590492196864&scope=bot&permissions=1\n"
-                },
-                "In the case of bots, the scope parameter should be set to bot. There's also a new parameter, permissions, which is an integer corresponding to the permission calculations for the bot. You'll also notice the absence of response_type and redirect_uri. Bot authorization does not require these parameters because there is no need to retrieve the user's access token.",
-                "Additionally, if your bot provides Application Commands, you can add applications.commands to the URL's scopes, so that commands will be available in the guild.",
-                "When the user navigates to this page, they'll be prompted to add the bot to a guild in which they have proper permissions. On acceptance, the bot will be added. Super easy!",
-                "If you happen to already know the ID of the guild the user will add your bot to, you can provide this ID in the URL as a guild_id=GUILD_ID parameter.\nWhen the authorization page loads, that guild will be preselected in the dialog if that user has permission to add the bot to that guild. You can use this in conjunction with the parameter disable_guild_select=true to disallow the user from picking a different guild.",
-                "If your bot is super specific to your private clubhouse, or you just don't like sharing, you can leave the Public Bot option unchecked in your application's settings. If unchecked, only you can add the bot to guilds. If marked as public, anyone with your bot's URL can add it to guilds in which they have proper permissions."
-              ]
-            }
-          }
-        },
-        "Advanced Bot Authorization": {
-          "content": [
-            "Devs can extend the bot authorization functionality. You can request additional scopes outside of bot and applications.commands, which will prompt a continuation into a complete authorization code grant flow and add the ability to request the user's access token. If you request any scopes outside of bot and applications.commands, response_type is again mandatory; we will also automatically redirect the user to the first URI in your application's registered list unless redirect_uri is specified.",
-            "When receiving the access code on redirect, there will be additional querystring parameters of guild_id and permissions. The guild_id parameter should only be used as a hint as to the relationship between your bot and a guild. To be sure of the relationship between your bot and the guild, consider requiring the Oauth2 code grant in your bot's settings. Enabling it requires anyone adding your bot to a server to go through a full OAuth2 authorization code grant flow. When you retrieve the user's access token, you'll also receive information about the guild to which your bot was added:",
-            "|Extended Bot Authorization Access Token Example"
-          ],
-          "Extended Bot Authorization Access Token Example": {
-            "content": [
-              {
-                "language": "json",
-                "code": "{\n  \"token_type\": \"Bearer\",\n  \"guild\": {\n    \"mfa_level\": 0,\n    \"emojis\": [],\n    \"application_id\": null,\n    \"name\": \"SomeTest\",\n    \"roles\": [\n      {\n        \"hoist\": false,\n        \"name\": \"@everyone\",\n        \"mentionable\": false,\n        \"color\": 0,\n        \"position\": 0,\n        \"id\": \"290926798626357250\",\n        \"managed\": false,\n        \"permissions\": 49794241,\n        \"permissions_new\": \"49794241\"\n      }\n    ],\n    \"afk_timeout\": 300,\n    \"system_channel_id\": null,\n    \"widget_channel_id\": null,\n    \"region\": \"us-east\",\n    \"default_message_notifications\": 1,\n    \"explicit_content_filter\": 0,\n    \"splash\": null,\n    \"features\": [],\n    \"afk_channel_id\": null,\n    \"widget_enabled\": false,\n    \"verification_level\": 0,\n    \"owner_id\": \"53908232999183680\",\n    \"id\": \"2909267986347357250\",\n    \"icon\": null,\n    \"description\": null,\n    \"public_updates_channel_id\": null,\n    \"rules_channel_id\": null,\n    \"max_members\": 100000,\n    \"vanity_url_code\": null,\n    \"premium_subscription_count\": 0,\n    \"premium_tier\": 0,\n    \"preferred_locale\": \"en-US\",\n    \"system_channel_flags\": 0,\n    \"banner\": null,\n    \"max_presences\": null,\n    \"discovery_splash\": null,\n    \"max_video_channel_users\": 25\n  },\n  \"access_token\": \"zMndOe7jFLXGawdlxMOdNvXjjOce5X\",\n  \"scope\": \"bot\",\n  \"expires_in\": 604800,\n  \"refresh_token\": \"mgp8qnvBwJcmadwgCYKyYD5CAzGAX4\"\n}\n"
-              }
+            [
+              "activities.read",
+              "allows your app to fetch data from a user's \"Now Playing/Recently Played\" list - requires Discord approval"
+            ],
+            [
+              "activities.write",
+              "allows your app to update a user's activity - requires Discord approval (NOT REQUIRED FOR GAMESDK ACTIVITY MANAGER)"
+            ],
+            [
+              "applications.builds.read",
+              "allows your app to read build data for a user's applications"
+            ],
+            [
+              "applications.builds.upload",
+              "allows your app to upload/update builds for a user's applications - requires Discord approval"
+            ],
+            [
+              "applications.commands",
+              "allows your app to use commands in a guild"
+            ],
+            [
+              "applications.commands.update",
+              "allows your app to update its commands using a Bearer token - client credentials grant only"
+            ],
+            [
+              "applications.commands.permissions.update",
+              "allows your app to update permissions for its commands in a guild a user has permissions to"
+            ],
+            [
+              "applications.entitlements",
+              "allows your app to read entitlements for a user's applications"
+            ],
+            [
+              "applications.store.update",
+              "allows your app to read and update store data (SKUs, store listings, achievements, etc.) for a user's applications"
+            ],
+            [
+              "bot",
+              "for oauth2 bots, this puts the bot in the user's selected guild by default"
+            ],
+            [
+              "connections",
+              "allows /users/@me/connections to return linked third-party accounts"
+            ],
+            [
+              "dm_channels.read",
+              "allows your app to see information about the user's DMs and group DMs - requires Discord approval"
+            ],
+            [
+              "email",
+              "enables /users/@me to return an email"
+            ],
+            [
+              "gdm.join",
+              "allows your app to join users to a group dm"
+            ],
+            [
+              "guilds",
+              "allows /users/@me/guilds to return basic information about all of a user's guilds"
+            ],
+            [
+              "guilds.join",
+              "allows /guilds/{guild.id}/members/{user.id} to be used for joining users to a guild"
+            ],
+            [
+              "guilds.members.read",
+              "allows /users/@me/guilds/{guild.id}/member to return a user's member information in a guild"
+            ],
+            [
+              "identify",
+              "allows /users/@me without email"
+            ],
+            [
+              "messages.read",
+              "for local rpc server api access, this allows you to read messages from all client channels (otherwise restricted to channels/guilds your app creates)"
+            ],
+            [
+              "relationships.read",
+              "allows your app to know a user's friends and implicit relationships - requires Discord approval"
+            ],
+            [
+              "rpc",
+              "for local rpc server access, this allows you to control a user's local Discord client - requires Discord approval"
+            ],
+            [
+              "rpc.activities.write",
+              "for local rpc server access, this allows you to update a user's activity - requires Discord approval"
+            ],
+            [
+              "rpc.notifications.read",
+              "for local rpc server access, this allows you to receive notifications pushed out to the user - requires Discord approval"
+            ],
+            [
+              "rpc.voice.read",
+              "for local rpc server access, this allows you to read a user's voice settings and listen for voice events - requires Discord approval"
+            ],
+            [
+              "rpc.voice.write",
+              "for local rpc server access, this allows you to update a user's voice settings - requires Discord approval"
+            ],
+            [
+              "voice",
+              "allows your app to connect to voice on user's behalf and see all the voice members - requires Discord approval"
+            ],
+            [
+              "webhook.incoming",
+              "this generates a webhook that is returned in the oauth token response for authorization code grants"
             ]
-          }
-        },
-        "Two-Factor Authentication Requirement": {
-          "content": [
-            "For bots with elevated permissions (permissions with a * next to them), we enforce two-factor authentication on the owner's account when added to guilds that have server-wide 2FA enabled."
-          ]
-        }
-      },
-      "Webhooks": {
+          ],
+          "> info\n> guilds.join and bot require you to have a bot account linked to your application. Also, in order to add a user to a guild, your bot has to already belong to that guild."
+        ]
+      }
+    },
+    "State and Security": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/oauth2#state-and-security",
+      "content": [
+        "Before we dive into the semantics of the different OAuth2 grants, we should stop and discuss security, specifically the use of the state parameter. Cross-site request forgery, or CSRF, and Clickjacking are security vulnerabilities that must be addressed by individuals implementing OAuth. This is typically accomplished using the state parameter. state is sent in the authorization request and returned back in the response and should be a value that binds the user's request to their authenticated state. For example, state could be a hash of the user's session cookie, or some other nonce that can be linked to the user's session.",
+        "When a user begins an authorization flow on the client, a state is generated that is unique to that user's request. This value is stored somewhere only accessible to the client and the user, i.e. protected by the same-origin policy. When the user is redirected, the state parameter is returned. The client validates the request by checking that the state returned matches the stored value. If they match, it is a valid authorization request. If they do not match, it's possible that someone intercepted the request or otherwise falsely authorized themselves to another user's resources, and the request should be denied.",
+        "While Discord does not require the use of the state parameter, we support it and highly recommend that you implement it for the security of your own applications and data."
+      ]
+    },
+    "Authorization Code Grant": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/oauth2#authorization-code-grant",
+      "content": [
+        "The authorization code grant is what most developers will recognize as \"standard OAuth2\" and involves retrieving an access code and exchanging it for a user's access token. It allows the authorization server to act as an intermediary between the client and the resource owner, so the resource owner's credentials are never shared directly with the client.",
+        "|Authorization URL Example",
+        "|Redirect URL Example",
+        "|Access Token Exchange Example",
+        "|Access Token Response",
+        "|Refresh Token Exchange Example"
+      ],
+      "Authorization URL Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/oauth2#authorization-code-grant-authorization-url-example",
         "content": [
-          "Discord's webhook flow is a specialized version of an authorization code implementation. In this case, the scope querystring parameter needs to be set to webhook.incoming:",
+          {
+            "language": "",
+            "code": "https://discord.com/api/oauth2/authorize?response_type=code&client_id=157730590492196864&scope=identify%20guilds.join&state=15773059ghq9183habn&redirect_uri=https%3A%2F%2Fnicememe.website&prompt=consent\n"
+          },
+          "client_id is your application's client_id. scope is a list of OAuth2 scopes separated by url encoded spaces (%20). redirect_uri is whatever URL you registered when creating your application, url-encoded. state is the unique string mentioned in State and Security.",
+          "When someone navigates to this URL, they will be prompted to authorize your application for the requested scopes. On acceptance, they will be redirected to your redirect_uri, which will contain an additional querystring parameter, code. state will also be returned if previously sent, and should be validated at this point.",
+          "prompt controls how the authorization flow handles existing authorizations. If a user has previously authorized your application with the requested scopes and prompt is set to consent, it will request them to reapprove their authorization. If set to none, it will skip the authorization screen and redirect them back to your redirect URI without requesting their authorization. For passthrough scopes, like bot and webhook.incoming, authorization is always required."
+        ]
+      },
+      "Redirect URL Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/oauth2#authorization-code-grant-redirect-url-example",
+        "content": [
+          {
+            "language": "",
+            "code": "https://nicememe.website/?code=NhhvTDYsFcdgNLnnLijcl7Ku7bEEeee&state=15773059ghq9183habn\n"
+          },
+          "code is now exchanged for the user's access token by making a POST request to the token URL with the following parameters:",
+          [
+            "client_id - your application's client id",
+            "client_secret - your application's client secret",
+            "grant_type - must be set to authorization_code",
+            "code - the code from the querystring",
+            "redirect_uri - the redirect_uri associated with this authorization, usually from your authorization URL"
+          ]
+        ]
+      },
+      "Access Token Exchange Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/oauth2#authorization-code-grant-access-token-exchange-example",
+        "content": [
+          {
+            "language": "python",
+            "code": "import requests\n\nAPI_ENDPOINT = 'https://discord.com/api/v10'\nCLIENT_ID = '332269999912132097'\nCLIENT_SECRET = '937it3ow87i4ery69876wqire'\nREDIRECT_URI = 'https://nicememe.website'\n\ndef exchange_code(code):\n  data = {\n    'client_id': CLIENT_ID,\n    'client_secret': CLIENT_SECRET,\n    'grant_type': 'authorization_code',\n    'code': code,\n    'redirect_uri': REDIRECT_URI\n  }\n  headers = {\n    'Content-Type': 'application/x-www-form-urlencoded'\n  }\n  r = requests.post('%s/oauth2/token' % API_ENDPOINT, data=data, headers=headers)\n  r.raise_for_status()\n  return r.json()\n"
+          },
+          "You can also pass your client_id and client_secret as basic authentication with client_id as the username and client_secret as the password. In response, you will receive:"
+        ]
+      },
+      "Access Token Response": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/oauth2#authorization-code-grant-access-token-response",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"access_token\": \"6qrZcUqja7812RVdnEKjpzOL4CvHBFG\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 604800,\n  \"refresh_token\": \"D43f5y0ahjqew82jZ4NViEr2YafMKhue\",\n  \"scope\": \"identify\"\n}\n"
+          },
+          "Having the user's access token allows your application to make certain requests to the API on their behalf, restricted to whatever scopes were requested. expires_in is how long, in seconds, until the returned access token expires, allowing you to anticipate the expiration and refresh the token. To refresh, make another POST request to the token URL with the following parameters:",
+          [
+            "client_id - your application's client id",
+            "client_secret - your application's client secret",
+            "grant_type - must be set to refresh_token",
+            "refresh_token - the user's refresh token"
+          ]
+        ]
+      },
+      "Refresh Token Exchange Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/oauth2#authorization-code-grant-refresh-token-exchange-example",
+        "content": [
+          {
+            "language": "python",
+            "code": "import requests\n\nAPI_ENDPOINT = 'https://discord.com/api/v10'\nCLIENT_ID = '332269999912132097'\nCLIENT_SECRET = '937it3ow87i4ery69876wqire'\nREDIRECT_URI = 'https://nicememe.website'\n\ndef refresh_token(refresh_token):\n  data = {\n    'client_id': CLIENT_ID,\n    'client_secret': CLIENT_SECRET,\n    'grant_type': 'refresh_token',\n    'refresh_token': refresh_token\n  }\n  headers = {\n    'Content-Type': 'application/x-www-form-urlencoded'\n  }\n  r = requests.post('%s/oauth2/token' % API_ENDPOINT, data=data, headers=headers)\n  r.raise_for_status()\n  return r.json()\n"
+          },
+          "Boom; fresh access token response!"
+        ]
+      }
+    },
+    "Implicit Grant": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/oauth2#implicit-grant",
+      "content": [
+        "The implicit OAuth2 grant is a simplified flow optimized for in-browser clients. Instead of issuing the client an authorization code to be exchanged for an access token, the client is directly issued an access token. The URL is formatted as follows:",
+        "|Authorization URL Example",
+        "|Redirect URL Example"
+      ],
+      "Authorization URL Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/oauth2#implicit-grant-authorization-url-example",
+        "content": [
+          {
+            "language": "",
+            "code": "https://discord.com/api/oauth2/authorize?response_type=token&client_id=290926444748734499&state=15773059ghq9183habn&scope=identify\n"
+          },
+          "On redirect, your redirect URI will contain additional URI fragments: access_token, token_type, expires_in, scope, and state(if specified). These are not querystring parameters. Be mindful of the \"#\" character:"
+        ]
+      },
+      "Redirect URL Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/oauth2#implicit-grant-redirect-url-example",
+        "content": [
+          {
+            "language": "",
+            "code": "https://findingfakeurlsisprettyhard.tv/#access_token=RTfP0OK99U3kbRtHOoKLmJbOn45PjL&token_type=Bearer&expires_in=604800&scope=identify&state=15773059ghq9183habn\n"
+          },
+          "There are tradeoffs in using the implicit grant flow. It is both quicker and easier to implement, but rather than exchanging a code and getting a token returned in a secure HTTP body, the access token is returned in the URI fragment, which makes it possibly exposed to unauthorized parties. You also are not returned a refresh token, so the user must explicitly re-authorize once their token expires."
+        ]
+      }
+    },
+    "Client Credentials Grant": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/oauth2#client-credentials-grant",
+      "content": [
+        "The client credential flow is a quick and easy way for bot developers to get their own bearer tokens for testing purposes. By making a POST request to the token URL with a grant type of client_credentials, using Basic authentication with your client id as the username and your client secret as the password, you will be returned an access token for the bot owner. Therefore, always be super-extra-very-we-are-not-kidding-like-really-be-secure-make-sure-your-info-is-not-in-your-source-code careful with your client_id and client_secret. We don't take kindly to imposters around these parts.",
+        "You can specify scopes with the scope parameter, which is a list of OAuth2 scopes separated by spaces:",
+        "> info\n> Team applications are limited to the identify and applications.commands.update scope, because teams are not bound to a specific user.",
+        "|Client Credentials Token Request Example",
+        "|Client Credentials Access Token Response"
+      ],
+      "Client Credentials Token Request Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/oauth2#client-credentials-grant-client-credentials-token-request-example",
+        "content": [
+          {
+            "language": "python",
+            "code": "import requests\n\nAPI_ENDPOINT = 'https://discord.com/api/v10'\nCLIENT_ID = '332269999912132097'\nCLIENT_SECRET = '937it3ow87i4ery69876wqire'\n\ndef get_token():\n  data = {\n    'grant_type': 'client_credentials',\n    'scope': 'identify connections'\n  }\n  headers = {\n    'Content-Type': 'application/x-www-form-urlencoded'\n  }\n  r = requests.post('%s/oauth2/token' % API_ENDPOINT, data=data, headers=headers, auth=(CLIENT_ID, CLIENT_SECRET))\n  r.raise_for_status()\n  return r.json()\n"
+          },
+          "In return, you will receive an access token (without a refresh token):"
+        ]
+      },
+      "Client Credentials Access Token Response": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/oauth2#client-credentials-grant-client-credentials-access-token-response",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"access_token\": \"6qrZcUqja7812RVdnEKjpzOL4CvHBFG\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 604800,\n  \"scope\": \"identify connections\"\n}\n"
+          }
+        ]
+      }
+    },
+    "Bots": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/oauth2#bots",
+      "content": [
+        "So, what are bot accounts?",
+        "|Bot vs User Accounts",
+        "|Bot Authorization Flow",
+        "|Advanced Bot Authorization",
+        "|Two-Factor Authentication Requirement"
+      ],
+      "Bot vs User Accounts": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/oauth2#bot-vs-user-accounts",
+        "content": [
+          "Discord's API provides a separate type of user account dedicated to automation, called a bot account. Bot accounts can be created through the applications page, and are authenticated using a token (rather than a username and password). Unlike the normal OAuth2 flow, bot accounts have full access to most API routes without using bearer tokens, and can connect to the Real Time Gateway. Automating normal user accounts (generally called \"self-bots\") outside of the OAuth2/bot API is forbidden, and can result in account termination if found.",
+          "Bot accounts have a few differences in comparison to normal user accounts, namely:",
+          [
+            "Bots are added to guilds through the OAuth2 API, and cannot accept normal invites.",
+            "Bots cannot have friends, nor be added to or join Group DMs.",
+            "Verified bots do not have a maximum number of Guilds.",
+            "Bots have an entirely separate set of Rate Limits."
+          ]
+        ]
+      },
+      "Bot Authorization Flow": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/oauth2#bot-authorization-flow",
+        "content": [
+          "Bot authorization is a special server-less and callback-less OAuth2 flow that makes it easy for users to add bots to guilds. The URL you create looks similar to what we use for full stack implementation:",
+          "|Bot Auth Parameters",
           "|URL Example"
         ],
-        "URL Example": {
-          "content": [
-            {
-              "language": "",
-              "code": "https://discord.com/api/oauth2/authorize?response_type=code&client_id=157730590492196864&scope=webhook.incoming&state=15773059ghq9183habn&redirect_uri=https%3A%2F%2Fnicememe.website\n"
-            },
-            "When the user navigates to this URL, they will be prompted to select a channel in which to allow the webhook. When the webhook is executed, it will post its message into this channel. On acceptance, the user will be redirected to your redirect_uri. The URL will contain the code querystring parameter which should be exchanged for an access token. In return, you will receive a slightly modified token response:",
-            "|Webhook Token Response Example"
-          ],
-          "Webhook Token Response Example": {
-            "content": [
-              {
-                "language": "json",
-                "code": "{\n  \"token_type\": \"Bearer\",\n  \"access_token\": \"GNaVzEtATqdh173tNHEXY9ZYAuhiYxvy\",\n  \"scope\": \"webhook.incoming\",\n  \"expires_in\": 604800,\n  \"refresh_token\": \"PvPL7ELyMDc1836457XCDh1Y8jPbRm\",\n  \"webhook\": {\n    \"application_id\": \"310954232226357250\",\n    \"name\": \"testwebhook\",\n    \"url\": \"https://discord.com/api/webhooks/347114750880120863/kKDdjXa1g9tKNs0-_yOwLyALC9gydEWP6gr9sHabuK1vuofjhQDDnlOclJeRIvYK-pj_\",\n    \"channel_id\": \"345626669224982402\",\n    \"token\": \"kKDdjXa1g9tKNs0-_yOwLyALC9gydEWP6gr9sHabuK1vuofjhQDDnlOclJeRIvYK-pj_\",\n    \"type\": 1,\n    \"avatar\": null,\n    \"guild_id\": \"290926792226357250\",\n    \"id\": \"347114750880120863\"\n  }\n}\n"
-              },
-              "From this object, you should store the webhook.token and webhook.id. See the execute webhook documentation for how to send messages with the webhook.",
-              "Any user that wishes to add your webhook to their channel will need to go through the full OAuth2 flow. A new webhook is created each time, so you will need to save the token and id. If you wish to send a message to all your webhooks, you'll need to iterate over each stored id:token combination and make POST requests to each one. Be mindful of our Rate Limits!"
-            ]
-          }
-        }
-      },
-      "Get Current Bot Application Information % GET /oauth2/applications/@me": {
-        "content": [
-          "Returns the bot's application object."
-        ]
-      },
-      "Get Current Authorization Information % GET /oauth2/@me": {
-        "content": [
-          "Returns info about the current authorization. Requires authentication with a bearer token.",
-          "|Response Structure"
-        ],
-        "Response Structure": {
+        "Bot Auth Parameters": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/oauth2#bot-authorization-flow-bot-auth-parameters",
           "content": [
             [
               [
-                "Field",
-                "Type",
-                "Description"
+                "name",
+                "description"
               ],
               [
-                "application",
-                "partial application object",
-                "the current application"
+                "client_id",
+                "your app's client id"
               ],
               [
-                "scopes",
-                "array of strings",
-                "the scopes the user has authorized the application for"
+                "scope",
+                "needs to include bot for the bot flow"
               ],
               [
-                "expires",
-                "ISO8601 timestamp",
-                "when the access token expires"
+                "permissions",
+                "the permissions you're requesting"
               ],
               [
-                "user?",
-                "user object",
-                "the user who has authorized, if the user has authorized with the identify scope"
+                "guild_id",
+                "pre-fills the dropdown picker with a guild for the user"
+              ],
+              [
+                "disable_guild_select",
+                "true or false\u2014disallows the user from changing the guild dropdown"
               ]
-            ],
-            "|Example Authorization Information"
-          ],
-          "Example Authorization Information": {
-            "content": [
-              {
-                "language": "json",
-                "code": "{\n    \"application\": {\n        \"id\": \"159799960412356608\",\n        \"name\": \"AIRHORN SOLUTIONS\",\n        \"icon\": \"f03590d3eb764081d154a66340ea7d6d\",\n        \"description\": \"\",\n        \"hook\": true,\n        \"bot_public\": true,\n        \"bot_require_code_grant\": false,\n        \"verify_key\": \"c8cde6a3c8c6e49d86af3191287b3ce255872be1fff6dc285bdb420c06a2c3c8\"\n    },\n    \"scopes\": [\n        \"guilds.join\",\n        \"identify\"\n    ],\n    \"expires\": \"2021-01-23T02:33:17.017000+00:00\",\n    \"user\": {\n        \"id\": \"268473310986240001\",\n        \"username\": \"Discord\",\n        \"avatar\": \"f749bb0cbeeb26ef21eca719337d20f1\",\n        \"discriminator\": \"0001\",\n        \"public_flags\": 131072\n    }\n}\n"
-              }
             ]
-          }
+          ]
+        },
+        "URL Example": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/oauth2#bot-authorization-flow-url-example",
+          "content": [
+            {
+              "language": "",
+              "code": "https://discord.com/api/oauth2/authorize?client_id=157730590492196864&scope=bot&permissions=1\n"
+            },
+            "In the case of bots, the scope parameter should be set to bot. There's also a new parameter, permissions, which is an integer corresponding to the permission calculations for the bot. You'll also notice the absence of response_type and redirect_uri. Bot authorization does not require these parameters because there is no need to retrieve the user's access token.",
+            "Additionally, if your bot provides Application Commands, you can add applications.commands to the URL's scopes, so that commands will be available in the guild.",
+            "When the user navigates to this page, they'll be prompted to add the bot to a guild in which they have proper permissions. On acceptance, the bot will be added. Super easy!",
+            "If you happen to already know the ID of the guild the user will add your bot to, you can provide this ID in the URL as a guild_id=GUILD_ID parameter.\nWhen the authorization page loads, that guild will be preselected in the dialog if that user has permission to add the bot to that guild. You can use this in conjunction with the parameter disable_guild_select=true to disallow the user from picking a different guild.",
+            "If your bot is super specific to your private clubhouse, or you just don't like sharing, you can leave the Public Bot option unchecked in your application's settings. If unchecked, only you can add the bot to guilds. If marked as public, anyone with your bot's URL can add it to guilds in which they have proper permissions."
+          ]
         }
+      },
+      "Advanced Bot Authorization": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/oauth2#advanced-bot-authorization",
+        "content": [
+          "Devs can extend the bot authorization functionality. You can request additional scopes outside of bot and applications.commands, which will prompt a continuation into a complete authorization code grant flow and add the ability to request the user's access token. If you request any scopes outside of bot and applications.commands, response_type is again mandatory; we will also automatically redirect the user to the first URI in your application's registered list unless redirect_uri is specified.",
+          "When receiving the access code on redirect, there will be additional querystring parameters of guild_id and permissions. The guild_id parameter should only be used as a hint as to the relationship between your bot and a guild. To be sure of the relationship between your bot and the guild, consider requiring the Oauth2 code grant in your bot's settings. Enabling it requires anyone adding your bot to a server to go through a full OAuth2 authorization code grant flow. When you retrieve the user's access token, you'll also receive information about the guild to which your bot was added:",
+          "|Extended Bot Authorization Access Token Example"
+        ],
+        "Extended Bot Authorization Access Token Example": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/oauth2#advanced-bot-authorization-extended-bot-authorization-access-token-example",
+          "content": [
+            {
+              "language": "json",
+              "code": "{\n  \"token_type\": \"Bearer\",\n  \"guild\": {\n    \"mfa_level\": 0,\n    \"emojis\": [],\n    \"application_id\": null,\n    \"name\": \"SomeTest\",\n    \"roles\": [\n      {\n        \"hoist\": false,\n        \"name\": \"@everyone\",\n        \"mentionable\": false,\n        \"color\": 0,\n        \"position\": 0,\n        \"id\": \"290926798626357250\",\n        \"managed\": false,\n        \"permissions\": 49794241,\n        \"permissions_new\": \"49794241\"\n      }\n    ],\n    \"afk_timeout\": 300,\n    \"system_channel_id\": null,\n    \"widget_channel_id\": null,\n    \"region\": \"us-east\",\n    \"default_message_notifications\": 1,\n    \"explicit_content_filter\": 0,\n    \"splash\": null,\n    \"features\": [],\n    \"afk_channel_id\": null,\n    \"widget_enabled\": false,\n    \"verification_level\": 0,\n    \"owner_id\": \"53908232999183680\",\n    \"id\": \"2909267986347357250\",\n    \"icon\": null,\n    \"description\": null,\n    \"public_updates_channel_id\": null,\n    \"rules_channel_id\": null,\n    \"max_members\": 100000,\n    \"vanity_url_code\": null,\n    \"premium_subscription_count\": 0,\n    \"premium_tier\": 0,\n    \"preferred_locale\": \"en-US\",\n    \"system_channel_flags\": 0,\n    \"banner\": null,\n    \"max_presences\": null,\n    \"discovery_splash\": null,\n    \"max_video_channel_users\": 25\n  },\n  \"access_token\": \"zMndOe7jFLXGawdlxMOdNvXjjOce5X\",\n  \"scope\": \"bot\",\n  \"expires_in\": 604800,\n  \"refresh_token\": \"mgp8qnvBwJcmadwgCYKyYD5CAzGAX4\"\n}\n"
+            }
+          ]
+        }
+      },
+      "Two-Factor Authentication Requirement": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/oauth2#two-factor-authentication-requirement",
+        "content": [
+          "For bots with elevated permissions (permissions with a * next to them), we enforce two-factor authentication on the owner's account when added to guilds that have server-wide 2FA enabled."
+        ]
+      }
+    },
+    "Webhooks": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/oauth2#webhooks",
+      "content": [
+        "Discord's webhook flow is a specialized version of an authorization code implementation. In this case, the scope querystring parameter needs to be set to webhook.incoming:",
+        "|URL Example",
+        "|Webhook Token Response Example"
+      ],
+      "URL Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/oauth2#webhooks-url-example",
+        "content": [
+          {
+            "language": "",
+            "code": "https://discord.com/api/oauth2/authorize?response_type=code&client_id=157730590492196864&scope=webhook.incoming&state=15773059ghq9183habn&redirect_uri=https%3A%2F%2Fnicememe.website\n"
+          },
+          "When the user navigates to this URL, they will be prompted to select a channel in which to allow the webhook. When the webhook is executed, it will post its message into this channel. On acceptance, the user will be redirected to your redirect_uri. The URL will contain the code querystring parameter which should be exchanged for an access token. In return, you will receive a slightly modified token response:"
+        ]
+      },
+      "Webhook Token Response Example": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/oauth2#webhooks-webhook-token-response-example",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"token_type\": \"Bearer\",\n  \"access_token\": \"GNaVzEtATqdh173tNHEXY9ZYAuhiYxvy\",\n  \"scope\": \"webhook.incoming\",\n  \"expires_in\": 604800,\n  \"refresh_token\": \"PvPL7ELyMDc1836457XCDh1Y8jPbRm\",\n  \"webhook\": {\n    \"application_id\": \"310954232226357250\",\n    \"name\": \"testwebhook\",\n    \"url\": \"https://discord.com/api/webhooks/347114750880120863/kKDdjXa1g9tKNs0-_yOwLyALC9gydEWP6gr9sHabuK1vuofjhQDDnlOclJeRIvYK-pj_\",\n    \"channel_id\": \"345626669224982402\",\n    \"token\": \"kKDdjXa1g9tKNs0-_yOwLyALC9gydEWP6gr9sHabuK1vuofjhQDDnlOclJeRIvYK-pj_\",\n    \"type\": 1,\n    \"avatar\": null,\n    \"guild_id\": \"290926792226357250\",\n    \"id\": \"347114750880120863\"\n  }\n}\n"
+          },
+          "From this object, you should store the webhook.token and webhook.id. See the execute webhook documentation for how to send messages with the webhook.",
+          "Any user that wishes to add your webhook to their channel will need to go through the full OAuth2 flow. A new webhook is created each time, so you will need to save the token and id. If you wish to send a message to all your webhooks, you'll need to iterate over each stored id:token combination and make POST requests to each one. Be mindful of our Rate Limits!"
+        ]
+      }
+    },
+    "Get Current Bot Application Information % GET /oauth2/applications/@me": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/oauth2#get-current-bot-application-information-%-get-/oauth2/applications/@me",
+      "content": [
+        "Returns the bot's application object."
+      ]
+    },
+    "Get Current Authorization Information % GET /oauth2/@me": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/oauth2#get-current-authorization-information-%-get-/oauth2/@me",
+      "content": [
+        "Returns info about the current authorization. Requires authentication with a bearer token.",
+        "|Response Structure",
+        "|Example Authorization Information"
+      ],
+      "Response Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/oauth2#get-current-authorization-information-%-get-/oauth2/@me-response-structure",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "application",
+              "partial application object",
+              "the current application"
+            ],
+            [
+              "scopes",
+              "array of strings",
+              "the scopes the user has authorized the application for"
+            ],
+            [
+              "expires",
+              "ISO8601 timestamp",
+              "when the access token expires"
+            ],
+            [
+              "user?",
+              "user object",
+              "the user who has authorized, if the user has authorized with the identify scope"
+            ]
+          ]
+        ]
+      },
+      "Example Authorization Information": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/oauth2#get-current-authorization-information-%-get-/oauth2/@me-example-authorization-information",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n    \"application\": {\n        \"id\": \"159799960412356608\",\n        \"name\": \"AIRHORN SOLUTIONS\",\n        \"icon\": \"f03590d3eb764081d154a66340ea7d6d\",\n        \"description\": \"\",\n        \"hook\": true,\n        \"bot_public\": true,\n        \"bot_require_code_grant\": false,\n        \"verify_key\": \"c8cde6a3c8c6e49d86af3191287b3ce255872be1fff6dc285bdb420c06a2c3c8\"\n    },\n    \"scopes\": [\n        \"guilds.join\",\n        \"identify\"\n    ],\n    \"expires\": \"2021-01-23T02:33:17.017000+00:00\",\n    \"user\": {\n        \"id\": \"268473310986240001\",\n        \"username\": \"Discord\",\n        \"avatar\": \"f749bb0cbeeb26ef21eca719337d20f1\",\n        \"discriminator\": \"0001\",\n        \"public_flags\": 131072\n    }\n}\n"
+          }
+        ]
       }
     }
   }

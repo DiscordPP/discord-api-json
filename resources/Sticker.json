@@ -3,22 +3,33 @@
     "|Sticker Resource"
   ],
   "Sticker Resource": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/resources/sticker#sticker-resource",
     "content": [
-      "|Sticker Object"
+      "|Sticker Object",
+      "|Sticker Item Object",
+      "|Sticker Pack Object",
+      "|Get Sticker % GET /stickers/{sticker.id#DOCS_RESOURCES_STICKER/sticker-object}",
+      "|List Nitro Sticker Packs % GET /sticker-packs",
+      "|List Guild Stickers % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers",
+      "|Get Guild Sticker % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers/{sticker.id#DOCS_RESOURCES_STICKER/sticker-object}",
+      "|Create Guild Sticker % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers",
+      "|Modify Guild Sticker % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers/{sticker.id#DOCS_RESOURCES_STICKER/sticker-object}",
+      "|Delete Guild Sticker % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers/{sticker.id#DOCS_RESOURCES_STICKER/sticker-object}"
     ],
     "Sticker Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/sticker#sticker-object",
       "content": [
         "Represents a sticker that can be sent in messages.",
         "|Sticker Structure",
-        "|Get Sticker % GET /stickers/{sticker.id#DOCS_RESOURCES_STICKER/sticker-object}",
-        "|List Nitro Sticker Packs % GET /sticker-packs",
-        "|List Guild Stickers % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers",
-        "|Get Guild Sticker % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers/{sticker.id#DOCS_RESOURCES_STICKER/sticker-object}",
-        "|Create Guild Sticker % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers",
-        "|Modify Guild Sticker % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers/{sticker.id#DOCS_RESOURCES_STICKER/sticker-object}",
-        "|Delete Guild Sticker % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers/{sticker.id#DOCS_RESOURCES_STICKER/sticker-object}"
+        "|Sticker Types",
+        "|Sticker Format Types",
+        "|Example Sticker"
       ],
       "Sticker Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/sticker#sticker-object-sticker-structure",
         "content": [
           [
             [
@@ -87,273 +98,304 @@
               "the standard sticker's sort order within its pack"
             ]
           ],
-          "* A comma separated list of keywords is the format used in this field by standard stickers, but this is just a convention.\nIncidentally the client will always use a name generated from an emoji as the value of this field when creating or modifying a guild sticker.",
-          "|Sticker Types",
-          "|Sticker Item Object",
-          "|Sticker Pack Object"
-        ],
-        "Sticker Types": {
-          "content": [
-            [
-              [
-                "Type",
-                "Value",
-                "Description"
-              ],
-              [
-                "STANDARD",
-                "1",
-                "an official sticker in a pack, part of Nitro or in a removed purchasable pack"
-              ],
-              [
-                "GUILD",
-                "2",
-                "a sticker uploaded to a guild for the guild's members"
-              ]
-            ],
-            "|Sticker Format Types"
-          ],
-          "Sticker Format Types": {
-            "content": [
-              [
-                [
-                  "Type",
-                  "Value"
-                ],
-                [
-                  "PNG",
-                  "1"
-                ],
-                [
-                  "APNG",
-                  "2"
-                ],
-                [
-                  "LOTTIE",
-                  "3"
-                ]
-              ],
-              "|Example Sticker"
-            ],
-            "Example Sticker": {
-              "content": [
-                {
-                  "language": "json",
-                  "code": "{\n  \"id\": \"749054660769218631\",\n  \"name\": \"Wave\",\n  \"tags\": \"wumpus, hello, sup, hi, oi, heyo, heya, yo, greetings, greet, welcome, wave, :wave, :hello, :hi, :hey, hey, \\ud83d\\udc4b, \\ud83d\\udc4b\\ud83c\\udffb, \\ud83d\\udc4b\\ud83c\\udffc, \\ud83d\\udc4b\\ud83c\\udffd, \\ud83d\\udc4b\\ud83c\\udffe, \\ud83d\\udc4b\\ud83c\\udfff, goodbye, bye, see ya, later, laterz, cya\",\n  \"type\": 1,\n  \"format_type\": 3,\n  \"description\": \"Wumpus waves hello\",\n  \"asset\": \"\",\n  \"pack_id\": \"847199849233514549\",\n  \"sort_value\": 12\n}\n"
-                }
-              ]
-            }
-          }
-        },
-        "Sticker Item Object": {
-          "content": [
-            "The smallest amount of data required to render a sticker. A partial sticker object.",
-            "|Sticker Item Structure"
-          ],
-          "Sticker Item Structure": {
-            "content": [
-              [
-                [
-                  "Field",
-                  "Type",
-                  "Description"
-                ],
-                [
-                  "id",
-                  "snowflake",
-                  "id of the sticker"
-                ],
-                [
-                  "name",
-                  "string",
-                  "name of the sticker"
-                ],
-                [
-                  "format_type",
-                  "integer",
-                  "type of sticker format"
-                ]
-              ]
-            ]
-          }
-        },
-        "Sticker Pack Object": {
-          "content": [
-            "Represents a pack of standard stickers.",
-            "|Sticker Pack Structure"
-          ],
-          "Sticker Pack Structure": {
-            "content": [
-              [
-                [
-                  "Field",
-                  "Type",
-                  "Description"
-                ],
-                [
-                  "id",
-                  "snowflake",
-                  "id of the sticker pack"
-                ],
-                [
-                  "stickers",
-                  "array of sticker objects",
-                  "the stickers in the pack"
-                ],
-                [
-                  "name",
-                  "string",
-                  "name of the sticker pack"
-                ],
-                [
-                  "sku_id",
-                  "snowflake",
-                  "id of the pack's SKU"
-                ],
-                [
-                  "cover_sticker_id?",
-                  "snowflake",
-                  "id of a sticker in the pack which is shown as the pack's icon"
-                ],
-                [
-                  "description",
-                  "string",
-                  "description of the sticker pack"
-                ],
-                [
-                  "banner_asset_id?",
-                  "snowflake",
-                  "id of the sticker pack's banner image"
-                ]
-              ],
-              "|Example Sticker Pack"
-            ],
-            "Example Sticker Pack": {
-              "content": [
-                {
-                  "language": "json",
-                  "code": "{\n  \"id\": \"847199849233514549\",\n  \"stickers\": [],\n  \"name\": \"Wumpus Beyond\",\n  \"sku_id\": \"847199849233514547\",\n  \"cover_sticker_id\": \"749053689419006003\",\n  \"description\": \"Say hello to Wumpus!\",\n  \"banner_asset_id\": \"761773777976819732\"\n}\n"
-                }
-              ]
-            }
-          }
-        }
-      },
-      "Get Sticker % GET /stickers/{sticker.id#DOCS_RESOURCES_STICKER/sticker-object}": {
-        "content": [
-          "Returns a sticker object for the given sticker ID."
+          "* A comma separated list of keywords is the format used in this field by standard stickers, but this is just a convention.\nIncidentally the client will always use a name generated from an emoji as the value of this field when creating or modifying a guild sticker."
         ]
       },
-      "List Nitro Sticker Packs % GET /sticker-packs": {
+      "Sticker Types": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/sticker#sticker-object-sticker-types",
         "content": [
-          "Returns the list of sticker packs available to Nitro subscribers.",
-          "|Response Structure"
-        ],
-        "Response Structure": {
-          "content": [
+          [
             [
-              [
-                "Field",
-                "Type"
-              ],
-              [
-                "sticker_packs",
-                "array of sticker pack objects"
-              ]
+              "Type",
+              "Value",
+              "Description"
+            ],
+            [
+              "STANDARD",
+              "1",
+              "an official sticker in a pack, part of Nitro or in a removed purchasable pack"
+            ],
+            [
+              "GUILD",
+              "2",
+              "a sticker uploaded to a guild for the guild's members"
             ]
           ]
-        }
-      },
-      "List Guild Stickers % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers": {
-        "content": [
-          "Returns an array of sticker objects for the given guild. Includes user fields if the bot has the MANAGE_EMOJIS_AND_STICKERS permission."
         ]
       },
-      "Get Guild Sticker % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers/{sticker.id#DOCS_RESOURCES_STICKER/sticker-object}": {
+      "Sticker Format Types": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/sticker#sticker-object-sticker-format-types",
         "content": [
-          "Returns a sticker object for the given guild and sticker IDs. Includes the user field if the bot has the MANAGE_EMOJIS_AND_STICKERS permission."
+          [
+            [
+              "Type",
+              "Value"
+            ],
+            [
+              "PNG",
+              "1"
+            ],
+            [
+              "APNG",
+              "2"
+            ],
+            [
+              "LOTTIE",
+              "3"
+            ]
+          ]
         ]
       },
-      "Create Guild Sticker % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers": {
+      "Example Sticker": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/sticker#sticker-object-example-sticker",
         "content": [
-          "Create a new sticker for the guild. Send a multipart/form-data body. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns the new sticker object on success.",
-          "Every guilds has five free sticker slots by default, and each Boost level will grant access to more slots.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
-          "> warn\n> Lottie stickers can only be uploaded on guilds that have either the VERIFIED and/or the PARTNERED guild feature.",
-          "|Form Params"
-        ],
-        "Form Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "name",
-                "string",
-                "name of the sticker (2-30 characters)"
-              ],
-              [
-                "description",
-                "string",
-                "description of the sticker (empty or 2-100 characters)"
-              ],
-              [
-                "tags",
-                "string",
-                "autocomplete/suggestion tags for the sticker (max 200 characters)"
-              ],
-              [
-                "file",
-                "file contents",
-                "the sticker file to upload, must be a PNG, APNG, or Lottie JSON file, max 500 KB"
-              ]
-            ]
-          ]
-        }
-      },
-      "Modify Guild Sticker % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers/{sticker.id#DOCS_RESOURCES_STICKER/sticker-object}": {
-        "content": [
-          "Modify the given sticker. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns the updated sticker object on success.",
-          "> info\n> All parameters to this endpoint are optional.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
-          "|JSON Params"
-        ],
-        "JSON Params": {
-          "content": [
-            [
-              [
-                "Field",
-                "Type",
-                "Description"
-              ],
-              [
-                "name",
-                "string",
-                "name of the sticker (2-30 characters)"
-              ],
-              [
-                "description",
-                "?string",
-                "description of the sticker (2-100 characters)"
-              ],
-              [
-                "tags",
-                "string",
-                "autocomplete/suggestion tags for the sticker (max 200 characters)"
-              ]
-            ]
-          ]
-        }
-      },
-      "Delete Guild Sticker % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers/{sticker.id#DOCS_RESOURCES_STICKER/sticker-object}": {
-        "content": [
-          "Delete the given sticker. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns 204 No Content on success.",
-          "> info\n> This endpoint supports the X-Audit-Log-Reason header."
+          {
+            "language": "json",
+            "code": "{\n  \"id\": \"749054660769218631\",\n  \"name\": \"Wave\",\n  \"tags\": \"wumpus, hello, sup, hi, oi, heyo, heya, yo, greetings, greet, welcome, wave, :wave, :hello, :hi, :hey, hey, \\ud83d\\udc4b, \\ud83d\\udc4b\\ud83c\\udffb, \\ud83d\\udc4b\\ud83c\\udffc, \\ud83d\\udc4b\\ud83c\\udffd, \\ud83d\\udc4b\\ud83c\\udffe, \\ud83d\\udc4b\\ud83c\\udfff, goodbye, bye, see ya, later, laterz, cya\",\n  \"type\": 1,\n  \"format_type\": 3,\n  \"description\": \"Wumpus waves hello\",\n  \"asset\": \"\",\n  \"pack_id\": \"847199849233514549\",\n  \"sort_value\": 12\n}\n"
+          }
         ]
       }
+    },
+    "Sticker Item Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/sticker#sticker-item-object",
+      "content": [
+        "The smallest amount of data required to render a sticker. A partial sticker object.",
+        "|Sticker Item Structure"
+      ],
+      "Sticker Item Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/sticker#sticker-item-object-sticker-item-structure",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "id",
+              "snowflake",
+              "id of the sticker"
+            ],
+            [
+              "name",
+              "string",
+              "name of the sticker"
+            ],
+            [
+              "format_type",
+              "integer",
+              "type of sticker format"
+            ]
+          ]
+        ]
+      }
+    },
+    "Sticker Pack Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/sticker#sticker-pack-object",
+      "content": [
+        "Represents a pack of standard stickers.",
+        "|Sticker Pack Structure",
+        "|Example Sticker Pack"
+      ],
+      "Sticker Pack Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/sticker#sticker-pack-object-sticker-pack-structure",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "id",
+              "snowflake",
+              "id of the sticker pack"
+            ],
+            [
+              "stickers",
+              "array of sticker objects",
+              "the stickers in the pack"
+            ],
+            [
+              "name",
+              "string",
+              "name of the sticker pack"
+            ],
+            [
+              "sku_id",
+              "snowflake",
+              "id of the pack's SKU"
+            ],
+            [
+              "cover_sticker_id?",
+              "snowflake",
+              "id of a sticker in the pack which is shown as the pack's icon"
+            ],
+            [
+              "description",
+              "string",
+              "description of the sticker pack"
+            ],
+            [
+              "banner_asset_id?",
+              "snowflake",
+              "id of the sticker pack's banner image"
+            ]
+          ]
+        ]
+      },
+      "Example Sticker Pack": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/sticker#sticker-pack-object-example-sticker-pack",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"id\": \"847199849233514549\",\n  \"stickers\": [],\n  \"name\": \"Wumpus Beyond\",\n  \"sku_id\": \"847199849233514547\",\n  \"cover_sticker_id\": \"749053689419006003\",\n  \"description\": \"Say hello to Wumpus!\",\n  \"banner_asset_id\": \"761773777976819732\"\n}\n"
+          }
+        ]
+      }
+    },
+    "Get Sticker % GET /stickers/{sticker.id#DOCS_RESOURCES_STICKER/sticker-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/sticker#get-sticker-%-get-/stickers/{sticker.id#docs_resources_sticker/sticker-object}",
+      "content": [
+        "Returns a sticker object for the given sticker ID."
+      ]
+    },
+    "List Nitro Sticker Packs % GET /sticker-packs": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/sticker#list-nitro-sticker-packs-%-get-/sticker-packs",
+      "content": [
+        "Returns the list of sticker packs available to Nitro subscribers.",
+        "|Response Structure"
+      ],
+      "Response Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/sticker#list-nitro-sticker-packs-%-get-/sticker-packs-response-structure",
+        "content": [
+          [
+            [
+              "Field",
+              "Type"
+            ],
+            [
+              "sticker_packs",
+              "array of sticker pack objects"
+            ]
+          ]
+        ]
+      }
+    },
+    "List Guild Stickers % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/sticker#list-guild-stickers-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/stickers",
+      "content": [
+        "Returns an array of sticker objects for the given guild. Includes user fields if the bot has the MANAGE_EMOJIS_AND_STICKERS permission."
+      ]
+    },
+    "Get Guild Sticker % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers/{sticker.id#DOCS_RESOURCES_STICKER/sticker-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/sticker#get-guild-sticker-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/stickers/{sticker.id#docs_resources_sticker/sticker-object}",
+      "content": [
+        "Returns a sticker object for the given guild and sticker IDs. Includes the user field if the bot has the MANAGE_EMOJIS_AND_STICKERS permission."
+      ]
+    },
+    "Create Guild Sticker % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/sticker#create-guild-sticker-%-post-/guilds/{guild.id#docs_resources_guild/guild-object}/stickers",
+      "content": [
+        "Create a new sticker for the guild. Send a multipart/form-data body. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns the new sticker object on success.",
+        "Every guilds has five free sticker slots by default, and each Boost level will grant access to more slots.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
+        "> warn\n> Lottie stickers can only be uploaded on guilds that have either the VERIFIED and/or the PARTNERED guild feature.",
+        "|Form Params"
+      ],
+      "Form Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/sticker#create-guild-sticker-%-post-/guilds/{guild.id#docs_resources_guild/guild-object}/stickers-form-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "name",
+              "string",
+              "name of the sticker (2-30 characters)"
+            ],
+            [
+              "description",
+              "string",
+              "description of the sticker (empty or 2-100 characters)"
+            ],
+            [
+              "tags",
+              "string",
+              "autocomplete/suggestion tags for the sticker (max 200 characters)"
+            ],
+            [
+              "file",
+              "file contents",
+              "the sticker file to upload, must be a PNG, APNG, or Lottie JSON file, max 500 KB"
+            ]
+          ]
+        ]
+      }
+    },
+    "Modify Guild Sticker % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers/{sticker.id#DOCS_RESOURCES_STICKER/sticker-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/sticker#modify-guild-sticker-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/stickers/{sticker.id#docs_resources_sticker/sticker-object}",
+      "content": [
+        "Modify the given sticker. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns the updated sticker object on success.",
+        "> info\n> All parameters to this endpoint are optional.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/sticker#modify-guild-sticker-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/stickers/{sticker.id#docs_resources_sticker/sticker-object}-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "name",
+              "string",
+              "name of the sticker (2-30 characters)"
+            ],
+            [
+              "description",
+              "?string",
+              "description of the sticker (2-100 characters)"
+            ],
+            [
+              "tags",
+              "string",
+              "autocomplete/suggestion tags for the sticker (max 200 characters)"
+            ]
+          ]
+        ]
+      }
+    },
+    "Delete Guild Sticker % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers/{sticker.id#DOCS_RESOURCES_STICKER/sticker-object}": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/sticker#delete-guild-sticker-%-delete-/guilds/{guild.id#docs_resources_guild/guild-object}/stickers/{sticker.id#docs_resources_sticker/sticker-object}",
+      "content": [
+        "Delete the given sticker. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns 204 No Content on success.",
+        "> info\n> This endpoint supports the X-Audit-Log-Reason header."
+      ]
     }
   }
 }
