@@ -4,7 +4,7 @@
   ],
   "Discord Developer Policy": {
     "level": 1,
-    "url": "https://discord.com/developers/docs/policies_and_agreements/developer-policy#discord-developer-policy",
+    "url": "https://discord.com/developers/docs/policies-and-agreements/developer-policy#discord-developer-policy",
     "content": [
       "|Last updated: July 1, 2020",
       "|Protect Discord users.",
@@ -16,7 +16,7 @@
     ],
     "Last updated: July 1, 2020": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/policies_and_agreements/developer-policy#last-updated:-july-1,-2020",
+      "url": "https://discord.com/developers/docs/policies-and-agreements/developer-policy#last-updated:-july-1,-2020",
       "content": [
         "This Discord Developer Policy is incorporated into the Discord Developer Terms of Service (\u201cTerms\u201d) and applies to all uses of our APIs. All capitalized terms not defined here have the meaning assigned to them in these Terms. Please check back from time to time as these policies are occasionally updated.",
         "\u201cDiscord Data\u201d means any and all data you obtain through the APIs."
@@ -24,7 +24,7 @@
     },
     "Protect Discord users.": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/policies_and_agreements/developer-policy#protect-discord-users.",
+      "url": "https://discord.com/developers/docs/policies-and-agreements/developer-policy#protect-discord-users.",
       "content": [
         "You may not use the APIs in any way to:",
         [
@@ -37,7 +37,7 @@
     },
     "Handle data with care.": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/policies_and_agreements/developer-policy#handle-data-with-care.",
+      "url": "https://discord.com/developers/docs/policies-and-agreements/developer-policy#handle-data-with-care.",
       "content": [
         "You may not use the APIs in any way to:",
         [
@@ -56,7 +56,7 @@
     },
     "Don\u2019t Do Anything Illegal, Harmful, or Otherwise Not Cool.": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/policies_and_agreements/developer-policy#don\u2019t-do-anything-illegal,-harmful,-or-otherwise-not-cool.",
+      "url": "https://discord.com/developers/docs/policies-and-agreements/developer-policy#don\u2019t-do-anything-illegal,-harmful,-or-otherwise-not-cool.",
       "content": [
         "You may not use the APIs in any way:",
         [
@@ -72,7 +72,7 @@
     },
     "Don\u2019t abuse the platform.": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/policies_and_agreements/developer-policy#don\u2019t-abuse-the-platform.",
+      "url": "https://discord.com/developers/docs/policies-and-agreements/developer-policy#don\u2019t-abuse-the-platform.",
       "content": [
         "You will:",
         [
@@ -95,7 +95,7 @@
     },
     "API Limits.": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/policies_and_agreements/developer-policy#api-limits.",
+      "url": "https://discord.com/developers/docs/policies-and-agreements/developer-policy#api-limits.",
       "content": [
         "Discord sets and enforces limits on your use of the APIs (for example, by limiting the number of API requests that you may make, the number of servers your application is in, or the number of users you may serve), in our sole discretion. You agree to, and will not attempt to circumvent, such limitations documented with each API.",
         "If you would like to use any API beyond these limits, you must obtain Discord\u2019s express written consent (and Discord may decline such request or condition acceptance on your agreement to additional terms and/or charges for that use).\nWe support increases to the following rate limits if your app meets the criteria set forth below. If you are seeking approval for any of the following rate limit increases,\nplease follow the outlined steps:",
@@ -108,7 +108,7 @@
     },
     "HIPAA Rules.": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/policies_and_agreements/developer-policy#hipaa-rules.",
+      "url": "https://discord.com/developers/docs/policies-and-agreements/developer-policy#hipaa-rules.",
       "content": [
         "Discord does not intend use of the APIs to create obligations under the Health Insurance Portability and Accountability Act, as amended (\"HIPAA\"), and makes no representations that the APIs satisfy HIPAA requirements. If you are (or become) a \"covered entity\" or \"business associate\" as defined in HIPAA, you will not use the APIs for any purpose or in any manner involving transmitting protected health information to Discord."
       ]

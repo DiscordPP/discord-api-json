@@ -4,7 +4,7 @@
   ],
   "Relationships": {
     "level": 1,
-    "url": "https://discord.com/developers/docs/game_sdk/relationships#relationships",
+    "url": "https://discord.com/developers/docs/game-sdk/relationships#relationships",
     "content": [
       "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
       "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
@@ -27,7 +27,7 @@
     ],
     "First Notes": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/relationships#first-notes",
+      "url": "https://discord.com/developers/docs/game-sdk/relationships#first-notes",
       "content": [
         "Relationships on Discord change often; people start and stop playing games, go online, offline, invisible, or otherwise change state. Therefore, there are some important factors to remember when working with this manager. When you are first getting a list of a user's relationships, before you can Filter(), you need to wait for the OnRefresh callback to fire. This is your indicator that Discord has successfully taken a snapshot of the state of all your relationships at a given moment. Now that you have this snapshot, you can Filter() it to build the list that you want, and then iterate over that list to do whatever your game needs to do. Use this to build your initial social graph for a user.",
         "As relationships change, the OnRelationshipUpdate event will fire. You can use this to update the user's social graph, changing the status of the other Discord users that you chose to filter, e.g. someone is now online, or now playing the game, or no longer playing.",
@@ -36,7 +36,7 @@
     },
     "Data Models": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/relationships#data-models",
+      "url": "https://discord.com/developers/docs/game-sdk/relationships#data-models",
       "content": [
         "|Relationship Struct",
         "|RelationshipType Enum",
@@ -45,7 +45,7 @@
       ],
       "Relationship Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/relationships#data-models-relationship-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/relationships#data-models-relationship-struct",
         "content": [
           [
             [
@@ -73,7 +73,7 @@
       },
       "RelationshipType Enum": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/relationships#data-models-relationshiptype-enum",
+        "url": "https://discord.com/developers/docs/game-sdk/relationships#data-models-relationshiptype-enum",
         "content": [
           [
             [
@@ -109,7 +109,7 @@
       },
       "Presence Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/relationships#data-models-presence-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/relationships#data-models-presence-struct",
         "content": [
           [
             [
@@ -132,7 +132,7 @@
       },
       "Status Enum": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/relationships#data-models-status-enum",
+        "url": "https://discord.com/developers/docs/game-sdk/relationships#data-models-status-enum",
         "content": [
           [
             [
@@ -161,7 +161,7 @@
     },
     "Filter": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/relationships#filter",
+      "url": "https://discord.com/developers/docs/game-sdk/relationships#filter",
       "content": [
         "Filters a user's relationship list by a boolean condition.",
         "Returns void.",
@@ -170,14 +170,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/relationships#filter-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/relationships#filter-parameters",
         "content": [
           "A function that takes a Relationship parameter."
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/relationships#filter-example",
+        "url": "https://discord.com/developers/docs/game-sdk/relationships#filter-example",
         "content": [
           {
             "language": "cs",
@@ -188,7 +188,7 @@
     },
     "Get": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/relationships#get",
+      "url": "https://discord.com/developers/docs/game-sdk/relationships#get",
       "content": [
         "Get the relationship between the current user and a given user by id.",
         "Returns a Relationship.",
@@ -197,7 +197,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/relationships#get-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/relationships#get-parameters",
         "content": [
           [
             [
@@ -215,7 +215,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/relationships#get-example",
+        "url": "https://discord.com/developers/docs/game-sdk/relationships#get-example",
         "content": [
           {
             "language": "cs",
@@ -226,7 +226,7 @@
     },
     "GetAt": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/relationships#getat",
+      "url": "https://discord.com/developers/docs/game-sdk/relationships#getat",
       "content": [
         "Get the relationship at a given index when iterating over a list of relationships.",
         "Returns a Relationship.",
@@ -235,7 +235,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/relationships#getat-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/relationships#getat-parameters",
         "content": [
           [
             [
@@ -253,7 +253,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/relationships#getat-example",
+        "url": "https://discord.com/developers/docs/game-sdk/relationships#getat-example",
         "content": [
           {
             "language": "cs",
@@ -264,7 +264,7 @@
     },
     "Count": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/relationships#count",
+      "url": "https://discord.com/developers/docs/game-sdk/relationships#count",
       "content": [
         "Get the number of relationships that match your Filter().",
         "Returns an Int32.",
@@ -273,14 +273,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/relationships#count-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/relationships#count-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/relationships#count-example",
+        "url": "https://discord.com/developers/docs/game-sdk/relationships#count-example",
         "content": [
           {
             "language": "cs",
@@ -291,14 +291,14 @@
     },
     "OnRefresh": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/relationships#onrefresh",
+      "url": "https://discord.com/developers/docs/game-sdk/relationships#onrefresh",
       "content": [
         "Fires at initialization when Discord has cached a snapshot of the current status of all your relationships. Wait for this to fire before calling Filter within its callback.",
         "|Parameters"
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/relationships#onrefresh-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/relationships#onrefresh-parameters",
         "content": [
           "None"
         ]
@@ -306,7 +306,7 @@
     },
     "OnRelationshipUpdate": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/relationships#onrelationshipupdate",
+      "url": "https://discord.com/developers/docs/game-sdk/relationships#onrelationshipupdate",
       "content": [
         "Fires when a relationship in the filtered list changes, like an updated presence or user attribute.",
         "|Parameters",
@@ -314,7 +314,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/relationships#onrelationshipupdate-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/relationships#onrelationshipupdate-parameters",
         "content": [
           [
             [
@@ -332,7 +332,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/relationships#onrelationshipupdate-example",
+        "url": "https://discord.com/developers/docs/game-sdk/relationships#onrelationshipupdate-example",
         "content": [
           {
             "language": "cs",
@@ -343,7 +343,7 @@
     },
     "Example: Creating a Friends List": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/relationships#example:-creating-a-friends-list",
+      "url": "https://discord.com/developers/docs/game-sdk/relationships#example:-creating-a-friends-list",
       "content": [
         {
           "language": "cs",
@@ -353,7 +353,7 @@
     },
     "Example: Invite Users Who Are Playing the Same Game": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/relationships#example:-invite-users-who-are-playing-the-same-game",
+      "url": "https://discord.com/developers/docs/game-sdk/relationships#example:-invite-users-who-are-playing-the-same-game",
       "content": [
         {
           "language": "cs",

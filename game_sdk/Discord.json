@@ -4,7 +4,7 @@
   ],
   "Discord": {
     "level": 1,
-    "url": "https://discord.com/developers/docs/game_sdk/discord#discord",
+    "url": "https://discord.com/developers/docs/game-sdk/discord#discord",
     "content": [
       "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
       "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
@@ -34,7 +34,7 @@
     ],
     "General Structure": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord#general-structure",
+      "url": "https://discord.com/developers/docs/game-sdk/discord#general-structure",
       "content": [
         "At a high level, the Discord GameSDK has a class, Discord. This class is in charge of the creation of a few \"manager\" sub-classes. They are:",
         [
@@ -56,7 +56,7 @@
     },
     "Functions in the SDK": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord#functions-in-the-sdk",
+      "url": "https://discord.com/developers/docs/game-sdk/discord#functions-in-the-sdk",
       "content": [
         "Most functions in the Discord GameSDK, uh, function in a similar way. They take whatever parameters are required for the function to do its job\u2014a user id, the requested size for an image, etc.\u2014and a callback by means of a function pointer. That callback is fired when the function completes its work, letting you handle events without worrying about piping asynchronously-returned data to the right context.",
         "Some functions behave with a normal return behavior; e.g. RelationshipManager.Count() just returns the number directly. Don't worry, it's outlined in the docs.",
@@ -69,14 +69,14 @@
     },
     "Environment Variables": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord#environment-variables",
+      "url": "https://discord.com/developers/docs/game-sdk/discord#environment-variables",
       "content": [
         "Discord passes a number of environment variables down to the SDK. These are accessed by various methods in the SDK and can be changed for local testing by changing the value in your local environment.",
         "|SDK Environment Variables"
       ],
       "SDK Environment Variables": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#environment-variables-sdk-environment-variables",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#environment-variables-sdk-environment-variables",
         "content": [
           [
             [
@@ -115,7 +115,7 @@
     },
     "Error Handling": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord#error-handling",
+      "url": "https://discord.com/developers/docs/game-sdk/discord#error-handling",
       "content": [
         "Debugging is a pain, so before we get into the meat of the SDK, we want to make sure you're prepared for when things go awry. Within the Discord core is a function called SetLogHook(). It takes a level, which is minimum level of log message you want to listen to, and a callback function:",
         {
@@ -127,7 +127,7 @@
     },
     "Data Models": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord#data-models",
+      "url": "https://discord.com/developers/docs/game-sdk/discord#data-models",
       "content": [
         "|Result Enum",
         "|LogLevel Enum",
@@ -135,7 +135,7 @@
       ],
       "Result Enum": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#data-models-result-enum",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#data-models-result-enum",
         "content": [
           [
             [
@@ -368,7 +368,7 @@
       },
       "LogLevel Enum": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#data-models-loglevel-enum",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#data-models-loglevel-enum",
         "content": [
           [
             [
@@ -396,7 +396,7 @@
       },
       "CreateFlags Enum": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#data-models-createflags-enum",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#data-models-createflags-enum",
         "content": [
           [
             [
@@ -417,7 +417,7 @@
     },
     "Create": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord#create",
+      "url": "https://discord.com/developers/docs/game-sdk/discord#create",
       "content": [
         "Creates an instance of Discord to initialize the SDK. This is the overlord of all things Discord. We like to call her Nelly.",
         "Returns a new Discord.",
@@ -426,7 +426,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#create-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#create-parameters",
         "content": [
           [
             [
@@ -449,7 +449,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#create-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#create-example",
         "content": [
           {
             "language": "",
@@ -460,7 +460,7 @@
     },
     "Destroy": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord#destroy",
+      "url": "https://discord.com/developers/docs/game-sdk/discord#destroy",
       "content": [
         "Destroys the instance. Wave goodbye, Nelly! You monster. In C# land, this is Dispose().",
         "> info\n> The C++ binding does not include a destroy() method, as the destructor for the Core does the work for you.",
@@ -470,14 +470,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#destroy-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#destroy-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#destroy-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#destroy-example",
         "content": [
           {
             "language": "cs",
@@ -488,7 +488,7 @@
     },
     "SetLogHook": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord#setloghook",
+      "url": "https://discord.com/developers/docs/game-sdk/discord#setloghook",
       "content": [
         "Registers a logging callback function with the minimum level of message to receive. The callback function should have a signature of:",
         {
@@ -501,7 +501,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#setloghook-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#setloghook-parameters",
         "content": [
           [
             [
@@ -524,7 +524,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#setloghook-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#setloghook-example",
         "content": [
           {
             "language": "cs",
@@ -535,7 +535,7 @@
     },
     "RunCallbacks": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord#runcallbacks",
+      "url": "https://discord.com/developers/docs/game-sdk/discord#runcallbacks",
       "content": [
         "Runs all pending SDK callbacks. Put this in your game's main event loop, like Update() in Unity. That way, the first thing your game does is check for any new info from Discord.",
         "This function also serves as a way to know that the local Discord client is still connected. If the user closes Discord while playing your game, RunCallbacks() will return/throw Discord.Result.NotRunning.",
@@ -545,14 +545,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#runcallbacks-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#runcallbacks-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#runcallbacks-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#runcallbacks-example",
         "content": [
           {
             "language": "cs",
@@ -563,7 +563,7 @@
     },
     "GetActivityManager": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord#getactivitymanager",
+      "url": "https://discord.com/developers/docs/game-sdk/discord#getactivitymanager",
       "content": [
         "Fetches an instance of the manager for interfacing with activities in the SDK.",
         "Returns an ActivityManager.",
@@ -572,14 +572,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getactivitymanager-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getactivitymanager-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getactivitymanager-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getactivitymanager-example",
         "content": [
           {
             "language": "cs",
@@ -590,7 +590,7 @@
     },
     "GetRelationshipManager": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord#getrelationshipmanager",
+      "url": "https://discord.com/developers/docs/game-sdk/discord#getrelationshipmanager",
       "content": [
         "Fetches an instance of the manager for interfacing with relationships in the SDK.",
         "Returns a RelationshipManager.",
@@ -599,14 +599,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getrelationshipmanager-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getrelationshipmanager-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getrelationshipmanager-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getrelationshipmanager-example",
         "content": [
           {
             "language": "cs",
@@ -617,7 +617,7 @@
     },
     "GetImageManager": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord#getimagemanager",
+      "url": "https://discord.com/developers/docs/game-sdk/discord#getimagemanager",
       "content": [
         "Fetches an instance of the manager for interfacing with images in the SDK.",
         "Returns an ImageManager.",
@@ -626,14 +626,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getimagemanager-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getimagemanager-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getimagemanager-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getimagemanager-example",
         "content": [
           {
             "language": "cs",
@@ -644,7 +644,7 @@
     },
     "GetUserManager": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord#getusermanager",
+      "url": "https://discord.com/developers/docs/game-sdk/discord#getusermanager",
       "content": [
         "Fetches an instance of the manager for interfacing with users in the SDK.",
         "Returns an UserManager.",
@@ -653,14 +653,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getusermanager-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getusermanager-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getusermanager-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getusermanager-example",
         "content": [
           {
             "language": "cs",
@@ -671,7 +671,7 @@
     },
     "GetLobbyManager": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord#getlobbymanager",
+      "url": "https://discord.com/developers/docs/game-sdk/discord#getlobbymanager",
       "content": [
         "Fetches an instance of the manager for interfacing with lobbies in the SDK.",
         "Returns a LobbyManager.",
@@ -680,14 +680,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getlobbymanager-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getlobbymanager-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getlobbymanager-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getlobbymanager-example",
         "content": [
           {
             "language": "cs",
@@ -698,7 +698,7 @@
     },
     "GetNetworkManager": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord#getnetworkmanager",
+      "url": "https://discord.com/developers/docs/game-sdk/discord#getnetworkmanager",
       "content": [
         "Fetches an instance of the manager for interfacing with networking in the SDK.",
         "Returns an NetworkManager.",
@@ -707,14 +707,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getnetworkmanager-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getnetworkmanager-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getnetworkmanager-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getnetworkmanager-example",
         "content": [
           {
             "language": "cs",
@@ -725,7 +725,7 @@
     },
     "GetOverlayManager": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord#getoverlaymanager",
+      "url": "https://discord.com/developers/docs/game-sdk/discord#getoverlaymanager",
       "content": [
         "Fetches an instance of the manager for interfacing with the overlay in the SDK.",
         "Returns an OverlayManager.",
@@ -734,14 +734,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getoverlaymanager-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getoverlaymanager-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getoverlaymanager-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getoverlaymanager-example",
         "content": [
           {
             "language": "cs",
@@ -752,7 +752,7 @@
     },
     "GetApplicationManager": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord#getapplicationmanager",
+      "url": "https://discord.com/developers/docs/game-sdk/discord#getapplicationmanager",
       "content": [
         "Fetches an instance of the manager for interfacing with applications in the SDK.",
         "Returns an ApplicationManager.",
@@ -761,14 +761,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getapplicationmanager-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getapplicationmanager-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getapplicationmanager-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getapplicationmanager-example",
         "content": [
           {
             "language": "cs",
@@ -779,7 +779,7 @@
     },
     "GetStorageManager": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord#getstoragemanager",
+      "url": "https://discord.com/developers/docs/game-sdk/discord#getstoragemanager",
       "content": [
         "Fetches an instance of the manager for interfacing with storage in the SDK.",
         "Returns a StorageManager.",
@@ -788,14 +788,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getstoragemanager-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getstoragemanager-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getstoragemanager-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getstoragemanager-example",
         "content": [
           {
             "language": "cs",
@@ -806,7 +806,7 @@
     },
     "GetStoreManager": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord#getstoremanager",
+      "url": "https://discord.com/developers/docs/game-sdk/discord#getstoremanager",
       "content": [
         "Fetches an instance of the manager for interfacing with SKUs and Entitlements in the SDK.",
         "Returns a StoreManager.",
@@ -815,14 +815,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getstoremanager-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getstoremanager-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getstoremanager-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getstoremanager-example",
         "content": [
           {
             "language": "cs",
@@ -833,7 +833,7 @@
     },
     "GetVoiceManager": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord#getvoicemanager",
+      "url": "https://discord.com/developers/docs/game-sdk/discord#getvoicemanager",
       "content": [
         "Fetches an instance of the manager for interfacing with voice chat in the SDK.",
         "Returns a VoiceManager.",
@@ -842,14 +842,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getvoicemanager-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getvoicemanager-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getvoicemanager-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getvoicemanager-example",
         "content": [
           {
             "language": "cs",
@@ -860,7 +860,7 @@
     },
     "GetAchievementManager": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord#getachievementmanager",
+      "url": "https://discord.com/developers/docs/game-sdk/discord#getachievementmanager",
       "content": [
         "Fetches an instance of the manager for interfacing with achievements in the SDK.",
         "Returns an AchievementManager.",
@@ -869,14 +869,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getachievementmanager-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getachievementmanager-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord#getachievementmanager-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord#getachievementmanager-example",
         "content": [
           {
             "language": "cs",

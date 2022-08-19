@@ -8,7 +8,7 @@
     "content": [
       "|Voice State Object",
       "|Voice Region Object",
-      "|List Voice Regions % GET /voice/regions"
+      "|List Voice Regions"
     ],
     "Voice State Object": {
       "level": 3,
@@ -152,9 +152,10 @@
         ]
       }
     },
-    "List Voice Regions % GET /voice/regions": {
+    "List Voice Regions": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/voice#list-voice-regions-%-get-/voice/regions",
+      "url": "https://discord.com/developers/docs/resources/voice#list-voice-regions",
+      "endpoint": "GET /voice/regions",
       "content": [
         "Returns an array of voice region objects that can be used when setting a voice or stage channel's rtc_region."
       ]

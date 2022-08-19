@@ -4,7 +4,7 @@
   ],
   "Store": {
     "level": 1,
-    "url": "https://discord.com/developers/docs/game_sdk/store#store",
+    "url": "https://discord.com/developers/docs/game-sdk/store#store",
     "content": [
       "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
       "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
@@ -27,17 +27,17 @@
       "|OnEntitlementDelete",
       "|HTTP APIs",
       "|HTTP-Specific Data Models",
-      "|Get Entitlements % GET /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/entitlements",
-      "|Get Entitlement % GET /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/entitlements/{entitlement.id#DOCS_GAME_SDK_STORE/data-models-entitlement-struct}",
-      "|Get SKUs % GET /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/skus",
-      "|Consume SKU % POST /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/entitlements/{entitlement.id#DOCS_GAME_SDK_STORE/data-models-entitlement-struct}/consume",
-      "|Delete Test Entitlement % DELETE /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/entitlements/{entitlement.id#DOCS_GAME_SDK_STORE/data-models-entitlement-struct}",
-      "|Create Purchase Discount % PUT /store/skus/{sku.id#DOCS_GAME_SDK_STORE/data-models-sku-struct}/discounts/{user.id#DOCS_RESOURCES_USER/user-object}",
-      "|Delete Purchase Discount % DELETE /store/skus/{sku.id#DOCS_GAME_SDK_STORE/data-models-sku-struct}/discounts/{user.id#DOCS_RESOURCES_USER/user-object}"
+      "|Get Entitlements",
+      "|Get Entitlement",
+      "|Get SKUs",
+      "|Consume SKU",
+      "|Delete Test Entitlement",
+      "|Create Purchase Discount",
+      "|Delete Purchase Discount"
     ],
     "Application Test Mode": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#application-test-mode",
+      "url": "https://discord.com/developers/docs/game-sdk/store#application-test-mode",
       "content": [
         "With this new Store Manager comes a new fun toggle in the Discord app itself: Application Test Mode! While in Application Test Mode, you can freely make \"purchases\" of SKUs tied to your application. That means you can test buying your game, buying DLC, or going through an IAP flow without any credit card charges.",
         "> info\n> You still need to have a valid payment method on file to \"purchase\" SKUs in Application Test Mode; it just won't be charged at checkout.",
@@ -60,14 +60,14 @@
     },
     "Checking DLC Entitlements": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#checking-dlc-entitlements",
+      "url": "https://discord.com/developers/docs/game-sdk/store#checking-dlc-entitlements",
       "content": [
         "If your game has DLC, and a user has purchased that DLC, you may want to check what they should have access to when the game launches. DLC entitlements will always be returned in a FetchEntitlements() call, so your game can check on each startup whether or not a user should have access to a certain new zone, raid, map, etc. based on their entitlements for DLC."
       ]
     },
     "Checking Consumable Entitlements": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#checking-consumable-entitlements",
+      "url": "https://discord.com/developers/docs/game-sdk/store#checking-consumable-entitlements",
       "content": [
         "The Discord.SkuType.Consumable type is used for entitlements that may be \"consumed\" by a game's own server infrastructure. That is to say that if you have in-app purchases like gem bundles, skins, etc., they will be a Consumable SKU type.",
         "What that means is that your game is expected to \"consume\" these entitlements by doing something on your game server\u2014giving the player a level, more coins, a skin, etc.\u2014and then telling Discord that's been done by calling the POST /entitlements/<id>/consume, documented below. Then, Discord will mark that entitlement as consumed (the consumed field in the returned object will be set to true).",
@@ -78,7 +78,7 @@
     },
     "Data Models": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#data-models",
+      "url": "https://discord.com/developers/docs/game-sdk/store#data-models",
       "content": [
         "|SKU Struct",
         "|SkuType Enum",
@@ -88,7 +88,7 @@
       ],
       "SKU Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#data-models-sku-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/store#data-models-sku-struct",
         "content": [
           [
             [
@@ -121,7 +121,7 @@
       },
       "SkuType Enum": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#data-models-skutype-enum",
+        "url": "https://discord.com/developers/docs/game-sdk/store#data-models-skutype-enum",
         "content": [
           [
             [
@@ -154,7 +154,7 @@
       },
       "SkuPrice Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#data-models-skuprice-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/store#data-models-skuprice-struct",
         "content": [
           [
             [
@@ -177,7 +177,7 @@
       },
       "Entitlement Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#data-models-entitlement-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/store#data-models-entitlement-struct",
         "content": [
           [
             [
@@ -205,7 +205,7 @@
       },
       "EntitlementType Enum": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#data-models-entitlementtype-enum",
+        "url": "https://discord.com/developers/docs/game-sdk/store#data-models-entitlementtype-enum",
         "content": [
           [
             [
@@ -254,7 +254,7 @@
     },
     "FetchSkus": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#fetchskus",
+      "url": "https://discord.com/developers/docs/game-sdk/store#fetchskus",
       "content": [
         "Fetches the list of SKUs for the connected application, readying them for iteration.",
         "> warn\n> Only SKUs that have a price set will be fetched. If you aren't seeing any SKUs being returned, make sure they have a price set!",
@@ -264,14 +264,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#fetchskus-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/store#fetchskus-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#fetchskus-example",
+        "url": "https://discord.com/developers/docs/game-sdk/store#fetchskus-example",
         "content": [
           {
             "language": "cs",
@@ -282,7 +282,7 @@
     },
     "CountSkus": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#countskus",
+      "url": "https://discord.com/developers/docs/game-sdk/store#countskus",
       "content": [
         "Get the number of SKUs readied by FetchSkus().",
         "Returns Int32.",
@@ -291,14 +291,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#countskus-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/store#countskus-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#countskus-example",
+        "url": "https://discord.com/developers/docs/game-sdk/store#countskus-example",
         "content": [
           {
             "language": "cs",
@@ -309,7 +309,7 @@
     },
     "GetSku": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#getsku",
+      "url": "https://discord.com/developers/docs/game-sdk/store#getsku",
       "content": [
         "Gets a SKU by its ID. You must call FetchSkus() first before being able to access SKUs in this way.",
         "Returns Discord.Sku.",
@@ -318,7 +318,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#getsku-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/store#getsku-parameters",
         "content": [
           [
             [
@@ -336,7 +336,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#getsku-example",
+        "url": "https://discord.com/developers/docs/game-sdk/store#getsku-example",
         "content": [
           {
             "language": "cs",
@@ -347,7 +347,7 @@
     },
     "GetSkuAt": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#getskuat",
+      "url": "https://discord.com/developers/docs/game-sdk/store#getskuat",
       "content": [
         "Gets a SKU by index when iterating over SKUs. You must call FetchSkus() first before being able to access SKUs in this way.",
         "Returns Discord.Sku.",
@@ -356,7 +356,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#getskuat-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/store#getskuat-parameters",
         "content": [
           [
             [
@@ -374,7 +374,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#getskuat-example",
+        "url": "https://discord.com/developers/docs/game-sdk/store#getskuat-example",
         "content": [
           {
             "language": "cs",
@@ -385,7 +385,7 @@
     },
     "FetchEntitlements": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#fetchentitlements",
+      "url": "https://discord.com/developers/docs/game-sdk/store#fetchentitlements",
       "content": [
         "Fetches a list of entitlements to which the user is entitled. Applications, DLC, and Bundles will always be returned. Consumables will be returned until they are consumed by the application via the HTTP endpoint.",
         "Returns Discord.Result via callback.",
@@ -394,14 +394,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#fetchentitlements-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/store#fetchentitlements-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#fetchentitlements-example",
+        "url": "https://discord.com/developers/docs/game-sdk/store#fetchentitlements-example",
         "content": [
           {
             "language": "cs",
@@ -412,7 +412,7 @@
     },
     "CountEntitlements": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#countentitlements",
+      "url": "https://discord.com/developers/docs/game-sdk/store#countentitlements",
       "content": [
         "Get the number of entitlements readied by FetchEntitlements(). You must call FetchEntitlements() first before being able to access SKUs in this way.",
         "Returns Int32.",
@@ -421,14 +421,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#countentitlements-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/store#countentitlements-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#countentitlements-example",
+        "url": "https://discord.com/developers/docs/game-sdk/store#countentitlements-example",
         "content": [
           {
             "language": "cs",
@@ -439,7 +439,7 @@
     },
     "GetEntitlement": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#getentitlement",
+      "url": "https://discord.com/developers/docs/game-sdk/store#getentitlement",
       "content": [
         "Gets an entitlement by its id. You must call FetchEntitlements() first before being able to access SKUs in this way.",
         "Returns Discord.Entitlement.",
@@ -448,7 +448,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#getentitlement-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/store#getentitlement-parameters",
         "content": [
           [
             [
@@ -466,7 +466,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#getentitlement-example",
+        "url": "https://discord.com/developers/docs/game-sdk/store#getentitlement-example",
         "content": [
           {
             "language": "cs",
@@ -477,7 +477,7 @@
     },
     "GetEntitlementAt": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#getentitlementat",
+      "url": "https://discord.com/developers/docs/game-sdk/store#getentitlementat",
       "content": [
         "Gets an entitlement by index when iterating over a user's entitlements. You must call FetchEntitlements() first before being able to access SKUs in this way.",
         "Returns Discord.Entitlement.",
@@ -486,7 +486,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#getentitlementat-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/store#getentitlementat-parameters",
         "content": [
           [
             [
@@ -504,7 +504,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#getentitlementat-example",
+        "url": "https://discord.com/developers/docs/game-sdk/store#getentitlementat-example",
         "content": [
           {
             "language": "cs",
@@ -515,7 +515,7 @@
     },
     "HasSkuEntitlement": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#hasskuentitlement",
+      "url": "https://discord.com/developers/docs/game-sdk/store#hasskuentitlement",
       "content": [
         "Returns whether or not the user is entitled to the given SKU ID. You must call FetchEntitlements() first before being able to access SKUs in this way.",
         "Returns bool.",
@@ -524,7 +524,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#hasskuentitlement-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/store#hasskuentitlement-parameters",
         "content": [
           [
             [
@@ -542,7 +542,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#hasskuentitlement-example",
+        "url": "https://discord.com/developers/docs/game-sdk/store#hasskuentitlement-example",
         "content": [
           {
             "language": "cs",
@@ -553,7 +553,7 @@
     },
     "StartPurchase": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#startpurchase",
+      "url": "https://discord.com/developers/docs/game-sdk/store#startpurchase",
       "content": [
         "Opens the overlay to begin the in-app purchase dialogue for the given SKU ID. You must call FetchSkus() first before being able to access SKUs in this way. If the user has enabled the overlay for your game, a purchase modal will appear in the overlay. Otherwise, the Discord client will be auto-focused with a purchase modal.",
         "Returns Discord.Result via callback.",
@@ -562,7 +562,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#startpurchase-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/store#startpurchase-parameters",
         "content": [
           [
             [
@@ -580,7 +580,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#startpurchase-example",
+        "url": "https://discord.com/developers/docs/game-sdk/store#startpurchase-example",
         "content": [
           {
             "language": "cs",
@@ -591,14 +591,14 @@
     },
     "OnEntitlementCreate": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#onentitlementcreate",
+      "url": "https://discord.com/developers/docs/game-sdk/store#onentitlementcreate",
       "content": [
         "Fires when the connected user receives a new entitlement, either through purchase or through a developer grant.",
         "|Parameters"
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#onentitlementcreate-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/store#onentitlementcreate-parameters",
         "content": [
           [
             [
@@ -617,14 +617,14 @@
     },
     "OnEntitlementDelete": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#onentitlementdelete",
+      "url": "https://discord.com/developers/docs/game-sdk/store#onentitlementdelete",
       "content": [
         "Fires when the connected user loses an entitlement, either by expiration, revocation, or consumption in the case of consumable entitlements.",
         "|Parameters"
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#onentitlementdelete-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/store#onentitlementdelete-parameters",
         "content": [
           [
             [
@@ -643,7 +643,7 @@
     },
     "HTTP APIs": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#http-apis",
+      "url": "https://discord.com/developers/docs/game-sdk/store#http-apis",
       "content": [
         "The following are HTTP requests, and should be handled by your game server, rather than a client. They require a token for an authorization header. This token should be the \"Bot token\" of your application. To get this token, go to your application in the Dev Portal. In the left sidebar, click the Bot navigation item. You should then click the Add Bot button.",
         "After that, you can copy the token on this page and use it in your HTTP requests. The format for the authorization header should be Authorization: Bot <token>.",
@@ -652,13 +652,13 @@
     },
     "HTTP-Specific Data Models": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#http-specific-data-models",
+      "url": "https://discord.com/developers/docs/game-sdk/store#http-specific-data-models",
       "content": [
         "|Limited Payment Data Object"
       ],
       "Limited Payment Data Object": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#http-specific-data-models-limited-payment-data-object",
+        "url": "https://discord.com/developers/docs/game-sdk/store#http-specific-data-models-limited-payment-data-object",
         "content": [
           [
             [
@@ -695,9 +695,10 @@
         ]
       }
     },
-    "Get Entitlements % GET /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/entitlements": {
+    "Get Entitlements": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#get-entitlements-%-get-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/entitlements",
+      "url": "https://discord.com/developers/docs/game-sdk/store#get-entitlements",
+      "endpoint": "GET /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/entitlements",
       "content": [
         "Gets entitlements for a given user. You can use this on your game backend to check entitlements of an arbitrary user, or perhaps in an administrative panel for your support team.",
         "|Query Parameters",
@@ -705,7 +706,7 @@
       ],
       "Query Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#get-entitlements-%-get-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/entitlements-query-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/store#get-entitlements-query-parameters",
         "content": [
           [
             [
@@ -748,7 +749,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#get-entitlements-%-get-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/entitlements-example",
+        "url": "https://discord.com/developers/docs/game-sdk/store#get-entitlements-example",
         "content": [
           {
             "language": "",
@@ -757,9 +758,10 @@
         ]
       }
     },
-    "Get Entitlement % GET /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/entitlements/{entitlement.id#DOCS_GAME_SDK_STORE/data-models-entitlement-struct}": {
+    "Get Entitlement": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#get-entitlement-%-get-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/entitlements/{entitlement.id#docs_game_sdk_store/data-models-entitlement-struct}",
+      "url": "https://discord.com/developers/docs/game-sdk/store#get-entitlement",
+      "endpoint": "GET /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/entitlements/{entitlement.id#DOCS_GAME_SDK_STORE/data-models-entitlement-struct}",
       "content": [
         "Fetch an entitlement by its ID. This may be useful in confirming that a user has a given entitlement that another call or the SDK says they do.",
         "|Query Parameters",
@@ -767,7 +769,7 @@
       ],
       "Query Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#get-entitlement-%-get-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/entitlements/{entitlement.id#docs_game_sdk_store/data-models-entitlement-struct}-query-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/store#get-entitlement-query-parameters",
         "content": [
           [
             [
@@ -785,7 +787,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#get-entitlement-%-get-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/entitlements/{entitlement.id#docs_game_sdk_store/data-models-entitlement-struct}-example",
+        "url": "https://discord.com/developers/docs/game-sdk/store#get-entitlement-example",
         "content": [
           {
             "language": "",
@@ -794,16 +796,17 @@
         ]
       }
     },
-    "Get SKUs % GET /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/skus": {
+    "Get SKUs": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#get-skus-%-get-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/skus",
+      "url": "https://discord.com/developers/docs/game-sdk/store#get-skus",
+      "endpoint": "GET /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/skus",
       "content": [
         "Get all SKUs for an application.",
         "|Example"
       ],
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#get-skus-%-get-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/skus-example",
+        "url": "https://discord.com/developers/docs/game-sdk/store#get-skus-example",
         "content": [
           {
             "language": "",
@@ -812,16 +815,17 @@
         ]
       }
     },
-    "Consume SKU % POST /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/entitlements/{entitlement.id#DOCS_GAME_SDK_STORE/data-models-entitlement-struct}/consume": {
+    "Consume SKU": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#consume-sku-%-post-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/entitlements/{entitlement.id#docs_game_sdk_store/data-models-entitlement-struct}/consume",
+      "url": "https://discord.com/developers/docs/game-sdk/store#consume-sku",
+      "endpoint": "POST /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/entitlements/{entitlement.id#DOCS_GAME_SDK_STORE/data-models-entitlement-struct}/consume",
       "content": [
         "Marks a given entitlement for the user as consumed, meaning it will no longer be returned in an entitlements check. Ensure the user was granted whatever items the entitlement was for before consuming it!",
         "|Example"
       ],
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#consume-sku-%-post-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/entitlements/{entitlement.id#docs_game_sdk_store/data-models-entitlement-struct}/consume-example",
+        "url": "https://discord.com/developers/docs/game-sdk/store#consume-sku-example",
         "content": [
           {
             "language": "",
@@ -830,16 +834,17 @@
         ]
       }
     },
-    "Delete Test Entitlement % DELETE /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/entitlements/{entitlement.id#DOCS_GAME_SDK_STORE/data-models-entitlement-struct}": {
+    "Delete Test Entitlement": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#delete-test-entitlement-%-delete-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/entitlements/{entitlement.id#docs_game_sdk_store/data-models-entitlement-struct}",
+      "url": "https://discord.com/developers/docs/game-sdk/store#delete-test-entitlement",
+      "endpoint": "DELETE /applications/{application.id#DOCS_GAME_SDK_SDK_STARTER_GUIDE/get-set-up}/entitlements/{entitlement.id#DOCS_GAME_SDK_STORE/data-models-entitlement-struct}",
       "content": [
         "Deletes a test entitlement for an application. You can only delete entitlements that were \"purchased\" in developer test mode; these are entitlements of type == TestModePurchase. You cannot use this route to delete arbitrary entitlements that users actually purchased.",
         "|Example"
       ],
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#delete-test-entitlement-%-delete-/applications/{application.id#docs_game_sdk_sdk_starter_guide/get-set-up}/entitlements/{entitlement.id#docs_game_sdk_store/data-models-entitlement-struct}-example",
+        "url": "https://discord.com/developers/docs/game-sdk/store#delete-test-entitlement-example",
         "content": [
           {
             "language": "",
@@ -848,9 +853,10 @@
         ]
       }
     },
-    "Create Purchase Discount % PUT /store/skus/{sku.id#DOCS_GAME_SDK_STORE/data-models-sku-struct}/discounts/{user.id#DOCS_RESOURCES_USER/user-object}": {
+    "Create Purchase Discount": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#create-purchase-discount-%-put-/store/skus/{sku.id#docs_game_sdk_store/data-models-sku-struct}/discounts/{user.id#docs_resources_user/user-object}",
+      "url": "https://discord.com/developers/docs/game-sdk/store#create-purchase-discount",
+      "endpoint": "PUT /store/skus/{sku.id#DOCS_GAME_SDK_STORE/data-models-sku-struct}/discounts/{user.id#DOCS_RESOURCES_USER/user-object}",
       "content": [
         "Creates a discount for the given user on their next purchase of the given SKU. You should call this endpoint from your backend server just before calling StartPurchase for the SKU you wish to discount. The user will then see a discounted price for that SKU at time of payment. The discount is automatically consumed after successful purchase or if the TTL expires.",
         "|Parameters",
@@ -858,7 +864,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#create-purchase-discount-%-put-/store/skus/{sku.id#docs_game_sdk_store/data-models-sku-struct}/discounts/{user.id#docs_resources_user/user-object}-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/store#create-purchase-discount-parameters",
         "content": [
           [
             [
@@ -881,7 +887,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#create-purchase-discount-%-put-/store/skus/{sku.id#docs_game_sdk_store/data-models-sku-struct}/discounts/{user.id#docs_resources_user/user-object}-example",
+        "url": "https://discord.com/developers/docs/game-sdk/store#create-purchase-discount-example",
         "content": [
           {
             "language": "",
@@ -890,16 +896,17 @@
         ]
       }
     },
-    "Delete Purchase Discount % DELETE /store/skus/{sku.id#DOCS_GAME_SDK_STORE/data-models-sku-struct}/discounts/{user.id#DOCS_RESOURCES_USER/user-object}": {
+    "Delete Purchase Discount": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/store#delete-purchase-discount-%-delete-/store/skus/{sku.id#docs_game_sdk_store/data-models-sku-struct}/discounts/{user.id#docs_resources_user/user-object}",
+      "url": "https://discord.com/developers/docs/game-sdk/store#delete-purchase-discount",
+      "endpoint": "DELETE /store/skus/{sku.id#DOCS_GAME_SDK_STORE/data-models-sku-struct}/discounts/{user.id#DOCS_RESOURCES_USER/user-object}",
       "content": [
         "Deletes the currently active discount on the given SKU for the given user. You do not need to call this after a user has made a discounted purchase; successful discounted purchases will automatically remove the discount for that user for subsequent purchases.",
         "|Example"
       ],
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/store#delete-purchase-discount-%-delete-/store/skus/{sku.id#docs_game_sdk_store/data-models-sku-struct}/discounts/{user.id#docs_resources_user/user-object}-example",
+        "url": "https://discord.com/developers/docs/game-sdk/store#delete-purchase-discount-example",
         "content": [
           {
             "language": "",

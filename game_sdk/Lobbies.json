@@ -4,7 +4,7 @@
   ],
   "Lobbies": {
     "level": 1,
-    "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbies",
+    "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbies",
     "content": [
       "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
       "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
@@ -68,12 +68,12 @@
       "|Connecting to Lobbies",
       "|Example: Crossplayish",
       "|The API Way",
-      "|Create Lobby % POST /lobbies",
-      "|Update Lobby % PATCH /lobbies/{lobby.id#DOCS_LOBBIES/data-models-lobby-struct}",
-      "|Delete Lobby % DELETE /lobbies/{lobby.id#DOCS_GAME_SDK_LOBBIES/data-models-lobby-struct}",
-      "|Update Lobby Member % PATCH /lobbies/{lobby.id#DOCS_GAME_SDK_LOBBIES/data-models-lobby-struct}/members/{user.id#DOCS_RESOURCES_USER/user-object}",
-      "|Create Lobby Search % POST /lobbies/search",
-      "|Send Lobby Data % POST /lobbies/{lobby.id#DOCS_GAME_SDK_LOBBIES/data-models-lobby-struct}/send",
+      "|Create Lobby",
+      "|Update Lobby",
+      "|Delete Lobby",
+      "|Update Lobby Member",
+      "|Create Lobby Search",
+      "|Send Lobby Data",
       "|Integrated Networking",
       "|ConnectNetwork",
       "|DisconnectNetwork",
@@ -85,7 +85,7 @@
     ],
     "The SDK Way": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#the-sdk-way",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#the-sdk-way",
       "content": [
         "In order to ensure that Discord lobbies are consistent for all players, this manager works with \"transactions\". A LobbyTransaction is needed to set lobby properties, like capacity. A MemberTransaction is needed to set lobby member properties, like metadata.",
         "To update a user or a lobby, create or get a transaction for that resource, call the needed methods on it, and then pass it to the Create() or Update() methods. When passed to a Create() or Update() method, the transaction objected is consumed. So, if you want to do another Create() or Update(), you need to get a new transaction.",
@@ -93,7 +93,7 @@
       ],
       "Example: Creating a Lobby": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#the-sdk-way-example:-creating-a-lobby",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#the-sdk-way-example:-creating-a-lobby",
         "content": [
           {
             "language": "cs",
@@ -104,7 +104,7 @@
     },
     "Data Models": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#data-models",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#data-models",
       "content": [
         "|LobbyType Enum",
         "|Lobby Struct",
@@ -117,7 +117,7 @@
       ],
       "LobbyType Enum": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#data-models-lobbytype-enum",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#data-models-lobbytype-enum",
         "content": [
           [
             [
@@ -137,7 +137,7 @@
       },
       "Lobby Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#data-models-lobby-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#data-models-lobby-struct",
         "content": [
           [
             [
@@ -180,7 +180,7 @@
       },
       "LobbySearchComparison Enum": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#data-models-lobbysearchcomparison-enum",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#data-models-lobbysearchcomparison-enum",
         "content": [
           [
             [
@@ -216,7 +216,7 @@
       },
       "LobbySearchCast Enum": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#data-models-lobbysearchcast-enum",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#data-models-lobbysearchcast-enum",
         "content": [
           [
             [
@@ -236,7 +236,7 @@
       },
       "LobbySearchDistance Enum": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#data-models-lobbysearchdistance-enum",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#data-models-lobbysearchdistance-enum",
         "content": [
           [
             [
@@ -269,21 +269,21 @@
       },
       "LobbyTransaction Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#data-models-lobbytransaction-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#data-models-lobbytransaction-struct",
         "content": [
           "Has no values, but has member functions, outlined later."
         ]
       },
       "LobbyMemberTransaction Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#data-models-lobbymembertransaction-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#data-models-lobbymembertransaction-struct",
         "content": [
           "Has no values, but has member functions, outlined later."
         ]
       },
       "LobbySearchQuery Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#data-models-lobbysearchquery-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#data-models-lobbysearchquery-struct",
         "content": [
           "Has no values, but has member functions, outlined later."
         ]
@@ -291,7 +291,7 @@
     },
     "LobbyTransaction.SetType": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.settype",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbytransaction.settype",
       "content": [
         "Marks a lobby as private or public.",
         "Returns void.",
@@ -300,7 +300,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.settype-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbytransaction.settype-parameters",
         "content": [
           [
             [
@@ -318,7 +318,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.settype-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbytransaction.settype-example",
         "content": [
           {
             "language": "cs",
@@ -329,7 +329,7 @@
     },
     "LobbyTransaction.SetOwner": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setowner",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbytransaction.setowner",
       "content": [
         "> warn\n> This method is only valid for LobbyUpdateTransactions and may cause issues if you set it on a LobbyCreateTransaction.",
         "Sets a new owner for the lobby.",
@@ -339,7 +339,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setowner-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbytransaction.setowner-parameters",
         "content": [
           [
             [
@@ -357,7 +357,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setowner-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbytransaction.setowner-example",
         "content": [
           {
             "language": "cs",
@@ -368,7 +368,7 @@
     },
     "LobbyTransaction.SetCapacity": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setcapacity",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbytransaction.setcapacity",
       "content": [
         "Sets a new capacity for the lobby.",
         "Returns void.",
@@ -377,7 +377,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setcapacity-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbytransaction.setcapacity-parameters",
         "content": [
           [
             [
@@ -395,7 +395,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setcapacity-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbytransaction.setcapacity-example",
         "content": [
           {
             "language": "cs",
@@ -406,7 +406,7 @@
     },
     "LobbyTransaction.SetMetadata": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setmetadata",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbytransaction.setmetadata",
       "content": [
         "Sets metadata value under a given key name for the lobby.",
         "Returns void.",
@@ -415,7 +415,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setmetadata-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbytransaction.setmetadata-parameters",
         "content": [
           [
             [
@@ -438,7 +438,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setmetadata-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbytransaction.setmetadata-example",
         "content": [
           {
             "language": "cs",
@@ -449,7 +449,7 @@
     },
     "LobbyTransaction.DeleteMetadata": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.deletemetadata",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbytransaction.deletemetadata",
       "content": [
         "Deletes the lobby metadata for a key.",
         "Returns void.",
@@ -458,7 +458,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.deletemetadata-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbytransaction.deletemetadata-parameters",
         "content": [
           [
             [
@@ -476,7 +476,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.deletemetadata-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbytransaction.deletemetadata-example",
         "content": [
           {
             "language": "cs",
@@ -487,7 +487,7 @@
     },
     "LobbyTransaction.SetLocked": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setlocked",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbytransaction.setlocked",
       "content": [
         "Sets the lobby to locked or unlocked. When locked, new users cannot join the lobby.",
         "Returns void.",
@@ -496,7 +496,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setlocked-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbytransaction.setlocked-parameters",
         "content": [
           [
             [
@@ -514,7 +514,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbytransaction.setlocked-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbytransaction.setlocked-example",
         "content": [
           {
             "language": "cs",
@@ -525,7 +525,7 @@
     },
     "LobbyMemberTransaction.SetMetadata": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbymembertransaction.setmetadata",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbymembertransaction.setmetadata",
       "content": [
         "Sets metadata value under a given key name for the current user.",
         "Returns void.",
@@ -534,7 +534,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbymembertransaction.setmetadata-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbymembertransaction.setmetadata-parameters",
         "content": [
           [
             [
@@ -557,7 +557,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbymembertransaction.setmetadata-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbymembertransaction.setmetadata-example",
         "content": [
           {
             "language": "cs",
@@ -568,7 +568,7 @@
     },
     "LobbyMemberTransaction.DeleteMetadata": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbymembertransaction.deletemetadata",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbymembertransaction.deletemetadata",
       "content": [
         "Sets metadata value under a given key name for the current user.",
         "Returns void.",
@@ -577,7 +577,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbymembertransaction.deletemetadata-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbymembertransaction.deletemetadata-parameters",
         "content": [
           [
             [
@@ -595,7 +595,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbymembertransaction.deletemetadata-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbymembertransaction.deletemetadata-example",
         "content": [
           {
             "language": "cs",
@@ -606,7 +606,7 @@
     },
     "LobbySearchQuery.Filter": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.filter",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbysearchquery.filter",
       "content": [
         "Filters lobbies based on metadata comparison. Available filter values are owner_id, capacity, slots, and metadata. If you are filtering based on metadata, make sure you prepend your key with \"metadata.\" For example, filtering on matchmaking rating would be \"metadata.matchmaking_rating\".",
         "Returns void.",
@@ -615,7 +615,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.filter-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbysearchquery.filter-parameters",
         "content": [
           [
             [
@@ -648,7 +648,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.filter-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbysearchquery.filter-example",
         "content": [
           {
             "language": "cs",
@@ -659,7 +659,7 @@
     },
     "LobbySearchQuery.Sort": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.sort",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbysearchquery.sort",
       "content": [
         "Sorts the filtered lobbies based on \"near-ness\" to a given value.",
         "Returns void.",
@@ -668,7 +668,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.sort-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbysearchquery.sort-parameters",
         "content": [
           [
             [
@@ -696,7 +696,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.sort-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbysearchquery.sort-example",
         "content": [
           {
             "language": "cs",
@@ -707,7 +707,7 @@
     },
     "LobbySearchQuery.Limit": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.limit",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbysearchquery.limit",
       "content": [
         "Limits the number of lobbies returned in a search.",
         "Returns void.",
@@ -716,7 +716,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.limit-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbysearchquery.limit-parameters",
         "content": [
           [
             [
@@ -734,7 +734,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.limit-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbysearchquery.limit-example",
         "content": [
           {
             "language": "cs",
@@ -745,7 +745,7 @@
     },
     "LobbySearchQuery.Distance": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.distance",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbysearchquery.distance",
       "content": [
         "Filters lobby results to within certain regions relative to the user's location.",
         "Returns void.",
@@ -754,7 +754,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.distance-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbysearchquery.distance-parameters",
         "content": [
           [
             [
@@ -772,7 +772,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbysearchquery.distance-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbysearchquery.distance-example",
         "content": [
           {
             "language": "cs",
@@ -783,7 +783,7 @@
     },
     "GetLobbyCreateTransaction": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbycreatetransaction",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#getlobbycreatetransaction",
       "content": [
         "Gets a Lobby transaction used for creating a new lobby",
         "Returns a Discord.LobbyTransaction.",
@@ -792,14 +792,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbycreatetransaction-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getlobbycreatetransaction-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbycreatetransaction-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getlobbycreatetransaction-example",
         "content": [
           {
             "language": "cs",
@@ -810,7 +810,7 @@
     },
     "GetLobbyUpdateTransaction": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbyupdatetransaction",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#getlobbyupdatetransaction",
       "content": [
         "Gets a lobby transaction used for updating an existing lobby.",
         "Returns a Discord.LobbyTransaction.",
@@ -819,7 +819,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbyupdatetransaction-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getlobbyupdatetransaction-parameters",
         "content": [
           [
             [
@@ -837,7 +837,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbyupdatetransaction-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getlobbyupdatetransaction-example",
         "content": [
           {
             "language": "cs",
@@ -848,7 +848,7 @@
     },
     "GetMemberUpdateTransaction": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmemberupdatetransaction",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#getmemberupdatetransaction",
       "content": [
         "Gets a new member transaction for a lobby member in a given lobby.",
         "Returns a Discord.LobbyMemberTransaction.",
@@ -857,7 +857,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmemberupdatetransaction-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getmemberupdatetransaction-parameters",
         "content": [
           [
             [
@@ -880,7 +880,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmemberupdatetransaction-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getmemberupdatetransaction-example",
         "content": [
           {
             "language": "cs",
@@ -891,7 +891,7 @@
     },
     "CreateLobby": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#createlobby",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#createlobby",
       "content": [
         "Creates a lobby. Creating a lobby auto-joins the connected user to it. Do not call SetOwner() in the transaction for this method.",
         "Returns Discord.Result and ref Discord.Lobby via callback.",
@@ -900,7 +900,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#createlobby-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#createlobby-parameters",
         "content": [
           [
             [
@@ -918,7 +918,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#createlobby-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#createlobby-example",
         "content": [
           {
             "language": "cs",
@@ -929,7 +929,7 @@
     },
     "UpdateLobby": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#updatelobby",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#updatelobby",
       "content": [
         "Updates a lobby with data from the given transaction. You can call SetOwner() in this transaction.",
         "Returns Discord.Result via callback.",
@@ -939,7 +939,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#updatelobby-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#updatelobby-parameters",
         "content": [
           [
             [
@@ -962,7 +962,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#updatelobby-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#updatelobby-example",
         "content": [
           {
             "language": "cs",
@@ -973,7 +973,7 @@
     },
     "DeleteLobby": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#deletelobby",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#deletelobby",
       "content": [
         "Deletes a given lobby.",
         "Returns Discord.Result via callback.",
@@ -982,7 +982,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#deletelobby-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#deletelobby-parameters",
         "content": [
           [
             [
@@ -1000,7 +1000,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#deletelobby-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#deletelobby-example",
         "content": [
           {
             "language": "cs",
@@ -1011,7 +1011,7 @@
     },
     "ConnectLobby": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectlobby",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#connectlobby",
       "content": [
         "Connects the current user to a given lobby. You can be connected to up to five lobbies at a time.",
         "Returns Discord.Result and ref Discord.Lobby via callback.",
@@ -1020,7 +1020,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectlobby-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#connectlobby-parameters",
         "content": [
           [
             [
@@ -1043,7 +1043,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectlobby-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#connectlobby-example",
         "content": [
           {
             "language": "cs",
@@ -1054,7 +1054,7 @@
     },
     "ConnectLobbyWithActivitySecret": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectlobbywithactivitysecret",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#connectlobbywithactivitysecret",
       "content": [
         "Connects the current user to a lobby; requires the special activity secret from the lobby which is a concatenated lobbyId and secret.",
         "Returns Discord.Result and ref Discord.Lobby via callback.",
@@ -1063,7 +1063,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectlobbywithactivitysecret-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#connectlobbywithactivitysecret-parameters",
         "content": [
           [
             [
@@ -1081,7 +1081,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectlobbywithactivitysecret-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#connectlobbywithactivitysecret-example",
         "content": [
           {
             "language": "cs",
@@ -1092,7 +1092,7 @@
     },
     "GetLobbyActivitySecret": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbyactivitysecret",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#getlobbyactivitysecret",
       "content": [
         "Gets the special activity secret for a given lobby. If you are creating lobbies from game clients, use this to easily interact with Rich Presence invites. Set the returned secret to your activity's JoinSecret.",
         "Returns string.",
@@ -1101,7 +1101,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbyactivitysecret-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getlobbyactivitysecret-parameters",
         "content": [
           [
             [
@@ -1119,7 +1119,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbyactivitysecret-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getlobbyactivitysecret-example",
         "content": [
           {
             "language": "cs",
@@ -1130,7 +1130,7 @@
     },
     "DisconnectLobby": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#disconnectlobby",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#disconnectlobby",
       "content": [
         "Disconnects the current user from a lobby.",
         "Returns Discord.Result via callback.",
@@ -1139,7 +1139,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#disconnectlobby-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#disconnectlobby-parameters",
         "content": [
           [
             [
@@ -1157,7 +1157,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#disconnectlobby-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#disconnectlobby-example",
         "content": [
           {
             "language": "cs",
@@ -1168,7 +1168,7 @@
     },
     "GetLobby": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobby",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#getlobby",
       "content": [
         "Gets the lobby object for a given lobby id. Because of the way that the SDK is architected, you must first call Search() to build a stable list of lobbies. This function will then query those lobbies for ones with a matching id.",
         "Returns a Discord.Lobby.",
@@ -1177,7 +1177,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobby-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getlobby-parameters",
         "content": [
           [
             [
@@ -1195,7 +1195,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobby-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getlobby-example",
         "content": [
           {
             "language": "cs",
@@ -1206,7 +1206,7 @@
     },
     "LobbyMetadataCount": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbymetadatacount",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbymetadatacount",
       "content": [
         "Returns the number of metadata key/value pairs on a given lobby. Used for accessing metadata by iterating over the list.",
         "Returns Int32.",
@@ -1215,7 +1215,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbymetadatacount-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbymetadatacount-parameters",
         "content": [
           [
             [
@@ -1233,7 +1233,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbymetadatacount-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbymetadatacount-example",
         "content": [
           {
             "language": "cs",
@@ -1244,7 +1244,7 @@
     },
     "GetLobbyMetadataKey": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbymetadatakey",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#getlobbymetadatakey",
       "content": [
         "Returns the key for the lobby metadata at the given index.",
         "Returns string.",
@@ -1253,7 +1253,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbymetadatakey-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getlobbymetadatakey-parameters",
         "content": [
           [
             [
@@ -1276,7 +1276,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbymetadatakey-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getlobbymetadatakey-example",
         "content": [
           {
             "language": "cs",
@@ -1287,7 +1287,7 @@
     },
     "GetLobbyMetadataValue": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbymetadatavalue",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#getlobbymetadatavalue",
       "content": [
         "Returns lobby metadata value for a given key and id. Can be used with iteration, or direct access by keyname.",
         "|Parameters",
@@ -1295,7 +1295,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbymetadatavalue-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getlobbymetadatavalue-parameters",
         "content": [
           [
             [
@@ -1318,7 +1318,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbymetadatavalue-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getlobbymetadatavalue-example",
         "content": [
           {
             "language": "cs",
@@ -1329,7 +1329,7 @@
     },
     "MemberCount": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#membercount",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#membercount",
       "content": [
         "Get the number of members in a lobby.",
         "Returns Int32.",
@@ -1338,7 +1338,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#membercount-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#membercount-parameters",
         "content": [
           [
             [
@@ -1356,7 +1356,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#membercount-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#membercount-example",
         "content": [
           {
             "language": "cs",
@@ -1367,7 +1367,7 @@
     },
     "GetMemberUserId": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmemberuserid",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#getmemberuserid",
       "content": [
         "Gets the user id of the lobby member at the given index.",
         "Returns Int64.",
@@ -1376,7 +1376,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmemberuserid-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getmemberuserid-parameters",
         "content": [
           [
             [
@@ -1399,7 +1399,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmemberuserid-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getmemberuserid-example",
         "content": [
           {
             "language": "cs",
@@ -1410,7 +1410,7 @@
     },
     "GetMemberUser": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmemberuser",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#getmemberuser",
       "content": [
         "Gets the user object for a given user id.",
         "Returns Discord.User.",
@@ -1419,7 +1419,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmemberuser-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getmemberuser-parameters",
         "content": [
           [
             [
@@ -1442,7 +1442,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmemberuser-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getmemberuser-example",
         "content": [
           {
             "language": "cs",
@@ -1453,7 +1453,7 @@
     },
     "MemberMetadataCount": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#membermetadatacount",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#membermetadatacount",
       "content": [
         "Gets the number of metadata key/value pairs for the given lobby member. Used for accessing metadata by iterating over a list.",
         "Returns Int32.",
@@ -1462,7 +1462,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#membermetadatacount-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#membermetadatacount-parameters",
         "content": [
           [
             [
@@ -1485,7 +1485,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#membermetadatacount-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#membermetadatacount-example",
         "content": [
           {
             "language": "cs",
@@ -1496,7 +1496,7 @@
     },
     "GetMemberMetadataKey": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmembermetadatakey",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#getmembermetadatakey",
       "content": [
         "Gets the key for the lobby metadata at the given index on a lobby member.",
         "Returns string.",
@@ -1505,7 +1505,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmembermetadatakey-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getmembermetadatakey-parameters",
         "content": [
           [
             [
@@ -1533,7 +1533,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmembermetadatakey-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getmembermetadatakey-example",
         "content": [
           {
             "language": "cs",
@@ -1544,7 +1544,7 @@
     },
     "GetMemberMetadataValue": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmembermetadatavalue",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#getmembermetadatavalue",
       "content": [
         "Returns user metadata for a given key. Can be used in conjunction with the count and get key functions if you're iterating over metadata. Or you can access the metadata directly by keyname",
         "Returns string.",
@@ -1553,7 +1553,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmembermetadatavalue-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getmembermetadatavalue-parameters",
         "content": [
           [
             [
@@ -1581,7 +1581,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getmembermetadatavalue-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getmembermetadatavalue-example",
         "content": [
           {
             "language": "cs",
@@ -1592,7 +1592,7 @@
     },
     "UpdateMember": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#updatemember",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#updatemember",
       "content": [
         "Updates lobby member info for a given member of the lobby.",
         "Returns Discord.Result via callback.",
@@ -1601,7 +1601,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#updatemember-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#updatemember-parameters",
         "content": [
           [
             [
@@ -1629,7 +1629,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#updatemember-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#updatemember-example",
         "content": [
           {
             "language": "cs",
@@ -1640,7 +1640,7 @@
     },
     "SendLobbyMessage": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#sendlobbymessage",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#sendlobbymessage",
       "content": [
         "Sends a message to the lobby on behalf of the current user. You must be connected to the lobby you are messaging. You should use this function for message sending if you are not using the built in networking layer for the lobby. If you are, you should use SendNetworkMessage instead.",
         "This method has a rate limit of 10 messages per 5 seconds.",
@@ -1650,7 +1650,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#sendlobbymessage-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#sendlobbymessage-parameters",
         "content": [
           [
             [
@@ -1673,7 +1673,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#sendlobbymessage-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#sendlobbymessage-example",
         "content": [
           {
             "language": "cs",
@@ -1684,7 +1684,7 @@
     },
     "GetSearchQuery": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getsearchquery",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#getsearchquery",
       "content": [
         "Creates a search object to search available lobbies.",
         "Returns Discord.LobbySearchQuery.",
@@ -1693,14 +1693,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getsearchquery-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getsearchquery-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getsearchquery-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getsearchquery-example",
         "content": [
           {
             "language": "cs",
@@ -1711,7 +1711,7 @@
     },
     "Search": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#search",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#search",
       "content": [
         "Searches available lobbies based on the search criteria chosen in the Discord.LobbySearch member functions. Lobbies that meet the criteria are then globally filtered, and can be accessed via iteration with LobbyCount() and GetLobbyId(). The callback fires when the list of lobbies is stable and ready for iteration.",
         "You do not necessarily need to access the filtered lobbies within the context of the result callback, but it may make it easier for the sake of asynchronous timing.",
@@ -1721,7 +1721,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#search-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#search-parameters",
         "content": [
           [
             [
@@ -1739,7 +1739,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#search-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#search-example",
         "content": [
           {
             "language": "cs",
@@ -1750,7 +1750,7 @@
     },
     "LobbyCount": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbycount",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbycount",
       "content": [
         "Get the number of lobbies that match the search.",
         "Returns Int32.",
@@ -1759,14 +1759,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbycount-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbycount-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#lobbycount-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#lobbycount-example",
         "content": [
           {
             "language": "cs",
@@ -1777,7 +1777,7 @@
     },
     "GetLobbyId": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbyid",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#getlobbyid",
       "content": [
         "Returns the id for the lobby at the given index.",
         "Returns Int64.",
@@ -1786,7 +1786,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbyid-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getlobbyid-parameters",
         "content": [
           [
             [
@@ -1804,7 +1804,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#getlobbyid-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#getlobbyid-example",
         "content": [
           {
             "language": "cs",
@@ -1815,7 +1815,7 @@
     },
     "ConnectVoice": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectvoice",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#connectvoice",
       "content": [
         "Connects to the voice channel of the current lobby. When connected to voice, the user can open their Discord overlay to see a list of other users with whom they are in voice, allowing them to mute/deafen themselves as well as mute/adjust the volume of other lobby members.",
         "You can also allow users to adjust voice settings for your game with Overlay OpenVoiceSettings.",
@@ -1826,7 +1826,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectvoice-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#connectvoice-parameters",
         "content": [
           [
             [
@@ -1844,7 +1844,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectvoice-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#connectvoice-example",
         "content": [
           {
             "language": "cs",
@@ -1855,7 +1855,7 @@
     },
     "DisconnectVoice": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#disconnectvoice",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#disconnectvoice",
       "content": [
         "Disconnects from the voice channel of a given lobby.",
         "Returns Discord.Result via callback.",
@@ -1864,7 +1864,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#disconnectvoice-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#disconnectvoice-parameters",
         "content": [
           [
             [
@@ -1882,7 +1882,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#disconnectvoice-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#disconnectvoice-example",
         "content": [
           {
             "language": "cs",
@@ -1893,7 +1893,7 @@
     },
     "OnLobbyUpdate": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#onlobbyupdate",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#onlobbyupdate",
       "content": [
         "Fires when a lobby is updated.",
         "|Parameters",
@@ -1901,7 +1901,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onlobbyupdate-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#onlobbyupdate-parameters",
         "content": [
           [
             [
@@ -1919,7 +1919,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onlobbyupdate-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#onlobbyupdate-example",
         "content": [
           {
             "language": "cs",
@@ -1930,7 +1930,7 @@
     },
     "OnLobbyDelete": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#onlobbydelete",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#onlobbydelete",
       "content": [
         "Fired when a lobby is deleted.",
         "|Parameters",
@@ -1938,7 +1938,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onlobbydelete-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#onlobbydelete-parameters",
         "content": [
           [
             [
@@ -1961,7 +1961,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onlobbydelete-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#onlobbydelete-example",
         "content": [
           {
             "language": "cs",
@@ -1972,7 +1972,7 @@
     },
     "OnMemberConnect": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#onmemberconnect",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#onmemberconnect",
       "content": [
         "Fires when a new member joins the lobby.",
         "|Parameters",
@@ -1980,7 +1980,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onmemberconnect-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#onmemberconnect-parameters",
         "content": [
           [
             [
@@ -2003,7 +2003,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onmemberconnect-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#onmemberconnect-example",
         "content": [
           {
             "language": "cs",
@@ -2014,7 +2014,7 @@
     },
     "OnMemberUpdate": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#onmemberupdate",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#onmemberupdate",
       "content": [
         "Fires when data for a lobby member is updated.",
         "|Parameters",
@@ -2022,7 +2022,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onmemberupdate-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#onmemberupdate-parameters",
         "content": [
           [
             [
@@ -2045,7 +2045,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onmemberupdate-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#onmemberupdate-example",
         "content": [
           {
             "language": "cs",
@@ -2056,7 +2056,7 @@
     },
     "OnMemberDisconnect": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#onmemberdisconnect",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#onmemberdisconnect",
       "content": [
         "Fires when a member leaves the lobby.",
         "|Parameters",
@@ -2064,7 +2064,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onmemberdisconnect-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#onmemberdisconnect-parameters",
         "content": [
           [
             [
@@ -2087,7 +2087,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onmemberdisconnect-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#onmemberdisconnect-example",
         "content": [
           {
             "language": "cs",
@@ -2098,7 +2098,7 @@
     },
     "OnLobbyMessage": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#onlobbymessage",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#onlobbymessage",
       "content": [
         "Fires when a message is sent to the lobby.",
         "|Parameters",
@@ -2106,7 +2106,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onlobbymessage-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#onlobbymessage-parameters",
         "content": [
           [
             [
@@ -2134,7 +2134,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onlobbymessage-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#onlobbymessage-example",
         "content": [
           {
             "language": "cs",
@@ -2145,7 +2145,7 @@
     },
     "OnSpeaking": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#onspeaking",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#onspeaking",
       "content": [
         "Fires when a user connected to voice starts or stops speaking.",
         "|Parameters",
@@ -2153,7 +2153,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onspeaking-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#onspeaking-parameters",
         "content": [
           [
             [
@@ -2181,7 +2181,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onspeaking-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#onspeaking-example",
         "content": [
           {
             "language": "cs",
@@ -2192,7 +2192,7 @@
     },
     "Connecting to Lobbies": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#connecting-to-lobbies",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#connecting-to-lobbies",
       "content": [
         "In the preceding section, you probably noticed there are a couple different methods for connecting to a lobby: Connect() and ConnectWithActivitySecret(). Lobbies in Discord are even more useful when hooked together with Activities/Rich Presence functionality; they give you everything you need to create an awesome game invite system.",
         "If you are creating lobbies for users in the game client, and not on a backend server, consider using GetLobbyActivitySecret and ConnectWithActivitySecret(). GetLobbyActivitySecret() will return you a unique secret for the lobby concatenated with the lobby's id. You can pipe this value directly to the Secrets.Join field of the Activity payload. Then, when a user receives the secret, their client can call ConnectWithActivitySecret() with just the secret; the lobby id is parsed out automatically. This saves you the effort of concatenating the secret + id together yourself and then parsing them out again. As a code example:",
@@ -2205,7 +2205,7 @@
       ],
       "Example: Search for a Lobby, Connect, and Join Voice": {
         "level": 3,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#example:-search-for-a-lobby,-connect,-and-join-voice",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#example:-search-for-a-lobby,-connect,-and-join-voice",
         "content": [
           {
             "language": "cs",
@@ -2216,7 +2216,7 @@
     },
     "Example: Crossplayish": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#example:-crossplayish",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#example:-crossplayish",
       "content": [
         "So, an explanation. Because the DLL that you ship with your game is a stub that calls out to the local Discord client for actual operations, the SDK does not necessarily care if the game was launched from Discord. As long as the player launching the game:",
         [
@@ -2231,7 +2231,7 @@
     },
     "The API Way": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#the-api-way",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#the-api-way",
       "content": [
         "Below are the API endpoints and the parameters they accept. If you choose to interface directly with the Discord API, you will need a \"Bot token\". This is a special authorization token with which your application can access Discord's HTTP API. Head on over to your app's dashboard, and hit the big \"Add a Bot User\" button. From there, mutter abra kadabra and reveal the token. This token is used as an authorization header against our API like so:",
         {
@@ -2242,9 +2242,10 @@
         "Here are the routes; they all expect JSON bodies. Also, hey, while you're here. You've got a bot token. You're looking at our API. You should check out all the other awesome stuff you can do with it!"
       ]
     },
-    "Create Lobby % POST /lobbies": {
+    "Create Lobby": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#create-lobby-%-post-/lobbies",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#create-lobby",
+      "endpoint": "POST /lobbies",
       "content": [
         "Creates a new lobby. Returns an object similar to the SDK Lobby struct, documented below.",
         "To get a list of valid regions, call the List Voice Regions endpoint.",
@@ -2253,7 +2254,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#create-lobby-%-post-/lobbies-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#create-lobby-parameters",
         "content": [
           [
             [
@@ -2291,7 +2292,7 @@
       },
       "Return Object": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#create-lobby-%-post-/lobbies-return-object",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#create-lobby-return-object",
         "content": [
           {
             "language": "json",
@@ -2300,16 +2301,17 @@
         ]
       }
     },
-    "Update Lobby % PATCH /lobbies/{lobby.id#DOCS_LOBBIES/data-models-lobby-struct}": {
+    "Update Lobby": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#update-lobby-%-patch-/lobbies/{lobby.id#docs_lobbies/data-models-lobby-struct}",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#update-lobby",
+      "endpoint": "PATCH /lobbies/{lobby.id#DOCS_LOBBIES/data-models-lobby-struct}",
       "content": [
         "Updates a lobby.",
         "|Parameters"
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#update-lobby-%-patch-/lobbies/{lobby.id#docs_lobbies/data-models-lobby-struct}-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#update-lobby-parameters",
         "content": [
           [
             [
@@ -2336,23 +2338,25 @@
         ]
       }
     },
-    "Delete Lobby % DELETE /lobbies/{lobby.id#DOCS_GAME_SDK_LOBBIES/data-models-lobby-struct}": {
+    "Delete Lobby": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#delete-lobby-%-delete-/lobbies/{lobby.id#docs_game_sdk_lobbies/data-models-lobby-struct}",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#delete-lobby",
+      "endpoint": "DELETE /lobbies/{lobby.id#DOCS_GAME_SDK_LOBBIES/data-models-lobby-struct}",
       "content": [
         "Deletes a lobby."
       ]
     },
-    "Update Lobby Member % PATCH /lobbies/{lobby.id#DOCS_GAME_SDK_LOBBIES/data-models-lobby-struct}/members/{user.id#DOCS_RESOURCES_USER/user-object}": {
+    "Update Lobby Member": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#update-lobby-member-%-patch-/lobbies/{lobby.id#docs_game_sdk_lobbies/data-models-lobby-struct}/members/{user.id#docs_resources_user/user-object}",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#update-lobby-member",
+      "endpoint": "PATCH /lobbies/{lobby.id#DOCS_GAME_SDK_LOBBIES/data-models-lobby-struct}/members/{user.id#DOCS_RESOURCES_USER/user-object}",
       "content": [
         "Updates the metadata for a lobby member.",
         "|Parameters"
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#update-lobby-member-%-patch-/lobbies/{lobby.id#docs_game_sdk_lobbies/data-models-lobby-struct}/members/{user.id#docs_resources_user/user-object}-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#update-lobby-member-parameters",
         "content": [
           [
             [
@@ -2369,9 +2373,10 @@
         ]
       }
     },
-    "Create Lobby Search % POST /lobbies/search": {
+    "Create Lobby Search": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#create-lobby-search-%-post-/lobbies/search",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#create-lobby-search",
+      "endpoint": "POST /lobbies/search",
       "content": [
         "Creates a lobby search for matchmaking around given criteria.",
         "|Parameters",
@@ -2382,7 +2387,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#create-lobby-search-%-post-/lobbies/search-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#create-lobby-search-parameters",
         "content": [
           [
             [
@@ -2415,7 +2420,7 @@
       },
       "SearchFilter Object": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#create-lobby-search-%-post-/lobbies/search-searchfilter-object",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#create-lobby-search-searchfilter-object",
         "content": [
           [
             [
@@ -2448,7 +2453,7 @@
       },
       "SearchComparison Types": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#create-lobby-search-%-post-/lobbies/search-searchcomparison-types",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#create-lobby-search-searchcomparison-types",
         "content": [
           [
             [
@@ -2484,7 +2489,7 @@
       },
       "SearchSort Object": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#create-lobby-search-%-post-/lobbies/search-searchsort-object",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#create-lobby-search-searchsort-object",
         "content": [
           [
             [
@@ -2512,7 +2517,7 @@
       },
       "SearchCast Types": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#create-lobby-search-%-post-/lobbies/search-searchcast-types",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#create-lobby-search-searchcast-types",
         "content": [
           [
             [
@@ -2531,9 +2536,10 @@
         ]
       }
     },
-    "Send Lobby Data % POST /lobbies/{lobby.id#DOCS_GAME_SDK_LOBBIES/data-models-lobby-struct}/send": {
+    "Send Lobby Data": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#send-lobby-data-%-post-/lobbies/{lobby.id#docs_game_sdk_lobbies/data-models-lobby-struct}/send",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#send-lobby-data",
+      "endpoint": "POST /lobbies/{lobby.id#DOCS_GAME_SDK_LOBBIES/data-models-lobby-struct}/send",
       "content": [
         "Sends a message to the lobby, fanning it out to other lobby members.",
         "This endpoints accepts a UTF8 string. If your message is already a string, you're good to go! If you want to send binary, you can send it to this endpoint as a base64 encoded data uri.",
@@ -2541,7 +2547,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#send-lobby-data-%-post-/lobbies/{lobby.id#docs_game_sdk_lobbies/data-models-lobby-struct}/send-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#send-lobby-data-parameters",
         "content": [
           [
             [
@@ -2560,7 +2566,7 @@
     },
     "Integrated Networking": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#integrated-networking",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#integrated-networking",
       "content": [
         "Discord lobbies have the option of being used with a wrapped networking layer, allowing you to start sending packets quickly and easily without needing to do state management around routes, peer IDs, member metadata, and the like.",
         "This layer allows you to easily connect to the network and open channels to all lobby members with one function call. You can then send network messages to users by their user ID, easily retrieved via lobby methods.",
@@ -2569,7 +2575,7 @@
     },
     "ConnectNetwork": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectnetwork",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#connectnetwork",
       "content": [
         "Connects to the networking layer for the given lobby ID. Call this when connecting to the lobby.",
         "Returns void.",
@@ -2578,7 +2584,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectnetwork-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#connectnetwork-parameters",
         "content": [
           [
             [
@@ -2596,7 +2602,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#connectnetwork-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#connectnetwork-example",
         "content": [
           {
             "language": "cs",
@@ -2607,7 +2613,7 @@
     },
     "DisconnectNetwork": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#disconnectnetwork",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#disconnectnetwork",
       "content": [
         "Disconnects from the networking layer for the given lobby ID.",
         "Returns void.",
@@ -2616,7 +2622,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#disconnectnetwork-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#disconnectnetwork-parameters",
         "content": [
           [
             [
@@ -2634,7 +2640,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#disconnectnetwork-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#disconnectnetwork-example",
         "content": [
           {
             "language": "cs",
@@ -2645,7 +2651,7 @@
     },
     "FlushNetwork": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#flushnetwork",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#flushnetwork",
       "content": [
         "Flushes the network. Call this when you're done sending messages. In Unity, this should be in LateUpdate().",
         "Returns void.",
@@ -2654,14 +2660,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#flushnetwork-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#flushnetwork-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#flushnetwork-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#flushnetwork-example",
         "content": [
           {
             "language": "cs",
@@ -2672,7 +2678,7 @@
     },
     "OpenNetworkChannel": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#opennetworkchannel",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#opennetworkchannel",
       "content": [
         "Opens a network channel to all users in a lobby on the given channel number. No need to iterate over everyone!",
         "Returns void.",
@@ -2681,7 +2687,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#opennetworkchannel-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#opennetworkchannel-parameters",
         "content": [
           [
             [
@@ -2709,7 +2715,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#opennetworkchannel-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#opennetworkchannel-example",
         "content": [
           {
             "language": "cs",
@@ -2720,7 +2726,7 @@
     },
     "SendNetworkMessage": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#sendnetworkmessage",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#sendnetworkmessage",
       "content": [
         "Sends a network message to the given user ID that is a member of the given lobby ID over the given channel ID.",
         "Returns void.",
@@ -2729,7 +2735,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#sendnetworkmessage-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#sendnetworkmessage-parameters",
         "content": [
           [
             [
@@ -2762,7 +2768,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#sendnetworkmessage-example",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#sendnetworkmessage-example",
         "content": [
           {
             "language": "cs",
@@ -2773,14 +2779,14 @@
     },
     "OnNetworkMessage": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#onnetworkmessage",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#onnetworkmessage",
       "content": [
         "Fires when the user receives a message from the lobby's networking layer.",
         "|Parameters"
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/lobbies#onnetworkmessage-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/lobbies#onnetworkmessage-parameters",
         "content": [
           [
             [
@@ -2814,7 +2820,7 @@
     },
     "Example: Networking the Easy Way": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/lobbies#example:-networking-the-easy-way",
+      "url": "https://discord.com/developers/docs/game-sdk/lobbies#example:-networking-the-easy-way",
       "content": [
         {
           "language": "cs",

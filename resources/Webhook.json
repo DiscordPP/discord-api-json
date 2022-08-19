@@ -8,21 +8,21 @@
     "content": [
       "Webhooks are a low-effort way to post messages to channels in Discord. They do not require a bot user or authentication to use.",
       "|Webhook Object",
-      "|Create Webhook % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/webhooks",
-      "|Get Channel Webhooks % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/webhooks",
-      "|Get Guild Webhooks % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/webhooks",
-      "|Get Webhook % GET /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}",
-      "|Get Webhook with Token % GET /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}",
-      "|Modify Webhook % PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}",
-      "|Modify Webhook with Token % PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}",
-      "|Delete Webhook % DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}",
-      "|Delete Webhook with Token % DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}",
-      "|Execute Webhook % POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}",
-      "|Execute Slack-Compatible Webhook % POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/slack",
-      "|Execute GitHub-Compatible Webhook % POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/github",
-      "|Get Webhook Message % GET /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
-      "|Edit Webhook Message % PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
-      "|Delete Webhook Message % DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}"
+      "|Create Webhook",
+      "|Get Channel Webhooks",
+      "|Get Guild Webhooks",
+      "|Get Webhook",
+      "|Get Webhook with Token",
+      "|Modify Webhook",
+      "|Modify Webhook with Token",
+      "|Delete Webhook",
+      "|Delete Webhook with Token",
+      "|Execute Webhook",
+      "|Execute Slack-Compatible Webhook",
+      "|Execute GitHub-Compatible Webhook",
+      "|Get Webhook Message",
+      "|Edit Webhook Message",
+      "|Delete Webhook Message"
     ],
     "Webhook Object": {
       "level": 3,
@@ -167,9 +167,10 @@
         ]
       }
     },
-    "Create Webhook % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/webhooks": {
+    "Create Webhook": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/webhook#create-webhook-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/webhooks",
+      "url": "https://discord.com/developers/docs/resources/webhook#create-webhook",
+      "endpoint": "POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/webhooks",
       "content": [
         "Creates a new webhook and returns a webhook object on success. Requires the MANAGE_WEBHOOKS permission.",
         "An error will be returned if a webhook name (name) is not valid. A webhook name is valid if:",
@@ -182,7 +183,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/webhook#create-webhook-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/webhooks-json-params",
+        "url": "https://discord.com/developers/docs/resources/webhook#create-webhook-json-params",
         "content": [
           [
             [
@@ -204,37 +205,42 @@
         ]
       }
     },
-    "Get Channel Webhooks % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/webhooks": {
+    "Get Channel Webhooks": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/webhook#get-channel-webhooks-%-get-/channels/{channel.id#docs_resources_channel/channel-object}/webhooks",
+      "url": "https://discord.com/developers/docs/resources/webhook#get-channel-webhooks",
+      "endpoint": "GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/webhooks",
       "content": [
         "Returns a list of channel webhook objects. Requires the MANAGE_WEBHOOKS permission."
       ]
     },
-    "Get Guild Webhooks % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/webhooks": {
+    "Get Guild Webhooks": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/webhook#get-guild-webhooks-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/webhooks",
+      "url": "https://discord.com/developers/docs/resources/webhook#get-guild-webhooks",
+      "endpoint": "GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/webhooks",
       "content": [
         "Returns a list of guild webhook objects. Requires the MANAGE_WEBHOOKS permission."
       ]
     },
-    "Get Webhook % GET /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}": {
+    "Get Webhook": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/webhook#get-webhook-%-get-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}",
+      "url": "https://discord.com/developers/docs/resources/webhook#get-webhook",
+      "endpoint": "GET /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}",
       "content": [
         "Returns the new webhook object for the given id."
       ]
     },
-    "Get Webhook with Token % GET /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}": {
+    "Get Webhook with Token": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/webhook#get-webhook-with-token-%-get-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}",
+      "url": "https://discord.com/developers/docs/resources/webhook#get-webhook-with-token",
+      "endpoint": "GET /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}",
       "content": [
         "Same as above, except this call does not require authentication and returns no user in the webhook object."
       ]
     },
-    "Modify Webhook % PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}": {
+    "Modify Webhook": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/webhook#modify-webhook-%-patch-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}",
+      "url": "https://discord.com/developers/docs/resources/webhook#modify-webhook",
+      "endpoint": "PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}",
       "content": [
         "Modify a webhook. Requires the MANAGE_WEBHOOKS permission. Returns the updated webhook object on success.",
         "> info\n> All parameters to this endpoint are optional",
@@ -243,7 +249,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/webhook#modify-webhook-%-patch-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}-json-params",
+        "url": "https://discord.com/developers/docs/resources/webhook#modify-webhook-json-params",
         "content": [
           [
             [
@@ -270,31 +276,35 @@
         ]
       }
     },
-    "Modify Webhook with Token % PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}": {
+    "Modify Webhook with Token": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/webhook#modify-webhook-with-token-%-patch-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}",
+      "url": "https://discord.com/developers/docs/resources/webhook#modify-webhook-with-token",
+      "endpoint": "PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}",
       "content": [
         "Same as above, except this call does not require authentication, does not accept a channel_id parameter in the body, and does not return a user in the webhook object."
       ]
     },
-    "Delete Webhook % DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}": {
+    "Delete Webhook": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/webhook#delete-webhook-%-delete-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}",
+      "url": "https://discord.com/developers/docs/resources/webhook#delete-webhook",
+      "endpoint": "DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}",
       "content": [
         "Delete a webhook permanently. Requires the MANAGE_WEBHOOKS permission. Returns a 204 No Content response on success.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header."
       ]
     },
-    "Delete Webhook with Token % DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}": {
+    "Delete Webhook with Token": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/webhook#delete-webhook-with-token-%-delete-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}",
+      "url": "https://discord.com/developers/docs/resources/webhook#delete-webhook-with-token",
+      "endpoint": "DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}",
       "content": [
         "Same as above, except this call does not require authentication."
       ]
     },
-    "Execute Webhook % POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}": {
+    "Execute Webhook": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/webhook#execute-webhook-%-post-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}",
+      "url": "https://discord.com/developers/docs/resources/webhook#execute-webhook",
+      "endpoint": "POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}",
       "content": [
         "Refer to Uploading Files for details on attachments and multipart/form-data requests. Returns a message or 204 No Content depending on the wait query parameter.",
         "> info\n> Note that when sending a message, you must provide a value for at least one of content, embeds, or file.",
@@ -304,7 +314,7 @@
       ],
       "Query String Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/webhook#execute-webhook-%-post-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}-query-string-params",
+        "url": "https://discord.com/developers/docs/resources/webhook#execute-webhook-query-string-params",
         "content": [
           [
             [
@@ -330,7 +340,7 @@
       },
       "JSON/Form Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/webhook#execute-webhook-%-post-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}-json/form-params",
+        "url": "https://discord.com/developers/docs/resources/webhook#execute-webhook-json/form-params",
         "content": [
           [
             [
@@ -418,16 +428,17 @@
         ]
       }
     },
-    "Execute Slack-Compatible Webhook % POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/slack": {
+    "Execute Slack-Compatible Webhook": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/webhook#execute-slack-compatible-webhook-%-post-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/slack",
+      "url": "https://discord.com/developers/docs/resources/webhook#execute-slack-compatible-webhook",
+      "endpoint": "POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/slack",
       "content": [
         "Refer to Slack's documentation for more information. We do not support Slack's channel, icon_emoji, mrkdwn, or mrkdwn_in properties.",
         "|Query String Params"
       ],
       "Query String Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/webhook#execute-slack-compatible-webhook-%-post-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/slack-query-string-params",
+        "url": "https://discord.com/developers/docs/resources/webhook#execute-slack-compatible-webhook-query-string-params",
         "content": [
           [
             [
@@ -452,16 +463,17 @@
         ]
       }
     },
-    "Execute GitHub-Compatible Webhook % POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/github": {
+    "Execute GitHub-Compatible Webhook": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/webhook#execute-github-compatible-webhook-%-post-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/github",
+      "url": "https://discord.com/developers/docs/resources/webhook#execute-github-compatible-webhook",
+      "endpoint": "POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/github",
       "content": [
         "Add a new webhook to your GitHub repo (in the repo's settings), and use this endpoint as the \"Payload URL.\" You can choose what events your Discord channel receives by choosing the \"Let me select individual events\" option and selecting individual events for the new webhook you're configuring.",
         "|Query String Params"
       ],
       "Query String Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/webhook#execute-github-compatible-webhook-%-post-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/github-query-string-params",
+        "url": "https://discord.com/developers/docs/resources/webhook#execute-github-compatible-webhook-query-string-params",
         "content": [
           [
             [
@@ -486,16 +498,17 @@
         ]
       }
     },
-    "Get Webhook Message % GET /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}": {
+    "Get Webhook Message": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/webhook#get-webhook-message-%-get-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/messages/{message.id#docs_resources_channel/message-object}",
+      "url": "https://discord.com/developers/docs/resources/webhook#get-webhook-message",
+      "endpoint": "GET /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
       "content": [
         "Returns a previously-sent webhook message from the same token. Returns a message object on success.",
         "|Query String Params"
       ],
       "Query String Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/webhook#get-webhook-message-%-get-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/messages/{message.id#docs_resources_channel/message-object}-query-string-params",
+        "url": "https://discord.com/developers/docs/resources/webhook#get-webhook-message-query-string-params",
         "content": [
           [
             [
@@ -514,9 +527,10 @@
         ]
       }
     },
-    "Edit Webhook Message % PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}": {
+    "Edit Webhook Message": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/webhook#edit-webhook-message-%-patch-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/messages/{message.id#docs_resources_channel/message-object}",
+      "url": "https://discord.com/developers/docs/resources/webhook#edit-webhook-message",
+      "endpoint": "PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
       "content": [
         "Edits a previously-sent webhook message from the same token. Returns a message object on success.",
         "When the content field is edited, the mentions array in the message object will be reconstructed from scratch based on the new content. The allowed_mentions field of the edit request controls how this happens. If there is no explicit allowed_mentions in the edit request, the content will be parsed with default allowances, that is, without regard to whether or not an allowed_mentions was present in the request that originally created the message.",
@@ -528,7 +542,7 @@
       ],
       "Query String Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/webhook#edit-webhook-message-%-patch-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/messages/{message.id#docs_resources_channel/message-object}-query-string-params",
+        "url": "https://discord.com/developers/docs/resources/webhook#edit-webhook-message-query-string-params",
         "content": [
           [
             [
@@ -548,7 +562,7 @@
       },
       "JSON/Form Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/webhook#edit-webhook-message-%-patch-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/messages/{message.id#docs_resources_channel/message-object}-json/form-params",
+        "url": "https://discord.com/developers/docs/resources/webhook#edit-webhook-message-json/form-params",
         "content": [
           [
             [
@@ -597,16 +611,17 @@
         ]
       }
     },
-    "Delete Webhook Message % DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}": {
+    "Delete Webhook Message": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/webhook#delete-webhook-message-%-delete-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/messages/{message.id#docs_resources_channel/message-object}",
+      "url": "https://discord.com/developers/docs/resources/webhook#delete-webhook-message",
+      "endpoint": "DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
       "content": [
         "Deletes a message that was created by the webhook. Returns a 204 No Content response on success.",
         "|Query String Params"
       ],
       "Query String Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/webhook#delete-webhook-message-%-delete-/webhooks/{webhook.id#docs_resources_webhook/webhook-object}/{webhook.token#docs_resources_webhook/webhook-object}/messages/{message.id#docs_resources_channel/message-object}-query-string-params",
+        "url": "https://discord.com/developers/docs/resources/webhook#delete-webhook-message-query-string-params",
         "content": [
           [
             [

@@ -10,10 +10,10 @@
       "|Stage Instance Object",
       "|Definitions",
       "|Auto Closing",
-      "|Create Stage Instance % POST /stage-instances",
-      "|Get Stage Instance % GET /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}",
-      "|Modify Stage Instance % PATCH /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}",
-      "|Delete Stage Instance % DELETE /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}"
+      "|Create Stage Instance",
+      "|Get Stage Instance",
+      "|Modify Stage Instance",
+      "|Delete Stage Instance"
     ],
     "Stage Instance Object": {
       "level": 3,
@@ -126,9 +126,10 @@
         "When a Stage channel has no speakers for a certain period of time (on the order of minutes), the Stage instance will be automatically deleted."
       ]
     },
-    "Create Stage Instance % POST /stage-instances": {
+    "Create Stage Instance": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/stage-instance#create-stage-instance-%-post-/stage-instances",
+      "url": "https://discord.com/developers/docs/resources/stage-instance#create-stage-instance",
+      "endpoint": "POST /stage-instances",
       "content": [
         "Creates a new Stage instance associated to a Stage channel. Returns that Stage instance.",
         "Requires the user to be a moderator of the Stage channel.",
@@ -137,7 +138,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/stage-instance#create-stage-instance-%-post-/stage-instances-json-params",
+        "url": "https://discord.com/developers/docs/resources/stage-instance#create-stage-instance-json-params",
         "content": [
           [
             [
@@ -170,16 +171,18 @@
         ]
       }
     },
-    "Get Stage Instance % GET /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}": {
+    "Get Stage Instance": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/stage-instance#get-stage-instance-%-get-/stage-instances/{channel.id#docs_resources_channel/channel-object}",
+      "url": "https://discord.com/developers/docs/resources/stage-instance#get-stage-instance",
+      "endpoint": "GET /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}",
       "content": [
         "Gets the stage instance associated with the Stage channel, if it exists."
       ]
     },
-    "Modify Stage Instance % PATCH /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}": {
+    "Modify Stage Instance": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/stage-instance#modify-stage-instance-%-patch-/stage-instances/{channel.id#docs_resources_channel/channel-object}",
+      "url": "https://discord.com/developers/docs/resources/stage-instance#modify-stage-instance",
+      "endpoint": "PATCH /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}",
       "content": [
         "Updates fields of an existing Stage instance. Returns the updated Stage instance.",
         "Requires the user to be a moderator of the Stage channel.",
@@ -188,7 +191,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/stage-instance#modify-stage-instance-%-patch-/stage-instances/{channel.id#docs_resources_channel/channel-object}-json-params",
+        "url": "https://discord.com/developers/docs/resources/stage-instance#modify-stage-instance-json-params",
         "content": [
           [
             [
@@ -210,9 +213,10 @@
         ]
       }
     },
-    "Delete Stage Instance % DELETE /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}": {
+    "Delete Stage Instance": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/stage-instance#delete-stage-instance-%-delete-/stage-instances/{channel.id#docs_resources_channel/channel-object}",
+      "url": "https://discord.com/developers/docs/resources/stage-instance#delete-stage-instance",
+      "endpoint": "DELETE /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}",
       "content": [
         "Deletes the Stage instance. Returns 204 No Content.",
         "Requires the user to be a moderator of the Stage channel.",

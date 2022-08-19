@@ -18,45 +18,45 @@
       "|Attachment Object",
       "|Channel Mention Object",
       "|Allowed Mentions Object",
-      "|Get Channel % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}",
-      "|Modify Channel % PATCH /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}",
-      "|Delete/Close Channel % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}",
-      "|Get Channel Messages % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages",
-      "|Get Channel Message % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
-      "|Create Message % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages",
-      "|Crosspost Message % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/crosspost",
-      "|Create Reaction % PUT /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/reactions/{emoji#DOCS_RESOURCES_EMOJI/emoji-object}/@me",
-      "|Delete Own Reaction % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/reactions/{emoji#DOCS_RESOURCES_EMOJI/emoji-object}/@me",
-      "|Delete User Reaction % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/reactions/{emoji#DOCS_RESOURCES_EMOJI/emoji-object}/{user.id#DOCS_RESOURCES_USER/user-object}",
-      "|Get Reactions % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/reactions/{emoji#DOCS_RESOURCES_EMOJI/emoji-object}",
-      "|Delete All Reactions % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/reactions",
-      "|Delete All Reactions for Emoji % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/reactions/{emoji#DOCS_RESOURCES_EMOJI/emoji-object}",
-      "|Edit Message % PATCH /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
-      "|Delete Message % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
-      "|Bulk Delete Messages % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/bulk-delete",
-      "|Edit Channel Permissions % PUT /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/permissions/{overwrite.id#DOCS_RESOURCES_CHANNEL/overwrite-object}",
-      "|Get Channel Invites % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/invites",
-      "|Create Channel Invite % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/invites",
-      "|Delete Channel Permission % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/permissions/{overwrite.id#DOCS_RESOURCES_CHANNEL/overwrite-object}",
-      "|Follow News Channel % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/followers",
-      "|Trigger Typing Indicator % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/typing",
-      "|Get Pinned Messages % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/pins",
-      "|Pin Message % PUT /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/pins/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
-      "|Unpin Message % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/pins/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
-      "|Group DM Add Recipient % PUT /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/recipients/{user.id#DOCS_RESOURCES_USER/user-object}",
-      "|Group DM Remove Recipient % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/recipients/{user.id#DOCS_RESOURCES_USER/user-object}",
-      "|Start Thread from Message % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/threads",
-      "|Start Thread without Message % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/threads",
-      "|Start Thread in Forum Channel % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/threads",
-      "|Join Thread % PUT /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/thread-members/@me",
-      "|Add Thread Member % PUT /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/thread-members/{user.id#DOCS_RESOURCES_USER/user-object}",
-      "|Leave Thread % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/thread-members/@me",
-      "|Remove Thread Member % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/thread-members/{user.id#DOCS_RESOURCES_USER/user-object}",
-      "|Get Thread Member % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/thread-members/{user.id#DOCS_RESOURCES_USER/user-object}",
-      "|List Thread Members % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/thread-members",
-      "|List Public Archived Threads % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/threads/archived/public",
-      "|List Private Archived Threads % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/threads/archived/private",
-      "|List Joined Private Archived Threads % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/users/@me/threads/archived/private"
+      "|Get Channel",
+      "|Modify Channel",
+      "|Delete/Close Channel",
+      "|Get Channel Messages",
+      "|Get Channel Message",
+      "|Create Message",
+      "|Crosspost Message",
+      "|Create Reaction",
+      "|Delete Own Reaction",
+      "|Delete User Reaction",
+      "|Get Reactions",
+      "|Delete All Reactions",
+      "|Delete All Reactions for Emoji",
+      "|Edit Message",
+      "|Delete Message",
+      "|Bulk Delete Messages",
+      "|Edit Channel Permissions",
+      "|Get Channel Invites",
+      "|Create Channel Invite",
+      "|Delete Channel Permission",
+      "|Follow News Channel",
+      "|Trigger Typing Indicator",
+      "|Get Pinned Messages",
+      "|Pin Message",
+      "|Unpin Message",
+      "|Group DM Add Recipient",
+      "|Group DM Remove Recipient",
+      "|Start Thread from Message",
+      "|Start Thread without Message",
+      "|Start Thread in Forum Channel",
+      "|Join Thread",
+      "|Add Thread Member",
+      "|Leave Thread",
+      "|Remove Thread Member",
+      "|Get Thread Member",
+      "|List Thread Members",
+      "|List Public Archived Threads",
+      "|List Private Archived Threads",
+      "|List Joined Private Archived Threads"
     ],
     "Channel Object": {
       "level": 3,
@@ -1755,16 +1755,18 @@
         ]
       }
     },
-    "Get Channel % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}": {
+    "Get Channel": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#get-channel-%-get-/channels/{channel.id#docs_resources_channel/channel-object}",
+      "url": "https://discord.com/developers/docs/resources/channel#get-channel",
+      "endpoint": "GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}",
       "content": [
         "Get a channel by ID. Returns a channel object.  If the channel is a thread, a thread member object is included in the returned result."
       ]
     },
-    "Modify Channel % PATCH /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}": {
+    "Modify Channel": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#modify-channel-%-patch-/channels/{channel.id#docs_resources_channel/channel-object}",
+      "url": "https://discord.com/developers/docs/resources/channel#modify-channel",
+      "endpoint": "PATCH /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}",
       "content": [
         "Update a channel's settings. Returns a channel on success, and a 400 BAD REQUEST on invalid parameters. All JSON parameters are optional.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
@@ -1774,7 +1776,7 @@
       ],
       "JSON Params (Group DM)": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#modify-channel-%-patch-/channels/{channel.id#docs_resources_channel/channel-object}-json-params-(group-dm)",
+        "url": "https://discord.com/developers/docs/resources/channel#modify-channel-json-params-(group-dm)",
         "content": [
           "Fires a Channel Update Gateway event.",
           [
@@ -1798,7 +1800,7 @@
       },
       "JSON Params (Guild channel)": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#modify-channel-%-patch-/channels/{channel.id#docs_resources_channel/channel-object}-json-params-(guild-channel)",
+        "url": "https://discord.com/developers/docs/resources/channel#modify-channel-json-params-(guild-channel)",
         "content": [
           "Requires the MANAGE_CHANNELS permission for the guild. Fires a Channel Update Gateway event. If modifying a category, individual Channel Update events will fire for each child channel that also changes. If modifying permission overwrites, the MANAGE_ROLES permission is required. Only permissions your bot has in the guild or parent channel (if applicable) can be allowed/denied (unless your bot has a MANAGE_ROLES overwrite in the channel).",
           [
@@ -1893,7 +1895,7 @@
       },
       "JSON Params (Thread)": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#modify-channel-%-patch-/channels/{channel.id#docs_resources_channel/channel-object}-json-params-(thread)",
+        "url": "https://discord.com/developers/docs/resources/channel#modify-channel-json-params-(thread)",
         "content": [
           "When setting archived to false, when locked is also false, only the SEND_MESSAGES permission is required.",
           "Otherwise, requires the MANAGE_THREADS permission. Fires a Thread Update Gateway event. Requires the thread to have archived set to false or be set to false in the request.",
@@ -1942,9 +1944,10 @@
         ]
       }
     },
-    "Delete/Close Channel % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}": {
+    "Delete/Close Channel": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#delete/close-channel-%-delete-/channels/{channel.id#docs_resources_channel/channel-object}",
+      "url": "https://discord.com/developers/docs/resources/channel#delete/close-channel",
+      "endpoint": "DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}",
       "content": [
         "Delete a channel, or close a private message. Requires the MANAGE_CHANNELS permission for the guild, or MANAGE_THREADS if the channel is a thread. Deleting a category does not delete its child channels; they will have their parent_id removed and a Channel Update Gateway event will fire for each of them. Returns a channel object on success. Fires a Channel Delete Gateway event (or Thread Delete if the channel was a thread).",
         "> warn\n> Deleting a guild channel cannot be undone. Use this with caution, as it is impossible to undo this action when performed on a guild channel. In contrast, when used with a private message, it is possible to undo the action by opening a private message with the recipient again.",
@@ -1952,9 +1955,10 @@
         "> info\n> This endpoint supports the X-Audit-Log-Reason header."
       ]
     },
-    "Get Channel Messages % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages": {
+    "Get Channel Messages": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#get-channel-messages-%-get-/channels/{channel.id#docs_resources_channel/channel-object}/messages",
+      "url": "https://discord.com/developers/docs/resources/channel#get-channel-messages",
+      "endpoint": "GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages",
       "content": [
         "Returns the messages for a channel. If operating on a guild channel, this endpoint requires the VIEW_CHANNEL permission to be present on the current user. If the current user is missing the READ_MESSAGE_HISTORY permission in the channel then this will return no messages (since they cannot read the message history). Returns an array of message objects on success.",
         "> info\n> The before, after, and around parameters are mutually exclusive, only one may be passed at a time.",
@@ -1962,7 +1966,7 @@
       ],
       "Query String Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#get-channel-messages-%-get-/channels/{channel.id#docs_resources_channel/channel-object}/messages-query-string-params",
+        "url": "https://discord.com/developers/docs/resources/channel#get-channel-messages-query-string-params",
         "content": [
           [
             [
@@ -1999,16 +2003,18 @@
         ]
       }
     },
-    "Get Channel Message % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}": {
+    "Get Channel Message": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#get-channel-message-%-get-/channels/{channel.id#docs_resources_channel/channel-object}/messages/{message.id#docs_resources_channel/message-object}",
+      "url": "https://discord.com/developers/docs/resources/channel#get-channel-message",
+      "endpoint": "GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
       "content": [
         "Returns a specific message in the channel. If operating on a guild channel, this endpoint requires the READ_MESSAGE_HISTORY permission to be present on the current user. Returns a message object on success."
       ]
     },
-    "Create Message % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages": {
+    "Create Message": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#create-message-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/messages",
+      "url": "https://discord.com/developers/docs/resources/channel#create-message",
+      "endpoint": "POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages",
       "content": [
         "> warn\n> Discord may strip certain characters from message content, like invalid unicode characters or characters which cause unexpected message formatting. If you are passing user-generated strings into message content, consider sanitizing the data to prevent unexpected behavior and utilizing allowed_mentions to prevent unexpected mentions.",
         "Post a message to a guild text or DM channel. Returns a message object. Fires a Message Create Gateway event. See message formatting for more information on how to properly format messages.",
@@ -2020,7 +2026,7 @@
       ],
       "Limitations": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#create-message-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/messages-limitations",
+        "url": "https://discord.com/developers/docs/resources/channel#create-message-limitations",
         "content": [
           [
             "When operating on a guild channel, the current user must have the SEND_MESSAGES permission.",
@@ -2033,7 +2039,7 @@
       },
       "JSON/Form Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#create-message-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/messages-json/form-params",
+        "url": "https://discord.com/developers/docs/resources/channel#create-message-json/form-params",
         "content": [
           "> info\n> When creating a message, apps must provide a value for at least one of content, embeds, sticker_ids, or files[n].",
           [
@@ -2103,7 +2109,7 @@
       },
       "Example Request Body (application/json)": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#create-message-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/messages-example-request-body-(application/json)",
+        "url": "https://discord.com/developers/docs/resources/channel#create-message-example-request-body-(application/json)",
         "content": [
           {
             "language": "json",
@@ -2113,45 +2119,50 @@
         ]
       }
     },
-    "Crosspost Message % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/crosspost": {
+    "Crosspost Message": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#crosspost-message-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/messages/{message.id#docs_resources_channel/message-object}/crosspost",
+      "url": "https://discord.com/developers/docs/resources/channel#crosspost-message",
+      "endpoint": "POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/crosspost",
       "content": [
         "Crosspost a message in a News Channel to following channels. This endpoint requires the SEND_MESSAGES permission, if the current user sent the message, or additionally the MANAGE_MESSAGES permission, for all other messages, to be present for the current user.",
         "Returns a message object."
       ]
     },
-    "Create Reaction % PUT /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/reactions/{emoji#DOCS_RESOURCES_EMOJI/emoji-object}/@me": {
+    "Create Reaction": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#create-reaction-%-put-/channels/{channel.id#docs_resources_channel/channel-object}/messages/{message.id#docs_resources_channel/message-object}/reactions/{emoji#docs_resources_emoji/emoji-object}/@me",
+      "url": "https://discord.com/developers/docs/resources/channel#create-reaction",
+      "endpoint": "PUT /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/reactions/{emoji#DOCS_RESOURCES_EMOJI/emoji-object}/@me",
       "content": [
         "Create a reaction for the message. This endpoint requires the READ_MESSAGE_HISTORY permission to be present on the current user. Additionally, if nobody else has reacted to the message using this emoji, this endpoint requires the ADD_REACTIONS permission to be present on the current user. Returns a 204 empty response on success.\nThe emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
       ]
     },
-    "Delete Own Reaction % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/reactions/{emoji#DOCS_RESOURCES_EMOJI/emoji-object}/@me": {
+    "Delete Own Reaction": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#delete-own-reaction-%-delete-/channels/{channel.id#docs_resources_channel/channel-object}/messages/{message.id#docs_resources_channel/message-object}/reactions/{emoji#docs_resources_emoji/emoji-object}/@me",
+      "url": "https://discord.com/developers/docs/resources/channel#delete-own-reaction",
+      "endpoint": "DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/reactions/{emoji#DOCS_RESOURCES_EMOJI/emoji-object}/@me",
       "content": [
         "Delete a reaction the current user has made for the message. Returns a 204 empty response on success.\nThe emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
       ]
     },
-    "Delete User Reaction % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/reactions/{emoji#DOCS_RESOURCES_EMOJI/emoji-object}/{user.id#DOCS_RESOURCES_USER/user-object}": {
+    "Delete User Reaction": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#delete-user-reaction-%-delete-/channels/{channel.id#docs_resources_channel/channel-object}/messages/{message.id#docs_resources_channel/message-object}/reactions/{emoji#docs_resources_emoji/emoji-object}/{user.id#docs_resources_user/user-object}",
+      "url": "https://discord.com/developers/docs/resources/channel#delete-user-reaction",
+      "endpoint": "DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/reactions/{emoji#DOCS_RESOURCES_EMOJI/emoji-object}/{user.id#DOCS_RESOURCES_USER/user-object}",
       "content": [
         "Deletes another user's reaction. This endpoint requires the MANAGE_MESSAGES permission to be present on the current user. Returns a 204 empty response on success.\nThe emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
       ]
     },
-    "Get Reactions % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/reactions/{emoji#DOCS_RESOURCES_EMOJI/emoji-object}": {
+    "Get Reactions": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#get-reactions-%-get-/channels/{channel.id#docs_resources_channel/channel-object}/messages/{message.id#docs_resources_channel/message-object}/reactions/{emoji#docs_resources_emoji/emoji-object}",
+      "url": "https://discord.com/developers/docs/resources/channel#get-reactions",
+      "endpoint": "GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/reactions/{emoji#DOCS_RESOURCES_EMOJI/emoji-object}",
       "content": [
         "Get a list of users that reacted with this emoji. Returns an array of user objects on success.\nThe emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
         "|Query String Params"
       ],
       "Query String Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#get-reactions-%-get-/channels/{channel.id#docs_resources_channel/channel-object}/messages/{message.id#docs_resources_channel/message-object}/reactions/{emoji#docs_resources_emoji/emoji-object}-query-string-params",
+        "url": "https://discord.com/developers/docs/resources/channel#get-reactions-query-string-params",
         "content": [
           [
             [
@@ -2176,23 +2187,26 @@
         ]
       }
     },
-    "Delete All Reactions % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/reactions": {
+    "Delete All Reactions": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#delete-all-reactions-%-delete-/channels/{channel.id#docs_resources_channel/channel-object}/messages/{message.id#docs_resources_channel/message-object}/reactions",
+      "url": "https://discord.com/developers/docs/resources/channel#delete-all-reactions",
+      "endpoint": "DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/reactions",
       "content": [
         "Deletes all reactions on a message. This endpoint requires the MANAGE_MESSAGES permission to be present on the current user. Fires a Message Reaction Remove All Gateway event."
       ]
     },
-    "Delete All Reactions for Emoji % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/reactions/{emoji#DOCS_RESOURCES_EMOJI/emoji-object}": {
+    "Delete All Reactions for Emoji": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#delete-all-reactions-for-emoji-%-delete-/channels/{channel.id#docs_resources_channel/channel-object}/messages/{message.id#docs_resources_channel/message-object}/reactions/{emoji#docs_resources_emoji/emoji-object}",
+      "url": "https://discord.com/developers/docs/resources/channel#delete-all-reactions-for-emoji",
+      "endpoint": "DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/reactions/{emoji#DOCS_RESOURCES_EMOJI/emoji-object}",
       "content": [
         "Deletes all the reactions for a given emoji on a message. This endpoint requires the MANAGE_MESSAGES permission to be present on the current user. Fires a Message Reaction Remove Emoji Gateway event.\nThe emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
       ]
     },
-    "Edit Message % PATCH /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}": {
+    "Edit Message": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#edit-message-%-patch-/channels/{channel.id#docs_resources_channel/channel-object}/messages/{message.id#docs_resources_channel/message-object}",
+      "url": "https://discord.com/developers/docs/resources/channel#edit-message",
+      "endpoint": "PATCH /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
       "content": [
         "Edit a previously sent message. The fields content, embeds, and flags can be edited by the original message author. Other users can only edit flags and only if they have the MANAGE_MESSAGES permission in the corresponding channel. When specifying flags, ensure to include all previously set flags/bits in addition to ones that you are modifying. Only flags documented in the table below may be modified by users (unsupported flag changes are currently ignored without error).",
         "When the content field is edited, the mentions array in the message object will be reconstructed from scratch based on the new content. The allowed_mentions field of the edit request controls how this happens. If there is no explicit allowed_mentions in the edit request, the content will be parsed with default allowances, that is, without regard to whether or not an allowed_mentions was present in the request that originally created the message.",
@@ -2204,7 +2218,7 @@
       ],
       "JSON/Form Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#edit-message-%-patch-/channels/{channel.id#docs_resources_channel/channel-object}/messages/{message.id#docs_resources_channel/message-object}-json/form-params",
+        "url": "https://discord.com/developers/docs/resources/channel#edit-message-json/form-params",
         "content": [
           [
             [
@@ -2256,17 +2270,19 @@
         ]
       }
     },
-    "Delete Message % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}": {
+    "Delete Message": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#delete-message-%-delete-/channels/{channel.id#docs_resources_channel/channel-object}/messages/{message.id#docs_resources_channel/message-object}",
+      "url": "https://discord.com/developers/docs/resources/channel#delete-message",
+      "endpoint": "DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
       "content": [
         "Delete a message. If operating on a guild channel and trying to delete a message that was not sent by the current user, this endpoint requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success. Fires a Message Delete Gateway event.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header."
       ]
     },
-    "Bulk Delete Messages % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/bulk-delete": {
+    "Bulk Delete Messages": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#bulk-delete-messages-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/messages/bulk-delete",
+      "url": "https://discord.com/developers/docs/resources/channel#bulk-delete-messages",
+      "endpoint": "POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/bulk-delete",
       "content": [
         "Delete multiple messages in a single request. This endpoint can only be used on guild channels and requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success. Fires a Message Delete Bulk Gateway event.",
         "Any message IDs given that do not exist or are invalid will count towards the minimum and maximum message count (currently 2 and 100 respectively).",
@@ -2276,7 +2292,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#bulk-delete-messages-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/messages/bulk-delete-json-params",
+        "url": "https://discord.com/developers/docs/resources/channel#bulk-delete-messages-json-params",
         "content": [
           [
             [
@@ -2293,9 +2309,10 @@
         ]
       }
     },
-    "Edit Channel Permissions % PUT /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/permissions/{overwrite.id#DOCS_RESOURCES_CHANNEL/overwrite-object}": {
+    "Edit Channel Permissions": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#edit-channel-permissions-%-put-/channels/{channel.id#docs_resources_channel/channel-object}/permissions/{overwrite.id#docs_resources_channel/overwrite-object}",
+      "url": "https://discord.com/developers/docs/resources/channel#edit-channel-permissions",
+      "endpoint": "PUT /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/permissions/{overwrite.id#DOCS_RESOURCES_CHANNEL/overwrite-object}",
       "content": [
         "Edit the channel permission overwrites for a user or role in a channel. Only usable for guild channels. Requires the MANAGE_ROLES permission. Only permissions your bot has in the guild or parent channel (if applicable) can be allowed/denied (unless your bot has a MANAGE_ROLES overwrite in the channel). Returns a 204 empty response on success. For more information about permissions, see permissions.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
@@ -2303,7 +2320,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#edit-channel-permissions-%-put-/channels/{channel.id#docs_resources_channel/channel-object}/permissions/{overwrite.id#docs_resources_channel/overwrite-object}-json-params",
+        "url": "https://discord.com/developers/docs/resources/channel#edit-channel-permissions-json-params",
         "content": [
           [
             [
@@ -2330,16 +2347,18 @@
         ]
       }
     },
-    "Get Channel Invites % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/invites": {
+    "Get Channel Invites": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#get-channel-invites-%-get-/channels/{channel.id#docs_resources_channel/channel-object}/invites",
+      "url": "https://discord.com/developers/docs/resources/channel#get-channel-invites",
+      "endpoint": "GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/invites",
       "content": [
         "Returns a list of invite objects (with invite metadata) for the channel. Only usable for guild channels. Requires the MANAGE_CHANNELS permission."
       ]
     },
-    "Create Channel Invite % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/invites": {
+    "Create Channel Invite": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#create-channel-invite-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/invites",
+      "url": "https://discord.com/developers/docs/resources/channel#create-channel-invite",
+      "endpoint": "POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/invites",
       "content": [
         "Create a new invite object for the channel. Only usable for guild channels. Requires the CREATE_INSTANT_INVITE permission. All JSON parameters for this route are optional, however the request body is not. If you are not sending any fields, you still have to send an empty JSON object ({}). Returns an invite object. Fires an Invite Create Gateway event.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
@@ -2347,7 +2366,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#create-channel-invite-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/invites-json-params",
+        "url": "https://discord.com/developers/docs/resources/channel#create-channel-invite-json-params",
         "content": [
           [
             [
@@ -2402,24 +2421,26 @@
         ]
       }
     },
-    "Delete Channel Permission % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/permissions/{overwrite.id#DOCS_RESOURCES_CHANNEL/overwrite-object}": {
+    "Delete Channel Permission": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#delete-channel-permission-%-delete-/channels/{channel.id#docs_resources_channel/channel-object}/permissions/{overwrite.id#docs_resources_channel/overwrite-object}",
+      "url": "https://discord.com/developers/docs/resources/channel#delete-channel-permission",
+      "endpoint": "DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/permissions/{overwrite.id#DOCS_RESOURCES_CHANNEL/overwrite-object}",
       "content": [
         "Delete a channel permission overwrite for a user or role in a channel. Only usable for guild channels. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. For more information about permissions, see permissions",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header."
       ]
     },
-    "Follow News Channel % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/followers": {
+    "Follow News Channel": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#follow-news-channel-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/followers",
+      "url": "https://discord.com/developers/docs/resources/channel#follow-news-channel",
+      "endpoint": "POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/followers",
       "content": [
         "Follow a News Channel to send messages to a target channel. Requires the MANAGE_WEBHOOKS permission in the target channel. Returns a followed channel object.",
         "|JSON Params"
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#follow-news-channel-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/followers-json-params",
+        "url": "https://discord.com/developers/docs/resources/channel#follow-news-channel-json-params",
         "content": [
           [
             [
@@ -2436,47 +2457,52 @@
         ]
       }
     },
-    "Trigger Typing Indicator % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/typing": {
+    "Trigger Typing Indicator": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#trigger-typing-indicator-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/typing",
+      "url": "https://discord.com/developers/docs/resources/channel#trigger-typing-indicator",
+      "endpoint": "POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/typing",
       "content": [
         "Post a typing indicator for the specified channel. Generally bots should not implement this route. However, if a bot is responding to a command and expects the computation to take a few seconds, this endpoint may be called to let the user know that the bot is processing their message. Returns a 204 empty response on success. Fires a Typing Start Gateway event."
       ]
     },
-    "Get Pinned Messages % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/pins": {
+    "Get Pinned Messages": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#get-pinned-messages-%-get-/channels/{channel.id#docs_resources_channel/channel-object}/pins",
+      "url": "https://discord.com/developers/docs/resources/channel#get-pinned-messages",
+      "endpoint": "GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/pins",
       "content": [
         "Returns all pinned messages in the channel as an array of message objects."
       ]
     },
-    "Pin Message % PUT /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/pins/{message.id#DOCS_RESOURCES_CHANNEL/message-object}": {
+    "Pin Message": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#pin-message-%-put-/channels/{channel.id#docs_resources_channel/channel-object}/pins/{message.id#docs_resources_channel/message-object}",
+      "url": "https://discord.com/developers/docs/resources/channel#pin-message",
+      "endpoint": "PUT /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/pins/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
       "content": [
         "Pin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success.",
         "> warn\n> The max pinned messages is 50.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header."
       ]
     },
-    "Unpin Message % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/pins/{message.id#DOCS_RESOURCES_CHANNEL/message-object}": {
+    "Unpin Message": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#unpin-message-%-delete-/channels/{channel.id#docs_resources_channel/channel-object}/pins/{message.id#docs_resources_channel/message-object}",
+      "url": "https://discord.com/developers/docs/resources/channel#unpin-message",
+      "endpoint": "DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/pins/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
       "content": [
         "Unpin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header."
       ]
     },
-    "Group DM Add Recipient % PUT /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/recipients/{user.id#DOCS_RESOURCES_USER/user-object}": {
+    "Group DM Add Recipient": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#group-dm-add-recipient-%-put-/channels/{channel.id#docs_resources_channel/channel-object}/recipients/{user.id#docs_resources_user/user-object}",
+      "url": "https://discord.com/developers/docs/resources/channel#group-dm-add-recipient",
+      "endpoint": "PUT /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/recipients/{user.id#DOCS_RESOURCES_USER/user-object}",
       "content": [
         "Adds a recipient to a Group DM using their access token.",
         "|JSON Params"
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#group-dm-add-recipient-%-put-/channels/{channel.id#docs_resources_channel/channel-object}/recipients/{user.id#docs_resources_user/user-object}-json-params",
+        "url": "https://discord.com/developers/docs/resources/channel#group-dm-add-recipient-json-params",
         "content": [
           [
             [
@@ -2498,16 +2524,18 @@
         ]
       }
     },
-    "Group DM Remove Recipient % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/recipients/{user.id#DOCS_RESOURCES_USER/user-object}": {
+    "Group DM Remove Recipient": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#group-dm-remove-recipient-%-delete-/channels/{channel.id#docs_resources_channel/channel-object}/recipients/{user.id#docs_resources_user/user-object}",
+      "url": "https://discord.com/developers/docs/resources/channel#group-dm-remove-recipient",
+      "endpoint": "DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/recipients/{user.id#DOCS_RESOURCES_USER/user-object}",
       "content": [
         "Removes a recipient from a Group DM."
       ]
     },
-    "Start Thread from Message % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/threads": {
+    "Start Thread from Message": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#start-thread-from-message-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/messages/{message.id#docs_resources_channel/message-object}/threads",
+      "url": "https://discord.com/developers/docs/resources/channel#start-thread-from-message",
+      "endpoint": "POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/threads",
       "content": [
         "Creates a new thread from an existing message. Returns a channel on success, and a 400 BAD REQUEST on invalid parameters. Fires a Thread Create Gateway event.",
         "When called on a GUILD_TEXT channel, creates a GUILD_PUBLIC_THREAD. When called on a GUILD_NEWS channel, creates a GUILD_NEWS_THREAD. Does not work on a GUILD_FORUM channel. The id of the created thread will be the same as the id of the source message, and as such a message can only have a single thread created from it.",
@@ -2516,7 +2544,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#start-thread-from-message-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/messages/{message.id#docs_resources_channel/message-object}/threads-json-params",
+        "url": "https://discord.com/developers/docs/resources/channel#start-thread-from-message-json-params",
         "content": [
           [
             [
@@ -2543,9 +2571,10 @@
         ]
       }
     },
-    "Start Thread without Message % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/threads": {
+    "Start Thread without Message": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#start-thread-without-message-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/threads",
+      "url": "https://discord.com/developers/docs/resources/channel#start-thread-without-message",
+      "endpoint": "POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/threads",
       "content": [
         "Creates a new thread that is not connected to an existing message. Returns a channel on success, and a 400 BAD REQUEST on invalid parameters. Fires a Thread Create Gateway event.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
@@ -2554,7 +2583,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#start-thread-without-message-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/threads-json-params",
+        "url": "https://discord.com/developers/docs/resources/channel#start-thread-without-message-json-params",
         "content": [
           [
             [
@@ -2592,9 +2621,10 @@
         ]
       }
     },
-    "Start Thread in Forum Channel % POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/threads": {
+    "Start Thread in Forum Channel": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#start-thread-in-forum-channel-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/threads",
+      "url": "https://discord.com/developers/docs/resources/channel#start-thread-in-forum-channel",
+      "endpoint": "POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/threads",
       "content": [
         "Creates a new thread in a forum channel, and sends a message within the created thread. Returns a channel, with a nested message object, on success, and a 400 BAD REQUEST on invalid parameters. Fires a Thread Create and Message Create Gateway event.",
         [
@@ -2614,7 +2644,7 @@
       ],
       "JSON/Form Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#start-thread-in-forum-channel-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/threads-json/form-params",
+        "url": "https://discord.com/developers/docs/resources/channel#start-thread-in-forum-channel-json/form-params",
         "content": [
           [
             [
@@ -2647,7 +2677,7 @@
       },
       "Forum Thread Message Params Object": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#start-thread-in-forum-channel-%-post-/channels/{channel.id#docs_resources_channel/channel-object}/threads-forum-thread-message-params-object",
+        "url": "https://discord.com/developers/docs/resources/channel#start-thread-in-forum-channel-forum-thread-message-params-object",
         "content": [
           "> info\n> When sending a message, apps must provide a value for at least one of content, embeds, files[n], or sticker_ids.",
           [
@@ -2706,52 +2736,59 @@
         ]
       }
     },
-    "Join Thread % PUT /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/thread-members/@me": {
+    "Join Thread": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#join-thread-%-put-/channels/{channel.id#docs_resources_channel/channel-object}/thread-members/@me",
+      "url": "https://discord.com/developers/docs/resources/channel#join-thread",
+      "endpoint": "PUT /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/thread-members/@me",
       "content": [
         "Adds the current user to a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
       ]
     },
-    "Add Thread Member % PUT /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/thread-members/{user.id#DOCS_RESOURCES_USER/user-object}": {
+    "Add Thread Member": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#add-thread-member-%-put-/channels/{channel.id#docs_resources_channel/channel-object}/thread-members/{user.id#docs_resources_user/user-object}",
+      "url": "https://discord.com/developers/docs/resources/channel#add-thread-member",
+      "endpoint": "PUT /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/thread-members/{user.id#DOCS_RESOURCES_USER/user-object}",
       "content": [
         "Adds another member to a thread. Requires the ability to send messages in the thread. Also requires the thread is not archived. Returns a 204 empty response if the member is successfully added or was already a member of the thread. Fires a Thread Members Update Gateway event."
       ]
     },
-    "Leave Thread % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/thread-members/@me": {
+    "Leave Thread": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#leave-thread-%-delete-/channels/{channel.id#docs_resources_channel/channel-object}/thread-members/@me",
+      "url": "https://discord.com/developers/docs/resources/channel#leave-thread",
+      "endpoint": "DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/thread-members/@me",
       "content": [
         "Removes the current user from a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
       ]
     },
-    "Remove Thread Member % DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/thread-members/{user.id#DOCS_RESOURCES_USER/user-object}": {
+    "Remove Thread Member": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#remove-thread-member-%-delete-/channels/{channel.id#docs_resources_channel/channel-object}/thread-members/{user.id#docs_resources_user/user-object}",
+      "url": "https://discord.com/developers/docs/resources/channel#remove-thread-member",
+      "endpoint": "DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/thread-members/{user.id#DOCS_RESOURCES_USER/user-object}",
       "content": [
         "Removes another member from a thread. Requires the MANAGE_THREADS permission, or the creator of the thread if it is a GUILD_PRIVATE_THREAD. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
       ]
     },
-    "Get Thread Member % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/thread-members/{user.id#DOCS_RESOURCES_USER/user-object}": {
+    "Get Thread Member": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#get-thread-member-%-get-/channels/{channel.id#docs_resources_channel/channel-object}/thread-members/{user.id#docs_resources_user/user-object}",
+      "url": "https://discord.com/developers/docs/resources/channel#get-thread-member",
+      "endpoint": "GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/thread-members/{user.id#DOCS_RESOURCES_USER/user-object}",
       "content": [
         "Returns a thread member object for the specified user if they are a member of the thread, returns a 404 response otherwise."
       ]
     },
-    "List Thread Members % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/thread-members": {
+    "List Thread Members": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#list-thread-members-%-get-/channels/{channel.id#docs_resources_channel/channel-object}/thread-members",
+      "url": "https://discord.com/developers/docs/resources/channel#list-thread-members",
+      "endpoint": "GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/thread-members",
       "content": [
         "Returns array of thread members objects that are members of the thread.",
         "> warn\n> This endpoint is restricted according to whether the GUILD_MEMBERS Privileged Intent is enabled for your application."
       ]
     },
-    "List Public Archived Threads % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/threads/archived/public": {
+    "List Public Archived Threads": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#list-public-archived-threads-%-get-/channels/{channel.id#docs_resources_channel/channel-object}/threads/archived/public",
+      "url": "https://discord.com/developers/docs/resources/channel#list-public-archived-threads",
+      "endpoint": "GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/threads/archived/public",
       "content": [
         "Returns archived threads in the channel that are public. When called on a GUILD_TEXT channel, returns threads of type GUILD_PUBLIC_THREAD. When called on a GUILD_NEWS channel returns threads of type GUILD_NEWS_THREAD. Threads are ordered by archive_timestamp, in descending order. Requires the READ_MESSAGE_HISTORY permission.",
         "|Query String Params",
@@ -2759,7 +2796,7 @@
       ],
       "Query String Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#list-public-archived-threads-%-get-/channels/{channel.id#docs_resources_channel/channel-object}/threads/archived/public-query-string-params",
+        "url": "https://discord.com/developers/docs/resources/channel#list-public-archived-threads-query-string-params",
         "content": [
           [
             [
@@ -2782,7 +2819,7 @@
       },
       "Response Body": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#list-public-archived-threads-%-get-/channels/{channel.id#docs_resources_channel/channel-object}/threads/archived/public-response-body",
+        "url": "https://discord.com/developers/docs/resources/channel#list-public-archived-threads-response-body",
         "content": [
           [
             [
@@ -2809,9 +2846,10 @@
         ]
       }
     },
-    "List Private Archived Threads % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/threads/archived/private": {
+    "List Private Archived Threads": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#list-private-archived-threads-%-get-/channels/{channel.id#docs_resources_channel/channel-object}/threads/archived/private",
+      "url": "https://discord.com/developers/docs/resources/channel#list-private-archived-threads",
+      "endpoint": "GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/threads/archived/private",
       "content": [
         "Returns archived threads in the channel that are of type GUILD_PRIVATE_THREAD. Threads are ordered by archive_timestamp, in descending order. Requires both the READ_MESSAGE_HISTORY and MANAGE_THREADS permissions.",
         "|Query String Params",
@@ -2819,7 +2857,7 @@
       ],
       "Query String Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#list-private-archived-threads-%-get-/channels/{channel.id#docs_resources_channel/channel-object}/threads/archived/private-query-string-params",
+        "url": "https://discord.com/developers/docs/resources/channel#list-private-archived-threads-query-string-params",
         "content": [
           [
             [
@@ -2842,7 +2880,7 @@
       },
       "Response Body": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#list-private-archived-threads-%-get-/channels/{channel.id#docs_resources_channel/channel-object}/threads/archived/private-response-body",
+        "url": "https://discord.com/developers/docs/resources/channel#list-private-archived-threads-response-body",
         "content": [
           [
             [
@@ -2869,9 +2907,10 @@
         ]
       }
     },
-    "List Joined Private Archived Threads % GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/users/@me/threads/archived/private": {
+    "List Joined Private Archived Threads": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#list-joined-private-archived-threads-%-get-/channels/{channel.id#docs_resources_channel/channel-object}/users/@me/threads/archived/private",
+      "url": "https://discord.com/developers/docs/resources/channel#list-joined-private-archived-threads",
+      "endpoint": "GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/users/@me/threads/archived/private",
       "content": [
         "Returns archived threads in the channel that are of type GUILD_PRIVATE_THREAD, and the user has joined. Threads are ordered by their id, in descending order. Requires the READ_MESSAGE_HISTORY permission.",
         "|Query String Params",
@@ -2879,7 +2918,7 @@
       ],
       "Query String Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#list-joined-private-archived-threads-%-get-/channels/{channel.id#docs_resources_channel/channel-object}/users/@me/threads/archived/private-query-string-params",
+        "url": "https://discord.com/developers/docs/resources/channel#list-joined-private-archived-threads-query-string-params",
         "content": [
           [
             [
@@ -2902,7 +2941,7 @@
       },
       "Response Body": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#list-joined-private-archived-threads-%-get-/channels/{channel.id#docs_resources_channel/channel-object}/users/@me/threads/archived/private-response-body",
+        "url": "https://discord.com/developers/docs/resources/channel#list-joined-private-archived-threads-response-body",
         "content": [
           [
             [

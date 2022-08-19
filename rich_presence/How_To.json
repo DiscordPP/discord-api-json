@@ -4,7 +4,7 @@
   ],
   "Introducing Rich Presence": {
     "level": 1,
-    "url": "https://discord.com/developers/docs/rich_presence/how-to#introducing-rich-presence",
+    "url": "https://discord.com/developers/docs/rich-presence/how-to#introducing-rich-presence",
     "content": [
       "> danger\n> The SDK that this documentation references, Discord-RPC, has been deprecated in favor of our new Discord GameSDK. Replacement functionality for the Rich Presence SDK can be found in the Activity Manager of that SDK. This documentation can be referenced for education but does not entirely reflect the new SDK.",
       "How easy is it for people to play your game together? With Rich Presence from Discord, it just got so easy, a caveman Junior Dev could do it.",
@@ -25,21 +25,21 @@
     ],
     "So, what is it?": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/rich_presence/how-to#so,-what-is-it?",
+      "url": "https://discord.com/developers/docs/rich-presence/how-to#so,-what-is-it?",
       "content": [
         "Rich Presence allows you to leverage the totally overhauled \"Now Playing\" section in a Discord user's profile to help people play your game together. Rich game data\u2014including duration, score, current boss or map, and so much more\u2014lives inside Discord. You can spectate a friend's game directly from their profile popout, or party up via beautiful chat embeds with real-time information about open party slots and the party's in-game status. No more exchanging usernames and friend codes, or wondering if there's room for you to join. Rich Presence is a living invitation to play together, or to watch your friends kick butt."
       ]
     },
     "Step 0: Get the SDK": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/rich_presence/how-to#step-0:-get-the-sdk",
+      "url": "https://discord.com/developers/docs/rich-presence/how-to#step-0:-get-the-sdk",
       "content": [
         "> warn\n> Please use our new Discord GameSDK. Read the documentation and get it here."
       ]
     },
     "So, how does it work?": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/rich_presence/how-to#so,-how-does-it-work?",
+      "url": "https://discord.com/developers/docs/rich-presence/how-to#so,-how-does-it-work?",
       "content": [
         "We worked hard to make using Discord's Rich Presence system as easy as possible. All you need is our header file\u2014what you will interact with\u2014and our library\u2014where we did all the hard work for you\u2014and you are ready to roll!",
         "In the header file, you'll find six event-emitting callbacks:",
@@ -57,7 +57,7 @@
     },
     "Initialization": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/rich_presence/how-to#initialization",
+      "url": "https://discord.com/developers/docs/rich-presence/how-to#initialization",
       "content": [
         "The first step in implementing Rich Presence is creating an application. Once you've created your application, note and save your Client ID. You will need this to initialize the SDK; this value will be referred to throughout this documentation as both client_id and application_id. Next, scroll down to the bottom of your application's page and hit the button that says \"Enable Rich Presence\". This will allow you to upload assets to your dashboard for later use.",
         "To begin, you'll register your callback functions to the six DiscordEventHandlers and then call Discord_Initialize() with your APPLICATION_ID. If your game is distributed via Steam, you should also pass your application's Steam ID so Discord can launch your game through Steam:",
@@ -65,7 +65,7 @@
       ],
       "SDK Initialization Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/rich_presence/how-to#initialization-sdk-initialization-example",
+        "url": "https://discord.com/developers/docs/rich-presence/how-to#initialization-sdk-initialization-example",
         "content": [
           {
             "language": "c",
@@ -84,7 +84,7 @@
     },
     "Shutting Down": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/rich_presence/how-to#shutting-down",
+      "url": "https://discord.com/developers/docs/rich-presence/how-to#shutting-down",
       "content": [
         "Don't leave so soon! But when you do shut down your application, don't forget to call Discord_Shutdown(). This properly terminates the thread and allows your application to shut down cleanly.",
         "If you don't want to register all your event handlers at initialization, you can do so dynamically with Discord_UpdateHandlers(); this will allow you to register a new set of event handlers. Be mindful that this will delete old handlers if they are not explicitly bound to your handlers struct when calling this function."
@@ -92,7 +92,7 @@
     },
     "Updating Presence": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/rich_presence/how-to#updating-presence",
+      "url": "https://discord.com/developers/docs/rich-presence/how-to#updating-presence",
       "content": [
         "> warn\n> Deprecated in favor of Discord GameSDK ActivityManager.UpdateActivity()",
         "The core of Discord's Rich Presence SDK is the Discord_UpdatePresence() function. This is what sends your game data up to Discord to be seen and used by others. You should call Discord_UpdatePresence() any time something important in the presence payload changes.",
@@ -103,7 +103,7 @@
       ],
       "Update Presence Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/rich_presence/how-to#updating-presence-update-presence-example",
+        "url": "https://discord.com/developers/docs/rich-presence/how-to#updating-presence-update-presence-example",
         "content": [
           {
             "language": "c",
@@ -113,7 +113,7 @@
       },
       "Update Presence Payload": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/rich_presence/how-to#updating-presence-update-presence-payload",
+        "url": "https://discord.com/developers/docs/rich-presence/how-to#updating-presence-update-presence-payload",
         "content": [
           {
             "language": "c",
@@ -123,7 +123,7 @@
       },
       "Update Presence Payload Fields": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/rich_presence/how-to#updating-presence-update-presence-payload-fields",
+        "url": "https://discord.com/developers/docs/rich-presence/how-to#updating-presence-update-presence-payload-fields",
         "content": [
           [
             [
@@ -284,7 +284,7 @@
     },
     "Joining": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/rich_presence/how-to#joining",
+      "url": "https://discord.com/developers/docs/rich-presence/how-to#joining",
       "content": [
         "> warn\n> Deprecated in favor of Discord GameSDK ActivityManager.OnActivityJoin and Discord GameSDK ActivityManager.OnActivityJoinRequest",
         "|Relevant Callbacks:",
@@ -293,14 +293,14 @@
       ],
       "Relevant Callbacks:": {
         "level": 4,
-        "url": "https://discord.com/developers/docs/rich_presence/how-to#joining-relevant-callbacks:",
+        "url": "https://discord.com/developers/docs/rich-presence/how-to#joining-relevant-callbacks:",
         "content": [
           "joinGame()\njoinRequest()"
         ]
       },
       "Relevant Payload Data:": {
         "level": 4,
-        "url": "https://discord.com/developers/docs/rich_presence/how-to#joining-relevant-payload-data:",
+        "url": "https://discord.com/developers/docs/rich-presence/how-to#joining-relevant-payload-data:",
         "content": [
           "partyId\npartySize\npartyMax\njoinSecret",
           "When you send the relevant payload data in the Discord_UpdatePresence() call, your player can invite a Discord chat channel to play with them. This invite is tied to the player's party information; if their partyId changes, the invite will expire. If their partySize and partyMax changes, the invite will add, remove, and fill up slots dynamically.",
@@ -309,7 +309,7 @@
       },
       "Ask to Join": {
         "level": 3,
-        "url": "https://discord.com/developers/docs/rich_presence/how-to#ask-to-join",
+        "url": "https://discord.com/developers/docs/rich-presence/how-to#ask-to-join",
         "content": [
           "When Player B clicks the Ask to Join button on Player A's profile, the joinRequest() callback fires for Player A, sending the following data:",
           "|Ask to Join Payload",
@@ -318,7 +318,7 @@
         ],
         "Ask to Join Payload": {
           "level": 6,
-          "url": "https://discord.com/developers/docs/rich_presence/how-to#ask-to-join-ask-to-join-payload",
+          "url": "https://discord.com/developers/docs/rich-presence/how-to#ask-to-join-ask-to-join-payload",
           "content": [
             {
               "language": "c",
@@ -328,7 +328,7 @@
         },
         "Ask to Join Payload Fields": {
           "level": 6,
-          "url": "https://discord.com/developers/docs/rich_presence/how-to#ask-to-join-ask-to-join-payload-fields",
+          "url": "https://discord.com/developers/docs/rich-presence/how-to#ask-to-join-ask-to-join-payload-fields",
           "content": [
             [
               [
@@ -363,7 +363,7 @@
         },
         "Ask to Join Response Codes": {
           "level": 6,
-          "url": "https://discord.com/developers/docs/rich_presence/how-to#ask-to-join-ask-to-join-response-codes",
+          "url": "https://discord.com/developers/docs/rich-presence/how-to#ask-to-join-ask-to-join-response-codes",
           "content": [
             [
               [
@@ -394,7 +394,7 @@
     },
     "Spectating": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/rich_presence/how-to#spectating",
+      "url": "https://discord.com/developers/docs/rich-presence/how-to#spectating",
       "content": [
         "> warn\n> Deprecated in favor of Discord GameSDK ActivityManager.OnActivitySpectate",
         "|Relevant Callbacks:",
@@ -402,14 +402,14 @@
       ],
       "Relevant Callbacks:": {
         "level": 4,
-        "url": "https://discord.com/developers/docs/rich_presence/how-to#spectating-relevant-callbacks:",
+        "url": "https://discord.com/developers/docs/rich-presence/how-to#spectating-relevant-callbacks:",
         "content": [
           "spectateGame()"
         ]
       },
       "Relevant Payload Data:": {
         "level": 4,
-        "url": "https://discord.com/developers/docs/rich_presence/how-to#spectating-relevant-payload-data:",
+        "url": "https://discord.com/developers/docs/rich-presence/how-to#spectating-relevant-payload-data:",
         "content": [
           "spectateSecret",
           "When you send the relevant payload data in the Discord_UpdatePresence() call, your player will gain the ability to invite a Discord chat channel to spectate their game. This invite is tied to the matchSecret and will expire when it changes.",
@@ -419,7 +419,7 @@
     },
     "Secrets": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/rich_presence/how-to#secrets",
+      "url": "https://discord.com/developers/docs/rich-presence/how-to#secrets",
       "content": [
         "Security is of the utmost importance to us here at Discord, and we know it is for you, too. That's why we want to make sure that you properly understand matchSecret, joinSecret, and spectateSecret so that your game data is safe and secure over the wire.",
         "To keep security on the up and up, Discord requires that you properly hash/encode/encrypt/put-a-padlock-on-and-swallow-the-key-but-wait-then-how-would-you-open-it your secrets.",
@@ -428,14 +428,14 @@
     },
     "Rich Presence Field Requirements": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/rich_presence/how-to#rich-presence-field-requirements",
+      "url": "https://discord.com/developers/docs/rich-presence/how-to#rich-presence-field-requirements",
       "content": [
         "All fields in the DiscordRichPresence object are entirely optional. Anything you choose to omit simply won't be displayed; the UI will dynamically adapt from the full Rich Presence object all the way down to the basic presence view. We highly encourage you to include as many fields as you can to make your game as attractive and interactive for other players as possible. However, if you choose to be a bit more selective, here's a handy table for what each piece of Rich Presence requires:",
         "|Rich Presence Field Requirements"
       ],
       "Rich Presence Field Requirements": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/rich_presence/how-to#rich-presence-field-requirements-rich-presence-field-requirements",
+        "url": "https://discord.com/developers/docs/rich-presence/how-to#rich-presence-field-requirements-rich-presence-field-requirements",
         "content": [
           [
             [
@@ -556,7 +556,7 @@
     },
     "Your New Developer Dashboard": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/rich_presence/how-to#your-new-developer-dashboard",
+      "url": "https://discord.com/developers/docs/rich-presence/how-to#your-new-developer-dashboard",
       "content": [
         "Included with the launch of Rich Presence is an overhaul of Discord's Developer Dashboard. We want to make Rich Presence as easy as possible to use. Our first step is helping you ditch your CDN. You're welcome.",
         "OK, well, not entirely. But! Discord will host any and all artwork that you need to have the very richest of presences. Upload an image, tag it with a key\u2014preferably one you can remember\u2014and bam. It's ready for Rich Presence use. Head over to your applications page to check it out!",
@@ -565,7 +565,7 @@
     },
     "A note on testing and Game Detection": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/rich_presence/how-to#a-note-on-testing-and-game-detection",
+      "url": "https://discord.com/developers/docs/rich-presence/how-to#a-note-on-testing-and-game-detection",
       "content": [
         "If you don't see Rich Presence data in your profile while testing, make sure you don't have multiple instances of Discord running\u2014if you do, your presence might be changing in one of those!",
         "If you're testing on your own, we recommend downloading two separate release channels of the Discord desktop client. You can log into the stable, public test, and canary builds with separate credentials, making testing easier for a single developer."
@@ -573,7 +573,7 @@
     },
     "So, what now?": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/rich_presence/how-to#so,-what-now?",
+      "url": "https://discord.com/developers/docs/rich-presence/how-to#so,-what-now?",
       "content": [
         "Get to coding! We can't wait to see the awesome integration you come up with. If you need some quick questions answered, look no further than our Rich Presence FAQ. If you want to know how to make your integration the best it can be, read our Best Practices Guide. If you're ready to release, consult our Launch Checklist and make sure you haven't missed anything!"
       ]

@@ -9,12 +9,12 @@
       "A representation of a scheduled event in a guild.",
       "|Guild Scheduled Event Object",
       "|Guild Scheduled Event User Object",
-      "|List Scheduled Events for Guild % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events",
-      "|Create Guild Scheduled Event % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events",
-      "|Get Guild Scheduled Event % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}",
-      "|Modify Guild Scheduled Event % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}",
-      "|Delete Guild Scheduled Event % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}",
-      "|Get Guild Scheduled Event Users % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}/users",
+      "|List Scheduled Events for Guild",
+      "|Create Guild Scheduled Event",
+      "|Get Guild Scheduled Event",
+      "|Modify Guild Scheduled Event",
+      "|Delete Guild Scheduled Event",
+      "|Get Guild Scheduled Event Users",
       "|Guild Scheduled Event Status Update Automation",
       "|Guild Scheduled Event Permissions Requirements"
     ],
@@ -297,16 +297,17 @@
         ]
       }
     },
-    "List Scheduled Events for Guild % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events": {
+    "List Scheduled Events for Guild": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#list-scheduled-events-for-guild-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events",
+      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#list-scheduled-events-for-guild",
+      "endpoint": "GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events",
       "content": [
         "Returns a list of guild scheduled event objects for the given guild.",
         "|Query String Params"
       ],
       "Query String Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#list-scheduled-events-for-guild-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events-query-string-params",
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#list-scheduled-events-for-guild-query-string-params",
         "content": [
           [
             [
@@ -323,9 +324,10 @@
         ]
       }
     },
-    "Create Guild Scheduled Event % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events": {
+    "Create Guild Scheduled Event": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#create-guild-scheduled-event-%-post-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events",
+      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#create-guild-scheduled-event",
+      "endpoint": "POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events",
       "content": [
         "Create a guild scheduled event in the guild. Returns a guild scheduled event object on success.",
         "> info\n> A guild can have a maximum of 100 events with SCHEDULED or ACTIVE status at any time.",
@@ -334,7 +336,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#create-guild-scheduled-event-%-post-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events-json-params",
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#create-guild-scheduled-event-json-params",
         "content": [
           [
             [
@@ -393,16 +395,17 @@
         ]
       }
     },
-    "Get Guild Scheduled Event % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}": {
+    "Get Guild Scheduled Event": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events/{guild_scheduled_event.id#docs_resources_guild_scheduled_event/guild-scheduled-event-object}",
+      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event",
+      "endpoint": "GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}",
       "content": [
         "Get a guild scheduled event. Returns a guild scheduled event object on success.",
         "|Query String Params"
       ],
       "Query String Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events/{guild_scheduled_event.id#docs_resources_guild_scheduled_event/guild-scheduled-event-object}-query-string-params",
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event-query-string-params",
         "content": [
           [
             [
@@ -419,9 +422,10 @@
         ]
       }
     },
-    "Modify Guild Scheduled Event % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}": {
+    "Modify Guild Scheduled Event": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#modify-guild-scheduled-event-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events/{guild_scheduled_event.id#docs_resources_guild_scheduled_event/guild-scheduled-event-object}",
+      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#modify-guild-scheduled-event",
+      "endpoint": "PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}",
       "content": [
         "Modify a guild scheduled event. Returns the modified guild scheduled event object on success.",
         "> info\n> To start or end an event, use this endpoint to modify the event's status field.",
@@ -431,7 +435,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#modify-guild-scheduled-event-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events/{guild_scheduled_event.id#docs_resources_guild_scheduled_event/guild-scheduled-event-object}-json-params",
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#modify-guild-scheduled-event-json-params",
         "content": [
           [
             [
@@ -499,23 +503,25 @@
         ]
       }
     },
-    "Delete Guild Scheduled Event % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}": {
+    "Delete Guild Scheduled Event": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#delete-guild-scheduled-event-%-delete-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events/{guild_scheduled_event.id#docs_resources_guild_scheduled_event/guild-scheduled-event-object}",
+      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#delete-guild-scheduled-event",
+      "endpoint": "DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}",
       "content": [
         "Delete a guild scheduled event. Returns a 204 on success."
       ]
     },
-    "Get Guild Scheduled Event Users % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}/users": {
+    "Get Guild Scheduled Event Users": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event-users-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events/{guild_scheduled_event.id#docs_resources_guild_scheduled_event/guild-scheduled-event-object}/users",
+      "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event-users",
+      "endpoint": "GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}/users",
       "content": [
         "Get a list of guild scheduled event users subscribed to a guild scheduled event. Returns a list of guild scheduled event user objects on success. Guild member data, if it exists, is included if the with_member query parameter is set.",
         "|Query String Params"
       ],
       "Query String Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event-users-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/scheduled-events/{guild_scheduled_event.id#docs_resources_guild_scheduled_event/guild-scheduled-event-object}/users-query-string-params",
+        "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event-users-query-string-params",
         "content": [
           [
             [

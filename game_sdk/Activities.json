@@ -4,7 +4,7 @@
   ],
   "Activities": {
     "level": 1,
-    "url": "https://discord.com/developers/docs/game_sdk/activities#activities",
+    "url": "https://discord.com/developers/docs/game-sdk/activities#activities",
     "content": [
       "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
       "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
@@ -27,7 +27,7 @@
     ],
     "Data Models": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/activities#data-models",
+      "url": "https://discord.com/developers/docs/game-sdk/activities#data-models",
       "content": [
         "|User Struct",
         "|Activity Struct",
@@ -42,7 +42,7 @@
       ],
       "User Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#data-models-user-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#data-models-user-struct",
         "content": [
           [
             [
@@ -80,7 +80,7 @@
       },
       "Activity Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#data-models-activity-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#data-models-activity-struct",
         "content": [
           [
             [
@@ -138,7 +138,7 @@
       },
       "ActivityTimestamps Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#data-models-activitytimestamps-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#data-models-activitytimestamps-struct",
         "content": [
           [
             [
@@ -161,7 +161,7 @@
       },
       "ActivityAssets Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#data-models-activityassets-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#data-models-activityassets-struct",
         "content": [
           [
             [
@@ -194,7 +194,7 @@
       },
       "ActivityParty Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#data-models-activityparty-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#data-models-activityparty-struct",
         "content": [
           [
             [
@@ -217,7 +217,7 @@
       },
       "PartySize Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#data-models-partysize-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#data-models-partysize-struct",
         "content": [
           [
             [
@@ -240,7 +240,7 @@
       },
       "ActivitySecrets Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#data-models-activitysecrets-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#data-models-activitysecrets-struct",
         "content": [
           [
             [
@@ -268,7 +268,7 @@
       },
       "ActivityType Enum": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#data-models-activitytype-enum",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#data-models-activitytype-enum",
         "content": [
           [
             [
@@ -306,7 +306,7 @@
       },
       "ActivityJoinRequestReply Enum": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#data-models-activityjoinrequestreply-enum",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#data-models-activityjoinrequestreply-enum",
         "content": [
           [
             [
@@ -330,7 +330,7 @@
       },
       "ActivityActionType Enum": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#data-models-activityactiontype-enum",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#data-models-activityactiontype-enum",
         "content": [
           [
             [
@@ -351,14 +351,14 @@
     },
     "Activity Action Field Requirements": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/activities#activity-action-field-requirements",
+      "url": "https://discord.com/developers/docs/game-sdk/activities#activity-action-field-requirements",
       "content": [
         "If you want to hook up joining and spectating for your games, there are certain fields in the activity payload that need to be sent. Refer to the following handy table for what needs to be set for certain actions.",
         "|Requirements"
       ],
       "Requirements": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#activity-action-field-requirements-requirements",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#activity-action-field-requirements-requirements",
         "content": [
           [
             [
@@ -465,7 +465,7 @@
     },
     "RegisterCommand": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/activities#registercommand",
+      "url": "https://discord.com/developers/docs/game-sdk/activities#registercommand",
       "content": [
         "Registers a command by which Discord can launch your game. This might be a custom protocol, like my-awesome-game://, or a path to an executable. It also supports any launch parameters that may be needed, like game.exe --full-screen --no-hax.",
         "On macOS, due to the way Discord registers executables, your game needs to be bundled for this command to work. That means it should be a .app.",
@@ -475,7 +475,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#registercommand-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#registercommand-parameters",
         "content": [
           [
             [
@@ -493,7 +493,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#registercommand-example",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#registercommand-example",
         "content": [
           {
             "language": "cs",
@@ -504,7 +504,7 @@
     },
     "RegisterSteam": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/activities#registersteam",
+      "url": "https://discord.com/developers/docs/game-sdk/activities#registersteam",
       "content": [
         "Used if you are distributing this SDK on Steam. Registers your game's Steam app id for the protocol steam://run-game-id/<id>.",
         "Returns void.",
@@ -513,7 +513,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#registersteam-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#registersteam-parameters",
         "content": [
           [
             [
@@ -531,7 +531,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#registersteam-example",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#registersteam-example",
         "content": [
           {
             "language": "cs",
@@ -542,7 +542,7 @@
     },
     "UpdateActivity": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/activities#updateactivity",
+      "url": "https://discord.com/developers/docs/game-sdk/activities#updateactivity",
       "content": [
         "Sets a user's presence in Discord to a new activity. This has a rate limit of 5 updates per 20 seconds.",
         "> info\n> It is possible for users to hide their presence on Discord (User Settings -> Game Activity). Presence set through this SDK may not be visible when this setting is toggled off.",
@@ -552,7 +552,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#updateactivity-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#updateactivity-parameters",
         "content": [
           [
             [
@@ -570,7 +570,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#updateactivity-example",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#updateactivity-example",
         "content": [
           {
             "language": "cs",
@@ -581,7 +581,7 @@
     },
     "ClearActivity": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/activities#clearactivity",
+      "url": "https://discord.com/developers/docs/game-sdk/activities#clearactivity",
       "content": [
         "Clear's a user's presence in Discord to make it show nothing.",
         "Results a Discord.Result via callback.",
@@ -590,14 +590,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#clearactivity-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#clearactivity-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#clearactivity-example",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#clearactivity-example",
         "content": [
           {
             "language": "cs",
@@ -608,7 +608,7 @@
     },
     "SendRequestReply": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/activities#sendrequestreply",
+      "url": "https://discord.com/developers/docs/game-sdk/activities#sendrequestreply",
       "content": [
         "Sends a reply to an Ask to Join request.",
         "Returns a Discord.Result via callback.",
@@ -617,7 +617,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#sendrequestreply-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#sendrequestreply-parameters",
         "content": [
           [
             [
@@ -640,7 +640,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#sendrequestreply-example",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#sendrequestreply-example",
         "content": [
           {
             "language": "cs",
@@ -651,7 +651,7 @@
     },
     "SendInvite": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/activities#sendinvite",
+      "url": "https://discord.com/developers/docs/game-sdk/activities#sendinvite",
       "content": [
         "Sends a game invite to a given user. If you do not have a valid activity with all the required fields, this call will error. See Activity Action Field Requirements for the fields required to have join and spectate invites function properly.",
         "Returns a Discord.Result via callback.",
@@ -660,7 +660,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#sendinvite-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#sendinvite-parameters",
         "content": [
           [
             [
@@ -688,7 +688,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#sendinvite-example",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#sendinvite-example",
         "content": [
           {
             "language": "cs",
@@ -699,7 +699,7 @@
     },
     "AcceptInvite": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/activities#acceptinvite",
+      "url": "https://discord.com/developers/docs/game-sdk/activities#acceptinvite",
       "content": [
         "Accepts a game invitation from a given userId.",
         "Returns a Discord.Result via callback.",
@@ -708,7 +708,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#acceptinvite-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#acceptinvite-parameters",
         "content": [
           [
             [
@@ -726,7 +726,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#acceptinvite-example",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#acceptinvite-example",
         "content": [
           {
             "language": "cs",
@@ -737,7 +737,7 @@
     },
     "OnActivityJoin": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/activities#onactivityjoin",
+      "url": "https://discord.com/developers/docs/game-sdk/activities#onactivityjoin",
       "content": [
         "Fires when a user accepts a game chat invite or receives confirmation from Asking to Join.",
         "|Parameters",
@@ -745,7 +745,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#onactivityjoin-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#onactivityjoin-parameters",
         "content": [
           [
             [
@@ -763,7 +763,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#onactivityjoin-example",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#onactivityjoin-example",
         "content": [
           {
             "language": "cs",
@@ -774,7 +774,7 @@
     },
     "OnActivitySpectate": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/activities#onactivityspectate",
+      "url": "https://discord.com/developers/docs/game-sdk/activities#onactivityspectate",
       "content": [
         "Fires when a user accepts a spectate chat invite or clicks the Spectate button on a user's profile.",
         "|Parameters",
@@ -782,7 +782,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#onactivityspectate-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#onactivityspectate-parameters",
         "content": [
           [
             [
@@ -800,7 +800,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#onactivityspectate-example",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#onactivityspectate-example",
         "content": [
           {
             "language": "cs",
@@ -811,7 +811,7 @@
     },
     "OnActivityJoinRequest": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/activities#onactivityjoinrequest",
+      "url": "https://discord.com/developers/docs/game-sdk/activities#onactivityjoinrequest",
       "content": [
         "Fires when a user asks to join the current user's game.",
         "|Parameters",
@@ -819,7 +819,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#onactivityjoinrequest-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#onactivityjoinrequest-parameters",
         "content": [
           [
             [
@@ -837,7 +837,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#onactivityjoinrequest-example",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#onactivityjoinrequest-example",
         "content": [
           {
             "language": "cs",
@@ -848,7 +848,7 @@
     },
     "OnActivityInvite": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/activities#onactivityinvite",
+      "url": "https://discord.com/developers/docs/game-sdk/activities#onactivityinvite",
       "content": [
         "Fires when the user receives a join or spectate invite.",
         "|Parameters",
@@ -856,7 +856,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#onactivityinvite-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#onactivityinvite-parameters",
         "content": [
           [
             [
@@ -884,7 +884,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/activities#onactivityinvite-example",
+        "url": "https://discord.com/developers/docs/game-sdk/activities#onactivityinvite-example",
         "content": [
           {
             "language": "cs",
@@ -895,7 +895,7 @@
     },
     "Example: Inviting a User to a Game": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/activities#example:-inviting-a-user-to-a-game",
+      "url": "https://discord.com/developers/docs/game-sdk/activities#example:-inviting-a-user-to-a-game",
       "content": [
         {
           "language": "cs",

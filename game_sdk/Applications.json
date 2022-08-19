@@ -4,7 +4,7 @@
   ],
   "Applications": {
     "level": 1,
-    "url": "https://discord.com/developers/docs/game_sdk/applications#applications",
+    "url": "https://discord.com/developers/docs/game-sdk/applications#applications",
     "content": [
       "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
       "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
@@ -22,14 +22,14 @@
     ],
     "Data Models": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/applications#data-models",
+      "url": "https://discord.com/developers/docs/game-sdk/applications#data-models",
       "content": [
         "|OAuth2Token Struct",
         "|SignedAppTicket Struct"
       ],
       "OAuth2Token Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/applications#data-models-oauth2token-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/applications#data-models-oauth2token-struct",
         "content": [
           [
             [
@@ -57,7 +57,7 @@
       },
       "SignedAppTicket Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/applications#data-models-signedappticket-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/applications#data-models-signedappticket-struct",
         "content": [
           [
             [
@@ -91,7 +91,7 @@
     },
     "GetCurrentLocale": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/applications#getcurrentlocale",
+      "url": "https://discord.com/developers/docs/game-sdk/applications#getcurrentlocale",
       "content": [
         "> info\n> Value from environment variable DISCORD_CURRENT_LOCALE",
         "Gets the locale the current user has Discord set to.",
@@ -101,14 +101,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/applications#getcurrentlocale-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/applications#getcurrentlocale-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/applications#getcurrentlocale-example",
+        "url": "https://discord.com/developers/docs/game-sdk/applications#getcurrentlocale-example",
         "content": [
           {
             "language": "cs",
@@ -119,7 +119,7 @@
     },
     "GetCurrentBranch": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/applications#getcurrentbranch",
+      "url": "https://discord.com/developers/docs/game-sdk/applications#getcurrentbranch",
       "content": [
         "> info\n> Value from environment variable DISCORD_CURRENT_BRANCH",
         "Get the name of pushed branch on which the game is running. These are branches that you created and pushed using Dispatch.",
@@ -128,14 +128,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/applications#getcurrentbranch-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/applications#getcurrentbranch-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/applications#getcurrentbranch-example",
+        "url": "https://discord.com/developers/docs/game-sdk/applications#getcurrentbranch-example",
         "content": [
           {
             "language": "cs",
@@ -146,7 +146,7 @@
     },
     "GetOAuth2Token": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/applications#getoauth2token",
+      "url": "https://discord.com/developers/docs/game-sdk/applications#getoauth2token",
       "content": [
         "> info\n> value from environment variable DISCORD_ACCESS_TOKEN",
         "> warn\n> Ensure that you have http://127.0.0.1 set as a valid redirect URI for your application in the Developer Portal, or this method will always return an error.",
@@ -157,14 +157,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/applications#getoauth2token-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/applications#getoauth2token-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/applications#getoauth2token-example",
+        "url": "https://discord.com/developers/docs/game-sdk/applications#getoauth2token-example",
         "content": [
           {
             "language": "cs",
@@ -175,7 +175,7 @@
     },
     "ValidateOrExit": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/applications#validateorexit",
+      "url": "https://discord.com/developers/docs/game-sdk/applications#validateorexit",
       "content": [
         "Checks if the current user has the entitlement to run this game.",
         "Returns a Discord.Result via callback.",
@@ -184,14 +184,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/applications#validateorexit-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/applications#validateorexit-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/applications#validateorexit-example",
+        "url": "https://discord.com/developers/docs/game-sdk/applications#validateorexit-example",
         "content": [
           {
             "language": "cs",
@@ -202,7 +202,7 @@
     },
     "GetTicket": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/applications#getticket",
+      "url": "https://discord.com/developers/docs/game-sdk/applications#getticket",
       "content": [
         "|Current Version",
         "|Parameters",
@@ -210,7 +210,7 @@
       ],
       "Current Version": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/applications#getticket-current-version",
+        "url": "https://discord.com/developers/docs/game-sdk/applications#getticket-current-version",
         "content": [
           [
             [
@@ -236,14 +236,14 @@
       },
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/applications#getticket-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/applications#getticket-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/applications#getticket-example",
+        "url": "https://discord.com/developers/docs/game-sdk/applications#getticket-example",
         "content": [
           {
             "language": "cs",
@@ -254,7 +254,7 @@
     },
     "Example: Get OAuth2 Token": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/applications#example:-get-oauth2-token",
+      "url": "https://discord.com/developers/docs/game-sdk/applications#example:-get-oauth2-token",
       "content": [
         {
           "language": "cs",

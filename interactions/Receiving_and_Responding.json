@@ -17,14 +17,14 @@
       "|Responding to an Interaction",
       "|Followup Messages",
       "|Security and Authorization",
-      "|Create Interaction Response % POST /interactions/{interaction.id#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/callback",
-      "|Get Original Interaction Response % GET /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/messages/@original",
-      "|Edit Original Interaction Response % PATCH /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/messages/@original",
-      "|Delete Original Interaction Response % DELETE /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/messages/@original",
-      "|Create Followup Message % POST /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}",
-      "|Get Followup Message % GET /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
-      "|Edit Followup Message % PATCH /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
-      "|Delete Followup Message % DELETE /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}"
+      "|Create Interaction Response",
+      "|Get Original Interaction Response",
+      "|Edit Original Interaction Response",
+      "|Delete Original Interaction Response",
+      "|Create Followup Message",
+      "|Get Followup Message",
+      "|Edit Followup Message",
+      "|Delete Followup Message"
     ],
     "Interaction Object": {
       "level": 3,
@@ -660,60 +660,68 @@
         ]
       }
     },
-    "Create Interaction Response % POST /interactions/{interaction.id#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/callback": {
+    "Create Interaction Response": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#create-interaction-response-%-post-/interactions/{interaction.id#docs_interactions_receiving_and_responding/interaction}/{interaction.token#docs_interactions_receiving_and_responding/interaction-object}/callback",
+      "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#create-interaction-response",
+      "endpoint": "POST /interactions/{interaction.id#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/callback",
       "content": [
         "Create a response to an Interaction from the gateway. Body is an interaction response. Returns 204 No Content.",
         "This endpoint also supports file attachments similar to the webhook endpoints. Refer to Uploading Files for details on uploading files and multipart/form-data requests."
       ]
     },
-    "Get Original Interaction Response % GET /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/messages/@original": {
+    "Get Original Interaction Response": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#get-original-interaction-response-%-get-/webhooks/{application.id#docs_resources_application/application-object}/{interaction.token#docs_interactions_receiving_and_responding/interaction-object}/messages/@original",
+      "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#get-original-interaction-response",
+      "endpoint": "GET /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/messages/@original",
       "content": [
         "Returns the initial Interaction response. Functions the same as Get Webhook Message."
       ]
     },
-    "Edit Original Interaction Response % PATCH /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/messages/@original": {
+    "Edit Original Interaction Response": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#edit-original-interaction-response-%-patch-/webhooks/{application.id#docs_resources_application/application-object}/{interaction.token#docs_interactions_receiving_and_responding/interaction-object}/messages/@original",
+      "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#edit-original-interaction-response",
+      "endpoint": "PATCH /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/messages/@original",
       "content": [
         "Edits the initial Interaction response. Functions the same as Edit Webhook Message."
       ]
     },
-    "Delete Original Interaction Response % DELETE /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/messages/@original": {
+    "Delete Original Interaction Response": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#delete-original-interaction-response-%-delete-/webhooks/{application.id#docs_resources_application/application-object}/{interaction.token#docs_interactions_receiving_and_responding/interaction-object}/messages/@original",
+      "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#delete-original-interaction-response",
+      "endpoint": "DELETE /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/messages/@original",
       "content": [
         "Deletes the initial Interaction response. Returns 204 No Content on success. Does not support ephemeral followups."
       ]
     },
-    "Create Followup Message % POST /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}": {
+    "Create Followup Message": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#create-followup-message-%-post-/webhooks/{application.id#docs_resources_application/application-object}/{interaction.token#docs_interactions_receiving_and_responding/interaction-object}",
+      "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#create-followup-message",
+      "endpoint": "POST /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}",
       "content": [
         "Create a followup message for an Interaction. Functions the same as Execute Webhook, but wait is always true. The thread_id, avatar_url, and username parameters are not supported when using this endpoint for interaction followups.",
         "flags can be set to 64 to mark the message as ephemeral, except when it is the first followup message to a deferred Interactions Response. In that case, the flags field will be ignored, and the ephemerality of the message will be determined by the flags value in your original ACK."
       ]
     },
-    "Get Followup Message % GET /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}": {
+    "Get Followup Message": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#get-followup-message-%-get-/webhooks/{application.id#docs_resources_application/application-object}/{interaction.token#docs_interactions_receiving_and_responding/interaction-object}/messages/{message.id#docs_resources_channel/message-object}",
+      "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#get-followup-message",
+      "endpoint": "GET /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
       "content": [
         "Returns a followup message for an Interaction. Functions the same as Get Webhook Message."
       ]
     },
-    "Edit Followup Message % PATCH /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}": {
+    "Edit Followup Message": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#edit-followup-message-%-patch-/webhooks/{application.id#docs_resources_application/application-object}/{interaction.token#docs_interactions_receiving_and_responding/interaction-object}/messages/{message.id#docs_resources_channel/message-object}",
+      "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#edit-followup-message",
+      "endpoint": "PATCH /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
       "content": [
         "Edits a followup message for an Interaction. Functions the same as Edit Webhook Message."
       ]
     },
-    "Delete Followup Message % DELETE /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}": {
+    "Delete Followup Message": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#delete-followup-message-%-delete-/webhooks/{application.id#docs_resources_application/application-object}/{interaction.token#docs_interactions_receiving_and_responding/interaction-object}/messages/{message.id#docs_resources_channel/message-object}",
+      "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#delete-followup-message",
+      "endpoint": "DELETE /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
       "content": [
         "Deletes a followup message for an Interaction. Returns 204 No Content on success. Does not support ephemeral followups."
       ]

@@ -4,7 +4,7 @@
   ],
   "Images": {
     "level": 1,
-    "url": "https://discord.com/developers/docs/game_sdk/images#images",
+    "url": "https://discord.com/developers/docs/game-sdk/images#images",
     "content": [
       "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
       "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
@@ -18,7 +18,7 @@
     ],
     "Data Models": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/images#data-models",
+      "url": "https://discord.com/developers/docs/game-sdk/images#data-models",
       "content": [
         "|ImageDimensions Struct",
         "|ImageType Enum",
@@ -26,7 +26,7 @@
       ],
       "ImageDimensions Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/images#data-models-imagedimensions-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/images#data-models-imagedimensions-struct",
         "content": [
           [
             [
@@ -49,7 +49,7 @@
       },
       "ImageType Enum": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/images#data-models-imagetype-enum",
+        "url": "https://discord.com/developers/docs/game-sdk/images#data-models-imagetype-enum",
         "content": [
           [
             [
@@ -65,7 +65,7 @@
       },
       "ImageHandle Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/images#data-models-imagehandle-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/images#data-models-imagehandle-struct",
         "content": [
           [
             [
@@ -94,7 +94,7 @@
     },
     "Fetch": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/images#fetch",
+      "url": "https://discord.com/developers/docs/game-sdk/images#fetch",
       "content": [
         "Prepares an image to later retrieve data about it.",
         "Returns a Discord.Result and Discord.ImageHandle via callback.",
@@ -103,7 +103,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/images#fetch-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/images#fetch-parameters",
         "content": [
           [
             [
@@ -126,7 +126,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/images#fetch-example",
+        "url": "https://discord.com/developers/docs/game-sdk/images#fetch-example",
         "content": [
           {
             "language": "cs",
@@ -137,7 +137,7 @@
     },
     "GetDimensions": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/images#getdimensions",
+      "url": "https://discord.com/developers/docs/game-sdk/images#getdimensions",
       "content": [
         "Gets the dimensions for the given user's avatar's source image.",
         "Returns Discord.ImageDimensions.",
@@ -146,7 +146,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/images#getdimensions-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/images#getdimensions-parameters",
         "content": [
           [
             [
@@ -164,7 +164,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/images#getdimensions-example",
+        "url": "https://discord.com/developers/docs/game-sdk/images#getdimensions-example",
         "content": [
           {
             "language": "cs",
@@ -175,7 +175,7 @@
     },
     "GetData": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/images#getdata",
+      "url": "https://discord.com/developers/docs/game-sdk/images#getdata",
       "content": [
         "Gets the image data for a given user's avatar. In C#, this is overloaded by a helper function that will directly return a byte[] with the image data in it. In C++/C, this function reads image data into a passed pointer of defined size.",
         "|Parameters",
@@ -184,7 +184,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/images#getdata-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/images#getdata-parameters",
         "content": [
           [
             [
@@ -212,7 +212,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/images#getdata-example",
+        "url": "https://discord.com/developers/docs/game-sdk/images#getdata-example",
         "content": [
           {
             "language": "cs",
@@ -222,7 +222,7 @@
       },
       "Example Cpp": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/images#getdata-example-cpp",
+        "url": "https://discord.com/developers/docs/game-sdk/images#getdata-example-cpp",
         "content": [
           {
             "language": "cpp",
@@ -233,7 +233,7 @@
     },
     "GetTexture": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/images#gettexture",
+      "url": "https://discord.com/developers/docs/game-sdk/images#gettexture",
       "content": [
         "> warn\n> This is only exposed in Unity",
         "Gets the Texture2D for a given user's avatar for use within a Unity environment.",
@@ -243,7 +243,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/images#gettexture-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/images#gettexture-parameters",
         "content": [
           [
             [
@@ -261,7 +261,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/images#gettexture-example",
+        "url": "https://discord.com/developers/docs/game-sdk/images#gettexture-example",
         "content": [
           {
             "language": "cs",
@@ -272,7 +272,7 @@
     },
     "Example: User's Avatar Data": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/images#example:-user's-avatar-data",
+      "url": "https://discord.com/developers/docs/game-sdk/images#example:-user's-avatar-data",
       "content": [
         {
           "language": "cs",

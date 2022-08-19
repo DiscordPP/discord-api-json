@@ -9,8 +9,8 @@
       "|Invite Object",
       "|Invite Metadata Object",
       "|Invite Stage Instance Object",
-      "|Get Invite % GET /invites/{invite.code#DOCS_RESOURCES_INVITE/invite-object}",
-      "|Delete Invite % DELETE /invites/{invite.code#DOCS_RESOURCES_INVITE/invite-object}"
+      "|Get Invite",
+      "|Delete Invite"
     ],
     "Invite Object": {
       "level": 3,
@@ -234,16 +234,17 @@
         ]
       }
     },
-    "Get Invite % GET /invites/{invite.code#DOCS_RESOURCES_INVITE/invite-object}": {
+    "Get Invite": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/invite#get-invite-%-get-/invites/{invite.code#docs_resources_invite/invite-object}",
+      "url": "https://discord.com/developers/docs/resources/invite#get-invite",
+      "endpoint": "GET /invites/{invite.code#DOCS_RESOURCES_INVITE/invite-object}",
       "content": [
         "Returns an invite object for the given code.",
         "|Query String Params"
       ],
       "Query String Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/invite#get-invite-%-get-/invites/{invite.code#docs_resources_invite/invite-object}-query-string-params",
+        "url": "https://discord.com/developers/docs/resources/invite#get-invite-query-string-params",
         "content": [
           [
             [
@@ -270,9 +271,10 @@
         ]
       }
     },
-    "Delete Invite % DELETE /invites/{invite.code#DOCS_RESOURCES_INVITE/invite-object}": {
+    "Delete Invite": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/invite#delete-invite-%-delete-/invites/{invite.code#docs_resources_invite/invite-object}",
+      "url": "https://discord.com/developers/docs/resources/invite#delete-invite",
+      "endpoint": "DELETE /invites/{invite.code#DOCS_RESOURCES_INVITE/invite-object}",
       "content": [
         "Delete an invite. Requires the MANAGE_CHANNELS permission on the channel this invite belongs to, or MANAGE_GUILD to remove any invite across the guild. Returns an invite object on success. Fires a Invite Delete Gateway event.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header."

@@ -4,7 +4,7 @@
   ],
   "Networking": {
     "level": 1,
-    "url": "https://discord.com/developers/docs/game_sdk/networking#networking",
+    "url": "https://discord.com/developers/docs/game-sdk/networking#networking",
     "content": [
       "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
       "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
@@ -33,7 +33,7 @@
     ],
     "GetPeerId": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/networking#getpeerid",
+      "url": "https://discord.com/developers/docs/game-sdk/networking#getpeerid",
       "content": [
         "Get the networking peer ID for the current user, allowing other users to send packets to them.",
         "Returns a UInt64.",
@@ -42,14 +42,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/networking#getpeerid-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/networking#getpeerid-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/networking#getpeerid-example",
+        "url": "https://discord.com/developers/docs/game-sdk/networking#getpeerid-example",
         "content": [
           {
             "language": "cs",
@@ -60,7 +60,7 @@
     },
     "Flush": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/networking#flush",
+      "url": "https://discord.com/developers/docs/game-sdk/networking#flush",
       "content": [
         "Flushes the network. Run this at the end of your game's loop, once you've finished sending all you need to send. In Unity, for example, stick this in LateUpdate().",
         "Returns void.",
@@ -69,14 +69,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/networking#flush-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/networking#flush-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/networking#flush-example",
+        "url": "https://discord.com/developers/docs/game-sdk/networking#flush-example",
         "content": [
           {
             "language": "cs",
@@ -87,7 +87,7 @@
     },
     "OpenChannel": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/networking#openchannel",
+      "url": "https://discord.com/developers/docs/game-sdk/networking#openchannel",
       "content": [
         "Opens a channel to a user with their given peer ID on the given channel number.",
         "Unreliable channels\u2014reliable = false\u2014should be used for loss-tolerant data, like player positioning in the world. Reliable channels\u2014reliable = true\u2014should be used for data that must get to the user, like loot drops!",
@@ -97,7 +97,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/networking#openchannel-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/networking#openchannel-parameters",
         "content": [
           [
             [
@@ -125,7 +125,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/networking#openchannel-example",
+        "url": "https://discord.com/developers/docs/game-sdk/networking#openchannel-example",
         "content": [
           {
             "language": "cs",
@@ -136,7 +136,7 @@
     },
     "OpenPeer": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/networking#openpeer",
+      "url": "https://discord.com/developers/docs/game-sdk/networking#openpeer",
       "content": [
         "Opens a network connection to another Discord user.",
         "Returns void.",
@@ -145,7 +145,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/networking#openpeer-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/networking#openpeer-parameters",
         "content": [
           [
             [
@@ -168,7 +168,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/networking#openpeer-example",
+        "url": "https://discord.com/developers/docs/game-sdk/networking#openpeer-example",
         "content": [
           {
             "language": "cs",
@@ -179,7 +179,7 @@
     },
     "UpdatePeer": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/networking#updatepeer",
+      "url": "https://discord.com/developers/docs/game-sdk/networking#updatepeer",
       "content": [
         "Updates the network connection to another Discord user. You'll want to call this when notified that the route for a user to which you are connected has changed, most likely from a lobby member update event.",
         "Returns void.",
@@ -188,7 +188,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/networking#updatepeer-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/networking#updatepeer-parameters",
         "content": [
           [
             [
@@ -211,7 +211,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/networking#updatepeer-example",
+        "url": "https://discord.com/developers/docs/game-sdk/networking#updatepeer-example",
         "content": [
           {
             "language": "cs",
@@ -222,7 +222,7 @@
     },
     "SendMessage": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/networking#sendmessage",
+      "url": "https://discord.com/developers/docs/game-sdk/networking#sendmessage",
       "content": [
         "Sends data to a given peer ID through the given channel.",
         "Returns void.",
@@ -231,7 +231,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/networking#sendmessage-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/networking#sendmessage-parameters",
         "content": [
           [
             [
@@ -259,7 +259,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/networking#sendmessage-example",
+        "url": "https://discord.com/developers/docs/game-sdk/networking#sendmessage-example",
         "content": [
           {
             "language": "cs",
@@ -270,7 +270,7 @@
     },
     "CloseChannel": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/networking#closechannel",
+      "url": "https://discord.com/developers/docs/game-sdk/networking#closechannel",
       "content": [
         "Close the connection to a given user by peerId on the given channel.",
         "Returns void.",
@@ -279,7 +279,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/networking#closechannel-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/networking#closechannel-parameters",
         "content": [
           [
             [
@@ -302,7 +302,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/networking#closechannel-example",
+        "url": "https://discord.com/developers/docs/game-sdk/networking#closechannel-example",
         "content": [
           {
             "language": "cs",
@@ -313,7 +313,7 @@
     },
     "ClosePeer": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/networking#closepeer",
+      "url": "https://discord.com/developers/docs/game-sdk/networking#closepeer",
       "content": [
         "Disconnects the network session to another Discord user.",
         "Returns void.",
@@ -322,7 +322,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/networking#closepeer-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/networking#closepeer-parameters",
         "content": [
           [
             [
@@ -340,7 +340,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/networking#closepeer-example",
+        "url": "https://discord.com/developers/docs/game-sdk/networking#closepeer-example",
         "content": [
           {
             "language": "cs",
@@ -351,7 +351,7 @@
     },
     "OnMessage": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/networking#onmessage",
+      "url": "https://discord.com/developers/docs/game-sdk/networking#onmessage",
       "content": [
         "Fires when you receive data from another user. This callback will only fire if you already have an open channel with the user sending you data. Make sure you're running RunCallbacks() in your game loop, or you'll never get data!",
         "|Parameters",
@@ -359,7 +359,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/networking#onmessage-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/networking#onmessage-parameters",
         "content": [
           [
             [
@@ -387,7 +387,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/networking#onmessage-example",
+        "url": "https://discord.com/developers/docs/game-sdk/networking#onmessage-example",
         "content": [
           {
             "language": "cs",
@@ -398,7 +398,7 @@
     },
     "OnRouteUpdate": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/networking#onrouteupdate",
+      "url": "https://discord.com/developers/docs/game-sdk/networking#onrouteupdate",
       "content": [
         "Fires when your networking route has changed. You should broadcast to other users to whom you are connected that this has changed, probably by updating your lobby member metadata for others to receive.",
         "|Parameters",
@@ -406,7 +406,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/networking#onrouteupdate-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/networking#onrouteupdate-parameters",
         "content": [
           [
             [
@@ -424,7 +424,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/networking#onrouteupdate-example",
+        "url": "https://discord.com/developers/docs/game-sdk/networking#onrouteupdate-example",
         "content": [
           {
             "language": "cs",
@@ -435,7 +435,7 @@
     },
     "Flush vs RunCallbacks": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/networking#flush-vs-runcallbacks",
+      "url": "https://discord.com/developers/docs/game-sdk/networking#flush-vs-runcallbacks",
       "content": [
         "A quick note here may be helpful for the two functions that should be called continuously in your game loop: discord.RunCallbacks() and networkManager.Flush(). RunCallbacks() pumps the SDK's event loop, sending any newly-received data down the SDK tubes to your game. For this reason, you should call it at the beginning of your game loop; that way, any new data is handled immediately by callbacks you've registered. In Unity, for example, this goes in Update().",
         "Flush() is specific to the network manager. It actually writes the packets out to the stream. You should call this at the end of your game loop as a way of saying \"OK, I'm done with networking stuff, go send all the stuff to people who need it\". In Unity, for example, this goes in LateUpdate()."
@@ -443,7 +443,7 @@
     },
     "Connecting to Each Other": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/networking#connecting-to-each-other",
+      "url": "https://discord.com/developers/docs/game-sdk/networking#connecting-to-each-other",
       "content": [
         "This manager is built around the concept of routes between players, and then channels on those routes. Player A opens a route to Player B. This route will change, most commonly if the user's external IP address changes. As that route changes, the player will receive OnRouteUpdate events. They should then alert other lobby members that their route has changed by updating their lobbymetadata. Other lobby members will see those updates from the OnLobbyMemberUpdate event, and can call UpdateRoute() accordingly. A user's route could change frequently, so architect your system anticipating frequent route changes and updates.",
         "Once Player A has a route open to Player B, Player A then opens a channel to Player B, and Player B does the same to Player A. Channels are the pipes down which data is actually sent. These two users can now send data back and forth to each other with SendMessage() and receive it with OnMessage.",
@@ -452,7 +452,7 @@
     },
     "Example: Connecting to Another Player in a Lobby": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/networking#example:-connecting-to-another-player-in-a-lobby",
+      "url": "https://discord.com/developers/docs/game-sdk/networking#example:-connecting-to-another-player-in-a-lobby",
       "content": [
         {
           "language": "cs",

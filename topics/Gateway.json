@@ -19,8 +19,8 @@
       "|Sharding",
       "|Sharding for Large Bots",
       "|Commands and Events",
-      "|Get Gateway % GET /gateway",
-      "|Get Gateway Bot % GET /gateway/bot",
+      "|Get Gateway",
+      "|Get Gateway Bot",
       "|Session Start Limit Object"
     ],
     "Payloads": {
@@ -3501,9 +3501,10 @@
         }
       }
     },
-    "Get Gateway % GET /gateway": {
+    "Get Gateway": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/topics/gateway#get-gateway-%-get-/gateway",
+      "url": "https://discord.com/developers/docs/topics/gateway#get-gateway",
+      "endpoint": "GET /gateway",
       "content": [
         "> info\n> This endpoint does not require authentication.",
         "Returns an object with a single valid WSS URL, which the client can use for Connecting. Clients should cache this value and only call this endpoint to retrieve a new URL if they are unable to properly establish a connection using the cached version of the URL.",
@@ -3511,7 +3512,7 @@
       ],
       "Example Response": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/topics/gateway#get-gateway-%-get-/gateway-example-response",
+        "url": "https://discord.com/developers/docs/topics/gateway#get-gateway-example-response",
         "content": [
           {
             "language": "json",
@@ -3520,9 +3521,10 @@
         ]
       }
     },
-    "Get Gateway Bot % GET /gateway/bot": {
+    "Get Gateway Bot": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/topics/gateway#get-gateway-bot-%-get-/gateway/bot",
+      "url": "https://discord.com/developers/docs/topics/gateway#get-gateway-bot",
+      "endpoint": "GET /gateway/bot",
       "content": [
         "> warn\n> This endpoint requires authentication using a valid bot token.",
         "Returns an object based on the information in Get Gateway, plus additional metadata that can help during the operation of large or sharded bots. Unlike the Get Gateway, this route should not be cached for extended periods of time as the value is not guaranteed to be the same per-call, and changes as the bot joins/leaves guilds.",
@@ -3531,7 +3533,7 @@
       ],
       "JSON Response": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/topics/gateway#get-gateway-bot-%-get-/gateway/bot-json-response",
+        "url": "https://discord.com/developers/docs/topics/gateway#get-gateway-bot-json-response",
         "content": [
           [
             [
@@ -3559,7 +3561,7 @@
       },
       "Example Response": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/topics/gateway#get-gateway-bot-%-get-/gateway/bot-example-response",
+        "url": "https://discord.com/developers/docs/topics/gateway#get-gateway-bot-example-response",
         "content": [
           {
             "language": "json",

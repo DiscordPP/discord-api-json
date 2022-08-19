@@ -19,22 +19,22 @@
       "|Message Commands",
       "|Autocomplete",
       "|Localization",
-      "|Get Global Application Commands % GET /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/commands",
-      "|Create Global Application Command % POST /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/commands",
-      "|Get Global Application Command % GET /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}",
-      "|Edit Global Application Command % PATCH /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}",
-      "|Delete Global Application Command % DELETE /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}",
-      "|Bulk Overwrite Global Application Commands % PUT /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/commands",
-      "|Get Guild Application Commands % GET /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands",
-      "|Create Guild Application Command % POST /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands",
-      "|Get Guild Application Command % GET /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}",
-      "|Edit Guild Application Command % PATCH /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}",
-      "|Delete Guild Application Command % DELETE /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}",
-      "|Bulk Overwrite Guild Application Commands % PUT /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands",
-      "|Get Guild Application Command Permissions % GET /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/permissions",
-      "|Get Application Command Permissions % GET /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}/permissions",
-      "|Edit Application Command Permissions % PUT /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}/permissions",
-      "|Batch Edit Application Command Permissions % PUT /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/permissions"
+      "|Get Global Application Commands",
+      "|Create Global Application Command",
+      "|Get Global Application Command",
+      "|Edit Global Application Command",
+      "|Delete Global Application Command",
+      "|Bulk Overwrite Global Application Commands",
+      "|Get Guild Application Commands",
+      "|Create Guild Application Command",
+      "|Get Guild Application Command",
+      "|Edit Guild Application Command",
+      "|Delete Guild Application Command",
+      "|Bulk Overwrite Guild Application Commands",
+      "|Get Guild Application Command Permissions",
+      "|Get Application Command Permissions",
+      "|Edit Application Command Permissions",
+      "|Batch Edit Application Command Permissions"
     ],
     "Application Command Object": {
       "level": 2,
@@ -867,9 +867,10 @@
         ]
       }
     },
-    "Get Global Application Commands % GET /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/commands": {
+    "Get Global Application Commands": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/application-commands#get-global-application-commands-%-get-/applications/{application.id#docs_resources_application/application-object}/commands",
+      "url": "https://discord.com/developers/docs/interactions/application-commands#get-global-application-commands",
+      "endpoint": "GET /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/commands",
       "content": [
         "> warn\n> The objects returned by this endpoint may be augmented with additional fields if localization is active.",
         "Fetch all of the global commands for your application. Returns an array of application command objects.",
@@ -877,7 +878,7 @@
       ],
       "Query String Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/interactions/application-commands#get-global-application-commands-%-get-/applications/{application.id#docs_resources_application/application-object}/commands-query-string-params",
+        "url": "https://discord.com/developers/docs/interactions/application-commands#get-global-application-commands-query-string-params",
         "content": [
           [
             [
@@ -894,9 +895,10 @@
         ]
       }
     },
-    "Create Global Application Command % POST /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/commands": {
+    "Create Global Application Command": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/application-commands#create-global-application-command-%-post-/applications/{application.id#docs_resources_application/application-object}/commands",
+      "url": "https://discord.com/developers/docs/interactions/application-commands#create-global-application-command",
+      "endpoint": "POST /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/commands",
       "content": [
         "> danger\n> Creating a command with the same name as an existing command for your application will overwrite the old command.",
         "Create a new global command. Returns 201 and an application command object.",
@@ -904,7 +906,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/interactions/application-commands#create-global-application-command-%-post-/applications/{application.id#docs_resources_application/application-object}/commands-json-params",
+        "url": "https://discord.com/developers/docs/interactions/application-commands#create-global-application-command-json-params",
         "content": [
           [
             [
@@ -962,16 +964,18 @@
         ]
       }
     },
-    "Get Global Application Command % GET /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}": {
+    "Get Global Application Command": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/application-commands#get-global-application-command-%-get-/applications/{application.id#docs_resources_application/application-object}/commands/{command.id#docs_interactions_application_commands/application-command-object}",
+      "url": "https://discord.com/developers/docs/interactions/application-commands#get-global-application-command",
+      "endpoint": "GET /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}",
       "content": [
         "Fetch a global command for your application. Returns an application command object."
       ]
     },
-    "Edit Global Application Command % PATCH /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}": {
+    "Edit Global Application Command": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/application-commands#edit-global-application-command-%-patch-/applications/{application.id#docs_resources_application/application-object}/commands/{command.id#docs_interactions_application_commands/application-command-object}",
+      "url": "https://discord.com/developers/docs/interactions/application-commands#edit-global-application-command",
+      "endpoint": "PATCH /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}",
       "content": [
         "> info\n> All parameters for this endpoint are optional.",
         "Edit a global command. Returns 200 and an application command object. All fields are optional, but any fields provided will entirely overwrite the existing values of those fields.",
@@ -979,7 +983,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/interactions/application-commands#edit-global-application-command-%-patch-/applications/{application.id#docs_resources_application/application-object}/commands/{command.id#docs_interactions_application_commands/application-command-object}-json-params",
+        "url": "https://discord.com/developers/docs/interactions/application-commands#edit-global-application-command-json-params",
         "content": [
           [
             [
@@ -1032,24 +1036,27 @@
         ]
       }
     },
-    "Delete Global Application Command % DELETE /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}": {
+    "Delete Global Application Command": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/application-commands#delete-global-application-command-%-delete-/applications/{application.id#docs_resources_application/application-object}/commands/{command.id#docs_interactions_application_commands/application-command-object}",
+      "url": "https://discord.com/developers/docs/interactions/application-commands#delete-global-application-command",
+      "endpoint": "DELETE /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}",
       "content": [
         "Deletes a global command. Returns 204 No Content on success."
       ]
     },
-    "Bulk Overwrite Global Application Commands % PUT /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/commands": {
+    "Bulk Overwrite Global Application Commands": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/application-commands#bulk-overwrite-global-application-commands-%-put-/applications/{application.id#docs_resources_application/application-object}/commands",
+      "url": "https://discord.com/developers/docs/interactions/application-commands#bulk-overwrite-global-application-commands",
+      "endpoint": "PUT /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/commands",
       "content": [
         "Takes a list of application commands, overwriting the existing global command list for this application. Returns 200 and a list of application command objects. Commands that do not already exist will count toward daily application command create limits.",
         "> danger\n> This will overwrite all types of application commands: slash commands, user commands, and message commands."
       ]
     },
-    "Get Guild Application Commands % GET /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands": {
+    "Get Guild Application Commands": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/application-commands#get-guild-application-commands-%-get-/applications/{application.id#docs_resources_application/application-object}/guilds/{guild.id#docs_resources_guild/guild-object}/commands",
+      "url": "https://discord.com/developers/docs/interactions/application-commands#get-guild-application-commands",
+      "endpoint": "GET /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands",
       "content": [
         "> warn\n> The objects returned by this endpoint may be augmented with additional fields if localization is active.",
         "Fetch all of the guild commands for your application for a specific guild. Returns an array of application command objects.",
@@ -1057,7 +1064,7 @@
       ],
       "Query String Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/interactions/application-commands#get-guild-application-commands-%-get-/applications/{application.id#docs_resources_application/application-object}/guilds/{guild.id#docs_resources_guild/guild-object}/commands-query-string-params",
+        "url": "https://discord.com/developers/docs/interactions/application-commands#get-guild-application-commands-query-string-params",
         "content": [
           [
             [
@@ -1074,9 +1081,10 @@
         ]
       }
     },
-    "Create Guild Application Command % POST /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands": {
+    "Create Guild Application Command": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/application-commands#create-guild-application-command-%-post-/applications/{application.id#docs_resources_application/application-object}/guilds/{guild.id#docs_resources_guild/guild-object}/commands",
+      "url": "https://discord.com/developers/docs/interactions/application-commands#create-guild-application-command",
+      "endpoint": "POST /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands",
       "content": [
         "> danger\n> Creating a command with the same name as an existing command for your application will overwrite the old command.",
         "Create a new guild command. New guild commands will be available in the guild immediately. Returns 201 and an application command object. If the command did not already exist, it will count toward daily application command create limits.",
@@ -1084,7 +1092,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/interactions/application-commands#create-guild-application-command-%-post-/applications/{application.id#docs_resources_application/application-object}/guilds/{guild.id#docs_resources_guild/guild-object}/commands-json-params",
+        "url": "https://discord.com/developers/docs/interactions/application-commands#create-guild-application-command-json-params",
         "content": [
           [
             [
@@ -1137,16 +1145,18 @@
         ]
       }
     },
-    "Get Guild Application Command % GET /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}": {
+    "Get Guild Application Command": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/application-commands#get-guild-application-command-%-get-/applications/{application.id#docs_resources_application/application-object}/guilds/{guild.id#docs_resources_guild/guild-object}/commands/{command.id#docs_interactions_application_commands/application-command-object}",
+      "url": "https://discord.com/developers/docs/interactions/application-commands#get-guild-application-command",
+      "endpoint": "GET /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}",
       "content": [
         "Fetch a guild command for your application. Returns an application command object."
       ]
     },
-    "Edit Guild Application Command % PATCH /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}": {
+    "Edit Guild Application Command": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/application-commands#edit-guild-application-command-%-patch-/applications/{application.id#docs_resources_application/application-object}/guilds/{guild.id#docs_resources_guild/guild-object}/commands/{command.id#docs_interactions_application_commands/application-command-object}",
+      "url": "https://discord.com/developers/docs/interactions/application-commands#edit-guild-application-command",
+      "endpoint": "PATCH /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}",
       "content": [
         "> info\n> All parameters for this endpoint are optional.",
         "Edit a guild command. Updates for guild commands will be available immediately. Returns 200 and an application command object. All fields are optional, but any fields provided will entirely overwrite the existing values of those fields.",
@@ -1154,7 +1164,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/interactions/application-commands#edit-guild-application-command-%-patch-/applications/{application.id#docs_resources_application/application-object}/guilds/{guild.id#docs_resources_guild/guild-object}/commands/{command.id#docs_interactions_application_commands/application-command-object}-json-params",
+        "url": "https://discord.com/developers/docs/interactions/application-commands#edit-guild-application-command-json-params",
         "content": [
           [
             [
@@ -1201,16 +1211,18 @@
         ]
       }
     },
-    "Delete Guild Application Command % DELETE /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}": {
+    "Delete Guild Application Command": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/application-commands#delete-guild-application-command-%-delete-/applications/{application.id#docs_resources_application/application-object}/guilds/{guild.id#docs_resources_guild/guild-object}/commands/{command.id#docs_interactions_application_commands/application-command-object}",
+      "url": "https://discord.com/developers/docs/interactions/application-commands#delete-guild-application-command",
+      "endpoint": "DELETE /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}",
       "content": [
         "Delete a guild command. Returns 204 No Content on success."
       ]
     },
-    "Bulk Overwrite Guild Application Commands % PUT /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands": {
+    "Bulk Overwrite Guild Application Commands": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/application-commands#bulk-overwrite-guild-application-commands-%-put-/applications/{application.id#docs_resources_application/application-object}/guilds/{guild.id#docs_resources_guild/guild-object}/commands",
+      "url": "https://discord.com/developers/docs/interactions/application-commands#bulk-overwrite-guild-application-commands",
+      "endpoint": "PUT /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands",
       "content": [
         "Takes a list of application commands, overwriting the existing command list for this application for the targeted guild. Returns 200 and a list of application command objects.",
         "> danger\n> This will overwrite all types of application commands: slash commands, user commands, and message commands.",
@@ -1218,7 +1230,7 @@
       ],
       "Bulk Application Command JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/interactions/application-commands#bulk-overwrite-guild-application-commands-%-put-/applications/{application.id#docs_resources_application/application-object}/guilds/{guild.id#docs_resources_guild/guild-object}/commands-bulk-application-command-json-params",
+        "url": "https://discord.com/developers/docs/interactions/application-commands#bulk-overwrite-guild-application-commands-bulk-application-command-json-params",
         "content": [
           [
             [
@@ -1280,23 +1292,26 @@
         ]
       }
     },
-    "Get Guild Application Command Permissions % GET /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/permissions": {
+    "Get Guild Application Command Permissions": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/application-commands#get-guild-application-command-permissions-%-get-/applications/{application.id#docs_resources_application/application-object}/guilds/{guild.id#docs_resources_guild/guild-object}/commands/permissions",
+      "url": "https://discord.com/developers/docs/interactions/application-commands#get-guild-application-command-permissions",
+      "endpoint": "GET /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/permissions",
       "content": [
         "Fetches permissions for all commands for your application in a guild. Returns an array of guild application command permissions objects."
       ]
     },
-    "Get Application Command Permissions % GET /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}/permissions": {
+    "Get Application Command Permissions": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/application-commands#get-application-command-permissions-%-get-/applications/{application.id#docs_resources_application/application-object}/guilds/{guild.id#docs_resources_guild/guild-object}/commands/{command.id#docs_interactions_application_commands/application-command-object}/permissions",
+      "url": "https://discord.com/developers/docs/interactions/application-commands#get-application-command-permissions",
+      "endpoint": "GET /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}/permissions",
       "content": [
         "Fetches permissions for a specific command for your application in a guild. Returns a guild application command permissions object."
       ]
     },
-    "Edit Application Command Permissions % PUT /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}/permissions": {
+    "Edit Application Command Permissions": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/application-commands#edit-application-command-permissions-%-put-/applications/{application.id#docs_resources_application/application-object}/guilds/{guild.id#docs_resources_guild/guild-object}/commands/{command.id#docs_interactions_application_commands/application-command-object}/permissions",
+      "url": "https://discord.com/developers/docs/interactions/application-commands#edit-application-command-permissions",
+      "endpoint": "PUT /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}/permissions",
       "content": [
         "> warn\n> This endpoint will overwrite existing permissions for the command in that guild",
         "Edits command permissions for a specific command for your application in a guild and returns a guild application command permissions object.",
@@ -1307,7 +1322,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/interactions/application-commands#edit-application-command-permissions-%-put-/applications/{application.id#docs_resources_application/application-object}/guilds/{guild.id#docs_resources_guild/guild-object}/commands/{command.id#docs_interactions_application_commands/application-command-object}/permissions-json-params",
+        "url": "https://discord.com/developers/docs/interactions/application-commands#edit-application-command-permissions-json-params",
         "content": [
           [
             [
@@ -1324,9 +1339,10 @@
         ]
       }
     },
-    "Batch Edit Application Command Permissions % PUT /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/permissions": {
+    "Batch Edit Application Command Permissions": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/interactions/application-commands#batch-edit-application-command-permissions-%-put-/applications/{application.id#docs_resources_application/application-object}/guilds/{guild.id#docs_resources_guild/guild-object}/commands/permissions",
+      "url": "https://discord.com/developers/docs/interactions/application-commands#batch-edit-application-command-permissions",
+      "endpoint": "PUT /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/permissions",
       "content": [
         "> danger\n> This endpoint has been disabled with updates to command permissions (Permissions v2). Instead, you can edit each application command permissions (though you should be careful to handle any potential rate limits)."
       ]

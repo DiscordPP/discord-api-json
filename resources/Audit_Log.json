@@ -7,7 +7,7 @@
     "url": "https://discord.com/developers/docs/resources/audit-log#audit-logs-resource",
     "content": [
       "|Audit Logs",
-      "|Get Guild Audit Log % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/audit-logs"
+      "|Get Guild Audit Log"
     ],
     "Audit Logs": {
       "level": 2,
@@ -620,16 +620,17 @@
         }
       }
     },
-    "Get Guild Audit Log % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/audit-logs": {
+    "Get Guild Audit Log": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/audit-log#get-guild-audit-log-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/audit-logs",
+      "url": "https://discord.com/developers/docs/resources/audit-log#get-guild-audit-log",
+      "endpoint": "GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/audit-logs",
       "content": [
         "Returns an audit log object for the guild. Requires the VIEW_AUDIT_LOG permission.",
         "|Query String Params"
       ],
       "Query String Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/audit-log#get-guild-audit-log-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/audit-logs-query-string-params",
+        "url": "https://discord.com/developers/docs/resources/audit-log#get-guild-audit-log-query-string-params",
         "content": [
           "The following parameters can be used to filter which and how many audit log entries are returned.",
           [

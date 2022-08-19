@@ -4,7 +4,7 @@
   ],
   "Users": {
     "level": 1,
-    "url": "https://discord.com/developers/docs/game_sdk/users#users",
+    "url": "https://discord.com/developers/docs/game-sdk/users#users",
     "content": [
       "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
       "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
@@ -19,7 +19,7 @@
     ],
     "Data Models": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/users#data-models",
+      "url": "https://discord.com/developers/docs/game-sdk/users#data-models",
       "content": [
         "|User Struct",
         "|UserFlag Enum",
@@ -27,7 +27,7 @@
       ],
       "User Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/users#data-models-user-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/users#data-models-user-struct",
         "content": [
           [
             [
@@ -65,7 +65,7 @@
       },
       "UserFlag Enum": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/users#data-models-userflag-enum",
+        "url": "https://discord.com/developers/docs/game-sdk/users#data-models-userflag-enum",
         "content": [
           [
             [
@@ -103,7 +103,7 @@
       },
       "PremiumType Enum": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/users#data-models-premiumtype-enum",
+        "url": "https://discord.com/developers/docs/game-sdk/users#data-models-premiumtype-enum",
         "content": [
           [
             [
@@ -132,7 +132,7 @@
     },
     "GetCurrentUser": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/users#getcurrentuser",
+      "url": "https://discord.com/developers/docs/game-sdk/users#getcurrentuser",
       "content": [
         "> info\n> Before calling this function, you'll need to wait for the OnCurrentUserUpdate callback to fire after instantiating the User manager.",
         "Fetch information about the currently connected user account. If you're interested in getting more detailed information about a user\u2014for example, their email\u2014check out our GetCurrentUser API endpoint. You'll want to call this with an authorization header of Bearer <token>, where <token> is the token retrieved from a standard OAuth2 Authorization Code Grant flow.",
@@ -142,14 +142,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/users#getcurrentuser-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/users#getcurrentuser-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/users#getcurrentuser-example",
+        "url": "https://discord.com/developers/docs/game-sdk/users#getcurrentuser-example",
         "content": [
           {
             "language": "cs",
@@ -160,7 +160,7 @@
     },
     "GetUser": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/users#getuser",
+      "url": "https://discord.com/developers/docs/game-sdk/users#getuser",
       "content": [
         "Get user information for a given id.",
         "Returns a Discord.Result and ref Discord.User via callback.",
@@ -169,7 +169,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/users#getuser-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/users#getuser-parameters",
         "content": [
           [
             [
@@ -187,7 +187,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/users#getuser-example",
+        "url": "https://discord.com/developers/docs/game-sdk/users#getuser-example",
         "content": [
           {
             "language": "cs",
@@ -198,7 +198,7 @@
     },
     "GetCurrentUserPremiumType": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/users#getcurrentuserpremiumtype",
+      "url": "https://discord.com/developers/docs/game-sdk/users#getcurrentuserpremiumtype",
       "content": [
         "Get the PremiumType for the currently connected user.",
         "Returns Discord.PremiumType.",
@@ -207,14 +207,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/users#getcurrentuserpremiumtype-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/users#getcurrentuserpremiumtype-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/users#getcurrentuserpremiumtype-example",
+        "url": "https://discord.com/developers/docs/game-sdk/users#getcurrentuserpremiumtype-example",
         "content": [
           {
             "language": "cs",
@@ -225,7 +225,7 @@
     },
     "CurrentUserHasFlag": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/users#currentuserhasflag",
+      "url": "https://discord.com/developers/docs/game-sdk/users#currentuserhasflag",
       "content": [
         "See whether or not the current user has a certain UserFlag on their account.",
         "Returns bool.",
@@ -234,7 +234,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/users#currentuserhasflag-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/users#currentuserhasflag-parameters",
         "content": [
           [
             [
@@ -252,7 +252,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/users#currentuserhasflag-example",
+        "url": "https://discord.com/developers/docs/game-sdk/users#currentuserhasflag-example",
         "content": [
           {
             "language": "cs",
@@ -263,7 +263,7 @@
     },
     "OnCurrentUserUpdate": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/users#oncurrentuserupdate",
+      "url": "https://discord.com/developers/docs/game-sdk/users#oncurrentuserupdate",
       "content": [
         "Fires when the User struct of the currently connected user changes. They may have changed their avatar, username, or something else.",
         "|Parameters",
@@ -271,14 +271,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/users#oncurrentuserupdate-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/users#oncurrentuserupdate-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/users#oncurrentuserupdate-example",
+        "url": "https://discord.com/developers/docs/game-sdk/users#oncurrentuserupdate-example",
         "content": [
           {
             "language": "cs",
@@ -289,7 +289,7 @@
     },
     "Example: Fetching Data About a Discord User": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/users#example:-fetching-data-about-a-discord-user",
+      "url": "https://discord.com/developers/docs/game-sdk/users#example:-fetching-data-about-a-discord-user",
       "content": [
         {
           "language": "cs",

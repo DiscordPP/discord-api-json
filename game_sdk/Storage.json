@@ -4,7 +4,7 @@
   ],
   "Storage": {
     "level": 1,
-    "url": "https://discord.com/developers/docs/game_sdk/storage#storage",
+    "url": "https://discord.com/developers/docs/game-sdk/storage#storage",
     "content": [
       "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
       "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
@@ -29,7 +29,7 @@
     ],
     "Cloud Saves": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/storage#cloud-saves",
+      "url": "https://discord.com/developers/docs/game-sdk/storage#cloud-saves",
       "content": [
         "If you want to take that save data on your players' computers and save it to those BIG COMPUTERS in the cloud, look no further! All you need to do is head over to your manifest config file and set the following property:",
         {
@@ -41,13 +41,13 @@
     },
     "Data Models": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/storage#data-models",
+      "url": "https://discord.com/developers/docs/game-sdk/storage#data-models",
       "content": [
         "|FileStat Struct"
       ],
       "FileStat Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#data-models-filestat-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#data-models-filestat-struct",
         "content": [
           [
             [
@@ -76,7 +76,7 @@
     },
     "GetPath": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/storage#getpath",
+      "url": "https://discord.com/developers/docs/game-sdk/storage#getpath",
       "content": [
         "> info\n> Value from environment variable DISCORD_STORAGE_PATH",
         "Returns the filepath to which Discord saves files if you were to use the SDK's storage manager. Discord has branch-specific, user-specific saves, so you and your little brother will never overwrite each others' save files. If your game already has save file writing logic, you can use this method to get that user-specific path and help users protect their save files.",
@@ -86,14 +86,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#getpath-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#getpath-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#getpath-example",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#getpath-example",
         "content": [
           {
             "language": "cs",
@@ -104,7 +104,7 @@
     },
     "Read": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/storage#read",
+      "url": "https://discord.com/developers/docs/game-sdk/storage#read",
       "content": [
         "Reads data synchronously from the game's allocated save file into a buffer. The file is mapped by key value pairs, and this function will read data that exists for the given key name.",
         "Returns a UInt32.",
@@ -112,7 +112,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#read-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#read-parameters",
         "content": [
           [
             [
@@ -136,7 +136,7 @@
     },
     "ReadAsync": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/storage#readasync",
+      "url": "https://discord.com/developers/docs/game-sdk/storage#readasync",
       "content": [
         "Reads data asynchronously from the game's allocated save file into a buffer.",
         "Returns a Discord.Result and a byte[] containing the data via callback.",
@@ -145,7 +145,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#readasync-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#readasync-parameters",
         "content": [
           [
             [
@@ -163,7 +163,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#readasync-example",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#readasync-example",
         "content": [
           {
             "language": "cs",
@@ -174,7 +174,7 @@
     },
     "ReadAsyncPartial": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/storage#readasyncpartial",
+      "url": "https://discord.com/developers/docs/game-sdk/storage#readasyncpartial",
       "content": [
         "Reads data asynchronously from the game's allocated save file into a buffer, starting at a given offset and up to a given length.",
         "Returns a Discord.Result and byte[] containing the data via callback.",
@@ -183,7 +183,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#readasyncpartial-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#readasyncpartial-parameters",
         "content": [
           [
             [
@@ -211,7 +211,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#readasyncpartial-example",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#readasyncpartial-example",
         "content": [
           {
             "language": "cs",
@@ -222,7 +222,7 @@
     },
     "Write": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/storage#write",
+      "url": "https://discord.com/developers/docs/game-sdk/storage#write",
       "content": [
         "Writes data synchronously to disk, under the given key name.",
         "Returns void.",
@@ -231,7 +231,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#write-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#write-parameters",
         "content": [
           [
             [
@@ -254,7 +254,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#write-example",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#write-example",
         "content": [
           {
             "language": "cs",
@@ -265,7 +265,7 @@
     },
     "WriteAsync": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/storage#writeasync",
+      "url": "https://discord.com/developers/docs/game-sdk/storage#writeasync",
       "content": [
         "Writes data asynchronously to disk under the given keyname.",
         "Returns a Discord.Result via callback.",
@@ -274,7 +274,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#writeasync-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#writeasync-parameters",
         "content": [
           [
             [
@@ -297,7 +297,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#writeasync-example",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#writeasync-example",
         "content": [
           {
             "language": "cs",
@@ -308,7 +308,7 @@
     },
     "Delete": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/storage#delete",
+      "url": "https://discord.com/developers/docs/game-sdk/storage#delete",
       "content": [
         "Deletes written data for the given key name.",
         "Returns void.",
@@ -317,7 +317,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#delete-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#delete-parameters",
         "content": [
           [
             [
@@ -335,7 +335,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#delete-example",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#delete-example",
         "content": [
           {
             "language": "cs",
@@ -346,7 +346,7 @@
     },
     "Exists": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/storage#exists",
+      "url": "https://discord.com/developers/docs/game-sdk/storage#exists",
       "content": [
         "Checks if data exists for a given key name.",
         "Returns bool.",
@@ -355,7 +355,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#exists-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#exists-parameters",
         "content": [
           [
             [
@@ -373,7 +373,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#exists-example",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#exists-example",
         "content": [
           {
             "language": "cs",
@@ -384,7 +384,7 @@
     },
     "Stat": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/storage#stat",
+      "url": "https://discord.com/developers/docs/game-sdk/storage#stat",
       "content": [
         "Returns file info for the given key name.",
         "Returns a FileStat.",
@@ -393,7 +393,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#stat-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#stat-parameters",
         "content": [
           [
             [
@@ -411,7 +411,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#stat-example",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#stat-example",
         "content": [
           {
             "language": "cs",
@@ -422,7 +422,7 @@
     },
     "Count": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/storage#count",
+      "url": "https://discord.com/developers/docs/game-sdk/storage#count",
       "content": [
         "Returns the count of files, for iteration.",
         "Returns an Int32.",
@@ -431,14 +431,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#count-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#count-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#count-example",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#count-example",
         "content": [
           {
             "language": "cs",
@@ -449,7 +449,7 @@
     },
     "StatAt": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/storage#statat",
+      "url": "https://discord.com/developers/docs/game-sdk/storage#statat",
       "content": [
         "Returns file info for the given index when iterating over files.",
         "Returns a FileStat.",
@@ -458,7 +458,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#statat-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#statat-parameters",
         "content": [
           [
             [
@@ -476,7 +476,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/storage#statat-example",
+        "url": "https://discord.com/developers/docs/game-sdk/storage#statat-example",
         "content": [
           {
             "language": "cs",
@@ -487,7 +487,7 @@
     },
     "Example: Saving, Reading, Deleting, and Checking Data": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/storage#example:-saving,-reading,-deleting,-and-checking-data",
+      "url": "https://discord.com/developers/docs/game-sdk/storage#example:-saving,-reading,-deleting,-and-checking-data",
       "content": [
         {
           "language": "cs",

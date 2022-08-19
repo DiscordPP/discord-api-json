@@ -8,15 +8,15 @@
     "content": [
       "Users in Discord are generally considered the base entity. Users can spawn across the entire platform, be members of\nguilds, participate in text and voice chat, and much more. Users are separated by a distinction of \"bot\" vs \"normal.\" Although they are similar, bot users are automated users that are \"owned\" by another user. Unlike normal users, bot users do\nnot have a limitation on the number of Guilds they can be a part of.",
       "|Usernames and Nicknames",
-      "|Get Current User % GET /users/@me",
-      "|Get User % GET /users/{user.id#DOCS_RESOURCES_USER/user-object}",
-      "|Modify Current User % PATCH /users/@me",
-      "|Get Current User Guilds % GET /users/@me/guilds",
-      "|Get Current User Guild Member % GET /users/@me/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/member",
-      "|Leave Guild % DELETE /users/@me/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}",
-      "|Create DM % POST /users/@me/channels",
-      "|Create Group DM % POST /users/@me/channels",
-      "|Get User Connections % GET /users/@me/connections"
+      "|Get Current User",
+      "|Get User",
+      "|Modify Current User",
+      "|Get Current User Guilds",
+      "|Get Current User Guild Member",
+      "|Leave Guild",
+      "|Create DM",
+      "|Create Group DM",
+      "|Get User Connections"
     ],
     "Usernames and Nicknames": {
       "level": 2,
@@ -435,23 +435,26 @@
         }
       }
     },
-    "Get Current User % GET /users/@me": {
+    "Get Current User": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/user#get-current-user-%-get-/users/@me",
+      "url": "https://discord.com/developers/docs/resources/user#get-current-user",
+      "endpoint": "GET /users/@me",
       "content": [
         "Returns the user object of the requester's account. For OAuth2, this requires the identify scope, which will return the object without an email, and optionally the email scope, which returns the object with an email."
       ]
     },
-    "Get User % GET /users/{user.id#DOCS_RESOURCES_USER/user-object}": {
+    "Get User": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/user#get-user-%-get-/users/{user.id#docs_resources_user/user-object}",
+      "url": "https://discord.com/developers/docs/resources/user#get-user",
+      "endpoint": "GET /users/{user.id#DOCS_RESOURCES_USER/user-object}",
       "content": [
         "Returns a user object for a given user ID."
       ]
     },
-    "Modify Current User % PATCH /users/@me": {
+    "Modify Current User": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/user#modify-current-user-%-patch-/users/@me",
+      "url": "https://discord.com/developers/docs/resources/user#modify-current-user",
+      "endpoint": "PATCH /users/@me",
       "content": [
         "Modify the requester's user account settings. Returns a user object on success.",
         "> info\n> All parameters to this endpoint are optional.",
@@ -459,7 +462,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/user#modify-current-user-%-patch-/users/@me-json-params",
+        "url": "https://discord.com/developers/docs/resources/user#modify-current-user-json-params",
         "content": [
           [
             [
@@ -481,9 +484,10 @@
         ]
       }
     },
-    "Get Current User Guilds % GET /users/@me/guilds": {
+    "Get Current User Guilds": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/user#get-current-user-guilds-%-get-/users/@me/guilds",
+      "url": "https://discord.com/developers/docs/resources/user#get-current-user-guilds",
+      "endpoint": "GET /users/@me/guilds",
       "content": [
         "Returns a list of partial guild objects the current user is a member of. Requires the guilds OAuth2 scope.",
         "|Example Partial Guild",
@@ -491,7 +495,7 @@
       ],
       "Example Partial Guild": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/user#get-current-user-guilds-%-get-/users/@me/guilds-example-partial-guild",
+        "url": "https://discord.com/developers/docs/resources/user#get-current-user-guilds-example-partial-guild",
         "content": [
           {
             "language": "json",
@@ -502,7 +506,7 @@
       },
       "Query String Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/user#get-current-user-guilds-%-get-/users/@me/guilds-query-string-params",
+        "url": "https://discord.com/developers/docs/resources/user#get-current-user-guilds-query-string-params",
         "content": [
           [
             [
@@ -537,23 +541,26 @@
         ]
       }
     },
-    "Get Current User Guild Member % GET /users/@me/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/member": {
+    "Get Current User Guild Member": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/user#get-current-user-guild-member-%-get-/users/@me/guilds/{guild.id#docs_resources_guild/guild-object}/member",
+      "url": "https://discord.com/developers/docs/resources/user#get-current-user-guild-member",
+      "endpoint": "GET /users/@me/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/member",
       "content": [
         "Returns a guild member object for the current user. Requires the guilds.members.read OAuth2 scope."
       ]
     },
-    "Leave Guild % DELETE /users/@me/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}": {
+    "Leave Guild": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/user#leave-guild-%-delete-/users/@me/guilds/{guild.id#docs_resources_guild/guild-object}",
+      "url": "https://discord.com/developers/docs/resources/user#leave-guild",
+      "endpoint": "DELETE /users/@me/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}",
       "content": [
         "Leave a guild. Returns a 204 empty response on success."
       ]
     },
-    "Create DM % POST /users/@me/channels": {
+    "Create DM": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/user#create-dm-%-post-/users/@me/channels",
+      "url": "https://discord.com/developers/docs/resources/user#create-dm",
+      "endpoint": "POST /users/@me/channels",
       "content": [
         "Create a new DM channel with a user. Returns a DM channel object.",
         "> warn\n> You should not use this endpoint to DM everyone in a server about something. DMs should generally be initiated by a user action. If you open a significant amount of DMs too quickly, your bot may be rate limited or blocked from opening new ones.",
@@ -561,7 +568,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/user#create-dm-%-post-/users/@me/channels-json-params",
+        "url": "https://discord.com/developers/docs/resources/user#create-dm-json-params",
         "content": [
           [
             [
@@ -578,9 +585,10 @@
         ]
       }
     },
-    "Create Group DM % POST /users/@me/channels": {
+    "Create Group DM": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/user#create-group-dm-%-post-/users/@me/channels",
+      "url": "https://discord.com/developers/docs/resources/user#create-group-dm",
+      "endpoint": "POST /users/@me/channels",
       "content": [
         "Create a new group DM channel with multiple users. Returns a DM channel object. This endpoint was intended to be used with the now-deprecated GameBridge SDK. DMs created with this endpoint will not be shown in the Discord client",
         "> warn\n> This endpoint is limited to 10 active group DMs.",
@@ -588,7 +596,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/user#create-group-dm-%-post-/users/@me/channels-json-params",
+        "url": "https://discord.com/developers/docs/resources/user#create-group-dm-json-params",
         "content": [
           [
             [
@@ -610,9 +618,10 @@
         ]
       }
     },
-    "Get User Connections % GET /users/@me/connections": {
+    "Get User Connections": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/user#get-user-connections-%-get-/users/@me/connections",
+      "url": "https://discord.com/developers/docs/resources/user#get-user-connections",
+      "endpoint": "GET /users/@me/connections",
       "content": [
         "Returns a list of connection objects. Requires the connections OAuth2 scope."
       ]

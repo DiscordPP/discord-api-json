@@ -4,7 +4,7 @@
   ],
   "Overlay": {
     "level": 1,
-    "url": "https://discord.com/developers/docs/game_sdk/overlay#overlay",
+    "url": "https://discord.com/developers/docs/game-sdk/overlay#overlay",
     "content": [
       "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
       "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
@@ -26,13 +26,13 @@
     ],
     "Data Models": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/overlay#data-models",
+      "url": "https://discord.com/developers/docs/game-sdk/overlay#data-models",
       "content": [
         "|ActivityActionType Enum"
       ],
       "ActivityActionType Enum": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/overlay#data-models-activityactiontype-enum",
+        "url": "https://discord.com/developers/docs/game-sdk/overlay#data-models-activityactiontype-enum",
         "content": [
           [
             [
@@ -53,7 +53,7 @@
     },
     "IsEnabled": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/overlay#isenabled",
+      "url": "https://discord.com/developers/docs/game-sdk/overlay#isenabled",
       "content": [
         "Check whether the user has the overlay enabled or disabled. If the overlay is disabled, all the functionality in this manager will still work. The calls will instead focus the Discord client and show the modal there instead.",
         "Returns a bool.",
@@ -62,14 +62,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/overlay#isenabled-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/overlay#isenabled-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/overlay#isenabled-example",
+        "url": "https://discord.com/developers/docs/game-sdk/overlay#isenabled-example",
         "content": [
           {
             "language": "cs",
@@ -80,7 +80,7 @@
     },
     "IsLocked": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/overlay#islocked",
+      "url": "https://discord.com/developers/docs/game-sdk/overlay#islocked",
       "content": [
         "Check if the overlay is currently locked or unlocked",
         "|Parameters",
@@ -88,14 +88,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/overlay#islocked-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/overlay#islocked-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/overlay#islocked-example",
+        "url": "https://discord.com/developers/docs/game-sdk/overlay#islocked-example",
         "content": [
           {
             "language": "cs",
@@ -106,7 +106,7 @@
     },
     "SetLocked": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/overlay#setlocked",
+      "url": "https://discord.com/developers/docs/game-sdk/overlay#setlocked",
       "content": [
         "Locks or unlocks input in the overlay. Calling SetLocked(true); will also close any modals in the overlay or in-app from things like IAP purchase flows and disallow input.",
         "Returns Discord.Result via callback.",
@@ -115,7 +115,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/overlay#setlocked-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/overlay#setlocked-parameters",
         "content": [
           [
             [
@@ -133,7 +133,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/overlay#setlocked-example",
+        "url": "https://discord.com/developers/docs/game-sdk/overlay#setlocked-example",
         "content": [
           {
             "language": "cs",
@@ -144,7 +144,7 @@
     },
     "OpenActivityInvite": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/overlay#openactivityinvite",
+      "url": "https://discord.com/developers/docs/game-sdk/overlay#openactivityinvite",
       "content": [
         "Opens the overlay modal for sending game invitations to users, channels, and servers. If you do not have a valid activity with all the required fields, this call will error. See Activity Action Field Requirements for the fields required to have join and spectate invites function properly.",
         "Returns a Discord.Result via callback.",
@@ -153,7 +153,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/overlay#openactivityinvite-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/overlay#openactivityinvite-parameters",
         "content": [
           [
             [
@@ -171,7 +171,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/overlay#openactivityinvite-example",
+        "url": "https://discord.com/developers/docs/game-sdk/overlay#openactivityinvite-example",
         "content": [
           {
             "language": "cs",
@@ -182,7 +182,7 @@
     },
     "OpenGuildInvite": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/overlay#openguildinvite",
+      "url": "https://discord.com/developers/docs/game-sdk/overlay#openguildinvite",
       "content": [
         "Opens the overlay modal for joining a Discord guild, given its invite code. An invite code for a server may look something like fortnite for a verified server\u2014the full invite being discord.gg/fortnite\u2014or something like rjEeUJq for a non-verified server, the full invite being discord.gg/rjEeUJq.",
         "Returns a Discord.Result via callback. Note that a successful Discord.Result response does not necessarily mean that the user has joined the guild. If you want more granular control over and knowledge about users joining your guild, you may want to look into implementing the guilds.join OAuth2 scope in an authorization code grant in conjunction with the Add Guild Members endpoint.",
@@ -191,7 +191,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/overlay#openguildinvite-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/overlay#openguildinvite-parameters",
         "content": [
           [
             [
@@ -209,7 +209,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/overlay#openguildinvite-example",
+        "url": "https://discord.com/developers/docs/game-sdk/overlay#openguildinvite-example",
         "content": [
           {
             "language": "cs",
@@ -220,7 +220,7 @@
     },
     "OpenVoiceSettings": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/overlay#openvoicesettings",
+      "url": "https://discord.com/developers/docs/game-sdk/overlay#openvoicesettings",
       "content": [
         "Opens the overlay widget for voice settings for the currently connected application. These settings are unique to each user within the context of your application. That means that a user can have different favorite voice settings for each of their games!",
         "Screenshot of the Voice Settings modal for an application",
@@ -232,14 +232,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/overlay#openvoicesettings-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/overlay#openvoicesettings-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/overlay#openvoicesettings-example",
+        "url": "https://discord.com/developers/docs/game-sdk/overlay#openvoicesettings-example",
         "content": [
           {
             "language": "cs",
@@ -250,7 +250,7 @@
     },
     "OnToggle": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/overlay#ontoggle",
+      "url": "https://discord.com/developers/docs/game-sdk/overlay#ontoggle",
       "content": [
         "Fires when the overlay is locked or unlocked (a.k.a. opened or closed)",
         "|Parameters",
@@ -258,7 +258,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/overlay#ontoggle-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/overlay#ontoggle-parameters",
         "content": [
           [
             [
@@ -276,7 +276,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/overlay#ontoggle-example",
+        "url": "https://discord.com/developers/docs/game-sdk/overlay#ontoggle-example",
         "content": [
           "overlayManager.OnToggle += overlayLock =>\n{\nConsole.WriteLine(\"Overlay Locked: {0}\", overlayLock);\n};"
         ]
@@ -284,7 +284,7 @@
     },
     "Example: Activate Overlay Invite Modal": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/overlay#example:-activate-overlay-invite-modal",
+      "url": "https://discord.com/developers/docs/game-sdk/overlay#example:-activate-overlay-invite-modal",
       "content": [
         {
           "language": "cs",

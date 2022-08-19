@@ -5,7 +5,7 @@
   ],
   "Store Channels": {
     "level": 1,
-    "url": "https://discord.com/developers/docs/game_and_server_management/special-channels#store-channels",
+    "url": "https://discord.com/developers/docs/game-and-server-management/special-channels#store-channels",
     "content": [
       "> danger\n> Selling SKUs on Discord has been discontinued as of March 1, 2022. Read here for more info.",
       "One of the new flagship features of Verified Servers and Game Servers are the ability to host your store pages directly in your server. We know that community is everything for games, and that your server is already the place where your community lives. Rather than the friction and impersonality of traditional storefronts, you can let your fans find your game in the cozy comfort of their home (your server!).",
@@ -19,7 +19,7 @@
     ],
     "Lurker Mode": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_and_server_management/special-channels#lurker-mode",
+      "url": "https://discord.com/developers/docs/game-and-server-management/special-channels#lurker-mode",
       "content": [
         "Store channels also have a special property that we call lurkability. \"Lurker Mode\" is a feature that we've been experimenting with throughout Discord; it allows users to read public channels in a server without actually joining the server. It also allows users to look at these channels without being logged in to Discord.",
         "> info\n> Users viewing channels in Lurker Mode will not be able to send messages in those channels. They'll be prompted to log in and join the server if they want to chat.",
@@ -30,7 +30,7 @@
   },
   "Announcement Channels": {
     "level": 1,
-    "url": "https://discord.com/developers/docs/game_and_server_management/special-channels#announcement-channels",
+    "url": "https://discord.com/developers/docs/game-and-server-management/special-channels#announcement-channels",
     "content": [
       "As part of our ongoing effort to help you build your game community, all Community servers have the ability to create Announcement Channels!",
       "Unlike a regular text channel, Announcement Channels comes with a \u201cFollow\u201d button that allows your superfans to hook and connect your channel into their own personal servers. Now, select messages in your Announcement Channels can be \"published\" in your players' friend servers as regular messages, allowing them to get the latest updates of their favorite game in the places they hang out most. Because these posts appear and function as messages, it means that everyone in your superfan\u2019s server can find them, discuss them live, and receive them as mobile notifications, if they have this setting enabled.",

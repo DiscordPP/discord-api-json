@@ -14,8 +14,8 @@
       "|Client Credentials Grant",
       "|Bots",
       "|Webhooks",
-      "|Get Current Bot Application Information % GET /oauth2/applications/@me",
-      "|Get Current Authorization Information % GET /oauth2/@me"
+      "|Get Current Bot Application Information",
+      "|Get Current Authorization Information"
     ],
     "Shared Resources": {
       "level": 2,
@@ -466,16 +466,18 @@
         ]
       }
     },
-    "Get Current Bot Application Information % GET /oauth2/applications/@me": {
+    "Get Current Bot Application Information": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/topics/oauth2#get-current-bot-application-information-%-get-/oauth2/applications/@me",
+      "url": "https://discord.com/developers/docs/topics/oauth2#get-current-bot-application-information",
+      "endpoint": "GET /oauth2/applications/@me",
       "content": [
         "Returns the bot's application object."
       ]
     },
-    "Get Current Authorization Information % GET /oauth2/@me": {
+    "Get Current Authorization Information": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/topics/oauth2#get-current-authorization-information-%-get-/oauth2/@me",
+      "url": "https://discord.com/developers/docs/topics/oauth2#get-current-authorization-information",
+      "endpoint": "GET /oauth2/@me",
       "content": [
         "Returns info about the current authorization. Requires authentication with a bearer token.",
         "|Response Structure",
@@ -483,7 +485,7 @@
       ],
       "Response Structure": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/topics/oauth2#get-current-authorization-information-%-get-/oauth2/@me-response-structure",
+        "url": "https://discord.com/developers/docs/topics/oauth2#get-current-authorization-information-response-structure",
         "content": [
           [
             [
@@ -516,7 +518,7 @@
       },
       "Example Authorization Information": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/topics/oauth2#get-current-authorization-information-%-get-/oauth2/@me-example-authorization-information",
+        "url": "https://discord.com/developers/docs/topics/oauth2#get-current-authorization-information-example-authorization-information",
         "content": [
           {
             "language": "json",

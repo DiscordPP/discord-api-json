@@ -4,7 +4,7 @@
   ],
   "Voice": {
     "level": 1,
-    "url": "https://discord.com/developers/docs/game_sdk/discord-voice#voice",
+    "url": "https://discord.com/developers/docs/game-sdk/discord-voice#voice",
     "content": [
       "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
       "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
@@ -24,7 +24,7 @@
     ],
     "Data Models": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord-voice#data-models",
+      "url": "https://discord.com/developers/docs/game-sdk/discord-voice#data-models",
       "content": [
         "|InputModeType Enum",
         "|InputMode Struct",
@@ -32,7 +32,7 @@
       ],
       "InputModeType Enum": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#data-models-inputmodetype-enum",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#data-models-inputmodetype-enum",
         "content": [
           [
             [
@@ -52,7 +52,7 @@
       },
       "InputMode Struct": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#data-models-inputmode-struct",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#data-models-inputmode-struct",
         "content": [
           [
             [
@@ -75,7 +75,7 @@
       },
       "Shortcut Keys": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#data-models-shortcut-keys",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#data-models-shortcut-keys",
         "content": [
           "Keys can be mapped as a combination by adding a \"+\" between values, such as \"shift + 4\" or \"ctrl + v\".",
           [
@@ -229,7 +229,7 @@
     },
     "GetInputMode": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord-voice#getinputmode",
+      "url": "https://discord.com/developers/docs/game-sdk/discord-voice#getinputmode",
       "content": [
         "Get the current voice input mode for the user.",
         "Returns a Discord.InputMode.",
@@ -238,14 +238,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#getinputmode-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#getinputmode-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#getinputmode-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#getinputmode-example",
         "content": [
           {
             "language": "cs",
@@ -256,7 +256,7 @@
     },
     "SetInputMode": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord-voice#setinputmode",
+      "url": "https://discord.com/developers/docs/game-sdk/discord-voice#setinputmode",
       "content": [
         "Sets a new voice input mode for the user. Refer to Shortcut Keys for a table of valid values for shortcuts.",
         "Returns a Discord.Result via callback.",
@@ -265,7 +265,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#setinputmode-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#setinputmode-parameters",
         "content": [
           [
             [
@@ -283,7 +283,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#setinputmode-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#setinputmode-example",
         "content": [
           {
             "language": "cs",
@@ -294,7 +294,7 @@
     },
     "IsSelfMute": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord-voice#isselfmute",
+      "url": "https://discord.com/developers/docs/game-sdk/discord-voice#isselfmute",
       "content": [
         "Whether the connected user is currently muted.",
         "Returns bool.",
@@ -303,14 +303,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#isselfmute-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#isselfmute-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#isselfmute-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#isselfmute-example",
         "content": [
           {
             "language": "cs",
@@ -321,7 +321,7 @@
     },
     "SetSelfMute": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord-voice#setselfmute",
+      "url": "https://discord.com/developers/docs/game-sdk/discord-voice#setselfmute",
       "content": [
         "Mutes or unmutes the currently connected user.",
         "Returns void.",
@@ -330,7 +330,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#setselfmute-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#setselfmute-parameters",
         "content": [
           [
             [
@@ -348,7 +348,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#setselfmute-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#setselfmute-example",
         "content": [
           {
             "language": "cs",
@@ -359,7 +359,7 @@
     },
     "IsSelfDeaf": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord-voice#isselfdeaf",
+      "url": "https://discord.com/developers/docs/game-sdk/discord-voice#isselfdeaf",
       "content": [
         "Whether the connected user is currently deafened.",
         "Returns bool.",
@@ -368,14 +368,14 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#isselfdeaf-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#isselfdeaf-parameters",
         "content": [
           "None"
         ]
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#isselfdeaf-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#isselfdeaf-example",
         "content": [
           {
             "language": "cs",
@@ -386,7 +386,7 @@
     },
     "SetSelfDeaf": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord-voice#setselfdeaf",
+      "url": "https://discord.com/developers/docs/game-sdk/discord-voice#setselfdeaf",
       "content": [
         "Deafens or undeafens the currently connected user.",
         "Returns void.",
@@ -395,7 +395,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#setselfdeaf-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#setselfdeaf-parameters",
         "content": [
           [
             [
@@ -413,7 +413,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#setselfdeaf-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#setselfdeaf-example",
         "content": [
           {
             "language": "cs",
@@ -424,7 +424,7 @@
     },
     "IsLocalMute": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord-voice#islocalmute",
+      "url": "https://discord.com/developers/docs/game-sdk/discord-voice#islocalmute",
       "content": [
         "Whether the given user is currently muted by the connected user.",
         "Returns bool.",
@@ -433,7 +433,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#islocalmute-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#islocalmute-parameters",
         "content": [
           [
             [
@@ -451,7 +451,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#islocalmute-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#islocalmute-example",
         "content": [
           {
             "language": "cs",
@@ -462,7 +462,7 @@
     },
     "SetLocalMute": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord-voice#setlocalmute",
+      "url": "https://discord.com/developers/docs/game-sdk/discord-voice#setlocalmute",
       "content": [
         "Mutes or unmutes the given user for the currently connected user.",
         "Returns void.",
@@ -471,7 +471,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#setlocalmute-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#setlocalmute-parameters",
         "content": [
           [
             [
@@ -494,7 +494,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#setlocalmute-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#setlocalmute-example",
         "content": [
           {
             "language": "cs",
@@ -505,7 +505,7 @@
     },
     "GetLocalVolume": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord-voice#getlocalvolume",
+      "url": "https://discord.com/developers/docs/game-sdk/discord-voice#getlocalvolume",
       "content": [
         "Gets the local volume for a given user. This is the volume level at which the currently connected users hears the given user speak.",
         "Returns byte.",
@@ -514,7 +514,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#getlocalvolume-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#getlocalvolume-parameters",
         "content": [
           [
             [
@@ -532,7 +532,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#getlocalvolume-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#getlocalvolume-example",
         "content": [
           {
             "language": "cs",
@@ -543,7 +543,7 @@
     },
     "SetLocalVolume": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_sdk/discord-voice#setlocalvolume",
+      "url": "https://discord.com/developers/docs/game-sdk/discord-voice#setlocalvolume",
       "content": [
         "Sets the local volume for a given user. This is the volume level at which the currently connected users hears the given user speak. Valid volume values are from 0 to 200, with 100 being the default. Lower than 100 will be a reduced volume level from default, whereas over 100 will be a boosted volume level from default.",
         "Returns void.",
@@ -552,7 +552,7 @@
       ],
       "Parameters": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#setlocalvolume-parameters",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#setlocalvolume-parameters",
         "content": [
           [
             [
@@ -575,7 +575,7 @@
       },
       "Example": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/game_sdk/discord-voice#setlocalvolume-example",
+        "url": "https://discord.com/developers/docs/game-sdk/discord-voice#setlocalvolume-example",
         "content": [
           {
             "language": "cs",

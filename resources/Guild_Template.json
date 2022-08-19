@@ -7,13 +7,13 @@
     "url": "https://discord.com/developers/docs/resources/guild-template#guild-template-resource",
     "content": [
       "|Guild Template Object",
-      "|Get Guild Template % GET /guilds/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}",
-      "|Create Guild from Guild Template % POST /guilds/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}",
-      "|Get Guild Templates % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates",
-      "|Create Guild Template % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates",
-      "|Sync Guild Template % PUT /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}",
-      "|Modify Guild Template % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}",
-      "|Delete Guild Template % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}"
+      "|Get Guild Template",
+      "|Create Guild from Guild Template",
+      "|Get Guild Templates",
+      "|Create Guild Template",
+      "|Sync Guild Template",
+      "|Modify Guild Template",
+      "|Delete Guild Template"
     ],
     "Guild Template Object": {
       "level": 3,
@@ -102,16 +102,18 @@
         ]
       }
     },
-    "Get Guild Template % GET /guilds/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}": {
+    "Get Guild Template": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/guild-template#get-guild-template-%-get-/guilds/templates/{template.code#docs_resources_guild_template/guild-template-object}",
+      "url": "https://discord.com/developers/docs/resources/guild-template#get-guild-template",
+      "endpoint": "GET /guilds/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}",
       "content": [
         "Returns a guild template object for the given code."
       ]
     },
-    "Create Guild from Guild Template % POST /guilds/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}": {
+    "Create Guild from Guild Template": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/guild-template#create-guild-from-guild-template-%-post-/guilds/templates/{template.code#docs_resources_guild_template/guild-template-object}",
+      "url": "https://discord.com/developers/docs/resources/guild-template#create-guild-from-guild-template",
+      "endpoint": "POST /guilds/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}",
       "content": [
         "Create a new guild based on a template. Returns a guild object on success. Fires a Guild Create Gateway event.",
         "> warn\n> This endpoint can be used only by bots in less than 10 guilds.",
@@ -119,7 +121,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/guild-template#create-guild-from-guild-template-%-post-/guilds/templates/{template.code#docs_resources_guild_template/guild-template-object}-json-params",
+        "url": "https://discord.com/developers/docs/resources/guild-template#create-guild-from-guild-template-json-params",
         "content": [
           [
             [
@@ -141,23 +143,25 @@
         ]
       }
     },
-    "Get Guild Templates % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates": {
+    "Get Guild Templates": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/guild-template#get-guild-templates-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/templates",
+      "url": "https://discord.com/developers/docs/resources/guild-template#get-guild-templates",
+      "endpoint": "GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates",
       "content": [
         "Returns an array of guild template objects. Requires the MANAGE_GUILD permission."
       ]
     },
-    "Create Guild Template % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates": {
+    "Create Guild Template": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/guild-template#create-guild-template-%-post-/guilds/{guild.id#docs_resources_guild/guild-object}/templates",
+      "url": "https://discord.com/developers/docs/resources/guild-template#create-guild-template",
+      "endpoint": "POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates",
       "content": [
         "Creates a template for the guild. Requires the MANAGE_GUILD permission. Returns the created guild template object on success.",
         "|JSON Params"
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/guild-template#create-guild-template-%-post-/guilds/{guild.id#docs_resources_guild/guild-object}/templates-json-params",
+        "url": "https://discord.com/developers/docs/resources/guild-template#create-guild-template-json-params",
         "content": [
           [
             [
@@ -179,23 +183,25 @@
         ]
       }
     },
-    "Sync Guild Template % PUT /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}": {
+    "Sync Guild Template": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/guild-template#sync-guild-template-%-put-/guilds/{guild.id#docs_resources_guild/guild-object}/templates/{template.code#docs_resources_guild_template/guild-template-object}",
+      "url": "https://discord.com/developers/docs/resources/guild-template#sync-guild-template",
+      "endpoint": "PUT /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}",
       "content": [
         "Syncs the template to the guild's current state. Requires the MANAGE_GUILD permission. Returns the guild template object on success."
       ]
     },
-    "Modify Guild Template % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}": {
+    "Modify Guild Template": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/guild-template#modify-guild-template-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/templates/{template.code#docs_resources_guild_template/guild-template-object}",
+      "url": "https://discord.com/developers/docs/resources/guild-template#modify-guild-template",
+      "endpoint": "PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}",
       "content": [
         "Modifies the template's metadata. Requires the MANAGE_GUILD permission. Returns the guild template object on success.",
         "|JSON Params"
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/guild-template#modify-guild-template-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/templates/{template.code#docs_resources_guild_template/guild-template-object}-json-params",
+        "url": "https://discord.com/developers/docs/resources/guild-template#modify-guild-template-json-params",
         "content": [
           [
             [
@@ -217,9 +223,10 @@
         ]
       }
     },
-    "Delete Guild Template % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}": {
+    "Delete Guild Template": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/guild-template#delete-guild-template-%-delete-/guilds/{guild.id#docs_resources_guild/guild-object}/templates/{template.code#docs_resources_guild_template/guild-template-object}",
+      "url": "https://discord.com/developers/docs/resources/guild-template#delete-guild-template",
+      "endpoint": "DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}",
       "content": [
         "Deletes the template. Requires the MANAGE_GUILD permission. Returns the deleted guild template object on success."
       ]

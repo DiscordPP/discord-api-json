@@ -4,7 +4,7 @@
   ],
   "How to Get Your Game on Discord": {
     "level": 1,
-    "url": "https://discord.com/developers/docs/game_and_server_management/how-to-get-your-game-on-discord#how-to-get-your-game-on-discord",
+    "url": "https://discord.com/developers/docs/game-and-server-management/how-to-get-your-game-on-discord#how-to-get-your-game-on-discord",
     "content": [
       "> danger\n> Selling SKUs on Discord has been discontinued as of March 1, 2022. Read here for more info.",
       "Welcome, adventurer! If you're here, you want to find out how to get your game up and running on Discord and learn about our awesome Server Commerce features. You've come to the right place, so let's get started.",
@@ -21,7 +21,7 @@
     ],
     "Get the Band Back Together": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_and_server_management/how-to-get-your-game-on-discord#get-the-band-back-together",
+      "url": "https://discord.com/developers/docs/game-and-server-management/how-to-get-your-game-on-discord#get-the-band-back-together",
       "content": [
         "First things first: it's time to make a Team. Your dream team of artists, writers, engineers, designers, all working on the beautiful creation of Your Game. Build your dream team with these steps:",
         [
@@ -33,7 +33,7 @@
     },
     "Apps and Games": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_and_server_management/how-to-get-your-game-on-discord#apps-and-games",
+      "url": "https://discord.com/developers/docs/game-and-server-management/how-to-get-your-game-on-discord#apps-and-games",
       "content": [
         "Throughout this process, we'll reference your \"app\". An app, or application, is an entity on Discord that represents something you've built: a bot, an OAuth2 app, or in this case your game. We need to make an app for your game:",
         [
@@ -46,7 +46,7 @@
     },
     "Join the Club": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_and_server_management/how-to-get-your-game-on-discord#join-the-club",
+      "url": "https://discord.com/developers/docs/game-and-server-management/how-to-get-your-game-on-discord#join-the-club",
       "content": [
         "From here on forward, we'll be managing settings that tie directly to your game and its presence on Discord. We want to make sure that we're laser-focused on making the best experience possible for game developers, so we ask that you pay our Application License Fee in order to get access to our store tools, which let you:",
         [
@@ -59,7 +59,7 @@
     },
     "Your Server - Your Kingdom": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_and_server_management/how-to-get-your-game-on-discord#your-server---your-kingdom",
+      "url": "https://discord.com/developers/docs/game-and-server-management/how-to-get-your-game-on-discord#your-server---your-kingdom",
       "content": [
         "You're now looking at a checklist with a bunch of items and a prompt to select a server. Your Application License Fee entitles you to the following features in your server:",
         [
@@ -79,7 +79,7 @@
     },
     "Testing Your Game": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_and_server_management/how-to-get-your-game-on-discord#testing-your-game",
+      "url": "https://discord.com/developers/docs/game-and-server-management/how-to-get-your-game-on-discord#testing-your-game",
       "content": [
         "As you go through the process of building your game and getting it ready for release on Discord, you'll want to be able to test it! One way to do so is to utilize Beta Store channels, which you can learn more about here: Alpha and Beta Testing.",
         "If you are on the Team that owns the game, you can also use another special system for testing that we call Application Test Mode. Test Mode allows you to purchase unavailable, unlisted SKUs for free, making it helpful for testing IAP flows. It also automatically makes every branch of your game show up in your Library when Test Mode is turned on. You can read more here: Application Test Mode."
@@ -87,7 +87,7 @@
     },
     "Getting Approved": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_and_server_management/how-to-get-your-game-on-discord#getting-approved",
+      "url": "https://discord.com/developers/docs/game-and-server-management/how-to-get-your-game-on-discord#getting-approved",
       "content": [
         "Your game looks wonderful. You've got a beautiful store page, and awesome game, and an eager community. It's time to get approved and plant your flag. Note that if your game is in an alpha or beta state, or you're interesting in Early Access, you are welcome to apply for approval whenever you are ready. Your game doesn't need to be the finished 1.0 version; give us something you'd feel comfortable giving to your players.",
         "Once you've completed all the items on your checklist, the Get Approved button will unlock. Once you submit for approval, Discord will take a look at the following things:",
@@ -101,7 +101,7 @@
     },
     "Available vs Store Page Published": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_and_server_management/how-to-get-your-game-on-discord#available-vs-store-page-published",
+      "url": "https://discord.com/developers/docs/game-and-server-management/how-to-get-your-game-on-discord#available-vs-store-page-published",
       "content": [
         "Now that you've been approved, there's a couple new toggles to flip in the Developer Portal: Available, and Store Page Published.",
         "Screenshot of the SKU information page with the \"available\" and \"store page published\" switches highlighted",
@@ -114,7 +114,7 @@
     },
     "Getting Verified and Discovered": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_and_server_management/how-to-get-your-game-on-discord#getting-verified-and-discovered",
+      "url": "https://discord.com/developers/docs/game-and-server-management/how-to-get-your-game-on-discord#getting-verified-and-discovered",
       "content": [
         "Apart from being approved, you can also get your server Verified. Getting verified means your server will get that oh-so-exclusive checkmark, to let people know you're the legit home for your game.",
         "To get verified, head on over to our Verification page and fill out the form at the bottom."
@@ -122,14 +122,14 @@
     },
     "Make Good Decisions": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_and_server_management/how-to-get-your-game-on-discord#make-good-decisions",
+      "url": "https://discord.com/developers/docs/game-and-server-management/how-to-get-your-game-on-discord#make-good-decisions",
       "content": [
         "Your game is off and running, and we couldn't be more proud. As it flourishes and your playerbase grows, keep an eye on your analytics, which you can find within your app. They'll give you important insight like revenue data, acquisitions funnels, and player retention to help you make informed decision about your game's lifecycle. Check out our Analytics Help Article to learn more about how to read all those charts, and how to do things like Conversion Tracking with UTM Links."
       ]
     },
     "What Comes Next": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/game_and_server_management/how-to-get-your-game-on-discord#what-comes-next",
+      "url": "https://discord.com/developers/docs/game-and-server-management/how-to-get-your-game-on-discord#what-comes-next",
       "content": [
         "Your game's success is in your own hands now. Continue to build your community and keep them informed with updates. Consider integrating more deeply with Discord to deliver cool features to your players; we recommend Rich Presence Game Invites. They feel like magic. Drop new content by creating DLC and IAP for your game, run fun tournaments based on HypeSquad Membership, give something cool to Discord Nitro Subscribers because they're awesome. Or maybe, just maybe, think about your next upcoming game?",
         "We'd love to help you with that one, too.",

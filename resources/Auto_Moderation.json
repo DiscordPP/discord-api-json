@@ -11,11 +11,11 @@
       "|Auto Moderation Rule Object",
       "|Auto Moderation Action Object",
       "|Auto Moderation Permission Requirements",
-      "|List Auto Moderation Rules for Guild % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/auto-moderation/rules",
-      "|Get Auto Moderation Rule % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/auto-moderation/rules/{auto_moderation_rule.id#DOCS_RESOURCES_AUTO_MODERATION/auto-moderation-rule-object}",
-      "|Create Auto Moderation Rule % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/auto-moderation/rules",
-      "|Modify Auto Moderation Rule % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/auto-moderation/rules/{auto_moderation_rule.id#DOCS_RESOURCES_AUTO_MODERATION/auto-moderation-rule-object}",
-      "|Delete Auto Moderation Rule % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/auto-moderation/rules/{auto_moderation_rule.id#DOCS_RESOURCES_AUTO_MODERATION/auto-moderation-rule-object}"
+      "|List Auto Moderation Rules for Guild",
+      "|Get Auto Moderation Rule",
+      "|Create Auto Moderation Rule",
+      "|Modify Auto Moderation Rule",
+      "|Delete Auto Moderation Rule"
     ],
     "Auto Moderation Rule Object": {
       "level": 3,
@@ -422,25 +422,28 @@
         "Users are required to have the MANAGE_GUILD permission to access all Auto Moderation resources.\nSome action types require additional permissions, e.g. the TIMEOUT action type requires an additional MODERATE_MEMBERS permission."
       ]
     },
-    "List Auto Moderation Rules for Guild % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/auto-moderation/rules": {
+    "List Auto Moderation Rules for Guild": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/auto-moderation#list-auto-moderation-rules-for-guild-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/auto-moderation/rules",
+      "url": "https://discord.com/developers/docs/resources/auto-moderation#list-auto-moderation-rules-for-guild",
+      "endpoint": "GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/auto-moderation/rules",
       "content": [
         "Get a list of all rules currently configured for the guild. Returns a list of auto moderation rule objects for the given guild.",
         "> info\n> This endpoint requires the MANAGE_GUILD permission."
       ]
     },
-    "Get Auto Moderation Rule % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/auto-moderation/rules/{auto_moderation_rule.id#DOCS_RESOURCES_AUTO_MODERATION/auto-moderation-rule-object}": {
+    "Get Auto Moderation Rule": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/auto-moderation#get-auto-moderation-rule-%-get-/guilds/{guild.id#docs_resources_guild/guild-object}/auto-moderation/rules/{auto_moderation_rule.id#docs_resources_auto_moderation/auto-moderation-rule-object}",
+      "url": "https://discord.com/developers/docs/resources/auto-moderation#get-auto-moderation-rule",
+      "endpoint": "GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/auto-moderation/rules/{auto_moderation_rule.id#DOCS_RESOURCES_AUTO_MODERATION/auto-moderation-rule-object}",
       "content": [
         "Get a single rule. Returns an auto moderation rule object.",
         "> info\n> This endpoint requires the MANAGE_GUILD permission."
       ]
     },
-    "Create Auto Moderation Rule % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/auto-moderation/rules": {
+    "Create Auto Moderation Rule": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/auto-moderation#create-auto-moderation-rule-%-post-/guilds/{guild.id#docs_resources_guild/guild-object}/auto-moderation/rules",
+      "url": "https://discord.com/developers/docs/resources/auto-moderation#create-auto-moderation-rule",
+      "endpoint": "POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/auto-moderation/rules",
       "content": [
         "Create a new rule. Returns an auto moderation rule on success.",
         "> info\n> This endpoint requires the MANAGE_GUILD permission.",
@@ -449,7 +452,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/auto-moderation#create-auto-moderation-rule-%-post-/guilds/{guild.id#docs_resources_guild/guild-object}/auto-moderation/rules-json-params",
+        "url": "https://discord.com/developers/docs/resources/auto-moderation#create-auto-moderation-rule-json-params",
         "content": [
           [
             [
@@ -503,9 +506,10 @@
         ]
       }
     },
-    "Modify Auto Moderation Rule % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/auto-moderation/rules/{auto_moderation_rule.id#DOCS_RESOURCES_AUTO_MODERATION/auto-moderation-rule-object}": {
+    "Modify Auto Moderation Rule": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/auto-moderation#modify-auto-moderation-rule-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/auto-moderation/rules/{auto_moderation_rule.id#docs_resources_auto_moderation/auto-moderation-rule-object}",
+      "url": "https://discord.com/developers/docs/resources/auto-moderation#modify-auto-moderation-rule",
+      "endpoint": "PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/auto-moderation/rules/{auto_moderation_rule.id#DOCS_RESOURCES_AUTO_MODERATION/auto-moderation-rule-object}",
       "content": [
         "Modify an existing rule. Returns an auto moderation rule on success.",
         "> info\n> Requires MANAGE_GUILD permissions.",
@@ -515,7 +519,7 @@
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/auto-moderation#modify-auto-moderation-rule-%-patch-/guilds/{guild.id#docs_resources_guild/guild-object}/auto-moderation/rules/{auto_moderation_rule.id#docs_resources_auto_moderation/auto-moderation-rule-object}-json-params",
+        "url": "https://discord.com/developers/docs/resources/auto-moderation#modify-auto-moderation-rule-json-params",
         "content": [
           [
             [
@@ -563,9 +567,10 @@
         ]
       }
     },
-    "Delete Auto Moderation Rule % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/auto-moderation/rules/{auto_moderation_rule.id#DOCS_RESOURCES_AUTO_MODERATION/auto-moderation-rule-object}": {
+    "Delete Auto Moderation Rule": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/auto-moderation#delete-auto-moderation-rule-%-delete-/guilds/{guild.id#docs_resources_guild/guild-object}/auto-moderation/rules/{auto_moderation_rule.id#docs_resources_auto_moderation/auto-moderation-rule-object}",
+      "url": "https://discord.com/developers/docs/resources/auto-moderation#delete-auto-moderation-rule",
+      "endpoint": "DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/auto-moderation/rules/{auto_moderation_rule.id#DOCS_RESOURCES_AUTO_MODERATION/auto-moderation-rule-object}",
       "content": [
         "Delete a rule. Returns a 204 on success.",
         "> info\n> This endpoint requires the MANAGE_GUILD permission.",

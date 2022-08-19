@@ -4,7 +4,7 @@
   ],
   "Rich Presence Launch Checklist": {
     "level": 1,
-    "url": "https://discord.com/developers/docs/rich_presence/launch-checklist#rich-presence-launch-checklist",
+    "url": "https://discord.com/developers/docs/rich-presence/launch-checklist#rich-presence-launch-checklist",
     "content": [
       "> danger\n> The SDK that this documentation references, Discord-RPC, has been deprecated in favor of our new Discord GameSDK. Replacement functionality for the Rich Presence SDK can be found in the Activity Manager of that SDK. This documentation can be referenced for education but does not entirely reflect the new SDK.",
       "Ready to launch a Rich Presence integration for your game? Did you read our Best Practices guide? If so, we recommend looking over this checklist one last time to ensure that your integration is as great as it can be!",
@@ -16,7 +16,7 @@
     ],
     "Profile Strings": {
       "level": 4,
-      "url": "https://discord.com/developers/docs/rich_presence/launch-checklist#rich-presence-launch-checklist-profile-strings",
+      "url": "https://discord.com/developers/docs/rich-presence/launch-checklist#rich-presence-launch-checklist-profile-strings",
       "content": [
         [
           "Have you made use of all available fields where appropriate?",
@@ -27,7 +27,7 @@
     },
     "Artwork": {
       "level": 4,
-      "url": "https://discord.com/developers/docs/rich_presence/launch-checklist#rich-presence-launch-checklist-artwork",
+      "url": "https://discord.com/developers/docs/rich-presence/launch-checklist#rich-presence-launch-checklist-artwork",
       "content": [
         [
           "Is your artwork high resolution?",
@@ -40,7 +40,7 @@
     },
     "Joining": {
       "level": 4,
-      "url": "https://discord.com/developers/docs/rich_presence/launch-checklist#rich-presence-launch-checklist-joining",
+      "url": "https://discord.com/developers/docs/rich-presence/launch-checklist#rich-presence-launch-checklist-joining",
       "content": [
         [
           "Have you successfully implemented join invites for your game if applicable?",
@@ -52,7 +52,7 @@
     },
     "Spectating": {
       "level": 4,
-      "url": "https://discord.com/developers/docs/rich_presence/launch-checklist#rich-presence-launch-checklist-spectating",
+      "url": "https://discord.com/developers/docs/rich-presence/launch-checklist#rich-presence-launch-checklist-spectating",
       "content": [
         [
           "Have you successfully implemented spectate invites for your game if applicable?",
