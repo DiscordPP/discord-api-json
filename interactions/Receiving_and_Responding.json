@@ -326,7 +326,7 @@
         "content": [
           [
             [
-              "Name",
+              "Field",
               "Type",
               "Description"
             ],
@@ -508,7 +508,7 @@
             "Not all message fields are currently supported.",
             [
               [
-                "Name",
+                "Field",
                 "Type",
                 "Description"
               ],
@@ -557,7 +557,7 @@
           "content": [
             [
               [
-                "Name",
+                "Field",
                 "Type",
                 "Description"
               ],
@@ -576,7 +576,7 @@
             "> warn\n> Support for components in modals is currently limited to type 4 (Text Input).",
             [
               [
-                "Name",
+                "Field",
                 "Type",
                 "Description"
               ],

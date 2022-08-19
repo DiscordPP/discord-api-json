@@ -287,6 +287,51 @@
       }
     }
   },
+  "MessageInteraction": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#message-interaction-object-message-interaction-structure"
+    },
+    "id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "ID of the interaction"
+      }
+    },
+    "type": {
+      "type": "interaction type",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Type of interaction"
+      }
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Name of the application command, including subcommands and subcommand groups"
+      }
+    },
+    "user": {
+      "type": "user object",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "User who invoked the interaction"
+      }
+    },
+    "member": {
+      "type": "partial member object",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Member who invoked the interaction in the guild"
+      }
+    }
+  },
   "InteractionResponse": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-response-object-interaction-response-structure"
@@ -305,6 +350,110 @@
       "nullable": false,
       "comments": {
         "Description": "an optional response message"
+      }
+    }
+  },
+  "Messages": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-response-object-messages"
+    },
+    "tts": {
+      "type": "boolean",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "is the response TTS"
+      }
+    },
+    "content": {
+      "type": "string",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "message content"
+      }
+    },
+    "embeds": {
+      "type": "array of embeds",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "supports up to 10 embeds"
+      }
+    },
+    "allowed_mentions": {
+      "type": "allowed mentions",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "allowed mentions object"
+      }
+    },
+    "flags": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "message flags combined as a bitfield (only SUPPRESS_EMBEDS and EPHEMERAL can be set)"
+      }
+    },
+    "components": {
+      "type": "array of components",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "message components"
+      }
+    },
+    "attachments": {
+      "type": "array of partial attachment objects",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "attachment objects with filename and description",
+        "Name Note": "See Uploading Files for details."
+      }
+    }
+  },
+  "Autocomplete": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-response-object-autocomplete"
+    },
+    "choices": {
+      "type": "array of choices",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "autocomplete choices (max of 25 choices)"
+      }
+    }
+  },
+  "Modal": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-response-object-modal"
+    },
+    "custom_id": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "a developer-defined identifier for the component, max 100 characters"
+      }
+    },
+    "title": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the title of the popup modal, max 45 characters"
+      }
+    },
+    "components": {
+      "type": "array of components",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "between 1 and 5 (inclusive) components that make up the modal"
       }
     }
   }
