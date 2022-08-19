@@ -1,122 +1,66 @@
 {
-  "Interaction Type": [
-    {
-      "name": "PING",
+  "Interaction Type": {
+    "PING": {
       "value": "1"
     },
-    {
-      "name": "APPLICATION_COMMAND",
+    "APPLICATION_COMMAND": {
       "value": "2"
     },
-    {
-      "name": "MESSAGE_COMPONENT",
+    "MESSAGE_COMPONENT": {
       "value": "3"
     },
-    {
-      "name": "APPLICATION_COMMAND_AUTOCOMPLETE",
+    "APPLICATION_COMMAND_AUTOCOMPLETE": {
       "value": "4"
     },
-    {
-      "name": "MODAL_SUBMIT",
+    "MODAL_SUBMIT": {
       "value": "5"
     }
-  ],
-  "Interaction Callback Type": [
-    {
-      "name": "PONG",
+  },
+  "Interaction Callback Type": {
+    "PONG": {
       "value": "1",
-      "description": "ACK a Ping"
+      "comments": {
+        "Description": "ACK a Ping"
+      }
     },
-    {
-      "name": "CHANNEL_MESSAGE_WITH_SOURCE",
+    "CHANNEL_MESSAGE_WITH_SOURCE": {
       "value": "4",
-      "description": "respond to an interaction with a message"
+      "comments": {
+        "Description": "respond to an interaction with a message"
+      }
     },
-    {
-      "name": "DEFERRED_CHANNEL_MESSAGE_WITH_SOURCE",
+    "DEFERRED_CHANNEL_MESSAGE_WITH_SOURCE": {
       "value": "5",
-      "description": "ACK an interaction and edit a response later, the user sees a loading state"
+      "comments": {
+        "Description": "ACK an interaction and edit a response later, the user sees a loading state"
+      }
     },
-    {
-      "name": "DEFERRED_UPDATE_MESSAGE*",
+    "DEFERRED_UPDATE_MESSAGE": {
       "value": "6",
-      "description": "for components, ACK an interaction and edit the original message later; the user does not see a loading state"
+      "comments": {
+        "Name Note": "Only valid for component-based interactions",
+        "Description": "for components, ACK an interaction and edit the original message later; the user does not see a loading state"
+      }
     },
-    {
-      "name": "UPDATE_MESSAGE*",
+    "UPDATE_MESSAGE": {
       "value": "7",
-      "description": "for components, edit the message the component was attached to"
+      "comments": {
+        "Name Note": "Only valid for component-based interactions",
+        "Description": "for components, edit the message the component was attached to"
+      }
     },
-    {
-      "name": "APPLICATION_COMMAND_AUTOCOMPLETE_RESULT",
+    "APPLICATION_COMMAND_AUTOCOMPLETE_RESULT": {
       "value": "8",
-      "description": "respond to an autocomplete interaction with suggested choices"
+      "comments": {
+        "Description": "respond to an autocomplete interaction with suggested choices"
+      }
     },
-    {
-      "name": "MODAL**",
+    "MODAL": {
       "value": "9",
-      "description": "respond to an interaction with a popup modal"
+      "comments": {
+        "Name Note": "Not available for MODAL_SUBMIT and PING interactions.",
+        "Description": "respond to an interaction with a popup modal"
+      }
     }
-  ],
-  "Messages": [
-    {
-      "name": "tts?",
-      "type": "boolean",
-      "description": "is the response TTS"
-    },
-    {
-      "name": "content?",
-      "type": "string",
-      "description": "message content"
-    },
-    {
-      "name": "embeds?",
-      "type": "array of embeds",
-      "description": "supports up to 10 embeds"
-    },
-    {
-      "name": "allowed_mentions?",
-      "type": "allowed mentions",
-      "description": "allowed mentions object"
-    },
-    {
-      "name": "flags?",
-      "type": "integer",
-      "description": "message flags combined as a bitfield (only SUPPRESS_EMBEDS and EPHEMERAL can be set)"
-    },
-    {
-      "name": "components?",
-      "type": "array of components",
-      "description": "message components"
-    },
-    {
-      "name": "attachments? *",
-      "type": "array of partial attachment objects",
-      "description": "attachment objects with filename and description"
-    }
-  ],
-  "Autocomplete": [
-    {
-      "name": "choices",
-      "type": "array of choices",
-      "description": "autocomplete choices (max of 25 choices)"
-    }
-  ],
-  "Modal": [
-    {
-      "name": "custom_id",
-      "type": "string",
-      "description": "a developer-defined identifier for the component, max 100 characters"
-    },
-    {
-      "name": "title",
-      "type": "string",
-      "description": "the title of the popup modal, max 45 characters"
-    },
-    {
-      "name": "components",
-      "type": "array of components",
-      "description": "between 1 and 5 (inclusive) components that make up the modal"
-    }
-  ]
+  }
 }

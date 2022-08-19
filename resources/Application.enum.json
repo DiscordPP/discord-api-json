@@ -1,44 +1,52 @@
 {
-  "Application Flags": [
-    {
+  "Application Flags": {
+    "GATEWAY_PRESENCE": {
       "value": "1 << 12",
-      "name": "GATEWAY_PRESENCE",
-      "description": "Intent required for bots in 100 or more servers to receive presence_update events"
+      "comments": {
+        "Description": "Intent required for bots in 100 or more servers to receive presence_update events"
+      }
     },
-    {
+    "GATEWAY_PRESENCE_LIMITED": {
       "value": "1 << 13",
-      "name": "GATEWAY_PRESENCE_LIMITED",
-      "description": "Intent required for bots in under 100 servers to receive presence_update events, found in Bot Settings"
+      "comments": {
+        "Description": "Intent required for bots in under 100 servers to receive presence_update events, found in Bot Settings"
+      }
     },
-    {
+    "GATEWAY_GUILD_MEMBERS": {
       "value": "1 << 14",
-      "name": "GATEWAY_GUILD_MEMBERS",
-      "description": "Intent required for bots in 100 or more servers to receive member-related events like guild_member_add. See list of member-related events under GUILD_MEMBERS"
+      "comments": {
+        "Description": "Intent required for bots in 100 or more servers to receive member-related events like guild_member_add. See list of member-related events under GUILD_MEMBERS"
+      }
     },
-    {
+    "GATEWAY_GUILD_MEMBERS_LIMITED": {
       "value": "1 << 15",
-      "name": "GATEWAY_GUILD_MEMBERS_LIMITED",
-      "description": "Intent required for bots in under 100 servers to receive member-related events like guild_member_add, found in Bot Settings. See list of member-related events under GUILD_MEMBERS"
+      "comments": {
+        "Description": "Intent required for bots in under 100 servers to receive member-related events like guild_member_add, found in Bot Settings. See list of member-related events under GUILD_MEMBERS"
+      }
     },
-    {
+    "VERIFICATION_PENDING_GUILD_LIMIT": {
       "value": "1 << 16",
-      "name": "VERIFICATION_PENDING_GUILD_LIMIT",
-      "description": "Indicates unusual growth of an app that prevents verification"
+      "comments": {
+        "Description": "Indicates unusual growth of an app that prevents verification"
+      }
     },
-    {
+    "EMBEDDED": {
       "value": "1 << 17",
-      "name": "EMBEDDED",
-      "description": "Indicates if an app is embedded within the Discord client (currently unavailable publicly)"
+      "comments": {
+        "Description": "Indicates if an app is embedded within the Discord client (currently unavailable publicly)"
+      }
     },
-    {
+    "GATEWAY_MESSAGE_CONTENT": {
       "value": "1 << 18",
-      "name": "GATEWAY_MESSAGE_CONTENT",
-      "description": "Intent required for bots in 100 or more servers to receive message content"
+      "comments": {
+        "Description": "Intent required for bots in 100 or more servers to receive message content"
+      }
     },
-    {
+    "GATEWAY_MESSAGE_CONTENT_LIMITED": {
       "value": "1 << 19",
-      "name": "GATEWAY_MESSAGE_CONTENT_LIMITED",
-      "description": "Intent required for bots in under 100 servers to receive message content, found in Bot Settings"
+      "comments": {
+        "Description": "Intent required for bots in under 100 servers to receive message content, found in Bot Settings"
+      }
     }
-  ]
+  }
 }

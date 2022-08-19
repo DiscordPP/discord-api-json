@@ -1,34 +1,27 @@
 {
-  "Sticker Types": [
-    {
-      "type": "STANDARD",
+  "Sticker Types": {
+    "STANDARD": {
       "value": "1",
-      "description": "an official sticker in a pack, part of Nitro or in a removed purchasable pack"
+      "comments": {
+        "Description": "an official sticker in a pack, part of Nitro or in a removed purchasable pack"
+      }
     },
-    {
-      "type": "GUILD",
+    "GUILD": {
       "value": "2",
-      "description": "a sticker uploaded to a guild for the guild's members"
+      "comments": {
+        "Description": "a sticker uploaded to a guild for the guild's members"
+      }
     }
-  ],
-  "Sticker Format Types": [
-    {
-      "type": "PNG",
+  },
+  "Sticker Format Types": {
+    "PNG": {
       "value": "1"
     },
-    {
-      "type": "APNG",
+    "APNG": {
       "value": "2"
     },
-    {
-      "type": "LOTTIE",
+    "LOTTIE": {
       "value": "3"
     }
-  ],
-  "Response Structure": [
-    {
-      "field": "sticker_packs",
-      "type": "array of sticker pack objects"
-    }
-  ]
+  }
 }

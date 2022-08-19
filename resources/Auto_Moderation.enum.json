@@ -1,129 +1,81 @@
 {
-  "Trigger Types": [
-    {
-      "type": "KEYWORD",
+  "Trigger Types": {
+    "KEYWORD": {
       "value": "1",
-      "description": "check if content contains words from a user defined list of keywords",
-      "max per guild": "3"
+      "comments": {
+        "Description": "check if content contains words from a user defined list of keywords",
+        "Max Per Guild": "3"
+      }
     },
-    {
-      "type": "HARMFUL_LINK",
-      "value": "2",
-      "description": "check if content contains any harmful links",
-      "max per guild": "1"
-    },
-    {
-      "type": "SPAM",
+    "SPAM": {
       "value": "3",
-      "description": "check if content represents generic spam",
-      "max per guild": "1"
+      "comments": {
+        "Description": "check if content represents generic spam",
+        "Max Per Guild": "1"
+      }
     },
-    {
-      "type": "KEYWORD_PRESET",
+    "KEYWORD_PRESET": {
       "value": "4",
-      "description": "check if content contains words from internal pre-defined wordsets",
-      "max per guild": "1"
+      "comments": {
+        "Description": "check if content contains words from internal pre-defined wordsets",
+        "Max Per Guild": "1"
+      }
     },
-    {
-      "type": "MENTION_SPAM",
+    "MENTION_SPAM": {
       "value": "5",
-      "description": "check if content contains more mentions than allowed",
-      "max per guild": "1"
+      "comments": {
+        "Description": "check if content contains more mentions than allowed",
+        "Max Per Guild": "1"
+      }
     }
-  ],
-  "Trigger Metadata": [
-    {
-      "field": "keyword_filter",
-      "type": "array of strings *",
-      "associated trigger types": "KEYWORD",
-      "description": "substrings which will be searched for in content"
-    },
-    {
-      "field": "presets",
-      "type": "array of keyword preset types",
-      "associated trigger types": "KEYWORD_PRESET",
-      "description": "the internally pre-defined wordsets which will be searched for in content"
-    },
-    {
-      "field": "allow_list",
-      "type": "array of strings *",
-      "associated trigger types": "KEYWORD_PRESET",
-      "description": "substrings which will be exempt from triggering the preset trigger type"
-    },
-    {
-      "field": "mention_total_limit",
-      "type": "integer",
-      "associated trigger types": "MENTION_SPAM",
-      "description": "total number of mentions (role & user) allowed per message (Maximum of 50)"
-    }
-  ],
-  "Keyword Preset Types": [
-    {
-      "type": "PROFANITY",
+  },
+  "Keyword Preset Types": {
+    "PROFANITY": {
       "value": "1",
-      "description": "Words that may be considered forms of swearing or cursing"
+      "comments": {
+        "Description": "Words that may be considered forms of swearing or cursing"
+      }
     },
-    {
-      "type": "SEXUAL_CONTENT",
+    "SEXUAL_CONTENT": {
       "value": "2",
-      "description": "Words that refer to sexually explicit behavior or activity"
+      "comments": {
+        "Description": "Words that refer to sexually explicit behavior or activity"
+      }
     },
-    {
-      "type": "SLURS",
+    "SLURS": {
       "value": "3",
-      "description": "Personal insults or words that may be considered hate speech"
+      "comments": {
+        "Description": "Personal insults or words that may be considered hate speech"
+      }
     }
-  ],
-  "Event Types": [
-    {
-      "type": "MESSAGE_SEND",
+  },
+  "Event Types": {
+    "MESSAGE_SEND": {
       "value": "1",
-      "description": "when a member sends or edits a message in the guild"
+      "comments": {
+        "Description": "when a member sends or edits a message in the guild"
+      }
     }
-  ],
-  "Keyword Matching Strategies": [
-    {
-      "keyword": "cat",
-      "matches": "cat"
-    },
-    {
-      "keyword": "train",
-      "matches": "train"
-    },
-    {
-      "keyword": "the mat",
-      "matches": "the mat"
-    }
-  ],
-  "Action Types": [
-    {
-      "type": "BLOCK_MESSAGE",
+  },
+  "Action Types": {
+    "BLOCK_MESSAGE": {
       "value": "1",
-      "description": "blocks the content of a message according to the rule"
+      "comments": {
+        "Description": "blocks the content of a message according to the rule"
+      }
     },
-    {
-      "type": "SEND_ALERT_MESSAGE",
+    "SEND_ALERT_MESSAGE": {
       "value": "2",
-      "description": "logs user content to a specified channel"
+      "comments": {
+        "Description": "logs user content to a specified channel"
+      }
     },
-    {
-      "type": "TIMEOUT",
+    "TIMEOUT": {
       "value": "3",
-      "description": "timeout user for a specified duration *"
+      "comments": {
+        "Description": "timeout user for a specified duration",
+        "Description Note": "A TIMEOUT action can only be set up for KEYWORD and MENTION_SPAM rules. The MODERATE_MEMBERS permission is required to use the TIMEOUT action type."
+      }
     }
-  ],
-  "Action Metadata": [
-    {
-      "field": "channel_id",
-      "type": "snowflake",
-      "associated action types": "SEND_ALERT_MESSAGE",
-      "description": "channel to which user content should be logged"
-    },
-    {
-      "field": "duration_seconds",
-      "type": "integer",
-      "associated action types": "TIMEOUT",
-      "description": "timeout duration in seconds *"
-    }
-  ]
+  }
 }

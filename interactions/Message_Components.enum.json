@@ -1,115 +1,53 @@
 {
-  "Component Types": [
-    {
-      "type": "1",
-      "name": "Action Row",
-      "description": "A container for other components"
-    },
-    {
-      "type": "2",
-      "name": "Button",
-      "description": "A button object"
-    },
-    {
-      "type": "3",
-      "name": "Select Menu",
-      "description": "A select menu for picking from choices"
-    },
-    {
-      "type": "4",
-      "name": "Text Input",
-      "description": "A text input object"
-    }
-  ],
-  "Button Styles": [
-    {
-      "name": "Primary",
+  "Button Styles": {
+    "Primary": {
       "value": "1",
-      "color": "blurple",
-      "required field": "custom_id"
+      "comments": {
+        "Color": "blurple",
+        "Required Field": "custom_id"
+      }
     },
-    {
-      "name": "Secondary",
+    "Secondary": {
       "value": "2",
-      "color": "grey",
-      "required field": "custom_id"
+      "comments": {
+        "Color": "grey",
+        "Required Field": "custom_id"
+      }
     },
-    {
-      "name": "Success",
+    "Success": {
       "value": "3",
-      "color": "green",
-      "required field": "custom_id"
+      "comments": {
+        "Color": "green",
+        "Required Field": "custom_id"
+      }
     },
-    {
-      "name": "Danger",
+    "Danger": {
       "value": "4",
-      "color": "red",
-      "required field": "custom_id"
+      "comments": {
+        "Color": "red",
+        "Required Field": "custom_id"
+      }
     },
-    {
-      "name": "Link",
+    "Link": {
       "value": "5",
-      "color": "grey, navigates to a URL",
-      "required field": "url"
+      "comments": {
+        "Color": "grey, navigates to a URL",
+        "Required Field": "url"
+      }
     }
-  ],
-  "Text Input Structure": [
-    {
-      "field": "type",
-      "type": "integer",
-      "description": "4 for a text input"
-    },
-    {
-      "field": "custom_id",
-      "type": "string",
-      "description": "a developer-defined identifier for the input, max 100 characters"
-    },
-    {
-      "field": "style",
-      "type": "integer",
-      "description": "the Text Input Style"
-    },
-    {
-      "field": "label",
-      "type": "string",
-      "description": "the label for this component, max 45 characters"
-    },
-    {
-      "field": "min_length?",
-      "type": "integer",
-      "description": "the minimum input length for a text input, min 0, max 4000"
-    },
-    {
-      "field": "max_length?",
-      "type": "integer",
-      "description": "the maximum input length for a text input, min 1, max 4000"
-    },
-    {
-      "field": "required?",
-      "type": "boolean",
-      "description": "whether this component is required to be filled, default true"
-    },
-    {
-      "field": "value?",
-      "type": "string",
-      "description": "a pre-filled value for this component, max 4000 characters"
-    },
-    {
-      "field": "placeholder?",
-      "type": "string",
-      "description": "custom placeholder text if the input is empty, max 100 characters"
-    }
-  ],
-  "Text Input Styles": [
-    {
-      "name": "Short",
+  },
+  "Text Input Styles": {
+    "Short": {
       "value": "1",
-      "description": "A single-line input"
+      "comments": {
+        "Description": "A single-line input"
+      }
     },
-    {
-      "name": "Paragraph",
+    "Paragraph": {
       "value": "2",
-      "description": "A multi-line input"
+      "comments": {
+        "Description": "A multi-line input"
+      }
     }
-  ]
+  }
 }

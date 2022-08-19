@@ -1,104 +1,83 @@
 {
-  "Application Command Types": [
-    {
-      "name": "CHAT_INPUT",
-      "type": "1",
-      "description": "Slash commands; a text-based command that shows up when a user types /"
-    },
-    {
-      "name": "USER",
-      "type": "2",
-      "description": "A UI-based command that shows up when you right click or tap on a user"
-    },
-    {
-      "name": "MESSAGE",
-      "type": "3",
-      "description": "A UI-based command that shows up when you right click or tap on a message"
-    }
-  ],
-  "Application Command Option Type": [
-    {
-      "name": "SUB_COMMAND",
+  "Application Command Types": {
+    "CHAT_INPUT": {
       "value": "1",
-      "note": ""
+      "comments": {
+        "Description": "Slash commands; a text-based command that shows up when a user types /"
+      }
     },
-    {
-      "name": "SUB_COMMAND_GROUP",
+    "USER": {
       "value": "2",
-      "note": ""
+      "comments": {
+        "Description": "A UI-based command that shows up when you right click or tap on a user"
+      }
     },
-    {
-      "name": "STRING",
+    "MESSAGE": {
       "value": "3",
-      "note": ""
-    },
-    {
-      "name": "INTEGER",
-      "value": "4",
-      "note": "Any integer between -2^53 and 2^53"
-    },
-    {
-      "name": "BOOLEAN",
-      "value": "5",
-      "note": ""
-    },
-    {
-      "name": "USER",
-      "value": "6",
-      "note": ""
-    },
-    {
-      "name": "CHANNEL",
-      "value": "7",
-      "note": "Includes all channel types + categories"
-    },
-    {
-      "name": "ROLE",
-      "value": "8",
-      "note": ""
-    },
-    {
-      "name": "MENTIONABLE",
-      "value": "9",
-      "note": "Includes users and roles"
-    },
-    {
-      "name": "NUMBER",
-      "value": "10",
-      "note": "Any double between -2^53 and 2^53"
-    },
-    {
-      "name": "ATTACHMENT",
-      "value": "11",
-      "note": "attachment object"
+      "comments": {
+        "Description": "A UI-based command that shows up when you right click or tap on a message"
+      }
     }
-  ],
-  "Application Command Permissions Constants": [
-    {
-      "permission": "@everyone",
-      "value": "guild_id",
-      "type": "snowflake",
-      "description": "All members in a guild"
-    },
-    {
-      "permission": "All Channels",
-      "value": "guild_id - 1",
-      "type": "snowflake",
-      "description": "All channels in a guild"
-    }
-  ],
-  "Application Command Permission Type": [
-    {
-      "name": "ROLE",
+  },
+  "Application Command Option Type": {
+    "SUB_COMMAND": {
       "value": "1"
     },
-    {
-      "name": "USER",
+    "SUB_COMMAND_GROUP": {
       "value": "2"
     },
-    {
-      "name": "CHANNEL",
+    "STRING": {
+      "value": "3"
+    },
+    "INTEGER": {
+      "value": "4",
+      "comments": {
+        "Note": "Any integer between -2^53 and 2^53"
+      }
+    },
+    "BOOLEAN": {
+      "value": "5"
+    },
+    "USER": {
+      "value": "6"
+    },
+    "CHANNEL": {
+      "value": "7",
+      "comments": {
+        "Note": "Includes all channel types + categories"
+      }
+    },
+    "ROLE": {
+      "value": "8"
+    },
+    "MENTIONABLE": {
+      "value": "9",
+      "comments": {
+        "Note": "Includes users and roles"
+      }
+    },
+    "NUMBER": {
+      "value": "10",
+      "comments": {
+        "Note": "Any double between -2^53 and 2^53"
+      }
+    },
+    "ATTACHMENT": {
+      "value": "11",
+      "comments": {
+        "Note": "attachment object"
+      }
+    }
+  },
+  "Application Command Permission Type": {
+    "ROLE": {
+      "value": "1"
+    },
+    "USER": {
+      "value": "2"
+    },
+    "CHANNEL": {
       "value": "3"
     }
-  ]
+  }
 }

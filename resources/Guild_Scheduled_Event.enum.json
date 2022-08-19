@@ -1,68 +1,41 @@
 {
-  "Guild Scheduled Event Privacy Level": [
-    {
-      "level": "GUILD_ONLY",
+  "Guild Scheduled Event Privacy Level": {
+    "GUILD_ONLY": {
       "value": "2",
-      "description": "the scheduled event is only accessible to guild members"
+      "comments": {
+        "Description": "the scheduled event is only accessible to guild members"
+      }
     }
-  ],
-  "Guild Scheduled Event Entity Types": [
-    {
-      "type": "STAGE_INSTANCE",
+  },
+  "Guild Scheduled Event Entity Types": {
+    "STAGE_INSTANCE": {
       "value": "1"
     },
-    {
-      "type": "VOICE",
+    "VOICE": {
       "value": "2"
     },
-    {
-      "type": "EXTERNAL",
+    "EXTERNAL": {
       "value": "3"
     }
-  ],
-  "Field Requirements By Entity Type": [
-    {
-      "entity type": "STAGE_INSTANCE",
-      "channel_id": "value",
-      "entity_metadata": "null",
-      "scheduled_end_time": "-"
-    },
-    {
-      "entity type": "VOICE",
-      "channel_id": "value",
-      "entity_metadata": "null",
-      "scheduled_end_time": "-"
-    },
-    {
-      "entity type": "EXTERNAL",
-      "channel_id": "null",
-      "entity_metadata": "value *",
-      "scheduled_end_time": "value"
-    }
-  ],
-  "Guild Scheduled Event Status": [
-    {
-      "type": "SCHEDULED",
+  },
+  "Guild Scheduled Event Status": {
+    "SCHEDULED": {
       "value": "1"
     },
-    {
-      "type": "ACTIVE",
+    "ACTIVE": {
       "value": "2"
     },
-    {
-      "type": "COMPLETED *",
-      "value": "3"
+    "COMPLETED": {
+      "value": "3",
+      "comments": {
+        "Name Note": "Once status is set to COMPLETED or CANCELED, the status can no longer be updated"
+      }
     },
-    {
-      "type": "CANCELED  *",
-      "value": "4"
+    "CANCELED": {
+      "value": "4",
+      "comments": {
+        "Name Note": "Once status is set to COMPLETED or CANCELED, the status can no longer be updated"
+      }
     }
-  ],
-  "Guild Scheduled Event Entity Metadata": [
-    {
-      "field": "location? *",
-      "type": "string",
-      "description": "location of the event (1-100 characters)"
-    }
-  ]
+  }
 }

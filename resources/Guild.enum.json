@@ -1,267 +1,295 @@
 {
-  "Default Message Notification Level": [
-    {
-      "key": "ALL_MESSAGES",
+  "Default Message Notification Level": {
+    "ALL_MESSAGES": {
       "value": "0",
-      "description": "members will receive notifications for all messages by default"
+      "comments": {
+        "Description": "members will receive notifications for all messages by default"
+      }
     },
-    {
-      "key": "ONLY_MENTIONS",
+    "ONLY_MENTIONS": {
       "value": "1",
-      "description": "members will receive notifications only for messages that @mention them by default"
+      "comments": {
+        "Description": "members will receive notifications only for messages that @mention them by default"
+      }
     }
-  ],
-  "Explicit Content Filter Level": [
-    {
-      "level": "DISABLED",
-      "integer": "0",
-      "description": "media content will not be scanned"
+  },
+  "Explicit Content Filter Level": {
+    "DISABLED": {
+      "value": "0",
+      "comments": {
+        "Description": "media content will not be scanned"
+      }
     },
-    {
-      "level": "MEMBERS_WITHOUT_ROLES",
-      "integer": "1",
-      "description": "media content sent by members without roles will be scanned"
+    "MEMBERS_WITHOUT_ROLES": {
+      "value": "1",
+      "comments": {
+        "Description": "media content sent by members without roles will be scanned"
+      }
     },
-    {
-      "level": "ALL_MEMBERS",
-      "integer": "2",
-      "description": "media content sent by all members will be scanned"
+    "ALL_MEMBERS": {
+      "value": "2",
+      "comments": {
+        "Description": "media content sent by all members will be scanned"
+      }
     }
-  ],
-  "MFA Level": [
-    {
-      "level": "NONE",
-      "integer": "0",
-      "description": "guild has no MFA/2FA requirement for moderation actions"
+  },
+  "MFA Level": {
+    "NONE": {
+      "value": "0",
+      "comments": {
+        "Description": "guild has no MFA/2FA requirement for moderation actions"
+      }
     },
-    {
-      "level": "ELEVATED",
-      "integer": "1",
-      "description": "guild has a 2FA requirement for moderation actions"
+    "ELEVATED": {
+      "value": "1",
+      "comments": {
+        "Description": "guild has a 2FA requirement for moderation actions"
+      }
     }
-  ],
-  "Verification Level": [
-    {
-      "level": "NONE",
-      "integer": "0",
-      "description": "unrestricted"
+  },
+  "Verification Level": {
+    "NONE": {
+      "value": "0",
+      "comments": {
+        "Description": "unrestricted"
+      }
     },
-    {
-      "level": "LOW",
-      "integer": "1",
-      "description": "must have verified email on account"
+    "LOW": {
+      "value": "1",
+      "comments": {
+        "Description": "must have verified email on account"
+      }
     },
-    {
-      "level": "MEDIUM",
-      "integer": "2",
-      "description": "must be registered on Discord for longer than 5 minutes"
+    "MEDIUM": {
+      "value": "2",
+      "comments": {
+        "Description": "must be registered on Discord for longer than 5 minutes"
+      }
     },
-    {
-      "level": "HIGH",
-      "integer": "3",
-      "description": "must be a member of the server for longer than 10 minutes"
+    "HIGH": {
+      "value": "3",
+      "comments": {
+        "Description": "must be a member of the server for longer than 10 minutes"
+      }
     },
-    {
-      "level": "VERY_HIGH",
-      "integer": "4",
-      "description": "must have a verified phone number"
+    "VERY_HIGH": {
+      "value": "4",
+      "comments": {
+        "Description": "must have a verified phone number"
+      }
     }
-  ],
-  "Guild NSFW Level": [
-    {
-      "level": "DEFAULT",
+  },
+  "Guild NSFW Level": {
+    "DEFAULT": {
       "value": "0"
     },
-    {
-      "level": "EXPLICIT",
+    "EXPLICIT": {
       "value": "1"
     },
-    {
-      "level": "SAFE",
+    "SAFE": {
       "value": "2"
     },
-    {
-      "level": "AGE_RESTRICTED",
+    "AGE_RESTRICTED": {
       "value": "3"
     }
-  ],
-  "Premium Tier": [
-    {
-      "level": "NONE",
-      "integer": "0",
-      "description": "guild has not unlocked any Server Boost perks"
-    },
-    {
-      "level": "TIER_1",
-      "integer": "1",
-      "description": "guild has unlocked Server Boost level 1 perks"
-    },
-    {
-      "level": "TIER_2",
-      "integer": "2",
-      "description": "guild has unlocked Server Boost level 2 perks"
-    },
-    {
-      "level": "TIER_3",
-      "integer": "3",
-      "description": "guild has unlocked Server Boost level 3 perks"
-    }
-  ],
-  "System Channel Flags": [
-    {
-      "flag": "SUPPRESS_JOIN_NOTIFICATIONS",
-      "value": "1 << 0",
-      "description": "Suppress member join notifications"
-    },
-    {
-      "flag": "SUPPRESS_PREMIUM_SUBSCRIPTIONS",
-      "value": "1 << 1",
-      "description": "Suppress server boost notifications"
-    },
-    {
-      "flag": "SUPPRESS_GUILD_REMINDER_NOTIFICATIONS",
-      "value": "1 << 2",
-      "description": "Suppress server setup tips"
-    },
-    {
-      "flag": "SUPPRESS_JOIN_NOTIFICATION_REPLIES",
-      "value": "1 << 3",
-      "description": "Hide member join sticker reply buttons"
-    }
-  ],
-  "Guild Features": [
-    {
-      "feature": "ANIMATED_BANNER",
-      "description": "guild has access to set an animated guild banner image"
-    },
-    {
-      "feature": "ANIMATED_ICON",
-      "description": "guild has access to set an animated guild icon"
-    },
-    {
-      "feature": "AUTO_MODERATION",
-      "description": "guild has set up auto moderation rules"
-    },
-    {
-      "feature": "BANNER",
-      "description": "guild has access to set a guild banner image"
-    },
-    {
-      "feature": "COMMUNITY",
-      "description": "guild can enable welcome screen, Membership Screening, stage channels and discovery, and receives community updates"
-    },
-    {
-      "feature": "DISCOVERABLE",
-      "description": "guild is able to be discovered in the directory"
-    },
-    {
-      "feature": "FEATURABLE",
-      "description": "guild is able to be featured in the directory"
-    },
-    {
-      "feature": "INVITE_SPLASH",
-      "description": "guild has access to set an invite splash background"
-    },
-    {
-      "feature": "MEMBER_VERIFICATION_GATE_ENABLED",
-      "description": "guild has enabled Membership Screening"
-    },
-    {
-      "feature": "MONETIZATION_ENABLED",
-      "description": "guild has enabled monetization"
-    },
-    {
-      "feature": "MORE_STICKERS",
-      "description": "guild has increased custom sticker slots"
-    },
-    {
-      "feature": "NEWS",
-      "description": "guild has access to create news channels"
-    },
-    {
-      "feature": "PARTNERED",
-      "description": "guild is partnered"
-    },
-    {
-      "feature": "PREVIEW_ENABLED",
-      "description": "guild can be previewed before joining via Membership Screening or the directory"
-    },
-    {
-      "feature": "PRIVATE_THREADS",
-      "description": "guild has access to create private threads"
-    },
-    {
-      "feature": "ROLE_ICONS",
-      "description": "guild is able to set role icons"
-    },
-    {
-      "feature": "TICKETED_EVENTS_ENABLED",
-      "description": "guild has enabled ticketed events"
-    },
-    {
-      "feature": "VANITY_URL",
-      "description": "guild has access to set a vanity URL"
-    },
-    {
-      "feature": "VERIFIED",
-      "description": "guild is verified"
-    },
-    {
-      "feature": "VIP_REGIONS",
-      "description": "guild has access to set 384kbps bitrate in voice (previously VIP voice servers)"
-    },
-    {
-      "feature": "WELCOME_SCREEN_ENABLED",
-      "description": "guild has enabled the welcome screen"
-    }
-  ],
-  "Integration Expire Behaviors": [
-    {
+  },
+  "Premium Tier": {
+    "NONE": {
       "value": "0",
-      "name": "Remove role"
+      "comments": {
+        "Description": "guild has not unlocked any Server Boost perks"
+      }
     },
-    {
+    "TIER_1": {
       "value": "1",
-      "name": "Kick"
+      "comments": {
+        "Description": "guild has unlocked Server Boost level 1 perks"
+      }
+    },
+    "TIER_2": {
+      "value": "2",
+      "comments": {
+        "Description": "guild has unlocked Server Boost level 2 perks"
+      }
+    },
+    "TIER_3": {
+      "value": "3",
+      "comments": {
+        "Description": "guild has unlocked Server Boost level 3 perks"
+      }
     }
-  ],
-  "Response Body": [
-    {
-      "field": "threads",
-      "type": "array of channel objects",
-      "description": "the active threads"
+  },
+  "System Channel Flags": {
+    "SUPPRESS_JOIN_NOTIFICATIONS": {
+      "value": "1 << 0",
+      "comments": {
+        "Description": "Suppress member join notifications"
+      }
     },
-    {
-      "field": "members",
-      "type": "array of thread members objects",
-      "description": "a thread member object for each returned thread the current user has joined"
+    "SUPPRESS_PREMIUM_SUBSCRIPTIONS": {
+      "value": "1 << 1",
+      "comments": {
+        "Description": "Suppress server boost notifications"
+      }
+    },
+    "SUPPRESS_GUILD_REMINDER_NOTIFICATIONS": {
+      "value": "1 << 2",
+      "comments": {
+        "Description": "Suppress server setup tips"
+      }
+    },
+    "SUPPRESS_JOIN_NOTIFICATION_REPLIES": {
+      "value": "1 << 3",
+      "comments": {
+        "Description": "Hide member join sticker reply buttons"
+      }
     }
-  ],
-  "Widget Style Options": [
-    {
-      "value": "shield",
-      "description": "shield style widget with Discord icon and guild members online count",
-      "example": "Example"
+  },
+  "Guild Features": {
+    "ANIMATED_BANNER": {
+      "comments": {
+        "Description": "guild has access to set an animated guild banner image"
+      }
     },
-    {
-      "value": "banner1",
-      "description": "large image with guild icon, name and online count. \"POWERED BY DISCORD\" as the footer of the widget",
-      "example": "Example"
+    "ANIMATED_ICON": {
+      "comments": {
+        "Description": "guild has access to set an animated guild icon"
+      }
     },
-    {
-      "value": "banner2",
-      "description": "smaller widget style with guild icon, name and online count. Split on the right with Discord logo",
-      "example": "Example"
+    "AUTO_MODERATION": {
+      "comments": {
+        "Description": "guild has set up auto moderation rules"
+      }
     },
-    {
-      "value": "banner3",
-      "description": "large image with guild icon, name and online count. In the footer, Discord logo on the left and \"Chat Now\" on the right",
-      "example": "Example"
+    "BANNER": {
+      "comments": {
+        "Description": "guild has access to set a guild banner image"
+      }
     },
-    {
-      "value": "banner4",
-      "description": "large Discord logo at the top of the widget. Guild icon, name and online count in the middle portion of the widget and a \"JOIN MY SERVER\" button at the bottom",
-      "example": "Example"
+    "COMMUNITY": {
+      "comments": {
+        "Description": "guild can enable welcome screen, Membership Screening, stage channels and discovery, and receives community updates"
+      }
+    },
+    "DISCOVERABLE": {
+      "comments": {
+        "Description": "guild is able to be discovered in the directory"
+      }
+    },
+    "FEATURABLE": {
+      "comments": {
+        "Description": "guild is able to be featured in the directory"
+      }
+    },
+    "INVITE_SPLASH": {
+      "comments": {
+        "Description": "guild has access to set an invite splash background"
+      }
+    },
+    "MEMBER_VERIFICATION_GATE_ENABLED": {
+      "comments": {
+        "Description": "guild has enabled Membership Screening"
+      }
+    },
+    "MONETIZATION_ENABLED": {
+      "comments": {
+        "Description": "guild has enabled monetization"
+      }
+    },
+    "MORE_STICKERS": {
+      "comments": {
+        "Description": "guild has increased custom sticker slots"
+      }
+    },
+    "NEWS": {
+      "comments": {
+        "Description": "guild has access to create news channels"
+      }
+    },
+    "PARTNERED": {
+      "comments": {
+        "Description": "guild is partnered"
+      }
+    },
+    "PREVIEW_ENABLED": {
+      "comments": {
+        "Description": "guild can be previewed before joining via Membership Screening or the directory"
+      }
+    },
+    "PRIVATE_THREADS": {
+      "comments": {
+        "Description": "guild has access to create private threads"
+      }
+    },
+    "ROLE_ICONS": {
+      "comments": {
+        "Description": "guild is able to set role icons"
+      }
+    },
+    "TICKETED_EVENTS_ENABLED": {
+      "comments": {
+        "Description": "guild has enabled ticketed events"
+      }
+    },
+    "VANITY_URL": {
+      "comments": {
+        "Description": "guild has access to set a vanity URL"
+      }
+    },
+    "VERIFIED": {
+      "comments": {
+        "Description": "guild is verified"
+      }
+    },
+    "VIP_REGIONS": {
+      "comments": {
+        "Description": "guild has access to set 384kbps bitrate in voice (previously VIP voice servers)"
+      }
+    },
+    "WELCOME_SCREEN_ENABLED": {
+      "comments": {
+        "Description": "guild has enabled the welcome screen"
+      }
     }
-  ]
+  },
+  "Integration Expire Behaviors": {
+    "Remove role": {
+      "value": "0"
+    },
+    "Kick": {
+      "value": "1"
+    }
+  },
+  "Widget Style Options": {
+    "shield": {
+      "comments": {
+        "Description": "shield style widget with Discord icon and guild members online count",
+        "Example": "Example"
+      }
+    },
+    "banner1": {
+      "comments": {
+        "Description": "large image with guild icon, name and online count. \"POWERED BY DISCORD\" as the footer of the widget",
+        "Example": "Example"
+      }
+    },
+    "banner2": {
+      "comments": {
+        "Description": "smaller widget style with guild icon, name and online count. Split on the right with Discord logo",
+        "Example": "Example"
+      }
+    },
+    "banner3": {
+      "comments": {
+        "Description": "large image with guild icon, name and online count. In the footer, Discord logo on the left and \"Chat Now\" on the right",
+        "Example": "Example"
+      }
+    },
+    "banner4": {
+      "comments": {
+        "Description": "large Discord logo at the top of the widget. Guild icon, name and online count in the middle portion of the widget and a \"JOIN MY SERVER\" button at the bottom",
+        "Example": "Example"
+      }
+    }
+  }
 }

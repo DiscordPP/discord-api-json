@@ -1,14 +1,16 @@
 {
-  "Privacy Level": [
-    {
-      "level": "PUBLIC",
+  "Privacy Level": {
+    "PUBLIC": {
       "value": "1",
-      "description": "The Stage instance is visible publicly. (deprecated)"
+      "comments": {
+        "Description": "The Stage instance is visible publicly. (deprecated)"
+      }
     },
-    {
-      "level": "GUILD_ONLY",
+    "GUILD_ONLY": {
       "value": "2",
-      "description": "The Stage instance is visible to only guild members."
+      "comments": {
+        "Description": "The Stage instance is visible to only guild members."
+      }
     }
-  ]
+  }
 }

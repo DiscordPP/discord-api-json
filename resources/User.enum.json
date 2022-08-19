@@ -1,162 +1,163 @@
 {
-  "User Flags": [
-    {
+  "User Flags": {
+    "STAFF": {
       "value": "1 << 0",
-      "name": "STAFF",
-      "description": "Discord Employee"
+      "comments": {
+        "Description": "Discord Employee"
+      }
     },
-    {
+    "PARTNER": {
       "value": "1 << 1",
-      "name": "PARTNER",
-      "description": "Partnered Server Owner"
+      "comments": {
+        "Description": "Partnered Server Owner"
+      }
     },
-    {
+    "HYPESQUAD": {
       "value": "1 << 2",
-      "name": "HYPESQUAD",
-      "description": "HypeSquad Events Member"
+      "comments": {
+        "Description": "HypeSquad Events Member"
+      }
     },
-    {
+    "BUG_HUNTER_LEVEL_1": {
       "value": "1 << 3",
-      "name": "BUG_HUNTER_LEVEL_1",
-      "description": "Bug Hunter Level 1"
+      "comments": {
+        "Description": "Bug Hunter Level 1"
+      }
     },
-    {
+    "HYPESQUAD_ONLINE_HOUSE_1": {
       "value": "1 << 6",
-      "name": "HYPESQUAD_ONLINE_HOUSE_1",
-      "description": "House Bravery Member"
+      "comments": {
+        "Description": "House Bravery Member"
+      }
     },
-    {
+    "HYPESQUAD_ONLINE_HOUSE_2": {
       "value": "1 << 7",
-      "name": "HYPESQUAD_ONLINE_HOUSE_2",
-      "description": "House Brilliance Member"
+      "comments": {
+        "Description": "House Brilliance Member"
+      }
     },
-    {
+    "HYPESQUAD_ONLINE_HOUSE_3": {
       "value": "1 << 8",
-      "name": "HYPESQUAD_ONLINE_HOUSE_3",
-      "description": "House Balance Member"
+      "comments": {
+        "Description": "House Balance Member"
+      }
     },
-    {
+    "PREMIUM_EARLY_SUPPORTER": {
       "value": "1 << 9",
-      "name": "PREMIUM_EARLY_SUPPORTER",
-      "description": "Early Nitro Supporter"
+      "comments": {
+        "Description": "Early Nitro Supporter"
+      }
     },
-    {
+    "TEAM_PSEUDO_USER": {
       "value": "1 << 10",
-      "name": "TEAM_PSEUDO_USER",
-      "description": "User is a team"
+      "comments": {
+        "Description": "User is a team"
+      }
     },
-    {
+    "BUG_HUNTER_LEVEL_2": {
       "value": "1 << 14",
-      "name": "BUG_HUNTER_LEVEL_2",
-      "description": "Bug Hunter Level 2"
+      "comments": {
+        "Description": "Bug Hunter Level 2"
+      }
     },
-    {
+    "VERIFIED_BOT": {
       "value": "1 << 16",
-      "name": "VERIFIED_BOT",
-      "description": "Verified Bot"
+      "comments": {
+        "Description": "Verified Bot"
+      }
     },
-    {
+    "VERIFIED_DEVELOPER": {
       "value": "1 << 17",
-      "name": "VERIFIED_DEVELOPER",
-      "description": "Early Verified Bot Developer"
+      "comments": {
+        "Description": "Early Verified Bot Developer"
+      }
     },
-    {
+    "CERTIFIED_MODERATOR": {
       "value": "1 << 18",
-      "name": "CERTIFIED_MODERATOR",
-      "description": "Discord Certified Moderator"
+      "comments": {
+        "Description": "Discord Certified Moderator"
+      }
     },
-    {
+    "BOT_HTTP_INTERACTIONS": {
       "value": "1 << 19",
-      "name": "BOT_HTTP_INTERACTIONS",
-      "description": "Bot uses only HTTP interactions and is shown in the online member list"
+      "comments": {
+        "Description": "Bot uses only HTTP interactions and is shown in the online member list"
+      }
     }
-  ],
-  "Premium Types": [
-    {
+  },
+  "Premium Types": {
+    "None": {
+      "value": "0"
+    },
+    "Nitro Classic": {
+      "value": "1"
+    },
+    "Nitro": {
+      "value": "2"
+    }
+  },
+  "Services": {
+    "Battle.net": {
+      "value": "battlenet"
+    },
+    "Epic Games": {
+      "value": "epicgames"
+    },
+    "Facebook": {
+      "value": "facebook"
+    },
+    "GitHub": {
+      "value": "github"
+    },
+    "League of Legends": {
+      "value": "leagueoflegends",
+      "comments": {
+        "Value Note": "Service can no longer be added by users"
+      }
+    },
+    "PlayStation Network": {
+      "value": "playstation"
+    },
+    "Reddit": {
+      "value": "reddit"
+    },
+    "Spotify": {
+      "value": "spotify"
+    },
+    "Skype": {
+      "value": "skype",
+      "comments": {
+        "Value Note": "Service can no longer be added by users"
+      }
+    },
+    "Steam": {
+      "value": "steam"
+    },
+    "Twitch": {
+      "value": "twitch"
+    },
+    "Twitter": {
+      "value": "twitter"
+    },
+    "Xbox": {
+      "value": "xbox"
+    },
+    "YouTube": {
+      "value": "youtube"
+    }
+  },
+  "Visibility Types": {
+    "None": {
       "value": "0",
-      "name": "None"
+      "comments": {
+        "Description": "invisible to everyone except the user themselves"
+      }
     },
-    {
+    "Everyone": {
       "value": "1",
-      "name": "Nitro Classic"
-    },
-    {
-      "value": "2",
-      "name": "Nitro"
+      "comments": {
+        "Description": "visible to everyone"
+      }
     }
-  ],
-  "Services": [
-    {
-      "value": "battlenet",
-      "name": "Battle.net"
-    },
-    {
-      "value": "epicgames",
-      "name": "Epic Games"
-    },
-    {
-      "value": "facebook",
-      "name": "Facebook"
-    },
-    {
-      "value": "github",
-      "name": "GitHub"
-    },
-    {
-      "value": "leagueoflegends *",
-      "name": "League of Legends"
-    },
-    {
-      "value": "playstation",
-      "name": "PlayStation Network"
-    },
-    {
-      "value": "reddit",
-      "name": "Reddit"
-    },
-    {
-      "value": "samsunggalaxy *",
-      "name": "Samsung Galaxy"
-    },
-    {
-      "value": "spotify",
-      "name": "Spotify"
-    },
-    {
-      "value": "skype *",
-      "name": "Skype"
-    },
-    {
-      "value": "steam",
-      "name": "Steam"
-    },
-    {
-      "value": "twitch",
-      "name": "Twitch"
-    },
-    {
-      "value": "twitter",
-      "name": "Twitter"
-    },
-    {
-      "value": "xbox",
-      "name": "Xbox"
-    },
-    {
-      "value": "youtube",
-      "name": "YouTube"
-    }
-  ],
-  "Visibility Types": [
-    {
-      "value": "0",
-      "name": "None",
-      "description": "invisible to everyone except the user themselves"
-    },
-    {
-      "value": "1",
-      "name": "Everyone",
-      "description": "visible to everyone"
-    }
-  ]
+  }
 }

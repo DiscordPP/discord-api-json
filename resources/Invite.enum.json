@@ -1,12 +1,10 @@
 {
-  "Invite Target Types": [
-    {
-      "type": "STREAM",
+  "Invite Target Types": {
+    "STREAM": {
       "value": "1"
     },
-    {
-      "type": "EMBEDDED_APPLICATION",
+    "EMBEDDED_APPLICATION": {
       "value": "2"
     }
-  ]
+  }
 }

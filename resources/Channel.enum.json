@@ -1,512 +1,295 @@
 {
-  "Channel Types": [
-    {
-      "type": "GUILD_TEXT",
-      "id": "0",
-      "description": "a text channel within a server"
+  "Channel Types": {
+    "GUILD_TEXT": {
+      "value": "0",
+      "comments": {
+        "Description": "a text channel within a server"
+      }
     },
-    {
-      "type": "DM",
-      "id": "1",
-      "description": "a direct message between users"
-    },
-    {
-      "type": "GUILD_VOICE",
-      "id": "2",
-      "description": "a voice channel within a server"
-    },
-    {
-      "type": "GROUP_DM",
-      "id": "3",
-      "description": "a direct message between multiple users"
-    },
-    {
-      "type": "GUILD_CATEGORY",
-      "id": "4",
-      "description": "an organizational category that contains up to 50 channels"
-    },
-    {
-      "type": "GUILD_NEWS",
-      "id": "5",
-      "description": "a channel that users can follow and crosspost into their own server"
-    },
-    {
-      "type": "GUILD_NEWS_THREAD",
-      "id": "10",
-      "description": "a temporary sub-channel within a GUILD_NEWS channel"
-    },
-    {
-      "type": "GUILD_PUBLIC_THREAD",
-      "id": "11",
-      "description": "a temporary sub-channel within a GUILD_TEXT channel"
-    },
-    {
-      "type": "GUILD_PRIVATE_THREAD",
-      "id": "12",
-      "description": "a temporary sub-channel within a GUILD_TEXT channel that is only viewable by those invited and those with the MANAGE_THREADS permission"
-    },
-    {
-      "type": "GUILD_STAGE_VOICE",
-      "id": "13",
-      "description": "a voice channel for hosting events with an audience"
-    },
-    {
-      "type": "GUILD_DIRECTORY",
-      "id": "14",
-      "description": "the channel in a hub containing the listed servers"
-    },
-    {
-      "type": "GUILD_FORUM*",
-      "id": "15",
-      "description": "(still in development) a channel that can only contain threads"
-    }
-  ],
-  "Video Quality Modes": [
-    {
-      "mode": "AUTO",
+    "DM": {
       "value": "1",
-      "description": "Discord chooses the quality for optimal performance"
+      "comments": {
+        "Description": "a direct message between users"
+      }
     },
-    {
-      "mode": "FULL",
+    "GUILD_VOICE": {
       "value": "2",
-      "description": "720p"
+      "comments": {
+        "Description": "a voice channel within a server"
+      }
+    },
+    "GROUP_DM": {
+      "value": "3",
+      "comments": {
+        "Description": "a direct message between multiple users"
+      }
+    },
+    "GUILD_CATEGORY": {
+      "value": "4",
+      "comments": {
+        "Description": "an organizational category that contains up to 50 channels"
+      }
+    },
+    "GUILD_ANNOUNCEMENT": {
+      "value": "5",
+      "comments": {
+        "Description": "a channel that users can follow and crosspost into their own server"
+      }
+    },
+    "ANNOUNCEMENT_THREAD": {
+      "value": "10",
+      "comments": {
+        "Description": "a temporary sub-channel within a GUILD_ANNOUNCEMENT channel"
+      }
+    },
+    "PUBLIC_THREAD": {
+      "value": "11",
+      "comments": {
+        "Description": "a temporary sub-channel within a GUILD_TEXT channel"
+      }
+    },
+    "PRIVATE_THREAD": {
+      "value": "12",
+      "comments": {
+        "Description": "a temporary sub-channel within a GUILD_TEXT channel that is only viewable by those invited and those with the MANAGE_THREADS permission"
+      }
+    },
+    "GUILD_STAGE_VOICE": {
+      "value": "13",
+      "comments": {
+        "Description": "a voice channel for hosting events with an audience"
+      }
+    },
+    "GUILD_DIRECTORY": {
+      "value": "14",
+      "comments": {
+        "Description": "the channel in a hub containing the listed servers"
+      }
+    },
+    "GUILD_FORUM": {
+      "value": "15",
+      "comments": {
+        "Name Note": "The GUILD_FORUM channel type is still in active development. Avoid implementing any features that are not documented here, since they are subject to change without notice!",
+        "Description": "(still in development) a channel that can only contain threads"
+      }
     }
-  ],
-  "Channel Flags": [
-    {
-      "flag": "PINNED",
+  },
+  "Video Quality Modes": {
+    "AUTO": {
+      "value": "1",
+      "comments": {
+        "Description": "Discord chooses the quality for optimal performance"
+      }
+    },
+    "FULL": {
+      "value": "2",
+      "comments": {
+        "Description": "720p"
+      }
+    }
+  },
+  "Channel Flags": {
+    "PINNED": {
       "value": "1 << 1",
-      "description": "this thread is pinned to the top of its parent forum channel"
+      "comments": {
+        "Description": "this thread is pinned to the top of its parent forum channel"
+      }
     }
-  ],
-  "Message Types": [
-    {
-      "type": "DEFAULT",
+  },
+  "Message Types": {
+    "DEFAULT": {
       "value": "0"
     },
-    {
-      "type": "RECIPIENT_ADD",
+    "RECIPIENT_ADD": {
       "value": "1"
     },
-    {
-      "type": "RECIPIENT_REMOVE",
+    "RECIPIENT_REMOVE": {
       "value": "2"
     },
-    {
-      "type": "CALL",
+    "CALL": {
       "value": "3"
     },
-    {
-      "type": "CHANNEL_NAME_CHANGE",
+    "CHANNEL_NAME_CHANGE": {
       "value": "4"
     },
-    {
-      "type": "CHANNEL_ICON_CHANGE",
+    "CHANNEL_ICON_CHANGE": {
       "value": "5"
     },
-    {
-      "type": "CHANNEL_PINNED_MESSAGE",
+    "CHANNEL_PINNED_MESSAGE": {
       "value": "6"
     },
-    {
-      "type": "USER_JOIN",
+    "USER_JOIN": {
       "value": "7"
     },
-    {
-      "type": "GUILD_BOOST",
+    "GUILD_BOOST": {
       "value": "8"
     },
-    {
-      "type": "GUILD_BOOST_TIER_1",
+    "GUILD_BOOST_TIER_1": {
       "value": "9"
     },
-    {
-      "type": "GUILD_BOOST_TIER_2",
+    "GUILD_BOOST_TIER_2": {
       "value": "10"
     },
-    {
-      "type": "GUILD_BOOST_TIER_3",
+    "GUILD_BOOST_TIER_3": {
       "value": "11"
     },
-    {
-      "type": "CHANNEL_FOLLOW_ADD",
+    "CHANNEL_FOLLOW_ADD": {
       "value": "12"
     },
-    {
-      "type": "GUILD_DISCOVERY_DISQUALIFIED",
+    "GUILD_DISCOVERY_DISQUALIFIED": {
       "value": "14"
     },
-    {
-      "type": "GUILD_DISCOVERY_REQUALIFIED",
+    "GUILD_DISCOVERY_REQUALIFIED": {
       "value": "15"
     },
-    {
-      "type": "GUILD_DISCOVERY_GRACE_PERIOD_INITIAL_WARNING",
+    "GUILD_DISCOVERY_GRACE_PERIOD_INITIAL_WARNING": {
       "value": "16"
     },
-    {
-      "type": "GUILD_DISCOVERY_GRACE_PERIOD_FINAL_WARNING",
+    "GUILD_DISCOVERY_GRACE_PERIOD_FINAL_WARNING": {
       "value": "17"
     },
-    {
-      "type": "THREAD_CREATED",
+    "THREAD_CREATED": {
       "value": "18"
     },
-    {
-      "type": "REPLY",
+    "REPLY": {
       "value": "19"
     },
-    {
-      "type": "CHAT_INPUT_COMMAND",
+    "CHAT_INPUT_COMMAND": {
       "value": "20"
     },
-    {
-      "type": "THREAD_STARTER_MESSAGE",
+    "THREAD_STARTER_MESSAGE": {
       "value": "21"
     },
-    {
-      "type": "GUILD_INVITE_REMINDER",
+    "GUILD_INVITE_REMINDER": {
       "value": "22"
     },
-    {
-      "type": "CONTEXT_MENU_COMMAND",
+    "CONTEXT_MENU_COMMAND": {
       "value": "23"
     },
-    {
-      "type": "AUTO_MODERATION_ACTION",
+    "AUTO_MODERATION_ACTION": {
       "value": "24"
     }
-  ],
-  "Message Activity Types": [
-    {
-      "type": "JOIN",
+  },
+  "Message Activity Types": {
+    "JOIN": {
       "value": "1"
     },
-    {
-      "type": "SPECTATE",
+    "SPECTATE": {
       "value": "2"
     },
-    {
-      "type": "LISTEN",
+    "LISTEN": {
       "value": "3"
     },
-    {
-      "type": "JOIN_REQUEST",
+    "JOIN_REQUEST": {
       "value": "5"
     }
-  ],
-  "Message Flags": [
-    {
-      "flag": "CROSSPOSTED",
+  },
+  "Message Flags": {
+    "CROSSPOSTED": {
       "value": "1 << 0",
-      "description": "this message has been published to subscribed channels (via Channel Following)"
+      "comments": {
+        "Description": "this message has been published to subscribed channels (via Channel Following)"
+      }
     },
-    {
-      "flag": "IS_CROSSPOST",
+    "IS_CROSSPOST": {
       "value": "1 << 1",
-      "description": "this message originated from a message in another channel (via Channel Following)"
+      "comments": {
+        "Description": "this message originated from a message in another channel (via Channel Following)"
+      }
     },
-    {
-      "flag": "SUPPRESS_EMBEDS",
+    "SUPPRESS_EMBEDS": {
       "value": "1 << 2",
-      "description": "do not include any embeds when serializing this message"
+      "comments": {
+        "Description": "do not include any embeds when serializing this message"
+      }
     },
-    {
-      "flag": "SOURCE_MESSAGE_DELETED",
+    "SOURCE_MESSAGE_DELETED": {
       "value": "1 << 3",
-      "description": "the source message for this crosspost has been deleted (via Channel Following)"
+      "comments": {
+        "Description": "the source message for this crosspost has been deleted (via Channel Following)"
+      }
     },
-    {
-      "flag": "URGENT",
+    "URGENT": {
       "value": "1 << 4",
-      "description": "this message came from the urgent message system"
+      "comments": {
+        "Description": "this message came from the urgent message system"
+      }
     },
-    {
-      "flag": "HAS_THREAD",
+    "HAS_THREAD": {
       "value": "1 << 5",
-      "description": "this message has an associated thread, with the same id as the message"
+      "comments": {
+        "Description": "this message has an associated thread, with the same id as the message"
+      }
     },
-    {
-      "flag": "EPHEMERAL",
+    "EPHEMERAL": {
       "value": "1 << 6",
-      "description": "this message is only visible to the user who invoked the Interaction"
+      "comments": {
+        "Description": "this message is only visible to the user who invoked the Interaction"
+      }
     },
-    {
-      "flag": "LOADING",
+    "LOADING": {
       "value": "1 << 7",
-      "description": "this message is an Interaction Response and the bot is \"thinking\""
+      "comments": {
+        "Description": "this message is an Interaction Response and the bot is \"thinking\""
+      }
     },
-    {
-      "flag": "FAILED_TO_MENTION_SOME_ROLES_IN_THREAD",
+    "FAILED_TO_MENTION_SOME_ROLES_IN_THREAD": {
       "value": "1 << 8",
-      "description": "this message failed to mention some roles and add their members to the thread"
+      "comments": {
+        "Description": "this message failed to mention some roles and add their members to the thread"
+      }
     }
-  ],
-  "Embed Types": [
-    {
-      "type": "rich",
-      "description": "generic embed rendered from embed attributes"
+  },
+  "Embed Types": {
+    "rich": {
+      "comments": {
+        "Description": "generic embed rendered from embed attributes"
+      }
     },
-    {
-      "type": "image",
-      "description": "image embed"
+    "image": {
+      "comments": {
+        "Description": "image embed"
+      }
     },
-    {
-      "type": "video",
-      "description": "video embed"
+    "video": {
+      "comments": {
+        "Description": "video embed"
+      }
     },
-    {
-      "type": "gifv",
-      "description": "animated gif image embed rendered as a video embed"
+    "gifv": {
+      "comments": {
+        "Description": "animated gif image embed rendered as a video embed"
+      }
     },
-    {
-      "type": "article",
-      "description": "article embed"
+    "article": {
+      "comments": {
+        "Description": "article embed"
+      }
     },
-    {
-      "type": "link",
-      "description": "link embed"
+    "link": {
+      "comments": {
+        "Description": "link embed"
+      }
     }
-  ],
-  "Embed Limits": [
-    {
-      "field": "title",
-      "limit": "256 characters"
-    },
-    {
-      "field": "description",
-      "limit": "4096 characters"
-    },
-    {
-      "field": "fields",
-      "limit": "Up to 25 field objects"
-    },
-    {
-      "field": "field.name",
-      "limit": "256 characters"
-    },
-    {
-      "field": "field.value",
-      "limit": "1024 characters"
-    },
-    {
-      "field": "footer.text",
-      "limit": "2048 characters"
-    },
-    {
-      "field": "author.name",
-      "limit": "256 characters"
-    }
-  ],
-  "Allowed Mention Types": [
-    {
-      "type": "Role Mentions",
+  },
+  "Allowed Mention Types": {
+    "Role Mentions": {
       "value": "\"roles\"",
-      "description": "Controls role mentions"
+      "comments": {
+        "Description": "Controls role mentions"
+      }
     },
-    {
-      "type": "User Mentions",
+    "User Mentions": {
       "value": "\"users\"",
-      "description": "Controls user mentions"
+      "comments": {
+        "Description": "Controls user mentions"
+      }
     },
-    {
-      "type": "Everyone Mentions",
+    "Everyone Mentions": {
       "value": "\"everyone\"",
-      "description": "Controls @everyone and @here mentions"
+      "comments": {
+        "Description": "Controls @everyone and @here mentions"
+      }
     }
-  ],
-  "JSON Params (Group DM)": [
-    {
-      "field": "name",
-      "type": "string",
-      "description": "1-100 character channel name"
-    },
-    {
-      "field": "icon",
-      "type": "binary",
-      "description": "base64 encoded icon"
-    }
-  ],
-  "JSON Params (Guild channel)": [
-    {
-      "field": "name",
-      "type": "string",
-      "description": "1-100 character channel name",
-      "channel type": "All"
-    },
-    {
-      "field": "type",
-      "type": "integer",
-      "description": "the type of channel; only conversion between text and news is supported and only in guilds with the \"NEWS\" feature",
-      "channel type": "Text, News"
-    },
-    {
-      "field": "position",
-      "type": "?integer",
-      "description": "the position of the channel in the left-hand listing",
-      "channel type": "All"
-    },
-    {
-      "field": "topic",
-      "type": "?string",
-      "description": "0-1024 character channel topic",
-      "channel type": "Text, News"
-    },
-    {
-      "field": "nsfw",
-      "type": "?boolean",
-      "description": "whether the channel is nsfw",
-      "channel type": "Text, Voice, News"
-    },
-    {
-      "field": "rate_limit_per_user",
-      "type": "?integer",
-      "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel, are unaffected",
-      "channel type": "Text"
-    },
-    {
-      "field": "bitrate*",
-      "type": "?integer",
-      "description": "the bitrate (in bits) of the voice or stage channel; min 8000",
-      "channel type": "Voice, Stage"
-    },
-    {
-      "field": "user_limit",
-      "type": "?integer",
-      "description": "the user limit of the voice channel; 0 refers to no limit, 1 to 99 refers to a user limit",
-      "channel type": "Voice"
-    },
-    {
-      "field": "permission_overwrites**",
-      "type": "?array of partial overwrite objects",
-      "description": "channel or category-specific permissions",
-      "channel type": "All"
-    },
-    {
-      "field": "parent_id",
-      "type": "?snowflake",
-      "description": "id of the new parent category for a channel",
-      "channel type": "Text, Voice, News"
-    },
-    {
-      "field": "rtc_region",
-      "type": "?string",
-      "description": "channel voice region id, automatic when set to null",
-      "channel type": "Voice, Stage"
-    },
-    {
-      "field": "video_quality_mode",
-      "type": "?integer",
-      "description": "the camera video quality mode of the voice channel",
-      "channel type": "Voice"
-    },
-    {
-      "field": "default_auto_archive_duration",
-      "type": "?integer",
-      "description": "the default duration that the clients use (not the API) for newly created threads in the channel, in minutes, to automatically archive the thread after recent activity",
-      "channel type": "Text, News"
-    }
-  ],
-  "JSON Params (Thread)": [
-    {
-      "field": "name",
-      "type": "string",
-      "description": "1-100 character channel name"
-    },
-    {
-      "field": "archived",
-      "type": "boolean",
-      "description": "whether the thread is archived"
-    },
-    {
-      "field": "auto_archive_duration",
-      "type": "integer",
-      "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
-    },
-    {
-      "field": "locked",
-      "type": "boolean",
-      "description": "whether the thread is locked; when a thread is locked, only users with MANAGE_THREADS can unarchive it"
-    },
-    {
-      "field": "invitable",
-      "type": "boolean",
-      "description": "whether non-moderators can add other non-moderators to a thread; only available on private threads"
-    },
-    {
-      "field": "rate_limit_per_user",
-      "type": "?integer",
-      "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages, manage_thread, or manage_channel, are unaffected"
-    },
-    {
-      "field": "flags?",
-      "type": "integer",
-      "description": "channel flags combined as a bitfield; PINNED can only be set for threads in forum channels"
-    }
-  ],
-  "Forum Thread Message Params Object": [
-    {
-      "field": "content?*",
-      "type": "string",
-      "description": "Message contents (up to 2000 characters)"
-    },
-    {
-      "field": "embeds?",
-      "type": "array of embed objects",
-      "description": "Embedded rich content (up to 6000 characters)"
-    },
-    {
-      "field": "allowed_mentions?",
-      "type": "allowed mention object",
-      "description": "Allowed mentions for the message"
-    },
-    {
-      "field": "components?",
-      "type": "array of message component objects",
-      "description": "Components to include with the message"
-    },
-    {
-      "field": "sticker_ids?*",
-      "type": "array of snowflakes",
-      "description": "IDs of up to 3 stickers in the server to send in the message"
-    },
-    {
-      "field": "files[n]*",
-      "type": "file contents",
-      "description": "Contents of the file being sent. See Uploading Files"
-    },
-    {
-      "field": "payload_json?",
-      "type": "string",
-      "description": "JSON-encoded body of non-file params, only for multipart/form-data requests. See Uploading Files"
-    },
-    {
-      "field": "attachments?",
-      "type": "array of partial attachment objects",
-      "description": "Attachment objects with filename and description. See Uploading Files"
-    },
-    {
-      "field": "flags?",
-      "type": "integer",
-      "description": "Message flags combined as a bitfield (only SUPPRESS_EMBEDS can be set)"
-    }
-  ],
-  "Response Body": [
-    {
-      "field": "threads",
-      "type": "array of channel objects",
-      "description": "the private, archived threads the current user has joined"
-    },
-    {
-      "field": "members",
-      "type": "array of thread members objects",
-      "description": "a thread member object for each returned thread the current user has joined"
-    },
-    {
-      "field": "has_more",
-      "type": "boolean",
-      "description": "whether there are potentially additional threads that could be returned on a subsequent call"
-    }
-  ]
+  }
 }

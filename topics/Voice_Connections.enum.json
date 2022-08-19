@@ -1,0 +1,22 @@
+{
+  "Speaking": {
+    "Microphone": {
+      "value": "1 << 0",
+      "comments": {
+        "Meaning": "Normal transmission of voice audio"
+      }
+    },
+    "Soundshare": {
+      "value": "1 << 1",
+      "comments": {
+        "Meaning": "Transmission of context audio for video, no speaking indicator"
+      }
+    },
+    "Priority": {
+      "value": "1 << 2",
+      "comments": {
+        "Meaning": "Priority speaker, lowering audio of other speakers"
+      }
+    }
+  }
+}

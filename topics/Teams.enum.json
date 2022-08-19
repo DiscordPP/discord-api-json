@@ -1,0 +1,10 @@
+{
+  "Membership State Enum": {
+    "INVITED": {
+      "value": "1"
+    },
+    "ACCEPTED": {
+      "value": "2"
+    }
+  }
+}
