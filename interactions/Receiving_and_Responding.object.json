@@ -1,278 +1,311 @@
 {
   "Interaction": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object"
+      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "ID of the interaction",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "ID of the interaction"
+      }
     },
     "application_id": {
       "type": "snowflake",
-      "description": "ID of the application this interaction is for",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "ID of the application this interaction is for"
+      }
     },
     "type": {
       "type": "interaction type",
-      "description": "Type of interaction",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Type of interaction"
+      }
     },
     "data": {
       "type": "interaction data",
-      "description": "Interaction data payload",
       "optional": true,
       "nullable": false,
-      "note-field": "This is always present on application command, message component, and modal submit interaction types. It is optional for future-proofing against new interaction types"
+      "comments": {
+        "Description": "Interaction data payload",
+        "Name Note": "This is always present on application command, message component, and modal submit interaction types. It is optional for future-proofing against new interaction types"
+      }
     },
     "guild_id": {
       "type": "snowflake",
-      "description": "Guild that the interaction was sent from",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Guild that the interaction was sent from"
+      }
     },
     "channel_id": {
       "type": "snowflake",
-      "description": "Channel that the interaction was sent from",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Channel that the interaction was sent from"
+      }
     },
     "member": {
       "type": "guild member object",
-      "description": "Guild member data for the invoking user, including permissions",
       "optional": true,
       "nullable": false,
-      "note-field": "member is sent when the interaction is invoked in a guild, and user is sent when invoked in a DM"
+      "comments": {
+        "Description": "Guild member data for the invoking user, including permissions",
+        "Name Note": "member is sent when the interaction is invoked in a guild, and user is sent when invoked in a DM"
+      }
     },
     "user": {
       "type": "user object",
-      "description": "User object for the invoking user, if invoked in a DM",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "User object for the invoking user, if invoked in a DM"
+      }
     },
     "token": {
       "type": "string",
-      "description": "Continuation token for responding to the interaction",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Continuation token for responding to the interaction"
+      }
     },
     "version": {
       "type": "integer",
-      "description": "Read-only property, always 1",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Read-only property, always 1"
+      }
     },
     "message": {
       "type": "message object",
-      "description": "For components, the message they were attached to",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "For components, the message they were attached to"
+      }
     },
     "app_permissions": {
       "type": "string",
-      "description": "Bitwise set of permissions the app or bot has within the channel the interaction was sent from",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Bitwise set of permissions the app or bot has within the channel the interaction was sent from"
+      }
     },
     "locale": {
       "type": "string",
-      "description": "Selected language of the invoking user",
       "optional": true,
       "nullable": false,
-      "note-field": "This is available on all interaction types except PING"
+      "comments": {
+        "Description": "Selected language of the invoking user",
+        "Name Note": "This is available on all interaction types except PING"
+      }
     },
     "guild_locale": {
       "type": "string",
-      "description": "Guild's preferred locale, if invoked in a guild",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Guild's preferred locale, if invoked in a guild"
+      }
     }
   },
-  "Application Command Data": {
+  "ApplicationCommandData": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object"
+      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-application-command-data-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "the ID of the invoked command",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the ID of the invoked command"
+      }
     },
     "name": {
       "type": "string",
-      "description": "the name of the invoked command",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the name of the invoked command"
+      }
     },
     "type": {
       "type": "integer",
-      "description": "the type of the invoked command",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the type of the invoked command"
+      }
     },
     "resolved": {
       "type": "resolved data",
-      "description": "converted users + roles + channels + attachments",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "converted users + roles + channels + attachments"
+      }
     },
     "options": {
       "type": "array of application command interaction data option",
-      "description": "the params + values from the user",
       "optional": true,
       "nullable": false,
-      "note-field": "This can be partial when in response to APPLICATION_COMMAND_AUTOCOMPLETE"
+      "comments": {
+        "Description": "the params + values from the user",
+        "Name Note": "This can be partial when in response to APPLICATION_COMMAND_AUTOCOMPLETE"
+      }
     },
     "guild_id": {
       "type": "snowflake",
-      "description": "the id of the guild the command is registered to",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the id of the guild the command is registered to"
+      }
     },
     "target_id": {
       "type": "snowflake",
-      "description": "id of the user or message targeted by a user or message command",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "id of the user or message targeted by a user or message command"
+      }
     }
   },
-  "Message Component Data": {
+  "MessageComponentData": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object"
+      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-message-component-data-structure"
     },
     "custom_id": {
       "type": "string",
-      "description": "the custom_id of the component",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the custom_id of the component"
+      }
     },
     "component_type": {
       "type": "integer",
-      "description": "the type of the component",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the type of the component"
+      }
     },
     "values": {
       "type": "array of select option values",
-      "description": "values the user selected in a select menu component",
       "optional": true,
       "nullable": false,
-      "note-field": "This is always present for select menu components"
+      "comments": {
+        "Description": "values the user selected in a select menu component",
+        "Name Note": "This is always present for select menu components"
+      }
     }
   },
-  "Modal Submit Data": {
+  "ModalSubmitData": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object"
+      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-modal-submit-data-structure"
     },
     "custom_id": {
       "type": "string",
-      "description": "the custom_id of the modal",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the custom_id of the modal"
+      }
     },
     "components": {
       "type": "array of message components",
-      "description": "the values submitted by the user",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the values submitted by the user"
+      }
     }
   },
-  "Resolved Data": {
+  "ResolvedData": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object"
+      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-resolved-data-structure"
     },
     "users": {
       "type": "Map of Snowflakes to user objects",
-      "description": "the ids and User objects",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the ids and User objects"
+      }
     },
     "members": {
       "type": "Map of Snowflakes to partial member objects",
-      "description": "the ids and partial Member objects",
       "optional": true,
       "nullable": false,
-      "note-field": "Partial Member objects are missing user, deaf and mute fields"
+      "comments": {
+        "Description": "the ids and partial Member objects",
+        "Name Note": "Partial Member objects are missing user, deaf and mute fields"
+      }
     },
     "roles": {
       "type": "Map of Snowflakes to role objects",
-      "description": "the ids and Role objects",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the ids and Role objects"
+      }
     },
     "channels": {
       "type": "Map of Snowflakes to partial channel objects",
-      "description": "the ids and partial Channel objects",
       "optional": true,
       "nullable": false,
-      "note-field": "Partial Channel objects only have id, name, type and permissions fields. Threads will also have thread_metadata and parent_id fields."
+      "comments": {
+        "Description": "the ids and partial Channel objects",
+        "Name Note": "Partial Channel objects only have id, name, type and permissions fields. Threads will also have thread_metadata and parent_id fields."
+      }
     },
     "messages": {
       "type": "Map of Snowflakes to partial messages objects",
-      "description": "the ids and partial Message objects",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the ids and partial Message objects"
+      }
     },
     "attachments": {
       "type": "Map of Snowflakes to attachment objects",
-      "description": "the ids and attachment objects",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the ids and attachment objects"
+      }
     }
   },
-  "Message Interaction": {
+  "InteractionResponse": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#message-interaction-object"
-    },
-    "id": {
-      "type": "snowflake",
-      "description": "ID of the interaction",
-      "optional": false,
-      "nullable": false
-    },
-    "type": {
-      "type": "interaction type",
-      "description": "Type of interaction",
-      "optional": false,
-      "nullable": false
-    },
-    "name": {
-      "type": "string",
-      "description": "Name of the application command, including subcommands and subcommand groups",
-      "optional": false,
-      "nullable": false
-    },
-    "user": {
-      "type": "user object",
-      "description": "User who invoked the interaction",
-      "optional": false,
-      "nullable": false
-    },
-    "member": {
-      "type": "partial member object",
-      "description": "Member who invoked the interaction in the guild",
-      "optional": true,
-      "nullable": false
-    }
-  },
-  "Interaction Response": {
-    "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-response-object"
+      "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-response-object-interaction-response-structure"
     },
     "type": {
       "type": "interaction callback type",
-      "description": "the type of response",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the type of response"
+      }
     },
     "data": {
       "type": "interaction callback data",
-      "description": "an optional response message",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "an optional response message"
+      }
     }
   }
 }

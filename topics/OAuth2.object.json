@@ -1,0 +1,39 @@
+{
+  "GetCurrentAuthorizationInformationResponse": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/topics/oauth2#get-current-authorization-information-response-structure"
+    },
+    "application": {
+      "type": "partial application object",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the current application"
+      }
+    },
+    "scopes": {
+      "type": "array of strings",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the scopes the user has authorized the application for"
+      }
+    },
+    "expires": {
+      "type": "ISO8601 timestamp",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "when the access token expires"
+      }
+    },
+    "user": {
+      "type": "user object",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "the user who has authorized, if the user has authorized with the identify scope"
+      }
+    }
+  }
+}

@@ -1,73 +1,164 @@
 {
-  "Guild Template": {
+  "GuildTemplate": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/guild-template#guild-template-object"
+      "docs_url": "https://discord.com/developers/docs/resources/guild-template#guild-template-object-guild-template-structure"
     },
     "code": {
       "type": "string",
-      "description": "the template code (unique ID)",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the template code (unique ID)"
+      }
     },
     "name": {
       "type": "string",
-      "description": "template name",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "template name"
+      }
     },
     "description": {
       "type": "string",
-      "description": "the description for the template",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the description for the template"
+      }
     },
     "usage_count": {
       "type": "integer",
-      "description": "number of times this template has been used",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "number of times this template has been used"
+      }
     },
     "creator_id": {
       "type": "snowflake",
-      "description": "the ID of the user who created the template",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the ID of the user who created the template"
+      }
     },
     "creator": {
       "type": "user object",
-      "description": "the user who created the template",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the user who created the template"
+      }
     },
     "created_at": {
       "type": "ISO8601 timestamp",
-      "description": "when this template was created",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "when this template was created"
+      }
     },
     "updated_at": {
       "type": "ISO8601 timestamp",
-      "description": "when this template was last synced to the source guild",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "when this template was last synced to the source guild"
+      }
     },
     "source_guild_id": {
       "type": "snowflake",
-      "description": "the ID of the guild this template is based on",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the ID of the guild this template is based on"
+      }
     },
     "serialized_source_guild": {
       "type": "partial guild object",
-      "description": "the guild snapshot this template contains",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the guild snapshot this template contains"
+      }
     },
     "is_dirty": {
       "type": "boolean",
-      "description": "whether the template has unsynced changes",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "whether the template has unsynced changes"
+      }
+    }
+  },
+  "CreateGuildFromGuildTemplateParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild-template#create-guild-from-guild-template-json-params"
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "name of the guild (2-100 characters)"
+      },
+      "target": "json"
+    },
+    "icon": {
+      "type": "image data",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "base64 128x128 image for the guild icon"
+      },
+      "target": "json"
+    }
+  },
+  "CreateGuildTemplateParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild-template#create-guild-template-json-params"
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "name of the template (1-100 characters)"
+      },
+      "target": "json"
+    },
+    "description": {
+      "type": "string",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "description for the template (0-120 characters)"
+      },
+      "target": "json"
+    }
+  },
+  "ModifyGuildTemplateParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild-template#modify-guild-template-json-params"
+    },
+    "name": {
+      "type": "string",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "name of the template (1-100 characters)"
+      },
+      "target": "json"
+    },
+    "description": {
+      "type": "string",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "description for the template (0-120 characters)"
+      },
+      "target": "json"
     }
   }
 }

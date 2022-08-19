@@ -1,49 +1,128 @@
 {
-  "Stage Instance": {
+  "StageInstance": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/stage-instance#stage-instance-object"
+      "docs_url": "https://discord.com/developers/docs/resources/stage-instance#stage-instance-object-stage-instance-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "The id of this Stage instance",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "The id of this Stage instance"
+      }
     },
     "guild_id": {
       "type": "snowflake",
-      "description": "The guild id of the associated Stage channel",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "The guild id of the associated Stage channel"
+      }
     },
     "channel_id": {
       "type": "snowflake",
-      "description": "The id of the associated Stage channel",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "The id of the associated Stage channel"
+      }
     },
     "topic": {
       "type": "string",
-      "description": "The topic of the Stage instance (1-120 characters)",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "The topic of the Stage instance (1-120 characters)"
+      }
     },
     "privacy_level": {
       "type": "integer",
-      "description": "The privacy level of the Stage instance",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "The privacy level of the Stage instance"
+      }
     },
     "discoverable_disabled": {
       "type": "boolean",
-      "description": "Whether or not Stage Discovery is disabled (deprecated)",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Whether or not Stage Discovery is disabled (deprecated)"
+      }
     },
     "guild_scheduled_event_id": {
       "type": "snowflake",
-      "description": "The id of the scheduled event for this Stage instance",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "The id of the scheduled event for this Stage instance"
+      }
+    }
+  },
+  "CreateStageInstanceParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/stage-instance#create-stage-instance-json-params"
+    },
+    "channel_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "The id of the Stage channel"
+      },
+      "target": "json"
+    },
+    "topic": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "The topic of the Stage instance (1-120 characters)"
+      },
+      "target": "json"
+    },
+    "privacy_level": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "The privacy level of the Stage instance (default GUILD_ONLY)"
+      },
+      "target": "json"
+    },
+    "send_start_notification": {
+      "type": "boolean",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Notify @everyone that a Stage instance has started",
+        "Name Note": "The stage moderator must have the MENTION_EVERYONE permission for this notification to be sent."
+      },
+      "target": "json"
+    }
+  },
+  "ModifyStageInstanceParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/stage-instance#modify-stage-instance-json-params"
+    },
+    "topic": {
+      "type": "string",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "The topic of the Stage instance (1-120 characters)"
+      },
+      "target": "json"
+    },
+    "privacy_level": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "The privacy level of the Stage instance"
+      },
+      "target": "json"
     }
   }
 }

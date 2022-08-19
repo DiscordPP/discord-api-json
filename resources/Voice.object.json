@@ -1,120 +1,156 @@
 {
-  "Voice State": {
+  "VoiceState": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/voice#voice-state-object"
+      "docs_url": "https://discord.com/developers/docs/resources/voice#voice-state-object-voice-state-structure"
     },
     "guild_id": {
       "type": "snowflake",
-      "description": "the guild id this voice state is for",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the guild id this voice state is for"
+      }
     },
     "channel_id": {
       "type": "snowflake",
-      "description": "the channel id this user is connected to",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the channel id this user is connected to"
+      }
     },
     "user_id": {
       "type": "snowflake",
-      "description": "the user id this voice state is for",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the user id this voice state is for"
+      }
     },
     "member": {
       "type": "guild member object",
-      "description": "the guild member this voice state is for",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the guild member this voice state is for"
+      }
     },
     "session_id": {
       "type": "string",
-      "description": "the session id for this voice state",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the session id for this voice state"
+      }
     },
     "deaf": {
       "type": "boolean",
-      "description": "whether this user is deafened by the server",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether this user is deafened by the server"
+      }
     },
     "mute": {
       "type": "boolean",
-      "description": "whether this user is muted by the server",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether this user is muted by the server"
+      }
     },
     "self_deaf": {
       "type": "boolean",
-      "description": "whether this user is locally deafened",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether this user is locally deafened"
+      }
     },
     "self_mute": {
       "type": "boolean",
-      "description": "whether this user is locally muted",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether this user is locally muted"
+      }
     },
     "self_stream": {
       "type": "boolean",
-      "description": "whether this user is streaming using \"Go Live\"",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether this user is streaming using \"Go Live\""
+      }
     },
     "self_video": {
       "type": "boolean",
-      "description": "whether this user's camera is enabled",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether this user's camera is enabled"
+      }
     },
     "suppress": {
       "type": "boolean",
-      "description": "whether this user is muted by the current user",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether this user is muted by the current user"
+      }
     },
     "request_to_speak_timestamp": {
       "type": "ISO8601 timestamp",
-      "description": "the time at which the user requested to speak",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the time at which the user requested to speak"
+      }
     }
   },
-  "Voice Region": {
+  "VoiceRegion": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/voice#voice-region-object"
+      "docs_url": "https://discord.com/developers/docs/resources/voice#voice-region-object-voice-region-structure"
     },
     "id": {
       "type": "string",
-      "description": "unique ID for the region",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "unique ID for the region"
+      }
     },
     "name": {
       "type": "string",
-      "description": "name of the region",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "name of the region"
+      }
     },
     "optimal": {
       "type": "boolean",
-      "description": "true for a single server that is closest to the current user's client",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "true for a single server that is closest to the current user's client"
+      }
     },
     "deprecated": {
       "type": "boolean",
-      "description": "whether this is a deprecated voice region (avoid switching to these)",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether this is a deprecated voice region (avoid switching to these)"
+      }
     },
     "custom": {
       "type": "boolean",
-      "description": "whether this is a custom voice region (used for events/etc)",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether this is a custom voice region (used for events/etc)"
+      }
     }
   }
 }

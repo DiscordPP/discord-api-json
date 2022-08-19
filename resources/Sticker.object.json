@@ -1,150 +1,278 @@
 {
   "Sticker": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/sticker#sticker-object"
+      "docs_url": "https://discord.com/developers/docs/resources/sticker#sticker-object-sticker-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "id of the sticker",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "id of the sticker"
+      }
     },
     "pack_id": {
       "type": "snowflake",
-      "description": "for standard stickers, id of the pack the sticker is from",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "for standard stickers, id of the pack the sticker is from"
+      }
     },
     "name": {
       "type": "string",
-      "description": "name of the sticker",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "name of the sticker"
+      }
     },
     "description": {
       "type": "string",
-      "description": "description of the sticker",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "description of the sticker"
+      }
     },
     "tags": {
       "type": "string",
-      "description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
       "optional": false,
       "nullable": false,
-      "note-field": "A comma separated list of keywords is the format used in this field by standard stickers, but this is just a convention.Incidentally the client will always use a name generated from an emoji as the value of this field when creating or modifying a guild sticker."
+      "comments": {
+        "Description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
+        "Name Note": "A comma separated list of keywords is the format used in this field by standard stickers, but this is just a convention.\nIncidentally the client will always use a name generated from an emoji as the value of this field when creating or modifying a guild sticker."
+      }
     },
     "asset": {
       "type": "string",
-      "description": "Deprecated previously the sticker asset hash, now an empty string",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Deprecated previously the sticker asset hash, now an empty string"
+      }
     },
     "type": {
       "type": "integer",
-      "description": "type of sticker",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "type of sticker"
+      }
     },
     "format_type": {
       "type": "integer",
-      "description": "type of sticker format",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "type of sticker format"
+      }
     },
     "available": {
       "type": "boolean",
-      "description": "whether this guild sticker can be used, may be false due to loss of Server Boosts",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether this guild sticker can be used, may be false due to loss of Server Boosts"
+      }
     },
     "guild_id": {
       "type": "snowflake",
-      "description": "id of the guild that owns this sticker",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "id of the guild that owns this sticker"
+      }
     },
     "user": {
       "type": "user object",
-      "description": "the user that uploaded the guild sticker",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the user that uploaded the guild sticker"
+      }
     },
     "sort_value": {
       "type": "integer",
-      "description": "the standard sticker's sort order within its pack",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the standard sticker's sort order within its pack"
+      }
     }
   },
-  "Sticker Item": {
+  "StickerItem": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/sticker#sticker-item-object"
+      "docs_url": "https://discord.com/developers/docs/resources/sticker#sticker-item-object-sticker-item-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "id of the sticker",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "id of the sticker"
+      }
     },
     "name": {
       "type": "string",
-      "description": "name of the sticker",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "name of the sticker"
+      }
     },
     "format_type": {
       "type": "integer",
-      "description": "type of sticker format",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "type of sticker format"
+      }
     }
   },
-  "Sticker Pack": {
+  "StickerPack": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/sticker#sticker-pack-object"
+      "docs_url": "https://discord.com/developers/docs/resources/sticker#sticker-pack-object-sticker-pack-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "id of the sticker pack",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "id of the sticker pack"
+      }
     },
     "stickers": {
       "type": "array of sticker objects",
-      "description": "the stickers in the pack",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the stickers in the pack"
+      }
     },
     "name": {
       "type": "string",
-      "description": "name of the sticker pack",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "name of the sticker pack"
+      }
     },
     "sku_id": {
       "type": "snowflake",
-      "description": "id of the pack's SKU",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "id of the pack's SKU"
+      }
     },
     "cover_sticker_id": {
       "type": "snowflake",
-      "description": "id of a sticker in the pack which is shown as the pack's icon",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "id of a sticker in the pack which is shown as the pack's icon"
+      }
     },
     "description": {
       "type": "string",
-      "description": "description of the sticker pack",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "description of the sticker pack"
+      }
     },
     "banner_asset_id": {
       "type": "snowflake",
-      "description": "id of the sticker pack's banner image",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "id of the sticker pack's banner image"
+      }
+    }
+  },
+  "ListNitroStickerPacksResponse": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/sticker#list-nitro-sticker-packs-response-structure"
+    },
+    "sticker_packs": {
+      "type": "array of sticker pack objects",
+      "optional": false,
+      "nullable": false,
+      "comments": {}
+    }
+  },
+  "CreateGuildStickerParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/sticker#create-guild-sticker-form-params"
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "name of the sticker (2-30 characters)"
+      },
+      "target": "form"
+    },
+    "description": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "description of the sticker (empty or 2-100 characters)"
+      },
+      "target": "form"
+    },
+    "tags": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "autocomplete/suggestion tags for the sticker (max 200 characters)"
+      },
+      "target": "form"
+    },
+    "file": {
+      "type": "file contents",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the sticker file to upload, must be a PNG, APNG, or Lottie JSON file, max 500 KB"
+      },
+      "target": "form"
+    }
+  },
+  "ModifyGuildStickerParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/sticker#modify-guild-sticker-json-params"
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "name of the sticker (2-30 characters)"
+      },
+      "target": "json"
+    },
+    "description": {
+      "type": "string",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "description of the sticker (2-100 characters)"
+      },
+      "target": "json"
+    },
+    "tags": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "autocomplete/suggestion tags for the sticker (max 200 characters)"
+      },
+      "target": "json"
     }
   }
 }

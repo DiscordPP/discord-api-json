@@ -1,96 +1,124 @@
 {
   "Role": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/topics/permissions#role-object"
+      "docs_url": "https://discord.com/developers/docs/topics/permissions#role-object-role-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "role id",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "role id"
+      }
     },
     "name": {
       "type": "string",
-      "description": "role name",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "role name"
+      }
     },
     "color": {
       "type": "integer",
-      "description": "integer representation of hexadecimal color code",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "integer representation of hexadecimal color code"
+      }
     },
     "hoist": {
       "type": "boolean",
-      "description": "if this role is pinned in the user listing",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "if this role is pinned in the user listing"
+      }
     },
     "icon": {
       "type": "string",
-      "description": "role icon hash",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "role icon hash"
+      }
     },
     "unicode_emoji": {
       "type": "string",
-      "description": "role unicode emoji",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "role unicode emoji"
+      }
     },
     "position": {
       "type": "integer",
-      "description": "position of this role",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "position of this role"
+      }
     },
     "permissions": {
       "type": "string",
-      "description": "permission bit set",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "permission bit set"
+      }
     },
     "managed": {
       "type": "boolean",
-      "description": "whether this role is managed by an integration",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether this role is managed by an integration"
+      }
     },
     "mentionable": {
       "type": "boolean",
-      "description": "whether this role is mentionable",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether this role is mentionable"
+      }
     },
     "tags": {
       "type": "role tags object",
-      "description": "the tags this role has",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the tags this role has"
+      }
     }
   },
-  "Role Tags": {
+  "RoleTags": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/topics/permissions#role-object"
+      "docs_url": "https://discord.com/developers/docs/topics/permissions#role-object-role-tags-structure"
     },
     "bot_id": {
       "type": "snowflake",
-      "description": "the id of the bot this role belongs to",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the id of the bot this role belongs to"
+      }
     },
     "integration_id": {
       "type": "snowflake",
-      "description": "the id of the integration this role belongs to",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the id of the integration this role belongs to"
+      }
     },
     "premium_subscriber": {
       "type": "null",
-      "description": "whether this is the guild's premium subscriber role",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether this is the guild's premium subscriber role"
+      }
     }
   }
 }

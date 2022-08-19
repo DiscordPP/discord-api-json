@@ -1,79 +1,469 @@
 {
   "Webhook": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/webhook#webhook-object"
+      "docs_url": "https://discord.com/developers/docs/resources/webhook#webhook-object-webhook-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "the id of the webhook",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the id of the webhook"
+      }
     },
     "type": {
       "type": "integer",
-      "description": "the type of the webhook",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the type of the webhook"
+      }
     },
     "guild_id": {
       "type": "snowflake",
-      "description": "the guild id this webhook is for, if any",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the guild id this webhook is for, if any"
+      }
     },
     "channel_id": {
       "type": "snowflake",
-      "description": "the channel id this webhook is for, if any",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the channel id this webhook is for, if any"
+      }
     },
     "user": {
       "type": "user object",
-      "description": "the user this webhook was created by (not returned when getting a webhook with its token)",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the user this webhook was created by (not returned when getting a webhook with its token)"
+      }
     },
     "name": {
       "type": "string",
-      "description": "the default name of the webhook",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the default name of the webhook"
+      }
     },
     "avatar": {
       "type": "string",
-      "description": "the default user avatar hash of the webhook",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the default user avatar hash of the webhook"
+      }
     },
     "token": {
       "type": "string",
-      "description": "the secure token of the webhook (returned for Incoming Webhooks)",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the secure token of the webhook (returned for Incoming Webhooks)"
+      }
     },
     "application_id": {
       "type": "snowflake",
-      "description": "the bot/OAuth2 application that created this webhook",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the bot/OAuth2 application that created this webhook"
+      }
     },
     "source_guild": {
       "type": "partial guild object",
-      "description": "the guild of the channel that this webhook is following (returned for Channel Follower Webhooks)",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the guild of the channel that this webhook is following (returned for Channel Follower Webhooks)"
+      }
     },
     "source_channel": {
       "type": "partial channel object",
-      "description": "the channel that this webhook is following (returned for Channel Follower Webhooks)",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the channel that this webhook is following (returned for Channel Follower Webhooks)"
+      }
     },
     "url": {
       "type": "string",
-      "description": "the url used for executing the webhook (returned by the webhooks OAuth2 flow)",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the url used for executing the webhook (returned by the webhooks OAuth2 flow)"
+      }
+    }
+  },
+  "CreateWebhookParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/webhook#create-webhook-json-params"
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "name of the webhook (1-80 characters)"
+      },
+      "target": "json"
+    },
+    "avatar": {
+      "type": "image data",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "image for the default webhook avatar"
+      },
+      "target": "json"
+    }
+  },
+  "ModifyWebhookParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/webhook#modify-webhook-json-params"
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the default name of the webhook"
+      },
+      "target": "json"
+    },
+    "avatar": {
+      "type": "image data",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "image for the default webhook avatar"
+      },
+      "target": "json"
+    },
+    "channel_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the new channel id this webhook should be moved to"
+      },
+      "target": "json"
+    }
+  },
+  "ExecuteWebhookParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/webhook#execute-webhook-query-string-params"
+    },
+    "wait": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "waits for server confirmation of message send before response, and returns the created message body (defaults to false; when false a message that is not saved does not return an error)",
+        "Required": "false"
+      },
+      "target": "query string"
+    },
+    "thread_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Send a message to the specified thread within a webhook's channel. The thread will automatically be unarchived.",
+        "Required": "false"
+      },
+      "target": "query string"
+    },
+    "content": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the message contents (up to 2000 characters)",
+        "Required": "one of content, file, embeds"
+      },
+      "target": "json/form"
+    },
+    "username": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "override the default username of the webhook",
+        "Required": "false"
+      },
+      "target": "json/form"
+    },
+    "avatar_url": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "override the default avatar of the webhook",
+        "Required": "false"
+      },
+      "target": "json/form"
+    },
+    "tts": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "true if this is a TTS message",
+        "Required": "false"
+      },
+      "target": "json/form"
+    },
+    "embeds": {
+      "type": "array of up to 10 embed objects",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "embedded rich content",
+        "Required": "one of content, file, embeds"
+      },
+      "target": "json/form"
+    },
+    "allowed_mentions": {
+      "type": "allowed mention object",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "allowed mentions for the message",
+        "Required": "false"
+      },
+      "target": "json/form"
+    },
+    "components": {
+      "type": "array of message component",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the components to include with the message",
+        "Name Note": "Requires an application-owned webhook.",
+        "Required": "false"
+      },
+      "target": "json/form"
+    },
+    "files[n]": {
+      "type": "file contents",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the contents of the file being sent",
+        "Name Note": "See Uploading Files for details.",
+        "Required": "one of content, file, embeds"
+      },
+      "target": "json/form"
+    },
+    "payload_json": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "JSON encoded body of non-file params",
+        "Name Note": "See Uploading Files for details.",
+        "Required": "multipart/form-data only"
+      },
+      "target": "json/form"
+    },
+    "attachments": {
+      "type": "array of partial attachment objects",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "attachment objects with filename and description",
+        "Name Note": "See Uploading Files for details.",
+        "Required": "false"
+      },
+      "target": "json/form"
+    },
+    "flags": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "message flags combined as a bitfield (only SUPPRESS_EMBEDS can be set)",
+        "Required": "false"
+      },
+      "target": "json/form"
+    },
+    "thread_name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "name of thread to create (requires the webhook channel to be a forum channel)",
+        "Required": "false"
+      },
+      "target": "json/form"
+    }
+  },
+  "ExecuteSlack-CompatibleWebhookParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/webhook#execute-slack-compatible-webhook-query-string-params"
+    },
+    "thread_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "id of the thread to send the message in",
+        "Required": "false"
+      },
+      "target": "query string"
+    },
+    "wait": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "waits for server confirmation of message send before response (defaults to true; when false a message that is not saved does not return an error)",
+        "Required": "false"
+      },
+      "target": "query string"
+    }
+  },
+  "ExecuteGithub-CompatibleWebhookParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/webhook#execute-github-compatible-webhook-query-string-params"
+    },
+    "thread_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "id of the thread to send the message in",
+        "Required": "false"
+      },
+      "target": "query string"
+    },
+    "wait": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "waits for server confirmation of message send before response (defaults to true; when false a message that is not saved does not return an error)",
+        "Required": "false"
+      },
+      "target": "query string"
+    }
+  },
+  "GetWebhookMessageParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/webhook#get-webhook-message-query-string-params"
+    },
+    "thread_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "id of the thread the message is in",
+        "Required": "false"
+      },
+      "target": "query string"
+    }
+  },
+  "EditWebhookMessageParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/webhook#edit-webhook-message-query-string-params"
+    },
+    "thread_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "id of the thread the message is in",
+        "Required": "false"
+      },
+      "target": "query string"
+    },
+    "content": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the message contents (up to 2000 characters)"
+      },
+      "target": "json/form"
+    },
+    "embeds": {
+      "type": "array of up to 10 embed objects",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "embedded rich content"
+      },
+      "target": "json/form"
+    },
+    "allowed_mentions": {
+      "type": "allowed mention object",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "allowed mentions for the message"
+      },
+      "target": "json/form"
+    },
+    "components": {
+      "type": "array of message component",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the components to include with the message",
+        "Name Note": "Requires an application-owned webhook."
+      },
+      "target": "json/form"
+    },
+    "files[n]": {
+      "type": "file contents",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the contents of the file being sent/edited",
+        "Name Note": "See Uploading Files for details."
+      },
+      "target": "json/form"
+    },
+    "payload_json": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "JSON encoded body of non-file params (multipart/form-data only)",
+        "Name Note": "See Uploading Files for details."
+      },
+      "target": "json/form"
+    },
+    "attachments": {
+      "type": "array of partial attachment objects",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "attached files to keep and possible descriptions for new files",
+        "Name Note": "See Uploading Files for details."
+      },
+      "target": "json/form"
+    }
+  },
+  "DeleteWebhookMessageParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/webhook#delete-webhook-message-query-string-params"
+    },
+    "thread_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "id of the thread the message is in",
+        "Required": "false"
+      },
+      "target": "query string"
     }
   }
 }

@@ -1,938 +1,2191 @@
 {
   "Channel": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/channel#channel-object"
+      "docs_url": "https://discord.com/developers/docs/resources/channel#channel-object-channel-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "the id of this channel",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the id of this channel"
+      }
     },
     "type": {
       "type": "integer",
-      "description": "the type of channel",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the type of channel"
+      }
     },
     "guild_id": {
       "type": "snowflake",
-      "description": "the id of the guild (may be missing for some channel objects received over gateway guild dispatches)",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the id of the guild (may be missing for some channel objects received over gateway guild dispatches)"
+      }
     },
     "position": {
       "type": "integer",
-      "description": "sorting position of the channel",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "sorting position of the channel"
+      }
     },
     "permission_overwrites": {
       "type": "array of overwrite objects",
-      "description": "explicit permission overwrites for members and roles",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "explicit permission overwrites for members and roles"
+      }
     },
     "name": {
       "type": "string",
-      "description": "the name of the channel (1-100 characters)",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the name of the channel (1-100 characters)"
+      }
     },
     "topic": {
       "type": "string",
-      "description": "the channel topic (0-1024 characters)",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the channel topic (0-1024 characters)"
+      }
     },
     "nsfw": {
       "type": "boolean",
-      "description": "whether the channel is nsfw",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether the channel is nsfw"
+      }
     },
     "last_message_id": {
       "type": "snowflake",
-      "description": "the id of the last message sent in this channel (or thread for GUILD_FORUM channels) (may not point to an existing or valid message or thread)",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the id of the last message sent in this channel (or thread for GUILD_FORUM channels) (may not point to an existing or valid message or thread)"
+      }
     },
     "bitrate": {
       "type": "integer",
-      "description": "the bitrate (in bits) of the voice channel",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the bitrate (in bits) of the voice channel"
+      }
     },
     "user_limit": {
       "type": "integer",
-      "description": "the user limit of the voice channel",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the user limit of the voice channel"
+      }
     },
     "rate_limit_per_user": {
       "type": "integer",
-      "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel, are unaffected",
       "optional": true,
       "nullable": false,
-      "note-field": "rate_limit_per_user also applies to thread creation. Users can send one message and create one thread during each rate_limit_per_user interval."
+      "comments": {
+        "Description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel, are unaffected",
+        "Name Note": "rate_limit_per_user also applies to thread creation. Users can send one message and create one thread during each rate_limit_per_user interval."
+      }
     },
     "recipients": {
       "type": "array of user objects",
-      "description": "the recipients of the DM",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the recipients of the DM"
+      }
     },
     "icon": {
       "type": "string",
-      "description": "icon hash of the group DM",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "icon hash of the group DM"
+      }
     },
     "owner_id": {
       "type": "snowflake",
-      "description": "id of the creator of the group DM or thread",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "id of the creator of the group DM or thread"
+      }
     },
     "application_id": {
       "type": "snowflake",
-      "description": "application id of the group DM creator if it is bot-created",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "application id of the group DM creator if it is bot-created"
+      }
     },
     "parent_id": {
       "type": "snowflake",
-      "description": "for guild channels: id of the parent category for a channel (each parent category can contain up to 50 channels), for threads: id of the text channel this thread was created",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "for guild channels: id of the parent category for a channel (each parent category can contain up to 50 channels), for threads: id of the text channel this thread was created"
+      }
     },
     "last_pin_timestamp": {
       "type": "ISO8601 timestamp",
-      "description": "when the last pinned message was pinned. This may be null in events such as GUILD_CREATE when a message is not pinned.",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "when the last pinned message was pinned. This may be null in events such as GUILD_CREATE when a message is not pinned."
+      }
     },
     "rtc_region": {
       "type": "string",
-      "description": "voice region id for the voice channel, automatic when set to null",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "voice region id for the voice channel, automatic when set to null"
+      }
     },
     "video_quality_mode": {
       "type": "integer",
-      "description": "the camera video quality mode of the voice channel, 1 when not present",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the camera video quality mode of the voice channel, 1 when not present"
+      }
     },
     "message_count": {
       "type": "integer",
-      "description": "number of messages (not including the initial message or deleted messages) in a thread (if the thread was created before July 1, 2022, it stops counting at 50)",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "number of messages (not including the initial message or deleted messages) in a thread (if the thread was created before July 1, 2022, it stops counting at 50)"
+      }
     },
     "member_count": {
       "type": "integer",
-      "description": "an approximate count of users in a thread, stops counting at 50",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "an approximate count of users in a thread, stops counting at 50"
+      }
     },
     "thread_metadata": {
       "type": "a thread metadata object",
-      "description": "thread-specific fields not needed by other channels",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "thread-specific fields not needed by other channels"
+      }
     },
     "member": {
       "type": "a thread member object",
-      "description": "thread member object for the current user, if they have joined the thread, only included on certain API endpoints",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "thread member object for the current user, if they have joined the thread, only included on certain API endpoints"
+      }
     },
     "default_auto_archive_duration": {
       "type": "integer",
-      "description": "default duration that the clients (not the API) will use for newly created threads, in minutes, to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "default duration that the clients (not the API) will use for newly created threads, in minutes, to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+      }
     },
     "permissions": {
       "type": "string",
-      "description": "computed permissions for the invoking user in the channel, including overwrites, only included when part of the resolved data received on a slash command interaction",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "computed permissions for the invoking user in the channel, including overwrites, only included when part of the resolved data received on a slash command interaction"
+      }
     },
     "flags": {
       "type": "integer",
-      "description": "channel flags combined as a bitfield",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "channel flags combined as a bitfield"
+      }
     },
     "total_message_sent": {
       "type": "integer",
-      "description": "number of messages ever sent in a thread, it's similar to message_count on message creation, but will not decrement the number when a message is deleted",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "number of messages ever sent in a thread, it's similar to message_count on message creation, but will not decrement the number when a message is deleted"
+      }
     }
   },
   "Message": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/channel#message-object"
+      "docs_url": "https://discord.com/developers/docs/resources/channel#message-object-message-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "id of the message",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "id of the message"
+      }
     },
     "channel_id": {
       "type": "snowflake",
-      "description": "id of the channel the message was sent in",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "id of the channel the message was sent in"
+      }
     },
     "author": {
       "type": "user object",
-      "description": "the author of this message (not guaranteed to be a valid user, see below)",
       "optional": false,
       "nullable": false,
-      "note-field": "The author object follows the structure of the user object, but is only a valid user in the case where the message is generated by a user or bot user. If the message is generated by a webhook, the author object corresponds to the webhook's id, username, and avatar. You can tell if a message is generated by a webhook by checking for the webhook_id on the message object."
+      "comments": {
+        "Description": "the author of this message (not guaranteed to be a valid user, see below)",
+        "Name Note": "The author object follows the structure of the user object, but is only a valid user in the case where the message is generated by a user or bot user. If the message is generated by a webhook, the author object corresponds to the webhook's id, username, and avatar. You can tell if a message is generated by a webhook by checking for the webhook_id on the message object."
+      }
     },
     "content": {
       "type": "string",
-      "description": "contents of the message",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "contents of the message"
+      }
     },
     "timestamp": {
       "type": "ISO8601 timestamp",
-      "description": "when this message was sent",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "when this message was sent"
+      }
     },
     "edited_timestamp": {
       "type": "ISO8601 timestamp",
-      "description": "when this message was edited (or null if never)",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "when this message was edited (or null if never)"
+      }
     },
     "tts": {
       "type": "boolean",
-      "description": "whether this was a TTS message",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether this was a TTS message"
+      }
     },
     "mention_everyone": {
       "type": "boolean",
-      "description": "whether this message mentions everyone",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether this message mentions everyone"
+      }
     },
     "mentions": {
       "type": "array of user objects",
-      "description": "users specifically mentioned in the message",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "users specifically mentioned in the message"
+      }
     },
     "mention_roles": {
       "type": "array of role object ids",
-      "description": "roles specifically mentioned in this message",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "roles specifically mentioned in this message"
+      }
     },
     "mention_channels": {
       "type": "array of channel mention objects",
-      "description": "channels specifically mentioned in this message",
       "optional": true,
       "nullable": false,
-      "note-field": "Not all channel mentions in a message will appear in mention_channels. Only textual channels that are visible to everyone in a lurkable guild will ever be included. Only crossposted messages (via Channel Following) currently include mention_channels at all. If no mentions in the message meet these requirements, this field will not be sent."
+      "comments": {
+        "Description": "channels specifically mentioned in this message",
+        "Name Note": "Not all channel mentions in a message will appear in mention_channels. Only textual channels that are visible to everyone in a lurkable guild will ever be included. Only crossposted messages (via Channel Following) currently include mention_channels at all. If no mentions in the message meet these requirements, this field will not be sent."
+      }
     },
     "attachments": {
       "type": "array of attachment objects",
-      "description": "any attached files",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "any attached files"
+      }
     },
     "embeds": {
       "type": "array of embed objects",
-      "description": "any embedded content",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "any embedded content"
+      }
     },
     "reactions": {
       "type": "array of reaction objects",
-      "description": "reactions to the message",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "reactions to the message"
+      }
     },
     "nonce": {
       "type": "integer or string",
-      "description": "used for validating a message was sent",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "used for validating a message was sent"
+      }
     },
     "pinned": {
       "type": "boolean",
-      "description": "whether this message is pinned",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether this message is pinned"
+      }
     },
     "webhook_id": {
       "type": "snowflake",
-      "description": "if the message is generated by a webhook, this is the webhook's id",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "if the message is generated by a webhook, this is the webhook's id"
+      }
     },
     "type": {
       "type": "integer",
-      "description": "type of message",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "type of message"
+      }
     },
     "activity": {
       "type": "message activity object",
-      "description": "sent with Rich Presence-related chat embeds",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "sent with Rich Presence-related chat embeds"
+      }
     },
     "application": {
       "type": "partial application object",
-      "description": "sent with Rich Presence-related chat embeds",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "sent with Rich Presence-related chat embeds"
+      }
     },
     "application_id": {
       "type": "snowflake",
-      "description": "if the message is an Interaction or application-owned webhook, this is the id of the application",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "if the message is an Interaction or application-owned webhook, this is the id of the application"
+      }
     },
     "message_reference": {
       "type": "message reference object",
-      "description": "data showing the source of a crosspost, channel follow add, pin, or reply message",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "data showing the source of a crosspost, channel follow add, pin, or reply message"
+      }
     },
     "flags": {
       "type": "integer",
-      "description": "message flags combined as a bitfield",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "message flags combined as a bitfield"
+      }
     },
     "referenced_message": {
       "type": "message object",
-      "description": "the message associated with the message_reference",
       "optional": true,
       "nullable": true,
-      "note-field": "This field is only returned for messages with a type of 19 (REPLY) or 21 (THREAD_STARTER_MESSAGE). If the message is a reply but the referenced_message field is not present, the backend did not attempt to fetch the message that was being replied to, so its state is unknown. If the field exists but is null, the referenced message was deleted."
+      "comments": {
+        "Description": "the message associated with the message_reference",
+        "Name Note": "This field is only returned for messages with a type of 19 (REPLY) or 21 (THREAD_STARTER_MESSAGE). If the message is a reply but the referenced_message field is not present, the backend did not attempt to fetch the message that was being replied to, so its state is unknown. If the field exists but is null, the referenced message was deleted."
+      }
     },
     "interaction": {
       "type": "message interaction object",
-      "description": "sent if the message is a response to an Interaction",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "sent if the message is a response to an Interaction"
+      }
     },
     "thread": {
       "type": "channel object",
-      "description": "the thread that was started from this message, includes thread member object",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the thread that was started from this message, includes thread member object"
+      }
     },
     "components": {
-      "type": "Array of message components",
-      "description": "sent if the message contains components like buttons, action rows, or other interactive components",
+      "type": "array of message components",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "sent if the message contains components like buttons, action rows, or other interactive components"
+      }
     },
     "sticker_items": {
       "type": "array of message sticker item objects",
-      "description": "sent if the message contains stickers",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "sent if the message contains stickers"
+      }
     },
     "stickers": {
       "type": "array of sticker objects",
-      "description": "Deprecated the stickers sent with the message",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Deprecated the stickers sent with the message"
+      }
     },
     "position": {
       "type": "integer",
-      "description": "A generally increasing integer (there may be gaps or duplicates) that represents the approximate position of the message in a thread, it can be used to estimate the relative position of the messsage in a thread in company with total_message_sent on parent thread",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "A generally increasing integer (there may be gaps or duplicates) that represents the approximate position of the message in a thread, it can be used to estimate the relative position of the messsage in a thread in company with total_message_sent on parent thread"
+      }
     }
   },
-  "Message Activity": {
+  "MessageActivity": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/channel#message-object"
+      "docs_url": "https://discord.com/developers/docs/resources/channel#message-object-message-activity-structure"
     },
     "type": {
       "type": "integer",
-      "description": "type of message activity",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "type of message activity"
+      }
     },
     "party_id": {
       "type": "string",
-      "description": "party_id from a Rich Presence event",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "party_id from a Rich Presence event"
+      }
     }
   },
-  "Message Reference": {
+  "MessageReference": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/channel#message-reference-object"
+      "docs_url": "https://discord.com/developers/docs/resources/channel#message-reference-object-message-reference-structure"
     },
     "message_id": {
       "type": "snowflake",
-      "description": "id of the originating message",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "id of the originating message"
+      }
     },
     "channel_id": {
       "type": "snowflake",
-      "description": "id of the originating message's channel",
       "optional": true,
       "nullable": false,
-      "note-field": "channel_id is optional when creating a reply, but will always be present when receiving an event/response that includes this data model."
+      "comments": {
+        "Description": "id of the originating message's channel",
+        "Name Note": "channel_id is optional when creating a reply, but will always be present when receiving an event/response that includes this data model."
+      }
     },
     "guild_id": {
       "type": "snowflake",
-      "description": "id of the originating message's guild",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "id of the originating message's guild"
+      }
     },
     "fail_if_not_exists": {
       "type": "boolean",
-      "description": "when sending, whether to error if the referenced message doesn't exist instead of sending as a normal (non-reply) message, default true",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "when sending, whether to error if the referenced message doesn't exist instead of sending as a normal (non-reply) message, default true"
+      }
     }
   },
-  "Followed Channel": {
+  "FollowedChannel": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/channel#followed-channel-object"
+      "docs_url": "https://discord.com/developers/docs/resources/channel#followed-channel-object-followed-channel-structure"
     },
     "channel_id": {
       "type": "snowflake",
-      "description": "source channel id",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "source channel id"
+      }
     },
     "webhook_id": {
       "type": "snowflake",
-      "description": "created target webhook id",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "created target webhook id"
+      }
     }
   },
   "Reaction": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/channel#reaction-object"
+      "docs_url": "https://discord.com/developers/docs/resources/channel#reaction-object-reaction-structure"
     },
     "count": {
       "type": "integer",
-      "description": "times this emoji has been used to react",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "times this emoji has been used to react"
+      }
     },
     "me": {
       "type": "boolean",
-      "description": "whether the current user reacted using this emoji",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether the current user reacted using this emoji"
+      }
     },
     "emoji": {
       "type": "partial emoji object",
-      "description": "emoji information",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "emoji information"
+      }
     }
   },
   "Overwrite": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/channel#overwrite-object"
+      "docs_url": "https://discord.com/developers/docs/resources/channel#overwrite-object-overwrite-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "role or user id",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "role or user id"
+      }
     },
     "type": {
       "type": "int",
-      "description": "either 0 (role) or 1 (member)",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "either 0 (role) or 1 (member)"
+      }
     },
     "allow": {
       "type": "string",
-      "description": "permission bit set",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "permission bit set"
+      }
     },
     "deny": {
       "type": "string",
-      "description": "permission bit set",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "permission bit set"
+      }
     }
   },
-  "Thread Metadata": {
+  "ThreadMetadata": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/channel#thread-metadata-object"
+      "docs_url": "https://discord.com/developers/docs/resources/channel#thread-metadata-object-thread-metadata-structure"
     },
     "archived": {
       "type": "boolean",
-      "description": "whether the thread is archived",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether the thread is archived"
+      }
     },
     "auto_archive_duration": {
       "type": "integer",
-      "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+      }
     },
     "archive_timestamp": {
       "type": "ISO8601 timestamp",
-      "description": "timestamp when the thread's archive status was last changed, used for calculating recent activity",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "timestamp when the thread's archive status was last changed, used for calculating recent activity"
+      }
     },
     "locked": {
       "type": "boolean",
-      "description": "whether the thread is locked; when a thread is locked, only users with MANAGE_THREADS can unarchive it",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether the thread is locked; when a thread is locked, only users with MANAGE_THREADS can unarchive it"
+      }
     },
     "invitable": {
       "type": "boolean",
-      "description": "whether non-moderators can add other non-moderators to a thread; only available on private threads",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether non-moderators can add other non-moderators to a thread; only available on private threads"
+      }
     },
     "create_timestamp": {
       "type": "ISO8601 timestamp",
-      "description": "timestamp when the thread was created; only populated for threads created after 2022-01-09",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "timestamp when the thread was created; only populated for threads created after 2022-01-09"
+      }
     }
   },
-  "Thread Member": {
+  "ThreadMember": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/channel#thread-member-object"
+      "docs_url": "https://discord.com/developers/docs/resources/channel#thread-member-object-thread-member-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "the id of the thread",
-      "note-*": "field",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the id of the thread"
+      }
     },
     "user_id": {
       "type": "snowflake",
-      "description": "the id of the user",
-      "note-*": "field",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the id of the user"
+      }
     },
     "join_timestamp": {
       "type": "ISO8601 timestamp",
-      "description": "the time the current user last joined the thread",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the time the current user last joined the thread"
+      }
     },
     "flags": {
       "type": "integer",
-      "description": "any user-thread settings, currently only used for notifications",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "any user-thread settings, currently only used for notifications"
+      }
     }
   },
   "Embed": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
+      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object-embed-structure"
     },
     "title": {
       "type": "string",
-      "description": "title of embed",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "title of embed"
+      }
     },
     "type": {
       "type": "string",
-      "description": "type of embed (always \"rich\" for webhook embeds)",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "type of embed (always \"rich\" for webhook embeds)"
+      }
     },
     "description": {
       "type": "string",
-      "description": "description of embed",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "description of embed"
+      }
     },
     "url": {
       "type": "string",
-      "description": "url of embed",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "url of embed"
+      }
     },
     "timestamp": {
       "type": "ISO8601 timestamp",
-      "description": "timestamp of embed content",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "timestamp of embed content"
+      }
     },
     "color": {
       "type": "integer",
-      "description": "color code of the embed",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "color code of the embed"
+      }
     },
     "footer": {
       "type": "embed footer object",
-      "description": "footer information",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "footer information"
+      }
     },
     "image": {
       "type": "embed image object",
-      "description": "image information",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "image information"
+      }
     },
     "thumbnail": {
       "type": "embed thumbnail object",
-      "description": "thumbnail information",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "thumbnail information"
+      }
     },
     "video": {
       "type": "embed video object",
-      "description": "video information",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "video information"
+      }
     },
     "provider": {
       "type": "embed provider object",
-      "description": "provider information",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "provider information"
+      }
     },
     "author": {
       "type": "embed author object",
-      "description": "author information",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "author information"
+      }
     },
     "fields": {
       "type": "array of embed field objects",
-      "description": "fields information",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "fields information"
+      }
     }
   },
-  "Embed Thumbnail": {
+  "EmbedThumbnail": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
+      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object-embed-thumbnail-structure"
     },
     "url": {
       "type": "string",
-      "description": "source url of thumbnail (only supports http(s) and attachments)",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "source url of thumbnail (only supports http(s) and attachments)"
+      }
     },
     "proxy_url": {
       "type": "string",
-      "description": "a proxied url of the thumbnail",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "a proxied url of the thumbnail"
+      }
     },
     "height": {
       "type": "integer",
-      "description": "height of thumbnail",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "height of thumbnail"
+      }
     },
     "width": {
       "type": "integer",
-      "description": "width of thumbnail",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "width of thumbnail"
+      }
     }
   },
-  "Embed Video": {
+  "EmbedVideo": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
+      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object-embed-video-structure"
     },
     "url": {
       "type": "string",
-      "description": "source url of video",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "source url of video"
+      }
     },
     "proxy_url": {
       "type": "string",
-      "description": "a proxied url of the video",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "a proxied url of the video"
+      }
     },
     "height": {
       "type": "integer",
-      "description": "height of video",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "height of video"
+      }
     },
     "width": {
       "type": "integer",
-      "description": "width of video",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "width of video"
+      }
     }
   },
-  "Embed Image": {
+  "EmbedImage": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
+      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object-embed-image-structure"
     },
     "url": {
       "type": "string",
-      "description": "source url of image (only supports http(s) and attachments)",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "source url of image (only supports http(s) and attachments)"
+      }
     },
     "proxy_url": {
       "type": "string",
-      "description": "a proxied url of the image",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "a proxied url of the image"
+      }
     },
     "height": {
       "type": "integer",
-      "description": "height of image",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "height of image"
+      }
     },
     "width": {
       "type": "integer",
-      "description": "width of image",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "width of image"
+      }
     }
   },
-  "Embed Provider": {
+  "EmbedProvider": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
+      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object-embed-provider-structure"
     },
     "name": {
       "type": "string",
-      "description": "name of provider",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "name of provider"
+      }
     },
     "url": {
       "type": "string",
-      "description": "url of provider",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "url of provider"
+      }
     }
   },
-  "Embed Author": {
+  "EmbedAuthor": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
+      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object-embed-author-structure"
     },
     "name": {
       "type": "string",
-      "description": "name of author",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "name of author"
+      }
     },
     "url": {
       "type": "string",
-      "description": "url of author",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "url of author"
+      }
     },
     "icon_url": {
       "type": "string",
-      "description": "url of author icon (only supports http(s) and attachments)",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "url of author icon (only supports http(s) and attachments)"
+      }
     },
     "proxy_icon_url": {
       "type": "string",
-      "description": "a proxied url of author icon",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "a proxied url of author icon"
+      }
     }
   },
-  "Embed Footer": {
+  "EmbedFooter": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
+      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object-embed-footer-structure"
     },
     "text": {
       "type": "string",
-      "description": "footer text",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "footer text"
+      }
     },
     "icon_url": {
       "type": "string",
-      "description": "url of footer icon (only supports http(s) and attachments)",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "url of footer icon (only supports http(s) and attachments)"
+      }
     },
     "proxy_icon_url": {
       "type": "string",
-      "description": "a proxied url of footer icon",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "a proxied url of footer icon"
+      }
     }
   },
-  "Embed Field": {
+  "EmbedField": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object"
+      "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object-embed-field-structure"
     },
     "name": {
       "type": "string",
-      "description": "name of the field",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "name of the field"
+      }
     },
     "value": {
       "type": "string",
-      "description": "value of the field",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "value of the field"
+      }
     },
     "inline": {
       "type": "boolean",
-      "description": "whether or not this field should display inline",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether or not this field should display inline"
+      }
     }
   },
   "Attachment": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/channel#attachment-object"
+      "docs_url": "https://discord.com/developers/docs/resources/channel#attachment-object-attachment-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "attachment id",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "attachment id"
+      }
     },
     "filename": {
       "type": "string",
-      "description": "name of file attached",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "name of file attached"
+      }
     },
     "description": {
       "type": "string",
-      "description": "description for the file",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "description for the file (max 1024 characters)"
+      }
     },
     "content_type": {
       "type": "string",
-      "description": "the attachment's media type",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the attachment's media type"
+      }
     },
     "size": {
       "type": "integer",
-      "description": "size of file in bytes",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "size of file in bytes"
+      }
     },
     "url": {
       "type": "string",
-      "description": "source url of file",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "source url of file"
+      }
     },
     "proxy_url": {
       "type": "string",
-      "description": "a proxied url of file",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "a proxied url of file"
+      }
     },
     "height": {
       "type": "integer",
-      "description": "height of file (if image)",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "height of file (if image)"
+      }
     },
     "width": {
       "type": "integer",
-      "description": "width of file (if image)",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "width of file (if image)"
+      }
     },
     "ephemeral": {
       "type": "boolean",
-      "description": "whether this attachment is ephemeral",
       "optional": true,
       "nullable": false,
-      "note-field": "Ephemeral attachments will automatically be removed after a set period of time. Ephemeral attachments on messages are guaranteed to be available as long as the message itself exists."
+      "comments": {
+        "Description": "whether this attachment is ephemeral",
+        "Name Note": "Ephemeral attachments will automatically be removed after a set period of time. Ephemeral attachments on messages are guaranteed to be available as long as the message itself exists."
+      }
     }
   },
-  "Channel Mention": {
+  "ChannelMention": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/channel#channel-mention-object"
+      "docs_url": "https://discord.com/developers/docs/resources/channel#channel-mention-object-channel-mention-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "id of the channel",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "id of the channel"
+      }
     },
     "guild_id": {
       "type": "snowflake",
-      "description": "id of the guild containing the channel",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "id of the guild containing the channel"
+      }
     },
     "type": {
       "type": "integer",
-      "description": "the type of channel",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the type of channel"
+      }
     },
     "name": {
       "type": "string",
-      "description": "the name of the channel",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the name of the channel"
+      }
     }
   },
-  "Allowed Mentions": {
+  "AllowedMentions": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
+      "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object-allowed-mentions-structure"
     },
     "parse": {
       "type": "array of allowed mention types",
-      "description": "An array of allowed mention types to parse from the content.",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "An array of allowed mention types to parse from the content."
+      }
     },
     "roles": {
       "type": "list of snowflakes",
-      "description": "Array of role_ids to mention (Max size of 100)",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Array of role_ids to mention (Max size of 100)"
+      }
     },
     "users": {
       "type": "list of snowflakes",
-      "description": "Array of user_ids to mention (Max size of 100)",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Array of user_ids to mention (Max size of 100)"
+      }
     },
     "replied_user": {
       "type": "boolean",
-      "description": "For replies, whether to mention the author of the message being replied to (default false)",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "For replies, whether to mention the author of the message being replied to (default false)"
+      }
+    }
+  },
+  "JsonParams(GroupDm)": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#modify-channel-json-params-(group-dm)"
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "1-100 character channel name"
+      }
+    },
+    "icon": {
+      "type": "binary",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "base64 encoded icon"
+      }
+    }
+  },
+  "JsonParams(GuildChannel)": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#modify-channel-json-params-(guild-channel)"
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "1-100 character channel name",
+        "Channel Type": "All"
+      }
+    },
+    "type": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the type of channel; only conversion between text and news is supported and only in guilds with the \"NEWS\" feature",
+        "Channel Type": "Text, News"
+      }
+    },
+    "position": {
+      "type": "integer",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "the position of the channel in the left-hand listing",
+        "Channel Type": "All"
+      }
+    },
+    "topic": {
+      "type": "string",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "0-1024 character channel topic",
+        "Channel Type": "Text, News"
+      }
+    },
+    "nsfw": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "whether the channel is nsfw",
+        "Channel Type": "Text, Voice, News"
+      }
+    },
+    "rate_limit_per_user": {
+      "type": "integer",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel, are unaffected",
+        "Channel Type": "Text"
+      }
+    },
+    "bitrate": {
+      "type": "integer",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "the bitrate (in bits) of the voice or stage channel; min 8000",
+        "Name Note": "For voice channels, normal servers can set bitrate up to 96000, servers with Boost level 1 can set up to 128000, servers with Boost level 2 can set up to 256000, and servers with Boost level 3 or the VIP_REGIONS guild feature can set up to 384000. For stage channels, bitrate can be set up to 64000.",
+        "Channel Type": "Voice, Stage"
+      }
+    },
+    "user_limit": {
+      "type": "integer",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "the user limit of the voice channel; 0 refers to no limit, 1 to 99 refers to a user limit",
+        "Channel Type": "Voice"
+      }
+    },
+    "permission_overwrites": {
+      "type": "array of partial overwrite objects",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "channel or category-specific permissions",
+        "Name Note": "In each overwrite object, the allow and deny keys can be omitted or set to null, which both default to \"0\".",
+        "Channel Type": "All"
+      }
+    },
+    "parent_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "id of the new parent category for a channel",
+        "Channel Type": "Text, Voice, News"
+      }
+    },
+    "rtc_region": {
+      "type": "string",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "channel voice region id, automatic when set to null",
+        "Channel Type": "Voice, Stage"
+      }
+    },
+    "video_quality_mode": {
+      "type": "integer",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "the camera video quality mode of the voice channel",
+        "Channel Type": "Voice"
+      }
+    },
+    "default_auto_archive_duration": {
+      "type": "integer",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "the default duration that the clients use (not the API) for newly created threads in the channel, in minutes, to automatically archive the thread after recent activity",
+        "Channel Type": "Text, News"
+      }
+    }
+  },
+  "JsonParams(Thread)": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#modify-channel-json-params-(thread)"
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "1-100 character channel name"
+      }
+    },
+    "archived": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether the thread is archived"
+      }
+    },
+    "auto_archive_duration": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+      }
+    },
+    "locked": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether the thread is locked; when a thread is locked, only users with MANAGE_THREADS can unarchive it"
+      }
+    },
+    "invitable": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether non-moderators can add other non-moderators to a thread; only available on private threads"
+      }
+    },
+    "rate_limit_per_user": {
+      "type": "integer",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages, manage_thread, or manage_channel, are unaffected"
+      }
+    },
+    "flags": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "channel flags combined as a bitfield; PINNED can only be set for threads in forum channels"
+      }
+    }
+  },
+  "GetChannelMessagesParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#get-channel-messages-query-string-params"
+    },
+    "around": {
+      "type": "snowflake",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Get messages around this message ID",
+        "Default": "absent"
+      },
+      "target": "query string"
+    },
+    "before": {
+      "type": "snowflake",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Get messages before this message ID",
+        "Default": "absent"
+      },
+      "target": "query string"
+    },
+    "after": {
+      "type": "snowflake",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Get messages after this message ID",
+        "Default": "absent"
+      },
+      "target": "query string"
+    },
+    "limit": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Max number of messages to return (1-100)",
+        "Default": "50"
+      },
+      "target": "query string"
+    }
+  },
+  "CreateMessageParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#create-message-json/form-params"
+    },
+    "content": {
+      "type": "string",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Message contents (up to 2000 characters)",
+        "Name Note": "At least one of content, embeds, sticker_ids, or files[n] is required."
+      },
+      "target": "json/form"
+    },
+    "tts": {
+      "type": "boolean",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "true if this is a TTS message"
+      },
+      "target": "json/form"
+    },
+    "embeds": {
+      "type": "array of embed objects",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Embedded rich content (up to 6000 characters)",
+        "Name Note": "At least one of content, embeds, sticker_ids, or files[n] is required."
+      },
+      "target": "json/form"
+    },
+    "allowed_mentions": {
+      "type": "allowed mention object",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Allowed mentions for the message"
+      },
+      "target": "json/form"
+    },
+    "message_reference": {
+      "type": "message reference",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Include to make your message a reply"
+      },
+      "target": "json/form"
+    },
+    "components": {
+      "type": "array of message component objects",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Components to include with the message"
+      },
+      "target": "json/form"
+    },
+    "sticker_ids": {
+      "type": "array of snowflakes",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "IDs of up to 3 stickers in the server to send in the message",
+        "Name Note": "At least one of content, embeds, sticker_ids, or files[n] is required."
+      },
+      "target": "json/form"
+    },
+    "files[n]": {
+      "type": "file contents",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Contents of the file being sent. See Uploading Files",
+        "Name Note": "At least one of content, embeds, sticker_ids, or files[n] is required."
+      },
+      "target": "json/form"
+    },
+    "payload_json": {
+      "type": "string",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "JSON-encoded body of non-file params, only for multipart/form-data requests. See Uploading Files"
+      },
+      "target": "json/form"
+    },
+    "attachments": {
+      "type": "array of partial attachment objects",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Attachment objects with filename and description. See Uploading Files"
+      },
+      "target": "json/form"
+    },
+    "flags": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Message flags combined as a bitfield (only SUPPRESS_EMBEDS can be set)"
+      },
+      "target": "json/form"
+    }
+  },
+  "GetReactionsParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#get-reactions-query-string-params"
+    },
+    "after": {
+      "type": "snowflake",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Get users after this user ID",
+        "Default": "absent"
+      },
+      "target": "query string"
+    },
+    "limit": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Max number of users to return (1-100)",
+        "Default": "25"
+      },
+      "target": "query string"
+    }
+  },
+  "EditMessageParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#edit-message-json/form-params"
+    },
+    "content": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Message contents (up to 2000 characters)"
+      },
+      "target": "json/form"
+    },
+    "embeds": {
+      "type": "array of embed objects",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Embedded rich content (up to 6000 characters)"
+      },
+      "target": "json/form"
+    },
+    "flags": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Edit the flags of a message (only SUPPRESS_EMBEDS can currently be set/unset)"
+      },
+      "target": "json/form"
+    },
+    "allowed_mentions": {
+      "type": "allowed mention object",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Allowed mentions for the message"
+      },
+      "target": "json/form"
+    },
+    "components": {
+      "type": "array of message component",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Components to include with the message"
+      },
+      "target": "json/form"
+    },
+    "files[n]": {
+      "type": "file contents",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Contents of the file being sent/edited. See Uploading Files"
+      },
+      "target": "json/form"
+    },
+    "payload_json": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "JSON-encoded body of non-file params (multipart/form-data only). See Uploading Files"
+      },
+      "target": "json/form"
+    },
+    "attachments": {
+      "type": "array of attachment objects",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Attached files to keep and possible descriptions for new files. See Uploading Files"
+      },
+      "target": "json/form"
+    }
+  },
+  "BulkDeleteMessagesParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#bulk-delete-messages-json-params"
+    },
+    "messages": {
+      "type": "array of snowflakes",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "an array of message ids to delete (2-100)"
+      },
+      "target": "json"
+    }
+  },
+  "EditChannelPermissionsParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#edit-channel-permissions-json-params"
+    },
+    "allow": {
+      "type": "string?",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "the bitwise value of all allowed permissions (default \"0\")"
+      },
+      "target": "json"
+    },
+    "deny": {
+      "type": "string?",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "the bitwise value of all disallowed permissions (default \"0\")"
+      },
+      "target": "json"
+    },
+    "type": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "0 for a role or 1 for a member"
+      },
+      "target": "json"
+    }
+  },
+  "CreateChannelInviteParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#create-channel-invite-json-params"
+    },
+    "max_age": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "duration of invite in seconds before expiry, or 0 for never. between 0 and 604800 (7 days)",
+        "Default": "86400 (24 hours)"
+      },
+      "target": "json"
+    },
+    "max_uses": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "max number of uses or 0 for unlimited. between 0 and 100",
+        "Default": "0"
+      },
+      "target": "json"
+    },
+    "temporary": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether this invite only grants temporary membership",
+        "Default": "false"
+      },
+      "target": "json"
+    },
+    "unique": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "if true, don't try to reuse a similar invite (useful for creating many unique one time use invites)",
+        "Default": "false"
+      },
+      "target": "json"
+    },
+    "target_type": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the type of target for this voice channel invite",
+        "Default": ""
+      },
+      "target": "json"
+    },
+    "target_user_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the id of the user whose stream to display for this invite, required if target_type is 1, the user must be streaming in the channel",
+        "Default": ""
+      },
+      "target": "json"
+    },
+    "target_application_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the id of the embedded application to open for this invite, required if target_type is 2, the application must have the EMBEDDED flag",
+        "Default": ""
+      },
+      "target": "json"
+    }
+  },
+  "FollowNewsChannelParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#follow-news-channel-json-params"
+    },
+    "webhook_channel_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "id of target channel"
+      },
+      "target": "json"
+    }
+  },
+  "GroupDmAddRecipientParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#group-dm-add-recipient-json-params"
+    },
+    "access_token": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "access token of a user that has granted your app the gdm.join scope"
+      },
+      "target": "json"
+    },
+    "nick": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "nickname of the user being added"
+      },
+      "target": "json"
+    }
+  },
+  "StartThreadFromMessageParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#start-thread-from-message-json-params"
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "1-100 character channel name"
+      },
+      "target": "json"
+    },
+    "auto_archive_duration": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+      },
+      "target": "json"
+    },
+    "rate_limit_per_user": {
+      "type": "integer",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "amount of seconds a user has to wait before sending another message (0-21600)"
+      },
+      "target": "json"
+    }
+  },
+  "StartThreadWithoutMessageParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#start-thread-without-message-json-params"
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "1-100 character channel name"
+      },
+      "target": "json"
+    },
+    "auto_archive_duration": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+      },
+      "target": "json"
+    },
+    "type": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "the type of thread to create",
+        "Name Note": "type currently defaults to GUILD_PRIVATE_THREAD in order to match the behavior when thread documentation was first published. In a future API version this will be changed to be a required field, with no default."
+      },
+      "target": "json"
+    },
+    "invitable": {
+      "type": "boolean",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "whether non-moderators can add other non-moderators to a thread; only available when creating a private thread"
+      },
+      "target": "json"
+    },
+    "rate_limit_per_user": {
+      "type": "integer",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "amount of seconds a user has to wait before sending another message (0-21600)"
+      },
+      "target": "json"
+    }
+  },
+  "StartThreadInForumChannelParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#start-thread-in-forum-channel-json/form-params"
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "1-100 character channel name"
+      },
+      "target": "json/form"
+    },
+    "auto_archive_duration": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+      },
+      "target": "json/form"
+    },
+    "rate_limit_per_user": {
+      "type": "integer",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "amount of seconds a user has to wait before sending another message (0-21600)"
+      },
+      "target": "json/form"
+    },
+    "message": {
+      "type": "a forum thread message params object",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "contents of the first message in the forum thread"
+      },
+      "target": "json/form"
+    }
+  },
+  "ForumThreadMessageParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#start-thread-in-forum-channel-forum-thread-message-params-object"
+    },
+    "content": {
+      "type": "string",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Message contents (up to 2000 characters)",
+        "Name Note": "At least one of content, embeds, files[n], or sticker_ids is required."
+      }
+    },
+    "embeds": {
+      "type": "array of embed objects",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Embedded rich content (up to 6000 characters)"
+      }
+    },
+    "allowed_mentions": {
+      "type": "allowed mention object",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Allowed mentions for the message"
+      }
+    },
+    "components": {
+      "type": "array of message component objects",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Components to include with the message"
+      }
+    },
+    "sticker_ids": {
+      "type": "array of snowflakes",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "IDs of up to 3 stickers in the server to send in the message",
+        "Name Note": "At least one of content, embeds, files[n], or sticker_ids is required."
+      }
+    },
+    "files[n]": {
+      "type": "file contents",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Contents of the file being sent. See Uploading Files",
+        "Name Note": "At least one of content, embeds, files[n], or sticker_ids is required."
+      }
+    },
+    "payload_json": {
+      "type": "string",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "JSON-encoded body of non-file params, only for multipart/form-data requests. See Uploading Files"
+      }
+    },
+    "attachments": {
+      "type": "array of partial attachment objects",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Attachment objects with filename and description. See Uploading Files"
+      }
+    },
+    "flags": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Message flags combined as a bitfield (only SUPPRESS_EMBEDS can be set)"
+      }
+    }
+  },
+  "ListPublicArchivedThreadsParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#list-public-archived-threads-query-string-params"
+    },
+    "before": {
+      "type": "ISO8601 timestamp",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "returns threads before this timestamp"
+      },
+      "target": "query string"
+    },
+    "limit": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "optional maximum number of threads to return"
+      },
+      "target": "query string"
+    }
+  },
+  "ListPublicArchivedThreadsResponse": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#list-public-archived-threads-response-body"
+    },
+    "threads": {
+      "type": "array of channel objects",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the public, archived threads"
+      }
+    },
+    "members": {
+      "type": "array of thread members objects",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "a thread member object for each returned thread the current user has joined"
+      }
+    },
+    "has_more": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether there are potentially additional threads that could be returned on a subsequent call"
+      }
+    }
+  },
+  "ListPrivateArchivedThreadsParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#list-private-archived-threads-query-string-params"
+    },
+    "before": {
+      "type": "ISO8601 timestamp",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "returns threads before this timestamp"
+      },
+      "target": "query string"
+    },
+    "limit": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "optional maximum number of threads to return"
+      },
+      "target": "query string"
+    }
+  },
+  "ListPrivateArchivedThreadsResponse": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#list-private-archived-threads-response-body"
+    },
+    "threads": {
+      "type": "array of channel objects",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the private, archived threads"
+      }
+    },
+    "members": {
+      "type": "array of thread members objects",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "a thread member object for each returned thread the current user has joined"
+      }
+    },
+    "has_more": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether there are potentially additional threads that could be returned on a subsequent call"
+      }
+    }
+  },
+  "ListJoinedPrivateArchivedThreadsParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#list-joined-private-archived-threads-query-string-params"
+    },
+    "before": {
+      "type": "snowflake",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "returns threads before this id"
+      },
+      "target": "query string"
+    },
+    "limit": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "optional maximum number of threads to return"
+      },
+      "target": "query string"
+    }
+  },
+  "ListJoinedPrivateArchivedThreadsResponse": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#list-joined-private-archived-threads-response-body"
+    },
+    "threads": {
+      "type": "array of channel objects",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the private, archived threads the current user has joined"
+      }
+    },
+    "members": {
+      "type": "array of thread members objects",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "a thread member object for each returned thread the current user has joined"
+      }
+    },
+    "has_more": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether there are potentially additional threads that could be returned on a subsequent call"
+      }
     }
   }
 }

@@ -1,299 +1,828 @@
 {
-  "Application Command": {
+  "ApplicationCommand": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object"
+      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "Unique ID of command",
-      "valid types": "all",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Unique ID of command",
+        "Valid Types": "all"
+      }
     },
     "type": {
       "type": "one of application command type",
-      "description": "Type of command, defaults to 1",
-      "valid types": "all",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Type of command, defaults to 1",
+        "Valid Types": "all"
+      }
     },
     "application_id": {
       "type": "snowflake",
-      "description": "ID of the parent application",
-      "valid types": "all",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "ID of the parent application",
+        "Valid Types": "all"
+      }
     },
     "guild_id": {
       "type": "snowflake",
-      "description": "guild id of the command, if not global",
-      "valid types": "all",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "guild id of the command, if not global",
+        "Valid Types": "all"
+      }
     },
     "name": {
       "type": "string",
-      "description": "Name of command, 1-32 characters",
-      "valid types": "all",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Name of command, 1-32 characters",
+        "Valid Types": "all"
+      }
     },
     "name_localizations": {
       "type": "dictionary with keys in available locales",
-      "description": "Localization dictionary for name field. Values follow the same restrictions as name",
-      "valid types": "all",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "Localization dictionary for name field. Values follow the same restrictions as name",
+        "Valid Types": "all"
+      }
     },
     "description": {
       "type": "string",
-      "description": "Description for CHAT_INPUT commands, 1-100 characters. Empty string for USER and MESSAGE commands",
-      "valid types": "all",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Description for CHAT_INPUT commands, 1-100 characters. Empty string for USER and MESSAGE commands",
+        "Valid Types": "all"
+      }
     },
     "description_localizations": {
       "type": "dictionary with keys in available locales",
-      "description": "Localization dictionary for description field. Values follow the same restrictions as description",
-      "valid types": "all",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "Localization dictionary for description field. Values follow the same restrictions as description",
+        "Valid Types": "all"
+      }
     },
     "options": {
       "type": "array of application command option",
-      "description": "Parameters for the command, max of 25",
-      "valid types": "CHAT_INPUT",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Parameters for the command, max of 25",
+        "Valid Types": "CHAT_INPUT"
+      }
     },
     "default_member_permissions": {
       "type": "string",
-      "description": "Set of permissions represented as a bit set",
-      "valid types": "all",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "Set of permissions represented as a bit set",
+        "Valid Types": "all"
+      }
     },
     "dm_permission": {
       "type": "boolean",
-      "description": "Indicates whether the command is available in DMs with the app, only for globally-scoped commands. By default, commands are visible.",
-      "valid types": "all",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Indicates whether the command is available in DMs with the app, only for globally-scoped commands. By default, commands are visible.",
+        "Valid Types": "all"
+      }
     },
     "default_permission": {
       "type": "boolean",
-      "description": "Not recommended for use as field will soon be deprecated. Indicates whether the command is enabled by default when the app is added to a guild, defaults to true",
-      "valid types": "all",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "Not recommended for use as field will soon be deprecated. Indicates whether the command is enabled by default when the app is added to a guild, defaults to true",
+        "Valid Types": "all"
+      }
     },
     "version": {
       "type": "snowflake",
-      "description": "Autoincrementing version identifier updated during substantial record changes",
-      "valid types": "all",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Autoincrementing version identifier updated during substantial record changes",
+        "Valid Types": "all"
+      }
     }
   },
-  "Application Command Option": {
+  "ApplicationCommandOption": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object"
+      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-structure"
     },
     "type": {
       "type": "one of application command option type",
-      "description": "Type of option",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Type of option"
+      }
     },
     "name": {
       "type": "string",
-      "description": "1-32 character name",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "1-32 character name"
+      }
     },
     "name_localizations": {
       "type": "dictionary with keys in available locales",
-      "description": "Localization dictionary for the name field. Values follow the same restrictions as name",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "Localization dictionary for the name field. Values follow the same restrictions as name"
+      }
     },
     "description": {
       "type": "string",
-      "description": "1-100 character description",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "1-100 character description"
+      }
     },
     "description_localizations": {
       "type": "dictionary with keys in available locales",
-      "description": "Localization dictionary for the description field. Values follow the same restrictions as description",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "Localization dictionary for the description field. Values follow the same restrictions as description"
+      }
     },
     "required": {
       "type": "boolean",
-      "description": "If the parameter is required or optional--default false",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "If the parameter is required or optional--default false"
+      }
     },
     "choices": {
       "type": "array of application command option choice",
-      "description": "Choices for STRING, INTEGER, and NUMBER types for the user to pick from, max 25",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Choices for STRING, INTEGER, and NUMBER types for the user to pick from, max 25"
+      }
     },
     "options": {
       "type": "array of application command option",
-      "description": "If the option is a subcommand or subcommand group type, these nested options will be the parameters",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "If the option is a subcommand or subcommand group type, these nested options will be the parameters"
+      }
     },
     "channel_types": {
       "type": "array of channel types",
-      "description": "If the option is a channel type, the channels shown will be restricted to these types",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "If the option is a channel type, the channels shown will be restricted to these types"
+      }
     },
     "min_value": {
       "type": "integer for INTEGER options, double for NUMBER options",
-      "description": "If the option is an INTEGER or NUMBER type, the minimum value permitted",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "If the option is an INTEGER or NUMBER type, the minimum value permitted"
+      }
     },
     "max_value": {
       "type": "integer for INTEGER options, double for NUMBER options",
-      "description": "If the option is an INTEGER or NUMBER type, the maximum value permitted",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "If the option is an INTEGER or NUMBER type, the maximum value permitted"
+      }
     },
     "min_length": {
       "type": "integer",
-      "description": "For option type STRING, the minimum allowed length (minimum of 0, maximum of 6000)",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "For option type STRING, the minimum allowed length (minimum of 0, maximum of 6000)"
+      }
     },
     "max_length": {
       "type": "integer",
-      "description": "For option type STRING, the maximum allowed length (minimum of 1, maximum of 6000)",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "For option type STRING, the maximum allowed length (minimum of 1, maximum of 6000)"
+      }
     },
     "autocomplete": {
       "type": "boolean",
-      "description": "If autocomplete interactions are enabled for this STRING, INTEGER, or NUMBER type option",
       "optional": true,
       "nullable": false,
-      "note-field": "autocomplete may not be set to true if choices are present."
+      "comments": {
+        "Description": "If autocomplete interactions are enabled for this STRING, INTEGER, or NUMBER type option",
+        "Name Note": "autocomplete may not be set to true if choices are present."
+      }
     }
   },
-  "Application Command Option Choice": {
+  "ApplicationCommandOptionChoice": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object"
+      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-choice-structure"
     },
     "name": {
       "type": "string",
-      "description": "1-100 character choice name",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "1-100 character choice name"
+      }
     },
     "name_localizations": {
       "type": "dictionary with keys in available locales",
-      "description": "Localization dictionary for the name field. Values follow the same restrictions as name",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "Localization dictionary for the name field. Values follow the same restrictions as name"
+      }
     },
     "value": {
       "type": "string, integer, or double",
-      "description": "Value for the choice, up to 100 characters if string",
       "optional": false,
       "nullable": false,
-      "note-type": "Type of value depends on the option type that the choice belongs to."
+      "comments": {
+        "Description": "Value for the choice, up to 100 characters if string",
+        "Type Note": "Type of value depends on the option type that the choice belongs to."
+      }
     }
   },
-  "Application Command Interaction Data Option": {
+  "ApplicationCommandInteractionDataOption": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object"
+      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-interaction-data-option-structure"
     },
     "name": {
       "type": "string",
-      "description": "Name of the parameter",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Name of the parameter"
+      }
     },
     "type": {
       "type": "integer",
-      "description": "Value of application command option type",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Value of application command option type"
+      }
     },
     "value": {
       "type": "string, integer, or double",
-      "description": "Value of the option resulting from user input",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Value of the option resulting from user input"
+      }
     },
     "options": {
       "type": "array of application command interaction data option",
-      "description": "Present if this option is a group or subcommand",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Present if this option is a group or subcommand"
+      }
     },
     "focused": {
       "type": "boolean",
-      "description": "true if this option is the currently focused option for autocomplete",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "true if this option is the currently focused option for autocomplete"
+      }
     }
   },
-  "Guild Application Command Permissions": {
+  "GuildApplicationCommandPermissions": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object"
+      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object-guild-application-command-permissions-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "ID of the command or the application ID",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "ID of the command or the application ID"
+      }
     },
     "application_id": {
       "type": "snowflake",
-      "description": "ID of the application the command belongs to",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "ID of the application the command belongs to"
+      }
     },
     "guild_id": {
       "type": "snowflake",
-      "description": "ID of the guild",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "ID of the guild"
+      }
     },
     "permissions": {
       "type": "array of application command permissions",
-      "description": "Permissions for the command in the guild, max of 100",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Permissions for the command in the guild, max of 100"
+      }
     }
   },
-  "Application Command Permissions": {
+  "ApplicationCommandPermissions": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object"
+      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object-application-command-permissions-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "ID of the role, user, or channel. It can also be a permission constant",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "ID of the role, user, or channel. It can also be a permission constant"
+      }
     },
     "type": {
       "type": "application command permission type",
-      "description": "role (1), user (2), or channel (3)",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "role (1), user (2), or channel (3)"
+      }
     },
     "permission": {
       "type": "boolean",
-      "description": "true to allow, false, to disallow",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "true to allow, false, to disallow"
+      }
+    }
+  },
+  "GetGlobalApplicationCommandsParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#get-global-application-commands-query-string-params"
+    },
+    "with_localizations": {
+      "type": "boolean",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Whether to include full localization dictionaries (name_localizations and description_localizations) in the returned objects, instead of the name_localized and description_localized fields. Default false."
+      },
+      "target": "query string"
+    }
+  },
+  "CreateGlobalApplicationCommandParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#create-global-application-command-json-params"
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Name of command, 1-32 characters"
+      },
+      "target": "json"
+    },
+    "name_localizations": {
+      "type": "dictionary with keys in available locales",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "Localization dictionary for the name field. Values follow the same restrictions as name"
+      },
+      "target": "json"
+    },
+    "description": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "1-100 character description"
+      },
+      "target": "json"
+    },
+    "description_localizations": {
+      "type": "dictionary with keys in available locales",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "Localization dictionary for the description field. Values follow the same restrictions as description"
+      },
+      "target": "json"
+    },
+    "options": {
+      "type": "array of application command option",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "the parameters for the command"
+      },
+      "target": "json"
+    },
+    "default_member_permissions": {
+      "type": "string",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "Set of permissions represented as a bit set"
+      },
+      "target": "json"
+    },
+    "dm_permission": {
+      "type": "boolean",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "Indicates whether the command is available in DMs with the app, only for globally-scoped commands. By default, commands are visible."
+      },
+      "target": "json"
+    },
+    "default_permission": {
+      "type": "boolean (default true)",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild."
+      },
+      "target": "json"
+    },
+    "type": {
+      "type": "one of application command type",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Type of command, defaults 1 if not set"
+      },
+      "target": "json"
+    }
+  },
+  "EditGlobalApplicationCommandParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#edit-global-application-command-json-params"
+    },
+    "name": {
+      "type": "string",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Name of command, 1-32 characters"
+      },
+      "target": "json"
+    },
+    "name_localizations": {
+      "type": "dictionary with keys in available locales",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "Localization dictionary for the name field. Values follow the same restrictions as name"
+      },
+      "target": "json"
+    },
+    "description": {
+      "type": "string",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "1-100 character description"
+      },
+      "target": "json"
+    },
+    "description_localizations": {
+      "type": "dictionary with keys in available locales",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "Localization dictionary for the description field. Values follow the same restrictions as description"
+      },
+      "target": "json"
+    },
+    "options": {
+      "type": "array of application command option",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "the parameters for the command"
+      },
+      "target": "json"
+    },
+    "default_member_permissions": {
+      "type": "string",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "Set of permissions represented as a bit set"
+      },
+      "target": "json"
+    },
+    "dm_permission": {
+      "type": "boolean",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "Indicates whether the command is available in DMs with the app, only for globally-scoped commands. By default, commands are visible."
+      },
+      "target": "json"
+    },
+    "default_permission": {
+      "type": "boolean (default true)",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild."
+      },
+      "target": "json"
+    }
+  },
+  "GetGuildApplicationCommandsParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#get-guild-application-commands-query-string-params"
+    },
+    "with_localizations": {
+      "type": "boolean",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Whether to include full localization dictionaries (name_localizations and description_localizations) in the returned objects, instead of the name_localized and description_localized fields. Default false."
+      },
+      "target": "query string"
+    }
+  },
+  "CreateGuildApplicationCommandParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#create-guild-application-command-json-params"
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Name of command, 1-32 characters"
+      },
+      "target": "json"
+    },
+    "name_localizations": {
+      "type": "dictionary with keys in available locales",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "Localization dictionary for the name field. Values follow the same restrictions as name"
+      },
+      "target": "json"
+    },
+    "description": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "1-100 character description"
+      },
+      "target": "json"
+    },
+    "description_localizations": {
+      "type": "dictionary with keys in available locales",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "Localization dictionary for the description field. Values follow the same restrictions as description"
+      },
+      "target": "json"
+    },
+    "options": {
+      "type": "array of application command option",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Parameters for the command"
+      },
+      "target": "json"
+    },
+    "default_member_permissions": {
+      "type": "string",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "Set of permissions represented as a bit set"
+      },
+      "target": "json"
+    },
+    "default_permission": {
+      "type": "boolean (default true)",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild."
+      },
+      "target": "json"
+    },
+    "type": {
+      "type": "one of application command type",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Type of command, defaults 1 if not set"
+      },
+      "target": "json"
+    }
+  },
+  "EditGuildApplicationCommandParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#edit-guild-application-command-json-params"
+    },
+    "name": {
+      "type": "string",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Name of command, 1-32 characters"
+      },
+      "target": "json"
+    },
+    "name_localizations": {
+      "type": "dictionary with keys in available locales",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "Localization dictionary for the name field. Values follow the same restrictions as name"
+      },
+      "target": "json"
+    },
+    "description": {
+      "type": "string",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "1-100 character description"
+      },
+      "target": "json"
+    },
+    "description_localizations": {
+      "type": "dictionary with keys in available locales",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "Localization dictionary for the description field. Values follow the same restrictions as description"
+      },
+      "target": "json"
+    },
+    "options": {
+      "type": "array of application command option",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Parameters for the command"
+      },
+      "target": "json"
+    },
+    "default_member_permissions": {
+      "type": "string",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "Set of permissions represented as a bit set"
+      },
+      "target": "json"
+    },
+    "default_permission": {
+      "type": "boolean (default true)",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild."
+      },
+      "target": "json"
+    }
+  },
+  "BulkOverwriteGuildApplicationCommandsParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#bulk-overwrite-guild-application-commands-bulk-application-command-json-params"
+    },
+    "id": {
+      "type": "snowflake",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "ID of the command, if known"
+      },
+      "target": "json"
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Name of command, 1-32 characters"
+      },
+      "target": "json"
+    },
+    "name_localizations": {
+      "type": "dictionary with keys in available locales",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "Localization dictionary for the name field. Values follow the same restrictions as name"
+      },
+      "target": "json"
+    },
+    "description": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "1-100 character description"
+      },
+      "target": "json"
+    },
+    "description_localizations": {
+      "type": "dictionary with keys in available locales",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "Localization dictionary for the description field. Values follow the same restrictions as description"
+      },
+      "target": "json"
+    },
+    "options": {
+      "type": "array of application command option",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Parameters for the command"
+      },
+      "target": "json"
+    },
+    "default_member_permissions": {
+      "type": "string",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "Set of permissions represented as a bit set"
+      },
+      "target": "json"
+    },
+    "dm_permission": {
+      "type": "boolean",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "Indicates whether the command is available in DMs with the app, only for globally-scoped commands. By default, commands are visible."
+      },
+      "target": "json"
+    },
+    "default_permission": {
+      "type": "boolean (default true)",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild."
+      },
+      "target": "json"
+    },
+    "type": {
+      "type": "one of application command type",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Type of command, defaults 1 if not set"
+      },
+      "target": "json"
+    }
+  },
+  "EditApplicationCommandPermissionsParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#edit-application-command-permissions-json-params"
+    },
+    "permissions": {
+      "type": "array of application command permissions",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Permissions for the command in the guild"
+      },
+      "target": "json"
     }
   }
 }

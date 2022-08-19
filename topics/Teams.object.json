@@ -1,0 +1,84 @@
+{
+  "Team": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/topics/teams#data-models-team-object"
+    },
+    "icon": {
+      "type": "string",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "a hash of the image of the team's icon"
+      }
+    },
+    "id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the unique id of the team"
+      }
+    },
+    "members": {
+      "type": "array of team member objects",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the members of the team"
+      }
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the name of the team"
+      }
+    },
+    "owner_user_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the user id of the current team owner"
+      }
+    }
+  },
+  "TeamMember": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/topics/teams#data-models-team-member-object"
+    },
+    "membership_state": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the user's membership state on the team"
+      }
+    },
+    "permissions": {
+      "type": "array of strings",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "will always be [\"*\"]"
+      }
+    },
+    "team_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the id of the parent team of which they are a member"
+      }
+    },
+    "user": {
+      "type": "partial user object",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the avatar, discriminator, id, and username of the user"
+      }
+    }
+  }
+}

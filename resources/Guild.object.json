@@ -1,676 +1,1992 @@
 {
   "Guild": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/guild#guild-object"
+      "docs_url": "https://discord.com/developers/docs/resources/guild#guild-object-guild-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "guild id",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "guild id"
+      }
     },
     "name": {
       "type": "string",
-      "description": "guild name (2-100 characters, excluding trailing and leading whitespace)",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "guild name (2-100 characters, excluding trailing and leading whitespace)"
+      }
     },
     "icon": {
       "type": "string",
-      "description": "icon hash",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "icon hash"
+      }
     },
     "icon_hash": {
       "type": "string",
-      "description": "icon hash, returned when in the template object",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "icon hash, returned when in the template object"
+      }
     },
     "splash": {
       "type": "string",
-      "description": "splash hash",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "splash hash"
+      }
     },
     "discovery_splash": {
       "type": "string",
-      "description": "discovery splash hash; only present for guilds with the \"DISCOVERABLE\" feature",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "discovery splash hash; only present for guilds with the \"DISCOVERABLE\" feature"
+      }
     },
     "owner": {
       "type": "boolean",
-      "description": "true if the user is the owner of the guild",
       "optional": true,
       "nullable": false,
-      "note-field": "These fields are only sent when using the GET Current User Guilds endpoint and are relative to the requested user"
+      "comments": {
+        "Description": "true if the user is the owner of the guild",
+        "Name Note": "These fields are only sent when using the GET Current User Guilds endpoint and are relative to the requested user"
+      }
     },
     "owner_id": {
       "type": "snowflake",
-      "description": "id of owner",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "id of owner"
+      }
     },
     "permissions": {
       "type": "string",
-      "description": "total permissions for the user in the guild (excludes overwrites)",
       "optional": true,
       "nullable": false,
-      "note-field": "These fields are only sent when using the GET Current User Guilds endpoint and are relative to the requested user"
+      "comments": {
+        "Description": "total permissions for the user in the guild (excludes overwrites)",
+        "Name Note": "These fields are only sent when using the GET Current User Guilds endpoint and are relative to the requested user"
+      }
     },
     "region": {
       "type": "string",
-      "description": "voice region id for the guild (deprecated)",
       "optional": true,
       "nullable": true,
-      "note-field": "This field is deprecated and is replaced by channel.rtc_region"
+      "comments": {
+        "Description": "voice region id for the guild (deprecated)",
+        "Name Note": "This field is deprecated and is replaced by channel.rtc_region"
+      }
     },
     "afk_channel_id": {
       "type": "snowflake",
-      "description": "id of afk channel",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "id of afk channel"
+      }
     },
     "afk_timeout": {
       "type": "integer",
-      "description": "afk timeout in seconds",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "afk timeout in seconds"
+      }
     },
     "widget_enabled": {
       "type": "boolean",
-      "description": "true if the server widget is enabled",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "true if the server widget is enabled"
+      }
     },
     "widget_channel_id": {
       "type": "snowflake",
-      "description": "the channel id that the widget will generate an invite to, or null if set to no invite",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the channel id that the widget will generate an invite to, or null if set to no invite"
+      }
     },
     "verification_level": {
       "type": "integer",
-      "description": "verification level required for the guild",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "verification level required for the guild"
+      }
     },
     "default_message_notifications": {
       "type": "integer",
-      "description": "default message notifications level",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "default message notifications level"
+      }
     },
     "explicit_content_filter": {
       "type": "integer",
-      "description": "explicit content filter level",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "explicit content filter level"
+      }
     },
     "roles": {
       "type": "array of role objects",
-      "description": "roles in the guild",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "roles in the guild"
+      }
     },
     "emojis": {
       "type": "array of emoji objects",
-      "description": "custom guild emojis",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "custom guild emojis"
+      }
     },
     "features": {
       "type": "array of guild feature strings",
-      "description": "enabled guild features",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "enabled guild features"
+      }
     },
     "mfa_level": {
       "type": "integer",
-      "description": "required MFA level for the guild",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "required MFA level for the guild"
+      }
     },
     "application_id": {
       "type": "snowflake",
-      "description": "application id of the guild creator if it is bot-created",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "application id of the guild creator if it is bot-created"
+      }
     },
     "system_channel_id": {
       "type": "snowflake",
-      "description": "the id of the channel where guild notices such as welcome messages and boost events are posted",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the id of the channel where guild notices such as welcome messages and boost events are posted"
+      }
     },
     "system_channel_flags": {
       "type": "integer",
-      "description": "system channel flags",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "system channel flags"
+      }
     },
     "rules_channel_id": {
       "type": "snowflake",
-      "description": "the id of the channel where Community guilds can display rules and/or guidelines",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the id of the channel where Community guilds can display rules and/or guidelines"
+      }
     },
     "max_presences": {
       "type": "integer",
-      "description": "the maximum number of presences for the guild (null is always returned, apart from the largest of guilds)",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the maximum number of presences for the guild (null is always returned, apart from the largest of guilds)"
+      }
     },
     "max_members": {
       "type": "integer",
-      "description": "the maximum number of members for the guild",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the maximum number of members for the guild"
+      }
     },
     "vanity_url_code": {
       "type": "string",
-      "description": "the vanity url code for the guild",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the vanity url code for the guild"
+      }
     },
     "description": {
       "type": "string",
-      "description": "the description of a guild",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the description of a guild"
+      }
     },
     "banner": {
       "type": "string",
-      "description": "banner hash",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "banner hash"
+      }
     },
     "premium_tier": {
       "type": "integer",
-      "description": "premium tier (Server Boost level)",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "premium tier (Server Boost level)"
+      }
     },
     "premium_subscription_count": {
       "type": "integer",
-      "description": "the number of boosts this guild currently has",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the number of boosts this guild currently has"
+      }
     },
     "preferred_locale": {
       "type": "string",
-      "description": "the preferred locale of a Community guild; used in server discovery and notices from Discord, and sent in interactions; defaults to \"en-US\"",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the preferred locale of a Community guild; used in server discovery and notices from Discord, and sent in interactions; defaults to \"en-US\""
+      }
     },
     "public_updates_channel_id": {
       "type": "snowflake",
-      "description": "the id of the channel where admins and moderators of Community guilds receive notices from Discord",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the id of the channel where admins and moderators of Community guilds receive notices from Discord"
+      }
     },
     "max_video_channel_users": {
       "type": "integer",
-      "description": "the maximum amount of users in a video channel",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the maximum amount of users in a video channel"
+      }
     },
     "approximate_member_count": {
       "type": "integer",
-      "description": "approximate number of members in this guild, returned from the GET /guilds/<id> endpoint when with_counts is true",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "approximate number of members in this guild, returned from the GET /guilds/<id> endpoint when with_counts is true"
+      }
     },
     "approximate_presence_count": {
       "type": "integer",
-      "description": "approximate number of non-offline members in this guild, returned from the GET /guilds/<id> endpoint when with_counts is true",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "approximate number of non-offline members in this guild, returned from the GET /guilds/<id> endpoint when with_counts is true"
+      }
     },
     "welcome_screen": {
       "type": "welcome screen object",
-      "description": "the welcome screen of a Community guild, shown to new members, returned in an Invite's guild object",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the welcome screen of a Community guild, shown to new members, returned in an Invite's guild object"
+      }
     },
     "nsfw_level": {
       "type": "integer",
-      "description": "guild NSFW level",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "guild NSFW level"
+      }
     },
     "stickers": {
       "type": "array of sticker objects",
-      "description": "custom guild stickers",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "custom guild stickers"
+      }
     },
     "premium_progress_bar_enabled": {
       "type": "boolean",
-      "description": "whether the guild has the boost progress bar enabled",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether the guild has the boost progress bar enabled"
+      }
     }
   },
-  "Guild Preview": {
+  "GuildPreview": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/guild#guild-preview-object"
+      "docs_url": "https://discord.com/developers/docs/resources/guild#guild-preview-object-guild-preview-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "guild id",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "guild id"
+      }
     },
     "name": {
       "type": "string",
-      "description": "guild name (2-100 characters)",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "guild name (2-100 characters)"
+      }
     },
     "icon": {
       "type": "string",
-      "description": "icon hash",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "icon hash"
+      }
     },
     "splash": {
       "type": "string",
-      "description": "splash hash",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "splash hash"
+      }
     },
     "discovery_splash": {
       "type": "string",
-      "description": "discovery splash hash",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "discovery splash hash"
+      }
     },
     "emojis": {
       "type": "array of emoji objects",
-      "description": "custom guild emojis",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "custom guild emojis"
+      }
     },
     "features": {
       "type": "array of guild feature strings",
-      "description": "enabled guild features",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "enabled guild features"
+      }
     },
     "approximate_member_count": {
       "type": "integer",
-      "description": "approximate number of members in this guild",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "approximate number of members in this guild"
+      }
     },
     "approximate_presence_count": {
       "type": "integer",
-      "description": "approximate number of online members in this guild",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "approximate number of online members in this guild"
+      }
     },
     "description": {
       "type": "string",
-      "description": "the description for the guild",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the description for the guild"
+      }
     },
     "stickers": {
       "type": "array of sticker objects",
-      "description": "custom guild stickers",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "custom guild stickers"
+      }
     }
   },
-  "Guild Widget Settings": {
+  "GuildWidgetSettings": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/guild#guild-widget-settings-object"
+      "docs_url": "https://discord.com/developers/docs/resources/guild#guild-widget-settings-object-guild-widget-settings-structure"
     },
     "enabled": {
       "type": "boolean",
-      "description": "whether the widget is enabled",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether the widget is enabled"
+      }
     },
     "channel_id": {
       "type": "snowflake",
-      "description": "the widget channel id",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the widget channel id"
+      }
     }
   },
-  "Guild Widget": {
+  "GuildWidget": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/guild#guild-widget-object"
+      "docs_url": "https://discord.com/developers/docs/resources/guild#guild-widget-object-guild-widget-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "guild id",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "guild id"
+      }
     },
     "name": {
       "type": "string",
-      "description": "guild name (2-100 characters)",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "guild name (2-100 characters)"
+      }
     },
     "instant_invite": {
       "type": "string",
-      "description": "instant invite for the guilds specified widget invite channel",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "instant invite for the guilds specified widget invite channel"
+      }
     },
     "channels": {
       "type": "array of partial channel objects",
-      "description": "voice and stage channels which are accessible by @everyone",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "voice and stage channels which are accessible by @everyone"
+      }
     },
     "members": {
       "type": "array of partial user objects",
-      "description": "special widget user objects that includes users presence (Limit 100)",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "special widget user objects that includes users presence (Limit 100)"
+      }
     },
     "presence_count": {
       "type": "integer",
-      "description": "number of online members in this guild",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "number of online members in this guild"
+      }
     }
   },
-  "Guild Member": {
+  "GuildMember": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/guild#guild-member-object"
+      "docs_url": "https://discord.com/developers/docs/resources/guild#guild-member-object-guild-member-structure"
     },
     "user": {
       "type": "user object",
-      "description": "the user this guild member represents",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the user this guild member represents"
+      }
     },
     "nick": {
       "type": "string",
-      "description": "this user's guild nickname",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "this user's guild nickname"
+      }
     },
     "avatar": {
       "type": "string",
-      "description": "the member's guild avatar hash",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the member's guild avatar hash"
+      }
     },
     "roles": {
       "type": "array of snowflakes",
-      "description": "array of role object ids",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "array of role object ids"
+      }
     },
     "joined_at": {
       "type": "ISO8601 timestamp",
-      "description": "when the user joined the guild",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "when the user joined the guild"
+      }
     },
     "premium_since": {
       "type": "ISO8601 timestamp",
-      "description": "when the user started boosting the guild",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "when the user started boosting the guild"
+      }
     },
     "deaf": {
       "type": "boolean",
-      "description": "whether the user is deafened in voice channels",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether the user is deafened in voice channels"
+      }
     },
     "mute": {
       "type": "boolean",
-      "description": "whether the user is muted in voice channels",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether the user is muted in voice channels"
+      }
     },
     "pending": {
       "type": "boolean",
-      "description": "whether the user has not yet passed the guild's Membership Screening requirements",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether the user has not yet passed the guild's Membership Screening requirements"
+      }
     },
     "permissions": {
       "type": "string",
-      "description": "total permissions of the member in the channel, including overwrites, returned when in the interaction object",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "total permissions of the member in the channel, including overwrites, returned when in the interaction object"
+      }
     },
     "communication_disabled_until": {
       "type": "ISO8601 timestamp",
-      "description": "when the user's timeout will expire and the user will be able to communicate in the guild again, null or a time in the past if the user is not timed out",
       "optional": true,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "when the user's timeout will expire and the user will be able to communicate in the guild again, null or a time in the past if the user is not timed out"
+      }
     }
   },
   "Integration": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/guild#integration-object"
+      "docs_url": "https://discord.com/developers/docs/resources/guild#integration-object-integration-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "integration id",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "integration id"
+      }
     },
     "name": {
       "type": "string",
-      "description": "integration name",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "integration name"
+      }
     },
     "type": {
       "type": "string",
-      "description": "integration type (twitch, youtube, or discord)",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "integration type (twitch, youtube, or discord)"
+      }
     },
     "enabled": {
       "type": "boolean",
-      "description": "is this integration enabled",
       "optional": true,
       "nullable": false,
-      "note-field": "These fields are not provided for discord bot integrations."
+      "comments": {
+        "Description": "is this integration enabled",
+        "Name Note": "These fields are not provided for discord bot integrations."
+      }
     },
     "syncing": {
       "type": "boolean",
-      "description": "is this integration syncing",
       "optional": true,
       "nullable": false,
-      "note-field": "These fields are not provided for discord bot integrations."
+      "comments": {
+        "Description": "is this integration syncing",
+        "Name Note": "These fields are not provided for discord bot integrations."
+      }
     },
     "role_id": {
       "type": "snowflake",
-      "description": "id that this integration uses for \"subscribers\"",
       "optional": true,
       "nullable": false,
-      "note-field": "These fields are not provided for discord bot integrations."
+      "comments": {
+        "Description": "id that this integration uses for \"subscribers\"",
+        "Name Note": "These fields are not provided for discord bot integrations."
+      }
     },
     "enable_emoticons": {
       "type": "boolean",
-      "description": "whether emoticons should be synced for this integration (twitch only currently)",
       "optional": true,
       "nullable": false,
-      "note-field": "These fields are not provided for discord bot integrations."
+      "comments": {
+        "Description": "whether emoticons should be synced for this integration (twitch only currently)",
+        "Name Note": "These fields are not provided for discord bot integrations."
+      }
     },
     "expire_behavior": {
       "type": "integration expire behavior",
-      "description": "the behavior of expiring subscribers",
       "optional": true,
       "nullable": false,
-      "note-field": "These fields are not provided for discord bot integrations."
+      "comments": {
+        "Description": "the behavior of expiring subscribers",
+        "Name Note": "These fields are not provided for discord bot integrations."
+      }
     },
     "expire_grace_period": {
       "type": "integer",
-      "description": "the grace period (in days) before expiring subscribers",
       "optional": true,
       "nullable": false,
-      "note-field": "These fields are not provided for discord bot integrations."
+      "comments": {
+        "Description": "the grace period (in days) before expiring subscribers",
+        "Name Note": "These fields are not provided for discord bot integrations."
+      }
     },
     "user": {
       "type": "user object",
-      "description": "user for this integration",
       "optional": true,
       "nullable": false,
-      "note-field": "These fields are not provided for discord bot integrations."
+      "comments": {
+        "Description": "user for this integration",
+        "Name Note": "These fields are not provided for discord bot integrations."
+      }
     },
     "account": {
       "type": "account object",
-      "description": "integration account information",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "integration account information"
+      }
     },
     "synced_at": {
       "type": "ISO8601 timestamp",
-      "description": "when this integration was last synced",
       "optional": true,
       "nullable": false,
-      "note-field": "These fields are not provided for discord bot integrations."
+      "comments": {
+        "Description": "when this integration was last synced",
+        "Name Note": "These fields are not provided for discord bot integrations."
+      }
     },
     "subscriber_count": {
       "type": "integer",
-      "description": "how many subscribers this integration has",
       "optional": true,
       "nullable": false,
-      "note-field": "These fields are not provided for discord bot integrations."
+      "comments": {
+        "Description": "how many subscribers this integration has",
+        "Name Note": "These fields are not provided for discord bot integrations."
+      }
     },
     "revoked": {
       "type": "boolean",
-      "description": "has this integration been revoked",
       "optional": true,
       "nullable": false,
-      "note-field": "These fields are not provided for discord bot integrations."
+      "comments": {
+        "Description": "has this integration been revoked",
+        "Name Note": "These fields are not provided for discord bot integrations."
+      }
     },
     "application": {
       "type": "application object",
-      "description": "The bot/OAuth2 application for discord integrations",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "The bot/OAuth2 application for discord integrations"
+      }
     }
   },
-  "Integration Account": {
+  "IntegrationAccount": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/guild#integration-account-object"
+      "docs_url": "https://discord.com/developers/docs/resources/guild#integration-account-object-integration-account-structure"
     },
     "id": {
       "type": "string",
-      "description": "id of the account",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "id of the account"
+      }
     },
     "name": {
       "type": "string",
-      "description": "name of the account",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "name of the account"
+      }
     }
   },
-  "Integration Application": {
+  "IntegrationApplication": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/guild#integration-application-object"
+      "docs_url": "https://discord.com/developers/docs/resources/guild#integration-application-object-integration-application-structure"
     },
     "id": {
       "type": "snowflake",
-      "description": "the id of the app",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the id of the app"
+      }
     },
     "name": {
       "type": "string",
-      "description": "the name of the app",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the name of the app"
+      }
     },
     "icon": {
       "type": "string",
-      "description": "the icon hash of the app",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the icon hash of the app"
+      }
     },
     "description": {
       "type": "string",
-      "description": "the description of the app",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the description of the app"
+      }
     },
     "bot": {
       "type": "user object",
-      "description": "the bot associated with this application",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the bot associated with this application"
+      }
     }
   },
   "Ban": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/guild#ban-object"
+      "docs_url": "https://discord.com/developers/docs/resources/guild#ban-object-ban-structure"
     },
     "reason": {
       "type": "string",
-      "description": "the reason for the ban",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the reason for the ban"
+      }
     },
     "user": {
       "type": "user object",
-      "description": "the banned user",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the banned user"
+      }
     }
   },
-  "Welcome Screen": {
+  "WelcomeScreen": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
+      "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object-welcome-screen-structure"
     },
     "description": {
       "type": "string",
-      "description": "the server description shown in the welcome screen",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the server description shown in the welcome screen"
+      }
     },
     "welcome_channels": {
       "type": "array of welcome screen channel objects",
-      "description": "the channels shown in the welcome screen, up to 5",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the channels shown in the welcome screen, up to 5"
+      }
     }
   },
-  "Welcome Screen Channel": {
+  "WelcomeScreenChannel": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object"
+      "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object-welcome-screen-channel-structure"
     },
     "channel_id": {
       "type": "snowflake",
-      "description": "the channel's id",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the channel's id"
+      }
     },
     "description": {
       "type": "string",
-      "description": "the description shown for the channel",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the description shown for the channel"
+      }
     },
     "emoji_id": {
       "type": "snowflake",
-      "description": "the emoji id, if the emoji is custom",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the emoji id, if the emoji is custom"
+      }
     },
     "emoji_name": {
       "type": "string",
-      "description": "the emoji name if custom, the unicode character if standard, or null if no emoji is set",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "the emoji name if custom, the unicode character if standard, or null if no emoji is set"
+      }
+    }
+  },
+  "CreateGuildParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#create-guild-json-params"
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "name of the guild (2-100 characters)"
+      },
+      "target": "json"
+    },
+    "region": {
+      "type": "string",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "voice region id (deprecated)"
+      },
+      "target": "json"
+    },
+    "icon": {
+      "type": "image data",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "base64 128x128 image for the guild icon"
+      },
+      "target": "json"
+    },
+    "verification_level": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "verification level"
+      },
+      "target": "json"
+    },
+    "default_message_notifications": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "default message notification level"
+      },
+      "target": "json"
+    },
+    "explicit_content_filter": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "explicit content filter level"
+      },
+      "target": "json"
+    },
+    "roles": {
+      "type": "array of role objects",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "new guild roles"
+      },
+      "target": "json"
+    },
+    "channels": {
+      "type": "array of partial channel objects",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "new guild's channels"
+      },
+      "target": "json"
+    },
+    "afk_channel_id": {
+      "type": "snowflake",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "id for afk channel"
+      },
+      "target": "json"
+    },
+    "afk_timeout": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "afk timeout in seconds"
+      },
+      "target": "json"
+    },
+    "system_channel_id": {
+      "type": "snowflake",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "the id of the channel where guild notices such as welcome messages and boost events are posted"
+      },
+      "target": "json"
+    },
+    "system_channel_flags": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "system channel flags"
+      },
+      "target": "json"
+    }
+  },
+  "GetGuildParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#get-guild-query-string-params"
+    },
+    "with_counts": {
+      "type": "boolean",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "when true, will return approximate member and presence counts for the guild",
+        "Required": "false",
+        "Default": "false"
+      },
+      "target": "query string"
+    }
+  },
+  "ModifyGuildParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#modify-guild-json-params"
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "guild name"
+      },
+      "target": "json"
+    },
+    "region": {
+      "type": "string",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "guild voice region id (deprecated)"
+      },
+      "target": "json"
+    },
+    "verification_level": {
+      "type": "integer",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "verification level"
+      },
+      "target": "json"
+    },
+    "default_message_notifications": {
+      "type": "integer",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "default message notification level"
+      },
+      "target": "json"
+    },
+    "explicit_content_filter": {
+      "type": "integer",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "explicit content filter level"
+      },
+      "target": "json"
+    },
+    "afk_channel_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "id for afk channel"
+      },
+      "target": "json"
+    },
+    "afk_timeout": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "afk timeout in seconds"
+      },
+      "target": "json"
+    },
+    "icon": {
+      "type": "image data",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "base64 1024x1024 png/jpeg/gif image for the guild icon (can be animated gif when the server has the ANIMATED_ICON feature)"
+      },
+      "target": "json"
+    },
+    "owner_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "user id to transfer guild ownership to (must be owner)"
+      },
+      "target": "json"
+    },
+    "splash": {
+      "type": "image data",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "base64 16:9 png/jpeg image for the guild splash (when the server has the INVITE_SPLASH feature)"
+      },
+      "target": "json"
+    },
+    "discovery_splash": {
+      "type": "image data",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "base64 16:9 png/jpeg image for the guild discovery splash (when the server has the DISCOVERABLE feature)"
+      },
+      "target": "json"
+    },
+    "banner": {
+      "type": "image data",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "base64 16:9 png/jpeg image for the guild banner (when the server has the BANNER feature; can be animated gif when the server has the ANIMATED_BANNER feature)"
+      },
+      "target": "json"
+    },
+    "system_channel_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "the id of the channel where guild notices such as welcome messages and boost events are posted"
+      },
+      "target": "json"
+    },
+    "system_channel_flags": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "system channel flags"
+      },
+      "target": "json"
+    },
+    "rules_channel_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "the id of the channel where Community guilds display rules and/or guidelines"
+      },
+      "target": "json"
+    },
+    "public_updates_channel_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "the id of the channel where admins and moderators of Community guilds receive notices from Discord"
+      },
+      "target": "json"
+    },
+    "preferred_locale": {
+      "type": "string",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "the preferred locale of a Community guild used in server discovery and notices from Discord; defaults to \"en-US\""
+      },
+      "target": "json"
+    },
+    "features": {
+      "type": "array of guild feature strings",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "enabled guild features"
+      },
+      "target": "json"
+    },
+    "description": {
+      "type": "string",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "the description for the guild"
+      },
+      "target": "json"
+    },
+    "premium_progress_bar_enabled": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether the guild's boost progress bar should be enabled"
+      },
+      "target": "json"
+    }
+  },
+  "CreateGuildChannelParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#create-guild-channel-json-params"
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "channel name (1-100 characters)"
+      },
+      "target": "json"
+    },
+    "type": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the type of channel"
+      },
+      "target": "json"
+    },
+    "topic": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "channel topic (0-1024 characters)"
+      },
+      "target": "json"
+    },
+    "bitrate": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the bitrate (in bits) of the voice or stage channel; min 8000",
+        "Name Note": "For voice channels, normal servers can set bitrate up to 96000, servers with Boost level 1 can set up to 128000, servers with Boost level 2 can set up to 256000, and servers with Boost level 3 or the VIP_REGIONS guild feature can set up to 384000. For stage channels, bitrate can be set up to 64000."
+      },
+      "target": "json"
+    },
+    "user_limit": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the user limit of the voice channel"
+      },
+      "target": "json"
+    },
+    "rate_limit_per_user": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel, are unaffected"
+      },
+      "target": "json"
+    },
+    "position": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "sorting position of the channel"
+      },
+      "target": "json"
+    },
+    "permission_overwrites": {
+      "type": "array of partial overwrite objects",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the channel's permission overwrites",
+        "Name Note": "In each overwrite object, the allow and deny keys can be omitted or set to null, which both default to \"0\"."
+      },
+      "target": "json"
+    },
+    "parent_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "id of the parent category for a channel"
+      },
+      "target": "json"
+    },
+    "nsfw": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether the channel is nsfw"
+      },
+      "target": "json"
+    },
+    "rtc_region": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "channel voice region id of the voice or stage channel, automatic when set to null"
+      },
+      "target": "json"
+    },
+    "video_quality_mode": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the camera video quality mode of the voice channel"
+      },
+      "target": "json"
+    },
+    "default_auto_archive_duration": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the default duration that the clients use (not the API) for newly created threads in the channel, in minutes, to automatically archive the thread after recent activity"
+      },
+      "target": "json"
+    }
+  },
+  "ModifyGuildChannelPositionsParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#modify-guild-channel-positions-json-params"
+    },
+    "id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "channel id"
+      },
+      "target": "json"
+    },
+    "position": {
+      "type": "integer",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "sorting position of the channel"
+      },
+      "target": "json"
+    },
+    "lock_permissions": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "syncs the permission overwrites with the new parent, if moving to a new category"
+      },
+      "target": "json"
+    },
+    "parent_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "the new parent ID for the channel that is moved"
+      },
+      "target": "json"
+    }
+  },
+  "ListActiveGuildThreadsResponse": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#list-active-guild-threads-response-body"
+    },
+    "threads": {
+      "type": "array of channel objects",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the active threads"
+      }
+    },
+    "members": {
+      "type": "array of thread members objects",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "a thread member object for each returned thread the current user has joined"
+      }
+    }
+  },
+  "ListGuildMembersParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#list-guild-members-query-string-params"
+    },
+    "limit": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "max number of members to return (1-1000)",
+        "Default": "1"
+      },
+      "target": "query string"
+    },
+    "after": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the highest user id in the previous page",
+        "Default": "0"
+      },
+      "target": "query string"
+    }
+  },
+  "SearchGuildMembersParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#search-guild-members-query-string-params"
+    },
+    "query": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Query string to match username(s) and nickname(s) against.",
+        "Default": ""
+      },
+      "target": "query string"
+    },
+    "limit": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "max number of members to return (1-1000)",
+        "Default": "1"
+      },
+      "target": "query string"
+    }
+  },
+  "AddGuildMemberParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#add-guild-member-json-params"
+    },
+    "access_token": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "an oauth2 access token granted with the guilds.join to the bot's application for the user you want to add to the guild",
+        "Permission": ""
+      },
+      "target": "json"
+    },
+    "nick": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "value to set user's nickname to",
+        "Permission": "MANAGE_NICKNAMES"
+      },
+      "target": "json"
+    },
+    "roles": {
+      "type": "array of snowflakes",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "array of role ids the member is assigned",
+        "Permission": "MANAGE_ROLES"
+      },
+      "target": "json"
+    },
+    "mute": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether the user is muted in voice channels",
+        "Permission": "MUTE_MEMBERS"
+      },
+      "target": "json"
+    },
+    "deaf": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether the user is deafened in voice channels",
+        "Permission": "DEAFEN_MEMBERS"
+      },
+      "target": "json"
+    }
+  },
+  "ModifyGuildMemberParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#modify-guild-member-json-params"
+    },
+    "nick": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "value to set user's nickname to",
+        "Permission": "MANAGE_NICKNAMES"
+      },
+      "target": "json"
+    },
+    "roles": {
+      "type": "array of snowflakes",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "array of role ids the member is assigned",
+        "Permission": "MANAGE_ROLES"
+      },
+      "target": "json"
+    },
+    "mute": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether the user is muted in voice channels. Will throw a 400 error if the user is not in a voice channel",
+        "Permission": "MUTE_MEMBERS"
+      },
+      "target": "json"
+    },
+    "deaf": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether the user is deafened in voice channels. Will throw a 400 error if the user is not in a voice channel",
+        "Permission": "DEAFEN_MEMBERS"
+      },
+      "target": "json"
+    },
+    "channel_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "id of channel to move user to (if they are connected to voice)",
+        "Permission": "MOVE_MEMBERS"
+      },
+      "target": "json"
+    },
+    "communication_disabled_until": {
+      "type": "ISO8601 timestamp",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "when the user's timeout will expire and the user will be able to communicate in the guild again (up to 28 days in the future), set to null to remove timeout. Will throw a 403 error if the user has the ADMINISTRATOR permission or is the owner of the guild",
+        "Permission": "MODERATE_MEMBERS"
+      },
+      "target": "json"
+    }
+  },
+  "ModifyCurrentMemberParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#modify-current-member-json-params"
+    },
+    "nick": {
+      "type": "string",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "value to set user's nickname to",
+        "Permission": "CHANGE_NICKNAME"
+      },
+      "target": "json"
+    }
+  },
+  "ModifyCurrentUserNickParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#modify-current-user-nick-json-params"
+    },
+    "nick": {
+      "type": "string",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "value to set user's nickname to",
+        "Permission": "CHANGE_NICKNAME"
+      },
+      "target": "json"
+    }
+  },
+  "GetGuildBansParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#get-guild-bans-query-string-params"
+    },
+    "limit": {
+      "type": "number",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "number of users to return (up to maximum 1000)",
+        "Default": "1000"
+      },
+      "target": "query string"
+    },
+    "before": {
+      "type": "snowflake",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "consider only users before given user id",
+        "Name Note": "Provide a user id to before and after for pagination. Users will always be returned in ascending order by user.id. If both before and after are provided, only before is respected.",
+        "Default": "null"
+      },
+      "target": "query string"
+    },
+    "after": {
+      "type": "snowflake",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "consider only users after given user id",
+        "Name Note": "Provide a user id to before and after for pagination. Users will always be returned in ascending order by user.id. If both before and after are provided, only before is respected.",
+        "Default": "null"
+      },
+      "target": "query string"
+    }
+  },
+  "CreateGuildBanParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#create-guild-ban-json-params"
+    },
+    "delete_message_days": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "number of days to delete messages for (0-7)",
+        "Default": "0"
+      },
+      "target": "json"
+    },
+    "reason": {
+      "type": "string",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "reason for the ban (deprecated)",
+        "Default": ""
+      },
+      "target": "json"
+    }
+  },
+  "CreateGuildRoleParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#create-guild-role-json-params"
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "name of the role",
+        "Default": "\"new role\""
+      },
+      "target": "json"
+    },
+    "permissions": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "bitwise value of the enabled/disabled permissions",
+        "Default": "@everyone permissions in guild"
+      },
+      "target": "json"
+    },
+    "color": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "RGB color value",
+        "Default": "0"
+      },
+      "target": "json"
+    },
+    "hoist": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether the role should be displayed separately in the sidebar",
+        "Default": "false"
+      },
+      "target": "json"
+    },
+    "icon": {
+      "type": "image data",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "the role's icon image (if the guild has the ROLE_ICONS feature)",
+        "Default": "null"
+      },
+      "target": "json"
+    },
+    "unicode_emoji": {
+      "type": "string",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "the role's unicode emoji as a standard emoji (if the guild has the ROLE_ICONS feature)",
+        "Default": "null"
+      },
+      "target": "json"
+    },
+    "mentionable": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether the role should be mentionable",
+        "Default": "false"
+      },
+      "target": "json"
+    }
+  },
+  "ModifyGuildRolePositionsParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#modify-guild-role-positions-json-params"
+    },
+    "id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "role"
+      },
+      "target": "json"
+    },
+    "position": {
+      "type": "integer",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "sorting position of the role"
+      },
+      "target": "json"
+    }
+  },
+  "ModifyGuildRoleParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#modify-guild-role-json-params"
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "name of the role"
+      },
+      "target": "json"
+    },
+    "permissions": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "bitwise value of the enabled/disabled permissions"
+      },
+      "target": "json"
+    },
+    "color": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "RGB color value"
+      },
+      "target": "json"
+    },
+    "hoist": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether the role should be displayed separately in the sidebar"
+      },
+      "target": "json"
+    },
+    "icon": {
+      "type": "image data",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the role's icon image (if the guild has the ROLE_ICONS feature)"
+      },
+      "target": "json"
+    },
+    "unicode_emoji": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the role's unicode emoji as a standard emoji (if the guild has the ROLE_ICONS feature)"
+      },
+      "target": "json"
+    },
+    "mentionable": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether the role should be mentionable"
+      },
+      "target": "json"
+    }
+  },
+  "ModifyGuildMfaLevelParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#modify-guild-mfa-level-json-params"
+    },
+    "level": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "MFA level"
+      },
+      "target": "json"
+    }
+  },
+  "GetGuildPruneCountParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#get-guild-prune-count-query-string-params"
+    },
+    "days": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "number of days to count prune for (1-30)",
+        "Default": "7"
+      },
+      "target": "query string"
+    },
+    "include_roles": {
+      "type": "string; comma-delimited array of snowflakes",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "role(s) to include",
+        "Default": "none"
+      },
+      "target": "query string"
+    }
+  },
+  "BeginGuildPruneParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#begin-guild-prune-json-params"
+    },
+    "days": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "number of days to prune (1-30)",
+        "Default": "7"
+      },
+      "target": "json"
+    },
+    "compute_prune_count": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether pruned is returned, discouraged for large guilds",
+        "Default": "true"
+      },
+      "target": "json"
+    },
+    "include_roles": {
+      "type": "array of snowflakes",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "role(s) to include",
+        "Default": "none"
+      },
+      "target": "json"
+    },
+    "reason": {
+      "type": "string",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "reason for the prune (deprecated)",
+        "Default": ""
+      },
+      "target": "json"
+    }
+  },
+  "GetGuildWidgetImageParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#get-guild-widget-image-query-string-params"
+    },
+    "style": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "style of the widget image returned (see below)",
+        "Default": "shield"
+      },
+      "target": "query string"
+    }
+  },
+  "ModifyGuildWelcomeScreenParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#modify-guild-welcome-screen-json-params"
+    },
+    "enabled": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether the welcome screen is enabled"
+      },
+      "target": "json"
+    },
+    "welcome_channels": {
+      "type": "array of welcome screen channel objects",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "channels linked in the welcome screen and their display options"
+      },
+      "target": "json"
+    },
+    "description": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the server description to show in the welcome screen"
+      },
+      "target": "json"
+    }
+  },
+  "ModifyCurrentUserVoiceStateParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#modify-current-user-voice-state-json-params"
+    },
+    "channel_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the id of the channel the user is currently in"
+      },
+      "target": "json"
+    },
+    "suppress": {
+      "type": "boolean",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "toggles the user's suppress state"
+      },
+      "target": "json"
+    },
+    "request_to_speak_timestamp": {
+      "type": "ISO8601 timestamp",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "sets the user's request to speak"
+      },
+      "target": "json"
+    }
+  },
+  "ModifyUserVoiceStateParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/guild#modify-user-voice-state-json-params"
+    },
+    "channel_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the id of the channel the user is currently in"
+      },
+      "target": "json"
+    },
+    "suppress": {
+      "type": "boolean",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "toggles the user's suppress state"
+      },
+      "target": "json"
     }
   }
 }

@@ -1,119 +1,281 @@
 {
-  "Audit Log": {
+  "AuditLog": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/audit-log#audit-log-object"
+      "docs_url": "https://discord.com/developers/docs/resources/audit-log#audit-log-object-audit-log-structure"
     },
     "audit_log_entries": {
       "type": "array of audit log entry objects",
-      "description": "List of audit log entries, sorted from most to least recent",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "List of audit log entries, sorted from most to least recent"
+      }
     },
     "auto_moderation_rules": {
       "type": "array of auto moderation rule objects",
-      "description": "List of auto moderation rules referenced in the audit log",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "List of auto moderation rules referenced in the audit log"
+      }
     },
     "guild_scheduled_events": {
       "type": "array of guild scheduled event objects",
-      "description": "List of guild scheduled events referenced in the audit log",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "List of guild scheduled events referenced in the audit log"
+      }
     },
     "integrations": {
       "type": "array of partial integration objects",
-      "description": "List of partial integration objects",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "List of partial integration objects"
+      }
     },
     "threads": {
       "type": "array of thread-specific channel objects",
-      "description": "List of threads referenced in the audit log*",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "List of threads referenced in the audit log",
+        "Description Note": "Threads referenced in THREAD_CREATE and THREAD_UPDATE events are included in the threads map since archived threads might not be kept in memory by clients."
+      }
     },
     "users": {
       "type": "array of user objects",
-      "description": "List of users referenced in the audit log",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "List of users referenced in the audit log"
+      }
     },
     "webhooks": {
       "type": "array of webhook objects",
-      "description": "List of webhooks referenced in the audit log",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "List of webhooks referenced in the audit log"
+      }
     }
   },
-  "Audit Log Entry": {
+  "AuditLogEntry": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object"
+      "docs_url": "https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-entry-structure"
     },
     "target_id": {
       "type": "string",
-      "description": "ID of the affected entity (webhook, user, role, etc.)",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "ID of the affected entity (webhook, user, role, etc.)"
+      }
     },
     "changes": {
       "type": "array of audit log change objects",
-      "description": "Changes made to the target_id",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Changes made to the target_id"
+      }
     },
     "user_id": {
       "type": "snowflake",
-      "description": "User or app that made the changes",
       "optional": false,
-      "nullable": true
+      "nullable": true,
+      "comments": {
+        "Description": "User or app that made the changes"
+      }
     },
     "id": {
       "type": "snowflake",
-      "description": "ID of the entry",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "ID of the entry"
+      }
     },
     "action_type": {
       "type": "audit log event",
-      "description": "Type of action that occurred",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Type of action that occurred"
+      }
     },
     "options": {
       "type": "optional audit entry info",
-      "description": "Additional info for certain event types",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Additional info for certain event types"
+      }
     },
     "reason": {
       "type": "string",
-      "description": "Reason for the change (1-512 characters)",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Reason for the change (1-512 characters)"
+      }
     }
   },
-  "Audit Log Change": {
+  "OptionalAuditEntryInfo": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/audit-log#audit-log-change-object"
+      "docs_url": "https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-optional-audit-entry-info"
+    },
+    "application_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "ID of the app whose permissions were targeted",
+        "Event Types": "APPLICATION_COMMAND_PERMISSION_UPDATE"
+      }
+    },
+    "channel_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Channel in which the entities were targeted",
+        "Event Types": "MEMBER_MOVE & MESSAGE_PIN & MESSAGE_UNPIN & MESSAGE_DELETE & STAGE_INSTANCE_CREATE & STAGE_INSTANCE_UPDATE & STAGE_INSTANCE_DELETE"
+      }
+    },
+    "count": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Number of entities that were targeted",
+        "Event Types": "MESSAGE_DELETE & MESSAGE_BULK_DELETE & MEMBER_DISCONNECT & MEMBER_MOVE"
+      }
+    },
+    "delete_member_days": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Number of days after which inactive members were kicked",
+        "Event Types": "MEMBER_PRUNE"
+      }
+    },
+    "id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "ID of the overwritten entity",
+        "Event Types": "CHANNEL_OVERWRITE_CREATE & CHANNEL_OVERWRITE_UPDATE & CHANNEL_OVERWRITE_DELETE"
+      }
+    },
+    "members_removed": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Number of members removed by the prune",
+        "Event Types": "MEMBER_PRUNE"
+      }
+    },
+    "message_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "ID of the message that was targeted",
+        "Event Types": "MESSAGE_PIN & MESSAGE_UNPIN"
+      }
+    },
+    "role_name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Name of the role if type is \"0\" (not present if type is \"1\")",
+        "Event Types": "CHANNEL_OVERWRITE_CREATE & CHANNEL_OVERWRITE_UPDATE & CHANNEL_OVERWRITE_DELETE"
+      }
+    },
+    "type": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Type of overwritten entity - role (\"0\") or member (\"1\")",
+        "Event Types": "CHANNEL_OVERWRITE_CREATE & CHANNEL_OVERWRITE_UPDATE & CHANNEL_OVERWRITE_DELETE"
+      }
+    }
+  },
+  "AuditLogChange": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/audit-log#audit-log-change-object-audit-log-change-structure"
     },
     "new_value": {
       "type": "mixed (matches object field's type)",
-      "description": "New value of the key",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "New value of the key"
+      }
     },
     "old_value": {
       "type": "mixed (matches object field's type)",
-      "description": "Old value of the key",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Old value of the key"
+      }
     },
     "key": {
       "type": "string",
-      "description": "Name of the changed entity, with a few exceptions",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "Name of the changed entity, with a few exceptions"
+      }
+    }
+  },
+  "GetGuildAuditLogParams": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/audit-log#get-guild-audit-log-query-string-params"
+    },
+    "user_id": {
+      "type": "snowflake",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Entries from a specific user ID"
+      },
+      "target": "query string"
+    },
+    "action_type": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Entries for a specific audit log event"
+      },
+      "target": "query string"
+    },
+    "before": {
+      "type": "snowflake",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Entries that preceded a specific audit log entry ID"
+      },
+      "target": "query string"
+    },
+    "limit": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Maximum number of entries (between 1-100) to return, defaults to 50"
+      },
+      "target": "query string"
     }
   }
 }

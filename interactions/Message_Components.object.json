@@ -1,131 +1,246 @@
 {
   "Button": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/interactions/message-components#button-object"
+      "docs_url": "https://discord.com/developers/docs/interactions/message-components#button-object-button-structure"
     },
     "type": {
       "type": "integer",
-      "description": "2 for a button",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "2 for a button"
+      }
     },
     "style": {
       "type": "integer",
-      "description": "one of button styles",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "one of button styles"
+      }
     },
     "label": {
       "type": "string",
-      "description": "text that appears on the button, max 80 characters",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "text that appears on the button, max 80 characters"
+      }
     },
     "emoji": {
       "type": "partial emoji",
-      "description": "name, id, and animated",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "name, id, and animated"
+      }
     },
     "custom_id": {
       "type": "string",
-      "description": "a developer-defined identifier for the button, max 100 characters",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "a developer-defined identifier for the button, max 100 characters"
+      }
     },
     "url": {
       "type": "string",
-      "description": "a url for link-style buttons",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "a url for link-style buttons"
+      }
     },
     "disabled": {
       "type": "boolean",
-      "description": "whether the button is disabled (default false)",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "whether the button is disabled (default false)"
+      }
     }
   },
-  "Select Menu": {
+  "SelectMenu": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/interactions/message-components#select-menu-object"
+      "docs_url": "https://discord.com/developers/docs/interactions/message-components#select-menu-object-select-menu-structure"
     },
     "type": {
       "type": "integer",
-      "description": "3 for a select menu",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "3 for a select menu"
+      }
     },
     "custom_id": {
       "type": "string",
-      "description": "a developer-defined identifier for the select menu, max 100 characters",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "a developer-defined identifier for the select menu, max 100 characters"
+      }
     },
     "options": {
       "type": "array of select options",
-      "description": "the choices in the select, max 25",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the choices in the select, max 25"
+      }
     },
     "placeholder": {
       "type": "string",
-      "description": "custom placeholder text if nothing is selected, max 150 characters",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "custom placeholder text if nothing is selected, max 150 characters"
+      }
     },
     "min_values": {
       "type": "integer",
-      "description": "the minimum number of items that must be chosen; default 1, min 0, max 25",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the minimum number of items that must be chosen; default 1, min 0, max 25"
+      }
     },
     "max_values": {
       "type": "integer",
-      "description": "the maximum number of items that can be chosen; default 1, max 25",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the maximum number of items that can be chosen; default 1, max 25"
+      }
     },
     "disabled": {
       "type": "boolean",
-      "description": "disable the select, default false",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "disable the select, default false"
+      }
     }
   },
-  "Select Option": {
+  "SelectOption": {
     "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/interactions/message-components#select-menu-object"
+      "docs_url": "https://discord.com/developers/docs/interactions/message-components#select-menu-object-select-option-structure"
     },
     "label": {
       "type": "string",
-      "description": "the user-facing name of the option, max 100 characters",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the user-facing name of the option, max 100 characters"
+      }
     },
     "value": {
       "type": "string",
-      "description": "the dev-defined value of the option, max 100 characters",
       "optional": false,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "the dev-defined value of the option, max 100 characters"
+      }
     },
     "description": {
       "type": "string",
-      "description": "an additional description of the option, max 100 characters",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "an additional description of the option, max 100 characters"
+      }
     },
     "emoji": {
       "type": "partial emoji object",
-      "description": "id, name, and animated",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "id, name, and animated"
+      }
     },
     "default": {
       "type": "boolean",
-      "description": "will render this option as selected by default",
       "optional": true,
-      "nullable": false
+      "nullable": false,
+      "comments": {
+        "Description": "will render this option as selected by default"
+      }
+    }
+  },
+  "TextInput": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/interactions/message-components#text-inputs-text-input-structure"
+    },
+    "type": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "4 for a text input"
+      }
+    },
+    "custom_id": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "a developer-defined identifier for the input, max 100 characters"
+      }
+    },
+    "style": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the Text Input Style"
+      }
+    },
+    "label": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the label for this component, max 45 characters"
+      }
+    },
+    "min_length": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "the minimum input length for a text input, min 0, max 4000"
+      }
+    },
+    "max_length": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "the maximum input length for a text input, min 1, max 4000"
+      }
+    },
+    "required": {
+      "type": "boolean",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "whether this component is required to be filled, default true"
+      }
+    },
+    "value": {
+      "type": "string",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "a pre-filled value for this component, max 4000 characters"
+      }
+    },
+    "placeholder": {
+      "type": "string",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "custom placeholder text if the input is empty, max 100 characters"
+      }
     }
   }
 }
