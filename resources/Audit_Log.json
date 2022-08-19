@@ -640,22 +640,22 @@
               "Description"
             ],
             [
-              "user_id",
+              "user_id?",
               "snowflake",
               "Entries from a specific user ID"
             ],
             [
-              "action_type",
+              "action_type?",
               "integer",
               "Entries for a specific audit log event"
             ],
             [
-              "before",
+              "before?",
               "snowflake",
               "Entries that preceded a specific audit log entry ID"
             ],
             [
-              "limit",
+              "limit?",
               "integer",
               "Maximum number of entries (between 1-100) to return, defaults to 50"
             ]

@@ -1130,6 +1130,10 @@
             [
               "220003",
               "Webhooks can only create threads in forum channels"
+            ],
+            [
+              "240000",
+              "Message blocked by harmful links filter"
             ]
           ]
         ]

@@ -266,22 +266,22 @@
               "an organizational category that contains up to 50 channels"
             ],
             [
-              "GUILD_NEWS",
+              "GUILD_ANNOUNCEMENT",
               "5",
               "a channel that users can follow and crosspost into their own server"
             ],
             [
-              "GUILD_NEWS_THREAD",
+              "ANNOUNCEMENT_THREAD",
               "10",
-              "a temporary sub-channel within a GUILD_NEWS channel"
+              "a temporary sub-channel within a GUILD_ANNOUNCEMENT channel"
             ],
             [
-              "GUILD_PUBLIC_THREAD",
+              "PUBLIC_THREAD",
               "11",
               "a temporary sub-channel within a GUILD_TEXT channel"
             ],
             [
-              "GUILD_PRIVATE_THREAD",
+              "PRIVATE_THREAD",
               "12",
               "a temporary sub-channel within a GUILD_TEXT channel that is only viewable by those invited and those with the MANAGE_THREADS permission"
             ],
@@ -579,7 +579,7 @@
             ],
             [
               "components?",
-              "Array of message components",
+              "array of message components",
               "sent if the message contains components like buttons, action rows, or other interactive components"
             ],
             [
@@ -892,7 +892,8 @@
           "|Channel Follow Add messages",
           "|Pin messages",
           "|Replies",
-          "|Thread starter message"
+          "|Thread Created messages",
+          "|Thread starter messages"
         ],
         "Crosspost messages": {
           "level": 6,
@@ -935,12 +936,22 @@
             ]
           ]
         },
-        "Thread starter message": {
+        "Thread Created messages": {
           "level": 6,
-          "url": "https://discord.com/developers/docs/resources/channel#message-types-thread-starter-message",
+          "url": "https://discord.com/developers/docs/resources/channel#message-types-thread-created-messages",
           "content": [
             [
-              "These are the first message in a public thread.  They point back to the message in the parent channel from which the thread was started (type 21)",
+              "These are automatic messages sent when a public thread is created from an old message or without a message (type 18).",
+              "These messages have the channel_id and guild_id fields, with data of the created thread channel."
+            ]
+          ]
+        },
+        "Thread starter messages": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/resources/channel#message-types-thread-starter-messages",
+          "content": [
+            [
+              "These are the first message in public threads created from messages. They point back to the message in the parent channel from which the thread was started. (type 21)",
               "These messages have message_id, channel_id, and guild_id.",
               "These messages will never have content, embeds, or attachments, mainly just the message_reference and referenced_message fields."
             ]
@@ -1562,7 +1573,7 @@
             [
               "description?",
               "string",
-              "description for the file"
+              "description for the file (max 1024 characters)"
             ],
             [
               "content_type?",
