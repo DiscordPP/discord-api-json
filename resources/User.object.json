@@ -216,7 +216,7 @@
       }
     }
   },
-  "ModifyCurrentUserParams": {
+  "Modify Current User Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/user#modify-current-user-json-params"
     },
@@ -239,7 +239,7 @@
       "target": "json"
     }
   },
-  "GetCurrentUserGuildsParams": {
+  "Get Current User Guilds Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/user#get-current-user-guilds-query-string-params"
     },
@@ -277,7 +277,7 @@
       "target": "query string"
     }
   },
-  "CreateDmParams": {
+  "Create DM Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/user#create-dm-json-params"
     },
@@ -291,7 +291,7 @@
       "target": "json"
     }
   },
-  "CreateGroupDmParams": {
+  "Create Group DM Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/user#create-group-dm-json-params"
     },

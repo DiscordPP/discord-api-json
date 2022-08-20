@@ -1,5 +1,5 @@
 {
-  "GatewayPayload": {
+  "Gateway Payload": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#payloads-gateway-payload-structure"
     },
@@ -38,7 +38,7 @@
       }
     }
   },
-  "ConnectingParams": {
+  "Connecting Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#connecting-gateway-url-query-string-params"
     },
@@ -141,7 +141,7 @@
       }
     }
   },
-  "IdentifyConnectionProperties": {
+  "Identify Connection Properties": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#identify-identify-connection-properties"
     },
@@ -199,7 +199,7 @@
       }
     }
   },
-  "GuildRequestMembers": {
+  "Guild Request Members": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#request-guild-members-guild-request-members-structure"
     },
@@ -258,7 +258,7 @@
       }
     }
   },
-  "GatewayVoiceStateUpdate": {
+  "Gateway Voice State Update": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#update-voice-state-gateway-voice-state-update-structure"
     },
@@ -295,7 +295,7 @@
       }
     }
   },
-  "GatewayPresenceUpdate": {
+  "Gateway Presence Update": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#update-presence-gateway-presence-update-structure"
     },
@@ -345,7 +345,7 @@
       }
     }
   },
-  "ReadyEvent": {
+  "Ready Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#ready-ready-event-fields"
     },
@@ -406,7 +406,7 @@
       }
     }
   },
-  "AutoModerationActionExecutionEvent": {
+  "Auto Moderation Action Execution Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#auto-moderation-action-execution-auto-moderation-action-execution-event-fields"
     },
@@ -503,7 +503,7 @@
       }
     }
   },
-  "ThreadListSyncEvent": {
+  "Thread List Sync Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#thread-list-sync-thread-list-sync-event-fields"
     },
@@ -540,7 +540,7 @@
       }
     }
   },
-  "ThreadMemberUpdateEventExtra": {
+  "Thread Member Update Event Extra": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#thread-member-update-thread-member-update-event-extra-fields"
     },
@@ -553,7 +553,7 @@
       }
     }
   },
-  "ThreadMembersUpdateEvent": {
+  "Thread Members Update Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#thread-members-update-thread-members-update-event-fields"
     },
@@ -599,7 +599,7 @@
       }
     }
   },
-  "ChannelPinsUpdateEvent": {
+  "Channel Pins Update Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#channel-pins-update-channel-pins-update-event-fields"
     },
@@ -628,7 +628,7 @@
       }
     }
   },
-  "GuildCreateExtra": {
+  "Guild Create Extra": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#guild-create-guild-create-extra-fields"
     },
@@ -721,7 +721,7 @@
       }
     }
   },
-  "GuildBanAddEvent": {
+  "Guild Ban Add Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#guild-ban-add-guild-ban-add-event-fields"
     },
@@ -742,7 +742,7 @@
       }
     }
   },
-  "GuildBanRemoveEvent": {
+  "Guild Ban Remove Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#guild-ban-remove-guild-ban-remove-event-fields"
     },
@@ -763,7 +763,7 @@
       }
     }
   },
-  "GuildEmojisUpdateEvent": {
+  "Guild Emojis Update Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#guild-emojis-update-guild-emojis-update-event-fields"
     },
@@ -784,7 +784,7 @@
       }
     }
   },
-  "GuildStickersUpdateEvent": {
+  "Guild Stickers Update Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#guild-stickers-update-guild-stickers-update-event-fields"
     },
@@ -805,7 +805,7 @@
       }
     }
   },
-  "GuildIntegrationsUpdateEvent": {
+  "Guild Integrations Update Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#guild-integrations-update-guild-integrations-update-event-fields"
     },
@@ -818,7 +818,7 @@
       }
     }
   },
-  "GuildMemberAddExtra": {
+  "Guild Member Add Extra": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#guild-member-add-guild-member-add-extra-fields"
     },
@@ -831,7 +831,7 @@
       }
     }
   },
-  "GuildMemberRemoveEvent": {
+  "Guild Member Remove Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#guild-member-remove-guild-member-remove-event-fields"
     },
@@ -852,7 +852,7 @@
       }
     }
   },
-  "GuildMemberUpdateEvent": {
+  "Guild Member Update Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#guild-member-update-guild-member-update-event-fields"
     },
@@ -945,7 +945,7 @@
       }
     }
   },
-  "GuildMembersChunkEvent": {
+  "Guild Members Chunk Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#guild-members-chunk-guild-members-chunk-event-fields"
     },
@@ -1006,7 +1006,7 @@
       }
     }
   },
-  "GuildRoleCreateEvent": {
+  "Guild Role Create Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#guild-role-create-guild-role-create-event-fields"
     },
@@ -1027,7 +1027,7 @@
       }
     }
   },
-  "GuildRoleUpdateEvent": {
+  "Guild Role Update Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#guild-role-update-guild-role-update-event-fields"
     },
@@ -1048,7 +1048,7 @@
       }
     }
   },
-  "GuildRoleDeleteEvent": {
+  "Guild Role Delete Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#guild-role-delete-guild-role-delete-event-fields"
     },
@@ -1069,7 +1069,7 @@
       }
     }
   },
-  "GuildScheduledEventUserAddEvent": {
+  "Guild Scheduled Event User Add Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#guild-scheduled-event-user-add-guild-scheduled-event-user-add-event-fields"
     },
@@ -1098,7 +1098,7 @@
       }
     }
   },
-  "GuildScheduledEventUserRemoveEvent": {
+  "Guild Scheduled Event User Remove Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#guild-scheduled-event-user-remove-guild-scheduled-event-user-remove-event-fields"
     },
@@ -1127,7 +1127,7 @@
       }
     }
   },
-  "IntegrationCreateEventAdditional": {
+  "Integration Create Event Additional": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#integration-create-integration-create-event-additional-fields"
     },
@@ -1140,7 +1140,7 @@
       }
     }
   },
-  "IntegrationUpdateEventAdditional": {
+  "Integration Update Event Additional": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#integration-update-integration-update-event-additional-fields"
     },
@@ -1153,7 +1153,7 @@
       }
     }
   },
-  "IntegrationDeleteEvent": {
+  "Integration Delete Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#integration-delete-integration-delete-event-fields"
     },
@@ -1182,7 +1182,7 @@
       }
     }
   },
-  "InviteCreateEvent": {
+  "Invite Create Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#invite-create-invite-create-event-fields"
     },
@@ -1283,7 +1283,7 @@
       }
     }
   },
-  "InviteDeleteEvent": {
+  "Invite Delete Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#invite-delete-invite-delete-event-fields"
     },
@@ -1312,7 +1312,7 @@
       }
     }
   },
-  "MessageCreateExtra": {
+  "Message Create Extra": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#message-create-message-create-extra-fields"
     },
@@ -1341,7 +1341,7 @@
       }
     }
   },
-  "MessageDeleteEvent": {
+  "Message Delete Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#message-delete-message-delete-event-fields"
     },
@@ -1370,7 +1370,7 @@
       }
     }
   },
-  "MessageDeleteBulkEvent": {
+  "Message Delete Bulk Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#message-delete-bulk-message-delete-bulk-event-fields"
     },
@@ -1399,7 +1399,7 @@
       }
     }
   },
-  "MessageReactionAddEvent": {
+  "Message Reaction Add Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#message-reaction-add-message-reaction-add-event-fields"
     },
@@ -1452,7 +1452,7 @@
       }
     }
   },
-  "MessageReactionRemoveEvent": {
+  "Message Reaction Remove Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#message-reaction-remove-message-reaction-remove-event-fields"
     },
@@ -1497,7 +1497,7 @@
       }
     }
   },
-  "MessageReactionRemoveAllEvent": {
+  "Message Reaction Remove All Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#message-reaction-remove-all-message-reaction-remove-all-event-fields"
     },
@@ -1526,7 +1526,7 @@
       }
     }
   },
-  "MessageReactionRemoveEmojiEvent": {
+  "Message Reaction Remove Emoji Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#message-reaction-remove-emoji-message-reaction-remove-emoji-event-fields"
     },
@@ -1563,7 +1563,7 @@
       }
     }
   },
-  "PresenceUpdateEvent": {
+  "Presence Update Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#presence-update-presence-update-event-fields"
     },
@@ -1608,7 +1608,7 @@
       }
     }
   },
-  "ClientStatus": {
+  "Client Status": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#presence-client-status-object"
     },
@@ -1762,7 +1762,7 @@
       }
     }
   },
-  "ActivityTimestamps": {
+  "Activity Timestamps": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#activity-object-activity-timestamps"
     },
@@ -1783,7 +1783,7 @@
       }
     }
   },
-  "ActivityEmoji": {
+  "Activity Emoji": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#activity-object-activity-emoji"
     },
@@ -1812,7 +1812,7 @@
       }
     }
   },
-  "ActivityParty": {
+  "Activity Party": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#activity-object-activity-party"
     },
@@ -1833,7 +1833,7 @@
       }
     }
   },
-  "ActivityAssets": {
+  "Activity Assets": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#activity-object-activity-assets"
     },
@@ -1870,7 +1870,7 @@
       }
     }
   },
-  "ActivitySecrets": {
+  "Activity Secrets": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#activity-object-activity-secrets"
     },
@@ -1899,7 +1899,7 @@
       }
     }
   },
-  "ActivityButtons": {
+  "Activity Buttons": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#activity-object-activity-buttons"
     },
@@ -1920,7 +1920,7 @@
       }
     }
   },
-  "TypingStartEvent": {
+  "Typing Start Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#typing-start-typing-start-event-fields"
     },
@@ -1965,7 +1965,7 @@
       }
     }
   },
-  "VoiceServerUpdateEvent": {
+  "Voice Server Update Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#voice-server-update-voice-server-update-event-fields"
     },
@@ -1994,7 +1994,7 @@
       }
     }
   },
-  "WebhooksUpdateEvent": {
+  "Webhooks Update Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#webhooks-update-webhooks-update-event-fields"
     },
@@ -2015,7 +2015,7 @@
       }
     }
   },
-  "GetGatewayBotResponse": {
+  "Get Gateway Bot Response": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#get-gateway-bot-json-response"
     },
@@ -2044,7 +2044,7 @@
       }
     }
   },
-  "SessionStartLimit": {
+  "Session Start Limit": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#session-start-limit-object-session-start-limit-structure"
     },

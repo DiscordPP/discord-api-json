@@ -1,5 +1,5 @@
 {
-  "GetCurrentAuthorizationInformationResponse": {
+  "Get Current Authorization Information Response": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/oauth2#get-current-authorization-information-response-structure"
     },

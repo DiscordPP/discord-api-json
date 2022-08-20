@@ -119,7 +119,7 @@
       }
     }
   },
-  "ApplicationCommandData": {
+  "Application Command Data": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-application-command-data-structure"
     },
@@ -181,7 +181,7 @@
       }
     }
   },
-  "MessageComponentData": {
+  "Message Component Data": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-message-component-data-structure"
     },
@@ -211,7 +211,7 @@
       }
     }
   },
-  "ModalSubmitData": {
+  "Modal Submit Data": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-modal-submit-data-structure"
     },
@@ -232,7 +232,7 @@
       }
     }
   },
-  "ResolvedData": {
+  "Resolved Data": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-resolved-data-structure"
     },
@@ -287,7 +287,7 @@
       }
     }
   },
-  "MessageInteraction": {
+  "Message Interaction": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#message-interaction-object-message-interaction-structure"
     },
@@ -332,7 +332,7 @@
       }
     }
   },
-  "InteractionResponse": {
+  "Interaction Response": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-response-object-interaction-response-structure"
     },

@@ -477,7 +477,7 @@
       }
     }
   },
-  "MessageActivity": {
+  "Message Activity": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#message-object-message-activity-structure"
     },
@@ -498,7 +498,7 @@
       }
     }
   },
-  "MessageReference": {
+  "Message Reference": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#message-reference-object-message-reference-structure"
     },
@@ -536,7 +536,7 @@
       }
     }
   },
-  "FollowedChannel": {
+  "Followed Channel": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#followed-channel-object-followed-channel-structure"
     },
@@ -623,7 +623,7 @@
       }
     }
   },
-  "ThreadMetadata": {
+  "Thread Metadata": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#thread-metadata-object-thread-metadata-structure"
     },
@@ -676,7 +676,7 @@
       }
     }
   },
-  "ThreadMember": {
+  "Thread Member": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#thread-member-object-thread-member-structure"
     },
@@ -822,7 +822,7 @@
       }
     }
   },
-  "EmbedThumbnail": {
+  "Embed Thumbnail": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object-embed-thumbnail-structure"
     },
@@ -859,7 +859,7 @@
       }
     }
   },
-  "EmbedVideo": {
+  "Embed Video": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object-embed-video-structure"
     },
@@ -896,7 +896,7 @@
       }
     }
   },
-  "EmbedImage": {
+  "Embed Image": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object-embed-image-structure"
     },
@@ -933,7 +933,7 @@
       }
     }
   },
-  "EmbedProvider": {
+  "Embed Provider": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object-embed-provider-structure"
     },
@@ -954,7 +954,7 @@
       }
     }
   },
-  "EmbedAuthor": {
+  "Embed Author": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object-embed-author-structure"
     },
@@ -991,7 +991,7 @@
       }
     }
   },
-  "EmbedFooter": {
+  "Embed Footer": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object-embed-footer-structure"
     },
@@ -1020,7 +1020,7 @@
       }
     }
   },
-  "EmbedField": {
+  "Embed Field": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#embed-object-embed-field-structure"
     },
@@ -1135,7 +1135,7 @@
       }
     }
   },
-  "ChannelMention": {
+  "Channel Mention": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#channel-mention-object-channel-mention-structure"
     },
@@ -1172,7 +1172,7 @@
       }
     }
   },
-  "AllowedMentions": {
+  "Allowed Mentions": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object-allowed-mentions-structure"
     },
@@ -1209,7 +1209,7 @@
       }
     }
   },
-  "JsonParams(GroupDm)": {
+  "JSON Params (Group DM)": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#modify-channel-json-params-(group-dm)"
     },
@@ -1230,7 +1230,7 @@
       }
     }
   },
-  "JsonParams(GuildChannel)": {
+  "JSON Params (Guild channel)": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#modify-channel-json-params-(guild-channel)"
     },
@@ -1354,7 +1354,7 @@
       }
     }
   },
-  "JsonParams(Thread)": {
+  "JSON Params (Thread)": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#modify-channel-json-params-(thread)"
     },
@@ -1415,7 +1415,7 @@
       }
     }
   },
-  "GetChannelMessagesParams": {
+  "Get Channel Messages Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#get-channel-messages-query-string-params"
     },
@@ -1460,7 +1460,7 @@
       "target": "query string"
     }
   },
-  "CreateMessageParams": {
+  "Create Message Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#create-message-json/form-params"
     },
@@ -1568,7 +1568,7 @@
       "target": "json/form"
     }
   },
-  "GetReactionsParams": {
+  "Get Reactions Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#get-reactions-query-string-params"
     },
@@ -1593,7 +1593,7 @@
       "target": "query string"
     }
   },
-  "EditMessageParams": {
+  "Edit Message Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#edit-message-json/form-params"
     },
@@ -1670,7 +1670,7 @@
       "target": "json/form"
     }
   },
-  "BulkDeleteMessagesParams": {
+  "Bulk Delete Messages Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#bulk-delete-messages-json-params"
     },
@@ -1684,7 +1684,7 @@
       "target": "json"
     }
   },
-  "EditChannelPermissionsParams": {
+  "Edit Channel Permissions Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#edit-channel-permissions-json-params"
     },
@@ -1716,7 +1716,7 @@
       "target": "json"
     }
   },
-  "CreateChannelInviteParams": {
+  "Create Channel Invite Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#create-channel-invite-json-params"
     },
@@ -1791,7 +1791,7 @@
       "target": "json"
     }
   },
-  "FollowNewsChannelParams": {
+  "Follow News Channel Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#follow-news-channel-json-params"
     },
@@ -1805,7 +1805,7 @@
       "target": "json"
     }
   },
-  "GroupDmAddRecipientParams": {
+  "Group DM Add Recipient Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#group-dm-add-recipient-json-params"
     },
@@ -1828,7 +1828,7 @@
       "target": "json"
     }
   },
-  "StartThreadFromMessageParams": {
+  "Start Thread from Message Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#start-thread-from-message-json-params"
     },
@@ -1860,7 +1860,7 @@
       "target": "json"
     }
   },
-  "StartThreadWithoutMessageParams": {
+  "Start Thread without Message Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#start-thread-without-message-json-params"
     },
@@ -1911,7 +1911,7 @@
       "target": "json"
     }
   },
-  "StartThreadInForumChannelParams": {
+  "Start Thread in Forum Channel Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#start-thread-in-forum-channel-json/form-params"
     },
@@ -1952,7 +1952,7 @@
       "target": "json/form"
     }
   },
-  "ForumThreadMessageParams": {
+  "Forum Thread Message Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#start-thread-in-forum-channel-forum-thread-message-params-object"
     },
@@ -2032,7 +2032,7 @@
       }
     }
   },
-  "ListPublicArchivedThreadsParams": {
+  "List Public Archived Threads Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#list-public-archived-threads-query-string-params"
     },
@@ -2055,7 +2055,7 @@
       "target": "query string"
     }
   },
-  "ListPublicArchivedThreadsResponse": {
+  "List Public Archived Threads Response": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#list-public-archived-threads-response-body"
     },
@@ -2084,7 +2084,7 @@
       }
     }
   },
-  "ListPrivateArchivedThreadsParams": {
+  "List Private Archived Threads Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#list-private-archived-threads-query-string-params"
     },
@@ -2107,7 +2107,7 @@
       "target": "query string"
     }
   },
-  "ListPrivateArchivedThreadsResponse": {
+  "List Private Archived Threads Response": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#list-private-archived-threads-response-body"
     },
@@ -2136,7 +2136,7 @@
       }
     }
   },
-  "ListJoinedPrivateArchivedThreadsParams": {
+  "List Joined Private Archived Threads Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#list-joined-private-archived-threads-query-string-params"
     },
@@ -2159,7 +2159,7 @@
       "target": "query string"
     }
   },
-  "ListJoinedPrivateArchivedThreadsResponse": {
+  "List Joined Private Archived Threads Response": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#list-joined-private-archived-threads-response-body"
     },

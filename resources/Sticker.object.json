@@ -101,7 +101,7 @@
       }
     }
   },
-  "StickerItem": {
+  "Sticker Item": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/sticker#sticker-item-object-sticker-item-structure"
     },
@@ -130,7 +130,7 @@
       }
     }
   },
-  "StickerPack": {
+  "Sticker Pack": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/sticker#sticker-pack-object-sticker-pack-structure"
     },
@@ -191,7 +191,7 @@
       }
     }
   },
-  "ListNitroStickerPacksResponse": {
+  "List Nitro Sticker Packs Response": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/sticker#list-nitro-sticker-packs-response-structure"
     },
@@ -202,7 +202,7 @@
       "comments": {}
     }
   },
-  "CreateGuildStickerParams": {
+  "Create Guild Sticker Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/sticker#create-guild-sticker-form-params"
     },
@@ -243,7 +243,7 @@
       "target": "form"
     }
   },
-  "ModifyGuildStickerParams": {
+  "Modify Guild Sticker Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/sticker#modify-guild-sticker-json-params"
     },

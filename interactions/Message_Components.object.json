@@ -60,7 +60,7 @@
       }
     }
   },
-  "SelectMenu": {
+  "Select Menu": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/message-components#select-menu-object-select-menu-structure"
     },
@@ -121,7 +121,7 @@
       }
     }
   },
-  "SelectOption": {
+  "Select Option": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/message-components#select-menu-object-select-option-structure"
     },
@@ -166,7 +166,7 @@
       }
     }
   },
-  "TextInput": {
+  "Text Input": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/message-components#text-inputs-text-input-structure"
     },

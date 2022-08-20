@@ -172,7 +172,7 @@
       }
     }
   },
-  "InstallParams": {
+  "Install Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/application#install-params-object-install-params-structure"
     },

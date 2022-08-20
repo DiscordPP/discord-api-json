@@ -1,5 +1,5 @@
 {
-  "ApplicationCommand": {
+  "Application Command": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-structure"
     },
@@ -121,7 +121,7 @@
       }
     }
   },
-  "ApplicationCommandOption": {
+  "Application Command Option": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-structure"
     },
@@ -239,7 +239,7 @@
       }
     }
   },
-  "ApplicationCommandOptionChoice": {
+  "Application Command Option Choice": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-choice-structure"
     },
@@ -269,7 +269,7 @@
       }
     }
   },
-  "ApplicationCommandInteractionDataOption": {
+  "Application Command Interaction Data Option": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-interaction-data-option-structure"
     },
@@ -314,7 +314,7 @@
       }
     }
   },
-  "GuildApplicationCommandPermissions": {
+  "Guild Application Command Permissions": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object-guild-application-command-permissions-structure"
     },
@@ -351,7 +351,7 @@
       }
     }
   },
-  "ApplicationCommandPermissions": {
+  "Application Command Permissions": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object-application-command-permissions-structure"
     },
@@ -380,7 +380,7 @@
       }
     }
   },
-  "GetGlobalApplicationCommandsParams": {
+  "Get Global Application Commands Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/application-commands#get-global-application-commands-query-string-params"
     },
@@ -394,7 +394,7 @@
       "target": "query string"
     }
   },
-  "CreateGlobalApplicationCommandParams": {
+  "Create Global Application Command Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/application-commands#create-global-application-command-json-params"
     },
@@ -480,7 +480,7 @@
       "target": "json"
     }
   },
-  "EditGlobalApplicationCommandParams": {
+  "Edit Global Application Command Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/application-commands#edit-global-application-command-json-params"
     },
@@ -557,7 +557,7 @@
       "target": "json"
     }
   },
-  "GetGuildApplicationCommandsParams": {
+  "Get Guild Application Commands Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/application-commands#get-guild-application-commands-query-string-params"
     },
@@ -571,7 +571,7 @@
       "target": "query string"
     }
   },
-  "CreateGuildApplicationCommandParams": {
+  "Create Guild Application Command Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/application-commands#create-guild-application-command-json-params"
     },
@@ -648,7 +648,7 @@
       "target": "json"
     }
   },
-  "EditGuildApplicationCommandParams": {
+  "Edit Guild Application Command Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/application-commands#edit-guild-application-command-json-params"
     },
@@ -716,7 +716,7 @@
       "target": "json"
     }
   },
-  "BulkOverwriteGuildApplicationCommandsParams": {
+  "Bulk Overwrite Guild Application Commands Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/application-commands#bulk-overwrite-guild-application-commands-bulk-application-command-json-params"
     },
@@ -811,7 +811,7 @@
       "target": "json"
     }
   },
-  "EditApplicationCommandPermissionsParams": {
+  "Edit Application Command Permissions Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/application-commands#edit-application-command-permissions-json-params"
     },

@@ -1,5 +1,5 @@
 {
-  "GuildTemplate": {
+  "Guild Template": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild-template#guild-template-object-guild-template-structure"
     },
@@ -92,7 +92,7 @@
       }
     }
   },
-  "CreateGuildFromGuildTemplateParams": {
+  "Create Guild from Guild Template Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild-template#create-guild-from-guild-template-json-params"
     },
@@ -115,7 +115,7 @@
       "target": "json"
     }
   },
-  "CreateGuildTemplateParams": {
+  "Create Guild Template Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild-template#create-guild-template-json-params"
     },
@@ -138,7 +138,7 @@
       "target": "json"
     }
   },
-  "ModifyGuildTemplateParams": {
+  "Modify Guild Template Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild-template#modify-guild-template-json-params"
     },

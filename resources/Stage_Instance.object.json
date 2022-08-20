@@ -1,5 +1,5 @@
 {
-  "StageInstance": {
+  "Stage Instance": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/stage-instance#stage-instance-object-stage-instance-structure"
     },
@@ -60,7 +60,7 @@
       }
     }
   },
-  "CreateStageInstanceParams": {
+  "Create Stage Instance Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/stage-instance#create-stage-instance-json-params"
     },
@@ -102,7 +102,7 @@
       "target": "json"
     }
   },
-  "ModifyStageInstanceParams": {
+  "Modify Stage Instance Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/stage-instance#modify-stage-instance-json-params"
     },

@@ -1,5 +1,5 @@
 {
-  "AutoModerationRule": {
+  "Auto Moderation Rule": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-auto-moderation-rule-structure"
     },
@@ -92,7 +92,7 @@
       }
     }
   },
-  "TriggerMetadata": {
+  "Trigger Metadata": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-trigger-metadata"
     },
@@ -135,7 +135,7 @@
       }
     }
   },
-  "AutoModerationAction": {
+  "Auto Moderation Action": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-action-object-auto-moderation-action-structure"
     },
@@ -157,7 +157,7 @@
       }
     }
   },
-  "ActionMetadata": {
+  "Action Metadata": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-action-object-action-metadata"
     },
@@ -181,7 +181,7 @@
       }
     }
   },
-  "CreateAutoModerationRuleParams": {
+  "Create Auto Moderation Rule Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/auto-moderation#create-auto-moderation-rule-json-params"
     },
@@ -259,7 +259,7 @@
       "target": "json"
     }
   },
-  "ModifyAutoModerationRuleParams": {
+  "Modify Auto Moderation Rule Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/auto-moderation#modify-auto-moderation-rule-json-params"
     },

@@ -1,5 +1,5 @@
 {
-  "AuditLog": {
+  "Audit Log": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/audit-log#audit-log-object-audit-log-structure"
     },
@@ -61,7 +61,7 @@
       }
     }
   },
-  "AuditLogEntry": {
+  "Audit Log Entry": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-entry-structure"
     },
@@ -122,7 +122,7 @@
       }
     }
   },
-  "OptionalAuditEntryInfo": {
+  "Optional Audit Entry Info": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-optional-audit-entry-info"
     },
@@ -208,7 +208,7 @@
       }
     }
   },
-  "AuditLogChange": {
+  "Audit Log Change": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/audit-log#audit-log-change-object-audit-log-change-structure"
     },
@@ -237,7 +237,7 @@
       }
     }
   },
-  "GetGuildAuditLogParams": {
+  "Get Guild Audit Log Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/audit-log#get-guild-audit-log-query-string-params"
     },

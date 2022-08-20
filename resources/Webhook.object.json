@@ -100,7 +100,7 @@
       }
     }
   },
-  "CreateWebhookParams": {
+  "Create Webhook Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/webhook#create-webhook-json-params"
     },
@@ -123,7 +123,7 @@
       "target": "json"
     }
   },
-  "ModifyWebhookParams": {
+  "Modify Webhook Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/webhook#modify-webhook-json-params"
     },
@@ -155,7 +155,7 @@
       "target": "json"
     }
   },
-  "ExecuteWebhookParams": {
+  "Execute Webhook Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/webhook#execute-webhook-query-string-params"
     },
@@ -304,7 +304,7 @@
       "target": "json/form"
     }
   },
-  "ExecuteSlack-CompatibleWebhookParams": {
+  "Execute Slack-Compatible Webhook Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/webhook#execute-slack-compatible-webhook-query-string-params"
     },
@@ -329,7 +329,7 @@
       "target": "query string"
     }
   },
-  "ExecuteGithub-CompatibleWebhookParams": {
+  "Execute GitHub-Compatible Webhook Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/webhook#execute-github-compatible-webhook-query-string-params"
     },
@@ -354,7 +354,7 @@
       "target": "query string"
     }
   },
-  "GetWebhookMessageParams": {
+  "Get Webhook Message Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/webhook#get-webhook-message-query-string-params"
     },
@@ -369,7 +369,7 @@
       "target": "query string"
     }
   },
-  "EditWebhookMessageParams": {
+  "Edit Webhook Message Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/webhook#edit-webhook-message-query-string-params"
     },
@@ -451,7 +451,7 @@
       "target": "json/form"
     }
   },
-  "DeleteWebhookMessageParams": {
+  "Delete Webhook Message Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/webhook#delete-webhook-message-query-string-params"
     },

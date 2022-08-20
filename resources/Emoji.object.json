@@ -68,7 +68,7 @@
       }
     }
   },
-  "CreateGuildEmojiParams": {
+  "Create Guild Emoji Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/emoji#create-guild-emoji-json-params"
     },
@@ -100,7 +100,7 @@
       "target": "json"
     }
   },
-  "ModifyGuildEmojiParams": {
+  "Modify Guild Emoji Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/emoji#modify-guild-emoji-json-params"
     },

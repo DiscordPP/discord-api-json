@@ -100,7 +100,7 @@
       }
     }
   },
-  "InviteMetadata": {
+  "Invite Metadata": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/invite#invite-metadata-object-invite-metadata-structure"
     },
@@ -145,7 +145,7 @@
       }
     }
   },
-  "InviteStageInstance": {
+  "Invite Stage Instance": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/invite#invite-stage-instance-object-invite-stage-instance-structure"
     },
@@ -182,7 +182,7 @@
       }
     }
   },
-  "GetInviteParams": {
+  "Get Invite Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/invite#get-invite-query-string-params"
     },

@@ -335,7 +335,7 @@
       }
     }
   },
-  "GuildPreview": {
+  "Guild Preview": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#guild-preview-object-guild-preview-structure"
     },
@@ -428,7 +428,7 @@
       }
     }
   },
-  "GuildWidgetSettings": {
+  "Guild Widget Settings": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#guild-widget-settings-object-guild-widget-settings-structure"
     },
@@ -449,7 +449,7 @@
       }
     }
   },
-  "GuildWidget": {
+  "Guild Widget": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#guild-widget-object-guild-widget-structure"
     },
@@ -502,7 +502,7 @@
       }
     }
   },
-  "GuildMember": {
+  "Guild Member": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#guild-member-object-guild-member-structure"
     },
@@ -730,7 +730,7 @@
       }
     }
   },
-  "IntegrationAccount": {
+  "Integration Account": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#integration-account-object-integration-account-structure"
     },
@@ -751,7 +751,7 @@
       }
     }
   },
-  "IntegrationApplication": {
+  "Integration Application": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#integration-application-object-integration-application-structure"
     },
@@ -817,7 +817,7 @@
       }
     }
   },
-  "WelcomeScreen": {
+  "Welcome Screen": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object-welcome-screen-structure"
     },
@@ -838,7 +838,7 @@
       }
     }
   },
-  "WelcomeScreenChannel": {
+  "Welcome Screen Channel": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#welcome-screen-object-welcome-screen-channel-structure"
     },
@@ -875,7 +875,7 @@
       }
     }
   },
-  "CreateGuildParams": {
+  "Create Guild Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#create-guild-json-params"
     },
@@ -988,7 +988,7 @@
       "target": "json"
     }
   },
-  "GetGuildParams": {
+  "Get Guild Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#get-guild-query-string-params"
     },
@@ -1004,7 +1004,7 @@
       "target": "query string"
     }
   },
-  "ModifyGuildParams": {
+  "Modify Guild Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#modify-guild-json-params"
     },
@@ -1189,7 +1189,7 @@
       "target": "json"
     }
   },
-  "CreateGuildChannelParams": {
+  "Create Guild Channel Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#create-guild-channel-json-params"
     },
@@ -1313,7 +1313,7 @@
       "target": "json"
     }
   },
-  "ModifyGuildChannelPositionsParams": {
+  "Modify Guild Channel Positions Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#modify-guild-channel-positions-json-params"
     },
@@ -1354,7 +1354,7 @@
       "target": "json"
     }
   },
-  "ListActiveGuildThreadsResponse": {
+  "List Active Guild Threads Response": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#list-active-guild-threads-response-body"
     },
@@ -1375,7 +1375,7 @@
       }
     }
   },
-  "ListGuildMembersParams": {
+  "List Guild Members Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#list-guild-members-query-string-params"
     },
@@ -1400,7 +1400,7 @@
       "target": "query string"
     }
   },
-  "SearchGuildMembersParams": {
+  "Search Guild Members Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#search-guild-members-query-string-params"
     },
@@ -1425,7 +1425,7 @@
       "target": "query string"
     }
   },
-  "AddGuildMemberParams": {
+  "Add Guild Member Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#add-guild-member-json-params"
     },
@@ -1480,7 +1480,7 @@
       "target": "json"
     }
   },
-  "ModifyGuildMemberParams": {
+  "Modify Guild Member Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#modify-guild-member-json-params"
     },
@@ -1545,7 +1545,7 @@
       "target": "json"
     }
   },
-  "ModifyCurrentMemberParams": {
+  "Modify Current Member Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#modify-current-member-json-params"
     },
@@ -1560,7 +1560,7 @@
       "target": "json"
     }
   },
-  "ModifyCurrentUserNickParams": {
+  "Modify Current User Nick Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#modify-current-user-nick-json-params"
     },
@@ -1575,7 +1575,7 @@
       "target": "json"
     }
   },
-  "GetGuildBansParams": {
+  "Get Guild Bans Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#get-guild-bans-query-string-params"
     },
@@ -1612,7 +1612,7 @@
       "target": "query string"
     }
   },
-  "CreateGuildBanParams": {
+  "Create Guild Ban Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#create-guild-ban-json-params"
     },
@@ -1637,7 +1637,7 @@
       "target": "json"
     }
   },
-  "CreateGuildRoleParams": {
+  "Create Guild Role Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#create-guild-role-json-params"
     },
@@ -1712,7 +1712,7 @@
       "target": "json"
     }
   },
-  "ModifyGuildRolePositionsParams": {
+  "Modify Guild Role Positions Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#modify-guild-role-positions-json-params"
     },
@@ -1735,7 +1735,7 @@
       "target": "json"
     }
   },
-  "ModifyGuildRoleParams": {
+  "Modify Guild Role Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#modify-guild-role-json-params"
     },
@@ -1803,7 +1803,7 @@
       "target": "json"
     }
   },
-  "ModifyGuildMfaLevelParams": {
+  "Modify Guild MFA Level Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#modify-guild-mfa-level-json-params"
     },
@@ -1817,7 +1817,7 @@
       "target": "json"
     }
   },
-  "GetGuildPruneCountParams": {
+  "Get Guild Prune Count Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#get-guild-prune-count-query-string-params"
     },
@@ -1842,7 +1842,7 @@
       "target": "query string"
     }
   },
-  "BeginGuildPruneParams": {
+  "Begin Guild Prune Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#begin-guild-prune-json-params"
     },
@@ -1887,7 +1887,7 @@
       "target": "json"
     }
   },
-  "GetGuildWidgetImageParams": {
+  "Get Guild Widget Image Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#get-guild-widget-image-query-string-params"
     },
@@ -1902,7 +1902,7 @@
       "target": "query string"
     }
   },
-  "ModifyGuildWelcomeScreenParams": {
+  "Modify Guild Welcome Screen Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#modify-guild-welcome-screen-json-params"
     },
@@ -1934,7 +1934,7 @@
       "target": "json"
     }
   },
-  "ModifyCurrentUserVoiceStateParams": {
+  "Modify Current User Voice State Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#modify-current-user-voice-state-json-params"
     },
@@ -1966,7 +1966,7 @@
       "target": "json"
     }
   },
-  "ModifyUserVoiceStateParams": {
+  "Modify User Voice State Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild#modify-user-voice-state-json-params"
     },

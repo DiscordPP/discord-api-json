@@ -1,5 +1,5 @@
 {
-  "VoiceState": {
+  "Voice State": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/voice#voice-state-object-voice-state-structure"
     },
@@ -108,7 +108,7 @@
       }
     }
   },
-  "VoiceRegion": {
+  "Voice Region": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/voice#voice-region-object-voice-region-structure"
     },

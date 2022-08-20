@@ -1,5 +1,5 @@
 {
-  "GuildScheduledEvent": {
+  "Guild Scheduled Event": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object-guild-scheduled-event-structure"
     },
@@ -137,7 +137,7 @@
       }
     }
   },
-  "GuildScheduledEventEntityMetadata": {
+  "Guild Scheduled Event Entity Metadata": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object-guild-scheduled-event-entity-metadata"
     },
@@ -151,7 +151,7 @@
       }
     }
   },
-  "GuildScheduledEventUser": {
+  "Guild Scheduled Event User": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-user-object-guild-scheduled-event-user-structure"
     },
@@ -180,7 +180,7 @@
       }
     }
   },
-  "ListScheduledEventsForGuildParams": {
+  "List Scheduled Events for Guild Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#list-scheduled-events-for-guild-query-string-params"
     },
@@ -194,7 +194,7 @@
       "target": "query string"
     }
   },
-  "CreateGuildScheduledEventParams": {
+  "Create Guild Scheduled Event Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#create-guild-scheduled-event-json-params"
     },
@@ -284,7 +284,7 @@
       "target": "json"
     }
   },
-  "GetGuildScheduledEventParams": {
+  "Get Guild Scheduled Event Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event-query-string-params"
     },
@@ -298,7 +298,7 @@
       "target": "query string"
     }
   },
-  "ModifyGuildScheduledEventParams": {
+  "Modify Guild Scheduled Event Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#modify-guild-scheduled-event-json-params"
     },
@@ -396,7 +396,7 @@
       "target": "json"
     }
   },
-  "GetGuildScheduledEventUsersParams": {
+  "Get Guild Scheduled Event Users Params": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event-users-query-string-params"
     },
