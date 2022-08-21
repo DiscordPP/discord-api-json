@@ -236,46 +236,5 @@
         "Description": "Name of the changed entity, with a few exceptions"
       }
     }
-  },
-  "Get Guild Audit Log Params": {
-    "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/audit-log#get-guild-audit-log-query-string-params"
-    },
-    "user_id": {
-      "type": "snowflake",
-      "optional": true,
-      "nullable": false,
-      "comments": {
-        "Description": "Entries from a specific user ID"
-      },
-      "target": "query string"
-    },
-    "action_type": {
-      "type": "integer",
-      "optional": true,
-      "nullable": false,
-      "comments": {
-        "Description": "Entries for a specific audit log event"
-      },
-      "target": "query string"
-    },
-    "before": {
-      "type": "snowflake",
-      "optional": true,
-      "nullable": false,
-      "comments": {
-        "Description": "Entries that preceded a specific audit log entry ID"
-      },
-      "target": "query string"
-    },
-    "limit": {
-      "type": "integer",
-      "optional": true,
-      "nullable": false,
-      "comments": {
-        "Description": "Maximum number of entries (between 1-100) to return, defaults to 50"
-      },
-      "target": "query string"
-    }
   }
 }

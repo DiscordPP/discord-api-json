@@ -38,41 +38,6 @@
       }
     }
   },
-  "Connecting Params": {
-    "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/topics/gateway#connecting-gateway-url-query-string-params"
-    },
-    "v": {
-      "type": "integer",
-      "optional": false,
-      "nullable": false,
-      "comments": {
-        "Description": "API Version to use",
-        "Accepted Values": "see API versions"
-      },
-      "target": "query string"
-    },
-    "encoding": {
-      "type": "string",
-      "optional": false,
-      "nullable": false,
-      "comments": {
-        "Description": "The encoding of received gateway packets",
-        "Accepted Values": "json or etf"
-      },
-      "target": "query string"
-    },
-    "compress": {
-      "type": "string",
-      "optional": true,
-      "nullable": false,
-      "comments": {
-        "Description": "The (optional) compression of gateway packets",
-        "Accepted Values": "zlib-stream"
-      },
-      "target": "query string"
-    }
-  },
   "Identify": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/topics/gateway#identify-identify-structure"

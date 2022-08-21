@@ -181,37 +181,5 @@
         "Description": "the topic of the Stage instance (1-120 characters)"
       }
     }
-  },
-  "Get Invite Params": {
-    "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/resources/invite#get-invite-query-string-params"
-    },
-    "with_counts": {
-      "type": "boolean",
-      "optional": true,
-      "nullable": false,
-      "comments": {
-        "Description": "whether the invite should contain approximate member counts"
-      },
-      "target": "query string"
-    },
-    "with_expiration": {
-      "type": "boolean",
-      "optional": true,
-      "nullable": false,
-      "comments": {
-        "Description": "whether the invite should contain the expiration date"
-      },
-      "target": "query string"
-    },
-    "guild_scheduled_event_id": {
-      "type": "snowflake",
-      "optional": true,
-      "nullable": false,
-      "comments": {
-        "Description": "the guild scheduled event to include with the invite"
-      },
-      "target": "query string"
-    }
   }
 }
