@@ -422,6 +422,11 @@
               "<@&165511591545143296>"
             ],
             [
+              "Slash Command **",
+              "</NAME:COMMAND_ID>",
+              "</airhorn:816437322781949972>"
+            ],
+            [
               "Standard Emoji",
               "Unicode Characters",
               "\ud83d\udcaf"
@@ -449,7 +454,8 @@
           ],
           "Using the markdown for either users, roles, or channels will usually mention the target(s) accordingly, but this can be suppressed using the allowed_mentions parameter when creating a message. Standard emoji are currently rendered using Twemoji for Desktop/Android and Apple's native emoji on iOS.",
           "Timestamps are expressed in seconds and display the given timestamp in the user's timezone and locale.",
-          "* User mentions with an exclamation mark are deprecated and should be handled like any other user mention."
+          "* User mentions with an exclamation mark are deprecated and should be handled like any other user mention.",
+          "** Subcommands and subcommand groups can also be mentioned by using respectively </NAME SUBCOMMAND:ID> and </NAME SUBCOMMAND_GROUP SUBCOMMAND:ID>."
         ]
       },
       "Timestamp Styles": {
