@@ -1,112 +1,140 @@
 {
   "Get Current User": {
     "command": "GET",
-    "url": "/users/@me"
+    "url": "/users/@me",
+    "docs_url": "https://discord.com/developers/docs/resources/user#get-current-user"
   },
   "Get User": {
     "command": "GET",
-    "url": "/users/{user.id}"
+    "url": "/users/{user.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/user#get-user",
+    "url params": {
+      "user.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Modify Current User": {
     "command": "PATCH",
     "url": "/users/@me",
+    "docs_url": "https://discord.com/developers/docs/resources/user#modify-current-user",
     "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/user#connection-object"
-      },
       "username": {
         "type": "string",
-        "description": "user's username, if changed may cause the user's discriminator to be randomized.",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "user's username, if changed may cause the user's discriminator to be randomized."
+        }
       },
       "avatar": {
         "type": "image data",
-        "description": "if passed, modifies the user's avatar",
         "optional": false,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "if passed, modifies the user's avatar"
+        }
       }
     }
   },
   "Get Current User Guilds": {
     "command": "GET",
     "url": "/users/@me/guilds",
-    "query": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/user#connection-object"
-      },
+    "docs_url": "https://discord.com/developers/docs/resources/user#get-current-user-guilds",
+    "query string": {
       "before": {
         "type": "snowflake",
-        "description": "get guilds before this guild ID",
-        "required": "false",
-        "default": "absent",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "get guilds before this guild ID",
+          "Required": "false",
+          "Default": "absent"
+        }
       },
       "after": {
         "type": "snowflake",
-        "description": "get guilds after this guild ID",
-        "required": "false",
-        "default": "absent",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "get guilds after this guild ID",
+          "Required": "false",
+          "Default": "absent"
+        }
       },
       "limit": {
         "type": "integer",
-        "description": "max number of guilds to return (1-200)",
-        "required": "false",
-        "default": "200",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "max number of guilds to return (1-200)",
+          "Required": "false",
+          "Default": "200"
+        }
       }
     }
   },
   "Get Current User Guild Member": {
     "command": "GET",
-    "url": "/users/@me/guilds/{guild.id}/member"
+    "url": "/users/@me/guilds/{guild.id}/member",
+    "docs_url": "https://discord.com/developers/docs/resources/user#get-current-user-guild-member",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Leave Guild": {
     "command": "DELETE",
-    "url": "/users/@me/guilds/{guild.id}"
+    "url": "/users/@me/guilds/{guild.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/user#leave-guild",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Create DM": {
     "command": "POST",
     "url": "/users/@me/channels",
+    "docs_url": "https://discord.com/developers/docs/resources/user#create-dm",
     "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/user#connection-object"
-      },
       "recipient_id": {
         "type": "snowflake",
-        "description": "the recipient to open a DM channel with",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the recipient to open a DM channel with"
+        }
       }
     }
   },
   "Create Group DM": {
     "command": "POST",
     "url": "/users/@me/channels",
+    "docs_url": "https://discord.com/developers/docs/resources/user#create-group-dm",
     "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/user#connection-object"
-      },
       "access_tokens": {
         "type": "array of strings",
-        "description": "access tokens of users that have granted your app the gdm.join scope",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "access tokens of users that have granted your app the gdm.join scope"
+        }
       },
       "nicks": {
         "type": "dict",
-        "description": "a dictionary of user ids to their respective nicknames",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "a dictionary of user ids to their respective nicknames"
+        }
       }
     }
   },
   "Get User Connections": {
     "command": "GET",
-    "url": "/users/@me/connections"
+    "url": "/users/@me/connections",
+    "docs_url": "https://discord.com/developers/docs/resources/user#get-user-connections"
   }
 }

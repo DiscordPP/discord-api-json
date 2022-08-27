@@ -1,124 +1,187 @@
 {
   "List Auto Moderation Rules for Guild": {
     "command": "GET",
-    "url": "/guilds/{guild.id}/auto-moderation/rules"
+    "url": "/guilds/{guild.id}/auto-moderation/rules",
+    "docs_url": "https://discord.com/developers/docs/resources/auto-moderation#list-auto-moderation-rules-for-guild",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Get Auto Moderation Rule": {
     "command": "GET",
-    "url": "/guilds/{guild.id}/auto-moderation/rules/{auto_moderation_rule.id}"
+    "url": "/guilds/{guild.id}/auto-moderation/rules/{auto_moderation_rule.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/auto-moderation#get-auto-moderation-rule",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
+      },
+      "auto_moderation_rule.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Create Auto Moderation Rule": {
     "command": "POST",
     "url": "/guilds/{guild.id}/auto-moderation/rules",
+    "docs_url": "https://discord.com/developers/docs/resources/auto-moderation#create-auto-moderation-rule",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
+      }
+    },
     "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-action-object"
-      },
       "name": {
         "type": "string",
-        "description": "the rule name",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the rule name"
+        }
       },
       "event_type": {
         "type": "integer",
-        "description": "the event type",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the event type"
+        }
       },
       "trigger_type": {
         "type": "integer",
-        "description": "the trigger type",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the trigger type"
+        }
       },
       "trigger_metadata": {
         "type": "object",
-        "description": "the trigger metadata",
         "optional": true,
         "nullable": false,
-        "note-field": "Can be omitted based on trigger_type. See the Associated Trigger Types column in trigger metadata to understand which trigger_type values require trigger_metadata to be set."
+        "comments": {
+          "Description": "the trigger metadata",
+          "Name Note": "Can be omitted based on trigger_type. See the Associated Trigger Types column in trigger metadata to understand which trigger_type values require trigger_metadata to be set."
+        }
       },
       "actions": {
         "type": "array of action objects",
-        "description": "the actions which will execute when the rule is triggered",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the actions which will execute when the rule is triggered"
+        }
       },
       "enabled": {
         "type": "boolean",
-        "description": "whether the rule is enabled (False by default)",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "whether the rule is enabled (False by default)"
+        }
       },
       "exempt_roles": {
         "type": "array of snowflakes",
-        "description": "the role ids that should not be affected by the rule (Maximum of 20)",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the role ids that should not be affected by the rule (Maximum of 20)"
+        }
       },
       "exempt_channels": {
         "type": "array of snowflakes",
-        "description": "the channel ids that should not be affected by the rule (Maximum of 50)",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the channel ids that should not be affected by the rule (Maximum of 50)"
+        }
       }
     }
   },
   "Modify Auto Moderation Rule": {
     "command": "PATCH",
     "url": "/guilds/{guild.id}/auto-moderation/rules/{auto_moderation_rule.id}",
-    "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-action-object"
+    "docs_url": "https://discord.com/developers/docs/resources/auto-moderation#modify-auto-moderation-rule",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
       },
+      "auto_moderation_rule.id": {
+        "type": "snowflake"
+      }
+    },
+    "json": {
       "name": {
         "type": "string",
-        "description": "the rule name",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the rule name"
+        }
       },
       "event_type": {
         "type": "integer",
-        "description": "the event type",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the event type"
+        }
       },
       "trigger_metadata": {
         "type": "object",
-        "description": "the trigger metadata",
         "optional": true,
         "nullable": false,
-        "note-field": "Can be omitted based on trigger_type. See the Associated Trigger Types column in trigger metadata to understand which trigger_type values require trigger_metadata to be set."
+        "comments": {
+          "Description": "the trigger metadata",
+          "Name Note": "Can be omitted based on trigger_type. See the Associated Trigger Types column in trigger metadata to understand which trigger_type values require trigger_metadata to be set."
+        }
       },
       "actions": {
         "type": "array of action objects",
-        "description": "the actions which will execute when the rule is triggered",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the actions which will execute when the rule is triggered"
+        }
       },
       "enabled": {
         "type": "boolean",
-        "description": "whether the rule is enabled",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "whether the rule is enabled"
+        }
       },
       "exempt_roles": {
         "type": "array of snowflakes",
-        "description": "the role ids that should not be affected by the rule (Maximum of 20)",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the role ids that should not be affected by the rule (Maximum of 20)"
+        }
       },
       "exempt_channels": {
         "type": "array of snowflakes",
-        "description": "the channel ids that should not be affected by the rule (Maximum of 50)",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the channel ids that should not be affected by the rule (Maximum of 50)"
+        }
       }
     }
   },
   "Delete Auto Moderation Rule": {
     "command": "DELETE",
-    "url": "/guilds/{guild.id}/auto-moderation/rules/{auto_moderation_rule.id}"
+    "url": "/guilds/{guild.id}/auto-moderation/rules/{auto_moderation_rule.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/auto-moderation#delete-auto-moderation-rule",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
+      },
+      "auto_moderation_rule.id": {
+        "type": "snowflake"
+      }
+    }
   }
 }

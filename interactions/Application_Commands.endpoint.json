@@ -2,310 +2,591 @@
   "Get Global Application Commands": {
     "command": "GET",
     "url": "/applications/{application.id}/commands",
-    "query": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object"
-      },
+    "docs_url": "https://discord.com/developers/docs/interactions/application-commands#get-global-application-commands",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      }
+    },
+    "query string": {
       "with_localizations": {
         "type": "boolean",
-        "description": "Whether to include full localization dictionaries (name_localizations and description_localizations) in the returned objects, instead of the name_localized and description_localized fields. Default false.",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "Whether to include full localization dictionaries (name_localizations and description_localizations) in the returned objects, instead of the name_localized and description_localized fields. Default false."
+        }
       }
     }
   },
   "Create Global Application Command": {
     "command": "POST",
     "url": "/applications/{application.id}/commands",
+    "docs_url": "https://discord.com/developers/docs/interactions/application-commands#create-global-application-command",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      }
+    },
     "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object"
-      },
       "name": {
         "type": "string",
-        "description": "Name of command, 1-32 characters",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "Name of command, 1-32 characters"
+        }
       },
       "name_localizations": {
         "type": "dictionary with keys in available locales",
-        "description": "Localization dictionary for the name field. Values follow the same restrictions as name",
         "optional": true,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "Localization dictionary for the name field. Values follow the same restrictions as name"
+        }
       },
       "description": {
         "type": "string",
-        "description": "1-100 character description",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "1-100 character description"
+        }
       },
       "description_localizations": {
         "type": "dictionary with keys in available locales",
-        "description": "Localization dictionary for the description field. Values follow the same restrictions as description",
         "optional": true,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "Localization dictionary for the description field. Values follow the same restrictions as description"
+        }
       },
       "options": {
         "type": "array of application command option",
-        "description": "the parameters for the command",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the parameters for the command"
+        }
       },
       "default_member_permissions": {
         "type": "string",
-        "description": "Set of permissions represented as a bit set",
         "optional": true,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "Set of permissions represented as a bit set"
+        }
       },
       "dm_permission": {
         "type": "boolean",
-        "description": "Indicates whether the command is available in DMs with the app, only for globally-scoped commands. By default, commands are visible.",
         "optional": true,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "Indicates whether the command is available in DMs with the app, only for globally-scoped commands. By default, commands are visible."
+        }
       },
       "default_permission": {
         "type": "boolean (default true)",
-        "description": "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild.",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild."
+        }
       },
       "type": {
         "type": "one of application command type",
-        "description": "Type of command, defaults 1 if not set",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "Type of command, defaults 1 if not set"
+        }
       }
     }
   },
   "Get Global Application Command": {
     "command": "GET",
-    "url": "/applications/{application.id}/commands/{command.id}"
+    "url": "/applications/{application.id}/commands/{command.id}",
+    "docs_url": "https://discord.com/developers/docs/interactions/application-commands#get-global-application-command",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      },
+      "command.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Edit Global Application Command": {
     "command": "PATCH",
     "url": "/applications/{application.id}/commands/{command.id}",
-    "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object"
+    "docs_url": "https://discord.com/developers/docs/interactions/application-commands#edit-global-application-command",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
       },
+      "command.id": {
+        "type": "snowflake"
+      }
+    },
+    "json": {
       "name": {
         "type": "string",
-        "description": "Name of command, 1-32 characters",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "Name of command, 1-32 characters"
+        }
       },
       "name_localizations": {
         "type": "dictionary with keys in available locales",
-        "description": "Localization dictionary for the name field. Values follow the same restrictions as name",
         "optional": true,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "Localization dictionary for the name field. Values follow the same restrictions as name"
+        }
       },
       "description": {
         "type": "string",
-        "description": "1-100 character description",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "1-100 character description"
+        }
       },
       "description_localizations": {
         "type": "dictionary with keys in available locales",
-        "description": "Localization dictionary for the description field. Values follow the same restrictions as description",
         "optional": true,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "Localization dictionary for the description field. Values follow the same restrictions as description"
+        }
       },
       "options": {
         "type": "array of application command option",
-        "description": "the parameters for the command",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the parameters for the command"
+        }
       },
       "default_member_permissions": {
         "type": "string",
-        "description": "Set of permissions represented as a bit set",
         "optional": true,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "Set of permissions represented as a bit set"
+        }
       },
       "dm_permission": {
         "type": "boolean",
-        "description": "Indicates whether the command is available in DMs with the app, only for globally-scoped commands. By default, commands are visible.",
         "optional": true,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "Indicates whether the command is available in DMs with the app, only for globally-scoped commands. By default, commands are visible."
+        }
       },
       "default_permission": {
         "type": "boolean (default true)",
-        "description": "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild.",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild."
+        }
       }
     }
   },
   "Delete Global Application Command": {
     "command": "DELETE",
-    "url": "/applications/{application.id}/commands/{command.id}"
+    "url": "/applications/{application.id}/commands/{command.id}",
+    "docs_url": "https://discord.com/developers/docs/interactions/application-commands#delete-global-application-command",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      },
+      "command.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Bulk Overwrite Global Application Commands": {
     "command": "PUT",
-    "url": "/applications/{application.id}/commands"
+    "url": "/applications/{application.id}/commands",
+    "docs_url": "https://discord.com/developers/docs/interactions/application-commands#bulk-overwrite-global-application-commands",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Get Guild Application Commands": {
     "command": "GET",
     "url": "/applications/{application.id}/guilds/{guild.id}/commands",
-    "query": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object"
+    "docs_url": "https://discord.com/developers/docs/interactions/application-commands#get-guild-application-commands",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
       },
+      "guild.id": {
+        "type": "snowflake"
+      }
+    },
+    "query string": {
       "with_localizations": {
         "type": "boolean",
-        "description": "Whether to include full localization dictionaries (name_localizations and description_localizations) in the returned objects, instead of the name_localized and description_localized fields. Default false.",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "Whether to include full localization dictionaries (name_localizations and description_localizations) in the returned objects, instead of the name_localized and description_localized fields. Default false."
+        }
       }
     }
   },
   "Create Guild Application Command": {
     "command": "POST",
     "url": "/applications/{application.id}/guilds/{guild.id}/commands",
-    "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object"
+    "docs_url": "https://discord.com/developers/docs/interactions/application-commands#create-guild-application-command",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
       },
+      "guild.id": {
+        "type": "snowflake"
+      }
+    },
+    "json": {
       "name": {
         "type": "string",
-        "description": "Name of command, 1-32 characters",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "Name of command, 1-32 characters"
+        }
       },
       "name_localizations": {
         "type": "dictionary with keys in available locales",
-        "description": "Localization dictionary for the name field. Values follow the same restrictions as name",
         "optional": true,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "Localization dictionary for the name field. Values follow the same restrictions as name"
+        }
       },
       "description": {
         "type": "string",
-        "description": "1-100 character description",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "1-100 character description"
+        }
       },
       "description_localizations": {
         "type": "dictionary with keys in available locales",
-        "description": "Localization dictionary for the description field. Values follow the same restrictions as description",
         "optional": true,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "Localization dictionary for the description field. Values follow the same restrictions as description"
+        }
       },
       "options": {
         "type": "array of application command option",
-        "description": "Parameters for the command",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "Parameters for the command"
+        }
       },
       "default_member_permissions": {
         "type": "string",
-        "description": "Set of permissions represented as a bit set",
         "optional": true,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "Set of permissions represented as a bit set"
+        }
       },
       "default_permission": {
         "type": "boolean (default true)",
-        "description": "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild.",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild."
+        }
       },
       "type": {
         "type": "one of application command type",
-        "description": "Type of command, defaults 1 if not set",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "Type of command, defaults 1 if not set"
+        }
       }
     }
   },
   "Get Guild Application Command": {
     "command": "GET",
-    "url": "/applications/{application.id}/guilds/{guild.id}/commands/{command.id}"
+    "url": "/applications/{application.id}/guilds/{guild.id}/commands/{command.id}",
+    "docs_url": "https://discord.com/developers/docs/interactions/application-commands#get-guild-application-command",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      },
+      "guild.id": {
+        "type": "snowflake"
+      },
+      "command.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Edit Guild Application Command": {
     "command": "PATCH",
     "url": "/applications/{application.id}/guilds/{guild.id}/commands/{command.id}",
-    "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object"
+    "docs_url": "https://discord.com/developers/docs/interactions/application-commands#edit-guild-application-command",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
       },
+      "guild.id": {
+        "type": "snowflake"
+      },
+      "command.id": {
+        "type": "snowflake"
+      }
+    },
+    "json": {
       "name": {
         "type": "string",
-        "description": "Name of command, 1-32 characters",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "Name of command, 1-32 characters"
+        }
       },
       "name_localizations": {
         "type": "dictionary with keys in available locales",
-        "description": "Localization dictionary for the name field. Values follow the same restrictions as name",
         "optional": true,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "Localization dictionary for the name field. Values follow the same restrictions as name"
+        }
       },
       "description": {
         "type": "string",
-        "description": "1-100 character description",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "1-100 character description"
+        }
       },
       "description_localizations": {
         "type": "dictionary with keys in available locales",
-        "description": "Localization dictionary for the description field. Values follow the same restrictions as description",
         "optional": true,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "Localization dictionary for the description field. Values follow the same restrictions as description"
+        }
       },
       "options": {
         "type": "array of application command option",
-        "description": "Parameters for the command",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "Parameters for the command"
+        }
       },
       "default_member_permissions": {
         "type": "string",
-        "description": "Set of permissions represented as a bit set",
         "optional": true,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "Set of permissions represented as a bit set"
+        }
       },
       "default_permission": {
         "type": "boolean (default true)",
-        "description": "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild.",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild."
+        }
       }
     }
   },
   "Delete Guild Application Command": {
     "command": "DELETE",
-    "url": "/applications/{application.id}/guilds/{guild.id}/commands/{command.id}"
+    "url": "/applications/{application.id}/guilds/{guild.id}/commands/{command.id}",
+    "docs_url": "https://discord.com/developers/docs/interactions/application-commands#delete-guild-application-command",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      },
+      "guild.id": {
+        "type": "snowflake"
+      },
+      "command.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Bulk Overwrite Guild Application Commands": {
     "command": "PUT",
-    "url": "/applications/{application.id}/guilds/{guild.id}/commands"
+    "url": "/applications/{application.id}/guilds/{guild.id}/commands",
+    "docs_url": "https://discord.com/developers/docs/interactions/application-commands#bulk-overwrite-guild-application-commands",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      },
+      "guild.id": {
+        "type": "snowflake"
+      }
+    },
+    "json": {
+      "id": {
+        "type": "snowflake",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "ID of the command, if known"
+        }
+      },
+      "name": {
+        "type": "string",
+        "optional": false,
+        "nullable": false,
+        "comments": {
+          "Description": "Name of command, 1-32 characters"
+        }
+      },
+      "name_localizations": {
+        "type": "dictionary with keys in available locales",
+        "optional": true,
+        "nullable": true,
+        "comments": {
+          "Description": "Localization dictionary for the name field. Values follow the same restrictions as name"
+        }
+      },
+      "description": {
+        "type": "string",
+        "optional": false,
+        "nullable": false,
+        "comments": {
+          "Description": "1-100 character description"
+        }
+      },
+      "description_localizations": {
+        "type": "dictionary with keys in available locales",
+        "optional": true,
+        "nullable": true,
+        "comments": {
+          "Description": "Localization dictionary for the description field. Values follow the same restrictions as description"
+        }
+      },
+      "options": {
+        "type": "array of application command option",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "Parameters for the command"
+        }
+      },
+      "default_member_permissions": {
+        "type": "string",
+        "optional": true,
+        "nullable": true,
+        "comments": {
+          "Description": "Set of permissions represented as a bit set"
+        }
+      },
+      "dm_permission": {
+        "type": "boolean",
+        "optional": true,
+        "nullable": true,
+        "comments": {
+          "Description": "Indicates whether the command is available in DMs with the app, only for globally-scoped commands. By default, commands are visible."
+        }
+      },
+      "default_permission": {
+        "type": "boolean (default true)",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild."
+        }
+      },
+      "type": {
+        "type": "one of application command type",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "Type of command, defaults 1 if not set"
+        }
+      }
+    }
   },
   "Get Guild Application Command Permissions": {
     "command": "GET",
-    "url": "/applications/{application.id}/guilds/{guild.id}/commands/permissions"
+    "url": "/applications/{application.id}/guilds/{guild.id}/commands/permissions",
+    "docs_url": "https://discord.com/developers/docs/interactions/application-commands#get-guild-application-command-permissions",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      },
+      "guild.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Get Application Command Permissions": {
     "command": "GET",
-    "url": "/applications/{application.id}/guilds/{guild.id}/commands/{command.id}/permissions"
+    "url": "/applications/{application.id}/guilds/{guild.id}/commands/{command.id}/permissions",
+    "docs_url": "https://discord.com/developers/docs/interactions/application-commands#get-application-command-permissions",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      },
+      "guild.id": {
+        "type": "snowflake"
+      },
+      "command.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Edit Application Command Permissions": {
     "command": "PUT",
     "url": "/applications/{application.id}/guilds/{guild.id}/commands/{command.id}/permissions",
-    "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object"
+    "docs_url": "https://discord.com/developers/docs/interactions/application-commands#edit-application-command-permissions",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
       },
+      "guild.id": {
+        "type": "snowflake"
+      },
+      "command.id": {
+        "type": "snowflake"
+      }
+    },
+    "json": {
       "permissions": {
         "type": "array of application command permissions",
-        "description": "Permissions for the command in the guild",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "Permissions for the command in the guild"
+        }
       }
     }
   },
   "Batch Edit Application Command Permissions": {
     "command": "PUT",
-    "url": "/applications/{application.id}/guilds/{guild.id}/commands/permissions"
+    "url": "/applications/{application.id}/guilds/{guild.id}/commands/permissions",
+    "docs_url": "https://discord.com/developers/docs/interactions/application-commands#batch-edit-application-command-permissions",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      },
+      "guild.id": {
+        "type": "snowflake"
+      }
+    }
   }
 }

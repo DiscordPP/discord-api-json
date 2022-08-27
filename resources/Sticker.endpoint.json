@@ -1,53 +1,136 @@
 {
   "Get Sticker": {
     "command": "GET",
-    "url": "/stickers/{sticker.id}"
+    "url": "/stickers/{sticker.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/sticker#get-sticker",
+    "url params": {
+      "sticker.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "List Nitro Sticker Packs": {
     "command": "GET",
-    "url": "/sticker-packs"
+    "url": "/sticker-packs",
+    "docs_url": "https://discord.com/developers/docs/resources/sticker#list-nitro-sticker-packs"
   },
   "List Guild Stickers": {
     "command": "GET",
-    "url": "/guilds/{guild.id}/stickers"
+    "url": "/guilds/{guild.id}/stickers",
+    "docs_url": "https://discord.com/developers/docs/resources/sticker#list-guild-stickers",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Get Guild Sticker": {
     "command": "GET",
-    "url": "/guilds/{guild.id}/stickers/{sticker.id}"
+    "url": "/guilds/{guild.id}/stickers/{sticker.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/sticker#get-guild-sticker",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
+      },
+      "sticker.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Create Guild Sticker": {
     "command": "POST",
-    "url": "/guilds/{guild.id}/stickers"
+    "url": "/guilds/{guild.id}/stickers",
+    "docs_url": "https://discord.com/developers/docs/resources/sticker#create-guild-sticker",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
+      }
+    },
+    "form": {
+      "name": {
+        "type": "string",
+        "optional": false,
+        "nullable": false,
+        "comments": {
+          "Description": "name of the sticker (2-30 characters)"
+        }
+      },
+      "description": {
+        "type": "string",
+        "optional": false,
+        "nullable": false,
+        "comments": {
+          "Description": "description of the sticker (empty or 2-100 characters)"
+        }
+      },
+      "tags": {
+        "type": "string",
+        "optional": false,
+        "nullable": false,
+        "comments": {
+          "Description": "autocomplete/suggestion tags for the sticker (max 200 characters)"
+        }
+      },
+      "file": {
+        "type": "file contents",
+        "optional": false,
+        "nullable": false,
+        "comments": {
+          "Description": "the sticker file to upload, must be a PNG, APNG, or Lottie JSON file, max 500 KB"
+        }
+      }
+    }
   },
   "Modify Guild Sticker": {
     "command": "PATCH",
     "url": "/guilds/{guild.id}/stickers/{sticker.id}",
-    "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/sticker#sticker-pack-object"
+    "docs_url": "https://discord.com/developers/docs/resources/sticker#modify-guild-sticker",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
       },
+      "sticker.id": {
+        "type": "snowflake"
+      }
+    },
+    "json": {
       "name": {
         "type": "string",
-        "description": "name of the sticker (2-30 characters)",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "name of the sticker (2-30 characters)"
+        }
       },
       "description": {
         "type": "string",
-        "description": "description of the sticker (2-100 characters)",
         "optional": false,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "description of the sticker (2-100 characters)"
+        }
       },
       "tags": {
         "type": "string",
-        "description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "autocomplete/suggestion tags for the sticker (max 200 characters)"
+        }
       }
     }
   },
   "Delete Guild Sticker": {
     "command": "DELETE",
-    "url": "/guilds/{guild.id}/stickers/{sticker.id}"
+    "url": "/guilds/{guild.id}/stickers/{sticker.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/sticker#delete-guild-sticker",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
+      },
+      "sticker.id": {
+        "type": "snowflake"
+      }
+    }
   }
 }

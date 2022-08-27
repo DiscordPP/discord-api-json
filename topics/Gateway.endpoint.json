@@ -1,0 +1,12 @@
+{
+  "Get Gateway": {
+    "command": "GET",
+    "url": "/gateway",
+    "docs_url": "https://discord.com/developers/docs/topics/gateway#get-gateway"
+  },
+  "Get Gateway Bot": {
+    "command": "GET",
+    "url": "/gateway/bot",
+    "docs_url": "https://discord.com/developers/docs/topics/gateway#get-gateway-bot"
+  }
+}

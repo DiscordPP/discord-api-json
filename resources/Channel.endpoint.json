@@ -1,435 +1,973 @@
 {
   "Get Channel": {
     "command": "GET",
-    "url": "/channels/{channel.id}"
+    "url": "/channels/{channel.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#get-channel",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Modify Channel": {
     "command": "PATCH",
-    "url": "/channels/{channel.id}"
+    "url": "/channels/{channel.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#modify-channel",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Delete/Close Channel": {
     "command": "DELETE",
-    "url": "/channels/{channel.id}"
+    "url": "/channels/{channel.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#delete/close-channel",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Get Channel Messages": {
     "command": "GET",
     "url": "/channels/{channel.id}/messages",
-    "query": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
-      },
+    "docs_url": "https://discord.com/developers/docs/resources/channel#get-channel-messages",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    },
+    "query string": {
       "around": {
         "type": "snowflake",
-        "description": "Get messages around this message ID",
-        "default": "absent",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "Get messages around this message ID",
+          "Default": "absent"
+        }
       },
       "before": {
         "type": "snowflake",
-        "description": "Get messages before this message ID",
-        "default": "absent",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "Get messages before this message ID",
+          "Default": "absent"
+        }
       },
       "after": {
         "type": "snowflake",
-        "description": "Get messages after this message ID",
-        "default": "absent",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "Get messages after this message ID",
+          "Default": "absent"
+        }
       },
       "limit": {
         "type": "integer",
-        "description": "Max number of messages to return (1-100)",
-        "default": "50",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "Max number of messages to return (1-100)",
+          "Default": "50"
+        }
       }
     }
   },
   "Get Channel Message": {
     "command": "GET",
-    "url": "/channels/{channel.id}/messages/{message.id}"
+    "url": "/channels/{channel.id}/messages/{message.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#get-channel-message",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      },
+      "message.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Create Message": {
     "command": "POST",
-    "url": "/channels/{channel.id}/messages"
+    "url": "/channels/{channel.id}/messages",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#create-message",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    },
+    "json/form": {
+      "content": {
+        "type": "string",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "Message contents (up to 2000 characters)",
+          "Name Note": "At least one of content, embeds, sticker_ids, or files[n] is required."
+        }
+      },
+      "tts": {
+        "type": "boolean",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "true if this is a TTS message"
+        }
+      },
+      "embeds": {
+        "type": "array of embed objects",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "Embedded rich content (up to 6000 characters)",
+          "Name Note": "At least one of content, embeds, sticker_ids, or files[n] is required."
+        }
+      },
+      "allowed_mentions": {
+        "type": "allowed mention object",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "Allowed mentions for the message"
+        }
+      },
+      "message_reference": {
+        "type": "message reference",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "Include to make your message a reply"
+        }
+      },
+      "components": {
+        "type": "array of message component objects",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "Components to include with the message"
+        }
+      },
+      "sticker_ids": {
+        "type": "array of snowflakes",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "IDs of up to 3 stickers in the server to send in the message",
+          "Name Note": "At least one of content, embeds, sticker_ids, or files[n] is required."
+        }
+      },
+      "files[n]": {
+        "type": "file contents",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "Contents of the file being sent. See Uploading Files",
+          "Name Note": "At least one of content, embeds, sticker_ids, or files[n] is required."
+        }
+      },
+      "payload_json": {
+        "type": "string",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "JSON-encoded body of non-file params, only for multipart/form-data requests. See Uploading Files"
+        }
+      },
+      "attachments": {
+        "type": "array of partial attachment objects",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "Attachment objects with filename and description. See Uploading Files"
+        }
+      },
+      "flags": {
+        "type": "integer",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "Message flags combined as a bitfield (only SUPPRESS_EMBEDS can be set)"
+        }
+      }
+    }
   },
   "Crosspost Message": {
     "command": "POST",
-    "url": "/channels/{channel.id}/messages/{message.id}/crosspost"
+    "url": "/channels/{channel.id}/messages/{message.id}/crosspost",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#crosspost-message",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      },
+      "message.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Create Reaction": {
     "command": "PUT",
-    "url": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/@me"
+    "url": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/@me",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#create-reaction",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      },
+      "message.id": {
+        "type": "snowflake"
+      },
+      "emoji": {
+        "type": "snowflake"
+      }
+    }
   },
   "Delete Own Reaction": {
     "command": "DELETE",
-    "url": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/@me"
+    "url": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/@me",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#delete-own-reaction",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      },
+      "message.id": {
+        "type": "snowflake"
+      },
+      "emoji": {
+        "type": "snowflake"
+      }
+    }
   },
   "Delete User Reaction": {
     "command": "DELETE",
-    "url": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/{user.id}"
+    "url": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/{user.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#delete-user-reaction",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      },
+      "message.id": {
+        "type": "snowflake"
+      },
+      "emoji": {
+        "type": "snowflake"
+      },
+      "user.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Get Reactions": {
     "command": "GET",
     "url": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}",
-    "query": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
+    "docs_url": "https://discord.com/developers/docs/resources/channel#get-reactions",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
       },
+      "message.id": {
+        "type": "snowflake"
+      },
+      "emoji": {
+        "type": "snowflake"
+      }
+    },
+    "query string": {
       "after": {
         "type": "snowflake",
-        "description": "Get users after this user ID",
-        "default": "absent",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "Get users after this user ID",
+          "Default": "absent"
+        }
       },
       "limit": {
         "type": "integer",
-        "description": "Max number of users to return (1-100)",
-        "default": "25",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "Max number of users to return (1-100)",
+          "Default": "25"
+        }
       }
     }
   },
   "Delete All Reactions": {
     "command": "DELETE",
-    "url": "/channels/{channel.id}/messages/{message.id}/reactions"
+    "url": "/channels/{channel.id}/messages/{message.id}/reactions",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#delete-all-reactions",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      },
+      "message.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Delete All Reactions for Emoji": {
     "command": "DELETE",
-    "url": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}"
+    "url": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#delete-all-reactions-for-emoji",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      },
+      "message.id": {
+        "type": "snowflake"
+      },
+      "emoji": {
+        "type": "snowflake"
+      }
+    }
   },
   "Edit Message": {
     "command": "PATCH",
-    "url": "/channels/{channel.id}/messages/{message.id}"
+    "url": "/channels/{channel.id}/messages/{message.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#edit-message",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      },
+      "message.id": {
+        "type": "snowflake"
+      }
+    },
+    "json/form": {
+      "content": {
+        "type": "string",
+        "optional": false,
+        "nullable": false,
+        "comments": {
+          "Description": "Message contents (up to 2000 characters)"
+        }
+      },
+      "embeds": {
+        "type": "array of embed objects",
+        "optional": false,
+        "nullable": false,
+        "comments": {
+          "Description": "Embedded rich content (up to 6000 characters)"
+        }
+      },
+      "flags": {
+        "type": "integer",
+        "optional": false,
+        "nullable": false,
+        "comments": {
+          "Description": "Edit the flags of a message (only SUPPRESS_EMBEDS can currently be set/unset)"
+        }
+      },
+      "allowed_mentions": {
+        "type": "allowed mention object",
+        "optional": false,
+        "nullable": false,
+        "comments": {
+          "Description": "Allowed mentions for the message"
+        }
+      },
+      "components": {
+        "type": "array of message component",
+        "optional": false,
+        "nullable": false,
+        "comments": {
+          "Description": "Components to include with the message"
+        }
+      },
+      "files[n]": {
+        "type": "file contents",
+        "optional": false,
+        "nullable": false,
+        "comments": {
+          "Description": "Contents of the file being sent/edited. See Uploading Files"
+        }
+      },
+      "payload_json": {
+        "type": "string",
+        "optional": false,
+        "nullable": false,
+        "comments": {
+          "Description": "JSON-encoded body of non-file params (multipart/form-data only). See Uploading Files"
+        }
+      },
+      "attachments": {
+        "type": "array of attachment objects",
+        "optional": false,
+        "nullable": false,
+        "comments": {
+          "Description": "Attached files to keep and possible descriptions for new files. See Uploading Files"
+        }
+      }
+    }
   },
   "Delete Message": {
     "command": "DELETE",
-    "url": "/channels/{channel.id}/messages/{message.id}"
+    "url": "/channels/{channel.id}/messages/{message.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#delete-message",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      },
+      "message.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Bulk Delete Messages": {
     "command": "POST",
     "url": "/channels/{channel.id}/messages/bulk-delete",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#bulk-delete-messages",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    },
     "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
-      },
       "messages": {
         "type": "array of snowflakes",
-        "description": "an array of message ids to delete (2-100)",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "an array of message ids to delete (2-100)"
+        }
       }
     }
   },
   "Edit Channel Permissions": {
     "command": "PUT",
     "url": "/channels/{channel.id}/permissions/{overwrite.id}",
-    "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
+    "docs_url": "https://discord.com/developers/docs/resources/channel#edit-channel-permissions",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
       },
+      "overwrite.id": {
+        "type": "snowflake"
+      }
+    },
+    "json": {
       "allow": {
         "type": "string?",
-        "description": "the bitwise value of all allowed permissions (default \"0\")",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the bitwise value of all allowed permissions (default \"0\")"
+        }
       },
       "deny": {
         "type": "string?",
-        "description": "the bitwise value of all disallowed permissions (default \"0\")",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the bitwise value of all disallowed permissions (default \"0\")"
+        }
       },
       "type": {
         "type": "integer",
-        "description": "0 for a role or 1 for a member",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "0 for a role or 1 for a member"
+        }
       }
     }
   },
   "Get Channel Invites": {
     "command": "GET",
-    "url": "/channels/{channel.id}/invites"
+    "url": "/channels/{channel.id}/invites",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#get-channel-invites",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Create Channel Invite": {
     "command": "POST",
     "url": "/channels/{channel.id}/invites",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#create-channel-invite",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    },
     "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
-      },
       "max_age": {
         "type": "integer",
-        "description": "duration of invite in seconds before expiry, or 0 for never. between 0 and 604800 (7 days)",
-        "default": "86400 (24 hours)",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "duration of invite in seconds before expiry, or 0 for never. between 0 and 604800 (7 days)",
+          "Default": "86400 (24 hours)"
+        }
       },
       "max_uses": {
         "type": "integer",
-        "description": "max number of uses or 0 for unlimited. between 0 and 100",
-        "default": "0",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "max number of uses or 0 for unlimited. between 0 and 100",
+          "Default": "0"
+        }
       },
       "temporary": {
         "type": "boolean",
-        "description": "whether this invite only grants temporary membership",
-        "default": "false",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "whether this invite only grants temporary membership",
+          "Default": "false"
+        }
       },
       "unique": {
         "type": "boolean",
-        "description": "if true, don't try to reuse a similar invite (useful for creating many unique one time use invites)",
-        "default": "false",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "if true, don't try to reuse a similar invite (useful for creating many unique one time use invites)",
+          "Default": "false"
+        }
       },
       "target_type": {
         "type": "integer",
-        "description": "the type of target for this voice channel invite",
-        "default": "",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the type of target for this voice channel invite",
+          "Default": ""
+        }
       },
       "target_user_id": {
         "type": "snowflake",
-        "description": "the id of the user whose stream to display for this invite, required if target_type is 1, the user must be streaming in the channel",
-        "default": "",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the id of the user whose stream to display for this invite, required if target_type is 1, the user must be streaming in the channel",
+          "Default": ""
+        }
       },
       "target_application_id": {
         "type": "snowflake",
-        "description": "the id of the embedded application to open for this invite, required if target_type is 2, the application must have the EMBEDDED flag",
-        "default": "",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the id of the embedded application to open for this invite, required if target_type is 2, the application must have the EMBEDDED flag",
+          "Default": ""
+        }
       }
     }
   },
   "Delete Channel Permission": {
     "command": "DELETE",
-    "url": "/channels/{channel.id}/permissions/{overwrite.id}"
+    "url": "/channels/{channel.id}/permissions/{overwrite.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#delete-channel-permission",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      },
+      "overwrite.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Follow News Channel": {
     "command": "POST",
     "url": "/channels/{channel.id}/followers",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#follow-news-channel",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    },
     "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
-      },
       "webhook_channel_id": {
         "type": "snowflake",
-        "description": "id of target channel",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "id of target channel"
+        }
       }
     }
   },
   "Trigger Typing Indicator": {
     "command": "POST",
-    "url": "/channels/{channel.id}/typing"
+    "url": "/channels/{channel.id}/typing",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#trigger-typing-indicator",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Get Pinned Messages": {
     "command": "GET",
-    "url": "/channels/{channel.id}/pins"
+    "url": "/channels/{channel.id}/pins",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#get-pinned-messages",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Pin Message": {
     "command": "PUT",
-    "url": "/channels/{channel.id}/pins/{message.id}"
+    "url": "/channels/{channel.id}/pins/{message.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#pin-message",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      },
+      "message.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Unpin Message": {
     "command": "DELETE",
-    "url": "/channels/{channel.id}/pins/{message.id}"
+    "url": "/channels/{channel.id}/pins/{message.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#unpin-message",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      },
+      "message.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Group DM Add Recipient": {
     "command": "PUT",
     "url": "/channels/{channel.id}/recipients/{user.id}",
-    "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
+    "docs_url": "https://discord.com/developers/docs/resources/channel#group-dm-add-recipient",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
       },
+      "user.id": {
+        "type": "snowflake"
+      }
+    },
+    "json": {
       "access_token": {
         "type": "string",
-        "description": "access token of a user that has granted your app the gdm.join scope",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "access token of a user that has granted your app the gdm.join scope"
+        }
       },
       "nick": {
         "type": "string",
-        "description": "nickname of the user being added",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "nickname of the user being added"
+        }
       }
     }
   },
   "Group DM Remove Recipient": {
     "command": "DELETE",
-    "url": "/channels/{channel.id}/recipients/{user.id}"
+    "url": "/channels/{channel.id}/recipients/{user.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#group-dm-remove-recipient",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      },
+      "user.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Start Thread from Message": {
     "command": "POST",
     "url": "/channels/{channel.id}/messages/{message.id}/threads",
-    "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
+    "docs_url": "https://discord.com/developers/docs/resources/channel#start-thread-from-message",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
       },
+      "message.id": {
+        "type": "snowflake"
+      }
+    },
+    "json": {
       "name": {
         "type": "string",
-        "description": "1-100 character channel name",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "1-100 character channel name"
+        }
       },
       "auto_archive_duration": {
         "type": "integer",
-        "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+        }
       },
       "rate_limit_per_user": {
         "type": "integer",
-        "description": "amount of seconds a user has to wait before sending another message (0-21600)",
         "optional": true,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "amount of seconds a user has to wait before sending another message (0-21600)"
+        }
       }
     }
   },
   "Start Thread without Message": {
     "command": "POST",
     "url": "/channels/{channel.id}/threads",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#start-thread-without-message",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    },
     "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
-      },
       "name": {
         "type": "string",
-        "description": "1-100 character channel name",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "1-100 character channel name"
+        }
       },
       "auto_archive_duration": {
         "type": "integer",
-        "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+        }
       },
       "type": {
         "type": "integer",
-        "description": "the type of thread to create",
         "optional": true,
         "nullable": false,
-        "note-field": "type currently defaults to GUILD_PRIVATE_THREAD in order to match the behavior when thread documentation was first published. In a future API version this will be changed to be a required field, with no default."
+        "comments": {
+          "Description": "the type of thread to create",
+          "Name Note": "type currently defaults to GUILD_PRIVATE_THREAD in order to match the behavior when thread documentation was first published. In a future API version this will be changed to be a required field, with no default."
+        }
       },
       "invitable": {
         "type": "boolean",
-        "description": "whether non-moderators can add other non-moderators to a thread; only available when creating a private thread",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "whether non-moderators can add other non-moderators to a thread; only available when creating a private thread"
+        }
       },
       "rate_limit_per_user": {
         "type": "integer",
-        "description": "amount of seconds a user has to wait before sending another message (0-21600)",
         "optional": true,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "amount of seconds a user has to wait before sending another message (0-21600)"
+        }
       }
     }
   },
   "Start Thread in Forum Channel": {
     "command": "POST",
-    "url": "/channels/{channel.id}/threads"
+    "url": "/channels/{channel.id}/threads",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#start-thread-in-forum-channel",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    },
+    "json/form": {
+      "name": {
+        "type": "string",
+        "optional": false,
+        "nullable": false,
+        "comments": {
+          "Description": "1-100 character channel name"
+        }
+      },
+      "auto_archive_duration": {
+        "type": "integer",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+        }
+      },
+      "rate_limit_per_user": {
+        "type": "integer",
+        "optional": true,
+        "nullable": true,
+        "comments": {
+          "Description": "amount of seconds a user has to wait before sending another message (0-21600)"
+        }
+      },
+      "message": {
+        "type": "a forum thread message params object",
+        "optional": false,
+        "nullable": false,
+        "comments": {
+          "Description": "contents of the first message in the forum thread"
+        }
+      }
+    }
   },
   "Join Thread": {
     "command": "PUT",
-    "url": "/channels/{channel.id}/thread-members/@me"
+    "url": "/channels/{channel.id}/thread-members/@me",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#join-thread",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Add Thread Member": {
     "command": "PUT",
-    "url": "/channels/{channel.id}/thread-members/{user.id}"
+    "url": "/channels/{channel.id}/thread-members/{user.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#add-thread-member",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      },
+      "user.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Leave Thread": {
     "command": "DELETE",
-    "url": "/channels/{channel.id}/thread-members/@me"
+    "url": "/channels/{channel.id}/thread-members/@me",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#leave-thread",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Remove Thread Member": {
     "command": "DELETE",
-    "url": "/channels/{channel.id}/thread-members/{user.id}"
+    "url": "/channels/{channel.id}/thread-members/{user.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#remove-thread-member",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      },
+      "user.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Get Thread Member": {
     "command": "GET",
-    "url": "/channels/{channel.id}/thread-members/{user.id}"
+    "url": "/channels/{channel.id}/thread-members/{user.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#get-thread-member",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      },
+      "user.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "List Thread Members": {
     "command": "GET",
-    "url": "/channels/{channel.id}/thread-members"
+    "url": "/channels/{channel.id}/thread-members",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#list-thread-members",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "List Public Archived Threads": {
     "command": "GET",
     "url": "/channels/{channel.id}/threads/archived/public",
-    "query": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
-      },
+    "docs_url": "https://discord.com/developers/docs/resources/channel#list-public-archived-threads",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    },
+    "query string": {
       "before": {
         "type": "ISO8601 timestamp",
-        "description": "returns threads before this timestamp",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "returns threads before this timestamp"
+        }
       },
       "limit": {
         "type": "integer",
-        "description": "optional maximum number of threads to return",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "optional maximum number of threads to return"
+        }
       }
     }
   },
   "List Private Archived Threads": {
     "command": "GET",
     "url": "/channels/{channel.id}/threads/archived/private",
-    "query": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
-      },
+    "docs_url": "https://discord.com/developers/docs/resources/channel#list-private-archived-threads",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    },
+    "query string": {
       "before": {
         "type": "ISO8601 timestamp",
-        "description": "returns threads before this timestamp",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "returns threads before this timestamp"
+        }
       },
       "limit": {
         "type": "integer",
-        "description": "optional maximum number of threads to return",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "optional maximum number of threads to return"
+        }
       }
     }
   },
   "List Joined Private Archived Threads": {
     "command": "GET",
     "url": "/channels/{channel.id}/users/@me/threads/archived/private",
-    "query": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/channel#allowed-mentions-object"
-      },
+    "docs_url": "https://discord.com/developers/docs/resources/channel#list-joined-private-archived-threads",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    },
+    "query string": {
       "before": {
         "type": "snowflake",
-        "description": "returns threads before this id",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "returns threads before this id"
+        }
       },
       "limit": {
         "type": "integer",
-        "description": "optional maximum number of threads to return",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "optional maximum number of threads to return"
+        }
       }
     }
   }

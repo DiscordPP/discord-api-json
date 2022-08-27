@@ -1,62 +1,105 @@
 {
   "List Guild Emojis": {
     "command": "GET",
-    "url": "/guilds/{guild.id}/emojis"
+    "url": "/guilds/{guild.id}/emojis",
+    "docs_url": "https://discord.com/developers/docs/resources/emoji#list-guild-emojis",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Get Guild Emoji": {
     "command": "GET",
-    "url": "/guilds/{guild.id}/emojis/{emoji.id}"
+    "url": "/guilds/{guild.id}/emojis/{emoji.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/emoji#get-guild-emoji",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
+      },
+      "emoji.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Create Guild Emoji": {
     "command": "POST",
     "url": "/guilds/{guild.id}/emojis",
+    "docs_url": "https://discord.com/developers/docs/resources/emoji#create-guild-emoji",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
+      }
+    },
     "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/emoji#emoji-object"
-      },
       "name": {
         "type": "string",
-        "description": "name of the emoji",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "name of the emoji"
+        }
       },
       "image": {
         "type": "image data",
-        "description": "the 128x128 emoji image",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the 128x128 emoji image"
+        }
       },
       "roles": {
         "type": "array of snowflakes",
-        "description": "roles allowed to use this emoji",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "roles allowed to use this emoji"
+        }
       }
     }
   },
   "Modify Guild Emoji": {
     "command": "PATCH",
     "url": "/guilds/{guild.id}/emojis/{emoji.id}",
-    "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/emoji#emoji-object"
+    "docs_url": "https://discord.com/developers/docs/resources/emoji#modify-guild-emoji",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
       },
+      "emoji.id": {
+        "type": "snowflake"
+      }
+    },
+    "json": {
       "name": {
         "type": "string",
-        "description": "name of the emoji",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "name of the emoji"
+        }
       },
       "roles": {
         "type": "array of snowflakes",
-        "description": "roles allowed to use this emoji",
         "optional": false,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "roles allowed to use this emoji"
+        }
       }
     }
   },
   "Delete Guild Emoji": {
     "command": "DELETE",
-    "url": "/guilds/{guild.id}/emojis/{emoji.id}"
+    "url": "/guilds/{guild.id}/emojis/{emoji.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/emoji#delete-guild-emoji",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
+      },
+      "emoji.id": {
+        "type": "snowflake"
+      }
+    }
   }
 }

@@ -1,81 +1,135 @@
 {
   "Get Guild Template": {
     "command": "GET",
-    "url": "/guilds/templates/{template.code}"
+    "url": "/guilds/templates/{template.code}",
+    "docs_url": "https://discord.com/developers/docs/resources/guild-template#get-guild-template",
+    "url params": {
+      "template.code": {
+        "type": "string"
+      }
+    }
   },
   "Create Guild from Guild Template": {
     "command": "POST",
     "url": "/guilds/templates/{template.code}",
+    "docs_url": "https://discord.com/developers/docs/resources/guild-template#create-guild-from-guild-template",
+    "url params": {
+      "template.code": {
+        "type": "string"
+      }
+    },
     "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/guild-template#guild-template-object"
-      },
       "name": {
         "type": "string",
-        "description": "name of the guild (2-100 characters)",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "name of the guild (2-100 characters)"
+        }
       },
       "icon": {
         "type": "image data",
-        "description": "base64 128x128 image for the guild icon",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "base64 128x128 image for the guild icon"
+        }
       }
     }
   },
   "Get Guild Templates": {
     "command": "GET",
-    "url": "/guilds/{guild.id}/templates"
+    "url": "/guilds/{guild.id}/templates",
+    "docs_url": "https://discord.com/developers/docs/resources/guild-template#get-guild-templates",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Create Guild Template": {
     "command": "POST",
     "url": "/guilds/{guild.id}/templates",
+    "docs_url": "https://discord.com/developers/docs/resources/guild-template#create-guild-template",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
+      }
+    },
     "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/guild-template#guild-template-object"
-      },
       "name": {
         "type": "string",
-        "description": "name of the template (1-100 characters)",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "name of the template (1-100 characters)"
+        }
       },
       "description": {
         "type": "string",
-        "description": "description for the template (0-120 characters)",
         "optional": true,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "description for the template (0-120 characters)"
+        }
       }
     }
   },
   "Sync Guild Template": {
     "command": "PUT",
-    "url": "/guilds/{guild.id}/templates/{template.code}"
+    "url": "/guilds/{guild.id}/templates/{template.code}",
+    "docs_url": "https://discord.com/developers/docs/resources/guild-template#sync-guild-template",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
+      },
+      "template.code": {
+        "type": "string"
+      }
+    }
   },
   "Modify Guild Template": {
     "command": "PATCH",
     "url": "/guilds/{guild.id}/templates/{template.code}",
-    "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/guild-template#guild-template-object"
+    "docs_url": "https://discord.com/developers/docs/resources/guild-template#modify-guild-template",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
       },
+      "template.code": {
+        "type": "string"
+      }
+    },
+    "json": {
       "name": {
         "type": "string",
-        "description": "name of the template (1-100 characters)",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "name of the template (1-100 characters)"
+        }
       },
       "description": {
         "type": "string",
-        "description": "description for the template (0-120 characters)",
         "optional": true,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "description for the template (0-120 characters)"
+        }
       }
     }
   },
   "Delete Guild Template": {
     "command": "DELETE",
-    "url": "/guilds/{guild.id}/templates/{template.code}"
+    "url": "/guilds/{guild.id}/templates/{template.code}",
+    "docs_url": "https://discord.com/developers/docs/resources/guild-template#delete-guild-template",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
+      },
+      "template.code": {
+        "type": "string"
+      }
+    }
   }
 }

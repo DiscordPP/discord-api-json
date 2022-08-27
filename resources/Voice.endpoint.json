@@ -1,6 +1,7 @@
 {
   "List Voice Regions": {
     "command": "GET",
-    "url": "/voice/regions"
+    "url": "/voice/regions",
+    "docs_url": "https://discord.com/developers/docs/resources/voice#list-voice-regions"
   }
 }

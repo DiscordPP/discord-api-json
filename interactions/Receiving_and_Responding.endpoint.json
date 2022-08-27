@@ -1,34 +1,115 @@
 {
   "Create Interaction Response": {
     "command": "POST",
-    "url": "/interactions/{interaction.id}/{interaction.token}/callback"
+    "url": "/interactions/{interaction.id}/{interaction.token}/callback",
+    "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#create-interaction-response",
+    "url params": {
+      "interaction.id": {
+        "type": "snowflake"
+      },
+      "interaction.token": {
+        "type": "string"
+      }
+    }
   },
   "Get Original Interaction Response": {
     "command": "GET",
-    "url": "/webhooks/{application.id}/{interaction.token}/messages/@original"
+    "url": "/webhooks/{application.id}/{interaction.token}/messages/@original",
+    "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#get-original-interaction-response",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      },
+      "interaction.token": {
+        "type": "string"
+      }
+    }
   },
   "Edit Original Interaction Response": {
     "command": "PATCH",
-    "url": "/webhooks/{application.id}/{interaction.token}/messages/@original"
+    "url": "/webhooks/{application.id}/{interaction.token}/messages/@original",
+    "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#edit-original-interaction-response",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      },
+      "interaction.token": {
+        "type": "string"
+      }
+    }
   },
   "Delete Original Interaction Response": {
     "command": "DELETE",
-    "url": "/webhooks/{application.id}/{interaction.token}/messages/@original"
+    "url": "/webhooks/{application.id}/{interaction.token}/messages/@original",
+    "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#delete-original-interaction-response",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      },
+      "interaction.token": {
+        "type": "string"
+      }
+    }
   },
   "Create Followup Message": {
     "command": "POST",
-    "url": "/webhooks/{application.id}/{interaction.token}"
+    "url": "/webhooks/{application.id}/{interaction.token}",
+    "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#create-followup-message",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      },
+      "interaction.token": {
+        "type": "string"
+      }
+    }
   },
   "Get Followup Message": {
     "command": "GET",
-    "url": "/webhooks/{application.id}/{interaction.token}/messages/{message.id}"
+    "url": "/webhooks/{application.id}/{interaction.token}/messages/{message.id}",
+    "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#get-followup-message",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      },
+      "interaction.token": {
+        "type": "string"
+      },
+      "message.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Edit Followup Message": {
     "command": "PATCH",
-    "url": "/webhooks/{application.id}/{interaction.token}/messages/{message.id}"
+    "url": "/webhooks/{application.id}/{interaction.token}/messages/{message.id}",
+    "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#edit-followup-message",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      },
+      "interaction.token": {
+        "type": "string"
+      },
+      "message.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Delete Followup Message": {
     "command": "DELETE",
-    "url": "/webhooks/{application.id}/{interaction.token}/messages/{message.id}"
+    "url": "/webhooks/{application.id}/{interaction.token}/messages/{message.id}",
+    "docs_url": "https://discord.com/developers/docs/interactions/receiving-and-responding#delete-followup-message",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      },
+      "interaction.token": {
+        "type": "string"
+      },
+      "message.id": {
+        "type": "snowflake"
+      }
+    }
   }
 }

@@ -2,211 +2,295 @@
   "List Scheduled Events for Guild": {
     "command": "GET",
     "url": "/guilds/{guild.id}/scheduled-events",
-    "query": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-user-object"
-      },
+    "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#list-scheduled-events-for-guild",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
+      }
+    },
+    "query string": {
       "with_user_count": {
         "type": "boolean",
-        "description": "include number of users subscribed to each event",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "include number of users subscribed to each event"
+        }
       }
     }
   },
   "Create Guild Scheduled Event": {
     "command": "POST",
     "url": "/guilds/{guild.id}/scheduled-events",
+    "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#create-guild-scheduled-event",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
+      }
+    },
     "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-user-object"
-      },
       "channel_id": {
         "type": "snowflake",
-        "description": "the channel id of the scheduled event.",
         "optional": true,
         "nullable": false,
-        "note-type": "Optional for events with 'entity_type': EXTERNAL"
+        "comments": {
+          "Description": "the channel id of the scheduled event.",
+          "Name Note": "Optional for events with 'entity_type': EXTERNAL",
+          "Type Note": "Optional for events with 'entity_type': EXTERNAL"
+        }
       },
       "entity_metadata": {
         "type": "entity metadata",
-        "description": "the entity metadata of the scheduled event",
         "optional": true,
         "nullable": false,
-        "note-field": "Required for events with 'entity_type': EXTERNAL"
+        "comments": {
+          "Description": "the entity metadata of the scheduled event",
+          "Name Note": "Required for events with 'entity_type': EXTERNAL"
+        }
       },
       "name": {
         "type": "string",
-        "description": "the name of the scheduled event",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the name of the scheduled event"
+        }
       },
       "privacy_level": {
         "type": "privacy level",
-        "description": "the privacy level of the scheduled event",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the privacy level of the scheduled event"
+        }
       },
       "scheduled_start_time": {
         "type": "ISO8601 timestamp",
-        "description": "the time to schedule the scheduled event",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the time to schedule the scheduled event"
+        }
       },
       "scheduled_end_time": {
         "type": "ISO8601 timestamp",
-        "description": "the time when the scheduled event is scheduled to end",
         "optional": true,
         "nullable": false,
-        "note-field": "Required for events with 'entity_type': EXTERNAL"
+        "comments": {
+          "Description": "the time when the scheduled event is scheduled to end",
+          "Name Note": "Required for events with 'entity_type': EXTERNAL"
+        }
       },
       "description": {
         "type": "string",
-        "description": "the description of the scheduled event",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the description of the scheduled event"
+        }
       },
       "entity_type": {
         "type": "entity type",
-        "description": "the entity type of the scheduled event",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the entity type of the scheduled event"
+        }
       },
       "image": {
         "type": "image data",
-        "description": "the cover image of the scheduled event",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the cover image of the scheduled event"
+        }
       }
     }
   },
   "Get Guild Scheduled Event": {
     "command": "GET",
     "url": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}",
-    "query": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-user-object"
+    "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
       },
+      "guild_scheduled_event.id": {
+        "type": "snowflake"
+      }
+    },
+    "query string": {
       "with_user_count": {
         "type": "boolean",
-        "description": "include number of users subscribed to this event",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "include number of users subscribed to this event"
+        }
       }
     }
   },
   "Modify Guild Scheduled Event": {
     "command": "PATCH",
     "url": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}",
-    "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-user-object"
+    "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#modify-guild-scheduled-event",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
       },
+      "guild_scheduled_event.id": {
+        "type": "snowflake"
+      }
+    },
+    "json": {
       "channel_id": {
         "type": "snowflake",
-        "description": "the channel id of the scheduled event, set to null if changing entity type to EXTERNAL",
         "optional": true,
         "nullable": true,
-        "note-field": "If updating entity_type to EXTERNAL:"
+        "comments": {
+          "Description": "the channel id of the scheduled event, set to null if changing entity type to EXTERNAL",
+          "Name Note": "If updating entity_type to EXTERNAL:"
+        }
       },
       "entity_metadata": {
         "type": "entity metadata",
-        "description": "the entity metadata of the scheduled event",
         "optional": true,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "the entity metadata of the scheduled event"
+        }
       },
       "name": {
         "type": "string",
-        "description": "the name of the scheduled event",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the name of the scheduled event"
+        }
       },
       "privacy_level": {
         "type": "privacy level",
-        "description": "the privacy level of the scheduled event",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the privacy level of the scheduled event"
+        }
       },
       "scheduled_start_time": {
         "type": "ISO8601 timestamp",
-        "description": "the time to schedule the scheduled event",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the time to schedule the scheduled event"
+        }
       },
       "scheduled_end_time": {
         "type": "ISO8601 timestamp",
-        "description": "the time when the scheduled event is scheduled to end",
         "optional": true,
         "nullable": false,
-        "note-field": "If updating entity_type to EXTERNAL:"
+        "comments": {
+          "Description": "the time when the scheduled event is scheduled to end",
+          "Name Note": "If updating entity_type to EXTERNAL:"
+        }
       },
       "description": {
         "type": "string",
-        "description": "the description of the scheduled event",
         "optional": true,
-        "nullable": true
+        "nullable": true,
+        "comments": {
+          "Description": "the description of the scheduled event"
+        }
       },
       "entity_type": {
         "type": "event entity type",
-        "description": "the entity type of the scheduled event",
         "optional": true,
         "nullable": false,
-        "note-field": "If updating entity_type to EXTERNAL:"
+        "comments": {
+          "Description": "the entity type of the scheduled event",
+          "Name Note": "If updating entity_type to EXTERNAL:"
+        }
       },
       "status": {
         "type": "event status",
-        "description": "the status of the scheduled event",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the status of the scheduled event"
+        }
       },
       "image": {
         "type": "image data",
-        "description": "the cover image of the scheduled event",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "the cover image of the scheduled event"
+        }
       }
     }
   },
   "Delete Guild Scheduled Event": {
     "command": "DELETE",
-    "url": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}"
+    "url": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#delete-guild-scheduled-event",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
+      },
+      "guild_scheduled_event.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Get Guild Scheduled Event Users": {
     "command": "GET",
     "url": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}/users",
-    "query": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-user-object"
+    "docs_url": "https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event-users",
+    "url params": {
+      "guild.id": {
+        "type": "snowflake"
       },
+      "guild_scheduled_event.id": {
+        "type": "snowflake"
+      }
+    },
+    "query string": {
       "limit": {
         "type": "number",
-        "description": "number of users to return (up to maximum 100)",
-        "default": "100",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "number of users to return (up to maximum 100)",
+          "Default": "100"
+        }
       },
       "with_member": {
         "type": "boolean",
-        "description": "include guild member data if it exists",
-        "default": "false",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "include guild member data if it exists",
+          "Default": "false"
+        }
       },
       "before": {
         "type": "snowflake",
-        "description": "consider only users before given user id",
-        "default": "null",
         "optional": true,
         "nullable": false,
-        "note-field": "Provide a user id to before and after for pagination. Users will always be returned in ascending order by user_id. If both before and after are provided, only before is respected. Fetching users in-between before and after is not supported."
+        "comments": {
+          "Description": "consider only users before given user id",
+          "Name Note": "Provide a user id to before and after for pagination. Users will always be returned in ascending order by user_id. If both before and after are provided, only before is respected. Fetching users in-between before and after is not supported.",
+          "Default": "null"
+        }
       },
       "after": {
         "type": "snowflake",
-        "description": "consider only users after given user id",
-        "default": "null",
         "optional": true,
         "nullable": false,
-        "note-field": "Provide a user id to before and after for pagination. Users will always be returned in ascending order by user_id. If both before and after are provided, only before is respected. Fetching users in-between before and after is not supported."
+        "comments": {
+          "Description": "consider only users after given user id",
+          "Name Note": "Provide a user id to before and after for pagination. Users will always be returned in ascending order by user_id. If both before and after are provided, only before is respected. Fetching users in-between before and after is not supported.",
+          "Default": "null"
+        }
       }
     }
   }

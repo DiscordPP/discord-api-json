@@ -2,64 +2,89 @@
   "Create Stage Instance": {
     "command": "POST",
     "url": "/stage-instances",
+    "docs_url": "https://discord.com/developers/docs/resources/stage-instance#create-stage-instance",
     "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/stage-instance#stage-instance-object"
-      },
       "channel_id": {
         "type": "snowflake",
-        "description": "The id of the Stage channel",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "The id of the Stage channel"
+        }
       },
       "topic": {
         "type": "string",
-        "description": "The topic of the Stage instance (1-120 characters)",
         "optional": false,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "The topic of the Stage instance (1-120 characters)"
+        }
       },
       "privacy_level": {
         "type": "integer",
-        "description": "The privacy level of the Stage instance (default GUILD_ONLY)",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "The privacy level of the Stage instance (default GUILD_ONLY)"
+        }
       },
       "send_start_notification": {
         "type": "boolean",
-        "description": "Notify @everyone that a Stage instance has started",
         "optional": true,
         "nullable": false,
-        "note-field": "The stage moderator must have the MENTION_EVERYONE permission for this notification to be sent."
+        "comments": {
+          "Description": "Notify @everyone that a Stage instance has started",
+          "Name Note": "The stage moderator must have the MENTION_EVERYONE permission for this notification to be sent."
+        }
       }
     }
   },
   "Get Stage Instance": {
     "command": "GET",
-    "url": "/stage-instances/{channel.id}"
+    "url": "/stage-instances/{channel.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/stage-instance#get-stage-instance",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    }
   },
   "Modify Stage Instance": {
     "command": "PATCH",
     "url": "/stage-instances/{channel.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/stage-instance#modify-stage-instance",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    },
     "json": {
-      "parser-data": {
-        "docs_url": "https://discord.com/developers/docs/resources/stage-instance#stage-instance-object"
-      },
       "topic": {
         "type": "string",
-        "description": "The topic of the Stage instance (1-120 characters)",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "The topic of the Stage instance (1-120 characters)"
+        }
       },
       "privacy_level": {
         "type": "integer",
-        "description": "The privacy level of the Stage instance",
         "optional": true,
-        "nullable": false
+        "nullable": false,
+        "comments": {
+          "Description": "The privacy level of the Stage instance"
+        }
       }
     }
   },
   "Delete Stage Instance": {
     "command": "DELETE",
-    "url": "/stage-instances/{channel.id}"
+    "url": "/stage-instances/{channel.id}",
+    "docs_url": "https://discord.com/developers/docs/resources/stage-instance#delete-stage-instance",
+    "url params": {
+      "channel.id": {
+        "type": "snowflake"
+      }
+    }
   }
 }
