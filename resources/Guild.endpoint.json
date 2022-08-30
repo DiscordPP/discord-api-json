@@ -859,17 +859,17 @@
         "optional": true,
         "nullable": false,
         "comments": {
-          "Description": "number of days to delete messages for (0-7)",
+          "Description": "number of days to delete messages for (0-7) (deprecated)",
           "Default": "0"
         }
       },
-      "reason": {
-        "type": "string",
+      "delete_message_seconds": {
+        "type": "integer",
         "optional": true,
         "nullable": false,
         "comments": {
-          "Description": "reason for the ban (deprecated)",
-          "Default": ""
+          "Description": "number of seconds to delete messages for, between 0 and 604800 (7 days)",
+          "Default": "0"
         }
       }
     }
@@ -1344,7 +1344,7 @@
     "json": {
       "channel_id": {
         "type": "snowflake",
-        "optional": false,
+        "optional": true,
         "nullable": false,
         "comments": {
           "Description": "the id of the channel the user is currently in"

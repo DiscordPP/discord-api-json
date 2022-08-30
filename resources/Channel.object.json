@@ -201,7 +201,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "default duration that the clients (not the API) will use for newly created threads, in minutes, to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+        "Description": "default duration, copied onto newly created threads, in minutes, threads will stop showing in the channel list after the specified period of inactivity, can be set to: 60, 1440, 4320, 10080"
       }
     },
     "permissions": {
@@ -640,7 +640,7 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+        "Description": "the thread will stop showing in the channel list after auto_archive_duration minutes of inactivity, can be set to: 60, 1440, 4320, 10080"
       }
     },
     "archive_timestamp": {
@@ -1248,8 +1248,8 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "the type of channel; only conversion between text and news is supported and only in guilds with the \"NEWS\" feature",
-        "Channel Type": "Text, News"
+        "Description": "the type of channel; only conversion between text and announcement is supported and only in guilds with the \"NEWS\" feature",
+        "Channel Type": "Text, Announcement"
       }
     },
     "position": {
@@ -1267,7 +1267,7 @@
       "nullable": true,
       "comments": {
         "Description": "0-1024 character channel topic",
-        "Channel Type": "Text, News"
+        "Channel Type": "Text, Announcement"
       }
     },
     "nsfw": {
@@ -1276,7 +1276,7 @@
       "nullable": true,
       "comments": {
         "Description": "whether the channel is nsfw",
-        "Channel Type": "Text, Voice, News"
+        "Channel Type": "Text, Voice, Announcement"
       }
     },
     "rate_limit_per_user": {
@@ -1323,7 +1323,7 @@
       "nullable": true,
       "comments": {
         "Description": "id of the new parent category for a channel",
-        "Channel Type": "Text, Voice, News"
+        "Channel Type": "Text, Voice, Announcement"
       }
     },
     "rtc_region": {
@@ -1350,7 +1350,7 @@
       "nullable": true,
       "comments": {
         "Description": "the default duration that the clients use (not the API) for newly created threads in the channel, in minutes, to automatically archive the thread after recent activity",
-        "Channel Type": "Text, News"
+        "Channel Type": "Text, Announcement"
       }
     }
   },
@@ -1379,7 +1379,7 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+        "Description": "the thread will stop showing in the channel list after auto_archive_duration minutes of inactivity, can be set to: 60, 1440, 4320, 10080"
       }
     },
     "locked": {

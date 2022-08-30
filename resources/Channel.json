@@ -38,7 +38,7 @@
       "|Get Channel Invites",
       "|Create Channel Invite",
       "|Delete Channel Permission",
-      "|Follow News Channel",
+      "|Follow Announcement Channel",
       "|Trigger Typing Indicator",
       "|Get Pinned Messages",
       "|Pin Message",
@@ -68,7 +68,7 @@
         "|Video Quality Modes",
         "|Channel Flags",
         "|Example Guild Text Channel",
-        "|Example Guild News Channel",
+        "|Example Guild Announcement Channel",
         "|Example Guild Voice Channel",
         "|Example DM Channel",
         "|Example Group DM Channel",
@@ -208,7 +208,7 @@
             [
               "default_auto_archive_duration?",
               "integer",
-              "default duration that the clients (not the API) will use for newly created threads, in minutes, to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+              "default duration, copied onto newly created threads, in minutes, threads will stop showing in the channel list after the specified period of inactivity, can be set to: 60, 1440, 4320, 10080"
             ],
             [
               "permissions?",
@@ -268,7 +268,7 @@
             [
               "GUILD_ANNOUNCEMENT",
               "5",
-              "a channel that users can follow and crosspost into their own server"
+              "a channel that users can follow and crosspost into their own server (formerly news channels)"
             ],
             [
               "ANNOUNCEMENT_THREAD",
@@ -355,11 +355,11 @@
           }
         ]
       },
-      "Example Guild News Channel": {
+      "Example Guild Announcement Channel": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#channel-object-example-guild-news-channel",
+        "url": "https://discord.com/developers/docs/resources/channel#channel-object-example-guild-announcement-channel",
         "content": [
-          "Bots can post or publish messages in this type of channel if they have the proper permissions. These are called \"Announcement Channels\" in the client.",
+          "Bots can post or publish messages in this type of channel if they have the proper permissions.",
           {
             "language": "json",
             "code": "{\n  \"id\": \"41771983423143937\",\n  \"guild_id\": \"41771983423143937\",\n  \"name\": \"important-news\",\n  \"type\": 5,\n  \"position\": 6,\n  \"permission_overwrites\": [],\n  \"nsfw\": true,\n  \"topic\": \"Rumors about Half Life 3\",\n  \"last_message_id\": \"155117677105512449\",\n  \"parent_id\": \"399942396007890945\",\n  \"default_auto_archive_duration\": 60\n}\n"
@@ -1090,7 +1090,7 @@
             [
               "auto_archive_duration",
               "integer",
-              "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+              "the thread will stop showing in the channel list after auto_archive_duration minutes of inactivity, can be set to: 60, 1440, 4320, 10080"
             ],
             [
               "archive_timestamp",
@@ -1830,8 +1830,8 @@
             [
               "type",
               "integer",
-              "the type of channel; only conversion between text and news is supported and only in guilds with the \"NEWS\" feature",
-              "Text, News"
+              "the type of channel; only conversion between text and announcement is supported and only in guilds with the \"NEWS\" feature",
+              "Text, Announcement"
             ],
             [
               "position",
@@ -1843,13 +1843,13 @@
               "topic",
               "?string",
               "0-1024 character channel topic",
-              "Text, News"
+              "Text, Announcement"
             ],
             [
               "nsfw",
               "?boolean",
               "whether the channel is nsfw",
-              "Text, Voice, News"
+              "Text, Voice, Announcement"
             ],
             [
               "rate_limit_per_user",
@@ -1879,7 +1879,7 @@
               "parent_id",
               "?snowflake",
               "id of the new parent category for a channel",
-              "Text, Voice, News"
+              "Text, Voice, Announcement"
             ],
             [
               "rtc_region",
@@ -1897,7 +1897,7 @@
               "default_auto_archive_duration",
               "?integer",
               "the default duration that the clients use (not the API) for newly created threads in the channel, in minutes, to automatically archive the thread after recent activity",
-              "Text, News"
+              "Text, Announcement"
             ]
           ],
           "* For voice channels, normal servers can set bitrate up to 96000, servers with Boost level 1 can set up to 128000, servers with Boost level 2 can set up to 256000, and servers with Boost level 3 or the VIP_REGIONS guild feature can set up to 384000. For stage channels, bitrate can be set up to 64000.",
@@ -1929,7 +1929,7 @@
             [
               "auto_archive_duration",
               "integer",
-              "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+              "the thread will stop showing in the channel list after auto_archive_duration minutes of inactivity, can be set to: 60, 1440, 4320, 10080"
             ],
             [
               "locked",
@@ -2135,7 +2135,7 @@
       "url": "https://discord.com/developers/docs/resources/channel#crosspost-message",
       "endpoint": "POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/crosspost",
       "content": [
-        "Crosspost a message in a News Channel to following channels. This endpoint requires the SEND_MESSAGES permission, if the current user sent the message, or additionally the MANAGE_MESSAGES permission, for all other messages, to be present for the current user.",
+        "Crosspost a message in an Announcement Channel to following channels. This endpoint requires the SEND_MESSAGES permission, if the current user sent the message, or additionally the MANAGE_MESSAGES permission, for all other messages, to be present for the current user.",
         "Returns a message object."
       ]
     },
@@ -2441,17 +2441,17 @@
         "> info\n> This endpoint supports the X-Audit-Log-Reason header."
       ]
     },
-    "Follow News Channel": {
+    "Follow Announcement Channel": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/resources/channel#follow-news-channel",
+      "url": "https://discord.com/developers/docs/resources/channel#follow-announcement-channel",
       "endpoint": "POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/followers",
       "content": [
-        "Follow a News Channel to send messages to a target channel. Requires the MANAGE_WEBHOOKS permission in the target channel. Returns a followed channel object.",
+        "Follow an Announcement Channel to send messages to a target channel. Requires the MANAGE_WEBHOOKS permission in the target channel. Returns a followed channel object.",
         "|JSON Params"
       ],
       "JSON Params": {
         "level": 6,
-        "url": "https://discord.com/developers/docs/resources/channel#follow-news-channel-json-params",
+        "url": "https://discord.com/developers/docs/resources/channel#follow-announcement-channel-json-params",
         "content": [
           [
             [
@@ -2549,7 +2549,7 @@
       "endpoint": "POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/threads",
       "content": [
         "Creates a new thread from an existing message. Returns a channel on success, and a 400 BAD REQUEST on invalid parameters. Fires a Thread Create Gateway event.",
-        "When called on a GUILD_TEXT channel, creates a GUILD_PUBLIC_THREAD. When called on a GUILD_NEWS channel, creates a GUILD_NEWS_THREAD. Does not work on a GUILD_FORUM channel. The id of the created thread will be the same as the id of the source message, and as such a message can only have a single thread created from it.",
+        "When called on a GUILD_TEXT channel, creates a PUBLIC_THREAD. When called on a GUILD_ANNOUNCEMENT channel, creates a ANNOUNCEMENT_THREAD. Does not work on a GUILD_FORUM channel. The id of the created thread will be the same as the id of the source message, and as such a message can only have a single thread created from it.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
         "|JSON Params"
       ],
@@ -2571,7 +2571,7 @@
             [
               "auto_archive_duration?",
               "integer",
-              "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+              "the thread will stop showing in the channel list after auto_archive_duration minutes of inactivity, can be set to: 60, 1440, 4320, 10080"
             ],
             [
               "rate_limit_per_user?",
@@ -2610,7 +2610,7 @@
             [
               "auto_archive_duration?",
               "integer",
-              "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+              "the thread will stop showing in the channel list after auto_archive_duration minutes of inactivity, can be set to: 60, 1440, 4320, 10080"
             ],
             [
               "type?*",
@@ -2639,7 +2639,7 @@
       "content": [
         "Creates a new thread in a forum channel, and sends a message within the created thread. Returns a channel, with a nested message object, on success, and a 400 BAD REQUEST on invalid parameters. Fires a Thread Create and Message Create Gateway event.",
         [
-          "The type of the created thread is GUILD_PUBLIC_THREAD.",
+          "The type of the created thread is PUBLIC_THREAD.",
           "See message formatting for more information on how to properly format messages.",
           "The current user must have the SEND_MESSAGES permission (CREATE_PUBLIC_THREADS is ignored).",
           "The maximum request size when sending a message is 8MiB.",
@@ -2801,7 +2801,7 @@
       "url": "https://discord.com/developers/docs/resources/channel#list-public-archived-threads",
       "endpoint": "GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/threads/archived/public",
       "content": [
-        "Returns archived threads in the channel that are public. When called on a GUILD_TEXT channel, returns threads of type GUILD_PUBLIC_THREAD. When called on a GUILD_NEWS channel returns threads of type GUILD_NEWS_THREAD. Threads are ordered by archive_timestamp, in descending order. Requires the READ_MESSAGE_HISTORY permission.",
+        "Returns archived threads in the channel that are public. When called on a GUILD_TEXT channel, returns threads of type PUBLIC_THREAD. When called on a GUILD_ANNOUNCEMENT channel returns threads of type ANNOUNCEMENT_THREAD. Threads are ordered by archive_timestamp, in descending order. Requires the READ_MESSAGE_HISTORY permission.",
         "|Query String Params",
         "|Response Body"
       ],

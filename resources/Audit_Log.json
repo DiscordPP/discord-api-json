@@ -37,6 +37,11 @@
                 "Description"
               ],
               [
+                "application_commands",
+                "array of application commands objects",
+                "List of application commands referenced in the audit log"
+              ],
+              [
                 "audit_log_entries",
                 "array of audit log entry objects",
                 "List of audit log entries, sorted from most to least recent"

@@ -47,6 +47,12 @@
       "comments": {
         "Description": "Intent required for bots in under 100 servers to receive message content, found in Bot Settings"
       }
+    },
+    "APPLICATION_COMMAND_BADGE": {
+      "value": "1 << 23",
+      "comments": {
+        "Description": "Indicates if an app has registered global application commands"
+      }
     }
   }
 }

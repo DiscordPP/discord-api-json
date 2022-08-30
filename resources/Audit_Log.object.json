@@ -3,6 +3,14 @@
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/audit-log#audit-log-object-audit-log-structure"
     },
+    "application_commands": {
+      "type": "array of application commands objects",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "List of application commands referenced in the audit log"
+      }
+    },
     "audit_log_entries": {
       "type": "array of audit log entry objects",
       "optional": false,

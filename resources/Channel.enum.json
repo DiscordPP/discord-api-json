@@ -33,7 +33,7 @@
     "GUILD_ANNOUNCEMENT": {
       "value": "5",
       "comments": {
-        "Description": "a channel that users can follow and crosspost into their own server"
+        "Description": "a channel that users can follow and crosspost into their own server (formerly news channels)"
       }
     },
     "ANNOUNCEMENT_THREAD": {

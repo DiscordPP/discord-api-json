@@ -45,8 +45,7 @@
         "|Application Command Types",
         "|Application Command Option Structure",
         "|Application Command Option Type",
-        "|Application Command Option Choice Structure",
-        "|Application Command Interaction Data Option Structure"
+        "|Application Command Option Choice Structure"
       ],
       "Application Command Naming": {
         "level": 6,
@@ -359,46 +358,6 @@
           ],
           "* Type of value depends on the option type that the choice belongs to."
         ]
-      },
-      "Application Command Interaction Data Option Structure": {
-        "level": 6,
-        "url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-interaction-data-option-structure",
-        "content": [
-          "All options have names, and an option can either be a parameter and input value--in which case value will be set--or it can denote a subcommand or group--in which case it will contain a top-level key and another array of options.",
-          "value and options are mutually exclusive.",
-          [
-            [
-              "Field",
-              "Type",
-              "Description"
-            ],
-            [
-              "name",
-              "string",
-              "Name of the parameter"
-            ],
-            [
-              "type",
-              "integer",
-              "Value of application command option type"
-            ],
-            [
-              "value?",
-              "string, integer, or double",
-              "Value of the option resulting from user input"
-            ],
-            [
-              "options?",
-              "array of application command interaction data option",
-              "Present if this option is a group or subcommand"
-            ],
-            [
-              "focused?",
-              "boolean",
-              "true if this option is the currently focused option for autocomplete"
-            ]
-          ]
-        ]
       }
     },
     "Authorizing Your Application": {
@@ -669,7 +628,7 @@
       "content": [
         "Slash commands\u2014the CHAT_INPUT type\u2014are a type of application command. They're made up of a name, description, and a block of options, which you can think of like arguments to a function. The name and description help users find your command among many others, and the options validate user input as they fill out your command.",
         "Slash commands can also have groups and subcommands to further organize commands. More on those later.",
-        "> warn\n> Slash commands can have a maximum of 4000 characters for combined name, description, and value properties for each command and its subcommands and groups",
+        "> warn\n> Slash commands can have a maximum of 4000 characters for combined name, description, and value properties for each command, its options (including subcommands and groups), and choices.  When localization fields are present, only the longest localization for each field (including the default value) is counted towards the size limit.",
         "|Example Slash Command",
         "|Example Interaction"
       ],

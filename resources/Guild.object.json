@@ -728,6 +728,14 @@
       "comments": {
         "Description": "The bot/OAuth2 application for discord integrations"
       }
+    },
+    "scopes": {
+      "type": "array of OAuth2 scopes",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "the scopes the application has been authorized for"
+      }
     }
   },
   "Integration Account": {

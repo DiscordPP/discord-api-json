@@ -269,51 +269,6 @@
       }
     }
   },
-  "Application Command Interaction Data Option": {
-    "parser-data": {
-      "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-interaction-data-option-structure"
-    },
-    "name": {
-      "type": "string",
-      "optional": false,
-      "nullable": false,
-      "comments": {
-        "Description": "Name of the parameter"
-      }
-    },
-    "type": {
-      "type": "integer",
-      "optional": false,
-      "nullable": false,
-      "comments": {
-        "Description": "Value of application command option type"
-      }
-    },
-    "value": {
-      "type": "string, integer, or double",
-      "optional": true,
-      "nullable": false,
-      "comments": {
-        "Description": "Value of the option resulting from user input"
-      }
-    },
-    "options": {
-      "type": "array of application command interaction data option",
-      "optional": true,
-      "nullable": false,
-      "comments": {
-        "Description": "Present if this option is a group or subcommand"
-      }
-    },
-    "focused": {
-      "type": "boolean",
-      "optional": true,
-      "nullable": false,
-      "comments": {
-        "Description": "true if this option is the currently focused option for autocomplete"
-      }
-    }
-  },
   "Guild Application Command Permissions": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object-guild-application-command-permissions-structure"

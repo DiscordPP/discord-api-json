@@ -561,7 +561,7 @@
             ],
             [
               "NEWS",
-              "guild has access to create news channels"
+              "guild has access to create announcement channels"
             ],
             [
               "PARTNERED",
@@ -999,6 +999,11 @@
               "application?",
               "application object",
               "The bot/OAuth2 application for discord integrations"
+            ],
+            [
+              "scopes?",
+              "array of OAuth2 scopes",
+              "the scopes the application has been authorized for"
             ]
           ],
           "* These fields are not provided for discord bot integrations."
@@ -2053,14 +2058,14 @@
             [
               "delete_message_days?",
               "integer",
-              "number of days to delete messages for (0-7)",
+              "number of days to delete messages for (0-7) (deprecated)",
               "0"
             ],
             [
-              "reason?",
-              "string",
-              "reason for the ban (deprecated)",
-              ""
+              "delete_message_seconds?",
+              "integer",
+              "number of seconds to delete messages for, between 0 and 604800 (7 days)",
+              "0"
             ]
           ]
         ]
@@ -2577,7 +2582,7 @@
               "Description"
             ],
             [
-              "channel_id",
+              "channel_id?",
               "snowflake",
               "the id of the channel the user is currently in"
             ],

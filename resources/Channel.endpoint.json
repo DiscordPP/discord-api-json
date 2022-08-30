@@ -572,10 +572,10 @@
       }
     }
   },
-  "Follow News Channel": {
+  "Follow Announcement Channel": {
     "command": "POST",
     "url": "/channels/{channel.id}/followers",
-    "docs_url": "https://discord.com/developers/docs/resources/channel#follow-news-channel",
+    "docs_url": "https://discord.com/developers/docs/resources/channel#follow-announcement-channel",
     "url params": {
       "channel.id": {
         "type": "snowflake"
@@ -708,7 +708,7 @@
         "optional": true,
         "nullable": false,
         "comments": {
-          "Description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+          "Description": "the thread will stop showing in the channel list after auto_archive_duration minutes of inactivity, can be set to: 60, 1440, 4320, 10080"
         }
       },
       "rate_limit_per_user": {
@@ -744,7 +744,7 @@
         "optional": true,
         "nullable": false,
         "comments": {
-          "Description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+          "Description": "the thread will stop showing in the channel list after auto_archive_duration minutes of inactivity, can be set to: 60, 1440, 4320, 10080"
         }
       },
       "type": {

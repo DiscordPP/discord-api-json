@@ -35,7 +35,7 @@
               "Description"
             ],
             [
-              "https://discord.com/api/oauth2/authorize",
+              "https://discord.com/oauth2/authorize",
               "Base authorization URL"
             ],
             [
@@ -199,7 +199,7 @@
         "content": [
           {
             "language": "",
-            "code": "https://discord.com/api/oauth2/authorize?response_type=code&client_id=157730590492196864&scope=identify%20guilds.join&state=15773059ghq9183habn&redirect_uri=https%3A%2F%2Fnicememe.website&prompt=consent\n"
+            "code": "https://discord.com/oauth2/authorize?response_type=code&client_id=157730590492196864&scope=identify%20guilds.join&state=15773059ghq9183habn&redirect_uri=https%3A%2F%2Fnicememe.website&prompt=consent\n"
           },
           "client_id is your application's client_id. scope is a list of OAuth2 scopes separated by url encoded spaces (%20). redirect_uri is whatever URL you registered when creating your application, url-encoded. state is the unique string mentioned in State and Security.",
           "When someone navigates to this URL, they will be prompted to authorize your application for the requested scopes. On acceptance, they will be redirected to your redirect_uri, which will contain an additional querystring parameter, code. state will also be returned if previously sent, and should be validated at this point.",
@@ -278,7 +278,7 @@
         "content": [
           {
             "language": "",
-            "code": "https://discord.com/api/oauth2/authorize?response_type=token&client_id=290926444748734499&state=15773059ghq9183habn&scope=identify\n"
+            "code": "https://discord.com/oauth2/authorize?response_type=token&client_id=290926444748734499&state=15773059ghq9183habn&scope=identify\n"
           },
           "On redirect, your redirect URI will contain additional URI fragments: access_token, token_type, expires_in, scope, and state(if specified). These are not querystring parameters. Be mindful of the \"#\" character:"
         ]
@@ -397,7 +397,7 @@
           "content": [
             {
               "language": "",
-              "code": "https://discord.com/api/oauth2/authorize?client_id=157730590492196864&scope=bot&permissions=1\n"
+              "code": "https://discord.com/oauth2/authorize?client_id=157730590492196864&scope=bot&permissions=1\n"
             },
             "In the case of bots, the scope parameter should be set to bot. There's also a new parameter, permissions, which is an integer corresponding to the permission calculations for the bot. You'll also notice the absence of response_type and redirect_uri. Bot authorization does not require these parameters because there is no need to retrieve the user's access token.",
             "Additionally, if your bot provides Application Commands, you can add applications.commands to the URL's scopes, so that commands will be available in the guild.",
@@ -448,7 +448,7 @@
         "content": [
           {
             "language": "",
-            "code": "https://discord.com/api/oauth2/authorize?response_type=code&client_id=157730590492196864&scope=webhook.incoming&state=15773059ghq9183habn&redirect_uri=https%3A%2F%2Fnicememe.website\n"
+            "code": "https://discord.com/oauth2/authorize?response_type=code&client_id=157730590492196864&scope=webhook.incoming&state=15773059ghq9183habn&redirect_uri=https%3A%2F%2Fnicememe.website\n"
           },
           "When the user navigates to this URL, they will be prompted to select a channel in which to allow the webhook. When the webhook is executed, it will post its message into this channel. On acceptance, the user will be redirected to your redirect_uri. The URL will contain the code querystring parameter which should be exchanged for an access token. In return, you will receive a slightly modified token response:"
         ]

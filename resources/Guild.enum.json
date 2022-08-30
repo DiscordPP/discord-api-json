@@ -203,7 +203,7 @@
     },
     "NEWS": {
       "comments": {
-        "Description": "guild has access to create news channels"
+        "Description": "guild has access to create announcement channels"
       }
     },
     "PARTNERED": {
