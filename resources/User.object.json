@@ -207,6 +207,14 @@
         "Description": "whether activities related to this connection will be shown in presence updates"
       }
     },
+    "two_way_link": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether this connection has a corresponding third party OAuth2 token"
+      }
+    },
     "visibility": {
       "type": "integer",
       "optional": false,

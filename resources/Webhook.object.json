@@ -80,7 +80,8 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "the guild of the channel that this webhook is following (returned for Channel Follower Webhooks)"
+        "Description": "the guild of the channel that this webhook is following (returned for Channel Follower Webhooks)",
+        "Name Note": "These fields will be absent if the webhook creator has since lost access to the guild where the followed channel resides"
       }
     },
     "source_channel": {
@@ -88,7 +89,8 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "the channel that this webhook is following (returned for Channel Follower Webhooks)"
+        "Description": "the channel that this webhook is following (returned for Channel Follower Webhooks)",
+        "Name Note": "These fields will be absent if the webhook creator has since lost access to the guild where the followed channel resides"
       }
     },
     "url": {

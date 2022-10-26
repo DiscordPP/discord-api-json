@@ -77,13 +77,14 @@
         "|Premium Tier",
         "|System Channel Flags",
         "|Guild Features",
+        "|Mutable Guild Features",
         "|Example Guild"
       ],
       "Guild Structure": {
         "level": 6,
         "url": "https://discord.com/developers/docs/resources/guild#guild-object-guild-structure",
         "content": [
-          "> info\n> Fields specific to the GUILD_CREATE event are listed in the Gateway documentation.",
+          "> info\n> Fields specific to the GUILD_CREATE event are listed in the Gateway Events documentation.",
           [
             [
               "Field",
@@ -148,7 +149,7 @@
             [
               "afk_timeout",
               "integer",
-              "afk timeout in seconds"
+              "afk timeout in seconds, can be set to: 60, 300, 900, 1800, 3600"
             ],
             [
               "widget_enabled?",
@@ -536,12 +537,20 @@
               "guild can enable welcome screen, Membership Screening, stage channels and discovery, and receives community updates"
             ],
             [
+              "DEVELOPER_SUPPORT_SERVER",
+              "guild has been set as a support server on the App Directory"
+            ],
+            [
               "DISCOVERABLE",
               "guild is able to be discovered in the directory"
             ],
             [
               "FEATURABLE",
               "guild is able to be featured in the directory"
+            ],
+            [
+              "INVITES_DISABLED",
+              "guild has paused invites, preventing new users from joining"
             ],
             [
               "INVITE_SPLASH",
@@ -600,6 +609,35 @@
               "guild has enabled the welcome screen"
             ]
           ]
+        ]
+      },
+      "Mutable Guild Features": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/guild#guild-object-mutable-guild-features",
+        "content": [
+          [
+            [
+              "Features",
+              "Required Permissions",
+              "Effects"
+            ],
+            [
+              "COMMUNITY",
+              "Administrator",
+              "Enables Community Features in the guild"
+            ],
+            [
+              "INVITES_DISABLED",
+              "Manage Guild",
+              "Pauses all invites/access to the server"
+            ],
+            [
+              "DISCOVERABLE",
+              "Administrator*",
+              "Enables discovery in the guild, making it publicly listed"
+            ]
+          ],
+          "* Server also must be passing all discovery requirements"
         ]
       },
       "Example Guild": {
@@ -1299,7 +1337,7 @@
             [
               "afk_timeout?",
               "integer",
-              "afk timeout in seconds"
+              "afk timeout in seconds, can be set to: 60, 300, 900, 1800, 3600"
             ],
             [
               "system_channel_id?",
@@ -1444,7 +1482,7 @@
             [
               "afk_timeout",
               "integer",
-              "afk timeout in seconds"
+              "afk timeout in seconds, can be set to: 60, 300, 900, 1800, 3600"
             ],
             [
               "icon",
@@ -1615,6 +1653,21 @@
               "default_auto_archive_duration",
               "integer",
               "the default duration that the clients use (not the API) for newly created threads in the channel, in minutes, to automatically archive the thread after recent activity"
+            ],
+            [
+              "default_reaction_emoji",
+              "default reaction object",
+              "emoji to show in the add reaction button on a thread in a GUILD_FORUM channel"
+            ],
+            [
+              "available_tags",
+              "array of tag objects",
+              "set of tags that can be used in a GUILD_FORUM channel"
+            ],
+            [
+              "default_sort_order",
+              "integer",
+              "the default sort order type used to order posts in GUILD_FORUM channels"
             ]
           ],
           "* For voice channels, normal servers can set bitrate up to 96000, servers with Boost level 1 can set up to 128000, servers with Boost level 2 can set up to 256000, and servers with Boost level 3 or the VIP_REGIONS guild feature can set up to 384000. For stage channels, bitrate can be set up to 64000.",
@@ -2111,7 +2164,7 @@
             [
               "name",
               "string",
-              "name of the role",
+              "name of the role, max 100 characters",
               "\"new role\""
             ],
             [
@@ -2211,7 +2264,7 @@
             [
               "name",
               "string",
-              "name of the role"
+              "name of the role, max 100 characters"
             ],
             [
               "permissions",
@@ -2398,7 +2451,7 @@
       "url": "https://discord.com/developers/docs/resources/guild#delete-guild-integration",
       "endpoint": "DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/integrations/{integration.id#DOCS_RESOURCES_GUILD/integration-object}",
       "content": [
-        "Delete the attached integration object for the guild. Deletes any associated webhooks and kicks the associated bot if there is one. Requires the MANAGE_GUILD permission. Returns a 204 empty response on success. Fires a Guild Integrations Update Gateway event.",
+        "Delete the attached integration object for the guild. Deletes any associated webhooks and kicks the associated bot if there is one. Requires the MANAGE_GUILD permission. Returns a 204 empty response on success. Fires Guild Integrations Update and Integration Delete Gateway events.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header."
       ]
     },
@@ -2567,7 +2620,7 @@
       "url": "https://discord.com/developers/docs/resources/guild#modify-current-user-voice-state",
       "endpoint": "PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/voice-states/@me",
       "content": [
-        "Updates the current user's voice state. Returns 204 No Content on success.",
+        "Updates the current user's voice state. Returns 204 No Content on success. Fires a Voice State Update Gateway event.",
         "|JSON Params",
         "|Caveats"
       ],
@@ -2619,7 +2672,7 @@
       "url": "https://discord.com/developers/docs/resources/guild#modify-user-voice-state",
       "endpoint": "PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/voice-states/{user.id#DOCS_RESOURCES_USER/user-object}",
       "content": [
-        "Updates another user's voice state.",
+        "Updates another user's voice state. Fires a Voice State Update Gateway event.",
         "|JSON Params",
         "|Caveats"
       ],

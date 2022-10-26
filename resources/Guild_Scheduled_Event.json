@@ -329,7 +329,7 @@
       "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#create-guild-scheduled-event",
       "endpoint": "POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events",
       "content": [
-        "Create a guild scheduled event in the guild. Returns a guild scheduled event object on success.",
+        "Create a guild scheduled event in the guild. Returns a guild scheduled event object on success. Fires a Guild Scheduled Event Create Gateway event.",
         "> info\n> A guild can have a maximum of 100 events with SCHEDULED or ACTIVE status at any time.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
         "|JSON Params"
@@ -427,7 +427,7 @@
       "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#modify-guild-scheduled-event",
       "endpoint": "PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}",
       "content": [
-        "Modify a guild scheduled event. Returns the modified guild scheduled event object on success.",
+        "Modify a guild scheduled event. Returns the modified guild scheduled event object on success. Fires a Guild Scheduled Event Update Gateway event.",
         "> info\n> To start or end an event, use this endpoint to modify the event's status field.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
         "> info\n> This endpoint silently discards entity_metadata for non-EXTERNAL events.",
@@ -508,7 +508,7 @@
       "url": "https://discord.com/developers/docs/resources/guild-scheduled-event#delete-guild-scheduled-event",
       "endpoint": "DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/scheduled-events/{guild_scheduled_event.id#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object}",
       "content": [
-        "Delete a guild scheduled event. Returns a 204 on success."
+        "Delete a guild scheduled event. Returns a 204 on success. Fires a Guild Scheduled Event Delete Gateway event."
       ]
     },
     "Get Guild Scheduled Event Users": {

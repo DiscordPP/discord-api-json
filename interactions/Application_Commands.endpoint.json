@@ -47,10 +47,10 @@
       },
       "description": {
         "type": "string",
-        "optional": false,
+        "optional": true,
         "nullable": false,
         "comments": {
-          "Description": "1-100 character description"
+          "Description": "1-100 character description for CHAT_INPUT commands"
         }
       },
       "description_localizations": {
@@ -272,10 +272,10 @@
       },
       "description": {
         "type": "string",
-        "optional": false,
+        "optional": true,
         "nullable": false,
         "comments": {
-          "Description": "1-100 character description"
+          "Description": "1-100 character description for CHAT_INPUT commands"
         }
       },
       "description_localizations": {

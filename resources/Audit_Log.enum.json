@@ -357,7 +357,19 @@
     "AUTO_MODERATION_BLOCK_MESSAGE": {
       "value": "143",
       "comments": {
-        "Description": "Message was blocked by AutoMod (according to a rule)"
+        "Description": "Message was blocked by AutoMod"
+      }
+    },
+    "AUTO_MODERATION_FLAG_TO_CHANNEL": {
+      "value": "144",
+      "comments": {
+        "Description": "Message was flagged by AutoMod"
+      }
+    },
+    "AUTO_MODERATION_USER_COMMUNICATION_DISABLED": {
+      "value": "145",
+      "comments": {
+        "Description": "Member was timed out by AutoMod"
       }
     }
   }

@@ -131,7 +131,7 @@
       "url": "https://discord.com/developers/docs/resources/stage-instance#create-stage-instance",
       "endpoint": "POST /stage-instances",
       "content": [
-        "Creates a new Stage instance associated to a Stage channel. Returns that Stage instance.",
+        "Creates a new Stage instance associated to a Stage channel. Returns that Stage instance. Fires a Stage Instance Create Gateway event.",
         "Requires the user to be a moderator of the Stage channel.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
         "|JSON Params"
@@ -184,7 +184,7 @@
       "url": "https://discord.com/developers/docs/resources/stage-instance#modify-stage-instance",
       "endpoint": "PATCH /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}",
       "content": [
-        "Updates fields of an existing Stage instance. Returns the updated Stage instance.",
+        "Updates fields of an existing Stage instance. Returns the updated Stage instance. Fires a Stage Instance Update Gateway event.",
         "Requires the user to be a moderator of the Stage channel.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
         "|JSON Params"
@@ -218,7 +218,7 @@
       "url": "https://discord.com/developers/docs/resources/stage-instance#delete-stage-instance",
       "endpoint": "DELETE /stage-instances/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}",
       "content": [
-        "Deletes the Stage instance. Returns 204 No Content.",
+        "Deletes the Stage instance. Returns 204 No Content. Fires a Stage Instance Delete Gateway event.",
         "Requires the user to be a moderator of the Stage channel.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header."
       ]

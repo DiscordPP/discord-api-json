@@ -96,7 +96,7 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "whether this user is muted by the current user"
+        "Description": "whether this user's permission to speak is denied"
       }
     },
     "request_to_speak_timestamp": {

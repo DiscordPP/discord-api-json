@@ -1,0 +1,3151 @@
+{
+  "content": [
+    "|Gateway Events"
+  ],
+  "Gateway Events": {
+    "level": 1,
+    "url": "https://discord.com/developers/docs/topics/gateway-events#gateway-events",
+    "content": [
+      "Gateway connections are WebSockets, meaning they're bidirectional and either side of the WebSocket can send events to the other. The following events are split up into two types:",
+      [
+        "Send events are Gateway events sent by an app to Discord (like when identifying with the Gateway)",
+        "Receive events are Gateway events that are sent by Discord to an app. These events typically represent something happening inside of a server where an app is installed, like a channel being updated."
+      ],
+      "All Gateway events are encapsulated in a Gateway event payload.",
+      "For more information about interacting with the Gateway, you can reference the Gateway documentation.",
+      "> warn\n> Not all Gateway event fields are documented. You should assume that undocumented fields are not supported for apps, and their format and data may change at any time.",
+      "|Event Names",
+      "|Payload Structure",
+      "|Send Events",
+      "|Receive Events"
+    ],
+    "Event Names": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/topics/gateway-events#event-names",
+      "content": [
+        "In practice, event names are UPPER-CASED with under_scores joining each word in the name. For instance, Channel Create would be CHANNEL_CREATE and Voice State Update would be VOICE_STATE_UPDATE.",
+        "For readability, event names in the following documentation are typically left in Title Case."
+      ]
+    },
+    "Payload Structure": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/topics/gateway-events#payload-structure",
+      "content": [
+        "Gateway event payloads have a common structure, but the contents of the associated data (d) varies between the different events.",
+        [
+          [
+            "Field",
+            "Type",
+            "Description"
+          ],
+          [
+            "op",
+            "integer",
+            "Gateway opcode, which indicates the payload type"
+          ],
+          [
+            "d",
+            "?mixed (any JSON value)",
+            "Event data"
+          ],
+          [
+            "s",
+            "?integer *",
+            "Sequence number of event used for resuming sessions and heartbeating"
+          ],
+          [
+            "t",
+            "?string *",
+            "Event name"
+          ]
+        ],
+        "* s and t are null when op is not 0 (Gateway Dispatch opcode).",
+        "|Example Gateway Event Payload"
+      ],
+      "Example Gateway Event Payload": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#payload-structure-example-gateway-event-payload",
+        "content": [
+          {
+            "language": "json",
+            "code": "{\n  \"op\": 0,\n  \"d\": {},\n  \"s\": 42,\n  \"t\": \"GATEWAY_EVENT_NAME\"\n}\n"
+          }
+        ]
+      }
+    },
+    "Send Events": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/gateway-events#send-events",
+      "content": [
+        "Send events are Gateway events encapsulated in an event payload, and are sent by an app to Discord through a Gateway connection.",
+        "> info\n> Previously, Gateway send events were labeled as commands",
+        [
+          [
+            "Name",
+            "Description"
+          ],
+          [
+            "Identify",
+            "Triggers the initial handshake with the gateway"
+          ],
+          [
+            "Resume",
+            "Resumes a dropped gateway connection"
+          ],
+          [
+            "Heartbeat",
+            "Maintains an active gateway connection"
+          ],
+          [
+            "Request Guild Members",
+            "Requests members for a guild"
+          ],
+          [
+            "Update Voice State",
+            "Joins, moves, or disconnects the app from a voice channel"
+          ],
+          [
+            "Update Presence",
+            "Updates an app's presence"
+          ]
+        ],
+        "|Identify",
+        "|Resume",
+        "|Heartbeat",
+        "|Request Guild Members",
+        "|Update Voice State",
+        "|Update Presence"
+      ],
+      "Identify": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#send-events-identify",
+        "content": [
+          "Used to trigger the initial handshake with the gateway.",
+          "Details about identifying is in the Gateway documentation.",
+          "|Identify Structure",
+          "|Identify Connection Properties",
+          "|Example Identify"
+        ],
+        "Identify Structure": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#identify-identify-structure",
+          "content": [
+            [
+              [
+                "Field",
+                "Type",
+                "Description",
+                "Default"
+              ],
+              [
+                "token",
+                "string",
+                "Authentication token",
+                "-"
+              ],
+              [
+                "properties",
+                "object",
+                "Connection properties",
+                "-"
+              ],
+              [
+                "compress?",
+                "boolean",
+                "Whether this connection supports compression of packets",
+                "false"
+              ],
+              [
+                "large_threshold?",
+                "integer",
+                "Value between 50 and 250, total number of members where the gateway will stop sending offline members in the guild member list",
+                "50"
+              ],
+              [
+                "shard?",
+                "array of two integers (shard_id, num_shards)",
+                "Used for Guild Sharding",
+                "-"
+              ],
+              [
+                "presence?",
+                "update presence object",
+                "Presence structure for initial presence information",
+                "-"
+              ],
+              [
+                "intents",
+                "integer",
+                "Gateway Intents you wish to receive",
+                "-"
+              ]
+            ]
+          ]
+        },
+        "Identify Connection Properties": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#identify-identify-connection-properties",
+          "content": [
+            [
+              [
+                "Field",
+                "Type",
+                "Description"
+              ],
+              [
+                "os",
+                "string",
+                "Your operating system"
+              ],
+              [
+                "browser",
+                "string",
+                "Your library name"
+              ],
+              [
+                "device",
+                "string",
+                "Your library name"
+              ]
+            ],
+            "> warn\n> These fields originally were $ prefixed (i.e: $browser) but this syntax is deprecated. While they currently still work, it is recommended to move to non-prefixed fields."
+          ]
+        },
+        "Example Identify": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#identify-example-identify",
+          "content": [
+            {
+              "language": "json",
+              "code": "{\n  \"op\": 2,\n  \"d\": {\n    \"token\": \"my_token\",\n    \"properties\": {\n      \"os\": \"linux\",\n      \"browser\": \"disco\",\n      \"device\": \"disco\"\n    },\n    \"compress\": true,\n    \"large_threshold\": 250,\n    \"shard\": [0, 1],\n    \"presence\": {\n      \"activities\": [{\n        \"name\": \"Cards Against Humanity\",\n        \"type\": 0\n      }],\n      \"status\": \"dnd\",\n      \"since\": 91879201,\n      \"afk\": false\n    },\n    // This intent represents 1 << 0 for GUILDS, 1 << 1 for GUILD_MEMBERS, and 1 << 2 for GUILD_BANS\n    // This connection will only receive the events defined in those three intents\n    \"intents\": 7\n  }\n}\n"
+            }
+          ]
+        }
+      },
+      "Resume": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#send-events-resume",
+        "content": [
+          "Used to replay missed events when a disconnected client resumes.",
+          "Details about resuming are in the Gateway documentation.",
+          "|Resume Structure",
+          "|Example Resume"
+        ],
+        "Resume Structure": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#resume-resume-structure",
+          "content": [
+            [
+              [
+                "Field",
+                "Type",
+                "Description"
+              ],
+              [
+                "token",
+                "string",
+                "Session token"
+              ],
+              [
+                "session_id",
+                "string",
+                "Session ID"
+              ],
+              [
+                "seq",
+                "integer",
+                "Last sequence number received"
+              ]
+            ]
+          ]
+        },
+        "Example Resume": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#resume-example-resume",
+          "content": [
+            {
+              "language": "json",
+              "code": "{\n  \"op\": 6,\n  \"d\": {\n    \"token\": \"randomstring\",\n    \"session_id\": \"evenmorerandomstring\",\n    \"seq\": 1337\n  }\n}\n"
+            }
+          ]
+        }
+      },
+      "Heartbeat": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#send-events-heartbeat",
+        "content": [
+          "Used to maintain an active gateway connection. Must be sent every heartbeat_interval milliseconds after the Opcode 10 Hello payload is received. The inner d key is the last sequence number\u2014s\u2014received by the client. If you have not yet received one, send null.",
+          "Details about heartbeats are in the Gateway documentation.",
+          "|Example Heartbeat"
+        ],
+        "Example Heartbeat": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#heartbeat-example-heartbeat",
+          "content": [
+            {
+              "language": "",
+              "code": "{\n\t\"op\": 1,\n\t\"d\": 251\n}\n"
+            }
+          ]
+        }
+      },
+      "Request Guild Members": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#send-events-request-guild-members",
+        "content": [
+          "Used to request all members for a guild or a list of guilds. When initially connecting, if you don't have the GUILD_PRESENCES Gateway Intent, or if the guild is over 75k members, it will only send members who are in voice, plus the member for you (the connecting user). Otherwise, if a guild has over large_threshold members (value in the Gateway Identify), it will only send members who are online, have a role, have a nickname, or are in a voice channel, and if it has under large_threshold members, it will send all members. If a client wishes to receive additional members, they need to explicitly request them via this operation. The server will send Guild Members Chunk events in response with up to 1000 members per chunk until all members that match the request have been sent.",
+          "Due to our privacy and infrastructural concerns with this feature, there are some limitations that apply:",
+          [
+            "GUILD_PRESENCES intent is required to set presences = true. Otherwise, it will always be false",
+            "GUILD_MEMBERS intent is required to request the entire member list\u2014(query=\u2018\u2019, limit=0<=n)",
+            "You will be limited to requesting 1 guild_id per request",
+            "Requesting a prefix (query parameter) will return a maximum of 100 members",
+            "Requesting user_ids will continue to be limited to returning 100 members"
+          ],
+          "|Guild Request Members Structure",
+          "|Guild Request Members"
+        ],
+        "Guild Request Members Structure": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#request-guild-members-guild-request-members-structure",
+          "content": [
+            [
+              [
+                "Field",
+                "Type",
+                "Description",
+                "Required"
+              ],
+              [
+                "guild_id",
+                "snowflake",
+                "ID of the guild to get members for",
+                "true"
+              ],
+              [
+                "query?",
+                "string",
+                "string that username starts with, or an empty string to return all members",
+                "one of query or user_ids"
+              ],
+              [
+                "limit",
+                "integer",
+                "maximum number of members to send matching the query; a limit of 0 can be used with an empty string query to return all members",
+                "true when specifying query"
+              ],
+              [
+                "presences?",
+                "boolean",
+                "used to specify if we want the presences of the matched members",
+                "false"
+              ],
+              [
+                "user_ids?",
+                "snowflake or array of snowflakes",
+                "used to specify which users you wish to fetch",
+                "one of query or user_ids"
+              ],
+              [
+                "nonce?",
+                "string",
+                "nonce to identify the Guild Members Chunk response",
+                "false"
+              ]
+            ],
+            "> info\n> Nonce can only be up to 32 bytes. If you send an invalid nonce it will be ignored and the reply member_chunk(s) will not have a nonce set."
+          ]
+        },
+        "Guild Request Members": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#request-guild-members-guild-request-members",
+          "content": [
+            {
+              "language": "json",
+              "code": "{\n  \"op\": 8,\n  \"d\": {\n    \"guild_id\": \"41771983444115456\",\n    \"query\": \"\",\n    \"limit\": 0\n  }\n}\n"
+            }
+          ]
+        }
+      },
+      "Update Voice State": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#send-events-update-voice-state",
+        "content": [
+          "Sent when a client wants to join, move, or disconnect from a voice channel.",
+          "|Gateway Voice State Update Structure",
+          "|Example Gateway Voice State Update"
+        ],
+        "Gateway Voice State Update Structure": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#update-voice-state-gateway-voice-state-update-structure",
+          "content": [
+            [
+              [
+                "Field",
+                "Type",
+                "Description"
+              ],
+              [
+                "guild_id",
+                "snowflake",
+                "ID of the guild"
+              ],
+              [
+                "channel_id",
+                "?snowflake",
+                "ID of the voice channel client wants to join (null if disconnecting)"
+              ],
+              [
+                "self_mute",
+                "boolean",
+                "Whether the client is muted"
+              ],
+              [
+                "self_deaf",
+                "boolean",
+                "Whether the client deafened"
+              ]
+            ]
+          ]
+        },
+        "Example Gateway Voice State Update": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#update-voice-state-example-gateway-voice-state-update",
+          "content": [
+            {
+              "language": "json",
+              "code": "{\n  \"op\": 4,\n  \"d\": {\n    \"guild_id\": \"41771983423143937\",\n    \"channel_id\": \"127121515262115840\",\n    \"self_mute\": false,\n    \"self_deaf\": false\n  }\n}\n"
+            }
+          ]
+        }
+      },
+      "Update Presence": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#send-events-update-presence",
+        "content": [
+          "Sent by the client to indicate a presence or status update.",
+          "|Gateway Presence Update Structure",
+          "|Status Types",
+          "|Example Gateway Presence Update"
+        ],
+        "Gateway Presence Update Structure": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#update-presence-gateway-presence-update-structure",
+          "content": [
+            [
+              [
+                "Field",
+                "Type",
+                "Description"
+              ],
+              [
+                "since",
+                "?integer",
+                "Unix time (in milliseconds) of when the client went idle, or null if the client is not idle"
+              ],
+              [
+                "activities",
+                "array of activity objects",
+                "User's activities"
+              ],
+              [
+                "status",
+                "string",
+                "User's new status"
+              ],
+              [
+                "afk",
+                "boolean",
+                "Whether or not the client is afk"
+              ]
+            ]
+          ]
+        },
+        "Status Types": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#update-presence-status-types",
+          "content": [
+            [
+              [
+                "Status",
+                "Description"
+              ],
+              [
+                "online",
+                "Online"
+              ],
+              [
+                "dnd",
+                "Do Not Disturb"
+              ],
+              [
+                "idle",
+                "AFK"
+              ],
+              [
+                "invisible",
+                "Invisible and shown as offline"
+              ],
+              [
+                "offline",
+                "Offline"
+              ]
+            ]
+          ]
+        },
+        "Example Gateway Presence Update": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#update-presence-example-gateway-presence-update",
+          "content": [
+            {
+              "language": "json",
+              "code": "{\n  \"op\": 3,\n  \"d\": {\n    \"since\": 91879201,\n    \"activities\": [{\n      \"name\": \"Save the Oxford Comma\",\n      \"type\": 0\n    }],\n    \"status\": \"online\",\n    \"afk\": false\n  }\n}\n"
+            }
+          ]
+        }
+      }
+    },
+    "Receive Events": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/topics/gateway-events#receive-events",
+      "content": [
+        "Receive events are Gateway events encapsulated in an event payload, and are sent by Discord to an app through a Gateway connection. Receive events correspond to events that happen in a Discord server where the app is installed.",
+        [
+          [
+            "Name",
+            "Description"
+          ],
+          [
+            "Hello",
+            "Defines the heartbeat interval"
+          ],
+          [
+            "Ready",
+            "Contains the initial state information"
+          ],
+          [
+            "Resumed",
+            "Response to Resume"
+          ],
+          [
+            "Reconnect",
+            "Server is going away, client should reconnect to gateway and resume"
+          ],
+          [
+            "Invalid Session",
+            "Failure response to Identify or Resume or invalid active session"
+          ],
+          [
+            "Application Command Permissions Update",
+            "Application command permission was updated"
+          ],
+          [
+            "Auto Moderation Rule Create",
+            "Auto Moderation rule was created"
+          ],
+          [
+            "Auto Moderation Rule Update",
+            "Auto Moderation rule was updated"
+          ],
+          [
+            "Auto Moderation Rule Delete",
+            "Auto Moderation rule was deleted"
+          ],
+          [
+            "Auto Moderation Action Execution",
+            "Auto Moderation rule was triggered and an action was executed (e.g. a message was blocked)"
+          ],
+          [
+            "Channel Create",
+            "New guild channel created"
+          ],
+          [
+            "Channel Update",
+            "Channel was updated"
+          ],
+          [
+            "Channel Delete",
+            "Channel was deleted"
+          ],
+          [
+            "Channel Pins Update",
+            "Message was pinned or unpinned"
+          ],
+          [
+            "Thread Create",
+            "Thread created, also sent when being added to a private thread"
+          ],
+          [
+            "Thread Update",
+            "Thread was updated"
+          ],
+          [
+            "Thread Delete",
+            "Thread was deleted"
+          ],
+          [
+            "Thread List Sync",
+            "Sent when gaining access to a channel, contains all active threads in that channel"
+          ],
+          [
+            "Thread Member Update",
+            "Thread member for the current user was updated"
+          ],
+          [
+            "Thread Members Update",
+            "Some user(s) were added to or removed from a thread"
+          ],
+          [
+            "Guild Create",
+            "Lazy-load for unavailable guild, guild became available, or user joined a new guild"
+          ],
+          [
+            "Guild Update",
+            "Guild was updated"
+          ],
+          [
+            "Guild Delete",
+            "Guild became unavailable, or user left/was removed from a guild"
+          ],
+          [
+            "Guild Ban Add",
+            "User was banned from a guild"
+          ],
+          [
+            "Guild Ban Remove",
+            "User was unbanned from a guild"
+          ],
+          [
+            "Guild Emojis Update",
+            "Guild emojis were updated"
+          ],
+          [
+            "Guild Stickers Update",
+            "Guild stickers were updated"
+          ],
+          [
+            "Guild Integrations Update",
+            "Guild integration was updated"
+          ],
+          [
+            "Guild Member Add",
+            "New user joined a guild"
+          ],
+          [
+            "Guild Member Remove",
+            "User was removed from a guild"
+          ],
+          [
+            "Guild Member Update",
+            "Guild member was updated"
+          ],
+          [
+            "Guild Members Chunk",
+            "Response to Request Guild Members"
+          ],
+          [
+            "Guild Role Create",
+            "Guild role was created"
+          ],
+          [
+            "Guild Role Update",
+            "Guild role was updated"
+          ],
+          [
+            "Guild Role Delete",
+            "Guild role was deleted"
+          ],
+          [
+            "Guild Scheduled Event Create",
+            "Guild scheduled event was created"
+          ],
+          [
+            "Guild Scheduled Event Update",
+            "Guild scheduled event was updated"
+          ],
+          [
+            "Guild Scheduled Event Delete",
+            "Guild scheduled event was deleted"
+          ],
+          [
+            "Guild Scheduled Event User Add",
+            "User subscribed to a guild scheduled event"
+          ],
+          [
+            "Guild Scheduled Event User Remove",
+            "User unsubscribed from a guild scheduled event"
+          ],
+          [
+            "Integration Create",
+            "Guild integration was created"
+          ],
+          [
+            "Integration Update",
+            "Guild integration was updated"
+          ],
+          [
+            "Integration Delete",
+            "Guild integration was deleted"
+          ],
+          [
+            "Interaction Create",
+            "User used an interaction, such as an Application Command"
+          ],
+          [
+            "Invite Create",
+            "Invite to a channel was created"
+          ],
+          [
+            "Invite Delete",
+            "Invite to a channel was deleted"
+          ],
+          [
+            "Message Create",
+            "Message was created"
+          ],
+          [
+            "Message Update",
+            "Message was edited"
+          ],
+          [
+            "Message Delete",
+            "Message was deleted"
+          ],
+          [
+            "Message Delete Bulk",
+            "Multiple messages were deleted at once"
+          ],
+          [
+            "Message Reaction Add",
+            "User reacted to a message"
+          ],
+          [
+            "Message Reaction Remove",
+            "User removed a reaction from a message"
+          ],
+          [
+            "Message Reaction Remove All",
+            "All reactions were explicitly removed from a message"
+          ],
+          [
+            "Message Reaction Remove Emoji",
+            "All reactions for a given emoji were explicitly removed from a message"
+          ],
+          [
+            "Presence Update",
+            "User was updated"
+          ],
+          [
+            "Stage Instance Create",
+            "Stage instance was created"
+          ],
+          [
+            "Stage Instance Update",
+            "Stage instance was updated"
+          ],
+          [
+            "Stage Instance Delete",
+            "Stage instance was deleted or closed"
+          ],
+          [
+            "Typing Start",
+            "User started typing in a channel"
+          ],
+          [
+            "User Update",
+            "Properties about the user changed"
+          ],
+          [
+            "Voice State Update",
+            "Someone joined, left, or moved a voice channel"
+          ],
+          [
+            "Voice Server Update",
+            "Guild's voice server was updated"
+          ],
+          [
+            "Webhooks Update",
+            "Guild channel webhook was created, update, or deleted"
+          ]
+        ],
+        "|Hello",
+        "|Ready",
+        "|Resumed",
+        "|Reconnect",
+        "|Invalid Session",
+        "|Application Commands",
+        "|Auto Moderation",
+        "|Channels",
+        "|Guilds",
+        "|Guild Scheduled Event Create",
+        "|Guild Scheduled Event Update",
+        "|Guild Scheduled Event Delete",
+        "|Guild Scheduled Event User Add",
+        "|Guild Scheduled Event User Remove",
+        "|Integrations",
+        "|Invites",
+        "|Messages",
+        "|Presence",
+        "|Voice",
+        "|Webhooks",
+        "|Interactions",
+        "|Stage Instances"
+      ],
+      "Hello": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#receive-events-hello",
+        "content": [
+          "Sent on connection to the websocket. Defines the heartbeat interval that an app should heartbeat to.",
+          "|Hello Structure",
+          "|Example Hello"
+        ],
+        "Hello Structure": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#hello-hello-structure",
+          "content": [
+            [
+              [
+                "Field",
+                "Type",
+                "Description"
+              ],
+              [
+                "heartbeat_interval",
+                "integer",
+                "Interval (in milliseconds) an app should heartbeat with"
+              ]
+            ]
+          ]
+        },
+        "Example Hello": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#hello-example-hello",
+          "content": [
+            {
+              "language": "json",
+              "code": "{\n  \"op\": 10,\n  \"d\": {\n    \"heartbeat_interval\": 45000\n  }\n}\n"
+            }
+          ]
+        }
+      },
+      "Ready": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#receive-events-ready",
+        "content": [
+          "The ready event is dispatched when a client has completed the initial handshake with the gateway (for new sessions). The ready event can be the largest and most complex event the gateway will send, as it contains all the state required for a client to begin interacting with the rest of the platform.",
+          "guilds are the guilds of which your bot is a member. They start out as unavailable when you connect to the gateway. As they become available, your bot will be notified via Guild Create events.",
+          "|Ready Event Fields"
+        ],
+        "Ready Event Fields": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#ready-ready-event-fields",
+          "content": [
+            [
+              [
+                "Field",
+                "Type",
+                "Description"
+              ],
+              [
+                "v",
+                "integer",
+                "API version"
+              ],
+              [
+                "user",
+                "user object",
+                "Information about the user including email"
+              ],
+              [
+                "guilds",
+                "array of Unavailable Guild objects",
+                "Guilds the user is in"
+              ],
+              [
+                "session_id",
+                "string",
+                "Used for resuming connections"
+              ],
+              [
+                "resume_gateway_url",
+                "string",
+                "Gateway URL for resuming connections"
+              ],
+              [
+                "shard?",
+                "array of two integers (shard_id, num_shards)",
+                "Shard information associated with this session, if sent when identifying"
+              ],
+              [
+                "application",
+                "partial application object",
+                "Contains id and flags"
+              ]
+            ]
+          ]
+        }
+      },
+      "Resumed": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#receive-events-resumed",
+        "content": [
+          "The resumed event is dispatched when a client has sent a resume payload to the gateway (for resuming existing sessions)."
+        ]
+      },
+      "Reconnect": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#receive-events-reconnect",
+        "content": [
+          "The reconnect event is dispatched when a client should reconnect to the gateway (and resume their existing session, if they have one). This event usually occurs during deploys to migrate sessions gracefully off old hosts.",
+          "|Example Gateway Reconnect"
+        ],
+        "Example Gateway Reconnect": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#reconnect-example-gateway-reconnect",
+          "content": [
+            {
+              "language": "json",
+              "code": "{\n  \"op\": 7,\n  \"d\": null\n}\n"
+            }
+          ]
+        }
+      },
+      "Invalid Session": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#receive-events-invalid-session",
+        "content": [
+          "Sent to indicate one of at least three different situations:",
+          [
+            "the gateway could not initialize a session after receiving an Opcode 2 Identify",
+            "the gateway could not resume a previous session after receiving an Opcode 6 Resume",
+            "the gateway has invalidated an active session and is requesting client action"
+          ],
+          "The inner d key is a boolean that indicates whether the session may be resumable. See Connecting and Resuming for more information.",
+          "|Example Gateway Invalid Session"
+        ],
+        "Example Gateway Invalid Session": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#invalid-session-example-gateway-invalid-session",
+          "content": [
+            {
+              "language": "json",
+              "code": "{\n  \"op\": 9,\n  \"d\": false\n}\n"
+            }
+          ]
+        }
+      },
+      "Application Commands": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#application-commands",
+        "content": [
+          "|Application Command Permissions Update"
+        ],
+        "Application Command Permissions Update": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#application-commands-application-command-permissions-update",
+          "content": [
+            "APPLICATION_COMMAND_PERMISSIONS_UPDATE event, sent when an application command's permissions are updated. The inner payload is an application command permissions object."
+          ]
+        }
+      },
+      "Auto Moderation": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#auto-moderation",
+        "content": [
+          "All auto moderation related events are currently only sent to bot users which have the MANAGE_GUILD permission.",
+          "|Auto Moderation Rule Create",
+          "|Auto Moderation Rule Update",
+          "|Auto Moderation Rule Delete",
+          "|Auto Moderation Action Execution"
+        ],
+        "Auto Moderation Rule Create": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#auto-moderation-auto-moderation-rule-create",
+          "content": [
+            "Sent when a rule is created. The inner payload is an auto moderation rule object."
+          ]
+        },
+        "Auto Moderation Rule Update": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#auto-moderation-auto-moderation-rule-update",
+          "content": [
+            "Sent when a rule is updated. The inner payload is an auto moderation rule object."
+          ]
+        },
+        "Auto Moderation Rule Delete": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#auto-moderation-auto-moderation-rule-delete",
+          "content": [
+            "Sent when a rule is deleted. The inner payload is an auto moderation rule object."
+          ]
+        },
+        "Auto Moderation Action Execution": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#auto-moderation-auto-moderation-action-execution",
+          "content": [
+            "Sent when a rule is triggered and an action is executed (e.g. when a message is blocked).",
+            "|Auto Moderation Action Execution Event Fields"
+          ],
+          "Auto Moderation Action Execution Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#auto-moderation-action-execution-auto-moderation-action-execution-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "ID of the guild in which action was executed"
+                ],
+                [
+                  "action",
+                  "auto moderation action object",
+                  "Action which was executed"
+                ],
+                [
+                  "rule_id",
+                  "snowflake",
+                  "ID of the rule which action belongs to"
+                ],
+                [
+                  "rule_trigger_type",
+                  "trigger_type",
+                  "Trigger type of rule which was triggered"
+                ],
+                [
+                  "user_id",
+                  "snowflake",
+                  "ID of the user which generated the content which triggered the rule"
+                ],
+                [
+                  "channel_id?",
+                  "snowflake",
+                  "ID of the channel in which user content was posted"
+                ],
+                [
+                  "message_id?",
+                  "snowflake",
+                  "ID of any user message which content belongs to *"
+                ],
+                [
+                  "alert_system_message_id?",
+                  "snowflake",
+                  "ID of any system auto moderation messages posted as a result of this action **"
+                ],
+                [
+                  "content ***",
+                  "string",
+                  "User-generated text content"
+                ],
+                [
+                  "matched_keyword",
+                  "?string",
+                  "Word or phrase configured in the rule that triggered the rule"
+                ],
+                [
+                  "matched_content ***",
+                  "?string",
+                  "Substring in content that triggered the rule"
+                ]
+              ],
+              "* message_id will not exist if message was blocked by automod or content was not part of any message",
+              "** alert_system_message_id will not exist if this event does not correspond to an action with type SEND_ALERT_MESSAGE",
+              "*** MESSAGE_CONTENT (1 << 15) gateway intent is required to receive the content and matched_content fields"
+            ]
+          }
+        }
+      },
+      "Channels": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#channels",
+        "content": [
+          "|Channel Create",
+          "|Channel Update",
+          "|Channel Delete",
+          "|Thread Create",
+          "|Thread Update",
+          "|Thread Delete",
+          "|Thread List Sync",
+          "|Thread Member Update",
+          "|Thread Members Update",
+          "|Channel Pins Update"
+        ],
+        "Channel Create": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#channels-channel-create",
+          "content": [
+            "Sent when a new guild channel is created, relevant to the current user. The inner payload is a channel object."
+          ]
+        },
+        "Channel Update": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#channels-channel-update",
+          "content": [
+            "Sent when a channel is updated. The inner payload is a channel object. This is not sent when the field last_message_id is altered. To keep track of the last_message_id changes, you must listen for Message Create events (or Thread Create events for GUILD_FORUM channels)."
+          ]
+        },
+        "Channel Delete": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#channels-channel-delete",
+          "content": [
+            "Sent when a channel relevant to the current user is deleted. The inner payload is a channel object."
+          ]
+        },
+        "Thread Create": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#channels-thread-create",
+          "content": [
+            "Sent when a thread is created, relevant to the current user, or when the current user is added to a thread. The inner payload is a channel object.",
+            [
+              "When a thread is created, includes an additional newly_created boolean field.",
+              "When being added to an existing private thread, includes a thread member object."
+            ]
+          ]
+        },
+        "Thread Update": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#channels-thread-update",
+          "content": [
+            "Sent when a thread is updated. The inner payload is a channel object. This is not sent when the field last_message_id is altered. To keep track of the last_message_id changes, you must listen for Message Create events."
+          ]
+        },
+        "Thread Delete": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#channels-thread-delete",
+          "content": [
+            "Sent when a thread relevant to the current user is deleted. The inner payload is a subset of the channel object, containing just the id, guild_id, parent_id, and type fields."
+          ]
+        },
+        "Thread List Sync": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#channels-thread-list-sync",
+          "content": [
+            "Sent when the current user gains access to a channel.",
+            "|Thread List Sync Event Fields"
+          ],
+          "Thread List Sync Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#thread-list-sync-thread-list-sync-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "ID of the guild"
+                ],
+                [
+                  "channel_ids?",
+                  "array of snowflakes",
+                  "Parent channel IDs whose threads are being synced.  If omitted, then threads were synced for the entire guild.  This array may contain channel_ids that have no active threads as well, so you know to clear that data."
+                ],
+                [
+                  "threads",
+                  "array of channel objects",
+                  "All active threads in the given channels that the current user can access"
+                ],
+                [
+                  "members",
+                  "array of thread member objects",
+                  "All thread member objects from the synced threads for the current user, indicating which threads the current user has been added to"
+                ]
+              ]
+            ]
+          }
+        },
+        "Thread Member Update": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#channels-thread-member-update",
+          "content": [
+            "Sent when the thread member object for the current user is updated. The inner payload is a thread member object with an extra guild_id field. This event is documented for completeness, but unlikely to be used by most bots. For bots, this event largely is just a signal that you are a member of the thread. See the threads docs for more details.",
+            "|Thread Member Update Event Extra Fields"
+          ],
+          "Thread Member Update Event Extra Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#thread-member-update-thread-member-update-event-extra-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "ID of the guild"
+                ]
+              ]
+            ]
+          }
+        },
+        "Thread Members Update": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#channels-thread-members-update",
+          "content": [
+            "Sent when anyone is added to or removed from a thread.  If the current user does not have the GUILD_MEMBERS Gateway Intent, then this event will only be sent if the current user was added to or removed from the thread.",
+            "|Thread Members Update Event Fields"
+          ],
+          "Thread Members Update Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#thread-members-update-thread-members-update-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "id",
+                  "snowflake",
+                  "ID of the thread"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "ID of the guild"
+                ],
+                [
+                  "member_count",
+                  "integer",
+                  "Approximate number of members in the thread, capped at 50"
+                ],
+                [
+                  "added_members?*",
+                  "array of thread member objects",
+                  "Users who were added to the thread"
+                ],
+                [
+                  "removed_member_ids?",
+                  "array of snowflakes",
+                  "ID of the users who were removed from the thread"
+                ]
+              ],
+              "* In this gateway event, the thread member objects will also include the guild member and nullable presence objects for each added thread member."
+            ]
+          }
+        },
+        "Channel Pins Update": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#channels-channel-pins-update",
+          "content": [
+            "Sent when a message is pinned or unpinned in a text channel. This is not sent when a pinned message is deleted.",
+            "|Channel Pins Update Event Fields"
+          ],
+          "Channel Pins Update Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#channel-pins-update-channel-pins-update-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "guild_id?",
+                  "snowflake",
+                  "ID of the guild"
+                ],
+                [
+                  "channel_id",
+                  "snowflake",
+                  "ID of the channel"
+                ],
+                [
+                  "last_pin_timestamp?",
+                  "?ISO8601 timestamp",
+                  "Time at which the most recent pinned message was pinned"
+                ]
+              ]
+            ]
+          }
+        }
+      },
+      "Guilds": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#guilds",
+        "content": [
+          "|Guild Create",
+          "|Guild Update",
+          "|Guild Delete",
+          "|Guild Ban Add",
+          "|Guild Ban Remove",
+          "|Guild Emojis Update",
+          "|Guild Stickers Update",
+          "|Guild Integrations Update",
+          "|Guild Member Add",
+          "|Guild Member Remove",
+          "|Guild Member Update",
+          "|Guild Members Chunk",
+          "|Guild Role Create",
+          "|Guild Role Update",
+          "|Guild Role Delete"
+        ],
+        "Guild Create": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#guilds-guild-create",
+          "content": [
+            "This event can be sent in three different scenarios:",
+            [
+              "When a user is initially connecting, to lazily load and backfill information for all unavailable guilds sent in the Ready event. Guilds that are unavailable due to an outage will send a Guild Delete event.",
+              "When a Guild becomes available again to the client.",
+              "When the current user joins a new Guild."
+            ],
+            "> note\n> During an outage, the guild object in scenarios 1 and 3 may be marked as unavailable.",
+            "The inner payload can be:",
+            [
+              "An available Guild: a guild object with extra fields, as noted below.",
+              "An unavailable Guild: an unavailable guild object."
+            ],
+            "|Guild Create Extra Fields"
+          ],
+          "Guild Create Extra Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#guild-create-guild-create-extra-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "joined_at",
+                  "ISO8601 timestamp",
+                  "When this guild was joined at"
+                ],
+                [
+                  "large",
+                  "boolean",
+                  "true if this is considered a large guild"
+                ],
+                [
+                  "unavailable?",
+                  "boolean",
+                  "true if this guild is unavailable due to an outage"
+                ],
+                [
+                  "member_count",
+                  "integer",
+                  "Total number of members in this guild"
+                ],
+                [
+                  "voice_states",
+                  "array of partial voice state objects",
+                  "States of members currently in voice channels; lacks the guild_id key"
+                ],
+                [
+                  "members",
+                  "array of guild member objects",
+                  "Users in the guild"
+                ],
+                [
+                  "channels",
+                  "array of channel objects",
+                  "Channels in the guild"
+                ],
+                [
+                  "threads",
+                  "array of channel objects",
+                  "All active threads in the guild that current user has permission to view"
+                ],
+                [
+                  "presences",
+                  "array of partial presence update objects",
+                  "Presences of the members in the guild, will only include non-offline members if the size is greater than large threshold"
+                ],
+                [
+                  "stage_instances",
+                  "array of stage instance objects",
+                  "Stage instances in the guild"
+                ],
+                [
+                  "guild_scheduled_events",
+                  "array of guild scheduled event objects",
+                  "Scheduled events in the guild"
+                ]
+              ],
+              "> warn\n> If your bot does not have the GUILD_PRESENCES Gateway Intent, or if the guild has over 75k members, members and presences returned in this event will only contain your bot and users in voice channels."
+            ]
+          }
+        },
+        "Guild Update": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#guilds-guild-update",
+          "content": [
+            "Sent when a guild is updated. The inner payload is a guild object."
+          ]
+        },
+        "Guild Delete": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#guilds-guild-delete",
+          "content": [
+            "Sent when a guild becomes or was already unavailable due to an outage, or when the user leaves or is removed from a guild. The inner payload is an unavailable guild object. If the unavailable field is not set, the user was removed from the guild."
+          ]
+        },
+        "Guild Ban Add": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#guilds-guild-ban-add",
+          "content": [
+            "Sent when a user is banned from a guild.",
+            "|Guild Ban Add Event Fields"
+          ],
+          "Guild Ban Add Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#guild-ban-add-guild-ban-add-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "ID of the guild"
+                ],
+                [
+                  "user",
+                  "a user object",
+                  "User who was banned"
+                ]
+              ]
+            ]
+          }
+        },
+        "Guild Ban Remove": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#guilds-guild-ban-remove",
+          "content": [
+            "Sent when a user is unbanned from a guild.",
+            "|Guild Ban Remove Event Fields"
+          ],
+          "Guild Ban Remove Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#guild-ban-remove-guild-ban-remove-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "ID of the guild"
+                ],
+                [
+                  "user",
+                  "a user object",
+                  "User who was unbanned"
+                ]
+              ]
+            ]
+          }
+        },
+        "Guild Emojis Update": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#guilds-guild-emojis-update",
+          "content": [
+            "Sent when a guild's emojis have been updated.",
+            "|Guild Emojis Update Event Fields"
+          ],
+          "Guild Emojis Update Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#guild-emojis-update-guild-emojis-update-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "ID of the guild"
+                ],
+                [
+                  "emojis",
+                  "array",
+                  "Array of emojis"
+                ]
+              ]
+            ]
+          }
+        },
+        "Guild Stickers Update": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#guilds-guild-stickers-update",
+          "content": [
+            "Sent when a guild's stickers have been updated.",
+            "|Guild Stickers Update Event Fields"
+          ],
+          "Guild Stickers Update Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#guild-stickers-update-guild-stickers-update-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "ID of the guild"
+                ],
+                [
+                  "stickers",
+                  "array",
+                  "Array of stickers"
+                ]
+              ]
+            ]
+          }
+        },
+        "Guild Integrations Update": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#guilds-guild-integrations-update",
+          "content": [
+            "Sent when a guild integration is updated.",
+            "|Guild Integrations Update Event Fields"
+          ],
+          "Guild Integrations Update Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#guild-integrations-update-guild-integrations-update-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "ID of the guild whose integrations were updated"
+                ]
+              ]
+            ]
+          }
+        },
+        "Guild Member Add": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#guilds-guild-member-add",
+          "content": [
+            "> warn\n> If using Gateway Intents, the GUILD_MEMBERS intent will be required to receive this event.",
+            "Sent when a new user joins a guild. The inner payload is a guild member object with an extra guild_id key:",
+            "|Guild Member Add Extra Fields"
+          ],
+          "Guild Member Add Extra Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#guild-member-add-guild-member-add-extra-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "ID of the guild"
+                ]
+              ]
+            ]
+          }
+        },
+        "Guild Member Remove": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#guilds-guild-member-remove",
+          "content": [
+            "> warn\n> If using Gateway Intents, the GUILD_MEMBERS intent will be required to receive this event.",
+            "Sent when a user is removed from a guild (leave/kick/ban).",
+            "|Guild Member Remove Event Fields"
+          ],
+          "Guild Member Remove Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#guild-member-remove-guild-member-remove-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "ID of the guild"
+                ],
+                [
+                  "user",
+                  "a user object",
+                  "User who was removed"
+                ]
+              ]
+            ]
+          }
+        },
+        "Guild Member Update": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#guilds-guild-member-update",
+          "content": [
+            "> warn\n> If using Gateway Intents, the GUILD_MEMBERS intent will be required to receive this event.",
+            "Sent when a guild member is updated. This will also fire when the user object of a guild member changes.",
+            "|Guild Member Update Event Fields"
+          ],
+          "Guild Member Update Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#guild-member-update-guild-member-update-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "ID of the guild"
+                ],
+                [
+                  "roles",
+                  "array of snowflakes",
+                  "User role ids"
+                ],
+                [
+                  "user",
+                  "a user object",
+                  "User"
+                ],
+                [
+                  "nick?",
+                  "?string",
+                  "Nickname of the user in the guild"
+                ],
+                [
+                  "avatar",
+                  "?string",
+                  "Member's guild avatar hash"
+                ],
+                [
+                  "joined_at",
+                  "?ISO8601 timestamp",
+                  "When the user joined the guild"
+                ],
+                [
+                  "premium_since?",
+                  "?ISO8601 timestamp",
+                  "When the user starting boosting the guild"
+                ],
+                [
+                  "deaf?",
+                  "boolean",
+                  "Whether the user is deafened in voice channels"
+                ],
+                [
+                  "mute?",
+                  "boolean",
+                  "Whether the user is muted in voice channels"
+                ],
+                [
+                  "pending?",
+                  "boolean",
+                  "Whether the user has not yet passed the guild's Membership Screening requirements"
+                ],
+                [
+                  "communication_disabled_until?",
+                  "?ISO8601 timestamp",
+                  "When the user's timeout will expire and the user will be able to communicate in the guild again, null or a time in the past if the user is not timed out"
+                ]
+              ]
+            ]
+          }
+        },
+        "Guild Members Chunk": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#guilds-guild-members-chunk",
+          "content": [
+            "Sent in response to Guild Request Members.\nYou can use the chunk_index and chunk_count to calculate how many chunks are left for your request.",
+            "|Guild Members Chunk Event Fields"
+          ],
+          "Guild Members Chunk Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#guild-members-chunk-guild-members-chunk-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "ID of the guild"
+                ],
+                [
+                  "members",
+                  "array of guild member objects",
+                  "Set of guild members"
+                ],
+                [
+                  "chunk_index",
+                  "integer",
+                  "Chunk index in the expected chunks for this response (0 <= chunk_index < chunk_count)"
+                ],
+                [
+                  "chunk_count",
+                  "integer",
+                  "Total number of expected chunks for this response"
+                ],
+                [
+                  "not_found?",
+                  "array",
+                  "When passing an invalid ID to REQUEST_GUILD_MEMBERS, it will be returned here"
+                ],
+                [
+                  "presences?",
+                  "array of presence objects",
+                  "When passing true to REQUEST_GUILD_MEMBERS, presences of the returned members will be here"
+                ],
+                [
+                  "nonce?",
+                  "string",
+                  "Nonce used in the Guild Members Request"
+                ]
+              ]
+            ]
+          }
+        },
+        "Guild Role Create": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#guilds-guild-role-create",
+          "content": [
+            "Sent when a guild role is created.",
+            "|Guild Role Create Event Fields"
+          ],
+          "Guild Role Create Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#guild-role-create-guild-role-create-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "ID of the guild"
+                ],
+                [
+                  "role",
+                  "a role object",
+                  "Role that was created"
+                ]
+              ]
+            ]
+          }
+        },
+        "Guild Role Update": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#guilds-guild-role-update",
+          "content": [
+            "Sent when a guild role is updated.",
+            "|Guild Role Update Event Fields"
+          ],
+          "Guild Role Update Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#guild-role-update-guild-role-update-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "ID of the guild"
+                ],
+                [
+                  "role",
+                  "a role object",
+                  "Role that was updated"
+                ]
+              ]
+            ]
+          }
+        },
+        "Guild Role Delete": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#guilds-guild-role-delete",
+          "content": [
+            "Sent when a guild role is deleted.",
+            "|Guild Role Delete Event Fields"
+          ],
+          "Guild Role Delete Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#guild-role-delete-guild-role-delete-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "ID of the guild"
+                ],
+                [
+                  "role_id",
+                  "snowflake",
+                  "ID of the role"
+                ]
+              ]
+            ]
+          }
+        }
+      },
+      "Guild Scheduled Event Create": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#guild-scheduled-event-create",
+        "content": [
+          "Sent when a guild scheduled event is created. The inner payload is a guild scheduled event object."
+        ]
+      },
+      "Guild Scheduled Event Update": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#guild-scheduled-event-update",
+        "content": [
+          "Sent when a guild scheduled event is updated. The inner payload is a guild scheduled event object."
+        ]
+      },
+      "Guild Scheduled Event Delete": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#guild-scheduled-event-delete",
+        "content": [
+          "Sent when a guild scheduled event is deleted. The inner payload is a guild scheduled event object."
+        ]
+      },
+      "Guild Scheduled Event User Add": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#guild-scheduled-event-user-add",
+        "content": [
+          "Sent when a user has subscribed to a guild scheduled event.",
+          "|Guild Scheduled Event User Add Event Fields"
+        ],
+        "Guild Scheduled Event User Add Event Fields": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#guild-scheduled-event-user-add-guild-scheduled-event-user-add-event-fields",
+          "content": [
+            [
+              [
+                "Field",
+                "Type",
+                "Description"
+              ],
+              [
+                "guild_scheduled_event_id",
+                "snowflake",
+                "ID of the guild scheduled event"
+              ],
+              [
+                "user_id",
+                "snowflake",
+                "ID of the user"
+              ],
+              [
+                "guild_id",
+                "snowflake",
+                "ID of the guild"
+              ]
+            ]
+          ]
+        }
+      },
+      "Guild Scheduled Event User Remove": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#guild-scheduled-event-user-remove",
+        "content": [
+          "Sent when a user has unsubscribed from a guild scheduled event.",
+          "|Guild Scheduled Event User Remove Event Fields"
+        ],
+        "Guild Scheduled Event User Remove Event Fields": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#guild-scheduled-event-user-remove-guild-scheduled-event-user-remove-event-fields",
+          "content": [
+            [
+              [
+                "Field",
+                "Type",
+                "Description"
+              ],
+              [
+                "guild_scheduled_event_id",
+                "snowflake",
+                "ID of the guild scheduled event"
+              ],
+              [
+                "user_id",
+                "snowflake",
+                "ID of the user"
+              ],
+              [
+                "guild_id",
+                "snowflake",
+                "ID of the guild"
+              ]
+            ]
+          ]
+        }
+      },
+      "Integrations": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#integrations",
+        "content": [
+          "|Integration Create",
+          "|Integration Update",
+          "|Integration Delete"
+        ],
+        "Integration Create": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#integrations-integration-create",
+          "content": [
+            "Sent when an integration is created. The inner payload is an integration object with an additional guild_id key:",
+            "|Integration Create Event Additional Fields"
+          ],
+          "Integration Create Event Additional Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#integration-create-integration-create-event-additional-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "ID of the guild"
+                ]
+              ]
+            ]
+          }
+        },
+        "Integration Update": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#integrations-integration-update",
+          "content": [
+            "Sent when an integration is updated. The inner payload is an integration object with an additional guild_id key:",
+            "|Integration Update Event Additional Fields"
+          ],
+          "Integration Update Event Additional Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#integration-update-integration-update-event-additional-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "ID of the guild"
+                ]
+              ]
+            ]
+          }
+        },
+        "Integration Delete": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#integrations-integration-delete",
+          "content": [
+            "Sent when an integration is deleted.",
+            "|Integration Delete Event Fields"
+          ],
+          "Integration Delete Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#integration-delete-integration-delete-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "id",
+                  "snowflake",
+                  "Integration ID"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "ID of the guild"
+                ],
+                [
+                  "application_id?",
+                  "snowflake",
+                  "ID of the bot/OAuth2 application for this discord integration"
+                ]
+              ]
+            ]
+          }
+        }
+      },
+      "Invites": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#invites",
+        "content": [
+          "|Invite Create",
+          "|Invite Delete"
+        ],
+        "Invite Create": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#invites-invite-create",
+          "content": [
+            "Sent when a new invite to a channel is created.",
+            "|Invite Create Event Fields"
+          ],
+          "Invite Create Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#invite-create-invite-create-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "channel_id",
+                  "snowflake",
+                  "Channel the invite is for"
+                ],
+                [
+                  "code",
+                  "string",
+                  "Unique invite code"
+                ],
+                [
+                  "created_at",
+                  "ISO8601 timestamp",
+                  "Time at which the invite was created"
+                ],
+                [
+                  "guild_id?",
+                  "snowflake",
+                  "Guild of the invite"
+                ],
+                [
+                  "inviter?",
+                  "user object",
+                  "User that created the invite"
+                ],
+                [
+                  "max_age",
+                  "integer",
+                  "How long the invite is valid for (in seconds)"
+                ],
+                [
+                  "max_uses",
+                  "integer",
+                  "Maximum number of times the invite can be used"
+                ],
+                [
+                  "target_type?",
+                  "integer",
+                  "Type of target for this voice channel invite"
+                ],
+                [
+                  "target_user?",
+                  "user object",
+                  "User whose stream to display for this voice channel stream invite"
+                ],
+                [
+                  "target_application?",
+                  "partial application object",
+                  "Embedded application to open for this voice channel embedded application invite"
+                ],
+                [
+                  "temporary",
+                  "boolean",
+                  "Whether or not the invite is temporary (invited users will be kicked on disconnect unless they're assigned a role)"
+                ],
+                [
+                  "uses",
+                  "integer",
+                  "How many times the invite has been used (always will be 0)"
+                ]
+              ]
+            ]
+          }
+        },
+        "Invite Delete": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#invites-invite-delete",
+          "content": [
+            "Sent when an invite is deleted.",
+            "|Invite Delete Event Fields"
+          ],
+          "Invite Delete Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#invite-delete-invite-delete-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "channel_id",
+                  "snowflake",
+                  "Channel of the invite"
+                ],
+                [
+                  "guild_id?",
+                  "snowflake",
+                  "Guild of the invite"
+                ],
+                [
+                  "code",
+                  "string",
+                  "Unique invite code"
+                ]
+              ]
+            ]
+          }
+        }
+      },
+      "Messages": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#messages",
+        "content": [
+          "> warn\n> Unlike persistent messages, ephemeral messages are sent directly to the user and the bot who sent the message rather than through the guild channel. Because of this, ephemeral messages are tied to the DIRECT_MESSAGES intent, and the message object won't include guild_id or member.",
+          "|Message Create",
+          "|Message Update",
+          "|Message Delete",
+          "|Message Delete Bulk",
+          "|Message Reaction Add",
+          "|Message Reaction Remove",
+          "|Message Reaction Remove All",
+          "|Message Reaction Remove Emoji"
+        ],
+        "Message Create": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#messages-message-create",
+          "content": [
+            "Sent when a message is created. The inner payload is a message object with the following extra fields:",
+            "|Message Create Extra Fields"
+          ],
+          "Message Create Extra Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#message-create-message-create-extra-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "guild_id?",
+                  "snowflake",
+                  "ID of the guild the message was sent in - unless it is an ephemeral message"
+                ],
+                [
+                  "member?",
+                  "partial guild member object",
+                  "Member properties for this message's author. Missing for ephemeral messages and messages from webhooks"
+                ],
+                [
+                  "mentions",
+                  "array of user objects, with an additional partial member field",
+                  "Users specifically mentioned in the message"
+                ]
+              ]
+            ]
+          }
+        },
+        "Message Update": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#messages-message-update",
+          "content": [
+            "Sent when a message is updated. The inner payload is a message object with the same extra fields as MESSAGE_CREATE.",
+            "> warn\n> Unlike creates, message updates may contain only a subset of the full message object payload (but will always contain an ID and channel_id)."
+          ]
+        },
+        "Message Delete": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#messages-message-delete",
+          "content": [
+            "Sent when a message is deleted.",
+            "|Message Delete Event Fields"
+          ],
+          "Message Delete Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#message-delete-message-delete-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "id",
+                  "snowflake",
+                  "ID of the message"
+                ],
+                [
+                  "channel_id",
+                  "snowflake",
+                  "ID of the channel"
+                ],
+                [
+                  "guild_id?",
+                  "snowflake",
+                  "ID of the guild"
+                ]
+              ]
+            ]
+          }
+        },
+        "Message Delete Bulk": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#messages-message-delete-bulk",
+          "content": [
+            "Sent when multiple messages are deleted at once.",
+            "|Message Delete Bulk Event Fields"
+          ],
+          "Message Delete Bulk Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#message-delete-bulk-message-delete-bulk-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "ids",
+                  "array of snowflakes",
+                  "IDs of the messages"
+                ],
+                [
+                  "channel_id",
+                  "snowflake",
+                  "ID of the channel"
+                ],
+                [
+                  "guild_id?",
+                  "snowflake",
+                  "ID of the guild"
+                ]
+              ]
+            ]
+          }
+        },
+        "Message Reaction Add": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#messages-message-reaction-add",
+          "content": [
+            "Sent when a user adds a reaction to a message.",
+            "|Message Reaction Add Event Fields"
+          ],
+          "Message Reaction Add Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#message-reaction-add-message-reaction-add-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "user_id",
+                  "snowflake",
+                  "ID of the user"
+                ],
+                [
+                  "channel_id",
+                  "snowflake",
+                  "ID of the channel"
+                ],
+                [
+                  "message_id",
+                  "snowflake",
+                  "ID of the message"
+                ],
+                [
+                  "guild_id?",
+                  "snowflake",
+                  "ID of the guild"
+                ],
+                [
+                  "member?",
+                  "member object",
+                  "Member who reacted if this happened in a guild"
+                ],
+                [
+                  "emoji",
+                  "a partial emoji object",
+                  "Emoji used to react - example"
+                ]
+              ]
+            ]
+          }
+        },
+        "Message Reaction Remove": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#messages-message-reaction-remove",
+          "content": [
+            "Sent when a user removes a reaction from a message.",
+            "|Message Reaction Remove Event Fields"
+          ],
+          "Message Reaction Remove Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#message-reaction-remove-message-reaction-remove-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "user_id",
+                  "snowflake",
+                  "ID of the user"
+                ],
+                [
+                  "channel_id",
+                  "snowflake",
+                  "ID of the channel"
+                ],
+                [
+                  "message_id",
+                  "snowflake",
+                  "ID of the message"
+                ],
+                [
+                  "guild_id?",
+                  "snowflake",
+                  "ID of the guild"
+                ],
+                [
+                  "emoji",
+                  "a partial emoji object",
+                  "Emoji used to react - example"
+                ]
+              ]
+            ]
+          }
+        },
+        "Message Reaction Remove All": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#messages-message-reaction-remove-all",
+          "content": [
+            "Sent when a user explicitly removes all reactions from a message.",
+            "|Message Reaction Remove All Event Fields"
+          ],
+          "Message Reaction Remove All Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#message-reaction-remove-all-message-reaction-remove-all-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "channel_id",
+                  "snowflake",
+                  "ID of the channel"
+                ],
+                [
+                  "message_id",
+                  "snowflake",
+                  "ID of the message"
+                ],
+                [
+                  "guild_id?",
+                  "snowflake",
+                  "ID of the guild"
+                ]
+              ]
+            ]
+          }
+        },
+        "Message Reaction Remove Emoji": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#messages-message-reaction-remove-emoji",
+          "content": [
+            "Sent when a bot removes all instances of a given emoji from the reactions of a message.",
+            "|Message Reaction Remove Emoji Event Fields"
+          ],
+          "Message Reaction Remove Emoji Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#message-reaction-remove-emoji-message-reaction-remove-emoji-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "channel_id",
+                  "snowflake",
+                  "ID of the channel"
+                ],
+                [
+                  "guild_id?",
+                  "snowflake",
+                  "ID of the guild"
+                ],
+                [
+                  "message_id",
+                  "snowflake",
+                  "ID of the message"
+                ],
+                [
+                  "emoji",
+                  "partial emoji object",
+                  "Emoji that was removed"
+                ]
+              ]
+            ]
+          }
+        }
+      },
+      "Presence": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#presence",
+        "content": [
+          "|Presence Update",
+          "|Client Status Object",
+          "|Activity Object",
+          "|Typing Start",
+          "|User Update"
+        ],
+        "Presence Update": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#presence-presence-update",
+          "content": [
+            "> warn\n> If you are using Gateway Intents, you must specify the GUILD_PRESENCES intent in order to receive Presence Update events",
+            "A user's presence is their current state on a guild. This event is sent when a user's presence or info, such as name or avatar, is updated.",
+            "> warn\n> The user object within this event can be partial, the only field which must be sent is the id field, everything else is optional. Along with this limitation, no fields are required, and the types of the fields are not validated. Your client should expect any combination of fields and types within this event.",
+            "|Presence Update Event Fields"
+          ],
+          "Presence Update Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#presence-update-presence-update-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "user",
+                  "user object",
+                  "User whose presence is being updated"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "ID of the guild"
+                ],
+                [
+                  "status",
+                  "string",
+                  "Either \"idle\", \"dnd\", \"online\", or \"offline\""
+                ],
+                [
+                  "activities",
+                  "array of activity objects",
+                  "User's current activities"
+                ],
+                [
+                  "client_status",
+                  "client_status object",
+                  "User's platform-dependent status"
+                ]
+              ]
+            ]
+          }
+        },
+        "Client Status Object": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#presence-client-status-object",
+          "content": [
+            "Active sessions are indicated with an \"online\", \"idle\", or \"dnd\" string per platform. If a user is offline or invisible, the corresponding field is not present.",
+            [
+              [
+                "Field",
+                "Type",
+                "Description"
+              ],
+              [
+                "desktop?",
+                "string",
+                "User's status set for an active desktop (Windows, Linux, Mac) application session"
+              ],
+              [
+                "mobile?",
+                "string",
+                "User's status set for an active mobile (iOS, Android) application session"
+              ],
+              [
+                "web?",
+                "string",
+                "User's status set for an active web (browser, bot account) application session"
+              ]
+            ]
+          ]
+        },
+        "Activity Object": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#presence-activity-object",
+          "content": [
+            "|Activity Structure",
+            "|Activity Types",
+            "|Activity Timestamps",
+            "|Activity Emoji",
+            "|Activity Party",
+            "|Activity Assets",
+            "|Activity Asset Image",
+            "|Activity Secrets",
+            "|Activity Flags",
+            "|Activity Buttons",
+            "|Example Activity",
+            "|Example Activity with Rich Presence"
+          ],
+          "Activity Structure": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#activity-object-activity-structure",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "name",
+                  "string",
+                  "Activity's name"
+                ],
+                [
+                  "type",
+                  "integer",
+                  "Activity type"
+                ],
+                [
+                  "url?",
+                  "?string",
+                  "Stream URL, is validated when type is 1"
+                ],
+                [
+                  "created_at",
+                  "integer",
+                  "Unix timestamp (in milliseconds) of when the activity was added to the user's session"
+                ],
+                [
+                  "timestamps?",
+                  "timestamps object",
+                  "Unix timestamps for start and/or end of the game"
+                ],
+                [
+                  "application_id?",
+                  "snowflake",
+                  "Application ID for the game"
+                ],
+                [
+                  "details?",
+                  "?string",
+                  "What the player is currently doing"
+                ],
+                [
+                  "state?",
+                  "?string",
+                  "User's current party status"
+                ],
+                [
+                  "emoji?",
+                  "?emoji object",
+                  "Emoji used for a custom status"
+                ],
+                [
+                  "party?",
+                  "party object",
+                  "Information for the current party of the player"
+                ],
+                [
+                  "assets?",
+                  "assets object",
+                  "Images for the presence and their hover texts"
+                ],
+                [
+                  "secrets?",
+                  "secrets object",
+                  "Secrets for Rich Presence joining and spectating"
+                ],
+                [
+                  "instance?",
+                  "boolean",
+                  "Whether or not the activity is an instanced game session"
+                ],
+                [
+                  "flags?",
+                  "integer",
+                  "Activity flags ORd together, describes what the payload includes"
+                ],
+                [
+                  "buttons?",
+                  "array of buttons",
+                  "Custom buttons shown in the Rich Presence (max 2)"
+                ]
+              ],
+              "> info\n> Bots are only able to send name, type, and optionally url."
+            ]
+          },
+          "Activity Types": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#activity-object-activity-types",
+            "content": [
+              [
+                [
+                  "ID",
+                  "Name",
+                  "Format",
+                  "Example"
+                ],
+                [
+                  "0",
+                  "Game",
+                  "Playing {name}",
+                  "\"Playing Rocket League\""
+                ],
+                [
+                  "1",
+                  "Streaming",
+                  "Streaming {details}",
+                  "\"Streaming Rocket League\""
+                ],
+                [
+                  "2",
+                  "Listening",
+                  "Listening to {name}",
+                  "\"Listening to Spotify\""
+                ],
+                [
+                  "3",
+                  "Watching",
+                  "Watching {name}",
+                  "\"Watching YouTube Together\""
+                ],
+                [
+                  "4",
+                  "Custom",
+                  "{emoji} {name}",
+                  "\":smiley: I am cool\""
+                ],
+                [
+                  "5",
+                  "Competing",
+                  "Competing in {name}",
+                  "\"Competing in Arena World Champions\""
+                ]
+              ],
+              "> info\n> The streaming type currently only supports Twitch and YouTube. Only https://twitch.tv/ and https://youtube.com/ urls will work."
+            ]
+          },
+          "Activity Timestamps": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#activity-object-activity-timestamps",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "start?",
+                  "integer",
+                  "Unix time (in milliseconds) of when the activity started"
+                ],
+                [
+                  "end?",
+                  "integer",
+                  "Unix time (in milliseconds) of when the activity ends"
+                ]
+              ]
+            ]
+          },
+          "Activity Emoji": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#activity-object-activity-emoji",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "name",
+                  "string",
+                  "Name of the emoji"
+                ],
+                [
+                  "id?",
+                  "snowflake",
+                  "ID of the emoji"
+                ],
+                [
+                  "animated?",
+                  "boolean",
+                  "Whether the emoji is animated"
+                ]
+              ]
+            ]
+          },
+          "Activity Party": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#activity-object-activity-party",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "id?",
+                  "string",
+                  "ID of the party"
+                ],
+                [
+                  "size?",
+                  "array of two integers (current_size, max_size)",
+                  "Used to show the party's current and maximum size"
+                ]
+              ]
+            ]
+          },
+          "Activity Assets": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#activity-object-activity-assets",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "large_image?",
+                  "string",
+                  "See Activity Asset Image"
+                ],
+                [
+                  "large_text?",
+                  "string",
+                  "Text displayed when hovering over the large image of the activity"
+                ],
+                [
+                  "small_image?",
+                  "string",
+                  "See Activity Asset Image"
+                ],
+                [
+                  "small_text?",
+                  "string",
+                  "Text displayed when hovering over the small image of the activity"
+                ]
+              ]
+            ]
+          },
+          "Activity Asset Image": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#activity-object-activity-asset-image",
+            "content": [
+              "Activity asset images are arbitrary strings which usually contain snowflake IDs or prefixed image IDs. Treat data within this field carefully, as it is user-specifiable and not sanitized.",
+              "To use an external image via media proxy, specify the URL as the field's value when sending. You will only receive the mp: prefix via the gateway.",
+              [
+                [
+                  "Type",
+                  "Format",
+                  "Image URL"
+                ],
+                [
+                  "Application Asset",
+                  "{application_asset_id}",
+                  "See Application Asset Image Formatting"
+                ],
+                [
+                  "Media Proxy Image",
+                  "mp:{image_id}",
+                  "https://media.discordapp.net/{image_id}"
+                ]
+              ]
+            ]
+          },
+          "Activity Secrets": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#activity-object-activity-secrets",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "join?",
+                  "string",
+                  "Secret for joining a party"
+                ],
+                [
+                  "spectate?",
+                  "string",
+                  "Secret for spectating a game"
+                ],
+                [
+                  "match?",
+                  "string",
+                  "Secret for a specific instanced match"
+                ]
+              ]
+            ]
+          },
+          "Activity Flags": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#activity-object-activity-flags",
+            "content": [
+              [
+                [
+                  "Name",
+                  "Value"
+                ],
+                [
+                  "INSTANCE",
+                  "1 << 0"
+                ],
+                [
+                  "JOIN",
+                  "1 << 1"
+                ],
+                [
+                  "SPECTATE",
+                  "1 << 2"
+                ],
+                [
+                  "JOIN_REQUEST",
+                  "1 << 3"
+                ],
+                [
+                  "SYNC",
+                  "1 << 4"
+                ],
+                [
+                  "PLAY",
+                  "1 << 5"
+                ],
+                [
+                  "PARTY_PRIVACY_FRIENDS",
+                  "1 << 6"
+                ],
+                [
+                  "PARTY_PRIVACY_VOICE_CHANNEL",
+                  "1 << 7"
+                ],
+                [
+                  "EMBEDDED",
+                  "1 << 8"
+                ]
+              ]
+            ]
+          },
+          "Activity Buttons": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#activity-object-activity-buttons",
+            "content": [
+              "When received over the gateway, the buttons field is an array of strings, which are the button labels. Bots cannot access a user's activity button URLs. When sending, the buttons field must be an array of the below object:",
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "label",
+                  "string",
+                  "Text shown on the button (1-32 characters)"
+                ],
+                [
+                  "url",
+                  "string",
+                  "URL opened when clicking the button (1-512 characters)"
+                ]
+              ]
+            ]
+          },
+          "Example Activity": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#activity-object-example-activity",
+            "content": [
+              {
+                "language": "json",
+                "code": "{\n  \"details\": \"24H RL Stream for Charity\",\n  \"state\": \"Rocket League\",\n  \"name\": \"Twitch\",\n  \"type\": 1,\n  \"url\": \"https://www.twitch.tv/discord\"\n}\n"
+              }
+            ]
+          },
+          "Example Activity with Rich Presence": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#activity-object-example-activity-with-rich-presence",
+            "content": [
+              {
+                "language": "json",
+                "code": "{\n  \"name\": \"Rocket League\",\n  \"type\": 0,\n  \"application_id\": \"379286085710381999\",\n  \"state\": \"In a Match\",\n  \"details\": \"Ranked Duos: 2-1\",\n  \"timestamps\": {\n    \"start\": 15112000660000\n  },\n  \"party\": {\n    \"id\": \"9dd6594e-81b3-49f6-a6b5-a679e6a060d3\",\n    \"size\": [2, 2]\n  },\n  \"assets\": {\n    \"large_image\": \"351371005538729000\",\n    \"large_text\": \"DFH Stadium\",\n    \"small_image\": \"351371005538729111\",\n    \"small_text\": \"Silver III\"\n  },\n  \"secrets\": {\n    \"join\": \"025ed05c71f639de8bfaa0d679d7c94b2fdce12f\",\n    \"spectate\": \"e7eb30d2ee025ed05c71ea495f770b76454ee4e0\",\n    \"match\": \"4b2fdce12f639de8bfa7e3591b71a0d679d7c93f\"\n  }\n}\n"
+              },
+              "> warn\n> Clients may only update their game status 5 times per 20 seconds."
+            ]
+          }
+        },
+        "Typing Start": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#presence-typing-start",
+          "content": [
+            "Sent when a user starts typing in a channel.",
+            "|Typing Start Event Fields"
+          ],
+          "Typing Start Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#typing-start-typing-start-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "channel_id",
+                  "snowflake",
+                  "ID of the channel"
+                ],
+                [
+                  "guild_id?",
+                  "snowflake",
+                  "ID of the guild"
+                ],
+                [
+                  "user_id",
+                  "snowflake",
+                  "ID of the user"
+                ],
+                [
+                  "timestamp",
+                  "integer",
+                  "Unix time (in seconds) of when the user started typing"
+                ],
+                [
+                  "member?",
+                  "member object",
+                  "Member who started typing if this happened in a guild"
+                ]
+              ]
+            ]
+          }
+        },
+        "User Update": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#presence-user-update",
+          "content": [
+            "Sent when properties about the user change. Inner payload is a user object."
+          ]
+        }
+      },
+      "Voice": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#voice",
+        "content": [
+          "|Voice State Update",
+          "|Voice Server Update"
+        ],
+        "Voice State Update": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#voice-voice-state-update",
+          "content": [
+            "Sent when someone joins/leaves/moves voice channels. Inner payload is a voice state object."
+          ]
+        },
+        "Voice Server Update": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#voice-voice-server-update",
+          "content": [
+            "Sent when a guild's voice server is updated. This is sent when initially connecting to voice, and when the current voice instance fails over to a new server.",
+            "> warn\n> A null endpoint means that the voice server allocated has gone away and is trying to be reallocated. You should attempt to disconnect from the currently connected voice server, and not attempt to reconnect until a new voice server is allocated.",
+            "|Voice Server Update Event Fields",
+            "|Example Voice Server Update Payload"
+          ],
+          "Voice Server Update Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#voice-server-update-voice-server-update-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "token",
+                  "string",
+                  "Voice connection token"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "Guild this voice server update is for"
+                ],
+                [
+                  "endpoint",
+                  "?string",
+                  "Voice server host"
+                ]
+              ]
+            ]
+          },
+          "Example Voice Server Update Payload": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#voice-server-update-example-voice-server-update-payload",
+            "content": [
+              {
+                "language": "json",
+                "code": "{\n  \"token\": \"my_token\",\n  \"guild_id\": \"41771983423143937\",\n  \"endpoint\": \"smart.loyal.discord.gg\"\n}\n"
+              }
+            ]
+          }
+        }
+      },
+      "Webhooks": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#webhooks",
+        "content": [
+          "|Webhooks Update"
+        ],
+        "Webhooks Update": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#webhooks-webhooks-update",
+          "content": [
+            "Sent when a guild channel's webhook is created, updated, or deleted.",
+            "|Webhooks Update Event Fields"
+          ],
+          "Webhooks Update Event Fields": {
+            "level": 6,
+            "url": "https://discord.com/developers/docs/topics/gateway-events#webhooks-update-webhooks-update-event-fields",
+            "content": [
+              [
+                [
+                  "Field",
+                  "Type",
+                  "Description"
+                ],
+                [
+                  "guild_id",
+                  "snowflake",
+                  "ID of the guild"
+                ],
+                [
+                  "channel_id",
+                  "snowflake",
+                  "ID of the channel"
+                ]
+              ]
+            ]
+          }
+        }
+      },
+      "Interactions": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#interactions",
+        "content": [
+          "|Interaction Create"
+        ],
+        "Interaction Create": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#interactions-interaction-create",
+          "content": [
+            "Sent when a user uses an Application Command or Message Component. Inner payload is an Interaction."
+          ]
+        }
+      },
+      "Stage Instances": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/topics/gateway-events#stage-instances",
+        "content": [
+          "|Stage Instance Create",
+          "|Stage Instance Update",
+          "|Stage Instance Delete"
+        ],
+        "Stage Instance Create": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#stage-instances-stage-instance-create",
+          "content": [
+            "Sent when a Stage instance is created (i.e. the Stage is now \"live\"). Inner payload is a Stage instance"
+          ]
+        },
+        "Stage Instance Update": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#stage-instances-stage-instance-update",
+          "content": [
+            "Sent when a Stage instance has been updated. Inner payload is a Stage instance"
+          ]
+        },
+        "Stage Instance Delete": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#stage-instances-stage-instance-delete",
+          "content": [
+            "Sent when a Stage instance has been deleted (i.e. the Stage has been closed). Inner payload is a Stage instance"
+          ]
+        }
+      }
+    }
+  }
+}

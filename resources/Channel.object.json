@@ -56,7 +56,7 @@
       "optional": true,
       "nullable": true,
       "comments": {
-        "Description": "the channel topic (0-1024 characters)"
+        "Description": "the channel topic (0-4096 characters for GUILD_FORUM channels, 0-1024 characters for all others)"
       }
     },
     "nsfw": {
@@ -97,7 +97,7 @@
       "nullable": false,
       "comments": {
         "Description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel, are unaffected",
-        "Name Note": "rate_limit_per_user also applies to thread creation. Users can send one message and create one thread during each rate_limit_per_user interval."
+        "Name Note": "rate_limit_per_user also applies to thread creation. Users can send one message and create one thread during each rate_limit_per_user interval.\n** For threads created before July 1, 2022, the message count is inaccurate when it's greater than 50."
       }
     },
     "recipients": {
@@ -169,7 +169,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "number of messages (not including the initial message or deleted messages) in a thread (if the thread was created before July 1, 2022, it stops counting at 50)"
+        "Description": "number of messages (not including the initial message or deleted messages) in a thread."
       }
     },
     "member_count": {
@@ -227,6 +227,46 @@
       "comments": {
         "Description": "number of messages ever sent in a thread, it's similar to message_count on message creation, but will not decrement the number when a message is deleted"
       }
+    },
+    "available_tags": {
+      "type": "array of tag objects",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "the set of tags that can be used in a GUILD_FORUM channel"
+      }
+    },
+    "applied_tags": {
+      "type": "array of snowflakes",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "the IDs of the set of tags that have been applied to a thread in a GUILD_FORUM channel"
+      }
+    },
+    "default_reaction_emoji": {
+      "type": "default reaction object",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "the emoji to show in the add reaction button on a thread in a GUILD_FORUM channel"
+      }
+    },
+    "default_thread_rate_limit_per_user": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "the initial rate_limit_per_user to set on newly created threads in a channel. this field is copied to the thread at creation time and does not live update."
+      }
+    },
+    "default_sort_order": {
+      "type": "integer",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "the default sort order type used to order posts in GUILD_FORUM channels. Defaults to null, which indicates a preferred sort order hasn't been set by a channel admin"
+      }
     }
   },
   "Message": {
@@ -263,7 +303,8 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "contents of the message"
+        "Description": "contents of the message",
+        "Name Note": "An app will receive empty values in the content, embeds, attachments, and components fields if they have not configured (or been approved for) the MESSAGE_CONTENT privileged intent (1 << 15)."
       }
     },
     "timestamp": {
@@ -328,7 +369,8 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "any attached files"
+        "Description": "any attached files",
+        "Name Note": "An app will receive empty values in the content, embeds, attachments, and components fields if they have not configured (or been approved for) the MESSAGE_CONTENT privileged intent (1 << 15)."
       }
     },
     "embeds": {
@@ -336,7 +378,8 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "any embedded content"
+        "Description": "any embedded content",
+        "Name Note": "An app will receive empty values in the content, embeds, attachments, and components fields if they have not configured (or been approved for) the MESSAGE_CONTENT privileged intent (1 << 15)."
       }
     },
     "reactions": {
@@ -449,7 +492,8 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "sent if the message contains components like buttons, action rows, or other interactive components"
+        "Description": "sent if the message contains components like buttons, action rows, or other interactive components",
+        "Name Note": "An app will receive empty values in the content, embeds, attachments, and components fields if they have not configured (or been approved for) the MESSAGE_CONTENT privileged intent (1 << 15)."
       }
     },
     "sticker_items": {
@@ -473,7 +517,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "A generally increasing integer (there may be gaps or duplicates) that represents the approximate position of the message in a thread, it can be used to estimate the relative position of the messsage in a thread in company with total_message_sent on parent thread"
+        "Description": "A generally increasing integer (there may be gaps or duplicates) that represents the approximate position of the message in a thread, it can be used to estimate the relative position of the message in a thread in company with total_message_sent on parent thread"
       }
     }
   },
@@ -685,7 +729,8 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "the id of the thread"
+        "Description": "the id of the thread",
+        "Name Note": "These fields are omitted on the member sent within each thread in the GUILD_CREATE event"
       }
     },
     "user_id": {
@@ -693,7 +738,8 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "the id of the user"
+        "Description": "the id of the user",
+        "Name Note": "These fields are omitted on the member sent within each thread in the GUILD_CREATE event"
       }
     },
     "join_timestamp": {
@@ -710,6 +756,74 @@
       "nullable": false,
       "comments": {
         "Description": "any user-thread settings, currently only used for notifications"
+      }
+    }
+  },
+  "Default Reaction": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#default-reaction-object-default-reaction-structure"
+    },
+    "emoji_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "the id of a guild's custom emoji"
+      }
+    },
+    "emoji_name": {
+      "type": "string",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "the unicode character of the emoji"
+      }
+    }
+  },
+  "Forum Tag": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#forum-tag-object-forum-tag-structure"
+    },
+    "id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the id of the tag"
+      }
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the name of the tag (0-20 characters)"
+      }
+    },
+    "moderated": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether this tag can only be added to or removed from threads by a member with the MANAGE_THREADS permission"
+      }
+    },
+    "emoji_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the id of a guild's custom emoji",
+        "Description Note": "At most one of emoji_id and emoji_name may be set."
+      }
+    },
+    "emoji_name": {
+      "type": "string",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "the unicode character of the emoji",
+        "Description Note": "At most one of emoji_id and emoji_name may be set."
       }
     }
   },
@@ -1266,8 +1380,8 @@
       "optional": false,
       "nullable": true,
       "comments": {
-        "Description": "0-1024 character channel topic",
-        "Channel Type": "Text, Announcement"
+        "Description": "0-1024 character channel topic (0-4096 characters for GUILD_FORUM channels)",
+        "Channel Type": "Text, Announcement, Forum"
       }
     },
     "nsfw": {
@@ -1276,7 +1390,7 @@
       "nullable": true,
       "comments": {
         "Description": "whether the channel is nsfw",
-        "Channel Type": "Text, Voice, Announcement"
+        "Channel Type": "Text, Voice, Announcement, Forum"
       }
     },
     "rate_limit_per_user": {
@@ -1285,7 +1399,7 @@
       "nullable": true,
       "comments": {
         "Description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel, are unaffected",
-        "Channel Type": "Text"
+        "Channel Type": "Text, Forum"
       }
     },
     "bitrate": {
@@ -1323,7 +1437,7 @@
       "nullable": true,
       "comments": {
         "Description": "id of the new parent category for a channel",
-        "Channel Type": "Text, Voice, Announcement"
+        "Channel Type": "Text, Voice, Announcement, Forum"
       }
     },
     "rtc_region": {
@@ -1350,7 +1464,52 @@
       "nullable": true,
       "comments": {
         "Description": "the default duration that the clients use (not the API) for newly created threads in the channel, in minutes, to automatically archive the thread after recent activity",
-        "Channel Type": "Text, Announcement"
+        "Channel Type": "Text, Announcement, Forum"
+      }
+    },
+    "flags": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "channel flags combined as a bitfield. Currently only REQUIRE_TAG (1 << 4) is supported.",
+        "Channel Type": "Forum"
+      }
+    },
+    "available_tags": {
+      "type": "array of tag objects",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "the set of tags that can be used in a GUILD_FORUM channel",
+        "Channel Type": "Forum"
+      }
+    },
+    "default_reaction_emoji": {
+      "type": "default reaction object",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "the emoji to show in the add reaction button on a thread in a GUILD_FORUM channel",
+        "Channel Type": "Forum"
+      }
+    },
+    "default_thread_rate_limit_per_user": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "the initial rate_limit_per_user to set on newly created threads in a channel. this field is copied to the thread at creation time and does not live update.",
+        "Channel Type": "Text, Forum"
+      }
+    },
+    "default_sort_order": {
+      "type": "integer",
+      "optional": true,
+      "nullable": true,
+      "comments": {
+        "Description": "the default sort order type used to order posts in GUILD_FORUM channels",
+        "Channel Type": "Forum"
       }
     }
   },
@@ -1413,6 +1572,14 @@
       "comments": {
         "Description": "channel flags combined as a bitfield; PINNED can only be set for threads in forum channels"
       }
+    },
+    "applied_tags": {
+      "type": "array of snowflakes",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "the IDs of the set of tags that have been applied to a thread in a GUILD_FORUM channel"
+      }
     }
   },
   "Forum Thread Message Params": {
@@ -1425,7 +1592,7 @@
       "nullable": false,
       "comments": {
         "Description": "Message contents (up to 2000 characters)",
-        "Name Note": "At least one of content, embeds, files[n], or sticker_ids is required."
+        "Name Note": "At least one of content, embeds, sticker_ids, components, or files[n] is required."
       }
     },
     "embeds": {
@@ -1433,7 +1600,8 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "Embedded rich content (up to 6000 characters)"
+        "Description": "Embedded rich content (up to 6000 characters)",
+        "Name Note": "At least one of content, embeds, sticker_ids, components, or files[n] is required."
       }
     },
     "allowed_mentions": {
@@ -1449,7 +1617,8 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "Components to include with the message"
+        "Description": "Components to include with the message",
+        "Name Note": "At least one of content, embeds, sticker_ids, components, or files[n] is required."
       }
     },
     "sticker_ids": {
@@ -1458,7 +1627,7 @@
       "nullable": false,
       "comments": {
         "Description": "IDs of up to 3 stickers in the server to send in the message",
-        "Name Note": "At least one of content, embeds, files[n], or sticker_ids is required."
+        "Name Note": "At least one of content, embeds, sticker_ids, components, or files[n] is required."
       }
     },
     "files[n]": {
@@ -1467,7 +1636,7 @@
       "nullable": false,
       "comments": {
         "Description": "Contents of the file being sent. See Uploading Files",
-        "Name Note": "At least one of content, embeds, files[n], or sticker_ids is required."
+        "Name Note": "At least one of content, embeds, sticker_ids, components, or files[n] is required."
       }
     },
     "payload_json": {

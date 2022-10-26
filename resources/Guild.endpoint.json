@@ -81,7 +81,7 @@
         "optional": true,
         "nullable": false,
         "comments": {
-          "Description": "afk timeout in seconds"
+          "Description": "afk timeout in seconds, can be set to: 60, 300, 900, 1800, 3600"
         }
       },
       "system_channel_id": {
@@ -197,7 +197,7 @@
         "optional": false,
         "nullable": false,
         "comments": {
-          "Description": "afk timeout in seconds"
+          "Description": "afk timeout in seconds, can be set to: 60, 300, 900, 1800, 3600"
         }
       },
       "icon": {
@@ -440,6 +440,30 @@
         "nullable": false,
         "comments": {
           "Description": "the default duration that the clients use (not the API) for newly created threads in the channel, in minutes, to automatically archive the thread after recent activity"
+        }
+      },
+      "default_reaction_emoji": {
+        "type": "default reaction object",
+        "optional": false,
+        "nullable": false,
+        "comments": {
+          "Description": "emoji to show in the add reaction button on a thread in a GUILD_FORUM channel"
+        }
+      },
+      "available_tags": {
+        "type": "array of tag objects",
+        "optional": false,
+        "nullable": false,
+        "comments": {
+          "Description": "set of tags that can be used in a GUILD_FORUM channel"
+        }
+      },
+      "default_sort_order": {
+        "type": "integer",
+        "optional": false,
+        "nullable": false,
+        "comments": {
+          "Description": "the default sort order type used to order posts in GUILD_FORUM channels"
         }
       }
     }
@@ -912,7 +936,7 @@
         "optional": false,
         "nullable": false,
         "comments": {
-          "Description": "name of the role",
+          "Description": "name of the role, max 100 characters",
           "Default": "\"new role\""
         }
       },
@@ -1018,7 +1042,7 @@
         "optional": false,
         "nullable": false,
         "comments": {
-          "Description": "name of the role"
+          "Description": "name of the role, max 100 characters"
         }
       },
       "permissions": {

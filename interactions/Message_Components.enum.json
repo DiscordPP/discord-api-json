@@ -40,13 +40,13 @@
     "Short": {
       "value": "1",
       "comments": {
-        "Description": "A single-line input"
+        "Description": "Single-line input"
       }
     },
     "Paragraph": {
       "value": "2",
       "comments": {
-        "Description": "A multi-line input"
+        "Description": "Multi-line input"
       }
     }
   }

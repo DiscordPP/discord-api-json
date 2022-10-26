@@ -106,7 +106,15 @@
         "nullable": false,
         "comments": {
           "Description": "Message contents (up to 2000 characters)",
-          "Name Note": "At least one of content, embeds, sticker_ids, or files[n] is required."
+          "Name Note": "At least one of content, embeds, sticker_ids, components, or files[n] is required."
+        }
+      },
+      "nonce": {
+        "type": "integer or string",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "Can be used to verify a message was sent (up to 25 characters). Value will appear in the Message Create event."
         }
       },
       "tts": {
@@ -123,7 +131,7 @@
         "nullable": false,
         "comments": {
           "Description": "Embedded rich content (up to 6000 characters)",
-          "Name Note": "At least one of content, embeds, sticker_ids, or files[n] is required."
+          "Name Note": "At least one of content, embeds, sticker_ids, components, or files[n] is required."
         }
       },
       "allowed_mentions": {
@@ -147,7 +155,8 @@
         "optional": true,
         "nullable": false,
         "comments": {
-          "Description": "Components to include with the message"
+          "Description": "Components to include with the message",
+          "Name Note": "At least one of content, embeds, sticker_ids, components, or files[n] is required."
         }
       },
       "sticker_ids": {
@@ -156,7 +165,7 @@
         "nullable": false,
         "comments": {
           "Description": "IDs of up to 3 stickers in the server to send in the message",
-          "Name Note": "At least one of content, embeds, sticker_ids, or files[n] is required."
+          "Name Note": "At least one of content, embeds, sticker_ids, components, or files[n] is required."
         }
       },
       "files[n]": {
@@ -165,7 +174,7 @@
         "nullable": false,
         "comments": {
           "Description": "Contents of the file being sent. See Uploading Files",
-          "Name Note": "At least one of content, embeds, sticker_ids, or files[n] is required."
+          "Name Note": "At least one of content, embeds, sticker_ids, components, or files[n] is required."
         }
       },
       "payload_json": {
@@ -814,6 +823,14 @@
         "nullable": false,
         "comments": {
           "Description": "contents of the first message in the forum thread"
+        }
+      },
+      "applied_tags": {
+        "type": "array of snowflakes",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "the IDs of the set of tags that have been applied to a thread in a GUILD_FORUM channel"
         }
       }
     }

@@ -99,7 +99,7 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "afk timeout in seconds"
+        "Description": "afk timeout in seconds, can be set to: 60, 300, 900, 1800, 3600"
       }
     },
     "widget_enabled": {

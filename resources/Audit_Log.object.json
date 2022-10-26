@@ -143,13 +143,31 @@
         "Event Types": "APPLICATION_COMMAND_PERMISSION_UPDATE"
       }
     },
+    "auto_moderation_rule_name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Name of the Auto Moderation rule that was triggered",
+        "Event Types": "AUTO_MODERATION_BLOCK_MESSAGE & AUTO_MODERATION_FLAG_TO_CHANNEL & AUTO_MODERATION_USER_COMMUNICATION_DISABLED"
+      }
+    },
+    "auto_moderation_rule_trigger_type": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "Trigger type of the Auto Moderation rule that was triggered",
+        "Event Types": "AUTO_MODERATION_BLOCK_MESSAGE & AUTO_MODERATION_FLAG_TO_CHANNEL & AUTO_MODERATION_USER_COMMUNICATION_DISABLED"
+      }
+    },
     "channel_id": {
       "type": "snowflake",
       "optional": false,
       "nullable": false,
       "comments": {
         "Description": "Channel in which the entities were targeted",
-        "Event Types": "MEMBER_MOVE & MESSAGE_PIN & MESSAGE_UNPIN & MESSAGE_DELETE & STAGE_INSTANCE_CREATE & STAGE_INSTANCE_UPDATE & STAGE_INSTANCE_DELETE"
+        "Event Types": "MEMBER_MOVE & MESSAGE_PIN & MESSAGE_UNPIN & MESSAGE_DELETE & STAGE_INSTANCE_CREATE & STAGE_INSTANCE_UPDATE & STAGE_INSTANCE_DELETE & AUTO_MODERATION_BLOCK_MESSAGE & AUTO_MODERATION_FLAG_TO_CHANNEL & AUTO_MODERATION_USER_COMMUNICATION_DISABLED"
       }
     },
     "count": {

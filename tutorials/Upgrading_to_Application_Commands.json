@@ -6,7 +6,7 @@
     "level": 1,
     "url": "https://discord.com/developers/docs/tutorials/upgrading-to-application-commands#upgrading-apps-to-use-application-commands",
     "content": [
-      "As message content becomes a privileged intent for apps in 75 or more servers, application commands will become the primary way Discord users interact with apps. The three types of commands (slash commands, user commands, and message commands) act as entry points into apps, and can be registered globally or for a subset of guilds.",
+      "As message content has become a privileged intent for verified apps, application commands are the primary way Discord users interact with apps. The three types of commands (slash commands, user commands, and message commands) act as entry points into apps, and can be registered globally or for a subset of guilds.",
       "This guide is intended to provide developers with apps currently using message content with a resource to walk through implementing and designing commands. Throughout the guide, the terms \"application commands\" and \"commands\" are used interchangeably.",
       "Client interfaces showing the different types of application commands",
       "> info\n> If you are developing an app for the first time, the commands documentation may be a more helpful resource for you.",
@@ -151,7 +151,7 @@
       "url": "https://discord.com/developers/docs/tutorials/upgrading-to-application-commands#handling-commands",
       "content": [
         "Commands use the interactions model through HTTP-based outgoing webhooks or the WebSocket-based Interaction Create gateway event. Regardless of the transit method used to arrive, your app will receive relevant information when a Discord user triggers one of your app\u2019s interactions.",
-        "> warn\n> If you continue using gateway events, you\u2019ll still receive message events but the payload will have empty string or array data for message content-related fields\u2014like content, embeds, attachments, and components. You can read more about the changes to these events in the original announcement.",
+        "> warn\n> If you continue using Gateway events, you\u2019ll still receive message events but the payloads will have empty string or array data for message content-related fields like content, embeds, attachments, and components. You can read more in the message content intent section.",
         "For commands, this means that each time one of your commands is used, your app will receive information like the command name and the user who triggered it. More information about this information is below in the section on parsing command payloads.",
         "|Adding an Interactions Endpoint URL",
         "|Parsing Command Payloads",
@@ -161,7 +161,7 @@
         "level": 3,
         "url": "https://discord.com/developers/docs/tutorials/upgrading-to-application-commands#adding-an-interactions-endpoint-url",
         "content": [
-          "> info\n> This step is specific to receiving interactions over HTTP. If you prefer to use Gateways, this step won't be applicable to your app.",
+          "> info\n> This step is specific to receiving interactions over HTTP. If you prefer to use the Gateway, this step won't be applicable to your app.",
           "Before your app can receive interactions, you\u2019ll need to set up an Interaction Endpoint URL in your app settings. This endpoint should be a public URL where Discord can send all interactions-related requests.",
           "However, before adding your URL to your app settings, your endpoint must be set up to handle two things:",
           [
@@ -279,7 +279,6 @@
       "content": [
         "Once you\u2019ve implemented slash commands (or really any feature for your app), it can be helpful to onboard existing and new users. While every app on Discord is unique, this section tries to generalize some good onboarding strategies, specifically to send updates to existing users.",
         "|Communicating App Updates to Users",
-        "|Adding Reactive Education",
         "|Making Help Available"
       ],
       "Communicating App Updates to Users": {
@@ -298,24 +297,6 @@
           "content": [
             "The following is an example of an app update that may be sent to communicate the new way to access commands. Depending on the different features your app adopts (like options, subcommands, permissions, etc.), an update message or changelog entry will look very different.",
             "Example message updating users about a new feature"
-          ]
-        }
-      },
-      "Adding Reactive Education": {
-        "level": 3,
-        "url": "https://discord.com/developers/docs/tutorials/upgrading-to-application-commands#adding-reactive-education",
-        "content": [
-          "In addition to proactively communicating changes, you can reactively educate users when making changes to your app.",
-          "For example, if your app currently replies to messages that start with !poll, you can continue listening to those messages for a couple of weeks and redirect users to a new /poll command. Or you can continue responding to the !poll command, but include a disclaimer that support for it will soon be removed.",
-          "Note that for message intents specifically, this approach only works between now and the August deadline.",
-          "|Example"
-        ],
-        "Example": {
-          "level": 4,
-          "url": "https://discord.com/developers/docs/tutorials/upgrading-to-application-commands#adding-reactive-education-example",
-          "content": [
-            "The following is an example of a message that appears when a user tries to use a prefix command.",
-            "Example message in response to using a deprecated feature"
           ]
         }
       },

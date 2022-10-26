@@ -704,7 +704,7 @@
     "Create Interaction Response": {
       "level": 2,
       "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#create-interaction-response",
-      "endpoint": "POST /interactions/{interaction.id#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/callback",
+      "endpoint": "POST /interactions/{interaction.id#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/callback",
       "content": [
         "Create a response to an Interaction from the gateway. Body is an interaction response. Returns 204 No Content.",
         "This endpoint also supports file attachments similar to the webhook endpoints. Refer to Uploading Files for details on uploading files and multipart/form-data requests."
@@ -731,7 +731,7 @@
       "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#delete-original-interaction-response",
       "endpoint": "DELETE /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/messages/@original",
       "content": [
-        "Deletes the initial Interaction response. Returns 204 No Content on success. Does not support ephemeral followups."
+        "Deletes the initial Interaction response. Returns 204 No Content on success."
       ]
     },
     "Create Followup Message": {
@@ -764,7 +764,7 @@
       "url": "https://discord.com/developers/docs/interactions/receiving-and-responding#delete-followup-message",
       "endpoint": "DELETE /webhooks/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/{interaction.token#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/interaction-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
       "content": [
-        "Deletes a followup message for an Interaction. Returns 204 No Content on success. Does not support ephemeral followups."
+        "Deletes a followup message for an Interaction. Returns 204 No Content on success."
       ]
     }
   }

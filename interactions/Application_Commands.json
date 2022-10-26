@@ -586,8 +586,7 @@
             ],
             "To allow for fine-tuned access to commands, application command permissions are supported for guild and global commands of all types. Guild members and apps with the necessary permissions can allow or deny specific users and roles from using a command, or toggle commands for entire channels.",
             "Similar to how threads inherit user and role permissions from the parent channel, any command permissions for a channel will apply to the threads it contains.",
-            "> info\n> If you don't have permission to use a command, it will not show up in the command picker. Members with the Administrator permission can use all commands.",
-            "> warn\n> Currently, on Android clients, commands that users don't have access to will appear in the command picker, but will be disabled and unusable. Global commands can also take up to an hour to update for Android users."
+            "> info\n> If you don't have permission to use a command, it will not show up in the command picker. Members with the Administrator permission can use all commands."
           ]
         },
         "Using Default Permissions": {
@@ -860,7 +859,7 @@
       "endpoint": "POST /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/commands",
       "content": [
         "> danger\n> Creating a command with the same name as an existing command for your application will overwrite the old command.",
-        "Create a new global command. Returns 201 and an application command object.",
+        "Create a new global command. Returns 201 if a command with the same name does not already exist, or a 200 if it does (in which case the previous command will be overwritten). Both responses include an application command object.",
         "|JSON Params"
       ],
       "JSON Params": {
@@ -884,9 +883,9 @@
               "Localization dictionary for the name field. Values follow the same restrictions as name"
             ],
             [
-              "description",
+              "description?",
               "string",
-              "1-100 character description"
+              "1-100 character description for CHAT_INPUT commands"
             ],
             [
               "description_localizations?",
@@ -911,8 +910,7 @@
             [
               "default_permission?",
               "boolean (default true)",
-              "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild.",
-              ""
+              "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild."
             ],
             [
               "type?",
@@ -1046,7 +1044,7 @@
       "endpoint": "POST /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands",
       "content": [
         "> danger\n> Creating a command with the same name as an existing command for your application will overwrite the old command.",
-        "Create a new guild command. New guild commands will be available in the guild immediately. Returns 201 and an application command object. If the command did not already exist, it will count toward daily application command create limits.",
+        "Create a new guild command. New guild commands will be available in the guild immediately. Returns 201 if a command with the same name does not already exist, or a 200 if it does (in which case the previous command will be overwritten). Both responses include an application command object.",
         "|JSON Params"
       ],
       "JSON Params": {
@@ -1070,9 +1068,9 @@
               "Localization dictionary for the name field. Values follow the same restrictions as name"
             ],
             [
-              "description",
+              "description?",
               "string",
-              "1-100 character description"
+              "1-100 character description for CHAT_INPUT commands"
             ],
             [
               "description_localizations?",
@@ -1092,8 +1090,7 @@
             [
               "default_permission?",
               "boolean (default true)",
-              "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild.",
-              ""
+              "Replaced by default_member_permissions and will be deprecated in the future. Indicates whether the command is enabled by default when the app is added to a guild."
             ],
             [
               "type?",
@@ -1273,7 +1270,7 @@
       "endpoint": "PUT /applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/commands/{command.id#DOCS_INTERACTIONS_APPLICATION_COMMANDS/application-command-object}/permissions",
       "content": [
         "> warn\n> This endpoint will overwrite existing permissions for the command in that guild",
-        "Edits command permissions for a specific command for your application in a guild and returns a guild application command permissions object.",
+        "Edits command permissions for a specific command for your application in a guild and returns a guild application command permissions object. Fires an Application Command Permissions Update Gateway event.",
         "You can add up to 100 permission overwrites for a command.",
         "> info\n> This endpoint requires authentication with a Bearer token that has permission to manage the guild and its roles. For more information, read above about application command permissions.",
         "> warn\n> Deleting or renaming a command will permanently delete all permissions for the command",

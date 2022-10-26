@@ -39,7 +39,8 @@
       "content": [
         "I know you're already convinced, so let's begin. First, get the SDK. Here it is:",
         [
-          "Discord Game SDK"
+          "Discord GameSDK v3.2.1 - Latest version, includes Apple silicon (aarch64) support",
+          "Discord GameSDK v2.5.6 - Try this version if you encounter bugs on the latest version"
         ],
         "There's a few things in there, but let's quickly talk about what the SDK actually is. Inside the lib/ folder, you'll see x86/ and x86_64/ that have some .lib, .bundle, and .dll files. These are the things you want to distribute with your game.",
         "These files are comprised of two parts: a \"stub\", and fallback modules. What that means is that when everything is running smoothly, the DLLs will just call back to the local running Discord client to do the heavy lifting. If, however, something is wrong, like a breaking change, the files also include \"fallback\" modules that reflect the native SDK modules in Discord at the time that version of the SDK was published. TLDR - you don't need to worry about breaking changes."

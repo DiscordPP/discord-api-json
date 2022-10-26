@@ -168,7 +168,7 @@
       "level": 2,
       "url": "https://discord.com/developers/docs/topics/community-resources#intent-calculators",
       "content": [
-        "Gateway Intents are pretty confusing at first. If you're not sure what to send in your identify payload, then these tools may be of help:",
+        "Gateway Intents are pretty confusing at first. If you're not sure what to send in your Identify payload, then these tools may be of help:",
         [
           "ziad87's Intent Calculator",
           "Larko's Intent Calculator"
@@ -201,7 +201,7 @@
             "Go"
           ],
           [
-            "discord.js API Types",
+            "discord-api-types",
             "JavaScript"
           ]
         ]

@@ -111,7 +111,6 @@
         "level": 6,
         "url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-trigger-types",
         "content": [
-          "> info\n> The MENTION_SPAM and SPAM trigger types are not yet released, so these cannot be used in most servers.",
           "Characterizes the type of content which can trigger the rule.",
           [
             [
@@ -141,7 +140,7 @@
             [
               "MENTION_SPAM",
               "5",
-              "check if content contains more mentions than allowed",
+              "check if content contains more unique mentions than allowed",
               "1"
             ]
           ]
@@ -181,7 +180,7 @@
               "mention_total_limit",
               "integer",
               "MENTION_SPAM",
-              "total number of mentions (role & user) allowed per message (Maximum of 50)"
+              "total number of unique role and user mentions allowed per message (Maximum of 50)"
             ]
           ],
           "* A keyword can be a phrase which contains multiple words. Wildcard symbols (not available to allow lists) can be used to customize how each keyword will be matched.\nSee keyword matching strategies."
@@ -439,7 +438,7 @@
       "url": "https://discord.com/developers/docs/resources/auto-moderation#create-auto-moderation-rule",
       "endpoint": "POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/auto-moderation/rules",
       "content": [
-        "Create a new rule. Returns an auto moderation rule on success.",
+        "Create a new rule. Returns an auto moderation rule on success. Fires an Auto Moderation Rule Create Gateway event.",
         "> info\n> This endpoint requires the MANAGE_GUILD permission.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
         "|JSON Params"
@@ -505,7 +504,7 @@
       "url": "https://discord.com/developers/docs/resources/auto-moderation#modify-auto-moderation-rule",
       "endpoint": "PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/auto-moderation/rules/{auto_moderation_rule.id#DOCS_RESOURCES_AUTO_MODERATION/auto-moderation-rule-object}",
       "content": [
-        "Modify an existing rule. Returns an auto moderation rule on success.",
+        "Modify an existing rule. Returns an auto moderation rule on success. Fires an Auto Moderation Rule Update Gateway event.",
         "> info\n> Requires MANAGE_GUILD permissions.",
         "> info\n> All parameters for this endpoint are optional.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
@@ -566,7 +565,7 @@
       "url": "https://discord.com/developers/docs/resources/auto-moderation#delete-auto-moderation-rule",
       "endpoint": "DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/auto-moderation/rules/{auto_moderation_rule.id#DOCS_RESOURCES_AUTO_MODERATION/auto-moderation-rule-object}",
       "content": [
-        "Delete a rule. Returns a 204 on success.",
+        "Delete a rule. Returns a 204 on success. Fires an Auto Moderation Rule Delete Gateway event.",
         "> info\n> This endpoint requires the MANAGE_GUILD permission.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header."
       ]

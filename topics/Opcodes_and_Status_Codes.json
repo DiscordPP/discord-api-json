@@ -127,7 +127,7 @@
             [
               "4002",
               "Decode error",
-              "You sent an invalid payload to us. Don't do that!",
+              "You sent an invalid payload to Discord. Don't do that!",
               "true"
             ],
             [
@@ -828,12 +828,24 @@
               "Application interaction failed to send"
             ],
             [
+              "40058",
+              "Cannot send a message in a forum channel"
+            ],
+            [
               "40060",
               "Interaction has already been acknowledged"
             ],
             [
               "40061",
               "Tag names must be unique"
+            ],
+            [
+              "40066",
+              "There are no tags available that can be set by non-moderators"
+            ],
+            [
+              "40067",
+              "A tag is required to create a forum post in this channel"
             ],
             [
               "50001",
@@ -952,6 +964,10 @@
               "An invite was accepted to a guild the application's bot is not in"
             ],
             [
+              "50039",
+              "Invalid Activity Action"
+            ],
+            [
               "50041",
               "Invalid API version provided"
             ],
@@ -978,6 +994,10 @@
             [
               "50070",
               "Payment source required to redeem gift"
+            ],
+            [
+              "50073",
+              "Cannot modify a system webhook"
             ],
             [
               "50074",
@@ -1128,8 +1148,20 @@
               "Title was blocked by automatic moderation"
             ],
             [
+              "220001",
+              "Webhooks posted to forum channels must have a thread_name or thread_id"
+            ],
+            [
+              "220002",
+              "Webhooks posted to forum channels cannot have both a thread_name and thread_id"
+            ],
+            [
               "220003",
               "Webhooks can only create threads in forum channels"
+            ],
+            [
+              "220004",
+              "Webhook services cannot be used in forum channels"
             ],
             [
               "240000",

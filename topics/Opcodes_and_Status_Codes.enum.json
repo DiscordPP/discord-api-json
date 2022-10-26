@@ -96,7 +96,7 @@
     "Decode error": {
       "value": "4002",
       "comments": {
-        "Explanation": "You sent an invalid payload to us. Don't do that!",
+        "Explanation": "You sent an invalid payload to Discord. Don't do that!",
         "Reconnect": "true"
       }
     },
@@ -617,11 +617,20 @@
     "Application interaction failed to send": {
       "value": "40043"
     },
+    "Cannot send a message in a forum channel": {
+      "value": "40058"
+    },
     "Interaction has already been acknowledged": {
       "value": "40060"
     },
     "Tag names must be unique": {
       "value": "40061"
+    },
+    "There are no tags available that can be set by non-moderators": {
+      "value": "40066"
+    },
+    "A tag is required to create a forum post in this channel": {
+      "value": "40067"
     },
     "Missing access": {
       "value": "50001"
@@ -710,6 +719,9 @@
     "An invite was accepted to a guild the application's bot is not in": {
       "value": "50036"
     },
+    "Invalid Activity Action": {
+      "value": "50039"
+    },
     "Invalid API version provided": {
       "value": "50041"
     },
@@ -730,6 +742,9 @@
     },
     "Payment source required to redeem gift": {
       "value": "50070"
+    },
+    "Cannot modify a system webhook": {
+      "value": "50073"
     },
     "Cannot delete a channel required for Community guilds": {
       "value": "50074"
@@ -842,8 +857,17 @@
     "Title was blocked by automatic moderation": {
       "value": "200001"
     },
+    "Webhooks posted to forum channels must have a thread_name or thread_id": {
+      "value": "220001"
+    },
+    "Webhooks posted to forum channels cannot have both a thread_name and thread_id": {
+      "value": "220002"
+    },
     "Webhooks can only create threads in forum channels": {
       "value": "220003"
+    },
+    "Webhook services cannot be used in forum channels": {
+      "value": "220004"
     },
     "Message blocked by harmful links filter": {
       "value": "240000"

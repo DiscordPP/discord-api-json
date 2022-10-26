@@ -14,6 +14,8 @@
       "|Overwrite Object",
       "|Thread Metadata Object",
       "|Thread Member Object",
+      "|Default Reaction Object",
+      "|Forum Tag Object",
       "|Embed Object",
       "|Attachment Object",
       "|Channel Mention Object",
@@ -67,6 +69,7 @@
         "|Channel Types",
         "|Video Quality Modes",
         "|Channel Flags",
+        "|Sort Order Types",
         "|Example Guild Text Channel",
         "|Example Guild Announcement Channel",
         "|Example Guild Voice Channel",
@@ -118,7 +121,7 @@
             [
               "topic?",
               "?string",
-              "the channel topic (0-1024 characters)"
+              "the channel topic (0-4096 characters for GUILD_FORUM channels, 0-1024 characters for all others)"
             ],
             [
               "nsfw?",
@@ -186,9 +189,9 @@
               "the camera video quality mode of the voice channel, 1 when not present"
             ],
             [
-              "message_count?",
+              "message_count?**",
               "integer",
-              "number of messages (not including the initial message or deleted messages) in a thread (if the thread was created before July 1, 2022, it stops counting at 50)"
+              "number of messages (not including the initial message or deleted messages) in a thread."
             ],
             [
               "member_count?",
@@ -224,9 +227,34 @@
               "total_message_sent?",
               "integer",
               "number of messages ever sent in a thread, it's similar to message_count on message creation, but will not decrement the number when a message is deleted"
+            ],
+            [
+              "available_tags?",
+              "array of tag objects",
+              "the set of tags that can be used in a GUILD_FORUM channel"
+            ],
+            [
+              "applied_tags?",
+              "array of snowflakes",
+              "the IDs of the set of tags that have been applied to a thread in a GUILD_FORUM channel"
+            ],
+            [
+              "default_reaction_emoji?",
+              "?default reaction object",
+              "the emoji to show in the add reaction button on a thread in a GUILD_FORUM channel"
+            ],
+            [
+              "default_thread_rate_limit_per_user?",
+              "integer",
+              "the initial rate_limit_per_user to set on newly created threads in a channel. this field is copied to the thread at creation time and does not live update."
+            ],
+            [
+              "default_sort_order?",
+              "?integer",
+              "the default sort order type used to order posts in GUILD_FORUM channels. Defaults to null, which indicates a preferred sort order hasn't been set by a channel admin"
             ]
           ],
-          "* rate_limit_per_user also applies to thread creation. Users can send one message and create one thread during each rate_limit_per_user interval."
+          "* rate_limit_per_user also applies to thread creation. Users can send one message and create one thread during each rate_limit_per_user interval.\n** For threads created before July 1, 2022, the message count is inaccurate when it's greater than 50."
         ]
       },
       "Channel Types": {
@@ -278,7 +306,7 @@
             [
               "PUBLIC_THREAD",
               "11",
-              "a temporary sub-channel within a GUILD_TEXT channel"
+              "a temporary sub-channel within a GUILD_TEXT or GUILD_FORUM channel"
             ],
             [
               "PRIVATE_THREAD",
@@ -296,12 +324,11 @@
               "the channel in a hub containing the listed servers"
             ],
             [
-              "GUILD_FORUM*",
+              "GUILD_FORUM",
               "15",
-              "(still in development) a channel that can only contain threads"
+              "Channel that can only contain threads"
             ]
-          ],
-          "* The GUILD_FORUM channel type is still in active development. Avoid implementing any features that are not documented here, since they are subject to change without notice!"
+          ]
         ]
       },
       "Video Quality Modes": {
@@ -340,7 +367,35 @@
             [
               "PINNED",
               "1 << 1",
-              "this thread is pinned to the top of its parent forum channel"
+              "this thread is pinned to the top of its parent GUILD_FORUM channel"
+            ],
+            [
+              "REQUIRE_TAG",
+              "1 << 4",
+              "whether a tag is required to be specified when creating a thread in a GUILD_FORUM channel. Tags are specified in the applied_tags field."
+            ]
+          ]
+        ]
+      },
+      "Sort Order Types": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/channel#channel-object-sort-order-types",
+        "content": [
+          [
+            [
+              "Flag",
+              "Value",
+              "Description"
+            ],
+            [
+              "LATEST_ACTIVITY",
+              "0",
+              "Sort forum posts by activity"
+            ],
+            [
+              "CREATION_DATE",
+              "1",
+              "Sort forum posts by creation time (from most recent to oldest)"
             ]
           ]
         ]
@@ -372,7 +427,7 @@
         "content": [
           {
             "language": "json",
-            "code": "{\n  \"id\": \"155101607195836416\",\n  \"guild_id\": \"41771983423143937\",\n  \"name\": \"ROCKET CHEESE\",\n  \"type\": 2,\n  \"nsfw\": false,\n  \"position\": 5,\n  \"permission_overwrites\": [],\n  \"bitrate\": 64000,\n  \"user_limit\": 0,\n  \"parent_id\": null,\n  \"rtc_region\": null\n}\n"
+            "code": "{\n  \"id\": \"155101607195836416\",\n  \"last_message_id\": \"174629835082649376\",\n  \"type\": 2,\n  \"name\": \"ROCKET CHEESE\",\n  \"position\": 5,\n  \"parent_id\": null,\n  \"bitrate\": 64000,\n  \"user_limit\": 0,\n  \"rtc_region\": null,\n  \"guild_id\": \"41771983423143937\",\n  \"permission_overwrites\": [],\n  \"rate_limit_per_user\": 0,\n  \"nsfw\": false,\n}\n"
           }
         ]
       },
@@ -440,7 +495,7 @@
         "url": "https://discord.com/developers/docs/resources/channel#message-object-message-structure",
         "content": [
           "> info\n> Fields specific to the MESSAGE_CREATE and MESSAGE_UPDATE events are listed in the Gateway documentation.",
-          "> warn\n> content, embeds, attachments, and components will require a privileged intent in 2022. Learn more here.",
+          "> warn\n> content, embeds, attachments, and components require the MESSAGE_CONTENT intent to receive non-empty values.",
           [
             [
               "Field",
@@ -463,7 +518,7 @@
               "the author of this message (not guaranteed to be a valid user, see below)"
             ],
             [
-              "content",
+              "content**",
               "string",
               "contents of the message"
             ],
@@ -498,17 +553,17 @@
               "roles specifically mentioned in this message"
             ],
             [
-              "mention_channels?**",
+              "mention_channels?***",
               "array of channel mention objects",
               "channels specifically mentioned in this message"
             ],
             [
-              "attachments",
+              "attachments**",
               "array of attachment objects",
               "any attached files"
             ],
             [
-              "embeds",
+              "embeds**",
               "array of embed objects",
               "any embedded content"
             ],
@@ -563,7 +618,7 @@
               "message flags combined as a bitfield"
             ],
             [
-              "referenced_message?***",
+              "referenced_message?****",
               "?message object",
               "the message associated with the message_reference"
             ],
@@ -578,7 +633,7 @@
               "the thread that was started from this message, includes thread member object"
             ],
             [
-              "components?",
+              "components?**",
               "array of message components",
               "sent if the message contains components like buttons, action rows, or other interactive components"
             ],
@@ -595,12 +650,13 @@
             [
               "position?",
               "integer",
-              "A generally increasing integer (there may be gaps or duplicates) that represents the approximate position of the message in a thread, it can be used to estimate the relative position of the messsage in a thread in company with total_message_sent on parent thread"
+              "A generally increasing integer (there may be gaps or duplicates) that represents the approximate position of the message in a thread, it can be used to estimate the relative position of the message in a thread in company with total_message_sent on parent thread"
             ]
           ],
           "* The author object follows the structure of the user object, but is only a valid user in the case where the message is generated by a user or bot user. If the message is generated by a webhook, the author object corresponds to the webhook's id, username, and avatar. You can tell if a message is generated by a webhook by checking for the webhook_id on the message object.",
-          "** Not all channel mentions in a message will appear in mention_channels. Only textual channels that are visible to everyone in a lurkable guild will ever be included. Only crossposted messages (via Channel Following) currently include mention_channels at all. If no mentions in the message meet these requirements, this field will not be sent.",
-          "*** This field is only returned for messages with a type of 19 (REPLY) or 21 (THREAD_STARTER_MESSAGE). If the message is a reply but the referenced_message field is not present, the backend did not attempt to fetch the message that was being replied to, so its state is unknown. If the field exists but is null, the referenced message was deleted."
+          "** An app will receive empty values in the content, embeds, attachments, and components fields if they have not configured (or been approved for) the MESSAGE_CONTENT privileged intent (1 << 15).",
+          "*** Not all channel mentions in a message will appear in mention_channels. Only textual channels that are visible to everyone in a lurkable guild will ever be included. Only crossposted messages (via Channel Following) currently include mention_channels at all. If no mentions in the message meet these requirements, this field will not be sent.",
+          "**** This field is only returned for messages with a type of 19 (REPLY) or 21 (THREAD_STARTER_MESSAGE). If the message is a reply but the referenced_message field is not present, the backend did not attempt to fetch the message that was being replied to, so its state is unknown. If the field exists but is null, the referenced message was deleted."
         ]
       },
       "Message Types": {
@@ -611,105 +667,131 @@
           [
             [
               "Type",
-              "Value"
+              "Value",
+              "Deletable"
             ],
             [
               "DEFAULT",
-              "0"
+              "0",
+              "true"
             ],
             [
               "RECIPIENT_ADD",
-              "1"
+              "1",
+              "false"
             ],
             [
               "RECIPIENT_REMOVE",
-              "2"
+              "2",
+              "false"
             ],
             [
               "CALL",
-              "3"
+              "3",
+              "false"
             ],
             [
               "CHANNEL_NAME_CHANGE",
-              "4"
+              "4",
+              "false"
             ],
             [
               "CHANNEL_ICON_CHANGE",
-              "5"
+              "5",
+              "false"
             ],
             [
               "CHANNEL_PINNED_MESSAGE",
-              "6"
+              "6",
+              "true"
             ],
             [
               "USER_JOIN",
-              "7"
+              "7",
+              "true"
             ],
             [
               "GUILD_BOOST",
-              "8"
+              "8",
+              "true"
             ],
             [
               "GUILD_BOOST_TIER_1",
-              "9"
+              "9",
+              "true"
             ],
             [
               "GUILD_BOOST_TIER_2",
-              "10"
+              "10",
+              "true"
             ],
             [
               "GUILD_BOOST_TIER_3",
-              "11"
+              "11",
+              "true"
             ],
             [
               "CHANNEL_FOLLOW_ADD",
-              "12"
+              "12",
+              "true"
             ],
             [
               "GUILD_DISCOVERY_DISQUALIFIED",
-              "14"
+              "14",
+              "false"
             ],
             [
               "GUILD_DISCOVERY_REQUALIFIED",
-              "15"
+              "15",
+              "false"
             ],
             [
               "GUILD_DISCOVERY_GRACE_PERIOD_INITIAL_WARNING",
-              "16"
+              "16",
+              "false"
             ],
             [
               "GUILD_DISCOVERY_GRACE_PERIOD_FINAL_WARNING",
-              "17"
+              "17",
+              "false"
             ],
             [
               "THREAD_CREATED",
-              "18"
+              "18",
+              "true"
             ],
             [
               "REPLY",
-              "19"
+              "19",
+              "true"
             ],
             [
               "CHAT_INPUT_COMMAND",
-              "20"
+              "20",
+              "true"
             ],
             [
               "THREAD_STARTER_MESSAGE",
-              "21"
+              "21",
+              "false"
             ],
             [
               "GUILD_INVITE_REMINDER",
-              "22"
+              "22",
+              "true"
             ],
             [
               "CONTEXT_MENU_COMMAND",
-              "23"
+              "23",
+              "true"
             ],
             [
               "AUTO_MODERATION_ACTION",
-              "24"
+              "24",
+              "true*"
             ]
-          ]
+          ],
+          "* Can only be deleted by members with MANAGE_MESSAGES permission"
         ]
       },
       "Message Activity Structure": {
@@ -901,7 +983,7 @@
           "content": [
             [
               "These are messages that originated from another channel (IS_CROSSPOST flag).",
-              "These messages have all three fields, with data of the original message that was crossposted."
+              "These messages have all three fields, which point to the original message that was crossposted."
             ]
           ]
         },
@@ -911,7 +993,7 @@
           "content": [
             [
               "These are automatic messages sent when a channel is followed into the current channel (type 12).",
-              "These messages have the channel_id and guild_id fields, with data of the followed announcement channel."
+              "These messages have the channel_id and guild_id fields, which point to the followed announcement channel."
             ]
           ]
         },
@@ -921,7 +1003,7 @@
           "content": [
             [
               "These are automatic messages sent when a message is pinned (type 6).",
-              "These messages have message_id and channel_id, and guild_id if it is in a guild, with data of the message that was pinned."
+              "These messages have message_id and channel_id, and guild_id if it is in a guild, which point to the message that was pinned."
             ]
           ]
         },
@@ -931,7 +1013,7 @@
           "content": [
             [
               "These are messages replying to a previous message (type 19).",
-              "These messages have message_id and channel_id, and guild_id if it is in a guild, with data of the message that was replied to. The channel_id and guild_id will be the same as the reply.",
+              "These messages have message_id and channel_id, and guild_id if it is in a guild, which point to the message that was replied to. The channel_id and guild_id will be the same as the reply.",
               "Replies are created by including a message_reference when sending a message. When sending, only message_id is required."
             ]
           ]
@@ -942,7 +1024,7 @@
           "content": [
             [
               "These are automatic messages sent when a public thread is created from an old message or without a message (type 18).",
-              "These messages have the channel_id and guild_id fields, with data of the created thread channel."
+              "These messages have the channel_id and guild_id fields, which point to the created thread channel."
             ]
           ]
         },
@@ -1154,7 +1236,86 @@
               "any user-thread settings, currently only used for notifications"
             ]
           ],
-          "** * These fields are omitted on the member sent within each thread in the GUILD_CREATE event **"
+          "* These fields are omitted on the member sent within each thread in the GUILD_CREATE event"
+        ]
+      }
+    },
+    "Default Reaction Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/channel#default-reaction-object",
+      "content": [
+        "An object that specifies the emoji to use as the default way to react to a forum post. Exactly one of emoji_id and emoji_name must be set.",
+        "|Default Reaction Structure"
+      ],
+      "Default Reaction Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/channel#default-reaction-object-default-reaction-structure",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "emoji_id",
+              "?snowflake",
+              "the id of a guild's custom emoji"
+            ],
+            [
+              "emoji_name",
+              "?string",
+              "the unicode character of the emoji"
+            ]
+          ]
+        ]
+      }
+    },
+    "Forum Tag Object": {
+      "level": 3,
+      "url": "https://discord.com/developers/docs/resources/channel#forum-tag-object",
+      "content": [
+        "An object that represents a tag that is able to be applied to a thread in a GUILD_FORUM channel.",
+        "|Forum Tag Structure"
+      ],
+      "Forum Tag Structure": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/channel#forum-tag-object-forum-tag-structure",
+        "content": [
+          "> info\n> When updating a GUILD_FORUM channel, tag objects in available_tags only require the name field.",
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "id",
+              "snowflake",
+              "the id of the tag"
+            ],
+            [
+              "name",
+              "string",
+              "the name of the tag (0-20 characters)"
+            ],
+            [
+              "moderated",
+              "boolean",
+              "whether this tag can only be added to or removed from threads by a member with the MANAGE_THREADS permission"
+            ],
+            [
+              "emoji_id",
+              "snowflake",
+              "the id of a guild's custom emoji *"
+            ],
+            [
+              "emoji_name",
+              "?string",
+              "the unicode character of the emoji *"
+            ]
+          ],
+          "* At most one of emoji_id and emoji_name may be set."
         ]
       }
     },
@@ -1842,20 +2003,20 @@
             [
               "topic",
               "?string",
-              "0-1024 character channel topic",
-              "Text, Announcement"
+              "0-1024 character channel topic (0-4096 characters for GUILD_FORUM channels)",
+              "Text, Announcement, Forum"
             ],
             [
               "nsfw",
               "?boolean",
               "whether the channel is nsfw",
-              "Text, Voice, Announcement"
+              "Text, Voice, Announcement, Forum"
             ],
             [
               "rate_limit_per_user",
               "?integer",
               "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel, are unaffected",
-              "Text"
+              "Text, Forum"
             ],
             [
               "bitrate*",
@@ -1879,7 +2040,7 @@
               "parent_id",
               "?snowflake",
               "id of the new parent category for a channel",
-              "Text, Voice, Announcement"
+              "Text, Voice, Announcement, Forum"
             ],
             [
               "rtc_region",
@@ -1897,7 +2058,37 @@
               "default_auto_archive_duration",
               "?integer",
               "the default duration that the clients use (not the API) for newly created threads in the channel, in minutes, to automatically archive the thread after recent activity",
-              "Text, Announcement"
+              "Text, Announcement, Forum"
+            ],
+            [
+              "flags?",
+              "integer",
+              "channel flags combined as a bitfield. Currently only REQUIRE_TAG (1 << 4) is supported.",
+              "Forum"
+            ],
+            [
+              "available_tags?",
+              "array of tag objects",
+              "the set of tags that can be used in a GUILD_FORUM channel",
+              "Forum"
+            ],
+            [
+              "default_reaction_emoji?",
+              "?default reaction object",
+              "the emoji to show in the add reaction button on a thread in a GUILD_FORUM channel",
+              "Forum"
+            ],
+            [
+              "default_thread_rate_limit_per_user?",
+              "integer",
+              "the initial rate_limit_per_user to set on newly created threads in a channel. this field is copied to the thread at creation time and does not live update.",
+              "Text, Forum"
+            ],
+            [
+              "default_sort_order?",
+              "?integer",
+              "the default sort order type used to order posts in GUILD_FORUM channels",
+              "Forum"
             ]
           ],
           "* For voice channels, normal servers can set bitrate up to 96000, servers with Boost level 1 can set up to 128000, servers with Boost level 2 can set up to 256000, and servers with Boost level 3 or the VIP_REGIONS guild feature can set up to 384000. For stage channels, bitrate can be set up to 64000.",
@@ -1950,6 +2141,11 @@
               "flags?",
               "integer",
               "channel flags combined as a bitfield; PINNED can only be set for threads in forum channels"
+            ],
+            [
+              "applied_tags?",
+              "array of snowflakes",
+              "the IDs of the set of tags that have been applied to a thread in a GUILD_FORUM channel"
             ]
           ]
         ]
@@ -2052,7 +2248,7 @@
         "level": 6,
         "url": "https://discord.com/developers/docs/resources/channel#create-message-json/form-params",
         "content": [
-          "> info\n> When creating a message, apps must provide a value for at least one of content, embeds, sticker_ids, or files[n].",
+          "> info\n> When creating a message, apps must provide a value for at least one of content, embeds, sticker_ids, components, or files[n].",
           [
             [
               "Field",
@@ -2063,6 +2259,11 @@
               "content?*",
               "string",
               "Message contents (up to 2000 characters)"
+            ],
+            [
+              "nonce?",
+              "integer or string",
+              "Can be used to verify a message was sent (up to 25 characters). Value will appear in the Message Create event."
             ],
             [
               "tts?",
@@ -2085,7 +2286,7 @@
               "Include to make your message a reply"
             ],
             [
-              "components?",
+              "components?*",
               "array of message component objects",
               "Components to include with the message"
             ],
@@ -2115,7 +2316,7 @@
               "Message flags combined as a bitfield (only SUPPRESS_EMBEDS can be set)"
             ]
           ],
-          "* At least one of content, embeds, sticker_ids, or files[n] is required."
+          "* At least one of content, embeds, sticker_ids, components, or files[n] is required."
         ]
       },
       "Example Request Body (application/json)": {
@@ -2144,7 +2345,7 @@
       "url": "https://discord.com/developers/docs/resources/channel#create-reaction",
       "endpoint": "PUT /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/reactions/{emoji#DOCS_RESOURCES_EMOJI/emoji-object}/@me",
       "content": [
-        "Create a reaction for the message. This endpoint requires the READ_MESSAGE_HISTORY permission to be present on the current user. Additionally, if nobody else has reacted to the message using this emoji, this endpoint requires the ADD_REACTIONS permission to be present on the current user. Returns a 204 empty response on success.\nThe emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
+        "Create a reaction for the message. This endpoint requires the READ_MESSAGE_HISTORY permission to be present on the current user. Additionally, if nobody else has reacted to the message using this emoji, this endpoint requires the ADD_REACTIONS permission to be present on the current user. Returns a 204 empty response on success. Fires a Message Reaction Add Gateway event.\nThe emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
       ]
     },
     "Delete Own Reaction": {
@@ -2152,7 +2353,7 @@
       "url": "https://discord.com/developers/docs/resources/channel#delete-own-reaction",
       "endpoint": "DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/reactions/{emoji#DOCS_RESOURCES_EMOJI/emoji-object}/@me",
       "content": [
-        "Delete a reaction the current user has made for the message. Returns a 204 empty response on success.\nThe emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
+        "Delete a reaction the current user has made for the message. Returns a 204 empty response on success. Fires a Message Reaction Remove Gateway event.\nThe emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
       ]
     },
     "Delete User Reaction": {
@@ -2160,7 +2361,7 @@
       "url": "https://discord.com/developers/docs/resources/channel#delete-user-reaction",
       "endpoint": "DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/messages/{message.id#DOCS_RESOURCES_CHANNEL/message-object}/reactions/{emoji#DOCS_RESOURCES_EMOJI/emoji-object}/{user.id#DOCS_RESOURCES_USER/user-object}",
       "content": [
-        "Deletes another user's reaction. This endpoint requires the MANAGE_MESSAGES permission to be present on the current user. Returns a 204 empty response on success.\nThe emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
+        "Deletes another user's reaction. This endpoint requires the MANAGE_MESSAGES permission to be present on the current user. Returns a 204 empty response on success. Fires a Message Reaction Remove Gateway event.\nThe emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
       ]
     },
     "Get Reactions": {
@@ -2325,7 +2526,7 @@
       "url": "https://discord.com/developers/docs/resources/channel#edit-channel-permissions",
       "endpoint": "PUT /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/permissions/{overwrite.id#DOCS_RESOURCES_CHANNEL/overwrite-object}",
       "content": [
-        "Edit the channel permission overwrites for a user or role in a channel. Only usable for guild channels. Requires the MANAGE_ROLES permission. Only permissions your bot has in the guild or parent channel (if applicable) can be allowed/denied (unless your bot has a MANAGE_ROLES overwrite in the channel). Returns a 204 empty response on success. For more information about permissions, see permissions.",
+        "Edit the channel permission overwrites for a user or role in a channel. Only usable for guild channels. Requires the MANAGE_ROLES permission. Only permissions your bot has in the guild or parent channel (if applicable) can be allowed/denied (unless your bot has a MANAGE_ROLES overwrite in the channel). Returns a 204 empty response on success. Fires a Channel Update Gateway event. For more information about permissions, see permissions.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
         "|JSON Params"
       ],
@@ -2437,7 +2638,7 @@
       "url": "https://discord.com/developers/docs/resources/channel#delete-channel-permission",
       "endpoint": "DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/permissions/{overwrite.id#DOCS_RESOURCES_CHANNEL/overwrite-object}",
       "content": [
-        "Delete a channel permission overwrite for a user or role in a channel. Only usable for guild channels. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. For more information about permissions, see permissions",
+        "Delete a channel permission overwrite for a user or role in a channel. Only usable for guild channels. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Channel Update Gateway event. For more information about permissions, see permissions",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header."
       ]
     },
@@ -2446,7 +2647,7 @@
       "url": "https://discord.com/developers/docs/resources/channel#follow-announcement-channel",
       "endpoint": "POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/followers",
       "content": [
-        "Follow an Announcement Channel to send messages to a target channel. Requires the MANAGE_WEBHOOKS permission in the target channel. Returns a followed channel object.",
+        "Follow an Announcement Channel to send messages to a target channel. Requires the MANAGE_WEBHOOKS permission in the target channel. Returns a followed channel object. Fires a Webhooks Update Gateway event for the target channel.",
         "|JSON Params"
       ],
       "JSON Params": {
@@ -2489,7 +2690,7 @@
       "url": "https://discord.com/developers/docs/resources/channel#pin-message",
       "endpoint": "PUT /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/pins/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
       "content": [
-        "Pin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success.",
+        "Pin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success. Fires a Channel Pins Update Gateway event.",
         "> warn\n> The max pinned messages is 50.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header."
       ]
@@ -2499,7 +2700,7 @@
       "url": "https://discord.com/developers/docs/resources/channel#unpin-message",
       "endpoint": "DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/pins/{message.id#DOCS_RESOURCES_CHANNEL/message-object}",
       "content": [
-        "Unpin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success.",
+        "Unpin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success. Fires a Channel Pins Update Gateway event.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header."
       ]
     },
@@ -2646,7 +2847,7 @@
           "For the embed object, you can set every field except type (it will be rich regardless of if you try to set it), provider, video, and any height, width, or proxy_url values for images.",
           "Examples for file uploads are available in Uploading Files.",
           "Files must be attached using a multipart/form-data body as described in Uploading Files.",
-          "Note that when sending a message, you must provide a value for at least one of content, embeds, or files[n]."
+          "Note that when sending a message, you must provide a value for at least one of content, embeds, sticker_ids, components, or files[n]."
         ],
         "> warn\n> Discord may strip certain characters from message content, like invalid unicode characters or characters which cause unexpected message formatting. If you are passing user-generated strings into message content, consider sanitizing the data to prevent unexpected behavior and utilizing allowed_mentions to prevent unexpected mentions.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
@@ -2682,6 +2883,11 @@
               "message",
               "a forum thread message params object",
               "contents of the first message in the forum thread"
+            ],
+            [
+              "applied_tags?",
+              "array of snowflakes",
+              "the IDs of the set of tags that have been applied to a thread in a GUILD_FORUM channel"
             ]
           ]
         ]
@@ -2690,7 +2896,7 @@
         "level": 6,
         "url": "https://discord.com/developers/docs/resources/channel#start-thread-in-forum-channel-forum-thread-message-params-object",
         "content": [
-          "> info\n> When sending a message, apps must provide a value for at least one of content, embeds, files[n], or sticker_ids.",
+          "> info\n> When sending a message, apps must provide a value for at least one of content, embeds, sticker_ids, components, or files[n].",
           [
             [
               "Field",
@@ -2703,7 +2909,7 @@
               "Message contents (up to 2000 characters)"
             ],
             [
-              "embeds?",
+              "embeds?*",
               "array of embed objects",
               "Embedded rich content (up to 6000 characters)"
             ],
@@ -2713,7 +2919,7 @@
               "Allowed mentions for the message"
             ],
             [
-              "components?",
+              "components?*",
               "array of message component objects",
               "Components to include with the message"
             ],
@@ -2743,7 +2949,7 @@
               "Message flags combined as a bitfield (only SUPPRESS_EMBEDS can be set)"
             ]
           ],
-          "* At least one of content, embeds, files[n], or sticker_ids is required."
+          "* At least one of content, embeds, sticker_ids, components, or files[n] is required."
         ]
       }
     },

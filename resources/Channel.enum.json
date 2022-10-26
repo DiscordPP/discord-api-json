@@ -45,7 +45,7 @@
     "PUBLIC_THREAD": {
       "value": "11",
       "comments": {
-        "Description": "a temporary sub-channel within a GUILD_TEXT channel"
+        "Description": "a temporary sub-channel within a GUILD_TEXT or GUILD_FORUM channel"
       }
     },
     "PRIVATE_THREAD": {
@@ -69,8 +69,7 @@
     "GUILD_FORUM": {
       "value": "15",
       "comments": {
-        "Name Note": "The GUILD_FORUM channel type is still in active development. Avoid implementing any features that are not documented here, since they are subject to change without notice!",
-        "Description": "(still in development) a channel that can only contain threads"
+        "Description": "Channel that can only contain threads"
       }
     }
   },
@@ -92,82 +91,28 @@
     "PINNED": {
       "value": "1 << 1",
       "comments": {
-        "Description": "this thread is pinned to the top of its parent forum channel"
+        "Description": "this thread is pinned to the top of its parent GUILD_FORUM channel"
+      }
+    },
+    "REQUIRE_TAG": {
+      "value": "1 << 4",
+      "comments": {
+        "Description": "whether a tag is required to be specified when creating a thread in a GUILD_FORUM channel. Tags are specified in the applied_tags field."
       }
     }
   },
-  "Message Types": {
-    "DEFAULT": {
-      "value": "0"
+  "Sort Order Types": {
+    "LATEST_ACTIVITY": {
+      "value": "0",
+      "comments": {
+        "Description": "Sort forum posts by activity"
+      }
     },
-    "RECIPIENT_ADD": {
-      "value": "1"
-    },
-    "RECIPIENT_REMOVE": {
-      "value": "2"
-    },
-    "CALL": {
-      "value": "3"
-    },
-    "CHANNEL_NAME_CHANGE": {
-      "value": "4"
-    },
-    "CHANNEL_ICON_CHANGE": {
-      "value": "5"
-    },
-    "CHANNEL_PINNED_MESSAGE": {
-      "value": "6"
-    },
-    "USER_JOIN": {
-      "value": "7"
-    },
-    "GUILD_BOOST": {
-      "value": "8"
-    },
-    "GUILD_BOOST_TIER_1": {
-      "value": "9"
-    },
-    "GUILD_BOOST_TIER_2": {
-      "value": "10"
-    },
-    "GUILD_BOOST_TIER_3": {
-      "value": "11"
-    },
-    "CHANNEL_FOLLOW_ADD": {
-      "value": "12"
-    },
-    "GUILD_DISCOVERY_DISQUALIFIED": {
-      "value": "14"
-    },
-    "GUILD_DISCOVERY_REQUALIFIED": {
-      "value": "15"
-    },
-    "GUILD_DISCOVERY_GRACE_PERIOD_INITIAL_WARNING": {
-      "value": "16"
-    },
-    "GUILD_DISCOVERY_GRACE_PERIOD_FINAL_WARNING": {
-      "value": "17"
-    },
-    "THREAD_CREATED": {
-      "value": "18"
-    },
-    "REPLY": {
-      "value": "19"
-    },
-    "CHAT_INPUT_COMMAND": {
-      "value": "20"
-    },
-    "THREAD_STARTER_MESSAGE": {
-      "value": "21"
-    },
-    "GUILD_INVITE_REMINDER": {
-      "value": "22"
-    },
-    "CONTEXT_MENU_COMMAND": {
-      "value": "23"
-    },
-    "AUTO_MODERATION_ACTION": {
-      "value": "24"
+    "CREATION_DATE": {
+      "value": "1",
+      "comments": {
+        "Description": "Sort forum posts by creation time (from most recent to oldest)"
+      }
     }
   },
   "Message Activity Types": {

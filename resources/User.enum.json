@@ -94,11 +94,17 @@
     },
     "Nitro": {
       "value": "2"
+    },
+    "Nitro Basic": {
+      "value": "3"
     }
   },
   "Services": {
     "Battle.net": {
       "value": "battlenet"
+    },
+    "eBay": {
+      "value": "ebay"
     },
     "Epic Games": {
       "value": "epicgames"
@@ -110,16 +116,19 @@
       "value": "github"
     },
     "League of Legends": {
-      "value": "leagueoflegends",
-      "comments": {
-        "Value Note": "Service can no longer be added by users"
-      }
+      "value": "leagueoflegends"
+    },
+    "PayPal": {
+      "value": "paypal"
     },
     "PlayStation Network": {
       "value": "playstation"
     },
     "Reddit": {
       "value": "reddit"
+    },
+    "Riot Games": {
+      "value": "riotgames"
     },
     "Spotify": {
       "value": "spotify"

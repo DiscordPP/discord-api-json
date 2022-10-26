@@ -6,6 +6,12 @@
     "level": 1,
     "url": "https://discord.com/developers/docs/docs/change-log#change-log",
     "content": [
+      "|Delete Ephemeral Messages",
+      "|New Select Menu Components",
+      "|Default Sort Order for Forum Channels",
+      "|AutoMod Spam and Mention Spam Trigger Types",
+      "|Forum Channels Release",
+      "|Message Content is a Privileged Intent",
       "|Slash Command Mentions",
       "|Session-specific Gateway Resume URLs",
       "|Upcoming Permissions Change to Webhook Routes",
@@ -75,6 +81,137 @@
       "|New Feature: Audit Logs",
       "|Breaking Change: Version 6"
     ],
+    "Delete Ephemeral Messages": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/docs/change-log#delete-ephemeral-messages",
+      "content": [
+        "|Oct 20, 2022"
+      ],
+      "Oct 20, 2022": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/docs/change-log#delete-ephemeral-messages-oct-20,-2022",
+        "content": [
+          "Ephemeral interaction responses and follow-ups can now be deleted with a valid interaction token using the following endpoints:",
+          [
+            "DELETE /webhooks/<application_id>/<interaction_token>/messages/@original",
+            "DELETE /webhooks/<application_id>/<interaction_token>/messages/<message_id>"
+          ],
+          "As a reminder, interaction tokens stay valid for up to 15 minutes after the interaction occurs. Details can be found in the interaction documentation."
+        ]
+      }
+    },
+    "New Select Menu Components": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/docs/change-log#new-select-menu-components",
+      "content": [
+        "|Oct 13, 2022"
+      ],
+      "Oct 13, 2022": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/docs/change-log#new-select-menu-components-oct-13,-2022",
+        "content": [
+          "Four new select menu component types have been added to make it easier to populate selects with common resources in Discord:",
+          [
+            "User select (type 5)",
+            "Role select (type 6)",
+            "Mentionable (user and role) select (type 7)",
+            "Channel select (type 8)"
+          ],
+          "The new select menu components are defined similarly to the existing string select menu\u2014with the exception of not including the options field and, within channel select menus, having the option to include a channel_types field. The select menu interaction apps receive also contain a resolved field for the new components.",
+          "More details can be found in the updated select menu documentation."
+        ]
+      }
+    },
+    "Default Sort Order for Forum Channels": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/docs/change-log#default-sort-order-for-forum-channels",
+      "content": [
+        "|Sep 22, 2022"
+      ],
+      "Sep 22, 2022": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/docs/change-log#default-sort-order-for-forum-channels-sep-22,-2022",
+        "content": [
+          "default_sort_order is an optional field in the channel object that indicates how the threads in a forum channel will be sorted for users by default. Setting default_sort_order requires the MANAGE_CHANNELS permission.",
+          "If default_sort_order hasn't been set, its value will be null."
+        ]
+      }
+    },
+    "AutoMod Spam and Mention Spam Trigger Types": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/docs/change-log#automod-spam-and-mention-spam-trigger-types",
+      "content": [
+        "|Sep 21, 2022"
+      ],
+      "Sep 21, 2022": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/docs/change-log#automod-spam-and-mention-spam-trigger-types-sep-21,-2022",
+        "content": [
+          "Two new trigger types were added to AutoMod:",
+          [
+            "MENTION_SPAM blocks messages that mention more than a set number of unique server members or roles. Apps can define the number (up to 50) using the mention_total_limit field in the trigger metadata object when creating or updating an Auto Moderation rule.",
+            "SPAM blocks links and messages that are identified as spam."
+          ],
+          "More information can be found in the AutoMod documentation."
+        ]
+      }
+    },
+    "Forum Channels Release": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/docs/change-log#forum-channels-release",
+      "content": [
+        "|Sep 14, 2022"
+      ],
+      "Sep 14, 2022": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/docs/change-log#forum-channels-release-sep-14,-2022",
+        "content": [
+          "Forum channels (GUILD_FORUM or 15) have been released to all community servers. GUILD_FORUM channels are a new channel type that only supports threads, which display differently than in text (GUILD_TEXT) channels.",
+          "Check out the forums topic for more information on the relevant APIs and technical details, and the Forums FAQ for more about the feature."
+        ]
+      }
+    },
+    "Message Content is a Privileged Intent": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/docs/change-log#message-content-is-a-privileged-intent",
+      "content": [
+        "|Sep 1, 2022",
+        "|If your app is verified",
+        "|If your app is unverified"
+      ],
+      "Sep 1, 2022": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/docs/change-log#message-content-is-a-privileged-intent-sep-1,-2022",
+        "content": [
+          "> danger\n> This entry includes breaking changes",
+          "As of today, message content is a privileged intent for all verified apps and apps eligible for verification. More details about why it's becoming a privileged intent and how to apply for it is in the Help Center FAQ.",
+          "Any app that does not have the message content intent configured in its app's settings within the Developer Portal wiIl receive empty values in fields that expose message content across Discord's APIs (including the content, embeds, attachments, and components fields). These restrictions do not apply for messages that a bot or app sends, in DMs that it receives, or in messages in which it is mentioned."
+        ]
+      },
+      "If your app is verified": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/docs/change-log#message-content-is-a-privileged-intent-if-your-app-is-verified",
+        "content": [
+          "Verified apps and verification-eligible apps must be approved for the message content intent to receive message content. If your verified app isn\u2019t approved, or doesn\u2019t account for the new message content restrictions, it will break for users.",
+          "|Temporary Message Content Intent"
+        ],
+        "Temporary Message Content Intent": {
+          "level": 5,
+          "url": "https://discord.com/developers/docs/docs/change-log#if-your-app-is-verified-temporary-message-content-intent",
+          "content": [
+            "Verified apps or apps that have submitted for verification can temporarily opt-in to a grace period which will allow your app to continue receiving message content until October 1.  However, if you opt-in to the grace period, your app will be prevented from joining any additional servers until you opt-out. More details are in the Help Center article."
+          ]
+        }
+      },
+      "If your app is unverified": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/docs/change-log#message-content-is-a-privileged-intent-if-your-app-is-unverified",
+        "content": [
+          "Unverified apps must still must enable the intent in your app\u2019s settings within the Developer Portal.",
+          "Existing unverified apps will automatically have the message content intent toggled on in their settings. New unverified apps will have to manually toggle the intent in the Developer Portal."
+        ]
+      }
+    },
     "Slash Command Mentions": {
       "level": 2,
       "url": "https://discord.com/developers/docs/docs/change-log#slash-command-mentions",
@@ -373,6 +510,7 @@
             "Message routes (like POST /channels/{channel.id}/messages) now use the embeds field (an array of embed objects) instead of embed.",
             "The summary field for applications now returns an empty string for all API versions.",
             "The name and description fields for Achievements are now strings, and localization info is now passed in new name_localizations and description_localizations dictionaries. This change standardizes localization to match Application Commands. Read details in the Achievements documentation.",
+            "Existing attachments must be specified when PATCHing messages with new attachments. Any attachments not specified will be removed and replaced with the specified list",
             "Requests to v10 and higher will no longer be supported on discordapp.com (this does not affect cdn.discordapp.com)"
           ]
         ]

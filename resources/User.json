@@ -265,6 +265,10 @@
               [
                 "2",
                 "Nitro"
+              ],
+              [
+                "3",
+                "Nitro Basic"
               ]
             ]
           ]
@@ -330,6 +334,11 @@
                 "whether activities related to this connection will be shown in presence updates"
               ],
               [
+                "two_way_link",
+                "boolean",
+                "whether this connection has a corresponding third party OAuth2 token"
+              ],
+              [
                 "visibility",
                 "integer",
                 "visibility of this connection"
@@ -351,6 +360,10 @@
                 "Battle.net"
               ],
               [
+                "ebay",
+                "eBay"
+              ],
+              [
                 "epicgames",
                 "Epic Games"
               ],
@@ -363,8 +376,12 @@
                 "GitHub"
               ],
               [
-                "leagueoflegends *",
+                "leagueoflegends",
                 "League of Legends"
+              ],
+              [
+                "paypal",
+                "PayPal"
               ],
               [
                 "playstation",
@@ -373,6 +390,10 @@
               [
                 "reddit",
                 "Reddit"
+              ],
+              [
+                "riotgames",
+                "Riot Games"
               ],
               [
                 "spotify",
@@ -452,7 +473,7 @@
       "url": "https://discord.com/developers/docs/resources/user#modify-current-user",
       "endpoint": "PATCH /users/@me",
       "content": [
-        "Modify the requester's user account settings. Returns a user object on success.",
+        "Modify the requester's user account settings. Returns a user object on success. Fires a User Update Gateway event.",
         "> info\n> All parameters to this endpoint are optional.",
         "|JSON Params"
       ],

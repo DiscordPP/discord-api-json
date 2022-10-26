@@ -130,7 +130,7 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "total number of mentions (role & user) allowed per message (Maximum of 50)",
+        "Description": "total number of unique role and user mentions allowed per message (Maximum of 50)",
         "Associated Trigger Types": "MENTION_SPAM"
       }
     }

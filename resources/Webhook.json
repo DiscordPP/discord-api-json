@@ -91,12 +91,12 @@
               "the bot/OAuth2 application that created this webhook"
             ],
             [
-              "source_guild?",
+              "source_guild? *",
               "partial guild object",
               "the guild of the channel that this webhook is following (returned for Channel Follower Webhooks)"
             ],
             [
-              "source_channel?",
+              "source_channel? *",
               "partial channel object",
               "the channel that this webhook is following (returned for Channel Follower Webhooks)"
             ],
@@ -105,7 +105,8 @@
               "string",
               "the url used for executing the webhook (returned by the webhooks OAuth2 flow)"
             ]
-          ]
+          ],
+          "* These fields will be absent if the webhook creator has since lost access to the guild where the followed channel resides"
         ]
       },
       "Webhook Types": {
@@ -172,7 +173,7 @@
       "url": "https://discord.com/developers/docs/resources/webhook#create-webhook",
       "endpoint": "POST /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/webhooks",
       "content": [
-        "Creates a new webhook and returns a webhook object on success. Requires the MANAGE_WEBHOOKS permission.",
+        "Creates a new webhook and returns a webhook object on success. Requires the MANAGE_WEBHOOKS permission. Fires a Webhooks Update Gateway event.",
         "An error will be returned if a webhook name (name) is not valid. A webhook name is valid if:",
         [
           "It does not contain the substring 'clyde' (case-insensitive)",
@@ -242,7 +243,7 @@
       "url": "https://discord.com/developers/docs/resources/webhook#modify-webhook",
       "endpoint": "PATCH /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}",
       "content": [
-        "Modify a webhook. Requires the MANAGE_WEBHOOKS permission. Returns the updated webhook object on success.",
+        "Modify a webhook. Requires the MANAGE_WEBHOOKS permission. Returns the updated webhook object on success. Fires a Webhooks Update Gateway event.",
         "> info\n> All parameters to this endpoint are optional",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
         "|JSON Params"
@@ -289,7 +290,7 @@
       "url": "https://discord.com/developers/docs/resources/webhook#delete-webhook",
       "endpoint": "DELETE /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}",
       "content": [
-        "Delete a webhook permanently. Requires the MANAGE_WEBHOOKS permission. Returns a 204 No Content response on success.",
+        "Delete a webhook permanently. Requires the MANAGE_WEBHOOKS permission. Returns a 204 No Content response on success. Fires a Webhooks Update Gateway event.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header."
       ]
     },
@@ -307,7 +308,7 @@
       "endpoint": "POST /webhooks/{webhook.id#DOCS_RESOURCES_WEBHOOK/webhook-object}/{webhook.token#DOCS_RESOURCES_WEBHOOK/webhook-object}",
       "content": [
         "Refer to Uploading Files for details on attachments and multipart/form-data requests. Returns a message or 204 No Content depending on the wait query parameter.",
-        "> info\n> Note that when sending a message, you must provide a value for at least one of content, embeds, or file.",
+        "> info\n> Note that when sending a message, you must provide a value for at least one of content, embeds, components, or file.",
         "> info\n> If the webhook channel is a forum channel, you must provide either thread_id in the query string params, or thread_name in the JSON/form params. If thread_id is provided, the message will send in that thread. If thread_name is provided, a thread with that name will be created in the forum channel.",
         "|Query String Params",
         "|JSON/Form Params"

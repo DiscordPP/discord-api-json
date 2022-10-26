@@ -16,7 +16,7 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "one of button styles"
+        "Description": "A button style"
       }
     },
     "label": {
@@ -24,7 +24,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "text that appears on the button, max 80 characters"
+        "Description": "Text that appears on the button; max 80 characters"
       }
     },
     "emoji": {
@@ -40,7 +40,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "a developer-defined identifier for the button, max 100 characters"
+        "Description": "Developer-defined identifier for the button; max 100 characters"
       }
     },
     "url": {
@@ -48,7 +48,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "a url for link-style buttons"
+        "Description": "URL for link-style buttons"
       }
     },
     "disabled": {
@@ -56,7 +56,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "whether the button is disabled (default false)"
+        "Description": "Whether the button is disabled (defaults to false)"
       }
     }
   },
@@ -69,7 +69,7 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "3 for a select menu"
+        "Description": "Type of select menu component (text: 3, user: 5, role: 6, mentionable: 7, channels: 8)"
       }
     },
     "custom_id": {
@@ -77,15 +77,25 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "a developer-defined identifier for the select menu, max 100 characters"
+        "Description": "ID for the select menu; max 100 characters"
       }
     },
     "options": {
       "type": "array of select options",
-      "optional": false,
+      "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "the choices in the select, max 25"
+        "Description": "Specified choices in a select menu (only required and available for string selects (type 3); max 25",
+        "Name Note": "options is required for string select menus (component type 3), and unavailable for all other select menu components."
+      }
+    },
+    "channel_types": {
+      "type": "array of channel types",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "List of channel types to include in the channel select component (type 8)",
+        "Name Note": "channel_types can only be used for channel select menu components."
       }
     },
     "placeholder": {
@@ -93,7 +103,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "custom placeholder text if nothing is selected, max 150 characters"
+        "Description": "Placeholder text if nothing is selected; max 150 characters"
       }
     },
     "min_values": {
@@ -101,7 +111,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "the minimum number of items that must be chosen; default 1, min 0, max 25"
+        "Description": "Minimum number of items that must be chosen (defaults to 1); min 0, max 25"
       }
     },
     "max_values": {
@@ -109,7 +119,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "the maximum number of items that can be chosen; default 1, max 25"
+        "Description": "Maximum number of items that can be chosen (defaults to 1); max 25"
       }
     },
     "disabled": {
@@ -117,7 +127,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "disable the select, default false"
+        "Description": "Whether select menu is disabled (defaults to false)"
       }
     }
   },
@@ -130,7 +140,7 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "the user-facing name of the option, max 100 characters"
+        "Description": "User-facing name of the option; max 100 characters"
       }
     },
     "value": {
@@ -138,7 +148,7 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "the dev-defined value of the option, max 100 characters"
+        "Description": "Dev-defined value of the option; max 100 characters"
       }
     },
     "description": {
@@ -146,7 +156,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "an additional description of the option, max 100 characters"
+        "Description": "Additional description of the option; max 100 characters"
       }
     },
     "emoji": {
@@ -162,7 +172,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "will render this option as selected by default"
+        "Description": "Will show this option as selected by default"
       }
     }
   },
@@ -183,7 +193,7 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "a developer-defined identifier for the input, max 100 characters"
+        "Description": "Developer-defined identifier for the input; max 100 characters"
       }
     },
     "style": {
@@ -191,7 +201,7 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "the Text Input Style"
+        "Description": "The Text Input Style"
       }
     },
     "label": {
@@ -199,7 +209,7 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "the label for this component, max 45 characters"
+        "Description": "Label for this component; max 45 characters"
       }
     },
     "min_length": {
@@ -207,7 +217,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "the minimum input length for a text input, min 0, max 4000"
+        "Description": "Minimum input length for a text input; min 0, max 4000"
       }
     },
     "max_length": {
@@ -215,7 +225,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "the maximum input length for a text input, min 1, max 4000"
+        "Description": "Maximum input length for a text input; min 1, max 4000"
       }
     },
     "required": {
@@ -223,7 +233,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "whether this component is required to be filled, default true"
+        "Description": "Whether this component is required to be filled (defaults to true)"
       }
     },
     "value": {
@@ -231,7 +241,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "a pre-filled value for this component, max 4000 characters"
+        "Description": "Pre-filled value for this component; max 4000 characters"
       }
     },
     "placeholder": {
@@ -239,7 +249,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "custom placeholder text if the input is empty, max 100 characters"
+        "Description": "Custom placeholder text if the input is empty; max 100 characters"
       }
     }
   }

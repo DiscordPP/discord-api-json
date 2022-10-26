@@ -316,7 +316,7 @@
       "url": "https://discord.com/developers/docs/resources/sticker#create-guild-sticker",
       "endpoint": "POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers",
       "content": [
-        "Create a new sticker for the guild. Send a multipart/form-data body. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns the new sticker object on success.",
+        "Create a new sticker for the guild. Send a multipart/form-data body. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns the new sticker object on success. Fires a Guild Stickers Update Gateway event.",
         "Every guilds has five free sticker slots by default, and each Boost level will grant access to more slots.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
         "> warn\n> Lottie stickers can only be uploaded on guilds that have either the VERIFIED and/or the PARTNERED guild feature.",
@@ -361,7 +361,7 @@
       "url": "https://discord.com/developers/docs/resources/sticker#modify-guild-sticker",
       "endpoint": "PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers/{sticker.id#DOCS_RESOURCES_STICKER/sticker-object}",
       "content": [
-        "Modify the given sticker. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns the updated sticker object on success.",
+        "Modify the given sticker. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns the updated sticker object on success. Fires a Guild Stickers Update Gateway event.",
         "> info\n> All parameters to this endpoint are optional.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
         "|JSON Params"
@@ -400,7 +400,7 @@
       "url": "https://discord.com/developers/docs/resources/sticker#delete-guild-sticker",
       "endpoint": "DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/stickers/{sticker.id#DOCS_RESOURCES_STICKER/sticker-object}",
       "content": [
-        "Delete the given sticker. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns 204 No Content on success.",
+        "Delete the given sticker. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns 204 No Content on success. Fires a Guild Stickers Update Gateway event.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header."
       ]
     }

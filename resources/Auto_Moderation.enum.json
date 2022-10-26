@@ -24,7 +24,7 @@
     "MENTION_SPAM": {
       "value": "5",
       "comments": {
-        "Description": "check if content contains more mentions than allowed",
+        "Description": "check if content contains more unique mentions than allowed",
         "Max Per Guild": "1"
       }
     }

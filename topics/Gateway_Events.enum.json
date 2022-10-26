@@ -1,0 +1,451 @@
+{
+  "Send Events": {
+    "Identify": {
+      "comments": {
+        "Description": "Triggers the initial handshake with the gateway"
+      }
+    },
+    "Resume": {
+      "comments": {
+        "Description": "Resumes a dropped gateway connection"
+      }
+    },
+    "Heartbeat": {
+      "comments": {
+        "Description": "Maintains an active gateway connection"
+      }
+    },
+    "Request Guild Members": {
+      "comments": {
+        "Description": "Requests members for a guild"
+      }
+    },
+    "Update Voice State": {
+      "comments": {
+        "Description": "Joins, moves, or disconnects the app from a voice channel"
+      }
+    },
+    "Update Presence": {
+      "comments": {
+        "Description": "Updates an app's presence"
+      }
+    }
+  },
+  "Status Types": {
+    "online": {
+      "comments": {
+        "Description": "Online"
+      }
+    },
+    "dnd": {
+      "comments": {
+        "Description": "Do Not Disturb"
+      }
+    },
+    "idle": {
+      "comments": {
+        "Description": "AFK"
+      }
+    },
+    "invisible": {
+      "comments": {
+        "Description": "Invisible and shown as offline"
+      }
+    },
+    "offline": {
+      "comments": {
+        "Description": "Offline"
+      }
+    }
+  },
+  "Receive Events": {
+    "Hello": {
+      "comments": {
+        "Description": "Defines the heartbeat interval"
+      }
+    },
+    "Ready": {
+      "comments": {
+        "Description": "Contains the initial state information"
+      }
+    },
+    "Resumed": {
+      "comments": {
+        "Description": "Response to Resume"
+      }
+    },
+    "Reconnect": {
+      "comments": {
+        "Description": "Server is going away, client should reconnect to gateway and resume"
+      }
+    },
+    "Invalid Session": {
+      "comments": {
+        "Description": "Failure response to Identify or Resume or invalid active session"
+      }
+    },
+    "Application Command Permissions Update": {
+      "comments": {
+        "Description": "Application command permission was updated"
+      }
+    },
+    "Auto Moderation Rule Create": {
+      "comments": {
+        "Description": "Auto Moderation rule was created"
+      }
+    },
+    "Auto Moderation Rule Update": {
+      "comments": {
+        "Description": "Auto Moderation rule was updated"
+      }
+    },
+    "Auto Moderation Rule Delete": {
+      "comments": {
+        "Description": "Auto Moderation rule was deleted"
+      }
+    },
+    "Auto Moderation Action Execution": {
+      "comments": {
+        "Description": "Auto Moderation rule was triggered and an action was executed (e.g. a message was blocked)"
+      }
+    },
+    "Channel Create": {
+      "comments": {
+        "Description": "New guild channel created"
+      }
+    },
+    "Channel Update": {
+      "comments": {
+        "Description": "Channel was updated"
+      }
+    },
+    "Channel Delete": {
+      "comments": {
+        "Description": "Channel was deleted"
+      }
+    },
+    "Channel Pins Update": {
+      "comments": {
+        "Description": "Message was pinned or unpinned"
+      }
+    },
+    "Thread Create": {
+      "comments": {
+        "Description": "Thread created, also sent when being added to a private thread"
+      }
+    },
+    "Thread Update": {
+      "comments": {
+        "Description": "Thread was updated"
+      }
+    },
+    "Thread Delete": {
+      "comments": {
+        "Description": "Thread was deleted"
+      }
+    },
+    "Thread List Sync": {
+      "comments": {
+        "Description": "Sent when gaining access to a channel, contains all active threads in that channel"
+      }
+    },
+    "Thread Member Update": {
+      "comments": {
+        "Description": "Thread member for the current user was updated"
+      }
+    },
+    "Thread Members Update": {
+      "comments": {
+        "Description": "Some user(s) were added to or removed from a thread"
+      }
+    },
+    "Guild Create": {
+      "comments": {
+        "Description": "Lazy-load for unavailable guild, guild became available, or user joined a new guild"
+      }
+    },
+    "Guild Update": {
+      "comments": {
+        "Description": "Guild was updated"
+      }
+    },
+    "Guild Delete": {
+      "comments": {
+        "Description": "Guild became unavailable, or user left/was removed from a guild"
+      }
+    },
+    "Guild Ban Add": {
+      "comments": {
+        "Description": "User was banned from a guild"
+      }
+    },
+    "Guild Ban Remove": {
+      "comments": {
+        "Description": "User was unbanned from a guild"
+      }
+    },
+    "Guild Emojis Update": {
+      "comments": {
+        "Description": "Guild emojis were updated"
+      }
+    },
+    "Guild Stickers Update": {
+      "comments": {
+        "Description": "Guild stickers were updated"
+      }
+    },
+    "Guild Integrations Update": {
+      "comments": {
+        "Description": "Guild integration was updated"
+      }
+    },
+    "Guild Member Add": {
+      "comments": {
+        "Description": "New user joined a guild"
+      }
+    },
+    "Guild Member Remove": {
+      "comments": {
+        "Description": "User was removed from a guild"
+      }
+    },
+    "Guild Member Update": {
+      "comments": {
+        "Description": "Guild member was updated"
+      }
+    },
+    "Guild Members Chunk": {
+      "comments": {
+        "Description": "Response to Request Guild Members"
+      }
+    },
+    "Guild Role Create": {
+      "comments": {
+        "Description": "Guild role was created"
+      }
+    },
+    "Guild Role Update": {
+      "comments": {
+        "Description": "Guild role was updated"
+      }
+    },
+    "Guild Role Delete": {
+      "comments": {
+        "Description": "Guild role was deleted"
+      }
+    },
+    "Guild Scheduled Event Create": {
+      "comments": {
+        "Description": "Guild scheduled event was created"
+      }
+    },
+    "Guild Scheduled Event Update": {
+      "comments": {
+        "Description": "Guild scheduled event was updated"
+      }
+    },
+    "Guild Scheduled Event Delete": {
+      "comments": {
+        "Description": "Guild scheduled event was deleted"
+      }
+    },
+    "Guild Scheduled Event User Add": {
+      "comments": {
+        "Description": "User subscribed to a guild scheduled event"
+      }
+    },
+    "Guild Scheduled Event User Remove": {
+      "comments": {
+        "Description": "User unsubscribed from a guild scheduled event"
+      }
+    },
+    "Integration Create": {
+      "comments": {
+        "Description": "Guild integration was created"
+      }
+    },
+    "Integration Update": {
+      "comments": {
+        "Description": "Guild integration was updated"
+      }
+    },
+    "Integration Delete": {
+      "comments": {
+        "Description": "Guild integration was deleted"
+      }
+    },
+    "Interaction Create": {
+      "comments": {
+        "Description": "User used an interaction, such as an Application Command"
+      }
+    },
+    "Invite Create": {
+      "comments": {
+        "Description": "Invite to a channel was created"
+      }
+    },
+    "Invite Delete": {
+      "comments": {
+        "Description": "Invite to a channel was deleted"
+      }
+    },
+    "Message Create": {
+      "comments": {
+        "Description": "Message was created"
+      }
+    },
+    "Message Update": {
+      "comments": {
+        "Description": "Message was edited"
+      }
+    },
+    "Message Delete": {
+      "comments": {
+        "Description": "Message was deleted"
+      }
+    },
+    "Message Delete Bulk": {
+      "comments": {
+        "Description": "Multiple messages were deleted at once"
+      }
+    },
+    "Message Reaction Add": {
+      "comments": {
+        "Description": "User reacted to a message"
+      }
+    },
+    "Message Reaction Remove": {
+      "comments": {
+        "Description": "User removed a reaction from a message"
+      }
+    },
+    "Message Reaction Remove All": {
+      "comments": {
+        "Description": "All reactions were explicitly removed from a message"
+      }
+    },
+    "Message Reaction Remove Emoji": {
+      "comments": {
+        "Description": "All reactions for a given emoji were explicitly removed from a message"
+      }
+    },
+    "Presence Update": {
+      "comments": {
+        "Description": "User was updated"
+      }
+    },
+    "Stage Instance Create": {
+      "comments": {
+        "Description": "Stage instance was created"
+      }
+    },
+    "Stage Instance Update": {
+      "comments": {
+        "Description": "Stage instance was updated"
+      }
+    },
+    "Stage Instance Delete": {
+      "comments": {
+        "Description": "Stage instance was deleted or closed"
+      }
+    },
+    "Typing Start": {
+      "comments": {
+        "Description": "User started typing in a channel"
+      }
+    },
+    "User Update": {
+      "comments": {
+        "Description": "Properties about the user changed"
+      }
+    },
+    "Voice State Update": {
+      "comments": {
+        "Description": "Someone joined, left, or moved a voice channel"
+      }
+    },
+    "Voice Server Update": {
+      "comments": {
+        "Description": "Guild's voice server was updated"
+      }
+    },
+    "Webhooks Update": {
+      "comments": {
+        "Description": "Guild channel webhook was created, update, or deleted"
+      }
+    }
+  },
+  "Activity Types": {
+    "Game": {
+      "value": "0",
+      "comments": {
+        "Format": "Playing {name}",
+        "Example": "\"Playing Rocket League\""
+      }
+    },
+    "Streaming": {
+      "value": "1",
+      "comments": {
+        "Format": "Streaming {details}",
+        "Example": "\"Streaming Rocket League\""
+      }
+    },
+    "Listening": {
+      "value": "2",
+      "comments": {
+        "Format": "Listening to {name}",
+        "Example": "\"Listening to Spotify\""
+      }
+    },
+    "Watching": {
+      "value": "3",
+      "comments": {
+        "Format": "Watching {name}",
+        "Example": "\"Watching YouTube Together\""
+      }
+    },
+    "Custom": {
+      "value": "4",
+      "comments": {
+        "Format": "{emoji} {name}",
+        "Example": "\":smiley: I am cool\""
+      }
+    },
+    "Competing": {
+      "value": "5",
+      "comments": {
+        "Format": "Competing in {name}",
+        "Example": "\"Competing in Arena World Champions\""
+      }
+    }
+  },
+  "Activity Flags": {
+    "INSTANCE": {
+      "value": "1 << 0"
+    },
+    "JOIN": {
+      "value": "1 << 1"
+    },
+    "SPECTATE": {
+      "value": "1 << 2"
+    },
+    "JOIN_REQUEST": {
+      "value": "1 << 3"
+    },
+    "SYNC": {
+      "value": "1 << 4"
+    },
+    "PLAY": {
+      "value": "1 << 5"
+    },
+    "PARTY_PRIVACY_FRIENDS": {
+      "value": "1 << 6"
+    },
+    "PARTY_PRIVACY_VOICE_CHANNEL": {
+      "value": "1 << 7"
+    },
+    "EMBEDDED": {
+      "value": "1 << 8"
+    }
+  }
+}
