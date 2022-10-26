@@ -262,6 +262,27 @@
       }
     }
   },
+  "Mutable Guild Features": {
+    "COMMUNITY": {
+      "comments": {
+        "Required Permissions": "Administrator",
+        "Effects": "Enables Community Features in the guild"
+      }
+    },
+    "INVITES_DISABLED": {
+      "comments": {
+        "Required Permissions": "Manage Guild",
+        "Effects": "Pauses all invites/access to the server"
+      }
+    },
+    "DISCOVERABLE": {
+      "comments": {
+        "Required Permissions": "Administrator",
+        "Required Permissions Note": "Server also must be passing all discovery requirements",
+        "Effects": "Enables discovery in the guild, making it publicly listed"
+      }
+    }
+  },
   "Integration Expire Behaviors": {
     "Remove role": {
       "value": "0"

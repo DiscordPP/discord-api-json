@@ -115,6 +115,153 @@
       }
     }
   },
+  "Message Types": {
+    "DEFAULT": {
+      "value": "0",
+      "comments": {
+        "Deletable": "true"
+      }
+    },
+    "RECIPIENT_ADD": {
+      "value": "1",
+      "comments": {
+        "Deletable": "false"
+      }
+    },
+    "RECIPIENT_REMOVE": {
+      "value": "2",
+      "comments": {
+        "Deletable": "false"
+      }
+    },
+    "CALL": {
+      "value": "3",
+      "comments": {
+        "Deletable": "false"
+      }
+    },
+    "CHANNEL_NAME_CHANGE": {
+      "value": "4",
+      "comments": {
+        "Deletable": "false"
+      }
+    },
+    "CHANNEL_ICON_CHANGE": {
+      "value": "5",
+      "comments": {
+        "Deletable": "false"
+      }
+    },
+    "CHANNEL_PINNED_MESSAGE": {
+      "value": "6",
+      "comments": {
+        "Deletable": "true"
+      }
+    },
+    "USER_JOIN": {
+      "value": "7",
+      "comments": {
+        "Deletable": "true"
+      }
+    },
+    "GUILD_BOOST": {
+      "value": "8",
+      "comments": {
+        "Deletable": "true"
+      }
+    },
+    "GUILD_BOOST_TIER_1": {
+      "value": "9",
+      "comments": {
+        "Deletable": "true"
+      }
+    },
+    "GUILD_BOOST_TIER_2": {
+      "value": "10",
+      "comments": {
+        "Deletable": "true"
+      }
+    },
+    "GUILD_BOOST_TIER_3": {
+      "value": "11",
+      "comments": {
+        "Deletable": "true"
+      }
+    },
+    "CHANNEL_FOLLOW_ADD": {
+      "value": "12",
+      "comments": {
+        "Deletable": "true"
+      }
+    },
+    "GUILD_DISCOVERY_DISQUALIFIED": {
+      "value": "14",
+      "comments": {
+        "Deletable": "false"
+      }
+    },
+    "GUILD_DISCOVERY_REQUALIFIED": {
+      "value": "15",
+      "comments": {
+        "Deletable": "false"
+      }
+    },
+    "GUILD_DISCOVERY_GRACE_PERIOD_INITIAL_WARNING": {
+      "value": "16",
+      "comments": {
+        "Deletable": "false"
+      }
+    },
+    "GUILD_DISCOVERY_GRACE_PERIOD_FINAL_WARNING": {
+      "value": "17",
+      "comments": {
+        "Deletable": "false"
+      }
+    },
+    "THREAD_CREATED": {
+      "value": "18",
+      "comments": {
+        "Deletable": "true"
+      }
+    },
+    "REPLY": {
+      "value": "19",
+      "comments": {
+        "Deletable": "true"
+      }
+    },
+    "CHAT_INPUT_COMMAND": {
+      "value": "20",
+      "comments": {
+        "Deletable": "true"
+      }
+    },
+    "THREAD_STARTER_MESSAGE": {
+      "value": "21",
+      "comments": {
+        "Deletable": "false"
+      }
+    },
+    "GUILD_INVITE_REMINDER": {
+      "value": "22",
+      "comments": {
+        "Deletable": "true"
+      }
+    },
+    "CONTEXT_MENU_COMMAND": {
+      "value": "23",
+      "comments": {
+        "Deletable": "true"
+      }
+    },
+    "AUTO_MODERATION_ACTION": {
+      "value": "24",
+      "comments": {
+        "Deletable": "true",
+        "Deletable Note": "Can only be deleted by members with MANAGE_MESSAGES permission"
+      }
+    }
+  },
   "Message Activity Types": {
     "JOIN": {
       "value": "1"
