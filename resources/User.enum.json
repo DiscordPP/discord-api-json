@@ -83,6 +83,12 @@
       "comments": {
         "Description": "Bot uses only HTTP interactions and is shown in the online member list"
       }
+    },
+    "ACTIVE_DEVELOPER": {
+      "value": "1 << 22",
+      "comments": {
+        "Description": "User is an Active Developer"
+      }
     }
   },
   "Premium Types": {

@@ -1481,7 +1481,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "the set of tags that can be used in a GUILD_FORUM channel",
+        "Description": "the set of tags that can be used in a GUILD_FORUM channel; limited to 20",
         "Channel Type": "Forum"
       }
     },
@@ -1578,7 +1578,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "the IDs of the set of tags that have been applied to a thread in a GUILD_FORUM channel"
+        "Description": "the IDs of the set of tags that have been applied to a thread in a GUILD_FORUM channel; limited to 5"
       }
     }
   },

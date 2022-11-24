@@ -25,6 +25,7 @@
         "|Example Auto Moderation Rule",
         "|Trigger Types",
         "|Trigger Metadata",
+        "|Trigger Metadata Field Limits",
         "|Keyword Preset Types",
         "|Event Types",
         "|Keyword Matching Strategies"
@@ -103,7 +104,7 @@
         "content": [
           {
             "language": "json",
-            "code": "{\n  \"id\": \"969707018069872670\",\n  \"guild_id\": \"613425648685547541\",\n  \"name\": \"Keyword Filter 1\",\n  \"creator_id\": \"423457898095789043\",\n  \"trigger_type\": 1,\n  \"event_type\": 1,\n  \"actions\": [\n    {\n      \"type\": 1,\n      \"metadata\": {}\n    },\n    {\n      \"type\": 2,\n      \"metadata\": { \"channel_id\": \"123456789123456789\" }\n    }\n  ],\n  \"trigger_metadata\": {\n    \"keyword_filter\": [\"cat*\", \"*dog\", \"*ana*\", \"i like javascript\"]\n  },\n  \"enabled\": true,\n  \"exempt_roles\": [\"323456789123456789\", \"423456789123456789\"],\n  \"exempt_channels\": [\"523456789123456789\"]\n}\n"
+            "code": "{\n  \"id\": \"969707018069872670\",\n  \"guild_id\": \"613425648685547541\",\n  \"name\": \"Keyword Filter 1\",\n  \"creator_id\": \"423457898095789043\",\n  \"trigger_type\": 1,\n  \"event_type\": 1,\n  \"actions\": [\n    {\n      \"type\": 1,\n      \"metadata\": {}\n    },\n    {\n      \"type\": 2,\n      \"metadata\": { \"channel_id\": \"123456789123456789\" }\n    },\n    {\n      \"type\": 3,\n      \"metadata\": {\n        \"duration_seconds\": 60\n      }\n    }\n  ],\n  \"trigger_metadata\": {\n    \"keyword_filter\": [\"cat*\", \"*dog\", \"*ana*\", \"i like rust\"],\n    \"regex_patterns\": [\"(b|c)at\", \"^(?:[0-9]{1,3}\\\\.){3}[0-9]{1,3}$\"]\n  },\n  \"enabled\": true,\n  \"exempt_roles\": [\"323456789123456789\", \"423456789123456789\"],\n  \"exempt_channels\": [\"523456789123456789\"]\n}\n"
           }
         ]
       },
@@ -114,7 +115,7 @@
           "Characterizes the type of content which can trigger the rule.",
           [
             [
-              "Type",
+              "Trigger Type",
               "Value",
               "Description",
               "Max per Guild"
@@ -123,7 +124,7 @@
               "KEYWORD",
               "1",
               "check if content contains words from a user defined list of keywords",
-              "3"
+              "5"
             ],
             [
               "SPAM",
@@ -162,7 +163,13 @@
               "keyword_filter",
               "array of strings *",
               "KEYWORD",
-              "substrings which will be searched for in content"
+              "substrings which will be searched for in content (Maximum of 1000)"
+            ],
+            [
+              "regex_patterns",
+              "array of strings **",
+              "KEYWORD",
+              "regular expression patterns which will be matched against content (Maximum of 10)"
             ],
             [
               "presets",
@@ -172,9 +179,9 @@
             ],
             [
               "allow_list",
-              "array of strings *",
-              "KEYWORD_PRESET",
-              "substrings which will be exempt from triggering the preset trigger type"
+              "array of strings ***",
+              "KEYWORD, KEYWORD_PRESET",
+              "substrings which should not trigger the rule (Maximum of 100 or 1000)"
             ],
             [
               "mention_total_limit",
@@ -183,7 +190,47 @@
               "total number of unique role and user mentions allowed per message (Maximum of 50)"
             ]
           ],
-          "* A keyword can be a phrase which contains multiple words. Wildcard symbols (not available to allow lists) can be used to customize how each keyword will be matched.\nSee keyword matching strategies."
+          "* A keyword can be a phrase which contains multiple words. Wildcard symbols can be used to customize how each keyword will be matched. Each keyword must be 30 characters or less.",
+          "** Only Rust flavored regex is currently supported, which can be tested in online editors such as Rustexp. Each regex pattern must be 260 characters or less.",
+          "*** Each allow_list keyword can be a phrase which contains multiple words. Wildcard symbols can be used to customize how each keyword will be matched. Rules with KEYWORD trigger_type accept a maximum of 100 keywords. Rules with KEYWORD_PRESET trigger_type accept a maximum of 1000 keywords."
+        ]
+      },
+      "Trigger Metadata Field Limits": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-trigger-metadata-field-limits",
+        "content": [
+          [
+            [
+              "Field",
+              "Trigger Type",
+              "MAX ARRAY LENGTH",
+              "MAX CHARACTERS PER STRING"
+            ],
+            [
+              "keyword_filter",
+              "KEYWORD",
+              "1000",
+              "30"
+            ],
+            [
+              "regex_patterns",
+              "KEYWORD",
+              "10",
+              "260"
+            ],
+            [
+              "allow_list",
+              "KEYWORD",
+              "100",
+              "30"
+            ],
+            [
+              "allow_list",
+              "KEYWORD_PRESET",
+              "1000",
+              "30"
+            ]
+          ]
         ]
       },
       "Keyword Preset Types": {
@@ -192,7 +239,7 @@
         "content": [
           [
             [
-              "Type",
+              "Preset Type",
               "Value",
               "Description"
             ],
@@ -221,7 +268,7 @@
           "Indicates in what event context a rule should be checked.",
           [
             [
-              "Type",
+              "Event Type",
               "Value",
               "Description"
             ],
@@ -356,7 +403,7 @@
         "content": [
           [
             [
-              "Type",
+              "Action Type",
               "Value",
               "Description"
             ],

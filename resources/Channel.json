@@ -2069,7 +2069,7 @@
             [
               "available_tags?",
               "array of tag objects",
-              "the set of tags that can be used in a GUILD_FORUM channel",
+              "the set of tags that can be used in a GUILD_FORUM channel; limited to 20",
               "Forum"
             ],
             [
@@ -2145,7 +2145,7 @@
             [
               "applied_tags?",
               "array of snowflakes",
-              "the IDs of the set of tags that have been applied to a thread in a GUILD_FORUM channel"
+              "the IDs of the set of tags that have been applied to a thread in a GUILD_FORUM channel; limited to 5"
             ]
           ]
         ]
@@ -2790,7 +2790,6 @@
       "content": [
         "Creates a new thread that is not connected to an existing message. Returns a channel on success, and a 400 BAD REQUEST on invalid parameters. Fires a Thread Create Gateway event.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
-        "> info\n> Creating a private thread requires the server to be boosted. The guild features will indicate if that is possible for the guild.",
         "|JSON Params"
       ],
       "JSON Params": {
@@ -2829,7 +2828,7 @@
               "amount of seconds a user has to wait before sending another message (0-21600)"
             ]
           ],
-          "* type currently defaults to GUILD_PRIVATE_THREAD in order to match the behavior when thread documentation was first published. In a future API version this will be changed to be a required field, with no default."
+          "* type currently defaults to PRIVATE_THREAD in order to match the behavior when thread documentation was first published. In a future API version this will be changed to be a required field, with no default."
         ]
       }
     },
@@ -2982,7 +2981,7 @@
       "url": "https://discord.com/developers/docs/resources/channel#remove-thread-member",
       "endpoint": "DELETE /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/thread-members/{user.id#DOCS_RESOURCES_USER/user-object}",
       "content": [
-        "Removes another member from a thread. Requires the MANAGE_THREADS permission, or the creator of the thread if it is a GUILD_PRIVATE_THREAD. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
+        "Removes another member from a thread. Requires the MANAGE_THREADS permission, or the creator of the thread if it is a PRIVATE_THREAD. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
       ]
     },
     "Get Thread Member": {
@@ -3068,7 +3067,7 @@
       "url": "https://discord.com/developers/docs/resources/channel#list-private-archived-threads",
       "endpoint": "GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/threads/archived/private",
       "content": [
-        "Returns archived threads in the channel that are of type GUILD_PRIVATE_THREAD. Threads are ordered by archive_timestamp, in descending order. Requires both the READ_MESSAGE_HISTORY and MANAGE_THREADS permissions.",
+        "Returns archived threads in the channel that are of type PRIVATE_THREAD. Threads are ordered by archive_timestamp, in descending order. Requires both the READ_MESSAGE_HISTORY and MANAGE_THREADS permissions.",
         "|Query String Params",
         "|Response Body"
       ],
@@ -3129,7 +3128,7 @@
       "url": "https://discord.com/developers/docs/resources/channel#list-joined-private-archived-threads",
       "endpoint": "GET /channels/{channel.id#DOCS_RESOURCES_CHANNEL/channel-object}/users/@me/threads/archived/private",
       "content": [
-        "Returns archived threads in the channel that are of type GUILD_PRIVATE_THREAD, and the user has joined. Threads are ordered by their id, in descending order. Requires the READ_MESSAGE_HISTORY permission.",
+        "Returns archived threads in the channel that are of type PRIVATE_THREAD, and the user has joined. Threads are ordered by their id, in descending order. Requires the READ_MESSAGE_HISTORY permission.",
         "|Query String Params",
         "|Response Body"
       ],

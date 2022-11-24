@@ -240,6 +240,11 @@
                 "1 << 19",
                 "BOT_HTTP_INTERACTIONS",
                 "Bot uses only HTTP interactions and is shown in the online member list"
+              ],
+              [
+                "1 << 22",
+                "ACTIVE_DEVELOPER",
+                "User is an Active Developer"
               ]
             ]
           ]

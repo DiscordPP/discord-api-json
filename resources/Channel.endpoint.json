@@ -762,7 +762,7 @@
         "nullable": false,
         "comments": {
           "Description": "the type of thread to create",
-          "Name Note": "type currently defaults to GUILD_PRIVATE_THREAD in order to match the behavior when thread documentation was first published. In a future API version this will be changed to be a required field, with no default."
+          "Name Note": "type currently defaults to PRIVATE_THREAD in order to match the behavior when thread documentation was first published. In a future API version this will be changed to be a required field, with no default."
         }
       },
       "invitable": {

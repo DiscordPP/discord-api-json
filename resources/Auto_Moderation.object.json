@@ -101,8 +101,18 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "substrings which will be searched for in content",
-        "Type Note": "A keyword can be a phrase which contains multiple words. Wildcard symbols (not available to allow lists) can be used to customize how each keyword will be matched.\nSee keyword matching strategies.",
+        "Description": "substrings which will be searched for in content (Maximum of 1000)",
+        "Type Note": "A keyword can be a phrase which contains multiple words. Wildcard symbols can be used to customize how each keyword will be matched. Each keyword must be 30 characters or less.",
+        "Associated Trigger Types": "KEYWORD"
+      }
+    },
+    "regex_patterns": {
+      "type": "array of strings",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "regular expression patterns which will be matched against content (Maximum of 10)",
+        "Type Note": "Only Rust flavored regex is currently supported, which can be tested in online editors such as Rustexp. Each regex pattern must be 260 characters or less.",
         "Associated Trigger Types": "KEYWORD"
       }
     },
@@ -120,9 +130,9 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "substrings which will be exempt from triggering the preset trigger type",
-        "Type Note": "A keyword can be a phrase which contains multiple words. Wildcard symbols (not available to allow lists) can be used to customize how each keyword will be matched.\nSee keyword matching strategies.",
-        "Associated Trigger Types": "KEYWORD_PRESET"
+        "Description": "substrings which should not trigger the rule (Maximum of 100 or 1000)",
+        "Type Note": "Each allow_list keyword can be a phrase which contains multiple words. Wildcard symbols can be used to customize how each keyword will be matched. Rules with KEYWORD trigger_type accept a maximum of 100 keywords. Rules with KEYWORD_PRESET trigger_type accept a maximum of 1000 keywords.",
+        "Associated Trigger Types": "KEYWORD, KEYWORD_PRESET"
       }
     },
     "mention_total_limit": {
