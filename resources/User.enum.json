@@ -75,7 +75,7 @@
     "CERTIFIED_MODERATOR": {
       "value": "1 << 18",
       "comments": {
-        "Description": "Discord Certified Moderator"
+        "Description": "Moderator Programs Alumni"
       }
     },
     "BOT_HTTP_INTERACTIONS": {
@@ -147,6 +147,9 @@
     },
     "Steam": {
       "value": "steam"
+    },
+    "TikTok": {
+      "value": "tiktok"
     },
     "Twitch": {
       "value": "twitch"

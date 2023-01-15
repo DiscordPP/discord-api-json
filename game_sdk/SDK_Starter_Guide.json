@@ -7,7 +7,8 @@
     "url": "https://discord.com/developers/docs/game-sdk/sdk-starter-guide#sdk-starter-guide",
     "content": [
       "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
-      "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
+      "> warn\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
+      "> danger\n> The GameSDK's Achievements, Applications, Voice, Images, Lobbies, Networking, Storage, and Store (purchases and discounts) features have been deprecated, and will be decommissioned on May 2, 2023. Read more",
       "Welcome to the Discord GameSDK! We're glad you made it. This SDK is here to solve all your problems, if your problems include finding an awesome SDK to help develop your game. Our SDK is like Clippy, if Clippy were built on a modern tech stack, talked less, and was an awesome game development SDK.",
       "|Step 0 - Some Notes",
       "|Step 1 - Get the Thing",
@@ -199,7 +200,7 @@
           "A working SDK, via the small code snippets above"
         ],
         "If you can check all those boxes, you are doing great! You're well-equipped to venture forth into the rest of the SDK and make full use of it's myriad of functionality. So, onwards, to game development!",
-        "If you ever need help during the process, you can always reach out to us at our Dev Support. If you have feedback on things you'd like to see added to the SDK, drop us at a line at our Dev Feedback."
+        "If you ever need help during the process, you can always reach out to us at our Dev Support or talk to us in the Discord Developers Server!"
       ]
     },
     "Where...do I go...": {
@@ -212,15 +213,8 @@
           "Activities, a.k.a. Rich Presence",
           "Relationships",
           "Users",
-          "Images",
-          "Lobbies",
-          "Networking",
-          "Storage",
-          "Applications",
           "Overlay",
-          "Store",
-          "Discord Voice",
-          "Achievements"
+          "Store"
         ]
       ]
     }

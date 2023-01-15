@@ -503,6 +503,16 @@
               "SUPPRESS_JOIN_NOTIFICATION_REPLIES",
               "1 << 3",
               "Hide member join sticker reply buttons"
+            ],
+            [
+              "SUPPRESS_ROLE_SUBSCRIPTION_PURCHASE_NOTIFICATIONS",
+              "1 << 4",
+              "Suppress role subscription purchase and renewal notifications"
+            ],
+            [
+              "SUPPRESS_ROLE_SUBSCRIPTION_PURCHASE_NOTIFICATION_REPLIES",
+              "1 << 5",
+              "Hide role subscription sticker reply buttons"
             ]
           ]
         ]
@@ -541,6 +551,14 @@
               "guild can enable welcome screen, Membership Screening, stage channels and discovery, and receives community updates"
             ],
             [
+              "CREATOR_MONETIZABLE_PROVISIONAL",
+              "guild has enabled monetization"
+            ],
+            [
+              "CREATOR_STORE_PAGE",
+              "guild has enabled the role subscription promo page"
+            ],
+            [
               "DEVELOPER_SUPPORT_SERVER",
               "guild has been set as a support server on the App Directory"
             ],
@@ -565,10 +583,6 @@
               "guild has enabled Membership Screening"
             ],
             [
-              "MONETIZATION_ENABLED",
-              "guild has enabled monetization"
-            ],
-            [
               "MORE_STICKERS",
               "guild has increased custom sticker slots"
             ],
@@ -587,6 +601,14 @@
             [
               "ROLE_ICONS",
               "guild is able to set role icons"
+            ],
+            [
+              "ROLE_SUBSCRIPTIONS_AVAILABLE_FOR_PURCHASE",
+              "guild has role subscriptions that can be purchased"
+            ],
+            [
+              "ROLE_SUBSCRIPTIONS_ENABLED",
+              "guild has enabled role subscriptions"
             ],
             [
               "TICKETED_EVENTS_ENABLED",
@@ -976,10 +998,10 @@
             [
               "type",
               "string",
-              "integration type (twitch, youtube, or discord)"
+              "integration type (twitch, youtube, discord, or guild_subscription)"
             ],
             [
-              "enabled? *",
+              "enabled",
               "boolean",
               "is this integration enabled"
             ],
@@ -1009,7 +1031,7 @@
               "the grace period (in days) before expiring subscribers"
             ],
             [
-              "user? *",
+              "user?",
               "user object",
               "user for this integration"
             ],
@@ -1044,7 +1066,8 @@
               "the scopes the application has been authorized for"
             ]
           ],
-          "* These fields are not provided for discord bot integrations."
+          "* These fields are not provided for discord bot integrations.",
+          "> warn\n> Some older integrations may not have an attached user."
         ]
       },
       "Integration Expire Behaviors": {
@@ -2443,7 +2466,8 @@
       "url": "https://discord.com/developers/docs/resources/guild#get-guild-integrations",
       "endpoint": "GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/integrations",
       "content": [
-        "Returns a list of integration objects for the guild. Requires the MANAGE_GUILD permission."
+        "Returns a list of integration objects for the guild. Requires the MANAGE_GUILD permission.",
+        "> info\n> This endpoint returns a maximum of 50 integrations. If a guild has more integrations, they cannot be accessed."
       ]
     },
     "Delete Guild Integration": {
@@ -2581,7 +2605,7 @@
       "url": "https://discord.com/developers/docs/resources/guild#modify-guild-welcome-screen",
       "endpoint": "PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/welcome-screen",
       "content": [
-        "Modify the guild's Welcome Screen. Requires the MANAGE_GUILD permission. Returns the updated Welcome Screen object.",
+        "Modify the guild's Welcome Screen. Requires the MANAGE_GUILD permission. Returns the updated Welcome Screen object. May fire a Guild Update Gateway event.",
         "> info\n> All parameters to this endpoint are optional and nullable",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
         "|JSON Params"

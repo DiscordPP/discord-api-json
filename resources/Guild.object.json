@@ -620,16 +620,15 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "integration type (twitch, youtube, or discord)"
+        "Description": "integration type (twitch, youtube, discord, or guild_subscription)"
       }
     },
     "enabled": {
       "type": "boolean",
-      "optional": true,
+      "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "is this integration enabled",
-        "Name Note": "These fields are not provided for discord bot integrations."
+        "Description": "is this integration enabled"
       }
     },
     "syncing": {
@@ -682,8 +681,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "user for this integration",
-        "Name Note": "These fields are not provided for discord bot integrations."
+        "Description": "user for this integration"
       }
     },
     "account": {

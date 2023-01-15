@@ -1,0 +1,22 @@
+{
+  "Get Application Role Connection Metadata Records": {
+    "command": "GET",
+    "url": "/applications/{application.id}/role-connections/metadata",
+    "docs_url": "https://discord.com/developers/docs/resources/application-role-connection-metadata#get-application-role-connection-metadata-records",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      }
+    }
+  },
+  "Update Application Role Connection Metadata Records": {
+    "command": "PUT",
+    "url": "/applications/{application.id}/role-connections/metadata",
+    "docs_url": "https://discord.com/developers/docs/resources/application-role-connection-metadata#update-application-role-connection-metadata-records",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      }
+    }
+  }
+}

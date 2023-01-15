@@ -7,7 +7,7 @@
     "url": "https://discord.com/developers/docs/game-sdk/discord-voice#voice",
     "content": [
       "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
-      "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
+      "> danger\n> The GameSDK's Achievements, Applications, Voice, Images, Lobbies, Networking, Storage, and Store (purchases and discounts) features have been deprecated, and will be decommissioned on May 2, 2023. Read more",
       "Discord's pride and joy is its voice chat. Well, ok, also its memes, but mostly the voice chat. Text and video chat are pretty great, too. And have you seen that store? Anyway.",
       "If you want people playing your game to be able to talk with each other, this Voice manager can help you out! Note that the main functionality for voice in this SDK is not only in this manager. Connecting players to a voice chat happens with ConnectVoice in the Lobby manager, and robust voice settings work through OpenVoiceSettings in the Overlay manager. The Voice manager handles a few fine-grain details like self muting/deafening, swapping between VAD/PTT voice modes, and setting a PTT key. It's a subset of the robust settings from the overlay call for those of you that prefer to build UI and control things from your own game.",
       "|Data Models",

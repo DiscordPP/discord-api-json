@@ -7,7 +7,6 @@
     "url": "https://discord.com/developers/docs/game-sdk/activities#activities",
     "content": [
       "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
-      "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
       "Looking to integrate Rich Presence into your game? No need to manage multiple SDKs\u2014this one does all that awesome stuff, too!. Delight your players with the ability to post game invites in chat and party up directly from Discord. Surface interesting live game data in their profile and on the Games Tab for their friends, encouraging them to group up and play together.",
       "For more detailed information and documentation around the Rich Presence feature set and integration tips, check out our Rich Presence Documentation.",
       "|Data Models",

@@ -403,7 +403,7 @@
           "level": 4,
           "url": "https://discord.com/developers/docs/topics/gateway#privileged-intents-http-restrictions",
           "content": [
-            "In addition to Gateway restrictions, privileged intents also affect the HTTP API endpoints your app is permitted to call, and the data it can receive. For example, to use the List Guild Members endpoint, your app must configure the GUILD_MEMBERS intent (and be approved for it if eligible for verified).",
+            "In addition to Gateway restrictions, privileged intents also affect the HTTP API endpoints your app is permitted to call, and the data it can receive. For example, to use the List Guild Members endpoint, your app must enable the GUILD_MEMBERS intent (and be approved for it if eligible for verification).",
             "HTTP API restrictions are independent of Gateway restrictions, and are unaffected by which intents your app passes in the intents parameter when Identifying."
           ]
         },
@@ -418,7 +418,8 @@
             [
               "Content in messages that an app sends",
               "Content in DMs with the app",
-              "Content in which the app is mentioned"
+              "Content in which the app is mentioned",
+              "Content of the message a message context menu command is used on"
             ]
           ]
         }
@@ -429,7 +430,7 @@
       "url": "https://discord.com/developers/docs/topics/gateway#rate-limiting",
       "content": [
         "> info\n> This section refers to Gateway rate limits, not HTTP API rate limits",
-        "Apps can send 120 gateway events every 60 seconds, meaning an average of 2 commands per second. Apps that surpass the limit are immediately disconnected from the Gateway. Similar to other rate limits, repeat offenders will have their API access revoked.",
+        "Apps can send 120 gateway events per connection every 60 seconds, meaning an average of 2 commands per second. Apps that surpass the limit are immediately disconnected from the Gateway. Similar to other rate limits, repeat offenders will have their API access revoked.",
         "Apps also have a limit for concurrent Identify requests allowed per 5 seconds. If you hit this limit, the Gateway will respond with an Invalid Session (opcode 9)."
       ]
     },
@@ -469,7 +470,7 @@
           "When using ETF (External Term Format) encoding, there are some specific behaviors you should know:",
           [
             "Snowflake IDs are transmitted as 64-bit integers or strings.",
-            "Your app can't send compressed messages to the guild.",
+            "Your app can't send compressed messages to the server.",
             "When sending payloads, you must use string keys. Using atom keys will result in a 4002 decode error."
           ],
           "See erlpack for an ETF implementation example."

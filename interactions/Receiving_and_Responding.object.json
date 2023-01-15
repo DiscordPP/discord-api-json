@@ -308,7 +308,7 @@
       }
     },
     "value": {
-      "type": "string, integer, or double",
+      "type": "string, integer, double, or boolean",
       "optional": true,
       "nullable": false,
       "comments": {
@@ -482,7 +482,7 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "a developer-defined identifier for the component, max 100 characters"
+        "Description": "a developer-defined identifier for the modal, max 100 characters"
       }
     },
     "title": {

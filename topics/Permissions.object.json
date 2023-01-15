@@ -117,7 +117,31 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "whether this is the guild's premium subscriber role"
+        "Description": "whether this is the guild's Booster role"
+      }
+    },
+    "subscription_listing_id": {
+      "type": "snowflake",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "the id of this role's subscription sku and listing"
+      }
+    },
+    "available_for_purchase": {
+      "type": "null",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "whether this role is available for purchase"
+      }
+    },
+    "guild_connections": {
+      "type": "null",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "whether this role is a guild's linked role"
       }
     }
   }

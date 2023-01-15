@@ -336,7 +336,7 @@
             ],
             [
               "value?",
-              "string, integer, or double",
+              "string, integer, double, or boolean",
               "Value of the option resulting from user input"
             ],
             [
@@ -624,7 +624,7 @@
               [
                 "custom_id",
                 "string",
-                "a developer-defined identifier for the component, max 100 characters"
+                "a developer-defined identifier for the modal, max 100 characters"
               ],
               [
                 "title",

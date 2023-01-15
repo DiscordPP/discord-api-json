@@ -97,7 +97,7 @@
       "nullable": false,
       "comments": {
         "Description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel, are unaffected",
-        "Name Note": "rate_limit_per_user also applies to thread creation. Users can send one message and create one thread during each rate_limit_per_user interval.\n** For threads created before July 1, 2022, the message count is inaccurate when it's greater than 50."
+        "Name Note": "rate_limit_per_user also applies to thread creation. Users can send one message and create one thread during each rate_limit_per_user interval."
       }
     },
     "recipients": {
@@ -169,7 +169,8 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "number of messages (not including the initial message or deleted messages) in a thread."
+        "Description": "number of messages (not including the initial message or deleted messages) in a thread.",
+        "Name Note": "For threads created before July 1, 2022, the message count is inaccurate when it's greater than 50."
       }
     },
     "member_count": {
@@ -266,6 +267,14 @@
       "nullable": true,
       "comments": {
         "Description": "the default sort order type used to order posts in GUILD_FORUM channels. Defaults to null, which indicates a preferred sort order hasn't been set by a channel admin"
+      }
+    },
+    "default_forum_layout": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "the default forum layout view used to display posts in GUILD_FORUM channels. Defaults to 0, which indicates a layout view has not been set by a channel admin"
       }
     }
   },
@@ -519,6 +528,14 @@
       "comments": {
         "Description": "A generally increasing integer (there may be gaps or duplicates) that represents the approximate position of the message in a thread, it can be used to estimate the relative position of the message in a thread in company with total_message_sent on parent thread"
       }
+    },
+    "role_subscription_data": {
+      "type": "role subscription data object",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "data of the role subscription purchase or renewal that prompted this ROLE_SUBSCRIPTION_PURCHASE message"
+      }
     }
   },
   "Message Activity": {
@@ -729,8 +746,8 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "the id of the thread",
-        "Name Note": "These fields are omitted on the member sent within each thread in the GUILD_CREATE event"
+        "Description": "ID of the thread",
+        "Name Note": "These fields are omitted on the member sent within each thread in the GUILD_CREATE event."
       }
     },
     "user_id": {
@@ -738,8 +755,8 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "the id of the user",
-        "Name Note": "These fields are omitted on the member sent within each thread in the GUILD_CREATE event"
+        "Description": "ID of the user",
+        "Name Note": "These fields are omitted on the member sent within each thread in the GUILD_CREATE event."
       }
     },
     "join_timestamp": {
@@ -747,7 +764,7 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "the time the current user last joined the thread"
+        "Description": "Time the user last joined the thread"
       }
     },
     "flags": {
@@ -755,7 +772,15 @@
       "optional": false,
       "nullable": false,
       "comments": {
-        "Description": "any user-thread settings, currently only used for notifications"
+        "Description": "Any user-thread settings, currently only used for notifications"
+      }
+    },
+    "member": {
+      "type": "guild member object",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Additional information about the user"
       }
     }
   },
@@ -811,10 +836,10 @@
     "emoji_id": {
       "type": "snowflake",
       "optional": false,
-      "nullable": false,
+      "nullable": true,
       "comments": {
         "Description": "the id of a guild's custom emoji",
-        "Description Note": "At most one of emoji_id and emoji_name may be set."
+        "Description Note": "At most one of emoji_id and emoji_name may be set to a non-null value."
       }
     },
     "emoji_name": {
@@ -823,7 +848,7 @@
       "nullable": true,
       "comments": {
         "Description": "the unicode character of the emoji",
-        "Description Note": "At most one of emoji_id and emoji_name may be set."
+        "Description Note": "At most one of emoji_id and emoji_name may be set to a non-null value."
       }
     }
   },
@@ -1085,7 +1110,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "url of author"
+        "Description": "url of author (only supports http(s))"
       }
     },
     "icon_url": {
@@ -1323,6 +1348,43 @@
       }
     }
   },
+  "Role Subscription Data": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/channel#role-subscription-data-object-role-subscription-data-object-structure"
+    },
+    "role_subscription_listing_id": {
+      "type": "snowflake",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the id of the sku and listing that the user is subscribed to"
+      }
+    },
+    "tier_name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the name of the tier that the user is subscribed to"
+      }
+    },
+    "total_months_subscribed": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "the cumulative number of months that the user has been subscribed for"
+      }
+    },
+    "is_renewal": {
+      "type": "boolean",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "whether this notification is for a renewal rather than a new purchase"
+      }
+    }
+  },
   "JSON Params (Group DM)": {
     "parser-data": {
       "docs_url": "https://discord.com/developers/docs/resources/channel#modify-channel-json-params-(group-dm)"
@@ -1509,6 +1571,15 @@
       "nullable": true,
       "comments": {
         "Description": "the default sort order type used to order posts in GUILD_FORUM channels",
+        "Channel Type": "Forum"
+      }
+    },
+    "default_forum_layout": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "the default forum layout type used to display posts in GUILD_FORUM channels",
         "Channel Type": "Forum"
       }
     }

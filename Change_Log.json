@@ -6,13 +6,16 @@
     "level": 1,
     "url": "https://discord.com/developers/docs/docs/change-log#change-log",
     "content": [
-      "|Add Automod Allow List for Keyword Rules and Increase Max Keyword Rules Per Guild Limit",
+      "|Thread Member Details and Pagination",
+      "|Add Default Layout setting for Forum channels",
+      "|Add Auto Moderation Allow List for Keyword Rules and Increase Max Keyword Rules Per Guild Limit",
       "|Upcoming Application Command Permission Changes",
-      "|Add Automod Regex Support",
+      "|GameSDK Feature Deprecation",
+      "|Add Auto Moderation Regex Support",
       "|Delete Ephemeral Messages",
       "|New Select Menu Components",
       "|Default Sort Order for Forum Channels",
-      "|AutoMod Spam and Mention Spam Trigger Types",
+      "|Auto Moderation Spam and Mention Spam Trigger Types",
       "|Forum Channels Release",
       "|Message Content is a Privileged Intent",
       "|Slash Command Mentions",
@@ -22,7 +25,7 @@
       "|Add Subcommand Groups and Subcommands to Message Interaction Objects",
       "|Changes to Bot Permissions for Interactions and Webhooks",
       "|Calculated Permissions in Interaction Payloads",
-      "|Message Content in AutoMod events",
+      "|Message Content in Auto Moderation events",
       "|Updated Connection Property Field Names",
       "|Auto Moderation",
       "|Updated Command Permissions",
@@ -84,18 +87,57 @@
       "|New Feature: Audit Logs",
       "|Breaking Change: Version 6"
     ],
-    "Add Automod Allow List for Keyword Rules and Increase Max Keyword Rules Per Guild Limit": {
+    "Thread Member Details and Pagination": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/docs/change-log#add-automod-allow-list-for-keyword-rules-and-increase-max-keyword-rules-per-guild-limit",
+      "url": "https://discord.com/developers/docs/docs/change-log#thread-member-details-and-pagination",
+      "content": [
+        "> danger\n> This entry includes breaking changes",
+        "|Jan 09, 2023",
+        "|Upcoming Changes"
+      ],
+      "Jan 09, 2023": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/docs/change-log#thread-member-details-and-pagination-jan-09,-2023",
+        "content": [
+          "A new member field was added to the thread member object. member is a guild member object that will be included within returned thread member objects when the new with_member field is set to true in the List Thread Members (GET /channels/<channel_id>/thread-members) and Get Thread Member (GET /channels/<channel_id>/thread-members/<user_id>) endpoints.",
+          "Setting with_member to true will also enable pagination for the List Thread Members endpoint. When the results are paginated, you can use the new after and limit fields to fetch additional thread members and limit the number of thread members returned. By default, limit is 100."
+        ]
+      },
+      "Upcoming Changes": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/docs/change-log#thread-member-details-and-pagination-upcoming-changes",
+        "content": [
+          "Starting in API v11, List Thread Members (GET /channels/<channel_id>/thread-members) will always return paginated results, regardless of whether with_member is passed or not."
+        ]
+      }
+    },
+    "Add Default Layout setting for Forum channels": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/docs/change-log#add-default-layout-setting-for-forum-channels",
+      "content": [
+        "|Dec 13, 2022"
+      ],
+      "Dec 13, 2022": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/docs/change-log#add-default-layout-setting-for-forum-channels-dec-13,-2022",
+        "content": [
+          "default_forum_layout is an optional field in the channel object that indicates the default layout for posts in a forum channel. A value of 1 (LIST_VIEW) indicates that posts will be displayed as a chronological list, and 2 (GALLERY_VIEW) indicates they will be displayed as a collection of tiles. If default_forum_layout hasn't been set, the value will be 0.",
+          "Setting default_forum_layout requires the MANAGE_CHANNELS permission."
+        ]
+      }
+    },
+    "Add Auto Moderation Allow List for Keyword Rules and Increase Max Keyword Rules Per Guild Limit": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/docs/change-log#add-auto-moderation-allow-list-for-keyword-rules-and-increase-max-keyword-rules-per-guild-limit",
       "content": [
         "|Nov 22, 2022"
       ],
       "Nov 22, 2022": {
         "level": 4,
-        "url": "https://discord.com/developers/docs/docs/change-log#add-automod-allow-list-for-keyword-rules-and-increase-max-keyword-rules-per-guild-limit-nov-22,-2022",
+        "url": "https://discord.com/developers/docs/docs/change-log#add-auto-moderation-allow-list-for-keyword-rules-and-increase-max-keyword-rules-per-guild-limit-nov-22,-2022",
         "content": [
           [
-            "Automod rules with trigger_type KEYWORD now support an allow_list field in its trigger_metadata. Any message content that matches an allow_list keyword will be ignored by the Automod KEYWORD rule. Each allow_list keyword can be a multi-word phrase and can contain wildcard symbols.",
+            "Auto Moderation rules with trigger_type KEYWORD now support an allow_list field in its trigger_metadata. Any message content that matches an allow_list keyword will be ignored by the Auto Moderation KEYWORD rule. Each allow_list keyword can be a multi-word phrase and can contain wildcard symbols.",
             "Increase maximum number of rules with KEYWORD trigger_type per guild from 3 to 5",
             "Increase maximum length for each regex pattern in the regex_patterns trigger_metadata field from 75 to 260."
           ]
@@ -252,17 +294,44 @@
         }
       }
     },
-    "Add Automod Regex Support": {
+    "GameSDK Feature Deprecation": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/docs/change-log#add-automod-regex-support",
+      "url": "https://discord.com/developers/docs/docs/change-log#gamesdk-feature-deprecation",
+      "content": [
+        "|Nov 9, 2022"
+      ],
+      "Nov 9, 2022": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/docs/change-log#gamesdk-feature-deprecation-nov-9,-2022",
+        "content": [
+          "> danger\n> This entry includes breaking changes",
+          "To help keep us focused on the features, improvements, and gaming-related experiences that Discord users love, we are deprecating the following pieces of the GameSDK starting today, and decommissioning them on Tuesday, May 2, 2023:",
+          [
+            "Achievements",
+            "Applications",
+            "Voice",
+            "Images",
+            "Lobbies",
+            "Networking",
+            "Storage",
+            "Store [purchases and discounts]"
+          ],
+          "This deprecation period will last until Tuesday May 2, 2023, after which these pieces will be decommissioned and no longer work. The other pieces of the GameSDK will continue to be supported.",
+          "We know that Discord is an important place for people to find belonging, and that using your Discord identity in games is a crucial part of that sense of belonging. You\u2019ll still be able to use the GameSDK to integrate Rich Presence, relationships, entitlements, basic user information, and the overlay."
+        ]
+      }
+    },
+    "Add Auto Moderation Regex Support": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/docs/change-log#add-auto-moderation-regex-support",
       "content": [
         "|Nov 4, 2022"
       ],
       "Nov 4, 2022": {
         "level": 4,
-        "url": "https://discord.com/developers/docs/docs/change-log#add-automod-regex-support-nov-4,-2022",
+        "url": "https://discord.com/developers/docs/docs/change-log#add-auto-moderation-regex-support-nov-4,-2022",
         "content": [
-          "Automod rules with trigger_type KEYWORD now support\na regex_patterns field in its trigger_metadata.\nRegex patterns are a powerful way to describe many keywords all at once using one expression. Only Rust flavored regex is supported, which can be tested in online editors such as Rustexp."
+          "Auto Moderation rules with trigger_type KEYWORD now support\na regex_patterns field in its trigger_metadata.\nRegex patterns are a powerful way to describe many keywords all at once using one expression. Only Rust flavored regex is supported, which can be tested in online editors such as Rustexp."
         ]
       }
     },
@@ -322,22 +391,22 @@
         ]
       }
     },
-    "AutoMod Spam and Mention Spam Trigger Types": {
+    "Auto Moderation Spam and Mention Spam Trigger Types": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/docs/change-log#automod-spam-and-mention-spam-trigger-types",
+      "url": "https://discord.com/developers/docs/docs/change-log#auto-moderation-spam-and-mention-spam-trigger-types",
       "content": [
         "|Sep 21, 2022"
       ],
       "Sep 21, 2022": {
         "level": 4,
-        "url": "https://discord.com/developers/docs/docs/change-log#automod-spam-and-mention-spam-trigger-types-sep-21,-2022",
+        "url": "https://discord.com/developers/docs/docs/change-log#auto-moderation-spam-and-mention-spam-trigger-types-sep-21,-2022",
         "content": [
-          "Two new trigger types were added to AutoMod:",
+          "Two new trigger types were added to Auto Moderation:",
           [
             "MENTION_SPAM blocks messages that mention more than a set number of unique server members or roles. Apps can define the number (up to 50) using the mention_total_limit field in the trigger metadata object when creating or updating an Auto Moderation rule.",
             "SPAM blocks links and messages that are identified as spam."
           ],
-          "More information can be found in the AutoMod documentation."
+          "More information can be found in the Auto Moderation documentation."
         ]
       }
     },
@@ -552,21 +621,21 @@
         ]
       }
     },
-    "Message Content in AutoMod events": {
+    "Message Content in Auto Moderation events": {
       "level": 2,
-      "url": "https://discord.com/developers/docs/docs/change-log#message-content-in-automod-events",
+      "url": "https://discord.com/developers/docs/docs/change-log#message-content-in-auto-moderation-events",
       "content": [
         "|Jun 21, 2022",
         "|Breaking Changes"
       ],
       "Jun 21, 2022": {
         "level": 4,
-        "url": "https://discord.com/developers/docs/docs/change-log#message-content-in-automod-events-jun-21,-2022",
+        "url": "https://discord.com/developers/docs/docs/change-log#message-content-in-auto-moderation-events-jun-21,-2022",
         "content": []
       },
       "Breaking Changes": {
         "level": 4,
-        "url": "https://discord.com/developers/docs/docs/change-log#message-content-in-automod-events-breaking-changes",
+        "url": "https://discord.com/developers/docs/docs/change-log#message-content-in-auto-moderation-events-breaking-changes",
         "content": [
           "In API v10, the MESSAGE_CONTENT (1 << 15) intent is now required to receive non-empty values for the content and matched_content fields in AUTO_MODERATION_ACTION_EXECUTION gateway events. This matches the intended behavior for message content across the API."
         ]
@@ -602,7 +671,7 @@
             "New endpoints for creating, updating, and deleting Auto Moderation rules",
             "New gateway events emitted when Auto Moderation rules are created (AUTO_MODERATION_RULE_CREATE), updated (AUTO_MODERATION_RULE_UPDATE), and deleted (AUTO_MODERATION_RULE_DELETE). Requires the AUTO_MODERATION_CONFIGURATION (1 << 20) intent",
             "New gateway event emitted when an action is executed (AUTO_MODERATION_ACTION_EXECUTION). Requires the AUTO_MODERATION_EXECUTION (1 << 21) intent",
-            "New audit log entries when rules are created (AUTO_MODERATION_RULE_CREATE), updated (AUTO_MODERATION_RULE_UPDATE), or deleted (AUTO_MODERATION_RULE_DELETE), or when AutoMod performs an action (AUTO_MODERATION_BLOCK_MESSAGE)"
+            "New audit log entries when rules are created (AUTO_MODERATION_RULE_CREATE), updated (AUTO_MODERATION_RULE_UPDATE), or deleted (AUTO_MODERATION_RULE_DELETE), or when Auto Moderation performs an action (AUTO_MODERATION_BLOCK_MESSAGE)"
           ]
         ]
       }

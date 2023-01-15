@@ -26,6 +26,14 @@
       "comments": {
         "Description": "A value indicating if you are being globally rate limited or not"
       }
+    },
+    "code": {
+      "type": "integer",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "An error code for some limits"
+      }
     }
   }
 }

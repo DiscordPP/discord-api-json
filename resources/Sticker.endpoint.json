@@ -76,7 +76,7 @@
         "optional": false,
         "nullable": false,
         "comments": {
-          "Description": "the sticker file to upload, must be a PNG, APNG, or Lottie JSON file, max 500 KB"
+          "Description": "the sticker file to upload, must be a PNG, APNG, GIF, or Lottie JSON file, max 500 KB"
         }
       }
     }

@@ -892,6 +892,16 @@
       "user.id": {
         "type": "snowflake"
       }
+    },
+    "query string": {
+      "with_member": {
+        "type": "boolean",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "Whether to include a guild member object for the thread member"
+        }
+      }
     }
   },
   "List Thread Members": {
@@ -901,6 +911,32 @@
     "url params": {
       "channel.id": {
         "type": "snowflake"
+      }
+    },
+    "query string": {
+      "with_member": {
+        "type": "boolean",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "Whether to include a guild member object for each thread member"
+        }
+      },
+      "after": {
+        "type": "snowflake",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "Get thread members after this user ID"
+        }
+      },
+      "limit": {
+        "type": "integer",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "Max number of thread members to return (1-100). Defaults to 100."
+        }
       }
     }
   },

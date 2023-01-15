@@ -647,7 +647,7 @@
             [
               "Sticker",
               "stickers/sticker_id.png *** ****",
-              "PNG, Lottie"
+              "PNG, Lottie, GIF"
             ],
             [
               "Role Icon",
@@ -668,7 +668,7 @@
           "* In the case of endpoints that support GIFs, the hash will begin with a_ if it is available in GIF format. (example: a_1269e74af4df7417b13759eae50c83dc)",
           "** In the case of the Default User Avatar endpoint, the value for user_discriminator in the path should be the user's discriminator modulo 5\u2014Test#1337 would be 1337 % 5, which evaluates to 2.",
           "*** In the case of the Default User Avatar and Sticker endpoints, the size of images returned is constant with the \"size\" querystring parameter being ignored.",
-          "**** In the case of the Sticker endpoint, the sticker will be available as PNG if its format_type is PNG or APNG, and as Lottie if its format_type is LOTTIE."
+          "**** In the case of the Sticker endpoint, the sticker will be available as PNG if its format_type is PNG or APNG, GIF if its format_type is GIF, and as Lottie if its format_type is LOTTIE."
         ]
       }
     },
@@ -724,7 +724,7 @@
           "url": "https://discord.com/developers/docs/docs/reference#editing-message-attachments-using-attachments-within-embeds",
           "content": [
             "You can upload attachments when creating a message and use those attachments within your embed. To do this, you will want to upload files as part of your multipart/form-data body. Make sure that you're uploading files which contain a filename, as you will need to reference it in your payload.",
-            "> warn\n> Only filenames with supported image extensions may be used at this time.",
+            "> warn\n> Only .jpg, .jpeg, .png, .webp, and .gif may be used at this time. Other file types are not supported.",
             "Within an embed object, you can set an image to use an attachment as its URL with the attachment scheme syntax: attachment://filename.png",
             "For example:",
             {
@@ -744,6 +744,11 @@
             "Locale",
             "Language Name",
             "Native Name"
+          ],
+          [
+            "id",
+            "Indonesian",
+            "Bahasa Indonesia"
           ],
           [
             "da",

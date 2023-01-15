@@ -223,5 +223,34 @@
         "Description": "visibility of this connection"
       }
     }
+  },
+  "Application Role Connection": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/user#application-role-connection-object-application-role-connection-structure"
+    },
+    "platform_name": {
+      "type": "string",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "the vanity name of the platform a bot has connected (max 50 characters)"
+      }
+    },
+    "platform_username": {
+      "type": "string",
+      "optional": false,
+      "nullable": true,
+      "comments": {
+        "Description": "the username on the platform a bot has connected (max 100 characters)"
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "object mapping application role connection metadata keys to their string-ified value (max 100 characters) for the user on the platform a bot has connected"
+      }
+    }
   }
 }

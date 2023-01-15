@@ -35,7 +35,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "guild id of the command, if not global",
+        "Description": "Guild ID of the command, if not global",
         "Valid Types": "all"
       }
     },
@@ -108,6 +108,15 @@
       "nullable": true,
       "comments": {
         "Description": "Not recommended for use as field will soon be deprecated. Indicates whether the command is enabled by default when the app is added to a guild, defaults to true",
+        "Valid Types": "all"
+      }
+    },
+    "nsfw": {
+      "type": "boolean",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "Indicates whether the command is age-restricted, defaults to false",
         "Valid Types": "all"
       }
     },

@@ -475,19 +475,19 @@
               [
                 "AUTO_MODERATION_BLOCK_MESSAGE",
                 "143",
-                "Message was blocked by AutoMod",
+                "Message was blocked by Auto Moderation",
                 ""
               ],
               [
                 "AUTO_MODERATION_FLAG_TO_CHANNEL",
                 "144",
-                "Message was flagged by AutoMod",
+                "Message was flagged by Auto Moderation",
                 ""
               ],
               [
                 "AUTO_MODERATION_USER_COMMUNICATION_DISABLED",
                 "145",
-                "Member was timed out by AutoMod",
+                "Member was timed out by Auto Moderation",
                 ""
               ]
             ],
@@ -682,6 +682,11 @@
               "before?",
               "snowflake",
               "Entries that preceded a specific audit log entry ID"
+            ],
+            [
+              "after?",
+              "snowflake",
+              "Entries that succeeded a specific audit log entry ID"
             ],
             [
               "limit?",

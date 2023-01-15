@@ -429,7 +429,7 @@
       "nullable": false,
       "comments": {
         "Description": "ID of any user message which content belongs to",
-        "Description Note": "message_id will not exist if message was blocked by automod or content was not part of any message"
+        "Description Note": "message_id will not exist if message was blocked by Auto Moderation or content was not part of any message"
       }
     },
     "alert_system_message_id": {

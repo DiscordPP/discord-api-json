@@ -136,5 +136,51 @@
     "command": "GET",
     "url": "/users/@me/connections",
     "docs_url": "https://discord.com/developers/docs/resources/user#get-user-connections"
+  },
+  "Get User Application Role Connection": {
+    "command": "GET",
+    "url": "/users/@me/applications/{application.id}/role-connection",
+    "docs_url": "https://discord.com/developers/docs/resources/user#get-user-application-role-connection",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      }
+    }
+  },
+  "Update User Application Role Connection": {
+    "command": "PUT",
+    "url": "/users/@me/applications/{application.id}/role-connection",
+    "docs_url": "https://discord.com/developers/docs/resources/user#update-user-application-role-connection",
+    "url params": {
+      "application.id": {
+        "type": "snowflake"
+      }
+    },
+    "json": {
+      "platform_name": {
+        "type": "string",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "the vanity name of the platform a bot has connected (max 50 characters)"
+        }
+      },
+      "platform_username": {
+        "type": "string",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "the username on the platform a bot has connected (max 100 characters)"
+        }
+      },
+      "metadata": {
+        "type": "object",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "object mapping application role connection metadata keys to their string-ified value (max 100 characters) for the user on the platform a bot has connected"
+        }
+      }
+    }
   }
 }

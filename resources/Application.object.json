@@ -170,6 +170,14 @@
       "comments": {
         "Description": "the application's default custom authorization link, if enabled"
       }
+    },
+    "role_connections_verification_url": {
+      "type": "string",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "the application's role connection verification entry point, which when configured will render the app as a verification method in the guild role verification configuration"
+      }
     }
   },
   "Install Params": {

@@ -16,7 +16,9 @@
       "|Leave Guild",
       "|Create DM",
       "|Create Group DM",
-      "|Get User Connections"
+      "|Get User Connections",
+      "|Get User Application Role Connection",
+      "|Update User Application Role Connection"
     ],
     "Usernames and Nicknames": {
       "level": 2,
@@ -36,7 +38,8 @@
         ],
         "There are other rules and restrictions not shared here for the sake of spam and abuse mitigation, but the majority of users won't encounter them. It's important to properly handle all error messages returned by Discord when editing or updating names.",
         "|User Object",
-        "|Connection Object"
+        "|Connection Object",
+        "|Application Role Connection Object"
       ],
       "User Object": {
         "level": 3,
@@ -234,7 +237,7 @@
               [
                 "1 << 18",
                 "CERTIFIED_MODERATOR",
-                "Discord Certified Moderator"
+                "Moderator Programs Alumni"
               ],
               [
                 "1 << 19",
@@ -413,6 +416,10 @@
                 "Steam"
               ],
               [
+                "tiktok",
+                "TikTok"
+              ],
+              [
                 "twitch",
                 "Twitch"
               ],
@@ -451,6 +458,42 @@
                 "1",
                 "Everyone",
                 "visible to everyone"
+              ]
+            ]
+          ]
+        }
+      },
+      "Application Role Connection Object": {
+        "level": 3,
+        "url": "https://discord.com/developers/docs/resources/user#application-role-connection-object",
+        "content": [
+          "The role connection object that an application has attached to a user.",
+          "|Application Role Connection Structure"
+        ],
+        "Application Role Connection Structure": {
+          "level": 6,
+          "url": "https://discord.com/developers/docs/resources/user#application-role-connection-object-application-role-connection-structure",
+          "content": [
+            [
+              [
+                "Field",
+                "Type",
+                "Description"
+              ],
+              [
+                "platform_name",
+                "?string",
+                "the vanity name of the platform a bot has connected (max 50 characters)"
+              ],
+              [
+                "platform_username",
+                "?string",
+                "the username on the platform a bot has connected (max 100 characters)"
+              ],
+              [
+                "metadata",
+                "object",
+                "object mapping application role connection metadata keys to their string-ified value (max 100 characters) for the user on the platform a bot has connected"
               ]
             ]
           ]
@@ -576,7 +619,7 @@
       "url": "https://discord.com/developers/docs/resources/user#leave-guild",
       "endpoint": "DELETE /users/@me/guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}",
       "content": [
-        "Leave a guild. Returns a 204 empty response on success."
+        "Leave a guild. Returns a 204 empty response on success. Fires a Guild Delete Gateway event and a Guild Member Remove Gateway event."
       ]
     },
     "Create DM": {
@@ -584,7 +627,7 @@
       "url": "https://discord.com/developers/docs/resources/user#create-dm",
       "endpoint": "POST /users/@me/channels",
       "content": [
-        "Create a new DM channel with a user. Returns a DM channel object.",
+        "Create a new DM channel with a user. Returns a DM channel object (if one already exists, it will be returned instead).",
         "> warn\n> You should not use this endpoint to DM everyone in a server about something. DMs should generally be initiated by a user action. If you open a significant amount of DMs too quickly, your bot may be rate limited or blocked from opening new ones.",
         "|JSON Params"
       ],
@@ -612,7 +655,7 @@
       "url": "https://discord.com/developers/docs/resources/user#create-group-dm",
       "endpoint": "POST /users/@me/channels",
       "content": [
-        "Create a new group DM channel with multiple users. Returns a DM channel object. This endpoint was intended to be used with the now-deprecated GameBridge SDK. DMs created with this endpoint will not be shown in the Discord client",
+        "Create a new group DM channel with multiple users. Returns a DM channel object. This endpoint was intended to be used with the now-deprecated GameBridge SDK. DMs created with this endpoint will not be shown in the Discord client. Fires a Channel Create Gateway event.",
         "> warn\n> This endpoint is limited to 10 active group DMs.",
         "|JSON Params"
       ],
@@ -647,6 +690,51 @@
       "content": [
         "Returns a list of connection objects. Requires the connections OAuth2 scope."
       ]
+    },
+    "Get User Application Role Connection": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/user#get-user-application-role-connection",
+      "endpoint": "GET /users/@me/applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/role-connection",
+      "content": [
+        "Returns the application role connection for the user. Requires an OAuth2 access token with role_connections.write scope for the application specified in the path."
+      ]
+    },
+    "Update User Application Role Connection": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/resources/user#update-user-application-role-connection",
+      "endpoint": "PUT /users/@me/applications/{application.id#DOCS_RESOURCES_APPLICATION/application-object}/role-connection",
+      "content": [
+        "Updates and returns the application role connection for the user. Requires an OAuth2 access token with role_connections.write scope for the application specified in the path.",
+        "|JSON Params"
+      ],
+      "JSON Params": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/user#update-user-application-role-connection-json-params",
+        "content": [
+          [
+            [
+              "Field",
+              "Type",
+              "Description"
+            ],
+            [
+              "platform_name?",
+              "string",
+              "the vanity name of the platform a bot has connected (max 50 characters)"
+            ],
+            [
+              "platform_username?",
+              "string",
+              "the username on the platform a bot has connected (max 100 characters)"
+            ],
+            [
+              "metadata?",
+              "object",
+              "object mapping application role connection metadata keys to their string-ified value (max 100 characters) for the user on the platform a bot has connected"
+            ]
+          ]
+        ]
+      }
     }
   }
 }

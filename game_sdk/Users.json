@@ -7,7 +7,6 @@
     "url": "https://discord.com/developers/docs/game-sdk/users#users",
     "content": [
       "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
-      "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
       "This manager helps retrieve basic user information for any user on Discord.",
       "|Data Models",
       "|GetCurrentUser",
@@ -125,6 +124,11 @@
               "Tier2",
               "2",
               "Nitro subscriber"
+            ],
+            [
+              "Tier3",
+              "3",
+              "Nitro Basic subscriber"
             ]
           ]
         ]

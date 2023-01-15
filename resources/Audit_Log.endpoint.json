@@ -33,6 +33,14 @@
           "Description": "Entries that preceded a specific audit log entry ID"
         }
       },
+      "after": {
+        "type": "snowflake",
+        "optional": true,
+        "nullable": false,
+        "comments": {
+          "Description": "Entries that succeeded a specific audit log entry ID"
+        }
+      },
       "limit": {
         "type": "integer",
         "optional": true,

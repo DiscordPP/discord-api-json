@@ -19,6 +19,7 @@
       "url": "https://discord.com/developers/docs/resources/emoji#emoji-object",
       "content": [
         "|Emoji Structure",
+        "|Premium Emoji",
         "|Emoji Example",
         "|Standard Emoji Example",
         "|Custom Emoji Examples"
@@ -74,6 +75,13 @@
               "whether this emoji can be used, may be false due to loss of Server Boosts"
             ]
           ]
+        ]
+      },
+      "Premium Emoji": {
+        "level": 6,
+        "url": "https://discord.com/developers/docs/resources/emoji#emoji-object-premium-emoji",
+        "content": [
+          "Roles with the integration_id tag being the guild's guild_subscription integration are considered subscription roles.\nAn emoji cannot have both subscription roles and non-subscription roles.\nEmojis with subscription roles are considered premium emoji, and count toward a separate limit of 25.\nEmojis cannot be converted between normal and premium after creation."
         ]
       },
       "Emoji Example": {

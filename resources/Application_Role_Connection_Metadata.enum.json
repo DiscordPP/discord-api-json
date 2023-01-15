@@ -1,0 +1,52 @@
+{
+  "Application Role Connection Metadata Type": {
+    "INTEGER_LESS_THAN_OR_EQUAL": {
+      "value": "1",
+      "comments": {
+        "Description": "the metadata value (integer) is less than or equal to the guild's configured value (integer)"
+      }
+    },
+    "INTEGER_GREATER_THAN_OR_EQUAL": {
+      "value": "2",
+      "comments": {
+        "Description": "the metadata value (integer) is greater than or equal to the guild's configured value (integer)"
+      }
+    },
+    "INTEGER_EQUAL": {
+      "value": "3",
+      "comments": {
+        "Description": "the metadata value (integer) is equal to the guild's configured value (integer)"
+      }
+    },
+    "INTEGER_NOT_EQUAL": {
+      "value": "4",
+      "comments": {
+        "Description": "the metadata value (integer) is not equal to the guild's configured value (integer)"
+      }
+    },
+    "DATETIME_LESS_THAN_OR_EQUAL": {
+      "value": "5",
+      "comments": {
+        "Description": "the metadata value (ISO8601 string) is less than or equal to the guild's configured value (integer; days before current date)"
+      }
+    },
+    "DATETIME_GREATER_THAN_OR_EQUAL": {
+      "value": "6",
+      "comments": {
+        "Description": "the metadata value (ISO8601 string) is greater than or equal to the guild's configured value (integer; days before current date)"
+      }
+    },
+    "BOOLEAN_EQUAL": {
+      "value": "7",
+      "comments": {
+        "Description": "the metadata value (integer) is equal to the guild's configured value (integer; 1)"
+      }
+    },
+    "BOOLEAN_NOT_EQUAL": {
+      "value": "8",
+      "comments": {
+        "Description": "the metadata value (integer) is not equal to the guild's configured value (integer; 1)"
+      }
+    }
+  }
+}

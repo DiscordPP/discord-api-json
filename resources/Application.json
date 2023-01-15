@@ -131,6 +131,11 @@
               "custom_install_url?",
               "string",
               "the application's default custom authorization link, if enabled"
+            ],
+            [
+              "role_connections_verification_url?",
+              "string",
+              "the application's role connection verification entry point, which when configured will render the app as a verification method in the guild role verification configuration"
             ]
           ]
         ]

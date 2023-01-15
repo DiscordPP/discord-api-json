@@ -1,0 +1,55 @@
+{
+  "Application Role Connection Metadata": {
+    "parser-data": {
+      "docs_url": "https://discord.com/developers/docs/resources/application-role-connection-metadata#application-role-connection-metadata-object-application-role-connection-metadata-structure"
+    },
+    "type": {
+      "type": "ApplicationRoleConnectionMetadataType",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "type of metadata value"
+      }
+    },
+    "key": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "dictionary key for the metadata field (must be a-z, 0-9, or _ characters; max 50 characters)"
+      }
+    },
+    "name": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "name of the metadata field (max 100 characters)"
+      }
+    },
+    "name_localizations": {
+      "type": "dictionary with keys in available locales",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "translations of the name"
+      }
+    },
+    "description": {
+      "type": "string",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "description of the metadata field (max 200 characters)"
+      }
+    },
+    "description_localizations": {
+      "type": "dictionary with keys in available locales",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "translations of the description"
+      }
+    }
+  }
+}

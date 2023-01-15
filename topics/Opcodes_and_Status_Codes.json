@@ -780,6 +780,14 @@
               "Bitrate is too high for channel of this type"
             ],
             [
+              "30056",
+              "Maximum number of premium emojis reached (25)"
+            ],
+            [
+              "30058",
+              "Maximum number of webhooks per guild reached (1000)"
+            ],
+            [
               "40001",
               "Unauthorized. Provide a valid token and try again"
             ],
@@ -838,6 +846,10 @@
             [
               "40061",
               "Tag names must be unique"
+            ],
+            [
+              "40062",
+              "Service resource is being rate limited"
             ],
             [
               "40066",
@@ -988,6 +1000,10 @@
               "Invalid Guild"
             ],
             [
+              "50067",
+              "Invalid request origin"
+            ],
+            [
               "50068",
               "Invalid message type"
             ],
@@ -1028,6 +1044,10 @@
               "Community server channels must be text channels"
             ],
             [
+              "50091",
+              "The entity type of the event is different from the entity you are trying to start the event for"
+            ],
+            [
               "50095",
               "This server is not available in your location"
             ],
@@ -1050,6 +1070,14 @@
             [
               "50138",
               "Failed to resize asset below the maximum size: 262144"
+            ],
+            [
+              "50144",
+              "Cannot mix subscription and non subscription roles for an emoji"
+            ],
+            [
+              "50145",
+              "Cannot convert between premium emoji and normal emoji"
             ],
             [
               "50146",

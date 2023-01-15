@@ -144,6 +144,10 @@
             [
               "LOTTIE",
               "3"
+            ],
+            [
+              "GIF",
+              "4"
             ]
           ]
         ]
@@ -350,7 +354,7 @@
             [
               "file",
               "file contents",
-              "the sticker file to upload, must be a PNG, APNG, or Lottie JSON file, max 500 KB"
+              "the sticker file to upload, must be a PNG, APNG, GIF, or Lottie JSON file, max 500 KB"
             ]
           ]
         ]

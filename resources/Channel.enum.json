@@ -115,6 +115,26 @@
       }
     }
   },
+  "Forum Layout Types": {
+    "NOT_SET": {
+      "value": "0",
+      "comments": {
+        "Description": "No default has been set for forum channel"
+      }
+    },
+    "LIST_VIEW": {
+      "value": "1",
+      "comments": {
+        "Description": "Display posts as a list"
+      }
+    },
+    "GALLERY_VIEW": {
+      "value": "2",
+      "comments": {
+        "Description": "Display posts as a collection of tiles"
+      }
+    }
+  },
   "Message Types": {
     "DEFAULT": {
       "value": "0",
@@ -259,6 +279,24 @@
       "comments": {
         "Deletable": "true",
         "Deletable Note": "Can only be deleted by members with MANAGE_MESSAGES permission"
+      }
+    },
+    "ROLE_SUBSCRIPTION_PURCHASE": {
+      "value": "25",
+      "comments": {
+        "Deletable": "true"
+      }
+    },
+    "INTERACTION_PREMIUM_UPSELL": {
+      "value": "26",
+      "comments": {
+        "Deletable": "true"
+      }
+    },
+    "GUILD_APPLICATION_PREMIUM_SUBSCRIPTION": {
+      "value": "32",
+      "comments": {
+        "Deletable": "false"
       }
     }
   },

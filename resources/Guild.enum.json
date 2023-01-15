@@ -143,6 +143,18 @@
       "comments": {
         "Description": "Hide member join sticker reply buttons"
       }
+    },
+    "SUPPRESS_ROLE_SUBSCRIPTION_PURCHASE_NOTIFICATIONS": {
+      "value": "1 << 4",
+      "comments": {
+        "Description": "Suppress role subscription purchase and renewal notifications"
+      }
+    },
+    "SUPPRESS_ROLE_SUBSCRIPTION_PURCHASE_NOTIFICATION_REPLIES": {
+      "value": "1 << 5",
+      "comments": {
+        "Description": "Hide role subscription sticker reply buttons"
+      }
     }
   },
   "Guild Features": {
@@ -176,6 +188,16 @@
         "Description": "guild can enable welcome screen, Membership Screening, stage channels and discovery, and receives community updates"
       }
     },
+    "CREATOR_MONETIZABLE_PROVISIONAL": {
+      "comments": {
+        "Description": "guild has enabled monetization"
+      }
+    },
+    "CREATOR_STORE_PAGE": {
+      "comments": {
+        "Description": "guild has enabled the role subscription promo page"
+      }
+    },
     "DEVELOPER_SUPPORT_SERVER": {
       "comments": {
         "Description": "guild has been set as a support server on the App Directory"
@@ -206,11 +228,6 @@
         "Description": "guild has enabled Membership Screening"
       }
     },
-    "MONETIZATION_ENABLED": {
-      "comments": {
-        "Description": "guild has enabled monetization"
-      }
-    },
     "MORE_STICKERS": {
       "comments": {
         "Description": "guild has increased custom sticker slots"
@@ -234,6 +251,16 @@
     "ROLE_ICONS": {
       "comments": {
         "Description": "guild is able to set role icons"
+      }
+    },
+    "ROLE_SUBSCRIPTIONS_AVAILABLE_FOR_PURCHASE": {
+      "comments": {
+        "Description": "guild has role subscriptions that can be purchased"
+      }
+    },
+    "ROLE_SUBSCRIPTIONS_ENABLED": {
+      "comments": {
+        "Description": "guild has enabled role subscriptions"
       }
     },
     "TICKETED_EVENTS_ENABLED": {

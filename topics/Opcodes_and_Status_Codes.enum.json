@@ -581,6 +581,12 @@
     "Bitrate is too high for channel of this type": {
       "value": "30052"
     },
+    "Maximum number of premium emojis reached (25)": {
+      "value": "30056"
+    },
+    "Maximum number of webhooks per guild reached (1000)": {
+      "value": "30058"
+    },
     "Unauthorized. Provide a valid token and try again": {
       "value": "40001"
     },
@@ -625,6 +631,9 @@
     },
     "Tag names must be unique": {
       "value": "40061"
+    },
+    "Service resource is being rate limited": {
+      "value": "40062"
     },
     "There are no tags available that can be set by non-moderators": {
       "value": "40066"
@@ -737,6 +746,9 @@
     "Invalid Guild": {
       "value": "50055"
     },
+    "Invalid request origin": {
+      "value": "50067"
+    },
     "Invalid message type": {
       "value": "50068"
     },
@@ -767,6 +779,9 @@
     "Community server channels must be text channels": {
       "value": "50086"
     },
+    "The entity type of the event is different from the entity you are trying to start the event for": {
+      "value": "50091"
+    },
     "This server is not available in your location": {
       "value": "50095"
     },
@@ -784,6 +799,12 @@
     },
     "Failed to resize asset below the maximum size: 262144": {
       "value": "50138"
+    },
+    "Cannot mix subscription and non subscription roles for an emoji": {
+      "value": "50144"
+    },
+    "Cannot convert between premium emoji and normal emoji": {
+      "value": "50145"
     },
     "Uploaded file not found.": {
       "value": "50146"

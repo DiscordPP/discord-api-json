@@ -7,7 +7,8 @@
     "url": "https://discord.com/developers/docs/game-sdk/applications#applications",
     "content": [
       "> info\n> Need help with the SDK? Talk to us in the Discord Developers Server!",
-      "> danger\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
+      "> warn\n> Selling SKUs on Discord has now been discontinued as of March 1, 2022. Read here for more info.",
+      "> danger\n> The GameSDK's Achievements, Applications, Voice, Images, Lobbies, Networking, Storage, and Store (purchases and discounts) features have been deprecated, and will be decommissioned on May 2, 2023. Read more",
       "Many games run their own backend servers for things like user authentication. If one of those many games is yours, then we've got something for you! This manager gives you access to a bearer token for the currently connected Discord user, which you can send off to your server to do user authentication.",
       "This token is also useful for retrieving information about the connected user's account. Check out our OAuth2 documentation for more information.",
       "These bearer tokens are good for seven days, after which they will expire. When a user reconnects to your game, and is online and connected to the internet, they'll receive a new token that you can grab.",
