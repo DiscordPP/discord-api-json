@@ -570,6 +570,14 @@
         "Description": "whether the user is muted in voice channels"
       }
     },
+    "flags": {
+      "type": "integer",
+      "optional": false,
+      "nullable": false,
+      "comments": {
+        "Description": "guild member flags represented as a bit set, defaults to 0"
+      }
+    },
     "pending": {
       "type": "boolean",
       "optional": true,

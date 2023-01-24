@@ -6,6 +6,7 @@
     "level": 1,
     "url": "https://discord.com/developers/docs/docs/change-log#change-log",
     "content": [
+      "|Guild Audit Log Events",
       "|Thread Member Details and Pagination",
       "|Add Default Layout setting for Forum channels",
       "|Add Auto Moderation Allow List for Keyword Rules and Increase Max Keyword Rules Per Guild Limit",
@@ -87,6 +88,20 @@
       "|New Feature: Audit Logs",
       "|Breaking Change: Version 6"
     ],
+    "Guild Audit Log Events": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/docs/change-log#guild-audit-log-events",
+      "content": [
+        "|Jan 18, 2023"
+      ],
+      "Jan 18, 2023": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/docs/change-log#guild-audit-log-events-jan-18,-2023",
+        "content": [
+          "At long last, a new GUILD_AUDIT_LOG_ENTRY_CREATE event has been added to the gateway, allowing your application to react to moderation actions in guilds. The VIEW_AUDIT_LOG permission is required in order to receive these events, and the GUILD_MODERATION intent needs to be set when connecting to the gateway."
+        ]
+      }
+    },
     "Thread Member Details and Pagination": {
       "level": 2,
       "url": "https://discord.com/developers/docs/docs/change-log#thread-member-details-and-pagination",

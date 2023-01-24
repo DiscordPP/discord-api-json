@@ -39,12 +39,12 @@
             [
               "key",
               "string",
-              "dictionary key for the metadata field (must be a-z, 0-9, or _ characters; max 50 characters)"
+              "dictionary key for the metadata field (must be a-z, 0-9, or _ characters; 1-50 characters)"
             ],
             [
               "name",
               "string",
-              "name of the metadata field (max 100 characters)"
+              "name of the metadata field (1-100 characters)"
             ],
             [
               "name_localizations?",
@@ -54,7 +54,7 @@
             [
               "description",
               "string",
-              "description of the metadata field (max 200 characters)"
+              "description of the metadata field (1-200 characters)"
             ],
             [
               "description_localizations?",

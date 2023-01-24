@@ -608,6 +608,10 @@
             "Guild became unavailable, or user left/was removed from a guild"
           ],
           [
+            "Guild Audit Log Entry Create",
+            "A guild audit log entry was created"
+          ],
+          [
             "Guild Ban Add",
             "User was banned from a guild"
           ],
@@ -1279,6 +1283,7 @@
           "|Guild Create",
           "|Guild Update",
           "|Guild Delete",
+          "|Guild Audit Log Entry Create",
           "|Guild Ban Add",
           "|Guild Ban Remove",
           "|Guild Emojis Update",
@@ -1392,6 +1397,13 @@
           "url": "https://discord.com/developers/docs/topics/gateway-events#guilds-guild-delete",
           "content": [
             "Sent when a guild becomes or was already unavailable due to an outage, or when the user leaves or is removed from a guild. The inner payload is an unavailable guild object. If the unavailable field is not set, the user was removed from the guild."
+          ]
+        },
+        "Guild Audit Log Entry Create": {
+          "level": 4,
+          "url": "https://discord.com/developers/docs/topics/gateway-events#guilds-guild-audit-log-entry-create",
+          "content": [
+            "Sent when a guild audit log entry is created. The inner payload is an Audit Log Entry object. This event is only sent to bots with the VIEW_AUDIT_LOG permission."
           ]
         },
         "Guild Ban Add": {
