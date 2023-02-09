@@ -721,6 +721,15 @@
           "Description": "when the user's timeout will expire and the user will be able to communicate in the guild again (up to 28 days in the future), set to null to remove timeout. Will throw a 403 error if the user has the ADMINISTRATOR permission or is the owner of the guild",
           "Permission": "MODERATE_MEMBERS"
         }
+      },
+      "flags": {
+        "type": "integer",
+        "optional": false,
+        "nullable": false,
+        "comments": {
+          "Description": "guild member flags",
+          "Permission": "MODERATE_MEMBERS"
+        }
       }
     }
   },

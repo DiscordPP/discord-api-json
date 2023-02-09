@@ -1731,7 +1731,7 @@
       "optional": true,
       "nullable": false,
       "comments": {
-        "Description": "Message flags combined as a bitfield (only SUPPRESS_EMBEDS can be set)"
+        "Description": "Message flags combined as a bitfield (only SUPPRESS_EMBEDS and SUPPRESS_NOTIFICATIONS can be set)"
       }
     }
   },

@@ -999,7 +999,7 @@
             [
               "BYPASSES_VERIFICATION",
               "1 << 2",
-              "Member bypasses guild verification requirements",
+              "Member is exempt from guild verification requirements",
               "true"
             ],
             [
@@ -1008,7 +1008,8 @@
               "Member has started onboarding",
               "false"
             ]
-          ]
+          ],
+          "> info\n> BYPASSES_VERIFICATION allows a member who does not meet verification requirements to participate in a server."
         ]
       }
     },
@@ -2011,6 +2012,12 @@
               "communication_disabled_until",
               "ISO8601 timestamp",
               "when the user's timeout will expire and the user will be able to communicate in the guild again (up to 28 days in the future), set to null to remove timeout. Will throw a 403 error if the user has the ADMINISTRATOR permission or is the owner of the guild",
+              "MODERATE_MEMBERS"
+            ],
+            [
+              "flags",
+              "integer",
+              "guild member flags",
               "MODERATE_MEMBERS"
             ]
           ]
