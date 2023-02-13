@@ -124,7 +124,7 @@
               "KEYWORD",
               "1",
               "check if content contains words from a user defined list of keywords",
-              "5"
+              "6"
             ],
             [
               "SPAM",
@@ -210,7 +210,7 @@
               "keyword_filter",
               "KEYWORD",
               "1000",
-              "30"
+              "60"
             ],
             [
               "regex_patterns",
@@ -222,13 +222,13 @@
               "allow_list",
               "KEYWORD",
               "100",
-              "30"
+              "60"
             ],
             [
               "allow_list",
               "KEYWORD_PRESET",
               "1000",
-              "30"
+              "60"
             ]
           ]
         ]
