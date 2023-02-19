@@ -47,7 +47,7 @@
       "value": "0x0000000000000040 (1 << 6)",
       "comments": {
         "Description": "Allows for the addition of reactions to messages",
-        "Channel Type": "T, V"
+        "Channel Type": "T, V, S"
       }
     },
     "VIEW_AUDIT_LOG": {
@@ -67,7 +67,7 @@
       "value": "0x0000000000000200 (1 << 9)",
       "comments": {
         "Description": "Allows the user to go live",
-        "Channel Type": "V"
+        "Channel Type": "V, S"
       }
     },
     "VIEW_CHANNEL": {
@@ -81,14 +81,14 @@
       "value": "0x0000000000000800 (1 << 11)",
       "comments": {
         "Description": "Allows for sending messages in a channel and creating threads in a forum (does not allow sending messages in threads)",
-        "Channel Type": "T, V"
+        "Channel Type": "T, V, S"
       }
     },
     "SEND_TTS_MESSAGES": {
       "value": "0x0000000000001000 (1 << 12)",
       "comments": {
         "Description": "Allows for sending of /tts messages",
-        "Channel Type": "T, V"
+        "Channel Type": "T, V, S"
       }
     },
     "MANAGE_MESSAGES": {
@@ -96,28 +96,28 @@
       "comments": {
         "Name Note": "These permissions require the owner account to use two-factor authentication when used on a guild that has server-wide 2FA enabled.",
         "Description": "Allows for deletion of other users messages",
-        "Channel Type": "T, V"
+        "Channel Type": "T, V, S"
       }
     },
     "EMBED_LINKS": {
       "value": "0x0000000000004000 (1 << 14)",
       "comments": {
         "Description": "Links sent by users with this permission will be auto-embedded",
-        "Channel Type": "T, V"
+        "Channel Type": "T, V, S"
       }
     },
     "ATTACH_FILES": {
       "value": "0x0000000000008000 (1 << 15)",
       "comments": {
         "Description": "Allows for uploading images and files",
-        "Channel Type": "T, V"
+        "Channel Type": "T, V, S"
       }
     },
     "READ_MESSAGE_HISTORY": {
       "value": "0x0000000000010000 (1 << 16)",
       "comments": {
         "Description": "Allows for reading of message history",
-        "Channel Type": "T, V"
+        "Channel Type": "T, V, S"
       }
     },
     "MENTION_EVERYONE": {
@@ -131,7 +131,7 @@
       "value": "0x0000000000040000 (1 << 18)",
       "comments": {
         "Description": "Allows the usage of custom emojis from other servers",
-        "Channel Type": "T, V"
+        "Channel Type": "T, V, S"
       }
     },
     "VIEW_GUILD_INSIGHTS": {
@@ -165,7 +165,7 @@
       "value": "0x0000000000800000 (1 << 23)",
       "comments": {
         "Description": "Allows for deafening of members in a voice channel",
-        "Channel Type": "V, S"
+        "Channel Type": "V"
       }
     },
     "MOVE_MEMBERS": {
@@ -207,7 +207,7 @@
       "comments": {
         "Name Note": "These permissions require the owner account to use two-factor authentication when used on a guild that has server-wide 2FA enabled.",
         "Description": "Allows management and editing of webhooks",
-        "Channel Type": "T, V"
+        "Channel Type": "T, V, S"
       }
     },
     "MANAGE_EMOJIS_AND_STICKERS": {
@@ -221,7 +221,7 @@
       "value": "0x0000000080000000 (1 << 31)",
       "comments": {
         "Description": "Allows members to use application commands, including slash commands and context menu commands.",
-        "Channel Type": "T, V"
+        "Channel Type": "T, V, S"
       }
     },
     "REQUEST_TO_SPEAK": {
@@ -264,7 +264,7 @@
       "value": "0x0000002000000000 (1 << 37)",
       "comments": {
         "Description": "Allows the usage of custom stickers from other servers",
-        "Channel Type": "T, V"
+        "Channel Type": "T, V, S"
       }
     },
     "SEND_MESSAGES_IN_THREADS": {

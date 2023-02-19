@@ -171,6 +171,11 @@
               "application id of the group DM creator if it is bot-created"
             ],
             [
+              "managed?",
+              "boolean",
+              "for group DM channels: whether the channel is managed by an application via the gdm.join OAuth2 scope"
+            ],
+            [
               "parent_id?",
               "?snowflake",
               "for guild channels: id of the parent category for a channel (each parent category can contain up to 50 channels), for threads: id of the text channel this thread was created"
@@ -839,6 +844,26 @@
             [
               "INTERACTION_PREMIUM_UPSELL",
               "26",
+              "true"
+            ],
+            [
+              "STAGE_START",
+              "27",
+              "true"
+            ],
+            [
+              "STAGE_END",
+              "28",
+              "true"
+            ],
+            [
+              "STAGE_SPEAKER",
+              "29",
+              "true"
+            ],
+            [
+              "STAGE_TOPIC",
+              "31",
               "true"
             ],
             [
@@ -2119,7 +2144,7 @@
               "nsfw",
               "?boolean",
               "whether the channel is nsfw",
-              "Text, Voice, Announcement, Forum"
+              "Text, Voice, Announcement, Stage, Forum"
             ],
             [
               "rate_limit_per_user",
@@ -2136,8 +2161,8 @@
             [
               "user_limit",
               "?integer",
-              "the user limit of the voice channel; 0 refers to no limit, 1 to 99 refers to a user limit",
-              "Voice"
+              "the user limit of the voice or stage channel, max 99 for voice channels and 10,000 for stage channels (0 refers to no limit)",
+              "Voice, Stage"
             ],
             [
               "permission_overwrites**",
@@ -2149,7 +2174,7 @@
               "parent_id",
               "?snowflake",
               "id of the new parent category for a channel",
-              "Text, Voice, Announcement, Forum"
+              "Text, Voice, Announcement, Stage, Forum"
             ],
             [
               "rtc_region",
@@ -2161,7 +2186,7 @@
               "video_quality_mode",
               "?integer",
               "the camera video quality mode of the voice channel",
-              "Voice"
+              "Voice, Stage"
             ],
             [
               "default_auto_archive_duration",

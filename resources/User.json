@@ -384,6 +384,10 @@
                 "GitHub"
               ],
               [
+                "instagram",
+                "Instagram"
+              ],
+              [
                 "leagueoflegends",
                 "League of Legends"
               ],
@@ -655,7 +659,7 @@
       "url": "https://discord.com/developers/docs/resources/user#create-group-dm",
       "endpoint": "POST /users/@me/channels",
       "content": [
-        "Create a new group DM channel with multiple users. Returns a DM channel object. This endpoint was intended to be used with the now-deprecated GameBridge SDK. DMs created with this endpoint will not be shown in the Discord client. Fires a Channel Create Gateway event.",
+        "Create a new group DM channel with multiple users. Returns a DM channel object. This endpoint was intended to be used with the now-deprecated GameBridge SDK. Fires a Channel Create Gateway event.",
         "> warn\n> This endpoint is limited to 10 active group DMs.",
         "|JSON Params"
       ],

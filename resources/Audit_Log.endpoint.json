@@ -30,7 +30,7 @@
         "optional": true,
         "nullable": false,
         "comments": {
-          "Description": "Entries that preceded a specific audit log entry ID"
+          "Description": "Entries with ID less than a specific audit log entry ID"
         }
       },
       "after": {
@@ -38,7 +38,7 @@
         "optional": true,
         "nullable": false,
         "comments": {
-          "Description": "Entries that succeeded a specific audit log entry ID"
+          "Description": "Entries with ID greater than a specific audit log entry ID"
         }
       },
       "limit": {

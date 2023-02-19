@@ -76,7 +76,7 @@
             "ADD_REACTIONS",
             "0x0000000000000040 (1 << 6)",
             "Allows for the addition of reactions to messages",
-            "T, V"
+            "T, V, S"
           ],
           [
             "VIEW_AUDIT_LOG",
@@ -94,7 +94,7 @@
             "STREAM",
             "0x0000000000000200 (1 << 9)",
             "Allows the user to go live",
-            "V"
+            "V, S"
           ],
           [
             "VIEW_CHANNEL",
@@ -106,37 +106,37 @@
             "SEND_MESSAGES",
             "0x0000000000000800 (1 << 11)",
             "Allows for sending messages in a channel and creating threads in a forum (does not allow sending messages in threads)",
-            "T, V"
+            "T, V, S"
           ],
           [
             "SEND_TTS_MESSAGES",
             "0x0000000000001000 (1 << 12)",
             "Allows for sending of /tts messages",
-            "T, V"
+            "T, V, S"
           ],
           [
             "MANAGE_MESSAGES *",
             "0x0000000000002000 (1 << 13)",
             "Allows for deletion of other users messages",
-            "T, V"
+            "T, V, S"
           ],
           [
             "EMBED_LINKS",
             "0x0000000000004000 (1 << 14)",
             "Links sent by users with this permission will be auto-embedded",
-            "T, V"
+            "T, V, S"
           ],
           [
             "ATTACH_FILES",
             "0x0000000000008000 (1 << 15)",
             "Allows for uploading images and files",
-            "T, V"
+            "T, V, S"
           ],
           [
             "READ_MESSAGE_HISTORY",
             "0x0000000000010000 (1 << 16)",
             "Allows for reading of message history",
-            "T, V"
+            "T, V, S"
           ],
           [
             "MENTION_EVERYONE",
@@ -148,7 +148,7 @@
             "USE_EXTERNAL_EMOJIS",
             "0x0000000000040000 (1 << 18)",
             "Allows the usage of custom emojis from other servers",
-            "T, V"
+            "T, V, S"
           ],
           [
             "VIEW_GUILD_INSIGHTS",
@@ -178,7 +178,7 @@
             "DEAFEN_MEMBERS",
             "0x0000000000800000 (1 << 23)",
             "Allows for deafening of members in a voice channel",
-            "V, S"
+            "V"
           ],
           [
             "MOVE_MEMBERS",
@@ -214,7 +214,7 @@
             "MANAGE_WEBHOOKS *",
             "0x0000000020000000 (1 << 29)",
             "Allows management and editing of webhooks",
-            "T, V"
+            "T, V, S"
           ],
           [
             "MANAGE_EMOJIS_AND_STICKERS *",
@@ -226,7 +226,7 @@
             "USE_APPLICATION_COMMANDS",
             "0x0000000080000000 (1 << 31)",
             "Allows members to use application commands, including slash commands and context menu commands.",
-            "T, V"
+            "T, V, S"
           ],
           [
             "REQUEST_TO_SPEAK",
@@ -262,7 +262,7 @@
             "USE_EXTERNAL_STICKERS",
             "0x0000002000000000 (1 << 37)",
             "Allows the usage of custom stickers from other servers",
-            "T, V"
+            "T, V, S"
           ],
           [
             "SEND_MESSAGES_IN_THREADS",

@@ -324,6 +324,7 @@
         "Every guilds has five free sticker slots by default, and each Boost level will grant access to more slots.",
         "> info\n> This endpoint supports the X-Audit-Log-Reason header.",
         "> warn\n> Lottie stickers can only be uploaded on guilds that have either the VERIFIED and/or the PARTNERED guild feature.",
+        "> warn\n> Uploaded stickers are constrained to 5 seconds in length for animated stickers, and 320 x 320 pixels.",
         "|Form Params"
       ],
       "Form Params": {
@@ -354,7 +355,7 @@
             [
               "file",
               "file contents",
-              "the sticker file to upload, must be a PNG, APNG, GIF, or Lottie JSON file, max 500 KB"
+              "the sticker file to upload, must be a PNG, APNG, GIF, or Lottie JSON file, max 512 KB"
             ]
           ]
         ]

@@ -132,6 +132,14 @@
         "Description": "application id of the group DM creator if it is bot-created"
       }
     },
+    "managed": {
+      "type": "boolean",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "for group DM channels: whether the channel is managed by an application via the gdm.join OAuth2 scope"
+      }
+    },
     "parent_id": {
       "type": "snowflake",
       "optional": true,
@@ -1452,7 +1460,7 @@
       "nullable": true,
       "comments": {
         "Description": "whether the channel is nsfw",
-        "Channel Type": "Text, Voice, Announcement, Forum"
+        "Channel Type": "Text, Voice, Announcement, Stage, Forum"
       }
     },
     "rate_limit_per_user": {
@@ -1479,8 +1487,8 @@
       "optional": false,
       "nullable": true,
       "comments": {
-        "Description": "the user limit of the voice channel; 0 refers to no limit, 1 to 99 refers to a user limit",
-        "Channel Type": "Voice"
+        "Description": "the user limit of the voice or stage channel, max 99 for voice channels and 10,000 for stage channels (0 refers to no limit)",
+        "Channel Type": "Voice, Stage"
       }
     },
     "permission_overwrites": {
@@ -1499,7 +1507,7 @@
       "nullable": true,
       "comments": {
         "Description": "id of the new parent category for a channel",
-        "Channel Type": "Text, Voice, Announcement, Forum"
+        "Channel Type": "Text, Voice, Announcement, Stage, Forum"
       }
     },
     "rtc_region": {
@@ -1517,7 +1525,7 @@
       "nullable": true,
       "comments": {
         "Description": "the camera video quality mode of the voice channel",
-        "Channel Type": "Voice"
+        "Channel Type": "Voice, Stage"
       }
     },
     "default_auto_archive_duration": {

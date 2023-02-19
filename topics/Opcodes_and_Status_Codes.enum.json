@@ -521,6 +521,9 @@
     "Maximum number of reactions reached (20)": {
       "value": "30010"
     },
+    "Maximum number of group DMs reached (10)": {
+      "value": "30011"
+    },
     "Maximum number of guild channels reached (500)": {
       "value": "30013"
     },
@@ -586,6 +589,12 @@
     },
     "Maximum number of webhooks per guild reached (1000)": {
       "value": "30058"
+    },
+    "Maximum number of channel permission overwrites reached (1000)": {
+      "value": "30060"
+    },
+    "The channels for this guild are too large": {
+      "value": "30061"
     },
     "Unauthorized. Provide a valid token and try again": {
       "value": "40001"

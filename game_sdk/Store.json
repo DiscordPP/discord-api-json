@@ -744,6 +744,16 @@
               "limit?",
               "int",
               "number of entitlements to return, 1-100, default 100"
+            ],
+            [
+              "guild_id?",
+              "snowflake",
+              "the guild id to look up entitlements for"
+            ],
+            [
+              "exclude_ended?",
+              "bool",
+              "whether or not ended entitlements should be omitted"
             ]
           ]
         ]

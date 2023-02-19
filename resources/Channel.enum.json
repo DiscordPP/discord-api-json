@@ -293,6 +293,30 @@
         "Deletable": "true"
       }
     },
+    "STAGE_START": {
+      "value": "27",
+      "comments": {
+        "Deletable": "true"
+      }
+    },
+    "STAGE_END": {
+      "value": "28",
+      "comments": {
+        "Deletable": "true"
+      }
+    },
+    "STAGE_SPEAKER": {
+      "value": "29",
+      "comments": {
+        "Deletable": "true"
+      }
+    },
+    "STAGE_TOPIC": {
+      "value": "31",
+      "comments": {
+        "Deletable": "true"
+      }
+    },
     "GUILD_APPLICATION_PREMIUM_SUBSCRIPTION": {
       "value": "32",
       "comments": {

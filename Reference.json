@@ -635,6 +635,11 @@
               "PNG, JPEG, WebP"
             ],
             [
+              "Store Page Asset",
+              "app-assets/application_id/store/asset_id",
+              "PNG, JPEG, WebP"
+            ],
+            [
               "Sticker Pack Banner",
               "app-assets/710982414301790216/store/sticker_pack_banner_asset_id.png",
               "PNG, JPEG, WebP"
