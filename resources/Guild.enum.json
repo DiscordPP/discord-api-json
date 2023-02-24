@@ -310,6 +310,36 @@
       }
     }
   },
+  "Guild Member Flags": {
+    "DID_REJOIN": {
+      "value": "1 << 0",
+      "comments": {
+        "Description": "Member has left and rejoined the guild",
+        "Editable": "false"
+      }
+    },
+    "COMPLETED_ONBOARDING": {
+      "value": "1 << 1",
+      "comments": {
+        "Description": "Member has completed onboarding",
+        "Editable": "false"
+      }
+    },
+    "BYPASSES_VERIFICATION": {
+      "value": "1 << 2",
+      "comments": {
+        "Description": "Member is exempt from guild verification requirements",
+        "Editable": "true"
+      }
+    },
+    "STARTED_ONBOARDING": {
+      "value": "1 << 3",
+      "comments": {
+        "Description": "Member has started onboarding",
+        "Editable": "false"
+      }
+    }
+  },
   "Integration Expire Behaviors": {
     "Remove role": {
       "value": "0"

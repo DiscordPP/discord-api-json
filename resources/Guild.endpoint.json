@@ -341,7 +341,8 @@
         "optional": false,
         "nullable": false,
         "comments": {
-          "Description": "channel name (1-100 characters)"
+          "Description": "channel name (1-100 characters)",
+          "Channel Type": "All"
         }
       },
       "type": {
@@ -349,7 +350,8 @@
         "optional": false,
         "nullable": false,
         "comments": {
-          "Description": "the type of channel"
+          "Description": "the type of channel",
+          "Channel Type": "All"
         }
       },
       "topic": {
@@ -357,7 +359,8 @@
         "optional": false,
         "nullable": false,
         "comments": {
-          "Description": "channel topic (0-1024 characters)"
+          "Description": "channel topic (0-1024 characters)",
+          "Channel Type": "Text, Announcement, Forum"
         }
       },
       "bitrate": {
@@ -366,7 +369,8 @@
         "nullable": false,
         "comments": {
           "Description": "the bitrate (in bits) of the voice or stage channel; min 8000",
-          "Name Note": "For voice channels, normal servers can set bitrate up to 96000, servers with Boost level 1 can set up to 128000, servers with Boost level 2 can set up to 256000, and servers with Boost level 3 or the VIP_REGIONS guild feature can set up to 384000. For stage channels, bitrate can be set up to 64000."
+          "Name Note": "For voice channels, normal servers can set bitrate up to 96000, servers with Boost level 1 can set up to 128000, servers with Boost level 2 can set up to 256000, and servers with Boost level 3 or the VIP_REGIONS guild feature can set up to 384000. For stage channels, bitrate can be set up to 64000.",
+          "Channel Type": "Voice, Stage"
         }
       },
       "user_limit": {
@@ -374,7 +378,8 @@
         "optional": false,
         "nullable": false,
         "comments": {
-          "Description": "the user limit of the voice channel"
+          "Description": "the user limit of the voice channel",
+          "Channel Type": "Voice, Stage"
         }
       },
       "rate_limit_per_user": {
@@ -382,7 +387,8 @@
         "optional": false,
         "nullable": false,
         "comments": {
-          "Description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel, are unaffected"
+          "Description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel, are unaffected",
+          "Channel Type": "Text, Forum"
         }
       },
       "position": {
@@ -390,7 +396,8 @@
         "optional": false,
         "nullable": false,
         "comments": {
-          "Description": "sorting position of the channel"
+          "Description": "sorting position of the channel",
+          "Channel Type": "All"
         }
       },
       "permission_overwrites": {
@@ -399,7 +406,8 @@
         "nullable": false,
         "comments": {
           "Description": "the channel's permission overwrites",
-          "Name Note": "In each overwrite object, the allow and deny keys can be omitted or set to null, which both default to \"0\"."
+          "Name Note": "In each overwrite object, the allow and deny keys can be omitted or set to null, which both default to \"0\".",
+          "Channel Type": "All"
         }
       },
       "parent_id": {
@@ -407,7 +415,8 @@
         "optional": false,
         "nullable": false,
         "comments": {
-          "Description": "id of the parent category for a channel"
+          "Description": "id of the parent category for a channel",
+          "Channel Type": "Text, Voice, Announcement, Stage, Forum"
         }
       },
       "nsfw": {
@@ -415,7 +424,8 @@
         "optional": false,
         "nullable": false,
         "comments": {
-          "Description": "whether the channel is nsfw"
+          "Description": "whether the channel is nsfw",
+          "Channel Type": "Text, Voice, Announcement, Stage, Forum"
         }
       },
       "rtc_region": {
@@ -423,7 +433,8 @@
         "optional": false,
         "nullable": false,
         "comments": {
-          "Description": "channel voice region id of the voice or stage channel, automatic when set to null"
+          "Description": "channel voice region id of the voice or stage channel, automatic when set to null",
+          "Channel Type": "Voice, Stage"
         }
       },
       "video_quality_mode": {
@@ -431,7 +442,8 @@
         "optional": false,
         "nullable": false,
         "comments": {
-          "Description": "the camera video quality mode of the voice channel"
+          "Description": "the camera video quality mode of the voice channel",
+          "Channel Type": "Voice, Stage"
         }
       },
       "default_auto_archive_duration": {
@@ -439,7 +451,8 @@
         "optional": false,
         "nullable": false,
         "comments": {
-          "Description": "the default duration that the clients use (not the API) for newly created threads in the channel, in minutes, to automatically archive the thread after recent activity"
+          "Description": "the default duration that the clients use (not the API) for newly created threads in the channel, in minutes, to automatically archive the thread after recent activity",
+          "Channel Type": "Text, Announcement, Forum"
         }
       },
       "default_reaction_emoji": {
@@ -447,7 +460,8 @@
         "optional": false,
         "nullable": false,
         "comments": {
-          "Description": "emoji to show in the add reaction button on a thread in a GUILD_FORUM channel"
+          "Description": "emoji to show in the add reaction button on a thread in a GUILD_FORUM channel",
+          "Channel Type": "Forum"
         }
       },
       "available_tags": {
@@ -455,7 +469,8 @@
         "optional": false,
         "nullable": false,
         "comments": {
-          "Description": "set of tags that can be used in a GUILD_FORUM channel"
+          "Description": "set of tags that can be used in a GUILD_FORUM channel",
+          "Channel Type": "Forum"
         }
       },
       "default_sort_order": {
@@ -463,7 +478,8 @@
         "optional": false,
         "nullable": false,
         "comments": {
-          "Description": "the default sort order type used to order posts in GUILD_FORUM channels"
+          "Description": "the default sort order type used to order posts in GUILD_FORUM channels",
+          "Channel Type": "Forum"
         }
       }
     }
