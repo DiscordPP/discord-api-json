@@ -33,19 +33,19 @@
     "PROFANITY": {
       "value": "1",
       "comments": {
-        "Description": "Words that may be considered forms of swearing or cursing"
+        "Description": "words that may be considered forms of swearing or cursing"
       }
     },
     "SEXUAL_CONTENT": {
       "value": "2",
       "comments": {
-        "Description": "Words that refer to sexually explicit behavior or activity"
+        "Description": "words that refer to sexually explicit behavior or activity"
       }
     },
     "SLURS": {
       "value": "3",
       "comments": {
-        "Description": "Personal insults or words that may be considered hate speech"
+        "Description": "personal insults or words that may be considered hate speech"
       }
     }
   },
@@ -61,7 +61,7 @@
     "BLOCK_MESSAGE": {
       "value": "1",
       "comments": {
-        "Description": "blocks the content of a message according to the rule"
+        "Description": "blocks a member's message and prevents it from being posted. A custom explanation can be specified and shown to members whenever their message is blocked."
       }
     },
     "SEND_ALERT_MESSAGE": {

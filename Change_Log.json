@@ -6,6 +6,7 @@
     "level": 1,
     "url": "https://discord.com/developers/docs/docs/change-log#change-log",
     "content": [
+      "|Add Auto Moderation custom_message Action Metadata Field",
       "|Update to Locked Threads",
       "|Increase Auto Moderation Keyword Limits",
       "|Guild Audit Log Events",
@@ -90,6 +91,20 @@
       "|New Feature: Audit Logs",
       "|Breaking Change: Version 6"
     ],
+    "Add Auto Moderation custom_message Action Metadata Field": {
+      "level": 2,
+      "url": "https://discord.com/developers/docs/docs/change-log#add-auto-moderation-custom_message-action-metadata-field",
+      "content": [
+        "|Feb 24, 2023"
+      ],
+      "Feb 24, 2023": {
+        "level": 4,
+        "url": "https://discord.com/developers/docs/docs/change-log#add-auto-moderation-custom_message-action-metadata-field-feb-24,-2023",
+        "content": [
+          "Add new custom_message action metadata for the BLOCK_MESSAGE action type). You can now specify a custom string for every Auto Moderation rule that will be shown to members whenever the rule blocks their message. This can be used as an additional explanation for why a message was blocked and as a chance to help members understand your server's rules and guidelines."
+        ]
+      }
+    },
     "Update to Locked Threads": {
       "level": 2,
       "url": "https://discord.com/developers/docs/docs/change-log#update-to-locked-threads",

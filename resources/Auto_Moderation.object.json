@@ -177,7 +177,8 @@
       "nullable": false,
       "comments": {
         "Description": "channel to which user content should be logged",
-        "Associated Action Types": "SEND_ALERT_MESSAGE"
+        "Associated Action Types": "SEND_ALERT_MESSAGE",
+        "Constraints": "existing channel"
       }
     },
     "duration_seconds": {
@@ -186,8 +187,18 @@
       "nullable": false,
       "comments": {
         "Description": "timeout duration in seconds",
-        "Description Note": "Maximum of 2419200 seconds (4 weeks)",
-        "Associated Action Types": "TIMEOUT"
+        "Associated Action Types": "TIMEOUT",
+        "Constraints": "maximum of 2419200 seconds (4 weeks)"
+      }
+    },
+    "custom_message": {
+      "type": "string",
+      "optional": true,
+      "nullable": false,
+      "comments": {
+        "Description": "additional explanation that will be shown to members whenever their message is blocked",
+        "Associated Action Types": "BLOCK_MESSAGE",
+        "Constraints": "maximum of 150 characters"
       }
     }
   }
